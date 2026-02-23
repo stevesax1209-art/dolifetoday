@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Events for the Doing Life Today community — live streams, meetups, Q&As, and advocacy events for the Parkinson's community.">
+  <title>Events | Doing Life Today</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a href="index.html" class="nav-logo" aria-label="Doing Life Today - Home">
+        <div class="nav-logo-mark" aria-hidden="true">DL</div>
+        <div class="nav-logo-text">Doing Life Today<span>Parkinson's Community</span></div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="about.html">About</a></li>
+        <li><a href="podcasts.html">Podcasts</a></li>
+        <li><a href="pcn-app.html">PCN App</a></li>
+        <li><a href="music.html">Music</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="bootcamps.html">Bootcamps</a></li>
+        <li><a href="store.html">Store</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="community.html" class="btn btn-primary btn-sm nav-cta">Join Now</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a href="about.html">About</a>
+    <a href="podcasts.html">Podcasts</a>
+    <a href="pcn-app.html">PCN App</a>
+    <a href="music.html">Music</a>
+    <a href="community.html">Community</a>
+    <a href="bootcamps.html">Bootcamps</a>
+    <a href="store.html">Store</a>
+    <a href="resources.html">Resources</a>
+    <a href="events.html">Events</a>
+    <a href="contact.html">Contact</a>
+    <div class="mobile-cta"><a href="community.html" class="btn btn-primary">Join Now</a></div>
+  </nav>
+
+  <main id="main-content">
+
+    <section class="page-hero" aria-labelledby="events-hero-heading">
+      <div class="container hero-content">
+        <span class="hero-badge">📅 Events &amp; Live Streams</span>
+        <h1 id="events-hero-heading">DLT Events</h1>
+        <p>Join us live — weekly streams, expert Q&amp;As, community meetups, and more. Connection happens in real time.</p>
+        <div class="btn-group" style="justify-content:center;margin-top:2rem;">
+          <a href="#upcoming" class="btn btn-primary btn-lg">Upcoming Events</a>
+          <a href="#notify" class="btn btn-secondary btn-lg">Get Notified</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- RECURRING EVENTS -->
+    <section aria-labelledby="recurring-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Every Week</span>
+          <h2 id="recurring-heading" class="section-title">Recurring Events</h2>
+          <p class="section-subtitle">These are on the calendar every week and month — no registration required for community members.</p>
+        </div>
+        <div class="grid-3">
+          <div class="card platform-card">
+            <div class="card-icon">📺</div>
+            <h3>Sunday Live Stream</h3>
+            <p>Join Bryce every Sunday at 12 PM Eastern for a live conversation about the week's news, community questions, and whatever is on your mind. The heart of the DLT community.</p>
+            <div style="margin-top:1rem;padding:0.75rem 1rem;background:rgba(32,178,170,0.1);border-radius:var(--radius-sm);font-size:0.875rem;color:var(--color-primary);font-weight:700;">
+              📅 Every Sunday · 12 PM Eastern
+            </div>
+            <a href="community.html" class="card-cta mt-2">Join Community to Watch <span class="arrow">→</span></a>
+          </div>
+          <div class="card platform-card">
+            <div class="card-icon">🩺</div>
+            <h3>Monthly Expert Q&amp;A</h3>
+            <p>The first Wednesday of every month, we host a live Q&amp;A with a Parkinson's specialist — neurologists, physical therapists, speech therapists, mental health professionals, and more.</p>
+            <div style="margin-top:1rem;padding:0.75rem 1rem;background:rgba(32,178,170,0.1);border-radius:var(--radius-sm);font-size:0.875rem;color:var(--color-primary);font-weight:700;">
+              📅 First Wednesday · 7 PM Eastern
+            </div>
+            <a href="community.html" class="card-cta mt-2">Register Free <span class="arrow">→</span></a>
+          </div>
+          <div class="card platform-card">
+            <div class="card-icon">🥂</div>
+            <h3>Quarterly Community Gathering</h3>
+            <p>Four times a year, we go all out — a 3-hour community celebration with special guests, community awards, and our signature "Real Talk" panel. Not to be missed.</p>
+            <div style="margin-top:1rem;padding:0.75rem 1rem;background:rgba(32,178,170,0.1);border-radius:var(--radius-sm);font-size:0.875rem;color:var(--color-primary);font-weight:700;">
+              📅 Quarterly · Various times
+            </div>
+            <a href="#notify" class="card-cta mt-2">Get Notified <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- UPCOMING EVENTS -->
+    <section id="upcoming" class="bg-dark-2" aria-labelledby="upcoming-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Coming Up</span>
+          <h2 id="upcoming-heading" class="section-title">Upcoming Events</h2>
+        </div>
+        <div class="grid-2" style="gap:2rem;">
+
+          <article class="event-card">
+            <div class="event-date-badge" aria-hidden="true">
+              <div class="day">15</div>
+              <div class="month">May 2024</div>
+            </div>
+            <div class="event-card-body">
+              <p class="event-type">Expert Q&amp;A</p>
+              <h3>Understanding Deep Brain Stimulation: A Live Q&amp;A with Dr. Marcus Webb</h3>
+              <p>Join nationally recognized DBS surgeon Dr. Marcus Webb for a frank discussion about deep brain stimulation — who's a candidate, what to expect, and what nobody tells you.</p>
+              <div class="event-meta">
+                <span>🕖 7:00 PM Eastern</span>
+                <span>💻 Virtual</span>
+                <span>✅ Free</span>
+              </div>
+              <a href="#" class="btn btn-primary btn-sm" aria-label="Register for DBS Q&A event">Register Free →</a>
+            </div>
+          </article>
+
+          <article class="event-card">
+            <div class="event-date-badge" aria-hidden="true">
+              <div class="day">18</div>
+              <div class="month">May 2024</div>
+            </div>
+            <div class="event-card-body">
+              <p class="event-type">Advocacy Bootcamp</p>
+              <h3>Spring Advocacy Bootcamp — 8-Week Cohort Starts</h3>
+              <p>The spring cohort of our 8-Week Advocacy Bootcamp begins. Limited spots available. This cohort will focus on healthcare navigation and policy advocacy.</p>
+              <div class="event-meta">
+                <span>🕖 6:00 PM Eastern</span>
+                <span>💻 Virtual</span>
+                <span>💰 From $397</span>
+              </div>
+              <a href="bootcamps.html" class="btn btn-primary btn-sm" aria-label="Learn more about Spring Advocacy Bootcamp">Learn More →</a>
+            </div>
+          </article>
+
+          <article class="event-card">
+            <div class="event-date-badge" aria-hidden="true">
+              <div class="day">1</div>
+              <div class="month">Jun 2024</div>
+            </div>
+            <div class="event-card-body">
+              <p class="event-type">Community Meetup</p>
+              <h3>DLT Chicago Meetup — In-Person Community Gathering</h3>
+              <p>Join fellow DLT community members in Chicago for an in-person gathering — lunch, conversation, and connection with people who get it. Special guest: Bryce Perry.</p>
+              <div class="event-meta">
+                <span>🕛 12:00 PM Central</span>
+                <span>📍 Chicago, IL</span>
+                <span>✅ Free</span>
+              </div>
+              <a href="#" class="btn btn-primary btn-sm" aria-label="Register for Chicago meetup">Register →</a>
+            </div>
+          </article>
+
+          <article class="event-card">
+            <div class="event-date-badge" aria-hidden="true">
+              <div class="day">15</div>
+              <div class="month">Jun 2024</div>
+            </div>
+            <div class="event-card-body">
+              <p class="event-type">Quarterly Gathering</p>
+              <h3>Q2 Community Celebration: Mid-Year Milestone</h3>
+              <p>Our quarterly all-community event. Three hours of guest speakers, community awards, the "Real Talk" panel, and a celebration of everything we've built together this year.</p>
+              <div class="event-meta">
+                <span>🕑 2:00 PM Eastern</span>
+                <span>💻 Virtual</span>
+                <span>✅ Free</span>
+              </div>
+              <a href="#" class="btn btn-primary btn-sm" aria-label="Register for Q2 Community Celebration">Register Free →</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PAST EVENTS -->
+    <section aria-labelledby="past-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Archive</span>
+          <h2 id="past-heading" class="section-title">Past Events</h2>
+          <p class="section-subtitle">Missed an event? Many are recorded and available for community members.</p>
+        </div>
+        <div>
+          <div class="episode-item">
+            <span class="ep-number" style="min-width:60px;font-size:0.8rem;">APR 2024</span>
+            <div class="ep-info">
+              <h4>Spring Intensive Advocacy Bootcamp — Washington DC</h4>
+              <div class="ep-meta"><span>In-Person</span><span>Full Day</span><span>48 Attendees</span></div>
+            </div>
+            <a href="#" class="ep-play" aria-label="View recap">▶</a>
+          </div>
+          <div class="episode-item">
+            <span class="ep-number" style="min-width:60px;font-size:0.8rem;">MAR 2024</span>
+            <div class="ep-info">
+              <h4>Expert Q&amp;A: Exercise and Neuroprotection with Dr. Jill Fischer</h4>
+              <div class="ep-meta"><span>Virtual</span><span>90 min</span><span>320 Attendees</span></div>
+            </div>
+            <a href="#" class="ep-play" aria-label="Watch recording">▶</a>
+          </div>
+          <div class="episode-item">
+            <span class="ep-number" style="min-width:60px;font-size:0.8rem;">MAR 2024</span>
+            <div class="ep-info">
+              <h4>Q1 Community Celebration: Year 6 Kickoff</h4>
+              <div class="ep-meta"><span>Virtual</span><span>3 hours</span><span>1,200 Attendees</span></div>
+            </div>
+            <a href="#" class="ep-play" aria-label="Watch recording">▶</a>
+          </div>
+          <div class="episode-item">
+            <span class="ep-number" style="min-width:60px;font-size:0.8rem;">FEB 2024</span>
+            <div class="ep-info">
+              <h4>Expert Q&amp;A: Navigating Insurance and Access</h4>
+              <div class="ep-meta"><span>Virtual</span><span>90 min</span><span>280 Attendees</span></div>
+            </div>
+            <a href="#" class="ep-play" aria-label="Watch recording">▶</a>
+          </div>
+        </div>
+        <div class="text-center mt-4">
+          <a href="community.html" class="btn btn-outline-primary">Join Community to Access All Recordings →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVENT NOTIFICATIONS -->
+    <section id="notify" class="newsletter-section" aria-labelledby="notify-heading">
+      <div class="container text-center">
+        <span class="section-label">Stay in the Loop</span>
+        <h2 id="notify-heading" class="section-title">Get Event Notifications</h2>
+        <p class="section-subtitle centered">Never miss a live stream, Q&amp;A, or community event. Sign up for event alerts.</p>
+        <form class="newsletter-form" style="margin-inline:auto;" aria-label="Event notifications signup">
+          <label for="events-email" class="visually-hidden">Your email address</label>
+          <input type="email" id="events-email" placeholder="your@email.com" required autocomplete="email">
+          <button type="submit" class="btn btn-primary">Notify Me</button>
+        </form>
+        <p class="text-muted mt-2" style="font-size:0.8rem;">Event-only emails. Unsubscribe anytime.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo" aria-label="Doing Life Today - Home">
+            <div class="nav-logo-mark" aria-hidden="true">DL</div>
+            <div class="nav-logo-text">Doing Life Today<span>Parkinson's Community</span></div>
+          </a>
+          <p>A community for people living with Parkinson's. Real talk, real life, real hope — since 2018.</p>
+          <a href="https://bryceperry.org" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">Book Bryce for Speaking →</a>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="podcasts.html">Podcasts</a></li>
+            <li><a href="bootcamps.html">Bootcamps</a></li>
+            <li><a href="store.html">Store</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Platforms</h4>
+          <ul class="footer-links">
+            <li><a href="podcasts.html">Living with Parkinson's Podcast</a></li>
+            <li><a href="podcasts.html">Life in Motion Podcast</a></li>
+            <li><a href="pcn-app.html">PCN App</a></li>
+            <li><a href="music.html">DLT Music</a></li>
+            <li><a href="community.html">Community Platform</a></li>
+            <li><a href="https://bryceperry.org" target="_blank" rel="noopener noreferrer">bryceperry.org ↗</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <div class="footer-social" role="list">
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube" role="listitem">▶</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Instagram" role="listitem">📷</a>
+            <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="TikTok" role="listitem">♪</a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Facebook" role="listitem">f</a>
+          </div>
+          <ul class="footer-links mt-3">
+            <li><a href="mailto:info@dolifetoday.com">info@dolifetoday.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 Doing Life Today. All rights reserved.</p>
+        <p class="footer-disclaimer">⚕️ This site provides peer support, not medical advice. Always consult your healthcare provider.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">↑</button>
+  <script src="js/main.js"></script>
+</body>
+</html>
