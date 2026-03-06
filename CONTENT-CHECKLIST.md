@@ -114,7 +114,7 @@ The playlist cards on `music.html` still have placeholder `href="#"` links.
 | **Form backend (MailerLite)** | Newsletter forms need MailerLite form ID/URL |
 | **Contact form backend** | Contact form has no submission action |
 | **Podcast Hub page** | `https://podcast.dolifetoday.com` — marked "PLEASE BUILD" |
-| **Life in Motion Hub page** | `https://lifeinmotion.dolifetoday.com` — marked "PLEASE BUILD" |
+| **Life in Motion Hub page** | ✅ Built | `life-in-motion.html` |
 | **Privacy Policy page** | Required since emails are collected |
 | **Terms of Service page** | Required for paid products (Bootcamps, Inner Circle, Store) |
 | **Event dates** | `events.html` shows 2024 dates — update with real upcoming events |
