@@ -1,203 +1,125 @@
 # Doing Life Today — Content & Assets Checklist
 
-This document lists **every item needed from you** to finish the site. Once you supply these, the site can be fully wired up and launched.
+Items that have been provided and implemented are marked ✅. Items still outstanding are marked ⬜.
 
 ---
 
 ## 1. 🔗 Podcast Links
 
-These replace the placeholder `href="#"` links throughout `podcasts.html`.
-
 ### Living with Parkinson's Podcast
-| Item | What's needed |
-|------|--------------|
-| Spotify link | Full URL to the show on Spotify (e.g. `https://open.spotify.com/show/…`) |
-| Apple Podcasts link | Full URL to the show on Apple Podcasts (e.g. `https://podcasts.apple.com/…`) |
-| YouTube channel/playlist link | Full URL to the podcast playlist or channel |
-| BuzzSprout link | Full URL to the BuzzSprout page (e.g. `https://www.buzzsprout.com/…`) |
-| RSS feed URL | The raw RSS/podcast feed URL (for embedding a player or linking to Google Podcasts) |
-| Episode archive page | URL to the full episode list, if hosted separately (e.g. BuzzSprout, your website, etc.) |
+| Item | Status | Value |
+|------|--------|-------|
+| Spotify link | ✅ Done | `https://open.spotify.com/show/5x3KjcDBRN4NxFU44TyqEf` |
+| YouTube channel link | ✅ Done | `https://www.youtube.com/@doinglifetoday` |
+| RSS Feed | ✅ Done (in code) | `https://anchor.fm/s/10cda1a08/podcast/rss` |
+| Podcast Hub link | ✅ Done | `https://podcast.dolifetoday.com` |
+| Apple Podcasts link | ⬜ Needed | Please provide the Apple Podcasts URL |
 
 ### Life in Motion Podcast
-| Item | What's needed |
-|------|--------------|
-| Spotify link | Full URL to the show on Spotify |
-| Apple Podcasts link | Full URL to the show on Apple Podcasts |
-| YouTube channel/playlist link | Full URL |
-| BuzzSprout link | Full URL |
-| RSS feed URL | The raw RSS/podcast feed URL |
+| Item | Status | Value |
+|------|--------|-------|
+| Spotify link | ✅ Done | `https://open.spotify.com/show/4IwNzs1O4qYL5YQtelgsyX` |
+| YouTube channel link | ✅ Done | `https://www.youtube.com/@doinglifetoday` |
+| RSS Feed | ✅ Done (in code) | `https://anchor.fm/s/10cda2d90/podcast/rss` |
+| Podcast Hub link | ✅ Done | `https://podcast.dolifetoday.com` |
+| Apple Podcasts link | ⬜ Needed | Please provide the Apple Podcasts URL |
 
 ---
 
 ## 2. 📱 Social Media Links
 
-Every page footer currently links to `https://youtube.com`, `https://instagram.com`, `https://tiktok.com`, and `https://facebook.com` — generic homepages. Please provide your actual profile URLs.
-
-| Platform | What's needed |
-|----------|--------------|
-| YouTube | Your channel URL (e.g. `https://youtube.com/@dolifetoday`) |
-| Instagram | Your profile URL (e.g. `https://instagram.com/dolifetoday`) |
-| TikTok | Your profile URL (e.g. `https://tiktok.com/@dolifetoday`) |
-| Facebook | Your page URL (e.g. `https://facebook.com/dolifetoday`) |
-
-Also used in `store.html`: **`Follow @dolifetoday on Instagram ↗`** — confirm your Instagram handle is `@dolifetoday` or correct it.
+| Platform | Status | Value |
+|----------|--------|-------|
+| YouTube | ✅ Done | `https://www.youtube.com/@doinglifetoday` |
+| Instagram | ✅ Done | `https://www.instagram.com/doinglifetoday` |
+| TikTok | ✅ Done | `https://www.tiktok.com/@doinglifetoday` |
+| Facebook | ✅ Done | `https://www.facebook.com/doinglifetoday` |
 
 ---
 
 ## 3. 🎶 Music Platform Links (`music.html`)
 
-Each playlist card has placeholder `href="#"` links. Please provide the real links for **each playlist** on each platform.
+The playlist cards on `music.html` still have placeholder `href="#"` links.
 
-For every playlist listed (currently: Morning Movement, Evening Calm, Focus & Flow, Mood Lift, Gentle Stretching, Deep Rest, Power Hour), provide:
-
-| Playlist Name | Spotify link | Apple Music link | YouTube link |
-|---------------|-------------|-----------------|--------------|
-| Morning Movement | | | |
-| Evening Calm | | | |
-| Focus & Flow | | | |
-| Mood Lift | | | |
-| Gentle Stretching | | | |
-| Deep Rest | | | |
-| Power Hour | | | |
-
-> If you don't have separate Spotify/Apple/YouTube links yet, let us know and we can update the page to have a single "Listen" button per playlist.
+| What's needed |
+|--------------|
+| Spotify playlist URLs for each playlist (Morning Movement, Evening Calm, Focus & Flow, Mood Lift, Gentle Stretching, Deep Rest, Power Hour) |
+| Apple Music playlist URLs (optional) |
 
 ---
 
-## 4. 📱 PCN App Store Links (`pcn-app.html`)
+## 4. ✉️ Email Addresses
 
-| Item | What's needed |
-|------|--------------|
-| App Store (iOS) link | Full iTunes/App Store URL (e.g. `https://apps.apple.com/app/…`) |
-| Google Play (Android) link | Full Google Play URL (e.g. `https://play.google.com/store/apps/details?id=…`) |
-
----
-
-## 5. 🤝 Community Platform Link (`community.html`)
-
-The **"Create Free Account"** button links to `href="#"`. Please provide:
-
-| Item | What's needed |
-|------|--------------|
-| Community signup URL | The URL where people sign up (e.g. a Circle.so, Mighty Networks, Kajabi, or custom URL) |
+| Email | Status |
+|-------|--------|
+| General: `office@dolifetoday.com` | ✅ Done — updated across all pages |
+| Speaking: `speaking@bryceperry.org` | ✅ Done — added to contact page |
+| Media: `media@bryceperry.org` | ✅ Done — added to contact page |
 
 ---
 
-## 6. 📅 Event Registration & Recording Links (`events.html`)
+## 5. 🔗 Platform & Community Links
 
-### Upcoming Events — Registration Links
-| Event | Date | What's needed |
-|-------|------|--------------|
-| Understanding Deep Brain Stimulation — Live Q&A with Dr. Marcus Webb | May 15 | Registration link (e.g. Eventbrite, Zoom webinar, or your community platform) |
-| DLT Chicago Meetup | Jun 1 | Registration link |
-| Q2 Community Celebration | Jun 15 | Registration link |
-
-> **Note:** Event dates currently say "May 2024" and "June 2024." If these are outdated, please provide updated dates for real upcoming events.
-
-### Past Event Recordings
-| Event | What's needed |
-|-------|--------------|
-| Spring Intensive Advocacy Bootcamp — Washington DC (Apr 2024) | Link to recap or recording |
-| Expert Q&A: Exercise and Neuroprotection — Dr. Jill Fischer (Mar 2024) | Link to recording |
-| Q1 Community Celebration: Year 6 Kickoff (Mar 2024) | Link to recording |
-| Expert Q&A: Navigating Insurance and Access (Feb 2024) | Link to recording |
+| Item | Status | Value |
+|------|--------|-------|
+| The Club (main community) | ✅ Done | `https://club.dolifetoday.com` |
+| Inner Circle | ✅ Done | `https://community.dolifetoday.com/pages/inner-circle` |
+| Podcast Hub | ✅ Done | `https://podcast.dolifetoday.com` |
+| Merch Store | ✅ Done | `https://dolifetoday.myspreadshop.com` |
+| Bryce Perry website | ✅ Done | `https://bryceperry.org` |
 
 ---
 
-## 7. 📝 Form Submission Endpoints
+## 6. 🏗️ New Pages Built
 
-The contact form and all newsletter/email signup forms are currently HTML-only and don't submit anywhere. Please advise on how you'd like these to work.
-
-| Form | Location | What's needed |
-|------|----------|--------------|
-| Contact form | `contact.html` | A form submission endpoint (e.g. Formspree, Netlify Forms, your CRM, or a custom backend URL) |
-| Homepage newsletter signup | `index.html` | Email service provider signup URL or API endpoint (e.g. Mailchimp, ConvertKit, ActiveCampaign) |
-| Resources sidebar newsletter | `resources.html` | Same as above |
-| Events email alert signup | `events.html` | Same as above |
-| Store newsletter signup | `store.html` | Same as above |
+| Page | Status | URL |
+|------|--------|-----|
+| Living with Parkinson's Guide | ✅ Built | `living-with-parkinsons.html` |
+| Early Signs of Parkinson's | ✅ Built | `early-signs-of-parkinsons.html` |
+| Parkinson's & Exercise | ✅ Built | `parkinsons-exercise.html` |
+| Parkinson's Community | ✅ Built | `parkinsons-community.html` |
+| Parkinson's Podcasts | ✅ Built | `parkinsons-podcasts.html` |
 
 ---
 
-## 8. 🖼️ Images & Media
+## 7. ✍️ Copy Updates
 
-No images are currently used on the site — all visuals are placeholder emoji or text. Please provide the following:
-
-| Image | Where used | Notes |
-|-------|-----------|-------|
-| **DLT Logo** (full color + white versions) | All pages (nav, footer, social sharing) | SVG preferred; PNG fallback |
-| **Favicon** | All pages `<head>` | `.ico` or `.png`, 32×32px |
-| **Bryce Perry headshot** | `about.html` (currently shows "BP" text avatar) | High-res professional photo |
-| **Living with Parkinson's Podcast cover art** | `podcasts.html`, social sharing | Standard 3000×3000px podcast artwork |
-| **Life in Motion Podcast cover art** | `podcasts.html`, social sharing | Standard 3000×3000px podcast artwork |
-| **PCN App screenshots** | `pcn-app.html` (feature showcase section) | 2–4 mobile screenshots |
-| **Store product photos** | `store.html` (currently shows emoji placeholders for each product) | Photos for: Signature Tee, Advocacy Cap, Real Talk Mug, Community Hoodie, and any other products |
-| **OG/social share image** | All pages (`og:image` meta tag) | 1200×630px banner image for link previews on Facebook, Twitter/X, etc. |
-| **Hero or background image** (optional) | `index.html` hero section | Full-width background photo (community/lifestyle image) |
-| **Bootcamp event photos** (optional) | `bootcamps.html` | Action shots from past bootcamp sessions |
-| **Community/member photos** (optional) | `community.html` | Group or community event photos |
+| Item | Status |
+|------|--------|
+| Bryce's bio `[professional background]` placeholder | ✅ Fixed |
+| PCN App → "The Club" throughout all pages | ✅ Done |
+| "Parkinson's Community Network (PCN)" → "The Club" | ✅ Done |
+| Community link → `https://club.dolifetoday.com` | ✅ Done |
+| Footer copyright year 2024 → 2025 | ✅ Done |
+| Footer social links updated to real profiles | ✅ Done |
+| Footer "Platforms" → "The DLT Platform" with full ecosystem | ✅ Done |
+| "Join Now" nav button → "Join The Club" | ✅ Done |
+| Index.html homepage rebuilt with new structure | ✅ Done |
 
 ---
 
-## 9. ✍️ Copy / Text Needed
+## 8. ⬜ Still Outstanding
 
-| Location | What's missing |
-|----------|---------------|
-| `about.html` — Bryce Perry bio | Line reads `"A former [professional background]…"` — please fill in Bryce's background before DLT (e.g. former teacher, pastor, executive, etc.) |
-| `about.html` — Timeline dates | Confirm the founding year and milestone dates are accurate (2018, 2019, 2020, etc.) |
-| `events.html` — All upcoming event dates | Current dates say 2024 — update with real upcoming 2025/2026 event dates, times, and locations |
-| `resources.html` — Article content | Articles are listed but have no full body text — confirm whether articles exist elsewhere to link to, or if you need them written |
-| `podcasts.html` — Recent episodes | Episode titles, guest names, and air dates listed (Eps 124–127, 42–43) — confirm these are correct or provide the real recent episode list |
-| `bootcamps.html` — Upcoming cohort dates | The page says "next cohort starts soon" — add the real next start date and enrollment deadline |
-| `store.html` — Shipping & returns policy | Page mentions free shipping on orders over $50 — you need a full returns/shipping policy page (or at least the policy text) |
-| All pages — Footer copyright year | Currently says © 2024 — update to © 2025 |
-
----
-
-## 10. 🛒 Store / E-commerce Setup (`store.html`)
-
-The store currently has product cards with "Add to Cart" buttons that do nothing. You have two options:
-
-| Option | What's needed |
-|--------|--------------|
-| **A) Use a third-party print-on-demand / e-commerce platform** (recommended) | Link to your Shopify, WooCommerce, Spring/Teespring, or Printful store. We'll update all "Add to Cart" buttons to point there. |
-| **B) Embed a third-party store widget** | Shopify Buy Button embed code, Gumroad embed, etc. |
-
-Also needed for the store:
-- Confirmed product list (names, descriptions, prices, sizes/variants)
-- Product images (see Images section above)
-
----
-
-## 11. 🔒 Additional Pages Needed
-
-The following pages are linked or implied but don't exist yet:
-
-| Page | Notes |
+| Item | Notes |
 |------|-------|
-| **Privacy Policy** | Required if you're collecting emails or any personal data |
-| **Terms of Service** | Recommended for any paid products (store, bootcamps, Inner Circle) |
-| **Accessibility Statement** | The site has strong accessibility features — an accessibility statement page is a good addition |
+| **Logo** (SVG/PNG) | No logo image — all pages use "DL" text mark |
+| **Favicon** | Not yet added to any page `<head>` |
+| **Bryce Perry headshot** | `about.html` shows "BP" text avatar |
+| **Podcast cover art** | Both shows use emoji placeholders |
+| **PCN/Club app screenshots** | `pcn-app.html` has no screenshots |
+| **Store product photos** | `store.html` uses emoji placeholders |
+| **OG/social share image** | No `og:image` meta tag on any page |
+| **Apple Podcasts links** | Not yet provided for either show |
+| **Music playlist links** | `music.html` still has placeholder `href="#"` for all playlists |
+| **Form backend (MailerLite)** | Newsletter forms need MailerLite form ID/URL |
+| **Contact form backend** | Contact form has no submission action |
+| **Podcast Hub page** | `https://podcast.dolifetoday.com` — marked "PLEASE BUILD" |
+| **Life in Motion Hub page** | `https://lifeinmotion.dolifetoday.com` — marked "PLEASE BUILD" |
+| **Privacy Policy page** | Required since emails are collected |
+| **Terms of Service page** | Required for paid products (Bootcamps, Inner Circle, Store) |
+| **Event dates** | `events.html` shows 2024 dates — update with real upcoming events |
+| **Bootcamp next cohort date** | `bootcamps.html` — add real next start date |
 
 ---
 
-## Summary
-
-| Category | # Items Needed |
-|----------|---------------|
-| Podcast links & feeds | 10 |
-| Social media profile URLs | 4 |
-| Music playlist links | Up to 21 |
-| App Store links | 2 |
-| Community platform URL | 1 |
-| Event registration & recording links | 7 |
-| Form endpoints (contact + newsletters) | 5 |
-| Images & media | 8–12 |
-| Copy/text corrections | 8 |
-| Store/e-commerce setup | 1 decision + assets |
-| Missing pages | 2–3 |
-
-**Total: ~70–80 individual items.** Please work through this list and send us what you have — we can go section by section if that's easier. Items can be provided in any order and we'll integrate them as they come in.
-
----
-
-*Last updated: March 2026*
+*Last updated: March 2026 — Content provided by site owner integrated.*
