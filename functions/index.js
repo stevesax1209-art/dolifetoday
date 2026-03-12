@@ -119,20 +119,24 @@ function toIsoDate(value) {
 function comparePodcastEpisodes(leftEpisode, rightEpisode) {
   const leftTimestamp = Date.parse(leftEpisode.publishedAtIso || leftEpisode.publishedAt || '');
   const rightTimestamp = Date.parse(rightEpisode.publishedAtIso || rightEpisode.publishedAt || '');
+  const leftHasTimestamp = !Number.isNaN(leftTimestamp);
+  const rightHasTimestamp = !Number.isNaN(rightTimestamp);
 
-  if (!Number.isNaN(leftTimestamp) || !Number.isNaN(rightTimestamp)) {
-    if (Number.isNaN(leftTimestamp)) return 1;
-    if (Number.isNaN(rightTimestamp)) return -1;
-    if (leftTimestamp !== rightTimestamp) return rightTimestamp - leftTimestamp;
+  if (leftHasTimestamp && !rightHasTimestamp) return -1;
+  if (!leftHasTimestamp && rightHasTimestamp) return 1;
+  if (leftHasTimestamp && rightHasTimestamp && leftTimestamp !== rightTimestamp) {
+    return rightTimestamp - leftTimestamp;
   }
 
   const leftEpisodeNumber = Number.parseInt(leftEpisode.episodeNumber, 10);
   const rightEpisodeNumber = Number.parseInt(rightEpisode.episodeNumber, 10);
+  const leftHasEpisodeNumber = !Number.isNaN(leftEpisodeNumber);
+  const rightHasEpisodeNumber = !Number.isNaN(rightEpisodeNumber);
 
-  if (!Number.isNaN(leftEpisodeNumber) || !Number.isNaN(rightEpisodeNumber)) {
-    if (Number.isNaN(leftEpisodeNumber)) return 1;
-    if (Number.isNaN(rightEpisodeNumber)) return -1;
-    if (leftEpisodeNumber !== rightEpisodeNumber) return rightEpisodeNumber - leftEpisodeNumber;
+  if (leftHasEpisodeNumber && !rightHasEpisodeNumber) return -1;
+  if (!leftHasEpisodeNumber && rightHasEpisodeNumber) return 1;
+  if (leftHasEpisodeNumber && rightHasEpisodeNumber && leftEpisodeNumber !== rightEpisodeNumber) {
+    return rightEpisodeNumber - leftEpisodeNumber;
   }
 
   return 0;
