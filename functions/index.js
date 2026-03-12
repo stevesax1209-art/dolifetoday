@@ -116,6 +116,28 @@ function toIsoDate(value) {
   return Number.isNaN(timestamp) ? '' : new Date(timestamp).toISOString();
 }
 
+function comparePodcastEpisodes(leftEpisode, rightEpisode) {
+  const leftTimestamp = Date.parse(leftEpisode.publishedAtIso || leftEpisode.publishedAt || '');
+  const rightTimestamp = Date.parse(rightEpisode.publishedAtIso || rightEpisode.publishedAt || '');
+
+  if (!Number.isNaN(leftTimestamp) || !Number.isNaN(rightTimestamp)) {
+    if (Number.isNaN(leftTimestamp)) return 1;
+    if (Number.isNaN(rightTimestamp)) return -1;
+    if (leftTimestamp !== rightTimestamp) return rightTimestamp - leftTimestamp;
+  }
+
+  const leftEpisodeNumber = Number.parseInt(leftEpisode.episodeNumber, 10);
+  const rightEpisodeNumber = Number.parseInt(rightEpisode.episodeNumber, 10);
+
+  if (!Number.isNaN(leftEpisodeNumber) || !Number.isNaN(rightEpisodeNumber)) {
+    if (Number.isNaN(leftEpisodeNumber)) return 1;
+    if (Number.isNaN(rightEpisodeNumber)) return -1;
+    if (leftEpisodeNumber !== rightEpisodeNumber) return rightEpisodeNumber - leftEpisodeNumber;
+  }
+
+  return 0;
+}
+
 function truncate(value, maxLength) {
   if (!value || value.length <= maxLength) return value;
   return `${value.slice(0, maxLength - 1).trimEnd()}…`;
@@ -151,7 +173,8 @@ function parsePodcastRss(xml, podcastConfig) {
         image: extractAttributeValue(itemXml, 'itunes:image', 'href'),
       };
     })
-    .filter((episode) => episode.title);
+    .filter((episode) => episode.title)
+    .sort(comparePodcastEpisodes);
 
   return {
     podcast: {
