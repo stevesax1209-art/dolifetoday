@@ -11,7 +11,8 @@
     ],
     "rewrites": [
       { "source": "/api/subscribe", "function": "subscribe" },
-      { "source": "/api/contact",   "function": "contact"   }
+      { "source": "/api/contact",   "function": "contact"   },
+      { "source": "/api/podcast-feed", "function": "podcastFeed" }
     ],
     "headers": [
       {
