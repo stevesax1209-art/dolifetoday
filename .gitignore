@@ -1,0 +1,8 @@
+# Environment — never commit real secrets
+.env
+.env.local
+.env.*.local
+
+# Firebase build artifacts
+.firebase/
+functions/node_modules/
