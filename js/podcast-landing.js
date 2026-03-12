@@ -48,6 +48,7 @@
 
   async function loadLiveFeed() {
     const feedUrls = getFeedUrls();
+    let lastFeedError = null;
 
     try {
       for (const feedUrl of feedUrls) {
@@ -55,10 +56,14 @@
           headers: { Accept: 'application/json' },
         });
 
-        if (!response.ok) continue;
+        if (!response.ok) {
+          lastFeedError = `HTTP ${response.status} from ${feedUrl}`;
+          continue;
+        }
 
         const liveFeed = await response.json();
         if (!Array.isArray(liveFeed.episodes) || !liveFeed.episodes.length) {
+          lastFeedError = `No episodes returned from ${feedUrl}`;
           continue;
         }
 
@@ -70,8 +75,14 @@
         return;
       }
 
-      throw new Error('No live podcast feed endpoint returned episodes');
-    } catch {
+      throw new Error(lastFeedError || `No live podcast feed endpoint returned episodes after trying ${feedUrls.length} URL(s)`);
+    } catch (error) {
+      if (typeof console !== 'undefined' && typeof console.warn === 'function') {
+        console.warn(
+          `Podcast feed unavailable for ${podcastSlug}: ${lastFeedError || (error && error.message) || 'Unknown error'}`,
+          error
+        );
+      }
       renderFeed(activeFeed, {
         status: 'The live RSS archive is temporarily unavailable. You can still use the listening links below while we reconnect.',
         statusClass: activeFeed.episodes?.length ? '' : 'is-error',
