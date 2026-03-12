@@ -107,18 +107,45 @@
     });
   });
 
-  /* ── Newsletter form ──────────────────────────────────────── */
+  /* ── Newsletter form ──────────────────────────────────────────── */
   document.querySelectorAll('.newsletter-form').forEach(form => {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const input = form.querySelector('input[type="email"]');
-      if (input && input.value) {
+      if (!input || !input.value) return;
+
+      const btn = form.querySelector('button[type="submit"]');
+      const originalText = btn ? btn.textContent : '';
+      if (btn) { btn.textContent = 'Subscribing\u2026'; btn.disabled = true; }
+
+      try {
+        const res = await fetch('/.netlify/functions/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: input.value }),
+        });
+        const data = await res.json();
         const msg = document.createElement('p');
-        msg.textContent = '🎉 Thanks for subscribing! Check your inbox.';
-        msg.style.cssText = 'color: #20B2AA; font-weight: 700; margin-top: 0.75rem;';
+        if (res.ok) {
+          msg.textContent = '🎉 ' + (data.message || 'Thanks for subscribing! Check your inbox.');
+          msg.style.cssText = 'color:#20B2AA;font-weight:700;margin-top:0.75rem;';
+          form.after(msg);
+          form.style.display = 'none';
+          setTimeout(() => { msg.remove(); form.style.display = ''; form.reset(); if (btn) { btn.textContent = originalText; btn.disabled = false; } }, 6000);
+        } else {
+          msg.textContent = '\u26a0\ufe0f ' + (data.error || 'Something went wrong. Please try again.');
+          msg.style.cssText = 'color:#FF6B35;font-weight:600;margin-top:0.75rem;';
+          form.after(msg);
+          if (btn) { btn.textContent = originalText; btn.disabled = false; }
+          setTimeout(() => msg.remove(), 6000);
+        }
+      } catch {
+        const msg = document.createElement('p');
+        msg.textContent = '\u26a0\ufe0f Network error. Please try again.';
+        msg.style.cssText = 'color:#FF6B35;font-weight:600;margin-top:0.75rem;';
         form.after(msg);
-        form.style.display = 'none';
-        setTimeout(() => { msg.remove(); form.style.display = ''; form.reset(); }, 5000);
+        if (btn) { btn.textContent = originalText; btn.disabled = false; }
+        setTimeout(() => msg.remove(), 6000);
       }
     });
   });
@@ -126,13 +153,49 @@
   /* ── Contact form ─────────────────────────────────────────── */
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const msg = document.createElement('div');
-      msg.innerHTML = '<p style="color:#20B2AA;font-weight:700;font-size:1.1rem;">✅ Message sent! We\'ll be in touch within 24-48 hours.</p>';
-      msg.style.cssText = 'background:rgba(32,178,170,0.1);border:1px solid rgba(32,178,170,0.3);border-radius:12px;padding:1.5rem;text-align:center;margin-top:1.5rem;';
-      contactForm.after(msg);
-      contactForm.style.display = 'none';
+
+      const btn = contactForm.querySelector('button[type="submit"]');
+      const originalText = btn ? btn.textContent : '';
+      if (btn) { btn.textContent = 'Sending\u2026'; btn.disabled = true; }
+
+      const payload = {
+        name:         (contactForm.querySelector('[name="name"]')?.value || '').trim(),
+        email:        (contactForm.querySelector('[name="email"]')?.value || '').trim(),
+        organization: (contactForm.querySelector('[name="organization"]')?.value || '').trim(),
+        inquiry_type: (contactForm.querySelector('[name="inquiry_type"]')?.value || '').trim(),
+        message:      (contactForm.querySelector('[name="message"]')?.value || '').trim(),
+      };
+
+      try {
+        const res = await fetch('/.netlify/functions/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const data = await res.json();
+        const msgEl = document.createElement('div');
+        if (res.ok) {
+          msgEl.innerHTML = '<p style="color:#20B2AA;font-weight:700;font-size:1.1rem;">\u2705 ' + (data.message || "Message sent! We'll be in touch within 24\u201348 hours.") + '</p>';
+          msgEl.style.cssText = 'background:rgba(32,178,170,0.1);border:1px solid rgba(32,178,170,0.3);border-radius:12px;padding:1.5rem;text-align:center;margin-top:1.5rem;';
+          contactForm.after(msgEl);
+          contactForm.style.display = 'none';
+        } else {
+          msgEl.innerHTML = '<p style="color:#FF6B35;font-weight:600;">\u26a0\ufe0f ' + (data.error || 'Something went wrong. Please try again or email office@dolifetoday.com.') + '</p>';
+          msgEl.style.cssText = 'background:rgba(255,107,53,0.1);border:1px solid rgba(255,107,53,0.3);border-radius:12px;padding:1.5rem;text-align:center;margin-top:1.5rem;';
+          contactForm.after(msgEl);
+          if (btn) { btn.textContent = originalText; btn.disabled = false; }
+          setTimeout(() => msgEl.remove(), 8000);
+        }
+      } catch {
+        const msgEl = document.createElement('div');
+        msgEl.innerHTML = '<p style="color:#FF6B35;font-weight:600;">\u26a0\ufe0f Network error. Please try again or email <a href="mailto:office@dolifetoday.com">office@dolifetoday.com</a>.</p>';
+        msgEl.style.cssText = 'background:rgba(255,107,53,0.1);border:1px solid rgba(255,107,53,0.3);border-radius:12px;padding:1.5rem;text-align:center;margin-top:1.5rem;';
+        contactForm.after(msgEl);
+        if (btn) { btn.textContent = originalText; btn.disabled = false; }
+        setTimeout(() => msgEl.remove(), 8000);
+      }
     });
   }
 

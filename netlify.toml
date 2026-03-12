@@ -1,0 +1,29 @@
+# Netlify configuration for Doing Life Today
+# Docs: https://docs.netlify.com/configure-builds/file-based-configuration/
+
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+# Redirect /api/* to serverless functions for clean URLs
+[[redirects]]
+  from = "/api/subscribe"
+  to   = "/.netlify/functions/subscribe"
+  status = 200
+
+[[redirects]]
+  from = "/api/contact"
+  to   = "/.netlify/functions/contact"
+  status = 200
+
+# Security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
