@@ -47,29 +47,59 @@
   }
 
   async function loadLiveFeed() {
+    const feedUrls = getFeedUrls();
+    let lastFeedError = null;
+
     try {
-      const response = await fetch(`/api/podcast-feed?show=${encodeURIComponent(podcastSlug)}`, {
-        headers: { Accept: 'application/json' },
-      });
+      for (const feedUrl of feedUrls) {
+        const response = await fetch(feedUrl, {
+          headers: { Accept: 'application/json' },
+        });
 
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        if (!response.ok) {
+          lastFeedError = `HTTP ${response.status} from ${feedUrl}`;
+          continue;
+        }
 
-      const liveFeed = await response.json();
-      if (!Array.isArray(liveFeed.episodes) || !liveFeed.episodes.length) {
-        throw new Error('No episodes returned');
+        const liveFeed = await response.json();
+        if (!Array.isArray(liveFeed.episodes) || !liveFeed.episodes.length) {
+          lastFeedError = `No episodes returned from ${feedUrl}`;
+          continue;
+        }
+
+        activeFeed = liveFeed;
+        renderFeed(activeFeed, {
+          status: 'Live RSS feed connected. The archive below updates automatically from the podcast feed.',
+          statusClass: 'is-live',
+        });
+        return;
       }
 
-      activeFeed = liveFeed;
-      renderFeed(activeFeed, {
-        status: 'Live RSS feed connected. The archive below updates automatically from the podcast feed.',
-        statusClass: 'is-live',
-      });
-    } catch {
+      throw new Error(lastFeedError || `No live podcast feed endpoint returned episodes after trying ${feedUrls.length} URL(s)`);
+    } catch (error) {
+      if (typeof console !== 'undefined' && typeof console.warn === 'function') {
+        console.warn(
+          `Podcast feed unavailable for ${podcastSlug}: ${lastFeedError || (error && error.message) || 'Unknown error'}`,
+          error
+        );
+      }
       renderFeed(activeFeed, {
         status: 'The live RSS archive is temporarily unavailable. You can still use the listening links below while we reconnect.',
         statusClass: activeFeed.episodes?.length ? '' : 'is-error',
       });
     }
+  }
+
+  function getFeedUrls() {
+    const query = `show=${encodeURIComponent(podcastSlug)}`;
+    const urls = [`/api/podcast-feed?${query}`];
+    const mainSiteOrigin = 'https://dolifetoday.com';
+
+    if (window.location.origin !== mainSiteOrigin) {
+      urls.push(`${mainSiteOrigin}/api/podcast-feed?${query}`);
+    }
+
+    return urls;
   }
 
   function renderFeed(feed, options) {
