@@ -119,7 +119,7 @@
       if (btn) { btn.textContent = 'Subscribing\u2026'; btn.disabled = true; }
 
       try {
-        const res = await fetch('/.netlify/functions/subscribe', {
+        const res = await fetch('/api/subscribe', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email: input.value }),
@@ -169,7 +169,7 @@
       };
 
       try {
-        const res = await fetch('/.netlify/functions/contact', {
+        const res = await fetch('/api/contact', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload),

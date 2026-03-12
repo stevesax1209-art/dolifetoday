@@ -1,0 +1,13 @@
+{
+  "name": "dolifetoday-functions",
+  "description": "Firebase Cloud Functions for Doing Life Today — MailerLite subscriber + contact API",
+  "version": "1.0.0",
+  "engines": {
+    "node": "20"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-functions": "^4.0.0"
+  },
+  "private": true
+}

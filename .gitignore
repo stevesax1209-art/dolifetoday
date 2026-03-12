@@ -3,8 +3,6 @@
 .env.local
 .env.*.local
 
-# Netlify build artifacts
-.netlify/
-
-# Node (if ever added)
-node_modules/
+# Firebase build artifacts
+.firebase/
+functions/node_modules/
