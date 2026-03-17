@@ -1145,7 +1145,7 @@
             </select>
 
             <button type="submit" class="btn btn-primary btn-lg">Join the First Wave – Get Early Access</button>
-            <p class="waitlist-count" id="waitlist-count" data-fallback-count="77" data-base-count="77"><span id="waitlist-count-value">77</span> people are already on the waitlist</p>
+            <p class="waitlist-count" id="waitlist-count" data-fallback-count="68"><span id="waitlist-count-value">68</span> people are already on the waitlist</p>
             <p class="launch-note">You&rsquo;ll be notified when your wave opens.</p>
             <div id="waitlist-status" class="waitlist-status" aria-live="polite"></div>
           </form>
@@ -1653,8 +1653,7 @@
       async function loadWaitlistCount() {
         if (!waitlistCountEl || !waitlistCountValueEl) return;
 
-        const fallbackCount = Number(waitlistCountEl.dataset.fallbackCount || '77');
-        const baseCount = Number(waitlistCountEl.dataset.baseCount || '0');
+        const fallbackCount = Number(waitlistCountEl.dataset.fallbackCount || '68');
         let count = fallbackCount;
 
         try {
@@ -1666,7 +1665,7 @@
           if (response.ok) {
             const data = await response.json();
             if (typeof data.count === 'number') {
-              count = baseCount + data.count;
+              count = data.count;
             }
           }
         } catch (error) {

@@ -25,6 +25,7 @@ if (!admin.apps.length) {
 }
 
 const db = admin.firestore();
+const LEGACY_WAITLIST_BASE_COUNT = 68;
 
 const MAILERLITE_API_URL = 'https://connect.mailerlite.com/api/subscribers';
 const PODCAST_FEEDS = Object.freeze({
@@ -89,7 +90,7 @@ async function upsertWaitlistEntry(email, source) {
 
 async function getWaitlistCount() {
   const snapshot = await db.collection('waitlist').where('source', '==', 'club_waitlist').count().get();
-  return snapshot.data().count;
+  return LEGACY_WAITLIST_BASE_COUNT + snapshot.data().count;
 }
 
 function escapeRegex(value) {
