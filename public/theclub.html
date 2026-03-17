@@ -313,6 +313,14 @@
       text-align: center;
       font-size: 0.84rem;
       color: var(--color-text-muted);
+      opacity: 0;
+      transform: translateY(4px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+
+    .waitlist-count.is-visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .waitlist-form {
@@ -1137,7 +1145,7 @@
             </select>
 
             <button type="submit" class="btn btn-primary btn-lg">Join the First Wave – Get Early Access</button>
-            <p class="waitlist-count">77 people are already on the waitlist</p>
+            <p class="waitlist-count" id="waitlist-count" data-fallback-count="77" data-base-count="77"><span id="waitlist-count-value">77</span> people are already on the waitlist</p>
             <p class="launch-note">You&rsquo;ll be notified when your wave opens.</p>
             <div id="waitlist-status" class="waitlist-status" aria-live="polite"></div>
           </form>
@@ -1585,6 +1593,8 @@
       const emailInput = document.getElementById('waitlist-email');
       const roleInput = document.getElementById('waitlist-role');
       const statusEl = document.getElementById('waitlist-status');
+      const waitlistCountEl = document.getElementById('waitlist-count');
+      const waitlistCountValueEl = document.getElementById('waitlist-count-value');
 
       function pad(value) {
         return String(value).padStart(2, '0');
@@ -1618,6 +1628,55 @@
         statusEl.textContent = text;
       }
 
+      function animateCount(targetValue) {
+        if (!waitlistCountValueEl) return;
+
+        const safeTarget = Math.max(0, Number(targetValue) || 0);
+        const duration = 700;
+        const startTime = performance.now();
+
+        function step(now) {
+          const progress = Math.min((now - startTime) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const currentValue = Math.round(safeTarget * eased);
+
+          waitlistCountValueEl.textContent = String(currentValue);
+
+          if (progress < 1) {
+            window.requestAnimationFrame(step);
+          }
+        }
+
+        window.requestAnimationFrame(step);
+      }
+
+      async function loadWaitlistCount() {
+        if (!waitlistCountEl || !waitlistCountValueEl) return;
+
+        const fallbackCount = Number(waitlistCountEl.dataset.fallbackCount || '77');
+        const baseCount = Number(waitlistCountEl.dataset.baseCount || '0');
+        let count = fallbackCount;
+
+        try {
+          const response = await fetch('/api/waitlist-count', {
+            method: 'GET',
+            headers: { Accept: 'application/json' }
+          });
+
+          if (response.ok) {
+            const data = await response.json();
+            if (typeof data.count === 'number') {
+              count = baseCount + data.count;
+            }
+          }
+        } catch (error) {
+          count = fallbackCount;
+        }
+
+        animateCount(count);
+        waitlistCountEl.classList.add('is-visible');
+      }
+
       document.querySelectorAll('a[href="#waitlist-form"].btn-primary, .waitlist-form button[type="submit"]').forEach((element) => {
         element.textContent = activeWave.cta;
       });
@@ -1625,6 +1684,8 @@
       document.querySelectorAll('.founding-badge').forEach((element) => {
         element.textContent = activeWave.badge;
       });
+
+      loadWaitlistCount();
 
       if (form && emailInput && statusEl) {
         form.addEventListener('submit', async function (event) {
@@ -1659,9 +1720,10 @@
             const data = await response.json();
 
             if (response.ok) {
-              showStatus('success', data.message || "You're on the list. We'll notify you when the first wave opens.");
+              showStatus('success', data.message || "You're on the list. We'll notify you when your wave opens.");
               form.reset();
               if (roleInput) roleInput.selectedIndex = 0;
+              loadWaitlistCount();
             } else {
               showStatus('error', data.error || 'Something went wrong. Please try again.');
             }

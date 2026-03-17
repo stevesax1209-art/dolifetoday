@@ -23,6 +23,7 @@
       { "source": "/life-in-motion", "destination": "/life-in-motion.html" },
       { "source": "/theclub", "destination": "/theclub.html" },
       { "source": "/api/podcast-feed", "function": "podcastFeed" },
+      { "source": "/api/waitlist-count", "function": "waitlistCount" },
       { "source": "/api/subscribe", "function": "subscribe" },
       { "source": "/api/contact", "function": "contact" }
     ]

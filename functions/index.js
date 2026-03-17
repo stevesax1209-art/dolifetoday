@@ -17,6 +17,14 @@
 
 const functions = require('firebase-functions');
 const { onRequest } = require('firebase-functions/v2/https');
+const admin = require('firebase-admin');
+const { createHash } = require('node:crypto');
+
+if (!admin.apps.length) {
+  admin.initializeApp();
+}
+
+const db = admin.firestore();
 
 const MAILERLITE_API_URL = 'https://connect.mailerlite.com/api/subscribers';
 const PODCAST_FEEDS = Object.freeze({
@@ -57,6 +65,31 @@ function setCorsHeaders(res, methods = 'POST, OPTIONS') {
   res.set('Access-Control-Allow-Origin', '*');
   res.set('Access-Control-Allow-Methods', methods);
   res.set('Access-Control-Allow-Headers', 'Content-Type');
+}
+
+function buildWaitlistDocId(email) {
+  return createHash('sha256').update(email.trim().toLowerCase()).digest('hex');
+}
+
+async function upsertWaitlistEntry(email, source) {
+  const normalizedEmail = email.trim().toLowerCase();
+  const waitlistRef = db.collection('waitlist').doc(buildWaitlistDocId(normalizedEmail));
+  const snapshot = await waitlistRef.get();
+
+  if (snapshot.exists) {
+    return;
+  }
+
+  await waitlistRef.set({
+    email: normalizedEmail,
+    createdAt: admin.firestore.FieldValue.serverTimestamp(),
+    source: typeof source === 'string' && source.trim() ? source.trim() : 'club_waitlist',
+  });
+}
+
+async function getWaitlistCount() {
+  const snapshot = await db.collection('waitlist').where('source', '==', 'club_waitlist').count().get();
+  return snapshot.data().count;
 }
 
 function escapeRegex(value) {
@@ -318,9 +351,13 @@ exports.subscribe = onRequest(
       });
 
       if (mlRes.status === 200 || mlRes.status === 201) {
+        if (requestedList === 'theclub_waitlist') {
+          await upsertWaitlistEntry(email, source);
+        }
+
         res.status(200).json({
           message: requestedList === 'theclub_waitlist'
-            ? "You're on the list. We'll notify you when the first wave opens."
+            ? "You're on the list. We'll notify you when your wave opens."
             : 'Subscribed successfully!',
         });
         return;
@@ -328,9 +365,13 @@ exports.subscribe = onRequest(
 
       // 422 = already subscribed — treat as success
       if (mlRes.status === 422) {
+        if (requestedList === 'theclub_waitlist') {
+          await upsertWaitlistEntry(email, source);
+        }
+
         res.status(200).json({
           message: requestedList === 'theclub_waitlist'
-            ? "You're already on the list. We'll notify you when the first wave opens."
+            ? "You're already on the list. We'll notify you when your wave opens."
             : 'You are already subscribed — thank you!',
         });
         return;
@@ -345,6 +386,32 @@ exports.subscribe = onRequest(
     }
   }
 );
+
+/* ── waitlistCount ─────────────────────────────────────────── */
+
+exports.waitlistCount = onRequest(async (req, res) => {
+  setCorsHeaders(res, 'GET, OPTIONS');
+
+  if (req.method === 'OPTIONS') {
+    res.status(204).send('');
+    return;
+  }
+
+  if (req.method !== 'GET') {
+    res.set('Allow', 'GET');
+    res.status(405).json({ error: 'Method Not Allowed' });
+    return;
+  }
+
+  try {
+    const count = await getWaitlistCount();
+    res.set('Cache-Control', 'public, max-age=60, s-maxage=60');
+    res.status(200).json({ count });
+  } catch (error) {
+    functions.logger.error('Unable to read waitlist count:', error);
+    res.status(500).json({ error: 'Unable to retrieve waitlist count.' });
+  }
+});
 
 /* ── contact ─────────────────────────────────────────────────── */
 
