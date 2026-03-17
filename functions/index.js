@@ -274,7 +274,7 @@ exports.subscribe = onRequest(
     }
 
     const body = parseBody(req);
-    const { email, list, audienceRole } = body;
+    const { email, list, audienceRole, source } = body;
 
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       res.status(400).json({ error: 'A valid email address is required.' });
@@ -297,10 +297,14 @@ exports.subscribe = onRequest(
 
     const payload = { email, status: 'active' };
     if (groupId) payload.groups = [groupId];
-    if (requestedList === 'theclub_waitlist' && audienceRole) {
+    if (requestedList === 'theclub_waitlist') {
       payload.fields = {
-        audience_role: audienceRole,
+        source: typeof source === 'string' && source.trim() ? source.trim() : 'club_waitlist',
       };
+
+      if (audienceRole) {
+        payload.fields.audience_role = audienceRole;
+      }
     }
 
     try {

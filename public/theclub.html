@@ -307,6 +307,14 @@
       margin-bottom: 1rem;
     }
 
+    .waitlist-count {
+      margin-top: 0.2rem;
+      margin-bottom: 0;
+      text-align: center;
+      font-size: 0.84rem;
+      color: var(--color-text-muted);
+    }
+
     .waitlist-form {
       display: grid;
       gap: 0.9rem;
@@ -361,6 +369,59 @@
       background: rgba(239, 68, 68, 0.14);
       border: 1px solid rgba(239, 68, 68, 0.28);
       color: #FECACA;
+    }
+
+    .access-works-panel {
+      margin-top: 1.6rem;
+      padding: 1.4rem;
+      border-radius: 22px;
+      border: 1px solid rgba(212, 175, 55, 0.16);
+      background: linear-gradient(180deg, rgba(18, 24, 42, 0.9), rgba(12, 17, 29, 0.88));
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+    }
+
+    .access-works-panel h2 {
+      font-size: 1.1rem;
+      margin-bottom: 0.7rem;
+      color: #F8FAFC;
+    }
+
+    .access-works-panel p {
+      margin-bottom: 0;
+      color: var(--color-text-muted);
+      line-height: 1.75;
+    }
+
+    .access-wave-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .access-wave-card {
+      padding: 1rem 1.05rem;
+      border-radius: 18px;
+      border: 1px solid rgba(212, 175, 55, 0.14);
+      background: rgba(255, 255, 255, 0.04);
+      box-shadow: inset 0 0 18px rgba(212, 175, 55, 0.05);
+    }
+
+    .access-wave-title {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 0.98rem;
+      font-weight: 800;
+      color: #F8FAFC;
+    }
+
+    .access-wave-copy {
+      display: grid;
+      gap: 0.18rem;
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+      line-height: 1.65;
     }
 
     .section-heading {
@@ -1010,6 +1071,30 @@
             <a href="#waitlist-form" class="btn btn-secondary btn-lg">See What's Inside</a>
           </div>
 
+          <section class="access-works-panel" aria-labelledby="access-works-heading">
+            <h2 id="access-works-heading">How Access Works</h2>
+            <p>We&rsquo;re opening The Club in small waves so we can build this the right way.</p>
+            <div class="access-wave-grid" aria-label="Wave access details">
+              <article class="access-wave-card">
+                <span class="access-wave-title">Wave 1</span>
+                <div class="access-wave-copy">
+                  <span>Opens April 15</span>
+                  <span>Limited number of founding members</span>
+                  <span>150-200 people</span>
+                </div>
+              </article>
+              <article class="access-wave-card">
+                <span class="access-wave-title">Wave 2</span>
+                <div class="access-wave-copy">
+                  <span>Opens shortly after</span>
+                  <span>For those who join next</span>
+                  <span>150-200</span>
+                </div>
+              </article>
+            </div>
+            <p>When Wave 1 fills, new members will automatically be placed into Wave 2.</p>
+          </section>
+
           <p class="hero-helper">Come on your own or bring your person. You belong here.</p>
           <p class="cta-trust-line">Always open. Always free.</p>
         </div>
@@ -1035,7 +1120,7 @@
             </div>
           </div>
 
-          <h2 class="waitlist-title">Join the waitlist</h2>
+          <h2 class="waitlist-title">Secure your spot in the first wave</h2>
           <p class="waitlist-copy">Be among the people who receive the first invitation when access begins on April 15.</p>
 
           <form id="waitlist-form" class="waitlist-form" novalidate>
@@ -1052,7 +1137,8 @@
             </select>
 
             <button type="submit" class="btn btn-primary btn-lg">Join the First Wave – Get Early Access</button>
-            <p class="launch-note">You'll be notified as soon as first wave access begins.</p>
+            <p class="waitlist-count">77 people are already on the waitlist</p>
+            <p class="launch-note">You&rsquo;ll be notified when your wave opens.</p>
             <div id="waitlist-status" class="waitlist-status" aria-live="polite"></div>
           </form>
         </aside>
@@ -1477,6 +1563,19 @@
   <script src="js/main.js"></script>
   <script>
     (function () {
+      const currentWave = 1;
+      const waveContent = {
+        1: {
+          cta: 'Join the First Wave – Get Early Access',
+          badge: 'Founding Members – First Wave',
+        },
+        2: {
+          cta: 'Join Wave 2 – Get Early Access',
+          badge: 'Now Accepting – Wave 2',
+          // Future activation copy near the CTA: Wave 1 is now full
+        },
+      };
+      const activeWave = waveContent[currentWave] || waveContent[1];
       const launchDate = new Date('2026-04-15T00:00:00');
       const daysEl = document.getElementById('countdown-days');
       const hoursEl = document.getElementById('countdown-hours');
@@ -1519,6 +1618,14 @@
         statusEl.textContent = text;
       }
 
+      document.querySelectorAll('a[href="#waitlist-form"].btn-primary, .waitlist-form button[type="submit"]').forEach((element) => {
+        element.textContent = activeWave.cta;
+      });
+
+      document.querySelectorAll('.founding-badge').forEach((element) => {
+        element.textContent = activeWave.badge;
+      });
+
       if (form && emailInput && statusEl) {
         form.addEventListener('submit', async function (event) {
           event.preventDefault();
@@ -1545,7 +1652,8 @@
               body: JSON.stringify({
                 email,
                 list: 'theclub_waitlist',
-                audienceRole
+                audienceRole,
+                source: 'club_waitlist'
               })
             });
             const data = await response.json();
