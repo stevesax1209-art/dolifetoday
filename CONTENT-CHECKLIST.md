@@ -62,7 +62,7 @@ The playlist cards on `music.html` still have placeholder `href="#"` links.
 
 | Item | Status | Value |
 |------|--------|-------|
-| The Club (main community) | ✅ Done | `https://club.dolifetoday.com` |
+| The Club (main community) | ✅ Done | `/theclub` |
 | Inner Circle | ✅ Done | `https://community.dolifetoday.com/pages/inner-circle` |
 | Podcast Hub | ✅ Done | `https://podcast.dolifetoday.com` |
 | Merch Store | ✅ Done | `https://dolifetoday.myspreadshop.com` |
@@ -89,7 +89,7 @@ The playlist cards on `music.html` still have placeholder `href="#"` links.
 | Bryce's bio `[professional background]` placeholder | ✅ Fixed |
 | PCN App → "The Club" throughout all pages | ✅ Done |
 | "Parkinson's Community Network (PCN)" → "The Club" | ✅ Done |
-| Community link → `https://club.dolifetoday.com` | ✅ Done |
+| Community link → `/theclub` | ✅ Done |
 | Footer copyright year 2024 → 2025 | ✅ Done |
 | Footer social links updated to real profiles | ✅ Done |
 | Footer "Platforms" → "The DLT Platform" with full ecosystem | ✅ Done |

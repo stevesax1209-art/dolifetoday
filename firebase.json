@@ -1,33 +1,40 @@
 {
   "hosting": {
-    "public": ".",
+    "public": "public",
     "ignore": [
       "firebase.json",
       "**/.*",
-      "**/node_modules/**",
-      "functions/**",
-      "CONTENT-CHECKLIST.md",
-      "Digital Ecosystem Strategy.docx"
+      "**/node_modules/**"
+    ],
+    "redirects": [
+      { "source": "/pcn-app", "destination": "/theclub", "type": 301 },
+      { "source": "/pcn-app.html", "destination": "/theclub", "type": 301 },
+      { "source": "/theclub.html", "destination": "/theclub", "type": 301 }
     ],
     "rewrites": [
+      { "source": "/newly-diagnosed", "destination": "/newly-diagnosed.html" },
+      { "source": "/symptoms", "destination": "/symptoms.html" },
+      { "source": "/medication-treatment", "destination": "/medication-treatment.html" },
+      { "source": "/exercise-movement", "destination": "/exercise-movement.html" },
+      { "source": "/sleep-fatigue", "destination": "/sleep-fatigue.html" },
+      { "source": "/mental-health", "destination": "/mental-health.html" },
+      { "source": "/care-partners", "destination": "/care-partners.html" },
+      { "source": "/community-support", "destination": "/community-support.html" },
+      { "source": "/life-in-motion", "destination": "/life-in-motion.html" },
+      { "source": "/theclub", "destination": "/theclub.html" },
+      { "source": "/api/podcast-feed", "function": "podcastFeed" },
       { "source": "/api/subscribe", "function": "subscribe" },
-      { "source": "/api/contact",   "function": "contact"   },
-      { "source": "/api/podcast-feed", "function": "podcastFeed" }
-    ],
-    "headers": [
-      {
-        "source": "**",
-        "headers": [
-          { "key": "X-Frame-Options",        "value": "DENY" },
-          { "key": "X-Content-Type-Options",  "value": "nosniff" },
-          { "key": "Referrer-Policy",         "value": "strict-origin-when-cross-origin" },
-          { "key": "Permissions-Policy",      "value": "camera=(), microphone=(), geolocation=()" }
-        ]
-      }
+      { "source": "/api/contact", "function": "contact" }
     ]
   },
   "functions": {
     "source": "functions",
     "runtime": "nodejs20"
+  },
+  "firestore": {
+    "database": "(default)",
+    "location": "nam5",
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
   }
 }

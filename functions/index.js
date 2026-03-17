@@ -10,11 +10,13 @@
  * Environment variables (set in Firebase Console → Functions → Configuration,
  * or via CLI: firebase functions:config:set mailerlite.token="..." etc.):
  *   MAILERLITE_API_TOKEN          — required
- *   MAILERLITE_GROUP_ID           — optional; newsletter group ID
- *   MAILERLITE_CONTACT_GROUP_ID   — optional; contact inquiries group ID
+ *   MAILERLITE_GROUP_ID                 — optional; newsletter group ID
+ *   MAILERLITE_CONTACT_GROUP_ID         — optional; contact inquiries group ID
+ *   MAILERLITE_THECLUB_WAITLIST_GROUP_ID — optional; The Club waitlist group ID
  */
 
 const functions = require('firebase-functions');
+const { onRequest } = require('firebase-functions/v2/https');
 
 const MAILERLITE_API_URL = 'https://connect.mailerlite.com/api/subscribers';
 const PODCAST_FEEDS = Object.freeze({
@@ -198,177 +200,15 @@ function parsePodcastRss(xml, podcastConfig) {
   };
 }
 
-/* ── subscribe ───────────────────────────────────────────────── */
+/* ── podcastFeed ────────────────────────────────────────────── */
 
-exports.subscribe = functions.https.onRequest(async (req, res) => {
-  setCorsHeaders(res);
-  if (req.method === 'OPTIONS') { res.status(204).send(''); return; }
-
-  if (req.method !== 'POST') {
-    res.set('Allow', 'POST');
-    res.status(405).json({ error: 'Method Not Allowed' });
-    return;
-  }
-
-  const { email } = parseBody(req);
-
-  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    res.status(400).json({ error: 'A valid email address is required.' });
-    return;
-  }
-
-  const apiToken = process.env.MAILERLITE_API_TOKEN;
-  const groupId  = process.env.MAILERLITE_GROUP_ID;
-
-  if (!apiToken) {
-    functions.logger.error('MAILERLITE_API_TOKEN is not set.');
-    res.status(500).json({ error: 'Server configuration error. Please try again later.' });
-    return;
-  }
-
-  const payload = { email, status: 'active' };
-  if (groupId) payload.groups = [groupId];
-
-  try {
-    const mlRes = await fetch(MAILERLITE_API_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${apiToken}`,
-      },
-      body: JSON.stringify(payload),
-    });
-
-    if (mlRes.status === 200 || mlRes.status === 201) {
-      res.status(200).json({ message: 'Subscribed successfully!' });
-      return;
-    }
-
-    // 422 = already subscribed — treat as success
-    if (mlRes.status === 422) {
-      res.status(200).json({ message: 'You are already subscribed — thank you!' });
-      return;
-    }
-
-    const errText = await mlRes.text();
-    functions.logger.error(`MailerLite error ${mlRes.status}:`, errText);
-    res.status(500).json({ error: 'Subscription failed. Please try again later.' });
-  } catch (err) {
-    functions.logger.error('Network error calling MailerLite:', err);
-    res.status(502).json({ error: 'Unable to reach subscription service. Please try again later.' });
-  }
-});
-
-/* ── contact ─────────────────────────────────────────────────── */
-
-exports.contact = functions.https.onRequest(async (req, res) => {
-  setCorsHeaders(res);
-  if (req.method === 'OPTIONS') { res.status(204).send(''); return; }
-
-  if (req.method !== 'POST') {
-    res.set('Allow', 'POST');
-    res.status(405).json({ error: 'Method Not Allowed' });
-    return;
-  }
-
-  const { name, email, organization, inquiry_type, message } = parseBody(req);
-
-  const errors = [];
-  if (!name || name.trim().length < 2)      errors.push('Full name is required.');
-  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.push('A valid email address is required.');
-  if (!inquiry_type)                         errors.push('Inquiry type is required.');
-  if (!message || message.trim().length < 10) errors.push('Message must be at least 10 characters.');
-
-  if (errors.length) {
-    res.status(400).json({ error: errors.join(' ') });
-    return;
-  }
-
-  const apiToken = process.env.MAILERLITE_API_TOKEN;
-  const groupId  = process.env.MAILERLITE_CONTACT_GROUP_ID;
-
-  if (!apiToken) {
-    functions.logger.error('MAILERLITE_API_TOKEN is not set.');
-    res.status(500).json({ error: 'Server configuration error. Please try again later.' });
-    return;
-  }
-
-  // MailerLite text custom fields accept up to 500 characters
-  const MAX_FIELD_LENGTH = 500;
-  const truncatedMessage = message.trim().substring(0, MAX_FIELD_LENGTH);
-
-  const payload = {
-    email: email.trim(),
-    status: 'active',
-    fields: {
-      name:         name.trim(),
-      company:      (organization || '').trim(),
-      // Custom fields — must be pre-created in MailerLite dashboard:
-      //   inquiry_type (Text), last_message (Text)
-      inquiry_type: inquiry_type,
-      last_message: truncatedMessage,
-    },
-  };
-  if (groupId) payload.groups = [groupId];
-
-  try {
-    const mlRes = await fetch(MAILERLITE_API_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${apiToken}`,
-      },
-      body: JSON.stringify(payload),
-    });
-
-    if (mlRes.status === 200 || mlRes.status === 201) {
-      res.status(200).json({ message: "Message received! We'll be in touch within 24–48 hours." });
-      return;
-    }
-
-    const errText = await mlRes.text();
-    functions.logger.error(`MailerLite error ${mlRes.status}:`, errText);
-
-    // 422 = custom fields may not exist yet — retry without them
-    if (mlRes.status === 422) {
-      const fallbackPayload = {
-        email:  email.trim(),
-        status: 'active',
-        fields: { name: name.trim(), company: (organization || '').trim() },
-      };
-      if (groupId) fallbackPayload.groups = [groupId];
-
-      try {
-        const fbRes = await fetch(MAILERLITE_API_URL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${apiToken}`,
-          },
-          body: JSON.stringify(fallbackPayload),
-        });
-
-        if (fbRes.status === 200 || fbRes.status === 201) {
-          res.status(200).json({ message: "Message received! We'll be in touch within 24–48 hours." });
-          return;
-        }
-      } catch (fbErr) {
-        functions.logger.error('Fallback MailerLite error:', fbErr);
-      }
-    }
-
-    res.status(500).json({ error: 'Could not send your message. Please email office@dolifetoday.com directly.' });
-  } catch (err) {
-    functions.logger.error('Network error calling MailerLite:', err);
-    res.status(502).json({ error: 'Unable to reach messaging service. Please try again or email office@dolifetoday.com.' });
-  }
-});
-
-/* ── podcastFeed ──────────────────────────────────────────────── */
-
-exports.podcastFeed = functions.https.onRequest(async (req, res) => {
+exports.podcastFeed = onRequest(async (req, res) => {
   setCorsHeaders(res, 'GET, OPTIONS');
-  if (req.method === 'OPTIONS') { res.status(204).send(''); return; }
+
+  if (req.method === 'OPTIONS') {
+    res.status(204).send('');
+    return;
+  }
 
   if (req.method !== 'GET') {
     res.set('Allow', 'GET');
@@ -376,47 +216,274 @@ exports.podcastFeed = functions.https.onRequest(async (req, res) => {
     return;
   }
 
-  const show = typeof req.query.show === 'string' ? req.query.show.trim() : '';
-  const podcastConfig = PODCAST_FEEDS[show];
+  const requestedShow = typeof req.query.show === 'string' ? req.query.show.trim() : '';
+  const podcastConfig = PODCAST_FEEDS[requestedShow];
 
   if (!podcastConfig) {
-    res.status(404).json({ error: 'Podcast feed not found.' });
+    res.status(400).json({
+      error: 'Unknown podcast feed requested.',
+      availableShows: Object.keys(PODCAST_FEEDS),
+    });
     return;
   }
-
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 15000);
 
   try {
     const feedResponse = await fetch(podcastConfig.rssUrl, {
       headers: {
-        Accept: 'application/rss+xml, application/xml;q=0.9, text/xml;q=0.8',
-        'User-Agent': 'DoingLifeTodayPodcastBot/1.0 (+https://dolifetoday.com)',
+        'User-Agent': 'DoingLifeTodayPodcastFeed/1.0',
+        Accept: 'application/rss+xml, application/xml, text/xml;q=0.9, */*;q=0.8',
       },
-      signal: controller.signal,
     });
 
     if (!feedResponse.ok) {
-      functions.logger.error(`Podcast feed error ${feedResponse.status} for ${show}.`);
-      res.status(502).json({ error: 'Unable to load the podcast feed right now.' });
+      const errorBody = await feedResponse.text();
+      functions.logger.error(`Podcast feed upstream error ${feedResponse.status} for ${requestedShow}:`, errorBody);
+      res.status(502).json({ error: 'Unable to retrieve the podcast feed right now.' });
       return;
     }
 
     const xml = await feedResponse.text();
-    const parsedFeed = parsePodcastRss(xml, podcastConfig);
+    const payload = parsePodcastRss(xml, podcastConfig);
 
-    res.set('Cache-Control', 'public, max-age=300, s-maxage=1800, stale-while-revalidate=86400');
-    res.status(200).json(parsedFeed);
-  } catch (err) {
-    functions.logger.error(`Podcast feed request failed for ${show}:`, err);
-    res.status(502).json({ error: 'Unable to reach the podcast feed right now.' });
-  } finally {
-    clearTimeout(timeout);
+    res.set('Cache-Control', 'public, max-age=900, s-maxage=900');
+    res.status(200).json(payload);
+  } catch (error) {
+    functions.logger.error(`Podcast feed network error for ${requestedShow}:`, error);
+    res.status(502).json({ error: 'Unable to retrieve the podcast feed right now.' });
   }
 });
 
-exports.__private = {
-  parsePodcastRss,
-  stripHtml,
-  decodeXmlEntities,
-};
+/* ── subscribe ───────────────────────────────────────────────── */
+
+exports.subscribe = onRequest(
+  {
+    secrets: [
+      'MAILERLITE_API_TOKEN',
+      'MAILERLITE_GROUP_ID',
+      'MAILERLITE_THECLUB_WAITLIST_GROUP_ID',
+    ],
+  },
+  async (req, res) => {
+    setCorsHeaders(res);
+    if (req.method === 'OPTIONS') { res.status(204).send(''); return; }
+
+    if (req.method !== 'POST') {
+      res.set('Allow', 'POST');
+      res.status(405).json({ error: 'Method Not Allowed' });
+      return;
+    }
+
+    const body = parseBody(req);
+    const { email, list, audienceRole } = body;
+
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      res.status(400).json({ error: 'A valid email address is required.' });
+      return;
+    }
+
+    const apiToken = process.env.MAILERLITE_API_TOKEN;
+    const requestedList = typeof list === 'string' ? list.trim() : '';
+    const groupIds = {
+      newsletter: process.env.MAILERLITE_GROUP_ID,
+      theclub_waitlist: process.env.MAILERLITE_THECLUB_WAITLIST_GROUP_ID || process.env.MAILERLITE_GROUP_ID,
+    };
+    const groupId = groupIds[requestedList] || groupIds.newsletter;
+
+    if (!apiToken) {
+      functions.logger.error('MAILERLITE_API_TOKEN is not set.');
+      res.status(500).json({ error: 'Server configuration error. Please try again later.' });
+      return;
+    }
+
+    const payload = { email, status: 'active' };
+    if (groupId) payload.groups = [groupId];
+    if (requestedList === 'theclub_waitlist' && audienceRole) {
+      payload.fields = {
+        audience_role: audienceRole,
+      };
+    }
+
+    try {
+      const mlRes = await fetch(MAILERLITE_API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${apiToken}`,
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (mlRes.status === 200 || mlRes.status === 201) {
+        res.status(200).json({
+          message: requestedList === 'theclub_waitlist'
+            ? "You're on the list. We'll notify you when the first wave opens."
+            : 'Subscribed successfully!',
+        });
+        return;
+      }
+
+      // 422 = already subscribed — treat as success
+      if (mlRes.status === 422) {
+        res.status(200).json({
+          message: requestedList === 'theclub_waitlist'
+            ? "You're already on the list. We'll notify you when the first wave opens."
+            : 'You are already subscribed — thank you!',
+        });
+        return;
+      }
+
+      const errText = await mlRes.text();
+      functions.logger.error(`MailerLite error ${mlRes.status}:`, errText);
+      res.status(500).json({ error: 'Subscription failed. Please try again later.' });
+    } catch (err) {
+      functions.logger.error('Network error calling MailerLite:', err);
+      res.status(502).json({ error: 'Unable to reach subscription service. Please try again later.' });
+    }
+  }
+);
+
+/* ── contact ─────────────────────────────────────────────────── */
+
+exports.contact = onRequest(
+  {
+    secrets: [
+      'MAILERLITE_API_TOKEN',
+      'MAILERLITE_CONTACT_GROUP_ID',
+    ],
+  },
+  async (req, res) => {
+    setCorsHeaders(res);
+    if (req.method === 'OPTIONS') { res.status(204).send(''); return; }
+
+    if (req.method !== 'POST') {
+      res.set('Allow', 'POST');
+      res.status(405).json({ error: 'Method Not Allowed' });
+      return;
+    }
+
+    const { name, email, organization, inquiry_type, message } = parseBody(req);
+
+    const errors = [];
+    if (!name || name.trim().length < 2) errors.push('Full name is required.');
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.push('A valid email address is required.');
+    if (!inquiry_type) errors.push('Inquiry type is required.');
+    if (!message || message.trim().length < 10) errors.push('Message must be at least 10 characters.');
+
+    if (errors.length) {
+      res.status(400).json({ error: errors.join(' ') });
+      return;
+    }
+
+    const apiToken = process.env.MAILERLITE_API_TOKEN;
+    const groupId = process.env.MAILERLITE_CONTACT_GROUP_ID;
+
+    if (!apiToken) {
+      functions.logger.error('MAILERLITE_API_TOKEN is not set.');
+      res.status(500).json({ error: 'Server configuration error. Please try again later.' });
+      return;
+    }
+
+    // MailerLite text custom fields accept up to 500 characters.
+    const MAX_FIELD_LENGTH = 500;
+    const truncatedMessage = message.trim().substring(0, MAX_FIELD_LENGTH);
+
+    const payload = {
+      email: email.trim(),
+      status: 'active',
+      fields: {
+        name: name.trim(),
+        company: (organization || '').trim(),
+        inquiry_type,
+        last_message: truncatedMessage,
+      },
+    };
+    if (groupId) payload.groups = [groupId];
+
+    try {
+      const mlRes = await fetch(MAILERLITE_API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${apiToken}`,
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (mlRes.status === 200 || mlRes.status === 201) {
+        res.status(200).json({ message: "Message received! We'll be in touch within 24-48 hours." });
+        return;
+      }
+
+      const errText = await mlRes.text();
+      functions.logger.error(`MailerLite error ${mlRes.status}:`, errText);
+
+      // MailerLite may reject an invalid group with a generic 500; retry without groups.
+      if (groupId) {
+        const noGroupPayload = {
+          email: email.trim(),
+          status: 'active',
+          fields: {
+            name: name.trim(),
+            company: (organization || '').trim(),
+            inquiry_type,
+            last_message: truncatedMessage,
+          },
+        };
+
+        try {
+          const noGroupRes = await fetch(MAILERLITE_API_URL, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${apiToken}`,
+            },
+            body: JSON.stringify(noGroupPayload),
+          });
+
+          if (noGroupRes.status === 200 || noGroupRes.status === 201) {
+            res.status(200).json({ message: "Message received! We'll be in touch within 24-48 hours." });
+            return;
+          }
+        } catch (noGroupErr) {
+          functions.logger.error('MailerLite retry without group failed:', noGroupErr);
+        }
+      }
+
+      // 422 may indicate custom fields are missing; retry with basic fields only.
+      if (mlRes.status === 422) {
+        const fallbackPayload = {
+          email: email.trim(),
+          status: 'active',
+          fields: {
+            name: name.trim(),
+            company: (organization || '').trim(),
+          },
+        };
+        if (groupId) fallbackPayload.groups = [groupId];
+
+        try {
+          const fbRes = await fetch(MAILERLITE_API_URL, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${apiToken}`,
+            },
+            body: JSON.stringify(fallbackPayload),
+          });
+
+          if (fbRes.status === 200 || fbRes.status === 201) {
+            res.status(200).json({ message: "Message received! We'll be in touch within 24-48 hours." });
+            return;
+          }
+        } catch (fbErr) {
+          functions.logger.error('Fallback MailerLite error:', fbErr);
+        }
+      }
+
+      res.status(500).json({ error: 'Message could not be delivered. Please try again later.' });
+    } catch (err) {
+      functions.logger.error('Network error calling MailerLite:', err);
+      res.status(502).json({ error: 'Unable to reach contact service. Please try again later.' });
+    }
+  }
+);

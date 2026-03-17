@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Living With Parkinson's Guide | Symptoms, Treatment, Support & Daily Life</title>
+  <meta name="description" content="A practical guide to living with Parkinson's disease, including symptoms, medication, exercise, mental health, community support, and real-life resources from Doing Life Today.">
+  <meta name="keywords" content="living with Parkinson's, Parkinson's disease guide, Parkinson's symptoms, Parkinson's treatment, Parkinson's medication, exercise for Parkinson's, support">
+  <meta name="author" content="Doing Life Today">
+  <meta property="og:title" content="Living With Parkinson's Guide | Symptoms, Treatment, Support & Daily Life">
+  <meta property="og:description" content="A practical guide to living with Parkinson's disease, including symptoms, medication, exercise, mental health, community support, and real-life resources from Doing Life Today.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://doing-life-today.web.app/community.html">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .guide-section {
+      padding: 4rem 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .guide-section h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #20b2aa, #4db8c4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .guide-section h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: #e0f7fa;
+    }
+
+    .guide-section p {
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      color: #ccc;
+    }
+
+    .quick-start {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.8rem;
+      margin: 2rem 0;
+    }
+
+    .quick-start-card {
+      background: rgba(32, 178, 170, 0.1);
+      border: 1px solid rgba(32, 178, 170, 0.3);
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: #e0f7fa;
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+
+    .quick-start-card:hover {
+      background: rgba(32, 178, 170, 0.3);
+      border-color: rgba(32, 178, 170, 0.6);
+      transform: translateY(-2px);
+    }
+
+    .card-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0 3rem 0;
+    }
+
+    .card-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0 3rem 0;
+    }
+
+    .content-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(32, 178, 170, 0.2);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+    }
+
+    .content-card:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(32, 178, 170, 0.4);
+      transform: translateY(-4px);
+    }
+
+    .content-card h4 {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      color: #20b2aa;
+    }
+
+    .content-card p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #bbb;
+      margin-bottom: 0;
+    }
+
+    .feature-card {
+      background: linear-gradient(135deg, rgba(32, 178, 170, 0.15), rgba(77, 184, 196, 0.1));
+      border: 1px solid rgba(32, 178, 170, 0.3);
+      border-radius: 12px;
+      padding: 2.5rem;
+      grid-column: 1 / -1;
+    }
+
+    .feature-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .feature-card p {
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 1rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #20b2aa, #4db8c4);
+      color: #000;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(32, 178, 170, 0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid #20b2aa;
+      color: #20b2aa;
+    }
+
+    .btn-outline:hover {
+      background: rgba(32, 178, 170, 0.1);
+      border-color: #4db8c4;
+      color: #4db8c4;
+    }
+
+    .cta-line {
+      font-size: 0.9rem;
+      color: #888;
+      margin: 2rem 0 1.5rem 0;
+      text-align: center;
+    }
+
+    .video-embed {
+      position: relative;
+      width: 100%;
+      max-width: 700px;
+      margin: 2rem auto;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      border: 1px solid rgba(32, 178, 170, 0.2);
+    }
+
+    .video-embed iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .credibility-badges {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+      text-align: center;
+    }
+
+    .badge {
+      padding: 1rem;
+      background: rgba(32, 178, 170, 0.05);
+      border: 1px solid rgba(32, 178, 170, 0.2);
+      border-radius: 8px;
+    }
+
+    .badge-number {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #20b2aa;
+    }
+
+    .badge-label {
+      font-size: 0.85rem;
+      color: #999;
+      margin-top: 0.5rem;
+    }
+
+    .form-group {
+      max-width: 500px;
+      margin: 2rem auto;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 0.5rem;
+      border: 1px solid rgba(32, 178, 170, 0.3);
+      border-radius: 6px;
+      background: rgba(0, 0, 0, 0.3);
+      color: #fff;
+      font-size: 0.95rem;
+    }
+
+    .form-group input::placeholder {
+      color: #777;
+    }
+
+    .form-note {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #777;
+      margin-top: 0.5rem;
+    }
+
+    .authority-line {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #888;
+      padding: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      .guide-section {
+        padding: 2.5rem 1.5rem;
+      }
+
+      .guide-section h2 {
+        font-size: 1.8rem;
+      }
+
+      .quick-start {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .card-grid-3,
+      .card-grid-4 {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-group,
+      .btn-group {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3LZZWBTWT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K3LZZWBTWT');
+  </script>
+</head>
+<body style="background: linear-gradient(135deg, #0a0a1a 0%, #1a0a2e 50%, #0d1f2d 100%); color: #e0e0e0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6;">
+
+  <!-- Navigation -->
+  <nav style="position: sticky; top: 0; background: rgba(10, 10, 26, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(32, 178, 170, 0.2); z-index: 1000; padding: 1rem 0;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center;">
+      <a href="index.html" aria-label="Doing Life Today - Home" style="display: inline-flex; align-items: center; text-decoration: none; color: #fff; flex-shrink: 0;">
+        <svg style="display:block; width: min(240px, 22vw); min-width: 150px; height: auto;" viewBox="0 0 240 56" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Doing Life Today">
+          <defs>
+            <linearGradient id="dltGradNavCommunity" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#35D0FF"/>
+              <stop offset="50%" stop-color="#5B6CFF"/>
+              <stop offset="100%" stop-color="#C04BFF"/>
+            </linearGradient>
+          </defs>
+          <rect x="4" y="4" width="48" height="48" rx="12" fill="url(#dltGradNavCommunity)"/>
+          <text x="28" y="34" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-weight="800" font-size="18" fill="white">DLT</text>
+          <text x="66" y="33" font-family="Inter, system-ui, sans-serif" font-weight="700" font-size="20" fill="white">Doing Life Today</text>
+        </svg>
+      </a>
+      <div style="display: flex; gap: 2rem; align-items: center;">
+        <a href="index.html" style="color: #ccc; text-decoration: none; transition: color 0.3s;">Home</a>
+        <a href="podcasts.html" style="color: #ccc; text-decoration: none; transition: color 0.3s;">Podcasts</a>
+        <a href="music.html" style="color: #ccc; text-decoration: none; transition: color 0.3s;">Music</a>
+        <a href="events.html" style="color: #ccc; text-decoration: none; transition: color 0.3s;">Events</a>
+        <a href="resources.html" style="color: #ccc; text-decoration: none; transition: color 0.3s;">Resources</a>
+        <a href="community.html" class="nav-guide-link" style="color: #20b2aa; background: rgba(32, 178, 170, 0.2); padding: 0.4rem 0.8rem; border-radius: 4px; text-decoration: none; transition: all 0.3s; font-weight: 600; display: inline-block;">Living With Parkinson's Guide</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section style="padding: 5rem 2rem; text-align: center; background: linear-gradient(180deg, rgba(32, 178, 170, 0.1), transparent);">
+    <div style="max-width: 900px; margin: 0 auto;">
+      <span style="color: #20b2aa; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">Practical Guide for Life With Parkinson's</span>
+      <h1 style="font-size: 3.5rem; margin: 1.5rem 0; line-height: 1.2; background: linear-gradient(135deg, #20b2aa, #4db8c4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Living With Parkinson's: A Practical Guide</h1>
+      <p style="font-size: 1.3rem; line-height: 1.8; margin-bottom: 2rem; color: #bbb;">Real-world support, strategies, and guidance for people living with Parkinson's disease, care partners, and families.</p>
+      
+      <p style="font-size: 1rem; line-height: 1.7; margin-bottom: 2rem; color: #ccc;">This guide covers Parkinson's symptoms, medication options, exercise strategies, sleep challenges, mental health support, care partner guidance, and the real experience of daily life with Parkinson's disease.</p>
+      
+      <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(32, 178, 170, 0.15); border-radius: 12px; padding: 2rem; margin: 2rem 0;">
+        <p style="font-size: 1rem; line-height: 1.8; color: #ddd; margin-bottom: 1rem;">Parkinson's disease affects every person differently, but one thing is almost universal: most people are left trying to figure out daily life with Parkinson's on their own.</p>
+        <p style="font-size: 1rem; line-height: 1.8; color: #ddd; margin-bottom: 1rem;">This guide brings together trusted content from Doing Life Today, including podcasts, videos, community insight, and practical resources designed to help people better understand Parkinson's symptoms, treatment decisions, daily routines, and real-life challenges.</p>
+        <p style="font-size: 1rem; line-height: 1.8; color: #ddd;">Whether you are newly diagnosed, many years into the journey, or supporting someone you love, this page is here to help you keep Doing Life Today.</p>
+      </div>
+
+      <div class="cta-group">
+        <button class="btn btn-primary" onclick="document.getElementById('quick-start').scrollIntoView({behavior: 'smooth'});">Start With the Basics</button>
+        <button class="btn btn-outline" onclick="window.location.href='/theclub';">Join the Club</button>
+      </div>
+
+      <p style="color: #999; font-size: 0.9rem; margin: 2rem 0 1.5rem 0;">A practical starting point for people living with Parkinson's, care partners, and families in more than 120 countries.</p>
+      
+      <div class="credibility-badges">
+        <div class="badge">
+          <div class="badge-number">1.5M+</div>
+          <div class="badge-label">YouTube Views</div>
+        </div>
+        <div class="badge">
+          <div class="badge-number">22,800+</div>
+          <div class="badge-label">Subscribers</div>
+        </div>
+        <div class="badge">
+          <div class="badge-number">127+</div>
+          <div class="badge-label">Podcast Episodes</div>
+        </div>
+        <div class="badge">
+          <div class="badge-number">120+</div>
+          <div class="badge-label">Countries Reached</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK START NAVIGATION -->
+  <section id="quick-start" class="guide-section" style="background: rgba(32, 178, 170, 0.05); border-bottom: 2px solid rgba(32, 178, 170, 0.2);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <h2 style="text-align: center; margin-bottom: 0.5rem;">On This Page</h2>
+      <p style="text-align: center; font-size: 0.95rem; color: #aaa; margin-bottom: 2rem;">Quick navigation to key topics and resources.</p>
+      
+      <div class="quick-start">
+        <a href="newly-diagnosed.html" class="quick-start-card">Newly Diagnosed</a>
+        <a href="#symptoms" class="quick-start-card">Symptoms</a>
+        <a href="#medication-treatment" class="quick-start-card">Medication & Treatment</a>
+        <a href="#exercise-movement" class="quick-start-card">Exercise & Movement</a>
+        <a href="#sleep-fatigue" class="quick-start-card">Sleep & Fatigue</a>
+        <a href="#mental-health" class="quick-start-card">Mental Health</a>
+        <a href="#care-partners" class="quick-start-card">Care Partners</a>
+        <a href="#community-support" class="quick-start-card">Community Support</a>
+        <a href="#podcasts-videos" class="quick-start-card">Podcasts & Videos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWLY DIAGNOSED -->
+  <section id="newly-diagnosed" class="guide-section">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <h2>Newly Diagnosed With Parkinson's?</h2>
+      <p>A Parkinson's diagnosis can bring fear, confusion, and a hundred unanswered questions all at once.</p>
+      <p>The good news is this: you do not need to understand everything on day one.</p>
+      <p>The first step is learning the basics, finding the right medical support, and focusing on what helps most right now instead of trying to solve the next ten years overnight.</p>
+      
+      <div class="card-grid-3">
+        <div class="content-card">
+          <h4>What to Do in the First 90 Days After a Parkinson's Diagnosis</h4>
+          <p>A practical starting point for understanding your diagnosis, building your care team, and finding your footing.</p>
+        </div>
+        <div class="content-card">
+          <h4>Questions to Ask Your Neurologist</h4>
+          <p>Important questions that can help you better understand your symptoms, medication options, and next steps.</p>
+        </div>
+        <div class="content-card">
+          <h4>How to Find a Movement Disorder Specialist</h4>
+          <p>Why specialist care matters and how to find the right support for long-term Parkinson's treatment.</p>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="newly-diagnosed.html" class="btn btn-primary">Read the Full Newly Diagnosed Guide →</a>
+        <a href="podcasts.html" class="btn btn-secondary">Watch the Podcast</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- UNDERSTANDING SYMPTOMS -->
+  <section id="symptoms" class="guide-section">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <h2>Understanding Parkinson's Symptoms</h2>
+      <p>Parkinson's is more than tremor.</p>
+      <p>It can affect movement, stiffness, sleep, mood, digestion, energy, focus, voice, and many other parts of daily life. Some symptoms are visible. Many are not.</p>
+      <p>Understanding both motor and non-motor symptoms is one of the most important steps in learning how to manage life with Parkinson's more confidently.</p>
+      
+      <div class="card-grid-4">
+        <div class="content-card">
+          <h4>Motor Symptoms</h4>
+          <p>Tremor, stiffness, slowness, balance, gait, freezing, dexterity</p>
+        </div>
+        <div class="content-card">
+          <h4>Non-Motor Symptoms</h4>
+          <p>Fatigue, anxiety, depression, constipation, sleep problems, brain fog, apathy</p>
+        </div>
+        <div class="content-card">
+          <h4>Medication Fluctuations</h4>
+          <p>Wearing off, dyskinesia, delayed on, dose timing issues</p>
+        </div>
+        <div class="content-card">
+          <h4>Voice and Expression</h4>
+          <p>Soft voice, facial masking, speech changes</p>
+        </div>
+      </div>
+
+      <div class="cta-line">
+        Looking for deeper symptom guides? Explore detailed articles and real-life conversations in the Resources and Podcast sections.
+      </div>
+      
+      <div class="btn-group">
+        <a href="resources.html" class="btn btn-primary">View Resources</a>
+        <a href="podcasts.html" class="btn btn-outline">Listen to the Podcast</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEDICATION & TREATMENT SECTION ENDS -- ADD CTA BEFORE NEXT SECTION -->
+  <!-- CTA after symptoms was inserted above this comment -->
+
+  <!-- Next we need to find the medication section and add its CTA. Let me continue with the medication section -->
+
+  <!-- END OF SYMPTOMS INSERTION -->
+    </div>
+  </section>
+
+  <!-- MEDICATION & TREATMENT -->
+  <section id="medication-treatment" class="guide-section">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <h2>Medication, Treatment, and Decision-Making</h2>
+      <p>Medication is one of the biggest topics in Parkinson's because timing, dose changes, side effects, and daily routines can have a major impact on quality of life.</p>
+      <p>This section is designed to help people better understand treatment conversations, medication patterns, and the kinds of questions that matter most when working with a neurologist or movement disorder specialist.</p>
+      
+      <div class="card-grid-4">
+        <div class="content-card">
+          <h4>Levodopa Basics</h4>
+          <p>Understanding what levodopa does and how it fits into Parkinson's treatment</p>
+        </div>
+        <div class="content-card">
+          <h4>Medication Timing</h4>
+          <p>Why timing matters and how daily routines can affect symptom control</p>
+        </div>
+        <div class="content-card">
+          <h4>Side Effects and Wearing Off</h4>
+          <p>What to watch for and how to identify changing patterns</p>
+        </div>
+        <div class="content-card">
+          <h4>Advanced Treatment Options</h4>
+          <p>DBS, infusion therapies, and other next-step treatments</p>
+        </div>
+      </div>
+
+      <div class="btn-group">
+        <a href="podcasts.html" class="btn btn-primary">Medication Podcast Episodes</a>
+        <a href="resources.html" class="btn btn-outline">Treatment Resource Articles</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXERCISE & MOVEMENT -->
+  <section id="exercise-movement" class="guide-section">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <h2>Exercise and Movement Matter</h2>
+      <p>Exercise is one of the most important non-drug tools available in Parkinson's care.</p>
+      <p>The goal is not perfection. The goal is movement.</p>
+      <p>Walking, stretching, strength work, balance training, boxing, dancing, physiotherapy, and simple daily mobility all have the potential to support function, confidence, and long-term quality of life.</p>
+      
+      <div class="card-grid-4">
+        <div class="content-card">
+          <h4>Why Exercise Helps</h4>
+          <p>What research shows about movement and Parkinson's</p>
+        </div>
+        <div class="content-card">
+          <h4>Getting Started Safely</h4>
+          <p>How to begin without feeling overwhelmed</p>
+        </div>
+        <div class="content-card">
+          <h4>Walking, Balance, and Gait</h4>
+          <p>Practical movement strategies for daily life</p>
+        </div>
+        <div class="content-card">
+          <h4>Rhythm, Music, and Motion</h4>
+          <p>How music and beat cueing can support movement</p>
+        </div>
+      </div>
+
+      <div class="btn-group">
+        <a href="https://www.youtube.com/c/DoingLifeToday" class="btn btn-primary">Watch Movement Videos</a>
+        <a href="music.html" class="btn btn-outline">Explore DLT Music</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLEEP & FATIGUE -->
+  <section id="sleep-fatigue" class="guide-section">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <h2>Sleep, Rest, and Fatigue</h2>
+      <p>Sleep disruption and exhaustion are some of the most frustrating and least understood parts of Parkinson's.</p>
+      <p>This can include insomnia, REM sleep behavior disorder, difficulty turning in bed, daytime sleepiness, restless nights, and the heavy fatigue that can make even simple tasks feel harder.</p>
+      
+      <div class="card-grid-3">
+        <div class="content-card">
+          <h4>Why Parkinson's Affects Sleep</h4>
+          <p>A simple explanation of common sleep-related challenges</p>
+        </div>
+        <div class="content-card">
+          <h4>Fatigue vs Sleepiness</h4>
+          <p>Understanding the difference and why it matters</p>
+        </div>
+        <div class="content-card">
+          <h4>Nighttime Strategies</h4>
+          <p>Practical routines and tools that may help</p>
+        </div>
+      </div>
+
+      <div class="cta-line">
+        Sleep problems are one of the most common and frustrating parts of Parkinson's. Explore more resources and conversations here.
+      </div>
+      
+      <div class="btn-group">
+        <a href="resources.html" class="btn btn-primary">Watch Restless Ridge Motel</a>
+        <a href="resources.html" class="btn btn-outline">Read Sleep Resources</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENTAL HEALTH -->
+  <section id="mental-health" class="guide-section">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <h2>Mental Health, Stress, and Emotional Resilience</h2>
+      <p>Parkinson's affects more than the body. It can affect identity, confidence, relationships, motivation, and emotional well-being.</p>
+      <p>Anxiety, depression, grief, frustration, and overwhelm are not signs of weakness. They are common parts of a very real neurological journey.</p>
+      <p>This section should support people in feeling seen while also guiding them toward practical next steps and community support.</p>
+      
+      <div class="card-grid-3">
+        <div class="content-card">
+          <h4>Anxiety and Parkinson's</h4>
+          <p>Understanding the connection and what can help</p>
+        </div>
+        <div class="content-card">
+          <h4>Depression, Apathy, and Motivation</h4>
+          <p>Why emotional changes happen and why they matter</p>
+        </div>
+        <div class="content-card">
+          <h4>Real-Life Coping Strategies</h4>
+          <p>Daily ways to reduce overwhelm and stay grounded</p>
+        </div>
+      </div>
+
+      <div class="cta-line">
+        You do not have to carry the emotional side of Parkinson's alone.
+      </div>
+      
+      <div class="btn-group">
+        <a href="podcasts.html" class="btn btn-primary">Watch Bryce Unplugged</a>
+        <a href="/theclub" class="btn btn-outline">Join the Club</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARE PARTNERS -->
+  <section id="care-partners" class="guide-section">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <h2>For Care Partners and Families</h2>
+      <p>Parkinson's affects the whole household, not just the person with the diagnosis.</p>
+      <p>Care partners and family members often carry questions, stress, responsibility, and emotional weight of their own. They need support too.</p>
+      
+      <div class="card-grid-3">
+        <div class="content-card">
+          <h4>How to Support Without Taking Over</h4>
+          <p>Helping in ways that preserve independence and dignity</p>
+        </div>
+        <div class="content-card">
+          <h4>What Care Partners Need to Know</h4>
+          <p>Patterns, appointments, routines, and communication</p>
+        </div>
+        <div class="content-card">
+          <h4>Finding Support for Yourself</h4>
+          <p>Why care partners need community too</p>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 2rem;">
+        <p class="cta-line">Care partners need information, encouragement, and community too.</p>
+        <a href="#community-support" class="btn btn-primary">Explore Community Support</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PODCASTS & VIDEOS -->
+  <section id="podcasts-videos" class="guide-section">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <h2>Learn Through Podcasts and Video</h2>
+      <p>Some people learn best by reading. Others need to hear a real voice explain it.</p>
+      <p>Doing Life Today includes multiple ways to learn through podcast conversations, YouTube videos, live shows, music, and personal reflections from people navigating Parkinson's in real life.</p>
+      
+      <div class="card-grid-4">
+        <div class="feature-card">
+          <h3>Living with Parkinson's: The Good, the Bad, and the Reality</h3>
+          <p>Honest podcast conversations about symptoms, medications, and life with Parkinson's</p>
+        </div>
+        <div class="feature-card">
+          <h3>Life in Motion: The Parkinson's Podcast</h3>
+          <p>A live and lively show with humor, community stories, and real Parkinson's talk</p>
+        </div>
+        <div class="feature-card">
+          <h3>Bryce Unplugged</h3>
+          <p>Personal reflections, encouragement, and deeper real-life perspective</p>
+        </div>
+        <div class="feature-card">
+          <h3>Doing Life Today Music</h3>
+          <p>Music for movement, mood, motivation, and meaning</p>
+        </div>
+      </div>
+
+      <div class="btn-group">
+        <a href="podcasts.html" class="btn btn-primary">Podcast Page</a>
+        <a href="https://www.youtube.com/c/DoingLifeToday" class="btn btn-outline">YouTube Channel</a>
+        <a href="music.html" class="btn btn-outline">Music Page</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMUNITY SUPPORT -->
+  <section id="community-support" class="guide-section">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <h2>You Do Not Have to Figure This Out Alone</h2>
+      <p>Parkinson's can feel isolating, especially when the people around you do not fully understand what daily life feels like.</p>
+      <p>That is why community matters.</p>
+      <p>Doing Life Today is building spaces where people living with Parkinson's, care partners, and families can connect around the real issues that shape life with the disease.</p>
+      
+      <div class="card-grid-3">
+        <div class="feature-card" style="grid-column: 1 / -1;">
+          <h3>The Parkinson's Club</h3>
+          <p>The Parkinson's Club is a global community built for people living with Parkinson's, their care partners, and families who want real support from others who truly understand the journey.</p>
+          
+          <p style="margin-top: 1.5rem;">Inside the Club, members connect through topic-based groups focused on the everyday realities of Parkinson's, including sleep, medication timing, movement, fatigue, and daily life challenges. Members can share experiences, learn practical strategies, track symptoms and patterns with tools like TrendSense, and have honest conversations in a space built on understanding and respect.</p>
+          
+          <p style="margin-top: 1.5rem;">This isn't just another forum or information site.</p>
+          
+          <p>It's a place where people show up for each other, learn from lived experience, and discover they are not facing Parkinson's alone.</p>
+          
+          <p style="margin-top: 1.5rem;">The goal is simple: give people the knowledge, tools, and community they need to keep Doing Life Today - even with Parkinson's.</p>
+
+          <div class="btn-group" style="margin-top: 2rem;">
+            <a href="/theclub" class="btn btn-primary">Join the Club</a>
+            <a href="/theclub" class="btn btn-outline">Learn About The Club</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED RESOURCES -->
+  <section class="guide-section">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <h2>Featured Parkinson's Resources</h2>
+      <p style="text-align: center; color: #aaa;">Explore practical guides, articles, and real-life insight on the topics people ask about most.</p>
+      
+      <div class="card-grid-3">
+        <div class="content-card">
+          <h4>Parkinson's Symptoms Explained</h4>
+          <p>A comprehensive overview of motor and non-motor symptoms</p>
+        </div>
+        <div class="content-card">
+          <h4>Medication Timing and Wearing Off</h4>
+          <p>Understanding patterns and optimizing your routine</p>
+        </div>
+        <div class="content-card">
+          <h4>How Exercise Helps Parkinson's</h4>
+          <p>Evidence-based strategies for movement and mobility</p>
+        </div>
+        <div class="content-card">
+          <h4>Sleep Problems and Nighttime Movement</h4>
+          <p>Practical solutions for better rest</p>
+        </div>
+        <div class="content-card">
+          <h4>Anxiety and Brain Fog</h4>
+          <p>Managing cognitive and emotional challenges</p>
+        </div>
+        <div class="content-card">
+          <h4>Questions to Ask Your Doctor</h4>
+          <p>Important conversation starters for your medical team</p>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 2rem;">
+        <a href="resources.html" class="btn btn-primary">Browse All Resources</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED VIDEO -->
+  <section class="guide-section" style="background: rgba(32, 178, 170, 0.05);">
+    <div style="max-width: 900px; margin: 0 auto;">
+      <h2 style="text-align: center;">Start Here With Bryce</h2>
+      <p style="text-align: center; color: #aaa;">If you prefer to hear this information directly, start with one of Bryce Perry's most helpful conversations about navigating Parkinson's in real life.</p>
+      
+      <div class="video-embed">
+        <iframe src="https://www.youtube.com/embed/6pU1jdjyd0s" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+
+      <div class="btn-group">
+        <a href="https://www.youtube.com/c/DoingLifeToday" class="btn btn-primary">Watch on YouTube</a>
+        <a href="https://www.youtube.com/c/DoingLifeToday/subscribe" class="btn btn-outline">Subscribe on YouTube</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- EMAIL SIGNUP -->
+  <section class="guide-section">
+    <div style="max-width: 700px; margin: 0 auto;">
+      <h2 style="text-align: center;">Get Parkinson's Support in Your Inbox</h2>
+      <p style="text-align: center;">Get updates on new podcast episodes, videos, practical guides, and community opportunities from Doing Life Today.</p>
+      
+      <div class="form-group">
+        <form style="display: grid; gap: 0.8rem;">
+          <input type="email" placeholder="Your email address" required>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Subscribe Free</button>
+          <div class="form-note">Helpful updates. No spam.</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="guide-section">
+    <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+      <h2>Keep Doing Life Today</h2>
+      <p>Living with Parkinson's is not simple. But clear information, honest conversations, and real community can make the road feel a lot less lonely.</p>
+      <p>Whether you are looking for answers, support, encouragement, or your next best step, Doing Life Today is here to help.</p>
+      
+      <div class="cta-group" style="justify-content: center;">
+        <a href="podcasts.html" class="btn btn-primary">Explore the Podcast</a>
+        <a href="/theclub" class="btn btn-outline">Join the Club</a>
+        <a href="resources.html" class="btn btn-outline">Browse Resources</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background: rgba(0, 0, 0, 0.5); padding: 2rem 2rem; text-align: center;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin: 1.5rem 0;">
+        <a href="index.html" style="color: #999; text-decoration: none; font-size: 0.9rem;">Home</a>
+        <a href="about.html" style="color: #999; text-decoration: none; font-size: 0.9rem;">About</a>
+        <a href="community.html" style="color: #999; text-decoration: none; font-size: 0.9rem;">Living With Parkinson's Guide</a>
+        <a href="resources.html" style="color: #999; text-decoration: none; font-size: 0.9rem;">Resources</a>
+        <a href="podcasts.html" style="color: #999; text-decoration: none; font-size: 0.9rem;">Podcasts</a>
+        <a href="editorial-policy.html" style="color: #999; text-decoration: none; font-size: 0.9rem;">Editorial Policy</a>
+        <a href="medical-disclaimer.html" style="color: #999; text-decoration: none; font-size: 0.9rem;">Medical Disclaimer</a>
+        <a href="content-policy.html" style="color: #999; text-decoration: none; font-size: 0.9rem;">Content Policy</a>
+        <a href="privacy.html" style="color: #999; text-decoration: none; font-size: 0.9rem;">Privacy</a>
+        <a href="contact.html" style="color: #999; text-decoration: none; font-size: 0.9rem;">Contact</a>
+      </div>
+      
+      <p style="color: #777; font-size: 0.85rem; margin-top: 2rem;">© 2026 Doing Life Today. All rights reserved.</p>
+      <p style="color: #888; font-size: 0.85rem; margin-top: 1rem;">Doing Life Today provides independent Parkinson's education grounded in lived experience, community insight, and practical real-world support.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

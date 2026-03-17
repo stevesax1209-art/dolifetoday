@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "dolifetoday"
-  }
+    "default": "doing-life-today"
+  },
+  "targets": {},
+  "etags": {}
 }

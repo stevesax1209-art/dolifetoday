@@ -1,0 +1,1576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Join the first wave of The Club — a private Parkinson's community built by people living with Parkinson's for people living with Parkinson's and their care partners.">
+  <title>The Club | Private Parkinson's Community Launching April 15</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body.theclub-page {
+      --color-primary: #D4AF37;
+      --color-secondary: #F2D27A;
+      --color-bg: #0F172A;
+      --color-bg-2: #1E293B;
+      --color-bg-3: #111827;
+      --color-card: #172235;
+      --color-border: rgba(212, 175, 55, 0.18);
+      --color-text: #F8FAFC;
+      --color-text-muted: #CBD5E1;
+      --gradient-primary: linear-gradient(135deg, #D4AF37 0%, #F3D678 100%);
+      --gradient-card: linear-gradient(135deg, rgba(212, 175, 55, 0.18) 0%, rgba(255, 255, 255, 0.03) 100%);
+      background: linear-gradient(180deg, #0F172A 0%, #111C2C 48%, #0B1322 100%);
+      color: var(--color-text);
+    }
+
+    body.theclub-page .site-header {
+      background: rgba(8, 12, 20, 0.98);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.16);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.28);
+    }
+
+    body.theclub-page .site-header .nav-logo-svg {
+      opacity: 1;
+      filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.24));
+    }
+
+    body.theclub-page .site-header .nav-logo--enhanced {
+      position: relative;
+      z-index: 1;
+    }
+
+    body.theclub-page .nav-links a.active,
+    body.theclub-page .nav-links a:hover,
+    body.theclub-page .mobile-nav a.active,
+    body.theclub-page .mobile-nav a:hover {
+      color: var(--color-primary);
+      background: rgba(212, 175, 55, 0.08);
+    }
+
+    body.theclub-page .btn-primary {
+      color: #101828;
+      box-shadow: 0 10px 28px rgba(212, 175, 55, 0.22);
+    }
+
+    body.theclub-page .btn-primary:hover {
+      color: #101828;
+      box-shadow: 0 14px 34px rgba(212, 175, 55, 0.34);
+    }
+
+    body.theclub-page .btn-secondary {
+      border-color: rgba(212, 175, 55, 0.4);
+      color: #F8FAFC;
+      background: rgba(212, 175, 55, 0.05);
+    }
+
+    body.theclub-page .btn-secondary:hover {
+      background: rgba(212, 175, 55, 0.12);
+      color: var(--color-primary);
+      border-color: var(--color-primary);
+    }
+
+    .club-launch-page {
+      background:
+        radial-gradient(circle at top left, rgba(212, 175, 55, 0.12), transparent 30%),
+        radial-gradient(circle at top right, rgba(255, 255, 255, 0.06), transparent 24%),
+        linear-gradient(180deg, #0F172A 0%, #132033 50%, #0B1322 100%);
+    }
+
+    .club-launch-page section {
+      position: relative;
+      overflow: hidden;
+      padding-block: 5.5rem;
+    }
+
+    .club-launch-page section + section {
+      border-top: 1px solid rgba(212, 175, 55, 0.18);
+    }
+
+    .club-launch-page section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.012), transparent 50%, rgba(212, 175, 55, 0.018));
+    }
+
+    .launch-shell {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-launch {
+      padding-top: 6.4rem;
+      padding-bottom: 5.6rem;
+      background:
+        radial-gradient(circle at 14% 14%, rgba(212, 175, 55, 0.22), transparent 22%),
+        radial-gradient(circle at 85% 10%, rgba(255, 255, 255, 0.07), transparent 20%),
+        radial-gradient(circle at 50% 100%, rgba(212, 175, 55, 0.12), transparent 32%),
+        linear-gradient(135deg, #0B1322 0%, #162338 52%, #101A2C 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .hero-copy {
+      padding-top: 0.35rem;
+    }
+
+    .club-wordmark-wrap {
+      margin-bottom: 1.6rem;
+    }
+
+    .club-wordmark {
+      display: block;
+      width: min(100%, 420px);
+      height: auto;
+      filter: drop-shadow(0 18px 36px rgba(0, 0, 0, 0.26));
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .pill-badge,
+    .founding-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+
+    .pill-badge {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--color-text);
+    }
+
+    .pill-badge-primary {
+      border-color: rgba(212, 175, 55, 0.36);
+      background: rgba(212, 175, 55, 0.12);
+      color: var(--color-primary);
+    }
+
+    .founding-badge {
+      margin-bottom: 1.35rem;
+      border: 1px solid rgba(212, 175, 55, 0.34);
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(243, 214, 120, 0.08));
+      color: #F7E4A5;
+      box-shadow: 0 8px 24px rgba(212, 175, 55, 0.16);
+    }
+
+    .hero-launch h1 {
+      font-size: clamp(3rem, 6vw, 5rem);
+      line-height: 1.02;
+      margin-bottom: 1.15rem;
+      background: linear-gradient(135deg, #FFFFFF 10%, #FAF2D1 55%, #D4AF37 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subheadline {
+      font-size: clamp(1.1rem, 2.4vw, 1.4rem);
+      line-height: 1.55;
+      max-width: 32ch;
+      color: #F3F4F6;
+      margin-bottom: 1rem;
+    }
+
+    .hero-supporting,
+    .hero-reassurance,
+    .hero-microcopy,
+    .hero-helper,
+    .section-copy,
+    .identity-line,
+    .subtle-line,
+    .launch-note,
+    .brand-tagline,
+    .final-line {
+      color: var(--color-text-muted);
+    }
+
+    .hero-supporting {
+      font-size: 1.02rem;
+      font-weight: 600;
+      color: #E5E7EB;
+      margin-bottom: 1.65rem;
+    }
+
+    .hero-helper,
+    .hero-reassurance,
+    .launch-note,
+    .subtle-line {
+      font-size: 0.92rem;
+    }
+
+    .hero-helper {
+      margin-top: 0.95rem;
+      color: #E9E3C3;
+      font-weight: 600;
+    }
+
+    .hero-card {
+      position: relative;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
+      border: 1px solid rgba(212, 175, 55, 0.18);
+      border-radius: 28px;
+      padding: 1.9rem;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.32);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      inset: auto auto 10% 50%;
+      width: 320px;
+      height: 320px;
+      transform: translateX(-50%);
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.18) 0%, rgba(212, 175, 55, 0.03) 45%, transparent 72%);
+      filter: blur(8px);
+      pointer-events: none;
+    }
+
+    .countdown-kicker,
+    .section-kicker {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-primary);
+      margin-bottom: 0.95rem;
+    }
+
+    .countdown-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .countdown-box {
+      position: relative;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(212, 175, 55, 0.15);
+      border-radius: 18px;
+      text-align: center;
+      padding: 0.95rem 0.5rem;
+      box-shadow: inset 0 0 18px rgba(212, 175, 55, 0.06);
+    }
+
+    .countdown-value {
+      display: block;
+      font-size: clamp(1.85rem, 5vw, 2.65rem);
+      font-weight: 900;
+      line-height: 1;
+      color: var(--color-primary);
+    }
+
+    .countdown-label {
+      display: block;
+      margin-top: 0.45rem;
+      font-size: 0.74rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+    }
+
+    .waitlist-title {
+      font-size: 1.55rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .waitlist-copy {
+      color: var(--color-text-muted);
+      font-size: 0.96rem;
+      margin-bottom: 1rem;
+    }
+
+    .waitlist-form {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .waitlist-form label {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #E5E7EB;
+      margin-bottom: -0.35rem;
+    }
+
+    .waitlist-form input,
+    .waitlist-form select {
+      width: 100%;
+      min-height: 56px;
+      padding: 0 1rem;
+      border-radius: 18px;
+      border: 1px solid rgba(212, 175, 55, 0.18);
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--color-text);
+      font-size: 1rem;
+    }
+
+    .waitlist-form option {
+      color: #0F172A;
+    }
+
+    .waitlist-form input::placeholder {
+      color: #94A3B8;
+    }
+
+    .waitlist-status {
+      display: none;
+      padding: 0.85rem 1rem;
+      border-radius: 14px;
+      font-weight: 600;
+      font-size: 0.94rem;
+    }
+
+    .waitlist-status.show {
+      display: block;
+    }
+
+    .waitlist-status.success {
+      background: rgba(212, 175, 55, 0.14);
+      border: 1px solid rgba(212, 175, 55, 0.34);
+      color: #F6E7B2;
+    }
+
+    .waitlist-status.error {
+      background: rgba(239, 68, 68, 0.14);
+      border: 1px solid rgba(239, 68, 68, 0.28);
+      color: #FECACA;
+    }
+
+    .section-heading {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      margin-bottom: 1rem;
+      max-width: 900px;
+    }
+
+    .section-copy {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      max-width: 880px;
+      margin-bottom: 1rem;
+    }
+
+    .dark-block {
+      background: linear-gradient(180deg, rgba(17, 24, 39, 0.96), rgba(15, 23, 42, 0.98));
+    }
+
+    .trust-line,
+    .identity-line {
+      margin-top: 1.35rem;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #F8FAFC;
+      line-height: 1.8;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      margin-top: 2rem;
+    }
+
+    .feature-grid,
+    .moments-grid,
+    .tracker-grid {
+      display: grid;
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+
+    .feature-grid {
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+    }
+
+    .moments-grid {
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+    }
+
+    .tracker-grid {
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr));
+      margin-top: 1.5rem;
+    }
+
+    .feature-card,
+    .moment-card,
+    .wave-card,
+    .founder-card,
+    .tracker-card,
+    .dashboard-panel,
+    .ai-panel,
+    .report-panel,
+    .bring-person-panel {
+      background: linear-gradient(180deg, rgba(18, 24, 42, 0.94), rgba(12, 17, 29, 0.92));
+      border: 1px solid rgba(212, 175, 55, 0.14);
+      border-radius: 24px;
+      padding: 1.5rem;
+      box-shadow: 0 14px 38px rgba(0, 0, 0, 0.22);
+    }
+
+    .feature-icon,
+    .wave-icon,
+    .tracker-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 15px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.95), rgba(243, 214, 120, 0.95));
+      color: #111827;
+      font-weight: 900;
+      font-size: 0.98rem;
+      letter-spacing: 0.04em;
+      margin-bottom: 1rem;
+      box-shadow: 0 10px 24px rgba(212, 175, 55, 0.18);
+    }
+
+    .feature-card h3,
+    .wave-card h3,
+    .founder-card h3,
+    .dashboard-panel h3,
+    .ai-panel h3,
+    .report-panel h3,
+    .bring-person-panel h3,
+    .tracker-card h3 {
+      font-size: 1.18rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .feature-card p,
+    .moment-card p,
+    .wave-card p,
+    .founder-card p,
+    .dashboard-panel p,
+    .ai-panel p,
+    .report-panel p,
+    .bring-person-panel p,
+    .tracker-card p {
+      color: var(--color-text-muted);
+      font-size: 0.96rem;
+      margin: 0;
+    }
+
+    .moment-card {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.9rem;
+      align-items: start;
+    }
+
+    .moment-card::before {
+      content: '\2022';
+      color: var(--color-primary);
+      font-size: 2rem;
+      line-height: 1;
+      margin-top: -0.1rem;
+    }
+
+    .moments-closing {
+      margin-top: 1.5rem;
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: #F8FAFC;
+    }
+
+    .wave-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .section-badge {
+      display: block;
+      width: min(100%, 148px);
+      height: auto;
+      margin: 0 auto 1.35rem;
+      filter: drop-shadow(0 18px 32px rgba(0, 0, 0, 0.28));
+    }
+
+    .wave-card {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .wave-icon,
+    .tracker-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      font-size: 0.82rem;
+      margin-bottom: 0;
+    }
+
+    .dashboard-list,
+    .ai-list,
+    .report-list {
+      display: grid;
+      gap: 0.8rem;
+      margin-top: 1.3rem;
+    }
+
+    .dashboard-list li,
+    .ai-list li,
+    .report-list li {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.8rem;
+      align-items: start;
+      color: var(--color-text-muted);
+    }
+
+    .dashboard-list li::before,
+    .ai-list li::before,
+    .report-list li::before {
+      content: '•';
+      color: var(--color-primary);
+      font-weight: 900;
+      font-size: 1.2rem;
+      line-height: 1;
+      margin-top: 0.1rem;
+    }
+
+    .tagline-emphasis {
+      margin-top: 1.25rem;
+      color: #F8FAFC;
+      font-weight: 800;
+      font-size: 1rem;
+    }
+
+    .subtle-line {
+      font-size: 0.9rem;
+      margin-top: 0.8rem;
+    }
+
+    .founder-card,
+    .bring-person-panel,
+    .dashboard-panel,
+    .ai-panel,
+    .report-panel {
+      margin-top: 2rem;
+      max-width: 920px;
+    }
+
+    .final-cta {
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      background:
+        radial-gradient(circle at center, rgba(212, 175, 55, 0.13), transparent 36%),
+        linear-gradient(180deg, rgba(8, 12, 20, 0.98), rgba(6, 8, 14, 1));
+    }
+
+    .final-cta::before {
+      content: '';
+      position: absolute;
+      width: min(52vw, 420px);
+      aspect-ratio: 1;
+      right: clamp(-4rem, -2vw, -1rem);
+      bottom: clamp(-6rem, -5vw, -2rem);
+      background: url('Images/the-club-badge-optimized.png') center/contain no-repeat;
+      opacity: 0.08;
+      pointer-events: none;
+      filter: saturate(0.9);
+    }
+
+    .final-cta .section-heading,
+    .final-cta .section-copy {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .final-cta .launch-shell {
+      position: relative;
+      z-index: 1;
+    }
+
+    .final-note,
+    .brand-tagline,
+    .final-line {
+      color: #F8FAFC;
+      font-weight: 700;
+      line-height: 1.8;
+    }
+
+    .brand-tagline {
+      margin-top: 1.5rem;
+      color: #F1E2A2;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .final-line {
+      margin-top: 1.6rem;
+      color: #FAF2D1;
+      font-size: 1.08rem;
+    }
+
+    .faq-shell {
+      max-width: 860px;
+      margin-top: 2rem;
+    }
+
+    .faq-item {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(212, 175, 55, 0.14);
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      padding: 1.15rem 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      color: var(--color-text);
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .faq-icon {
+      font-size: 1.3rem;
+      line-height: 1;
+      color: var(--color-primary);
+      flex-shrink: 0;
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 1.2rem 1.2rem;
+      color: var(--color-text-muted);
+      font-size: 0.96rem;
+      line-height: 1.75;
+    }
+
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .floating-cta {
+      position: fixed;
+      right: 1rem;
+      bottom: 1rem;
+      z-index: 1100;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.34);
+    }
+
+    /* --- Refinement styles --- */
+
+    .hero-signature {
+      text-align: center;
+      font-style: italic;
+      font-size: clamp(1.15rem, 2.2vw, 1.35rem);
+      line-height: 1.7;
+      color: #E9DFB8;
+      max-width: 720px;
+      margin: 0 auto 1.45rem;
+    }
+
+    .hero-divider {
+      display: block;
+      width: 92px;
+      height: 2px;
+      margin: 1.3rem auto 1.1rem;
+      background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+      border: none;
+    }
+
+    .cta-trust-line {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      margin-top: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .form-microcopy {
+      text-align: center;
+      font-size: 0.82rem;
+      color: #94A3B8;
+      margin-top: -0.2rem;
+    }
+
+    .catch-panel {
+      background: linear-gradient(180deg, rgba(18, 24, 42, 0.94), rgba(12, 17, 29, 0.92));
+      border: 1px solid rgba(212, 175, 55, 0.14);
+      border-radius: 24px;
+      padding: 2.5rem;
+      max-width: 820px;
+      margin: 2rem auto 0;
+      box-shadow: 0 14px 38px rgba(0, 0, 0, 0.22);
+    }
+
+    /* Centering & spacing polish */
+    .club-launch-page section {
+      padding-block: 6.5rem;
+    }
+
+    .club-launch-page .section-kicker,
+    .club-launch-page .section-heading,
+    .club-launch-page .section-copy,
+    .club-launch-page .tagline-emphasis,
+    .club-launch-page .moments-closing,
+    .club-launch-page .identity-line,
+    .club-launch-page .trust-line {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .club-launch-page .cta-row {
+      justify-content: center;
+    }
+
+    .club-launch-page .feature-grid,
+    .club-launch-page .tracker-grid,
+    .club-launch-page .moments-grid,
+    .club-launch-page .wave-grid {
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .feature-card,
+    .tracker-card {
+      text-align: center;
+    }
+
+    .feature-card .feature-icon,
+    .tracker-card .tracker-icon {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .feature-icon svg,
+    .tracker-icon svg,
+    .wave-icon svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .dashboard-panel,
+    .ai-panel,
+    .report-panel,
+    .bring-person-panel,
+    .founder-card {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .dashboard-panel .section-copy,
+    .ai-panel .section-copy,
+    .report-panel .section-copy,
+    .bring-person-panel .section-copy,
+    .founder-card .section-copy {
+      text-align: left;
+      margin-left: 0;
+    }
+
+    .dashboard-list,
+    .ai-list,
+    .report-list {
+      max-width: 600px;
+    }
+
+    .faq-shell {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .relatable-list {
+      display: grid;
+      gap: 0.9rem;
+      max-width: 720px;
+      margin: 2rem auto 0;
+      list-style: none;
+      padding: 0;
+    }
+
+    .relatable-list li {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.8rem;
+      align-items: start;
+      font-size: 1.05rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+    }
+
+    .relatable-list li::before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--color-primary);
+      margin-top: 0.55rem;
+      flex-shrink: 0;
+    }
+
+    .relatable-closing {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: #F8FAFC;
+      line-height: 1.75;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 2.25rem;
+      }
+
+      .hero-card {
+        max-width: 640px;
+        margin: 0 auto;
+      }
+
+      .hero-copy {
+        text-align: center;
+      }
+
+      .hero-subheadline,
+      .hero-supporting {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .club-launch-page section {
+        padding-block: 5rem;
+      }
+
+      .countdown-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .cta-row,
+      .btn-group {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .cta-row .btn,
+      .btn-group .btn,
+      .waitlist-form .btn {
+        width: 100%;
+      }
+
+      .floating-cta {
+        left: 0.75rem;
+        right: 0.75rem;
+        bottom: 0.75rem;
+      }
+
+      .floating-cta.btn {
+        width: calc(100% - 1.5rem);
+        justify-content: center;
+      }
+
+      .club-wordmark {
+        width: min(100%, 290px);
+      }
+
+      .section-badge {
+        width: min(100%, 120px);
+        margin-bottom: 1.1rem;
+      }
+
+      .final-cta::before {
+        width: 250px;
+        right: -3.5rem;
+        bottom: -4rem;
+        opacity: 0.07;
+      }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3LZZWBTWT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K3LZZWBTWT');
+  </script>
+</head>
+<body class="theclub-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a href="index.html" class="nav-logo" aria-label="Doing Life Today - Home">
+        <div class="nav-logo-mark" aria-hidden="true">DL</div>
+        <div class="nav-logo-text">Doing Life Today<span>Parkinson's Community</span></div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="about.html">About</a></li>
+        <li><a href="podcasts.html">Podcasts</a></li>
+        <li><a href="/theclub">The Club</a></li>
+        <li><a href="music.html">Music</a></li>
+        <li><a href="community.html">Living With Parkinson's Guide</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="#waitlist-form" class="btn btn-primary btn-sm nav-cta">Join the First Wave – Get Early Access</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a href="about.html">About</a>
+    <a href="podcasts.html">Podcasts</a>
+    <a href="/theclub">The Club</a>
+    <a href="music.html">Music</a>
+    <a href="community.html">Living With Parkinson's Guide</a>
+    <a href="resources.html">Resources</a>
+    <a href="events.html">Events</a>
+    <a href="contact.html">Contact</a>
+    <div class="mobile-cta"><a href="#waitlist-form" class="btn btn-primary">Join the First Wave – Get Early Access</a></div>
+  </nav>
+
+  <main id="main-content" class="club-launch-page">
+    <section class="hero-launch" aria-labelledby="club-launch-heading">
+      <div class="container hero-grid launch-shell">
+        <div class="hero-copy">
+          <div class="club-wordmark-wrap">
+            <img src="Images/the-club-logo.png" alt="The Club" class="club-wordmark" width="800" height="300">
+          </div>
+          <div class="founding-badge">Founding Members – First Wave</div>
+          <h1 id="club-launch-heading">Welcome to The Club</h1>
+          <hr class="hero-divider" aria-hidden="true">
+          <p class="hero-signature">Welcome to the club nobody wanted to join&hellip;<br>but the members are some of the strongest people you'll ever meet.</p>
+          <p class="hero-subheadline">A private Parkinson's community built by people living with Parkinson's, for people living with Parkinson's.</p>
+          <div class="badge-row">
+            <span class="pill-badge pill-badge-primary">🔒 Private Community</span>
+            <span class="pill-badge">🟢 Completely Free to Join</span>
+            <span class="pill-badge">🤝 Built by People Living with Parkinson's</span>
+          </div>
+          <p class="hero-supporting">Exclusive to people living with Parkinson's and their care partners.</p>
+
+          <div class="btn-group mt-3">
+            <a href="#waitlist-form" class="btn btn-primary btn-lg">Join the First Wave – Get Early Access</a>
+            <a href="#waitlist-form" class="btn btn-secondary btn-lg">See What's Inside</a>
+          </div>
+
+          <p class="hero-helper">Come on your own or bring your person. You belong here.</p>
+          <p class="cta-trust-line">Always open. Always free.</p>
+        </div>
+
+        <aside class="hero-card" aria-label="Waitlist signup and countdown">
+          <p class="countdown-kicker">First Wave Access Begins In</p>
+          <div class="countdown-grid" aria-live="polite">
+            <div class="countdown-box">
+              <span class="countdown-value" id="countdown-days">00</span>
+              <span class="countdown-label">Days</span>
+            </div>
+            <div class="countdown-box">
+              <span class="countdown-value" id="countdown-hours">00</span>
+              <span class="countdown-label">Hours</span>
+            </div>
+            <div class="countdown-box">
+              <span class="countdown-value" id="countdown-minutes">00</span>
+              <span class="countdown-label">Minutes</span>
+            </div>
+            <div class="countdown-box">
+              <span class="countdown-value" id="countdown-seconds">00</span>
+              <span class="countdown-label">Seconds</span>
+            </div>
+          </div>
+
+          <h2 class="waitlist-title">Join the waitlist</h2>
+          <p class="waitlist-copy">Be among the people who receive the first invitation when access begins on April 15.</p>
+
+          <form id="waitlist-form" class="waitlist-form" novalidate>
+            <label for="waitlist-email">Email address</label>
+            <input id="waitlist-email" name="email" type="email" placeholder="Enter your email address" autocomplete="email" required>
+            <p class="form-microcopy">We'll only email you about the Club launch. No spam.</p>
+
+            <p class="hero-helper" style="margin-top:0.1rem;margin-bottom:-0.2rem;">This community is reserved for people living with Parkinson's and the care partners who walk beside them.</p>
+
+            <label for="waitlist-role">I'm joining as:</label>
+            <select id="waitlist-role" name="audienceRole" required>
+              <option value="A person living with Parkinson's">A person living with Parkinson's</option>
+              <option value="A care partner / spouse / family caregiver">A care partner / spouse / family caregiver</option>
+            </select>
+
+            <button type="submit" class="btn btn-primary btn-lg">Join the First Wave – Get Early Access</button>
+            <p class="launch-note">You'll be notified as soon as first wave access begins.</p>
+            <div id="waitlist-status" class="waitlist-status" aria-live="polite"></div>
+          </form>
+        </aside>
+      </div>
+    </section>
+
+    <section aria-labelledby="relatable-heading">
+      <div class="container launch-shell">
+        <span class="section-kicker">Sound Familiar?</span>
+        <h2 id="relatable-heading" class="section-heading">If you're living with Parkinson's, some of this may feel familiar</h2>
+
+        <ul class="relatable-list">
+          <li>Trying to explain symptoms people can't see</li>
+          <li>Planning your day around medication timing</li>
+          <li>Wondering why some days feel completely different than others</li>
+          <li>Lying awake at night because turning over is difficult</li>
+          <li>Feeling like the world expects you to look "fine"</li>
+          <li>Searching for answers that actually make sense for your life</li>
+        </ul>
+
+        <p class="relatable-closing">You're not the only one.</p>
+        <p class="relatable-closing" style="font-weight:400;color:var(--color-text-muted);font-size:1rem;">Inside the Club, you'll meet people who understand these moments — because they're living them too.</p>
+
+        <div class="cta-row">
+          <a href="#waitlist-form" class="btn btn-primary btn-lg">Join the First Wave – Get Early Access</a>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="this-is-our-club-heading">
+      <div class="container launch-shell">
+        <span class="section-kicker">This Is Our Club</span>
+        <h2 id="this-is-our-club-heading" class="section-heading">This Is Our Club</h2>
+        <p class="section-copy">Not sponsored.</p>
+        <p class="section-copy">Not run by a corporation.</p>
+        <p class="section-copy">Not owned by an organization.</p>
+        <p class="section-copy">This community is being built by people living with Parkinson's, for people living with Parkinson's.</p>
+        <p class="section-copy">A place where we support each other, learn from each other, and remind each other that none of us are walking this journey alone.</p>
+        <p class="section-copy">And it will always be free to join.</p>
+
+        <div class="cta-row">
+          <a href="#waitlist-form" class="btn btn-primary btn-lg">Join the First Wave – Get Early Access</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark-block" aria-labelledby="private-space-heading">
+      <div class="container launch-shell">
+        <span class="section-kicker">A Private Space Just For Us</span>
+        <h2 id="private-space-heading" class="section-heading">Not Another Public Facebook Group</h2>
+        <p class="section-copy">Most Parkinson's groups online are public.</p>
+        <p class="section-copy">Anyone can join.</p>
+        <p class="section-copy">Anyone can comment.</p>
+        <p class="section-copy">Anyone can watch.</p>
+        <p class="section-copy">The Club is different.</p>
+        <p class="section-copy">It's a private community exclusively for people living with Parkinson's and their care partners.</p>
+        <p class="section-copy">That means:</p>
+        <p class="section-copy">• No random internet trolls</p>
+        <p class="section-copy">• No advertisers jumping into conversations</p>
+        <p class="section-copy">• No outsiders trying to explain Parkinson's to the people actually living with it</p>
+        <p class="section-copy">Just people who understand.</p>
+        <p class="identity-line">For people living with Parkinson's.<br>For care partners walking beside them.<br>For no one else.</p>
+        <p class="trust-line">Some members come on their own.<br>Some come with someone beside them.<br>Both are welcome inside the Club.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="bring-your-person-heading">
+      <div class="container launch-shell">
+        <span class="section-kicker">Bring Your Person</span>
+        <h2 id="bring-your-person-heading" class="section-heading">Bring Your Person (If You Have One)</h2>
+        <article class="bring-person-panel">
+          <p class="section-copy">Parkinson's journeys look different for everyone.</p>
+          <p class="section-copy">Some members navigate it independently.</p>
+          <p class="section-copy">Others have a partner, spouse, or loved one walking beside them.</p>
+          <p class="section-copy">When the Club opens, members will have the option to invite one person connected to their Parkinson's journey.</p>
+          <p class="section-copy">If you're living with Parkinson's, you can invite a care partner.</p>
+          <p class="section-copy">If you're a care partner, you can invite the person you support.</p>
+          <p class="section-copy">Each person receives their own membership and login inside the community.</p>
+          <p class="section-copy">No shared accounts.</p>
+          <p class="section-copy">Because everyone affected by Parkinson's deserves their own voice.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="never-alone-heading">
+      <div class="container launch-shell">
+        <span class="section-kicker">Why It Matters</span>
+        <h2 id="never-alone-heading" class="section-heading">You Were Never Meant to Figure Parkinson's Out Alone</h2>
+        <p class="section-copy">The Parkinson's Club is a global community built for people living with Parkinson's and their care partners who want real support from others who truly understand the journey.</p>
+        <p class="section-copy">Members connect through topic-based clubs covering sleep, medication, movement, daily challenges, and more.</p>
+        <p class="section-copy">You can share experiences, learn practical strategies, and support each other without judgment.</p>
+        <p class="section-copy">Parkinson's journeys look different for everyone. Some people navigate it on their own. Others have a partner or loved one walking beside them. Both belong here.</p>
+        <p class="section-copy">And the best part?</p>
+        <p class="section-copy">The Club is completely free to join.</p>
+
+        <div class="cta-row">
+          <a href="#waitlist-form" class="btn btn-primary btn-lg">Join the First Wave – Get Early Access</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark-block" aria-labelledby="inside-club-heading">
+      <div class="container launch-shell">
+        <span class="section-kicker">What You'll Find Inside</span>
+        <h2 id="inside-club-heading" class="section-heading">What You'll Find Inside</h2>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+            <h3>Personal Parkinson's Dashboard</h3>
+            <p>Your own personalized home base for tracking what matters and following the conversations you care about most.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg></div>
+            <h3>AI Parkinson's Coach (Lil Bryce)</h3>
+            <p>A built-in guide to help answer questions, explain tools, and offer practical direction inside the Club.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+            <h3>Topic-Based Clubs</h3>
+            <p>Join focused communities around sleep, medication, movement, caregiving, tracking symptoms, and everyday life with Parkinson's.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23,6 13.5,15.5 8.5,10.5 1,18"/><polyline points="17,6 23,6 23,12"/></svg></div>
+            <h3>TrendSense Tracking</h3>
+            <p>Track symptoms, medications, sleep patterns, and daily changes so you can start recognizing your own Parkinson's patterns.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <h3>Private Community</h3>
+            <p>A private space built only for people living with Parkinson's and their care partners.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0018 8 6 6 0 006 8c0 1 .23 2.23 1.5 3.5.76.76 1.23 1.52 1.41 2.5"/></svg></div>
+            <h3>Shared Wisdom</h3>
+            <p>Practical tips, lessons, and lived insight from people navigating the journey every day.</p>
+          </article>
+        </div>
+
+        <div class="cta-row">
+          <a href="#waitlist-form" class="btn btn-primary btn-lg">Join the First Wave – Get Early Access</a>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="dashboard-heading">
+      <div class="container launch-shell">
+        <span class="section-kicker">Personal Dashboard</span>
+        <h2 id="dashboard-heading" class="section-heading">Your Own Parkinson's Dashboard</h2>
+        <article class="dashboard-panel">
+          <p class="section-copy">Inside the Club you'll have your own personalized Parkinson's dashboard.</p>
+          <p class="section-copy">You decide what you want to see and what you don't.</p>
+          <p class="section-copy">Track what matters to you, follow conversations you care about, and organize your Parkinson's journey in a way that makes sense for your life.</p>
+          <p class="section-copy">Possible dashboard items include:</p>
+          <ul class="dashboard-list">
+            <li>symptom tracking</li>
+            <li>medication tracking</li>
+            <li>sleep tracking</li>
+            <li>goals</li>
+            <li>club discussions</li>
+            <li>updates from the clubs you follow</li>
+          </ul>
+          <p class="tagline-emphasis">Your Parkinson's. Your dashboard. Your pace.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="dark-block" aria-labelledby="ai-coach-heading">
+      <div class="container launch-shell">
+        <span class="section-kicker">AI Coach</span>
+        <h2 id="ai-coach-heading" class="section-heading">Meet Your Parkinson's AI Coach</h2>
+        <article class="ai-panel">
+          <p class="section-copy">Inside the Club you'll have access to Lil Bryce, your Parkinson's AI coach.</p>
+          <p class="section-copy">Lil Bryce can help:</p>
+          <ul class="ai-list">
+            <li>answer Parkinson's questions</li>
+            <li>explain symptoms</li>
+            <li>guide you through the tools inside the platform</li>
+            <li>offer suggestions and encouragement</li>
+          </ul>
+          <p class="section-copy">It's like having a knowledgeable companion whenever you need one.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="trendsense-heading">
+      <div class="container launch-shell">
+        <span class="section-kicker">TrendSense</span>
+        <h2 id="trendsense-heading" class="section-heading">Understand Your Parkinson's Patterns with TrendSense</h2>
+        <p class="section-copy">Track it. Understand it. Share it with your care team.</p>
+        <p class="section-copy">TrendSense helps you track and understand patterns in your Parkinson's.</p>
+        <p class="section-copy">Members can track medication timing, symptoms, sleep, meals, exercise, and on/off periods.</p>
+        <p class="section-copy">TrendSense analyzes these patterns so you can better understand how different factors affect your daily life.</p>
+
+        <div class="tracker-grid">
+          <article class="tracker-card">
+            <div class="tracker-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 1.5L2.47 9.53a5.68 5.68 0 008.03 8.03l8.03-8.03a5.68 5.68 0 00-8.03-8.03z"/><line x1="6.47" y1="13.5" x2="13.5" y2="6.47"/></svg></div>
+            <h3>Medication Tracker</h3>
+            <p>Stay on top of dose timing and patterns.</p>
+          </article>
+          <article class="tracker-card">
+            <div class="tracker-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/></svg></div>
+            <h3>Symptom Tracker</h3>
+            <p>Notice what shifts and when.</p>
+          </article>
+          <article class="tracker-card">
+            <div class="tracker-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></div>
+            <h3>Sleep Tracker</h3>
+            <p>Capture nighttime disruptions and rest quality.</p>
+          </article>
+          <article class="tracker-card">
+            <div class="tracker-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
+            <h3>Meal Tracker</h3>
+            <p>See how food timing connects to your day.</p>
+          </article>
+          <article class="tracker-card">
+            <div class="tracker-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13,2 3,14 12,14 11,22 21,10 12,10"/></svg></div>
+            <h3>Exercise Tracker</h3>
+            <p>Track movement, effort, and momentum.</p>
+          </article>
+          <article class="tracker-card">
+            <div class="tracker-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="5" width="22" height="14" rx="7"/><circle cx="16" cy="12" r="3"/></svg></div>
+            <h3>On/Off Tracker</h3>
+            <p>Recognize when patterns shift across the day.</p>
+          </article>
+        </div>
+
+        <p class="tagline-emphasis">Track it. Understand it. Share it with your care team.</p>
+      </div>
+    </section>
+
+    <section class="dark-block" aria-labelledby="report-heading">
+      <div class="container launch-shell">
+        <span class="section-kicker">Reports</span>
+        <h2 id="report-heading" class="section-heading">Turn Your Tracking Into Real Insights</h2>
+        <article class="report-panel">
+          <p class="section-copy">TrendSense generates reports that show patterns in symptoms, medication timing, sleep, and more.</p>
+          <p class="section-copy">Members will be able to generate clear, printable reports showing patterns in medication, symptoms, sleep, and more.</p>
+          <p class="section-copy">These reports can be:</p>
+          <ul class="report-list">
+            <li>shared with neurologists</li>
+            <li>printed for appointments</li>
+            <li>used to guide treatment discussions</li>
+          </ul>
+          <p class="section-copy">Instead of trying to remember how the last few months felt, you'll have the information to show what's really been happening.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="dark-block" aria-labelledby="first-wave-heading">
+      <div class="container launch-shell">
+        <img src="Images/the-club-badge-optimized.png" alt="The Club badge" class="section-badge" width="280" height="280" loading="lazy">
+        <span class="section-kicker">First Wave Access</span>
+        <h2 id="first-wave-heading" class="section-heading">We're Not Opening the Doors to Everyone at Once</h2>
+        <p class="section-copy">The Club opens April 15.<br>The first invitations will go to people already on the early-access list.</p>
+
+        <div class="wave-grid">
+          <article class="wave-card">
+            <div class="wave-icon" aria-hidden="true">EA</div>
+            <div>
+              <h3>EARLY ACCESS</h3>
+              <p>Enter before the wider rollout begins.</p>
+            </div>
+          </article>
+          <article class="wave-card">
+            <div class="wave-icon" aria-hidden="true">SC</div>
+            <div>
+              <h3>HELP SHAPE THE COMMUNITY</h3>
+              <p>Be part of how the Club feels from the beginning.</p>
+            </div>
+          </article>
+          <article class="wave-card">
+            <div class="wave-icon" aria-hidden="true">EP</div>
+            <div>
+              <h3>EXPLORE BEFORE PUBLIC LAUNCH</h3>
+              <p>Experience the platform before the public rollout.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="cta-row">
+          <a href="#waitlist-form" class="btn btn-primary btn-lg">Join the First Wave – Get Early Access</a>
+        </div>
+        <p class="subtle-line">Joining the waitlist takes less than 10 seconds.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="why-free-heading">
+      <div class="container launch-shell">
+        <span class="section-kicker">Why The Club Is Free</span>
+        <h2 id="why-free-heading" class="section-heading">Why The Club Is Free</h2>
+        <p class="section-copy">The goal of The Club is simple.</p>
+        <p class="section-copy">Make sure every person living with Parkinson's has access to support and community.</p>
+        <p class="section-copy">That's why membership to the club itself will always be free.</p>
+        <p class="section-copy">There may be optional deeper experiences like Inner Circle events in the future, but the core community will remain open to everyone living with Parkinson's and their care partners.</p>
+      </div>
+    </section>
+
+    <section class="dark-block" aria-labelledby="founder-story-heading">
+      <div class="container launch-shell">
+        <span class="section-kicker">Founder Story</span>
+        <h2 id="founder-story-heading" class="section-heading">Why Bryce Built The Club</h2>
+        <article class="founder-card">
+          <p class="section-copy">Bryce Perry was diagnosed with Parkinson's at age 40.</p>
+          <p class="section-copy">After years of sharing his journey online and connecting with thousands of others living with Parkinson's, one thing became clear.</p>
+          <p class="section-copy">People don't just want information.</p>
+          <p class="section-copy">They want connection with people who understand.</p>
+          <p class="section-copy">The Club exists to make that connection easier.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="catch-heading">
+      <div class="container launch-shell">
+        <span class="section-kicker">Honest Answer</span>
+        <h2 id="catch-heading" class="section-heading">So&hellip; what's the catch?</h2>
+        <div class="catch-panel">
+          <p class="section-copy">There isn't one.</p>
+          <p class="section-copy">The Club is a free community for people living with Parkinson's and their care partners.</p>
+          <p class="section-copy">You can connect with others, use the tools, and be part of the conversations without paying anything.</p>
+          <p class="section-copy">In the future there may be optional experiences like events or deeper Inner Circle programs for those who want them.</p>
+          <p class="section-copy">But the community itself will always remain open and free.</p>
+          <p class="section-copy">No tricks.</p>
+          <p class="section-copy">No hidden costs.</p>
+          <p class="section-copy">Just people helping each other navigate Parkinson's.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta" aria-labelledby="final-cta-heading">
+      <div class="container launch-shell">
+        <span class="section-kicker">Final Invitation</span>
+        <h2 id="final-cta-heading" class="section-heading">Be Part of the First Wave</h2>
+        <p class="section-copy">Imagine a place where everyone understands Parkinson's without you needing to explain it.</p>
+
+        <div class="cta-row" style="justify-content:center;">
+          <a href="#waitlist-form" class="btn btn-primary btn-lg">Join the First Wave – Get Early Access</a>
+        </div>
+
+        <p class="cta-trust-line">Always open. Always free.</p>
+        <p class="brand-tagline">Our club.<br>Our journey.<br>Our voices.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="faq-heading">
+      <div class="container launch-shell">
+        <span class="section-kicker">FAQ</span>
+        <h2 id="faq-heading" class="section-heading">Questions before launch?</h2>
+
+        <div class="faq-shell">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">Is the club free to join? <span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-answer">Yes. The Club itself will be free to join.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">Who is it for? <span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-answer">The Club is for people living with Parkinson's and their care partners. Some members come on their own. Others come with someone beside them. Both belong here.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">When does access begin? <span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-answer">First wave access begins April 15.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">What does first wave access mean? <span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-answer">People on the waitlist will receive the first invitations into the community before the broader rollout.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo" aria-label="Doing Life Today - Home">
+            <div class="nav-logo-mark" aria-hidden="true">DL</div>
+            <div class="nav-logo-text">Doing Life Today<span>Parkinson's Community</span></div>
+          </a>
+          <p>Connecting people living with Parkinson's through podcasts, community, and real conversations.</p>
+          <a href="#waitlist-form" class="btn btn-primary btn-sm">Join the First Wave – Get Early Access</a>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="podcasts.html">Podcasts</a></li>
+            <li><a href="community.html">Living With Parkinson's Guide</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>The Club</h4>
+          <ul class="footer-links">
+            <li><a href="#waitlist-form">Join the First Wave – Get Early Access</a></li>
+            <li><a href="#inside-club-heading">What You'll Find Inside</a></li>
+            <li><a href="#first-wave-heading">First Wave Access</a></li>
+            <li><a href="#founder-story-heading">Why Bryce Built The Club</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:office@dolifetoday.com">office@dolifetoday.com</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Doing Life Today. All rights reserved.</p>
+        <p class="footer-disclaimer">Imagine a place where everyone understands Parkinson's without you needing to explain it.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#waitlist-form" class="btn btn-primary floating-cta">Join the First Wave – Get Early Access</a>
+  <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">↑</button>
+
+  <script src="js/main.js"></script>
+  <script>
+    (function () {
+      const launchDate = new Date('2026-04-15T00:00:00');
+      const daysEl = document.getElementById('countdown-days');
+      const hoursEl = document.getElementById('countdown-hours');
+      const minutesEl = document.getElementById('countdown-minutes');
+      const secondsEl = document.getElementById('countdown-seconds');
+      const form = document.getElementById('waitlist-form');
+      const emailInput = document.getElementById('waitlist-email');
+      const roleInput = document.getElementById('waitlist-role');
+      const statusEl = document.getElementById('waitlist-status');
+
+      function pad(value) {
+        return String(value).padStart(2, '0');
+      }
+
+      function updateCountdown() {
+        const now = new Date();
+        const diff = launchDate.getTime() - now.getTime();
+
+        if (diff <= 0) {
+          daysEl.textContent = '00';
+          hoursEl.textContent = '00';
+          minutesEl.textContent = '00';
+          secondsEl.textContent = '00';
+          return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+
+        daysEl.textContent = pad(days);
+        hoursEl.textContent = pad(hours);
+        minutesEl.textContent = pad(minutes);
+        secondsEl.textContent = pad(seconds);
+      }
+
+      function showStatus(type, text) {
+        statusEl.className = 'waitlist-status show ' + type;
+        statusEl.textContent = text;
+      }
+
+      if (form && emailInput && statusEl) {
+        form.addEventListener('submit', async function (event) {
+          event.preventDefault();
+
+          const email = emailInput.value.trim();
+          const audienceRole = roleInput ? roleInput.value : "A person living with Parkinson's";
+          const button = form.querySelector('button[type="submit"]');
+          const originalText = button ? button.textContent : '';
+
+          if (!email) {
+            showStatus('error', 'Please enter your email address.');
+            return;
+          }
+
+          if (button) {
+            button.disabled = true;
+            button.textContent = 'Joining...';
+          }
+
+          try {
+            const response = await fetch('/api/subscribe', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                email,
+                list: 'theclub_waitlist',
+                audienceRole
+              })
+            });
+            const data = await response.json();
+
+            if (response.ok) {
+              showStatus('success', data.message || "You're on the list. We'll notify you when the first wave opens.");
+              form.reset();
+              if (roleInput) roleInput.selectedIndex = 0;
+            } else {
+              showStatus('error', data.error || 'Something went wrong. Please try again.');
+            }
+          } catch (error) {
+            showStatus('error', 'Network error. Please try again in a moment.');
+          } finally {
+            if (button) {
+              button.disabled = false;
+              button.textContent = originalText;
+            }
+          }
+        });
+      }
+
+      updateCountdown();
+      window.setInterval(updateCountdown, 1000);
+    })();
+  </script>
+</body>
+</html>
