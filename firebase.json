@@ -5,9 +5,19 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ]
-  }
-}
+    ],
+    "redirects": [
+      {
+        "source": "/podcast",
+        "destination": "https://dolifetoday.com/podcast",
+        "type": 301
+      },
+      {
+        "source": "/life-in-motion",
+        "destination": "https://dolifetoday.com/life-in-motion",
+        "type": 301
+      }
+    ],
     "headers": [
       {
         "source": "**",
