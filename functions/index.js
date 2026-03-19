@@ -25,7 +25,9 @@ if (!admin.apps.length) {
 }
 
 const db = admin.firestore();
-const LEGACY_WAITLIST_BASE_COUNT = 68;
+const WAITLIST_STATS_COLLECTION = 'site_stats';
+const WAITLIST_STATS_DOC_ID = 'club_waitlist';
+const LEGACY_WAITLIST_MIGRATION_COUNT = 68;
 
 const MAILERLITE_API_URL = 'https://connect.mailerlite.com/api/subscribers';
 const PODCAST_FEEDS = Object.freeze({
@@ -72,13 +74,35 @@ function buildWaitlistDocId(email) {
   return createHash('sha256').update(email.trim().toLowerCase()).digest('hex');
 }
 
+function getWaitlistStatsRef() {
+  return db.collection(WAITLIST_STATS_COLLECTION).doc(WAITLIST_STATS_DOC_ID);
+}
+
+async function ensureWaitlistStatsDoc() {
+  const statsRef = getWaitlistStatsRef();
+
+  await db.runTransaction(async (transaction) => {
+    const snapshot = await transaction.get(statsRef);
+
+    if (snapshot.exists) {
+      return;
+    }
+
+    transaction.set(statsRef, {
+      legacyCount: LEGACY_WAITLIST_MIGRATION_COUNT,
+      migratedAt: admin.firestore.FieldValue.serverTimestamp(),
+      migrationSource: 'hardcoded_baseline',
+    });
+  });
+}
+
 async function upsertWaitlistEntry(email, source) {
   const normalizedEmail = email.trim().toLowerCase();
   const waitlistRef = db.collection('waitlist').doc(buildWaitlistDocId(normalizedEmail));
   const snapshot = await waitlistRef.get();
 
   if (snapshot.exists) {
-    return;
+    return false;
   }
 
   await waitlistRef.set({
@@ -86,11 +110,28 @@ async function upsertWaitlistEntry(email, source) {
     createdAt: admin.firestore.FieldValue.serverTimestamp(),
     source: typeof source === 'string' && source.trim() ? source.trim() : 'club_waitlist',
   });
+
+  return true;
+}
+
+async function getLegacyWaitlistCount() {
+  const snapshot = await getWaitlistStatsRef().get();
+
+  if (!snapshot.exists) {
+    return 0;
+  }
+
+  const legacyCount = Number(snapshot.get('legacyCount'));
+  return Number.isFinite(legacyCount) ? Math.max(0, Math.floor(legacyCount)) : 0;
 }
 
 async function getWaitlistCount() {
-  const snapshot = await db.collection('waitlist').where('source', '==', 'club_waitlist').count().get();
-  return LEGACY_WAITLIST_BASE_COUNT + snapshot.data().count;
+  const [snapshot, legacyCount] = await Promise.all([
+    db.collection('waitlist').where('source', '==', 'club_waitlist').count().get(),
+    getLegacyWaitlistCount(),
+  ]);
+
+  return legacyCount + snapshot.data().count;
 }
 
 function escapeRegex(value) {
@@ -352,28 +393,34 @@ exports.subscribe = onRequest(
       });
 
       if (mlRes.status === 200 || mlRes.status === 201) {
+        let waitlistCounted = false;
+
         if (requestedList === 'theclub_waitlist') {
-          await upsertWaitlistEntry(email, source);
+          waitlistCounted = await upsertWaitlistEntry(email, source);
         }
 
         res.status(200).json({
           message: requestedList === 'theclub_waitlist'
             ? "You're on the list. We'll notify you when your wave opens."
             : 'Subscribed successfully!',
+          waitlistCounted,
         });
         return;
       }
 
       // 422 = already subscribed — treat as success
       if (mlRes.status === 422) {
+        let waitlistCounted = false;
+
         if (requestedList === 'theclub_waitlist') {
-          await upsertWaitlistEntry(email, source);
+          waitlistCounted = await upsertWaitlistEntry(email, source);
         }
 
         res.status(200).json({
           message: requestedList === 'theclub_waitlist'
             ? "You're already on the list. We'll notify you when your wave opens."
             : 'You are already subscribed — thank you!',
+          waitlistCounted,
         });
         return;
       }
@@ -405,8 +452,9 @@ exports.waitlistCount = onRequest(async (req, res) => {
   }
 
   try {
+    await ensureWaitlistStatsDoc();
     const count = await getWaitlistCount();
-    res.set('Cache-Control', 'public, max-age=60, s-maxage=60');
+    res.set('Cache-Control', 'no-store, max-age=0');
     res.status(200).json({ count });
   } catch (error) {
     functions.logger.error('Unable to read waitlist count:', error);

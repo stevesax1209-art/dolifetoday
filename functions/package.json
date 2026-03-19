@@ -3,12 +3,12 @@
   "description": "Firebase Cloud Functions for Doing Life Today — MailerLite subscriber + contact API",
   "version": "1.0.0",
   "engines": {
-    "node": "20"
+    "node": "22"
   },
   "main": "index.js",
   "dependencies": {
     "firebase-admin": "^13.7.0",
-    "firebase-functions": "^7.1.1"
+    "firebase-functions": "^7.2.0"
   },
   "private": true
 }

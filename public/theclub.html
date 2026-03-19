@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Join the first wave of The Club — a private Parkinson's community built by people living with Parkinson's for people living with Parkinson's and their care partners.">
+  <meta name="description" content="Join the first wave of The Club, a private Parkinson's community built by people living with Parkinson's for people living with Parkinson's and their care partners.">
   <title>The Club | Private Parkinson's Community Launching April 15</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -103,13 +103,25 @@
     }
 
     .hero-launch {
+      position: relative;
       padding-top: 6.4rem;
-      padding-bottom: 5.6rem;
+      padding-bottom: 6.6rem;
       background:
         radial-gradient(circle at 14% 14%, rgba(212, 175, 55, 0.22), transparent 22%),
         radial-gradient(circle at 85% 10%, rgba(255, 255, 255, 0.07), transparent 20%),
         radial-gradient(circle at 50% 100%, rgba(212, 175, 55, 0.12), transparent 32%),
         linear-gradient(135deg, #0B1322 0%, #162338 52%, #101A2C 100%);
+    }
+
+    .hero-launch::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 88px;
+      pointer-events: none;
+      background: linear-gradient(180deg, rgba(11, 19, 34, 0), rgba(11, 19, 34, 0.55) 60%, rgba(11, 19, 34, 0.92));
     }
 
     .hero-grid {
@@ -178,7 +190,7 @@
     .hero-launch h1 {
       font-size: clamp(3rem, 6vw, 5rem);
       line-height: 1.02;
-      margin-bottom: 1.15rem;
+      margin-bottom: 1.45rem;
       background: linear-gradient(135deg, #FFFFFF 10%, #FAF2D1 55%, #D4AF37 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -190,7 +202,7 @@
       line-height: 1.55;
       max-width: 32ch;
       color: #F3F4F6;
-      margin-bottom: 1rem;
+      margin-bottom: 1.35rem;
     }
 
     .hero-supporting,
@@ -210,7 +222,7 @@
       font-size: 1.02rem;
       font-weight: 600;
       color: #E5E7EB;
-      margin-bottom: 1.65rem;
+      margin-bottom: 2rem;
     }
 
     .hero-helper,
@@ -224,6 +236,20 @@
       margin-top: 0.95rem;
       color: #E9E3C3;
       font-weight: 600;
+    }
+
+    .field-guidance,
+    .cta-helper,
+    .form-trust-note {
+      font-size: 0.84rem;
+      line-height: 1.55;
+      color: #94A3B8;
+    }
+
+    .field-guidance {
+      margin-top: -0.15rem;
+      margin-bottom: -0.05rem;
+      text-align: left;
     }
 
     .hero-card {
@@ -316,6 +342,7 @@
       opacity: 0;
       transform: translateY(4px);
       transition: opacity 0.35s ease, transform 0.35s ease;
+      font-variant-numeric: tabular-nums;
     }
 
     .waitlist-count.is-visible {
@@ -323,9 +350,39 @@
       transform: translateY(0);
     }
 
+    .waitlist-count-value {
+      color: #F8FAFC;
+      font-weight: 800;
+    }
+
+    .waitlist-count-meta {
+      margin-top: 0.4rem;
+      text-align: center;
+      font-size: 0.75rem;
+      letter-spacing: 0.03em;
+      color: #94A3B8;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+
+    .waitlist-count-meta.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     .waitlist-form {
       display: grid;
       gap: 0.9rem;
+    }
+
+    .waitlist-form .btn {
+      transition: transform 0.2s ease, box-shadow 0.25s ease;
+    }
+
+    .waitlist-form .btn:hover,
+    .waitlist-form .btn:focus-visible {
+      transform: translateY(-1px);
     }
 
     .waitlist-form label {
@@ -403,33 +460,143 @@
     .access-wave-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-      margin-bottom: 1rem;
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    @media (max-width: 600px) {
+      .access-wave-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     .access-wave-card {
-      padding: 1rem 1.05rem;
-      border-radius: 18px;
-      border: 1px solid rgba(212, 175, 55, 0.14);
-      background: rgba(255, 255, 255, 0.04);
-      box-shadow: inset 0 0 18px rgba(212, 175, 55, 0.05);
+      position: relative;
+      padding: 1.5rem 1.6rem;
+      border-radius: 20px;
+      border: 1px solid rgba(52, 211, 153, 0.16);
+      background: linear-gradient(160deg, rgba(16, 185, 129, 0.06) 0%, rgba(6, 78, 59, 0.08) 50%, rgba(0, 0, 0, 0.12) 100%);
+      box-shadow:
+        0 4px 24px rgba(16, 185, 129, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        inset 0 0 20px rgba(16, 185, 129, 0.03);
+      transition: border-color 0.4s, box-shadow 0.4s, transform 0.3s, background 0.4s;
+      overflow: hidden;
+    }
+
+    .access-wave-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(52, 211, 153, 0.3), transparent);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .access-wave-card.is-active {
+      border-color: rgba(52, 211, 153, 0.35);
+      background: linear-gradient(160deg, rgba(16, 185, 129, 0.1) 0%, rgba(6, 78, 59, 0.12) 50%, rgba(0, 0, 0, 0.1) 100%);
+      box-shadow:
+        0 8px 32px rgba(16, 185, 129, 0.12),
+        0 0 60px rgba(16, 185, 129, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06),
+        inset 0 0 30px rgba(16, 185, 129, 0.05);
+    }
+
+    .access-wave-card.is-active::before {
+      opacity: 1;
+    }
+
+    .access-wave-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(52, 211, 153, 0.4);
+      box-shadow:
+        0 12px 40px rgba(16, 185, 129, 0.14),
+        0 0 60px rgba(16, 185, 129, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+
+    .access-wave-card.is-full {
+      opacity: 0.5;
+      filter: saturate(0.4);
+    }
+
+    .access-wave-card.is-full:hover {
+      transform: none;
     }
 
     .access-wave-title {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-size: 0.98rem;
-      font-weight: 800;
-      color: #F8FAFC;
+      display: inline-block;
+      margin-bottom: 0.65rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #34D399;
+      background: rgba(52, 211, 153, 0.1);
+      padding: 0.22rem 0.7rem;
+      border-radius: 6px;
     }
 
     .access-wave-copy {
       display: grid;
-      gap: 0.18rem;
+      gap: 0.25rem;
       color: var(--color-text-muted);
-      font-size: 0.92rem;
-      line-height: 1.65;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .access-wave-copy span:first-child {
+      color: #F1F5F9;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .access-wave-note {
+      margin-top: 0.2rem;
+      font-size: 0.82rem;
+      color: #A7F3D0;
+      line-height: 1.5;
+    }
+
+    .wave-spots {
+      margin-top: 1rem;
+      padding-top: 0.85rem;
+      border-top: 1px solid rgba(52, 211, 153, 0.08);
+    }
+
+    .wave-progress-bar {
+      width: 100%;
+      height: 7px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.06);
+      overflow: hidden;
+      margin-bottom: 0.5rem;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    .wave-progress-fill {
+      height: 100%;
+      border-radius: 4px;
+      background: linear-gradient(90deg, #10B981, #34D399, #6EE7B7);
+      box-shadow: 0 0 12px rgba(52, 211, 153, 0.35);
+      transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+      width: 0%;
+    }
+
+    .wave-spots-text {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #34D399;
+      line-height: 1.4;
+    }
+
+    .wave-spots-text.is-full {
+      color: #64748B;
     }
 
     .section-heading {
@@ -760,6 +927,16 @@
       bottom: 1rem;
       z-index: 1100;
       box-shadow: 0 18px 40px rgba(0, 0, 0, 0.34);
+      opacity: 0;
+      transform: translateY(16px);
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .floating-cta.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
     }
 
     /* --- Refinement styles --- */
@@ -792,11 +969,51 @@
       letter-spacing: 0.02em;
     }
 
+    .hero-quote {
+      margin-top: 1.25rem;
+      text-align: center;
+      font-size: 0.96rem;
+      line-height: 1.7;
+      color: #DDE5F0;
+      font-style: italic;
+      opacity: 0.9;
+    }
+
     .form-microcopy {
       text-align: center;
       font-size: 0.82rem;
       color: #94A3B8;
       margin-top: -0.2rem;
+    }
+
+    .cta-helper {
+      margin-top: -0.2rem;
+      text-align: center;
+    }
+
+    .form-trust-note {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      margin-top: -0.2rem;
+      margin-bottom: 0.1rem;
+      text-align: center;
+    }
+
+    .form-trust-note::before {
+      content: '✓';
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.05rem;
+      height: 1.05rem;
+      border-radius: 999px;
+      background: rgba(212, 175, 55, 0.14);
+      color: #F7E4A5;
+      font-size: 0.72rem;
+      font-weight: 800;
+      flex-shrink: 0;
     }
 
     .catch-panel {
@@ -812,6 +1029,10 @@
     /* Centering & spacing polish */
     .club-launch-page section {
       padding-block: 6.5rem;
+    }
+
+    .hero-launch {
+      padding-bottom: 6rem;
     }
 
     .club-launch-page .section-kicker,
@@ -1036,7 +1257,7 @@
         <li><a href="events.html">Events</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <a href="#waitlist-form" class="btn btn-primary btn-sm nav-cta">Join the First Wave – Get Early Access</a>
+      <a href="#waitlist-form" class="btn btn-primary btn-sm nav-cta">Save My Spot</a>
       <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
         <span></span><span></span><span></span>
       </button>
@@ -1052,7 +1273,7 @@
     <a href="resources.html">Resources</a>
     <a href="events.html">Events</a>
     <a href="contact.html">Contact</a>
-    <div class="mobile-cta"><a href="#waitlist-form" class="btn btn-primary">Join the First Wave – Get Early Access</a></div>
+    <div class="mobile-cta"><a href="#waitlist-form" class="btn btn-primary">Save My Spot</a></div>
   </nav>
 
   <main id="main-content" class="club-launch-page">
@@ -1062,11 +1283,11 @@
           <div class="club-wordmark-wrap">
             <img src="Images/the-club-logo.png" alt="The Club" class="club-wordmark" width="800" height="300">
           </div>
-          <div class="founding-badge">Founding Members – First Wave</div>
+          <div class="founding-badge">Founding Members: First Wave</div>
           <h1 id="club-launch-heading">Welcome to The Club</h1>
           <hr class="hero-divider" aria-hidden="true">
           <p class="hero-signature">Welcome to the club nobody wanted to join&hellip;<br>but the members are some of the strongest people you'll ever meet.</p>
-          <p class="hero-subheadline">A private Parkinson's community built by people living with Parkinson's, for people living with Parkinson's.</p>
+          <p class="hero-subheadline">A private community built by people living with Parkinson&rsquo;s, for people who truly understand it.</p>
           <div class="badge-row">
             <span class="pill-badge pill-badge-primary">🔒 Private Community</span>
             <span class="pill-badge">🟢 Completely Free to Join</span>
@@ -1075,36 +1296,66 @@
           <p class="hero-supporting">Exclusive to people living with Parkinson's and their care partners.</p>
 
           <div class="btn-group mt-3">
-            <a href="#waitlist-form" class="btn btn-primary btn-lg">Join the First Wave – Get Early Access</a>
-            <a href="#waitlist-form" class="btn btn-secondary btn-lg">See What's Inside</a>
+            <a href="#inside-club-heading" class="btn btn-primary btn-lg">See What's Inside</a>
+            <a href="#access-works-heading" class="btn btn-secondary btn-lg">How Access Works</a>
           </div>
 
           <section class="access-works-panel" aria-labelledby="access-works-heading">
             <h2 id="access-works-heading">How Access Works</h2>
             <p>We&rsquo;re opening The Club in small waves so we can build this the right way.</p>
             <div class="access-wave-grid" aria-label="Wave access details">
-              <article class="access-wave-card">
-                <span class="access-wave-title">Wave 1</span>
+              <article class="access-wave-card" id="wave-card-1" data-wave="1" data-capacity="200">
+                <span class="access-wave-title">Founding Members</span>
                 <div class="access-wave-copy">
                   <span>Opens April 15</span>
-                  <span>Limited number of founding members</span>
-                  <span>150-200 people</span>
+                  <span>200 spots</span>
+                  <span class="access-wave-note">First group shaping the community</span>
+                </div>
+                <div class="wave-spots" aria-live="polite">
+                  <div class="wave-progress-bar"><div class="wave-progress-fill" id="wave-fill-1"></div></div>
+                  <span class="wave-spots-text" id="wave-spots-1">Loading...</span>
                 </div>
               </article>
-              <article class="access-wave-card">
-                <span class="access-wave-title">Wave 2</span>
+              <article class="access-wave-card" id="wave-card-2" data-wave="2" data-capacity="200">
+                <span class="access-wave-title">Early Community</span>
                 <div class="access-wave-copy">
-                  <span>Opens shortly after</span>
-                  <span>For those who join next</span>
-                  <span>150-200</span>
+                  <span>Opens April 29</span>
+                  <span>200 spots</span>
+                </div>
+                <div class="wave-spots" aria-live="polite">
+                  <div class="wave-progress-bar"><div class="wave-progress-fill" id="wave-fill-2"></div></div>
+                  <span class="wave-spots-text" id="wave-spots-2">Loading...</span>
+                </div>
+              </article>
+              <article class="access-wave-card" id="wave-card-3" data-wave="3" data-capacity="200">
+                <span class="access-wave-title">Next Wave</span>
+                <div class="access-wave-copy">
+                  <span>Opens May 13</span>
+                  <span>200 spots</span>
+                </div>
+                <div class="wave-spots" aria-live="polite">
+                  <div class="wave-progress-bar"><div class="wave-progress-fill" id="wave-fill-3"></div></div>
+                  <span class="wave-spots-text" id="wave-spots-3">Loading...</span>
+                </div>
+              </article>
+              <article class="access-wave-card" id="wave-card-4" data-wave="4" data-capacity="500">
+                <span class="access-wave-title">Open Access</span>
+                <div class="access-wave-copy">
+                  <span>Opens May 28</span>
+                  <span>500 spots</span>
+                </div>
+                <div class="wave-spots" aria-live="polite">
+                  <div class="wave-progress-bar"><div class="wave-progress-fill" id="wave-fill-4"></div></div>
+                  <span class="wave-spots-text" id="wave-spots-4">Loading...</span>
                 </div>
               </article>
             </div>
-            <p>When Wave 1 fills, new members will automatically be placed into Wave 2.</p>
+            <p>When each wave fills, new members will automatically be placed into the next wave.</p>
           </section>
 
           <p class="hero-helper">Come on your own or bring your person. You belong here.</p>
           <p class="cta-trust-line">Always open. Always free.</p>
+          <p class="hero-quote">&ldquo;For the first time, I don&rsquo;t feel like I have to explain everything.&rdquo;</p>
         </div>
 
         <aside class="hero-card" aria-label="Waitlist signup and countdown">
@@ -1134,7 +1385,8 @@
           <form id="waitlist-form" class="waitlist-form" novalidate>
             <label for="waitlist-email">Email address</label>
             <input id="waitlist-email" name="email" type="email" placeholder="Enter your email address" autocomplete="email" required>
-            <p class="form-microcopy">We'll only email you about the Club launch. No spam.</p>
+            <p class="field-guidance">You&rsquo;ll get your invitation when your wave opens.</p>
+            <p class="form-microcopy">We&rsquo;ll only email you about your access. No spam. Ever.</p>
 
             <p class="hero-helper" style="margin-top:0.1rem;margin-bottom:-0.2rem;">This community is reserved for people living with Parkinson's and the care partners who walk beside them.</p>
 
@@ -1144,8 +1396,11 @@
               <option value="A care partner / spouse / family caregiver">A care partner / spouse / family caregiver</option>
             </select>
 
-            <button type="submit" class="btn btn-primary btn-lg">Join the First Wave – Get Early Access</button>
-            <p class="waitlist-count" id="waitlist-count" data-fallback-count="68"><span id="waitlist-count-value">68</span> people are already on the waitlist</p>
+            <button type="submit" class="btn btn-primary btn-lg" data-wave-cta="true">Save My Spot in the First Wave</button>
+            <p class="cta-helper">Takes 10 seconds. No spam. You can leave anytime.</p>
+            <p class="form-trust-note">Built with people living with Parkinson&rsquo;s</p>
+            <p class="waitlist-count" id="waitlist-count" data-fallback-count="104" aria-live="polite"><span class="waitlist-count-value" id="waitlist-count-value">104</span> people have already reserved their spot</p>
+            <p class="waitlist-count-meta" id="waitlist-count-meta">Live waitlist count. Updates automatically.</p>
             <p class="launch-note">You&rsquo;ll be notified when your wave opens.</p>
             <div id="waitlist-status" class="waitlist-status" aria-live="polite"></div>
           </form>
@@ -1168,10 +1423,10 @@
         </ul>
 
         <p class="relatable-closing">You're not the only one.</p>
-        <p class="relatable-closing" style="font-weight:400;color:var(--color-text-muted);font-size:1rem;">Inside the Club, you'll meet people who understand these moments — because they're living them too.</p>
+        <p class="relatable-closing" style="font-weight:400;color:var(--color-text-muted);font-size:1rem;">Inside the Club, you'll meet people who understand these moments, because they're living them too.</p>
 
         <div class="cta-row">
-          <a href="#waitlist-form" class="btn btn-primary btn-lg">Join the First Wave – Get Early Access</a>
+          <a href="#waitlist-form" class="btn btn-primary btn-lg">Save My Spot in the First Wave</a>
         </div>
       </div>
     </section>
@@ -1188,7 +1443,7 @@
         <p class="section-copy">And it will always be free to join.</p>
 
         <div class="cta-row">
-          <a href="#waitlist-form" class="btn btn-primary btn-lg">Join the First Wave – Get Early Access</a>
+          <a href="#waitlist-form" class="btn btn-primary btn-lg">Save My Spot in the First Wave</a>
         </div>
       </div>
     </section>
@@ -1243,7 +1498,7 @@
         <p class="section-copy">The Club is completely free to join.</p>
 
         <div class="cta-row">
-          <a href="#waitlist-form" class="btn btn-primary btn-lg">Join the First Wave – Get Early Access</a>
+          <a href="#waitlist-form" class="btn btn-primary btn-lg">Save My Spot in the First Wave</a>
         </div>
       </div>
     </section>
@@ -1287,7 +1542,7 @@
         </div>
 
         <div class="cta-row">
-          <a href="#waitlist-form" class="btn btn-primary btn-lg">Join the First Wave – Get Early Access</a>
+          <a href="#waitlist-form" class="btn btn-primary btn-lg">Save My Spot in the First Wave</a>
         </div>
       </div>
     </section>
@@ -1428,7 +1683,7 @@
         </div>
 
         <div class="cta-row">
-          <a href="#waitlist-form" class="btn btn-primary btn-lg">Join the First Wave – Get Early Access</a>
+          <a href="#waitlist-form" class="btn btn-primary btn-lg">Save My Spot in the First Wave</a>
         </div>
         <p class="subtle-line">Joining the waitlist takes less than 10 seconds.</p>
       </div>
@@ -1483,7 +1738,7 @@
         <p class="section-copy">Imagine a place where everyone understands Parkinson's without you needing to explain it.</p>
 
         <div class="cta-row" style="justify-content:center;">
-          <a href="#waitlist-form" class="btn btn-primary btn-lg">Join the First Wave – Get Early Access</a>
+          <a href="#waitlist-form" class="btn btn-primary btn-lg">Save My Spot in the First Wave</a>
         </div>
 
         <p class="cta-trust-line">Always open. Always free.</p>
@@ -1527,7 +1782,7 @@
             <div class="nav-logo-text">Doing Life Today<span>Parkinson's Community</span></div>
           </a>
           <p>Connecting people living with Parkinson's through podcasts, community, and real conversations.</p>
-          <a href="#waitlist-form" class="btn btn-primary btn-sm">Join the First Wave – Get Early Access</a>
+          <a href="#waitlist-form" class="btn btn-primary btn-sm">Save My Spot</a>
         </div>
         <div class="footer-col">
           <h4>Quick Links</h4>
@@ -1543,7 +1798,7 @@
         <div class="footer-col">
           <h4>The Club</h4>
           <ul class="footer-links">
-            <li><a href="#waitlist-form">Join the First Wave – Get Early Access</a></li>
+            <li><a href="#waitlist-form">Save My Spot</a></li>
             <li><a href="#inside-club-heading">What You'll Find Inside</a></li>
             <li><a href="#first-wave-heading">First Wave Access</a></li>
             <li><a href="#founder-story-heading">Why Bryce Built The Club</a></li>
@@ -1565,7 +1820,7 @@
     </div>
   </footer>
 
-  <a href="#waitlist-form" class="btn btn-primary floating-cta">Join the First Wave – Get Early Access</a>
+  <a href="#waitlist-form" class="btn btn-primary floating-cta">Save My Spot</a>
   <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">↑</button>
 
   <script src="js/main.js"></script>
@@ -1574,17 +1829,24 @@
       const currentWave = 1;
       const waveContent = {
         1: {
-          cta: 'Join the First Wave – Get Early Access',
-          badge: 'Founding Members – First Wave',
+          cta: 'Save My Spot in the First Wave',
+          badge: 'Founding Members: First Wave',
         },
         2: {
-          cta: 'Join Wave 2 – Get Early Access',
-          badge: 'Now Accepting – Wave 2',
-          // Future activation copy near the CTA: Wave 1 is now full
+          cta: 'Save My Spot for Early Community Access',
+          badge: 'Now Accepting: Early Community',
+          // Future activation copy near the CTA: Founding Members is now full
         },
+      };
+      const waveLabels = {
+        1: 'Founding Members',
+        2: 'Early Community',
+        3: 'Next Wave',
+        4: 'Open Access',
       };
       const activeWave = waveContent[currentWave] || waveContent[1];
       const launchDate = new Date('2026-04-15T00:00:00');
+      const heroSection = document.querySelector('.hero-launch');
       const daysEl = document.getElementById('countdown-days');
       const hoursEl = document.getElementById('countdown-hours');
       const minutesEl = document.getElementById('countdown-minutes');
@@ -1595,6 +1857,8 @@
       const statusEl = document.getElementById('waitlist-status');
       const waitlistCountEl = document.getElementById('waitlist-count');
       const waitlistCountValueEl = document.getElementById('waitlist-count-value');
+      const waitlistCountMetaEl = document.getElementById('waitlist-count-meta');
+      const floatingCtaEl = document.querySelector('.floating-cta');
 
       function pad(value) {
         return String(value).padStart(2, '0');
@@ -1628,9 +1892,10 @@
         statusEl.textContent = text;
       }
 
-      function animateCount(targetValue) {
+      function animateCount(startValue, targetValue) {
         if (!waitlistCountValueEl) return;
 
+        const safeStart = Math.max(0, Number(startValue) || 0);
         const safeTarget = Math.max(0, Number(targetValue) || 0);
         const duration = 700;
         const startTime = performance.now();
@@ -1638,7 +1903,7 @@
         function step(now) {
           const progress = Math.min((now - startTime) / duration, 1);
           const eased = 1 - Math.pow(1 - progress, 3);
-          const currentValue = Math.round(safeTarget * eased);
+          const currentValue = Math.round(safeStart + ((safeTarget - safeStart) * eased));
 
           waitlistCountValueEl.textContent = String(currentValue);
 
@@ -1650,16 +1915,31 @@
         window.requestAnimationFrame(step);
       }
 
+      function getDisplayedWaitlistCount() {
+        if (!waitlistCountValueEl) return 0;
+
+        const parsedCount = Number(waitlistCountValueEl.textContent);
+        return Number.isFinite(parsedCount) ? Math.max(0, Math.floor(parsedCount)) : 0;
+      }
+
       async function loadWaitlistCount() {
         if (!waitlistCountEl || !waitlistCountValueEl) return;
 
-        const fallbackCount = Number(waitlistCountEl.dataset.fallbackCount || '68');
+        const fallbackCount = Number(waitlistCountEl.dataset.fallbackCount || '104');
+        const startingCount = Number(waitlistCountValueEl.textContent || fallbackCount);
         let count = fallbackCount;
 
+        waitlistCountValueEl.textContent = String(startingCount);
+        waitlistCountEl.classList.add('is-visible');
+        if (waitlistCountMetaEl) {
+          waitlistCountMetaEl.classList.add('is-visible');
+        }
+
         try {
-          const response = await fetch('/api/waitlist-count', {
+          const response = await fetch('/api/waitlist-count?ts=' + Date.now(), {
             method: 'GET',
-            headers: { Accept: 'application/json' }
+            headers: { Accept: 'application/json' },
+            cache: 'no-store'
           });
 
           if (response.ok) {
@@ -1672,11 +1952,10 @@
           count = fallbackCount;
         }
 
-        animateCount(count);
-        waitlistCountEl.classList.add('is-visible');
+        animateCount(startingCount, count);
       }
 
-      document.querySelectorAll('a[href="#waitlist-form"].btn-primary, .waitlist-form button[type="submit"]').forEach((element) => {
+      document.querySelectorAll('[data-wave-cta="true"]').forEach((element) => {
         element.textContent = activeWave.cta;
       });
 
@@ -1684,7 +1963,90 @@
         element.textContent = activeWave.badge;
       });
 
+      if (floatingCtaEl && heroSection && 'IntersectionObserver' in window) {
+        const heroObserver = new IntersectionObserver((entries) => {
+          const [entry] = entries;
+          floatingCtaEl.classList.toggle('is-visible', !entry.isIntersecting);
+        }, {
+          threshold: 0.2,
+        });
+
+        heroObserver.observe(heroSection);
+      } else if (floatingCtaEl) {
+        floatingCtaEl.classList.add('is-visible');
+      }
+
+      /* ── Wave spots-remaining tracker ── */
+      var waveConfig = [
+        { wave: 1, capacity: 200 },
+        { wave: 2, capacity: 200 },
+        { wave: 3, capacity: 200 },
+        { wave: 4, capacity: 500 },
+      ];
+
+      function updateWaveSpots(totalSignups) {
+        var count = typeof totalSignups === 'number'
+          ? totalSignups
+          : getDisplayedWaitlistCount();
+
+        var remaining = count;
+
+        waveConfig.forEach(function (w) {
+          var fillEl = document.getElementById('wave-fill-' + w.wave);
+          var textEl = document.getElementById('wave-spots-' + w.wave);
+          var cardEl = document.getElementById('wave-card-' + w.wave);
+          if (!fillEl || !textEl || !cardEl) return;
+
+          var filled = Math.min(remaining, w.capacity);
+          var spotsLeft = w.capacity - filled;
+          remaining = Math.max(0, remaining - w.capacity);
+
+          var pct = Math.round((filled / w.capacity) * 100);
+          fillEl.style.width = pct + '%';
+
+          cardEl.classList.remove('is-active', 'is-full');
+
+          if (spotsLeft <= 0) {
+            textEl.textContent = 'Full \u2014 ' + (w.wave < 4 ? waveLabels[w.wave + 1] + ' now open' : 'All waves filled');
+            textEl.classList.add('is-full');
+            cardEl.classList.add('is-full');
+          } else {
+            textEl.textContent = spotsLeft + ' of ' + w.capacity + ' spots left';
+            textEl.classList.remove('is-full');
+            cardEl.classList.add('is-active');
+          }
+        });
+      }
+
+      /* Patch loadWaitlistCount to also refresh wave spots */
+      var _origLoadWaitlistCount = loadWaitlistCount;
+      loadWaitlistCount = async function () {
+        await _origLoadWaitlistCount();
+        setTimeout(function () {
+          updateWaveSpots(getDisplayedWaitlistCount());
+        }, 850);
+      };
+
       loadWaitlistCount();
+
+      /* Also kick off an immediate wave-spots fetch */
+      (async function () {
+        try {
+          var res = await fetch('/api/waitlist-count?ts=' + Date.now(), {
+            method: 'GET',
+            headers: { Accept: 'application/json' },
+            cache: 'no-store'
+          });
+          if (res.ok) {
+            var data = await res.json();
+            if (typeof data.count === 'number') {
+              updateWaveSpots(data.count);
+              return;
+            }
+          }
+        } catch (e) { /* fallback below */ }
+        updateWaveSpots(Number(waitlistCountEl && waitlistCountEl.dataset.fallbackCount || 68));
+      })();
 
       if (form && emailInput && statusEl) {
         form.addEventListener('submit', async function (event) {
@@ -1719,6 +2081,11 @@
             const data = await response.json();
 
             if (response.ok) {
+              if (data.waitlistCounted) {
+                const currentVisibleCount = getDisplayedWaitlistCount();
+                animateCount(currentVisibleCount, currentVisibleCount + 1);
+              }
+
               showStatus('success', data.message || "You're on the list. We'll notify you when your wave opens.");
               form.reset();
               if (roleInput) roleInput.selectedIndex = 0;
