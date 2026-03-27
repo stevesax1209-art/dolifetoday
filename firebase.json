@@ -1,6 +1,8 @@
 {
   "hosting": {
     "public": "public",
+    "cleanUrls": true,
+    "trailingSlash": false,
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -9,23 +11,41 @@
     "redirects": [
       { "source": "/pcn-app", "destination": "/theclub", "type": 301 },
       { "source": "/pcn-app.html", "destination": "/theclub", "type": 301 },
-      { "source": "/theclub.html", "destination": "/theclub", "type": 301 }
+      { "source": "/podcast", "destination": "/living-with-parkinsons-podcast", "type": 301 },
+      { "source": "/podcast/**", "destination": "/living-with-parkinsons-podcast", "type": 301 }
     ],
     "rewrites": [
-      { "source": "/newly-diagnosed", "destination": "/newly-diagnosed.html" },
-      { "source": "/symptoms", "destination": "/symptoms.html" },
-      { "source": "/medication-treatment", "destination": "/medication-treatment.html" },
-      { "source": "/exercise-movement", "destination": "/exercise-movement.html" },
-      { "source": "/sleep-fatigue", "destination": "/sleep-fatigue.html" },
-      { "source": "/mental-health", "destination": "/mental-health.html" },
-      { "source": "/care-partners", "destination": "/care-partners.html" },
-      { "source": "/community-support", "destination": "/community-support.html" },
-      { "source": "/life-in-motion", "destination": "/life-in-motion.html" },
-      { "source": "/theclub", "destination": "/theclub.html" },
+      { "source": "/exchange/provider/**/claim", "destination": "/exchange-claim.html" },
+      { "source": "/exchange/provider/**", "destination": "/exchange-provider.html" },
+      { "source": "/exchange/location/**", "destination": "/exchange-location.html" },
+      { "source": "/exchange/category/**", "destination": "/exchange-category.html" },
+      { "source": "/api/youtube/latest", "function": "youtubeLatest" },
       { "source": "/api/podcast-feed", "function": "podcastFeed" },
+      { "source": "/api/public-config", "function": "publicConfig" },
+      { "source": "/api/mailerlite-webhook", "function": "mailerLiteWebhook" },
+      { "source": "/api/share-stats", "function": "shareStats" },
+      { "source": "/api/track-club-analytics", "function": "trackClubAnalytics" },
+      { "source": "/api/track-share", "function": "trackShare" },
       { "source": "/api/waitlist-count", "function": "waitlistCount" },
       { "source": "/api/subscribe", "function": "subscribe" },
       { "source": "/api/contact", "function": "contact" }
+    ],
+    "headers": [
+      {
+        "source": "**",
+        "headers": [
+          { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+        ]
+      },
+      {
+        "source": "**",
+        "headers": [
+          { "key": "X-Frame-Options", "value": "DENY" },
+          { "key": "X-Content-Type-Options", "value": "nosniff" },
+          { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+          { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
+        ]
+      }
     ]
   },
   "functions": {
