@@ -29,10 +29,39 @@
   gap: 2rem;
 }
 
+.podcast-hero-grid {
+  align-items: start;
+}
+
 .podcast-hero-copy {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.podcast-hero-copy h1,
+.podcast-hero-copy p,
+.podcast-hero-copy .podcast-lead {
+  margin-inline: 0;
+  text-align: left;
+}
+
+.podcast-hero-copy h1 {
+  margin-bottom: 0.75rem;
+}
+
+.podcast-hero-copy h1 span {
+  display: block;
+  margin-top: 0.35rem;
+  color: rgba(255, 255, 255, 0.85);
+  background: none;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.85);
+}
+
+.podcast-hero-copy .btn-group {
+  justify-content: flex-start;
 }
 
 .podcast-kicker {

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore The Exchange, a searchable public directory of Parkinson's programs, clinics, support services, and community providers connected to Doing Life Today.">
+  <title>The Exchange | Parkinson's Providers, Programs &amp; Support</title>
+  <link rel="canonical" href="https://dolifetoday.com/exchange" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/css/exchange.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a href="/" class="nav-logo" aria-label="Doing Life Today - Home">
+        <div class="nav-logo-mark" aria-hidden="true">DL</div>
+        <div class="nav-logo-text">Doing Life Today<span>Parkinson's Community</span></div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="/about">About</a></li>
+        <li><a href="/podcasts">Podcasts</a></li>
+        <li><a href="/youtube">YouTube</a></li>
+        <li><a href="/theclub">The Club</a></li>
+        <li><a href="/exchange">The Exchange</a></li>
+        <li><a href="/music">Music</a></li>
+        <li><a href="/community">Living With Parkinson's Guide</a></li>
+        <li><a href="/resources">Resources</a></li>
+        <li><a href="/events">Events</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <a href="/theclub" class="btn btn-primary btn-sm nav-cta">Join The Club</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a href="/about">About</a>
+    <a href="/podcasts">Podcasts</a>
+    <a href="/youtube">YouTube</a>
+    <a href="/theclub">The Club</a>
+    <a href="/exchange">The Exchange</a>
+    <a href="/music">Music</a>
+    <a href="/community">Living With Parkinson's Guide</a>
+    <a href="/resources">Resources</a>
+    <a href="/events">Events</a>
+    <a href="/contact">Contact</a>
+    <div class="mobile-cta"><a href="/theclub" class="btn btn-primary">Join The Club</a></div>
+  </nav>
+
+  <main id="main-content">
+    <section class="hero" aria-labelledby="exchange-hero-heading">
+      <div class="container hero-content exchange-hero-content">
+        <span class="section-label">The Exchange</span>
+        <h1 id="exchange-hero-heading" class="hero-title">A public Parkinson's directory built to move people from search into support</h1>
+        <p class="hero-subtitle">Search clinics, support groups, therapy programs, fitness services, and other Parkinson's-specific providers connected to the Doing Life Today ecosystem.</p>
+        <p class="hero-support">If you run a provider organization, this is also your handoff into The Club, where your listing can be claimed, updated, and connected to the broader community.</p>
+        <div class="btn-group hero-actions">
+          <a href="#exchange-directory" class="btn btn-lg hero-primary-btn">Browse Providers</a>
+          <a href="https://club.dolifetoday.com/?exchange=add-listing" class="btn btn-lg btn-outline-primary">Add Your Listing</a>
+          <a href="https://club.dolifetoday.com/?publicExchange=true" class="btn btn-lg hero-secondary-btn">Open In The Club</a>
+        </div>
+        <div class="exchange-hero-notes" aria-hidden="true">
+          <span class="exchange-note">Searchable public directory</span>
+          <span class="exchange-note">Crosses into The Club</span>
+          <span class="exchange-note">Provider claim flow included</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="exchange-page-shell" id="exchange-directory" aria-labelledby="exchange-directory-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Directory</span>
+          <h2 id="exchange-directory-heading" class="section-title">Explore Parkinson's providers and programs</h2>
+          <p class="section-subtitle">Search by name, location, or specialty. Results come directly from the canonical Exchange data managed in The Club.</p>
+        </div>
+
+        <div class="card exchange-controls">
+          <div class="exchange-control">
+            <label for="exchange-search">Search</label>
+            <input id="exchange-search" type="search" placeholder="Search programs, cities, specialties, or languages">
+          </div>
+          <div class="exchange-control">
+            <label for="exchange-country">Country</label>
+            <select id="exchange-country">
+              <option value="all">All countries</option>
+            </select>
+          </div>
+          <div class="exchange-control">
+            <label for="exchange-type">Provider type</label>
+            <select id="exchange-type">
+              <option value="all">All provider types</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="exchange-status-row">
+          <p id="exchange-status">Loading providers...</p>
+          <div class="exchange-card-actions">
+            <a href="https://club.dolifetoday.com/?exchange=add-listing" class="btn btn-outline-primary">Add Your Listing</a>
+            <a href="https://club.dolifetoday.com/?publicExchange=true" class="btn btn-outline-primary">Open The Club Directory</a>
+          </div>
+        </div>
+
+        <div id="exchange-results" class="exchange-results-grid" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/exchange.js" defer></script>
+</body>
+</html>

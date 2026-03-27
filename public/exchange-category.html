@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse Parkinson's providers and programs by category on The Exchange by Doing Life Today.">
+  <title>Exchange Category | Doing Life Today</title>
+  <link rel="canonical" href="https://dolifetoday.com/exchange" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/exchange.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <header class="site-header" role="banner">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a href="/" class="nav-logo" aria-label="Doing Life Today - Home">
+        <div class="nav-logo-mark" aria-hidden="true">DL</div>
+        <div class="nav-logo-text">Doing Life Today<span>Parkinson's Community</span></div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="/about">About</a></li>
+        <li><a href="/podcasts">Podcasts</a></li>
+        <li><a href="/youtube">YouTube</a></li>
+        <li><a href="/theclub">The Club</a></li>
+        <li><a href="/exchange">The Exchange</a></li>
+        <li><a href="/music">Music</a></li>
+        <li><a href="/community">Living With Parkinson's Guide</a></li>
+        <li><a href="/resources">Resources</a></li>
+        <li><a href="/events">Events</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <a href="/theclub" class="btn btn-primary btn-sm nav-cta">Join The Club</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a href="/about">About</a>
+    <a href="/podcasts">Podcasts</a>
+    <a href="/youtube">YouTube</a>
+    <a href="/theclub">The Club</a>
+    <a href="/exchange">The Exchange</a>
+    <a href="/music">Music</a>
+    <a href="/community">Living With Parkinson's Guide</a>
+    <a href="/resources">Resources</a>
+    <a href="/events">Events</a>
+    <a href="/contact">Contact</a>
+    <div class="mobile-cta"><a href="/theclub" class="btn btn-primary">Join The Club</a></div>
+  </nav>
+  <main id="main-content">
+    <section class="hero" aria-labelledby="exchange-category-title">
+      <div class="container hero-content exchange-collection-hero">
+        <nav class="exchange-breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span>/</span>
+          <a href="/exchange">The Exchange</a>
+          <span>/</span>
+          <span id="exchange-category-breadcrumb-current">Category</span>
+        </nav>
+        <span class="section-label">The Exchange</span>
+        <div class="card exchange-loading-card" id="exchange-category-loading">
+          <h1 id="exchange-category-title" class="hero-title">Loading category...</h1>
+          <p>Finding public Exchange listings in this category.</p>
+        </div>
+        <div class="card exchange-error-card" id="exchange-category-error" hidden>
+          <h1 class="hero-title">Category page unavailable</h1>
+          <p>We could not build that category page from the current public Exchange listings.</p>
+          <div class="exchange-provider-actions">
+            <a href="/exchange" class="btn btn-primary">Back to The Exchange</a>
+            <a href="https://club.dolifetoday.com/?publicExchange=true" class="btn btn-outline-primary">Open The Club Directory</a>
+          </div>
+        </div>
+        <div id="exchange-category-content" hidden>
+          <h1 id="exchange-category-heading" class="hero-title"></h1>
+          <p id="exchange-category-subtitle" class="hero-subtitle"></p>
+          <p class="hero-support">These public listings are grouped from the canonical Exchange data inside The Club.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="exchange-collection-shell" aria-labelledby="exchange-category-results-heading">
+      <div class="container exchange-collection-layout">
+        <div class="exchange-collection-main">
+          <article class="card" id="exchange-category-results-card" hidden>
+            <div class="exchange-collection-header">
+              <div>
+                <span class="section-label">Listings</span>
+                <h2 id="exchange-category-results-heading" class="section-title">Providers in this category</h2>
+              </div>
+              <p id="exchange-category-count"></p>
+            </div>
+            <div class="exchange-collection-list" id="exchange-category-results"></div>
+          </article>
+
+          <article class="card exchange-collection-empty" id="exchange-category-empty" hidden>
+            <h2 class="section-title">No public listings matched this category</h2>
+            <p>Try the main Exchange directory to search by specialty, provider type, or program name.</p>
+            <div class="exchange-provider-actions">
+              <a href="/exchange" class="btn btn-primary">Browse The Exchange</a>
+            </div>
+          </article>
+        </div>
+
+        <aside class="exchange-collection-sidebar">
+          <article class="card">
+            <span class="section-label">Next step</span>
+            <h2 class="section-title">Need claim or profile access?</h2>
+            <p class="exchange-card-copy">The Club remains the operational home for the Exchange. Use the public site for discovery, then move into the Club for claims and profile management.</p>
+            <div class="exchange-stacked-actions">
+              <a href="https://club.dolifetoday.com/?exchange=add-listing" class="btn btn-outline-primary">Add Your Listing</a>
+              <a href="https://club.dolifetoday.com/?publicExchange=true" class="btn btn-primary">Open In The Club</a>
+              <a href="/exchange" class="btn btn-outline-primary">Back to Exchange Home</a>
+            </div>
+          </article>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <script src="/js/main.js" defer></script>
+  <script src="/js/exchange-category.js" defer></script>
+</body>
+</html>

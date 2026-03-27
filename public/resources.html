@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Explore practical Parkinson's resources including symptom guides, medication insights, exercise strategies, mental health support, and caregiving advice from Doing Life Today.">
-  <title>Parkinson's Resources &amp; Guides | Symptoms, Treatment, Exercise &amp; Support</title>
+  <meta name="description" content="Browse the full Doing Life Today Parkinson's resource library, including 33 written guides across symptoms, medication, exercise, mental health, caregiving, community, and newly diagnosed support.">
+  <title>Parkinson's Resources Library | 33 Guides, Tools &amp; Support Pages</title>
+  <link rel="canonical" href="https://dolifetoday.com/resources">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-  <!-- Google tag (gtag.js) -->
+  <link rel="stylesheet" href="/css/style.css">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3LZZWBTWT"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -23,19 +23,20 @@
 
   <header class="site-header" role="banner">
     <nav class="nav-inner" aria-label="Main navigation">
-      <a href="index.html" class="nav-logo" aria-label="Doing Life Today - Home">
+      <a href="/" class="nav-logo" aria-label="Doing Life Today - Home">
         <div class="nav-logo-mark" aria-hidden="true">DL</div>
         <div class="nav-logo-text">Doing Life Today<span>Parkinson's Community</span></div>
       </a>
       <ul class="nav-links" role="list">
-        <li><a href="about.html">About</a></li>
-        <li><a href="podcasts.html">Podcasts</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/podcasts">Podcasts</a></li>
+        <li><a href="/youtube">YouTube</a></li>
         <li><a href="/theclub">The Club</a></li>
-        <li><a href="music.html">Music</a></li>
-        <li><a href="community.html">Living With Parkinson's Guide</a></li>
-        <li><a href="resources.html">Resources</a></li>
-        <li><a href="events.html">Events</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="/music">Music</a></li>
+        <li><a href="/community">Living With Parkinson's Guide</a></li>
+        <li><a href="/resources" class="active">Resources</a></li>
+        <li><a href="/events">Events</a></li>
+        <li><a href="/contact">Contact</a></li>
       </ul>
       <a href="/theclub" class="btn btn-primary btn-sm nav-cta">Join The Club</a>
       <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
@@ -45,517 +46,283 @@
   </header>
 
   <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
-    <a href="about.html">About</a>
-    <a href="podcasts.html">Podcasts</a>
+    <a href="/about">About</a>
+    <a href="/podcasts">Podcasts</a>
+    <a href="/youtube">YouTube</a>
     <a href="/theclub">The Club</a>
-    <a href="music.html">Music</a>
-    <a href="community.html">Living With Parkinson's Guide</a>
-    <a href="resources.html">Resources</a>
-    <a href="events.html">Events</a>
-    <a href="contact.html">Contact</a>
+    <a href="/music">Music</a>
+    <a href="/community">Living With Parkinson's Guide</a>
+    <a href="/resources">Resources</a>
+    <a href="/events">Events</a>
+    <a href="/contact">Contact</a>
     <div class="mobile-cta"><a href="/theclub" class="btn btn-primary">Join The Club</a></div>
   </nav>
 
   <main id="main-content">
-
-    <section class="page-hero" aria-labelledby="resources-hero-heading">
+    <section class="page-hero" aria-labelledby="resources-heading">
       <div class="container hero-content">
-        <span class="hero-badge">📚 PARKINSON'S KNOWLEDGE LIBRARY</span>
-        <h1 id="resources-hero-heading">Resources &amp; Guides for Living With Parkinson's</h1>
-        <p>Practical strategies, research insights, and real-life experiences to help people navigate Parkinson's — from the first diagnosis to long-term daily life.</p>
-        <p style="margin-top:1.5rem;font-size:0.95rem;color:var(--color-text-muted);">Looking for a starting point? Begin with our complete <a href="community.html" style="color:var(--color-primary);font-weight:600;text-decoration:none;"><strong>Living With Parkinson's Guide</strong></a>.</p>
+        <span class="hero-badge">Resource Library</span>
+        <h1 id="resources-heading">The Full Parkinson's Resource Library</h1>
+        <p>Browse 33 written guides across newly diagnosed support, symptoms, medication, exercise, sleep, mental health, caregiving, community, and research, plus direct links to the podcast and video hubs.</p>
         <div class="btn-group" style="justify-content:center;margin-top:2rem;">
-          <a href="community.html" class="btn btn-primary">Start the Parkinson's Guide</a>
+          <a href="#library-index" class="btn btn-primary btn-lg">Jump to All Resources</a>
+          <a href="/community" class="btn btn-secondary btn-lg">Start With the Main Guide</a>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:0.75rem;margin-top:1.5rem;">
+          <span style="padding:0.65rem 0.95rem;border-radius:999px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.08);color:var(--color-text);font-size:0.95rem;">33 written guides</span>
+          <span style="padding:0.65rem 0.95rem;border-radius:999px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.08);color:var(--color-text);font-size:0.95rem;">12 topic groups</span>
+          <span style="padding:0.65rem 0.95rem;border-radius:999px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.08);color:var(--color-text);font-size:0.95rem;">Podcast and video hubs included</span>
         </div>
       </div>
     </section>
 
-    <!-- MAIN CONTENT WITH SIDEBAR -->
-    <section>
-      <div class="container">
-        <div class="two-col-layout">
-          <!-- MAIN COLUMN -->
-          <div>
-            <!-- SEARCH -->
-            <div class="search-bar" role="search" aria-label="Search resources">
-              <label for="resource-search" class="visually-hidden">Search resources</label>
-              <input type="search" id="resource-search" placeholder="Search Parkinson's symptoms, medication, exercise, sleep, mental health, and more…" autocomplete="off">
-              <button type="button" aria-label="Search">🔍</button>
-            </div>
-
-            <!-- CATEGORY FILTERS -->
-            <div class="category-nav" role="group" aria-label="Filter by category">
-              <button class="cat-btn active">All</button>
-              <button class="cat-btn">Newly Diagnosed</button>
-              <button class="cat-btn">Symptoms</button>
-              <button class="cat-btn">Medication</button>
-              <button class="cat-btn">Exercise</button>
-              <button class="cat-btn">Sleep</button>
-              <button class="cat-btn">Mental Health</button>
-              <button class="cat-btn">Caregiving</button>
-              <button class="cat-btn">Nutrition</button>
-              <button class="cat-btn">Research &amp; Clinical Trials</button>
-            </div>
-
-            <!-- POPULAR RIGHT NOW -->
-            <div class="section-header">
-              <span class="section-label">Popular</span>
-              <h2 class="section-title" style="font-size:1.75rem;">Popular Right Now</h2>
-              <p class="section-subtitle">The most-read resources from the Doing Life Today Parkinson's library.</p>
-            </div>
-
-            <div class="grid-4" style="margin-bottom:3rem;">
-              <article class="article-card">
-                <div class="article-thumb">🧬</div>
-                <div class="article-body">
-                  <p class="article-category">Symptoms</p>
-                  <h3>Understanding Parkinson's Symptoms</h3>
-                  <p>A comprehensive overview of motor and non-motor symptoms that affect daily life.</p>
-                  <div class="article-meta"><span>8 min read</span><span>Symptoms</span><span>Updated March 2026</span></div>
-                  <a href="symptoms.html" class="card-cta mt-2">Read More <span class="arrow">→</span></a>
-                </div>
-              </article>
-              <article class="article-card">
-                <div class="article-thumb">💊</div>
-                <div class="article-body">
-                  <p class="article-category">Medication</p>
-                  <h3>Medication Timing Mistakes to Avoid</h3>
-                  <p>Learn how timing affects your medication effectiveness and symptom control.</p>
-                  <div class="article-meta"><span>10 min read</span><span>Medication</span><span>Updated March 2026</span></div>
-                  <a href="parkinsons-medication-timing.html" class="card-cta mt-2">Read More <span class="arrow">→</span></a>
-                </div>
-              </article>
-              <article class="article-card">
-                <div class="article-thumb">🏃</div>
-                <div class="article-body">
-                  <p class="article-category">Exercise</p>
-                  <h3>The Best Exercises for Parkinson's</h3>
-                  <p>Evidence-based movement strategies that support long-term function and confidence.</p>
-                  <div class="article-meta"><span>9 min read</span><span>Exercise</span><span>Updated February 2026</span></div>
-                  <a href="best-exercises-for-parkinsons.html" class="card-cta mt-2">Read More <span class="arrow">→</span></a>
-                </div>
-              </article>
-              <article class="article-card">
-                <div class="article-thumb">😴</div>
-                <div class="article-body">
-                  <p class="article-category">Sleep</p>
-                  <h3>Sleep and Parkinson's Explained</h3>
-                  <p>Understanding sleep disruption and practical strategies for better rest.</p>
-                  <div class="article-meta"><span>11 min read</span><span>Sleep</span><span>Updated February 2026</span></div>
-                  <a href="parkinsons-sleep.html" class="card-cta mt-2">Read More <span class="arrow">→</span></a>
-                </div>
-              </article>
-            </div>
-
-            <!-- FEATURED GUIDES -->
-            <div class="section-header">
-              <span class="section-label">Featured</span>
-              <h2 class="section-title" style="font-size:1.75rem;">Featured Parkinson's Guides</h2>
-              <p class="section-subtitle">In-depth articles covering the topics people living with Parkinson's ask about most.</p>
-            </div>
-
-            <div class="grid-2" style="margin-bottom:3rem;">
-              <article class="article-card">
-                <div class="article-thumb">🆕</div>
-                <div class="article-body">
-                  <p class="article-category">Newly Diagnosed</p>
-                  <h3>Your First 90 Days: A Complete Guide for the Newly Diagnosed</h3>
-                  <p>Everything you need to know, do, and ask in the first three months after your Parkinson's diagnosis. A roadmap when everything feels overwhelming.</p>
-                  <div class="article-meta"><span>12 min read</span><span>Newly Diagnosed</span><span>Updated 2026</span></div>
-                  <a href="first-90-days-parkinsons.html" class="card-cta mt-2">Read More <span class="arrow">→</span></a>
-                </div>
-              </article>
-              <article class="article-card">
-                <div class="article-thumb">🧠</div>
-                <div class="article-body">
-                  <p class="article-category">Mental Health</p>
-                  <h3>The Mental Health Crisis in Parkinson's: What We're Not Talking About</h3>
-                  <p>Depression affects up to 50% of people with Parkinson's. Anxiety is even more common. Yet they're rarely discussed. Here's why that needs to change.</p>
-                  <div class="article-meta"><span>9 min read</span><span>Mental Health</span><span>Updated March 2026</span></div>
-                  <a href="mental-health-parkinsons.html" class="card-cta mt-2">Read More <span class="arrow">→</span></a>
-                </div>
-              </article>
-            </div>
-
-            <div class="section-header">
-              <h2 class="section-title" style="font-size:1.5rem;">Latest Articles</h2>
-            </div>
-
-            <div class="grid-3" style="margin-bottom:2rem;">
-              <article class="article-card">
-                <div class="article-thumb">🏃</div>
-                <div class="article-body">
-                  <p class="article-category">Exercise</p>
-                  <h3>The 5 Best Exercises for Parkinson's, Ranked by Evidence</h3>
-                  <p>Not all exercise is equal. We reviewed the research to find what works best for Parkinson's management.</p>
-                  <div class="article-meta"><span>7 min read</span><span>Exercise</span><span>April 2026</span></div>
-                  <a href="best-exercises-for-parkinsons.html" class="card-cta mt-2">Read <span class="arrow">→</span></a>
-                </div>
-              </article>
-              <article class="article-card">
-                <div class="article-thumb">💊</div>
-                <div class="article-body">
-                  <p class="article-category">Medication</p>
-                  <h3>DBS Surgery: What to Expect, and What Nobody Tells You</h3>
-                  <p>Community members who've had deep brain stimulation surgery share the honest truths about the process and recovery.</p>
-                  <div class="article-meta"><span>11 min read</span><span>Medication</span><span>April 2026</span></div>
-                  <a href="dbs-surgery.html" class="card-cta mt-2">Read <span class="arrow">→</span></a>
-                </div>
-              </article>
-              <article class="article-card">
-                <div class="article-thumb">👨‍👩‍👧</div>
-                <div class="article-body">
-                  <p class="article-category">Caregiving</p>
-                  <h3>Caregiver Burnout: Recognizing It Before It Breaks You</h3>
-                  <p>Caring for someone with Parkinson's is one of the hardest things you can do. Here's how to recognize burnout and what to do about it.</p>
-                  <div class="article-meta"><span>8 min read</span><span>Caregiving</span><span>March 2026</span></div>
-                  <a href="care-partners.html" class="card-cta mt-2">Read <span class="arrow">→</span></a>
-                </div>
-              </article>
-              <article class="article-card">
-                <div class="article-thumb">😴</div>
-                <div class="article-body">
-                  <p class="article-category">Sleep</p>
-                  <h3>Sleep and Parkinson's: A Comprehensive Guide</h3>
-                  <p>REM sleep behavior disorder. Insomnia. Excessive daytime sleepiness. Parkinson's disrupts sleep in complex ways. Here's what you can do.</p>
-                  <div class="article-meta"><span>10 min read</span><span>Sleep</span><span>March 2026</span></div>
-                  <a href="parkinsons-sleep.html" class="card-cta mt-2">Read <span class="arrow">→</span></a>
-                </div>
-              </article>
-              <article class="article-card">
-                <div class="article-thumb">🗣️</div>
-                <div class="article-body">
-                  <p class="article-category">Symptoms</p>
-                  <h3>Voice Changes in Parkinson's: LSVT LOUD and Beyond</h3>
-                  <p>Parkinson's affects voice in 90% of cases. Here's what to know about voice therapy, LSVT LOUD, and keeping your voice strong.</p>
-                  <div class="article-meta"><span>6 min read</span><span>Symptoms</span><span>February 2026</span></div>
-                  <a href="voice-changes.html" class="card-cta mt-2">Read <span class="arrow">→</span></a>
-                </div>
-              </article>
-              <article class="article-card">
-                <div class="article-thumb">🔬</div>
-                <div class="article-body">
-                  <p class="article-category">Research & Clinical Trials</p>
-                  <h3>Clinical Trials: How to Find Them and What to Know</h3>
-                  <p>Clinical trials aren't just for the end of the road. Here's how to find trials, what to ask, and how to decide if participating is right for you.</p>
-                  <div class="article-meta"><span>9 min read</span><span>Research &amp; Clinical Trials</span><span>February 2026</span></div>
-                  <a href="clinical-trials.html" class="card-cta mt-2">Read <span class="arrow">→</span></a>
-                </div>
-              </article>
-            </div>
-
-            <div class="section-header">
-              <span class="section-label">More Topics</span>
-              <h2 class="section-title" style="font-size:1.5rem;">More Symptom &amp; Lifestyle Guides</h2>
-              <p class="section-subtitle">Long-tail resource pages built around the everyday Parkinson's questions people search for most.</p>
-            </div>
-
-            <div class="grid-3" style="margin-bottom:2rem;">
-              <article class="article-card">
-                <div class="article-thumb">〰️</div>
-                <div class="article-body">
-                  <p class="article-category">Symptoms</p>
-                  <h3>Parkinson's Tremor: What It Feels Like and What Helps</h3>
-                  <p>A grounded look at resting tremor, what makes it worse, and how treatment and daily habits can help.</p>
-                  <div class="article-meta"><span>8 min read</span><span>Symptoms</span><span>March 2026</span></div>
-                  <a href="parkinsons-tremor.html" class="card-cta mt-2">Read <span class="arrow">→</span></a>
-                </div>
-              </article>
-              <article class="article-card">
-                <div class="article-thumb">🧊</div>
-                <div class="article-body">
-                  <p class="article-category">Mobility</p>
-                  <h3>Freezing of Gait in Parkinson's</h3>
-                  <p>Learn what freezing feels like, what triggers it, and how cueing strategies can reduce panic and fall risk.</p>
-                  <div class="article-meta"><span>8 min read</span><span>Mobility</span><span>March 2026</span></div>
-                  <a href="freezing-of-gait.html" class="card-cta mt-2">Read <span class="arrow">→</span></a>
-                </div>
-              </article>
-              <article class="article-card">
-                <div class="article-thumb">🫗</div>
-                <div class="article-body">
-                  <p class="article-category">Digestive Health</p>
-                  <h3>Constipation and Parkinson's</h3>
-                  <p>Why constipation is so common in Parkinson's, why it matters, and what daily strategies often help.</p>
-                  <div class="article-meta"><span>7 min read</span><span>Digestive Health</span><span>March 2026</span></div>
-                  <a href="parkinsons-constipation.html" class="card-cta mt-2">Read <span class="arrow">→</span></a>
-                </div>
-              </article>
-              <article class="article-card">
-                <div class="article-thumb">↔️</div>
-                <div class="article-body">
-                  <p class="article-category">Medication</p>
-                  <h3>Dyskinesia in Parkinson's</h3>
-                  <p>Understand how dyskinesia differs from tremor and why medication fluctuations are often part of the story.</p>
-                  <div class="article-meta"><span>8 min read</span><span>Medication</span><span>March 2026</span></div>
-                  <a href="dyskinesia.html" class="card-cta mt-2">Read <span class="arrow">→</span></a>
-                </div>
-              </article>
-              <article class="article-card">
-                <div class="article-thumb">👁️</div>
-                <div class="article-body">
-                  <p class="article-category">Cognition &amp; Behavior</p>
-                  <h3>Hallucinations and Delusions in Parkinson's</h3>
-                  <p>What families should know about responding calmly, spotting safety concerns, and knowing when to seek help.</p>
-                  <div class="article-meta"><span>8 min read</span><span>Cognition &amp; Behavior</span><span>March 2026</span></div>
-                  <a href="hallucinations-delusions.html" class="card-cta mt-2">Read <span class="arrow">→</span></a>
-                </div>
-              </article>
-              <article class="article-card">
-                <div class="article-thumb">🥗</div>
-                <div class="article-body">
-                  <p class="article-category">Nutrition</p>
-                  <h3>Parkinson's Diet and Nutrition</h3>
-                  <p>Practical nutrition guidance covering hydration, fiber, protein timing, and what actually matters most.</p>
-                  <div class="article-meta"><span>8 min read</span><span>Nutrition</span><span>March 2026</span></div>
-                  <a href="parkinsons-diet-nutrition.html" class="card-cta mt-2">Read <span class="arrow">→</span></a>
-                </div>
-              </article>
-              <article class="article-card">
-                <div class="article-thumb">😴</div>
-                <div class="article-body">
-                  <p class="article-category">Sleep</p>
-                  <h3>Sleep and Parkinson's: Why It Happens and What Helps</h3>
-                  <p>Learn why sleep disruption is so common in Parkinson's and which practical habits may help you rest better.</p>
-                  <div class="article-meta"><span>10 min read</span><span>Sleep</span><span>Updated 2026</span></div>
-                  <a href="parkinsons-sleep.html" class="card-cta mt-2">Read <span class="arrow">→</span></a>
-                </div>
-              </article>
-              <article class="article-card">
-                <div class="article-thumb">⏱️</div>
-                <div class="article-body">
-                  <p class="article-category">Medication</p>
-                  <h3>Medication Timing Mistakes to Avoid With Parkinson's</h3>
-                  <p>Understand common timing mistakes, food effects, and how to track what your medication schedule is really doing.</p>
-                  <div class="article-meta"><span>8 min read</span><span>Medication</span><span>Updated 2026</span></div>
-                  <a href="parkinsons-medication-timing.html" class="card-cta mt-2">Read <span class="arrow">→</span></a>
-                </div>
-              </article>
-            </div>
-
-            <!-- PAGINATION -->
-            <nav class="pagination" aria-label="Articles pagination">
-              <button class="page-btn active" aria-current="page" aria-label="Page 1">1</button>
-              <button class="page-btn" aria-label="Page 2">2</button>
-              <button class="page-btn" aria-label="Page 3">3</button>
-              <span style="color:var(--color-text-muted);padding:0 0.5rem;">…</span>
-              <button class="page-btn" aria-label="Page 12">12</button>
-              <button class="page-btn" aria-label="Next page">→</button>
-            </nav>
-          </div>
-
-          <!-- SIDEBAR -->
-          <aside aria-label="Newsletter and quick links">
-            <div class="card" style="position:sticky;top:calc(var(--nav-height) + 1.5rem);margin-bottom:2rem;">
-              <div class="card-icon">📧</div>
-              <h3>Free Parkinson's Insights</h3>
-              <p style="font-size:0.9rem;">Get practical Parkinson's insights, new articles, and helpful strategies delivered to your inbox.</p>
-              <ul style="font-size:0.85rem;margin:1rem 0;list-style:none;color:var(--color-text-muted);">
-                <li style="margin-bottom:0.5rem;"><span style="color:var(--color-primary);">✔</span> symptom management</li>
-                <li style="margin-bottom:0.5rem;"><span style="color:var(--color-primary);">✔</span> medication insights</li>
-                <li style="margin-bottom:0.5rem;"><span style="color:var(--color-primary);">✔</span> mental health support</li>
-                <li><span style="color:var(--color-primary);">✔</span> exercise and lifestyle strategies</li>
-              </ul>
-              <form class="newsletter-form" style="flex-direction:column;gap:0.75rem;margin-top:1rem;" aria-label="Resources newsletter signup">
-                <label for="sidebar-email" class="visually-hidden">Your email address</label>
-                <input type="email" id="sidebar-email" placeholder="your@email.com" required autocomplete="email" style="min-width:unset;">
-                <button type="submit" class="btn btn-primary">Get Free Updates</button>
-              </form>
-              <p style="font-size:0.75rem;color:var(--color-text-muted);margin-top:0.75rem;text-align:center;">Helpful resources only. No spam.</p>
-            </div>
-
-            <div class="card" style="margin-bottom:2rem;">
-              <h3 style="font-size:1rem;margin-bottom:1rem;">Popular Topics</h3>
-              <div class="category-nav" style="flex-wrap:wrap;">
-                <a href="newly-diagnosed.html" class="cat-btn btn-sm">Newly Diagnosed</a>
-                <a href="parkinsons-medication-timing.html" class="cat-btn btn-sm">Medication Timing</a>
-                <a href="best-exercises-for-parkinsons.html" class="cat-btn btn-sm">Exercise</a>
-                <a href="parkinsons-sleep.html" class="cat-btn btn-sm">Sleep</a>
-                <a href="mental-health.html" class="cat-btn btn-sm">Mental Health</a>
-                <a href="clinical-trials.html" class="cat-btn btn-sm">Clinical Trials</a>
-                <a href="parkinsons-tremor.html" class="cat-btn btn-sm">Tremor</a>
-                <a href="freezing-of-gait.html" class="cat-btn btn-sm">Freezing</a>
-                <a href="parkinsons-constipation.html" class="cat-btn btn-sm">Constipation</a>
-                <a href="dyskinesia.html" class="cat-btn btn-sm">Dyskinesia</a>
-                <a href="hallucinations-delusions.html" class="cat-btn btn-sm">Hallucinations</a>
-                <a href="parkinsons-diet-nutrition.html" class="cat-btn btn-sm">Nutrition</a>
-                <a href="care-partners.html" class="cat-btn btn-sm">Caregiving</a>
-                <a href="dbs-surgery.html" class="cat-btn btn-sm">DBS & Treatments</a>
-              </div>
-            </div>
-          </aside>
-
-        </div>
-      </div>
-    <!-- LEARN THROUGH VIDEO -->
-    <section style="background:linear-gradient(135deg, rgba(32, 178, 170, 0.05), transparent);padding:3rem 2rem;">
-      <div class="container" style="max-width:900px;text-align:center;">
-        <h2 style="font-size:1.75rem;margin-bottom:1rem;">Prefer to Learn Through Video?</h2>
-        <p style="font-size:1rem;line-height:1.8;color:var(--color-text-muted);margin-bottom:2rem;">Many of these topics are also explored on the <em>Living With Parkinson's</em> YouTube channel where Bryce Perry shares real-life experiences, research breakdowns, and practical strategies for living with Parkinson's.</p>
-        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-          <a href="https://www.youtube.com/c/DoingLifeToday" class="btn btn-primary">Watch on YouTube</a>
-          <a href="podcasts.html" class="btn btn-outline-primary">Listen to the Podcast</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- RESOURCE LIBRARY DESCRIPTION -->
-    <section style="padding:3rem 2rem;">
-      <div class="container" style="max-width:900px;">
-        <h2 style="font-size:1.75rem;margin-bottom:1.5rem;">Parkinson's Education Library</h2>
-        <p style="font-size:1rem;line-height:1.8;margin-bottom:1.5rem;color:var(--color-text-muted);">Parkinson's disease affects each person differently, and navigating the condition often requires learning across many areas of daily life.</p>
-        <p style="font-size:1rem;line-height:1.8;margin-bottom:1.5rem;color:var(--color-text-muted);">This resource library brings together practical articles covering:</p>
-        <ul style="font-size:1rem;line-height:1.8;margin:1.5rem 0;margin-left:2rem;color:var(--color-text-muted);">
-          <li>Parkinson's symptoms and progression</li>
-          <li>Medication and treatment options</li>
-          <li>Exercise and movement strategies</li>
-          <li>Sleep and fatigue management</li>
-          <li>Mental health and emotional resilience</li>
-          <li>Caregiving and family support</li>
-        </ul>
-        <p style="font-size:1rem;line-height:1.8;margin-top:1.5rem;color:var(--color-text-muted);">Our goal is to make reliable, understandable information easier to find for people living with Parkinson's and those supporting them.</p>
-        <div style="margin-top:2rem;">
-          <a href="community.html" class="btn btn-primary">Explore the Full Parkinson's Guide</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- EMAIL SIGNUP -->
-    <section style="background:rgba(32, 178, 170, 0.05);padding:3rem 2rem;">
-      <div class="container" style="max-width:600px;text-align:center;">
-        <h2 style="font-size:1.5rem;margin-bottom:1rem;">Stay Connected</h2>
-        <p style="font-size:1rem;line-height:1.8;margin-bottom:2rem;color:var(--color-text-muted);">Get updates on new Parkinson's resources, podcast episodes, and community opportunities from Doing Life Today.</p>
-        <form style="display:grid;grid-template-columns:1fr auto;gap:0.5rem;margin-bottom:0.75rem;" aria-label="Resources email signup">
-          <input type="email" placeholder="your@email.com" required autocomplete="email" style="padding:0.75rem;border:1px solid var(--color-border);border-radius:6px;background:rgba(0,0,0,0.2);color:#fff;font-size:0.95rem;">
-          <button type="submit" class="btn btn-primary">Subscribe Free</button>
-        </form>
-        <p style="font-size:0.8rem;color:var(--color-text-muted);">We only send helpful updates.</p>
-      </div>
-    </section>
-
-    <section aria-labelledby="all-resources-heading" style="padding:3rem 2rem;">
+    <section aria-labelledby="start-here-heading" style="padding:3rem 2rem 1rem;">
       <div class="container">
         <div class="section-header centered text-center" style="margin-bottom:2rem;">
-          <span class="section-label">Resource Index</span>
-          <h2 id="all-resources-heading" class="section-title" style="font-size:1.75rem;">All Parkinson's Resources</h2>
-          <p class="section-subtitle centered">Browse all of the Parkinson's guides and resources available on Doing Life Today.</p>
+          <span class="section-label">Start Here</span>
+          <h2 id="start-here-heading" class="section-title">Best First Stops</h2>
+          <p class="section-subtitle centered">If someone lands here for the first time, these are the pages that orient them fastest.</p>
         </div>
 
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem;max-width:1100px;margin:0 auto;align-items:start;">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.25rem;">
+          <article class="card">
+            <span class="section-label">Main Guide</span>
+            <h3 style="margin-top:0.5rem;">Living With Parkinson's Guide</h3>
+            <p style="color:var(--color-text-muted);margin-top:0.75rem;">The broadest overview of symptoms, treatment, support, and daily life.</p>
+            <a href="/community" class="btn btn-outline-primary" style="margin-top:1rem;">Open Guide</a>
+          </article>
+          <article class="card">
+            <span class="section-label">Newly Diagnosed</span>
+            <h3 style="margin-top:0.5rem;">First 90 Days</h3>
+            <p style="color:var(--color-text-muted);margin-top:0.75rem;">A practical roadmap for the first stretch after diagnosis.</p>
+            <a href="/first-90-days-parkinsons" class="btn btn-outline-primary" style="margin-top:1rem;">Read Guide</a>
+          </article>
+          <article class="card">
+            <span class="section-label">Support</span>
+            <h3 style="margin-top:0.5rem;">Parkinson's Community</h3>
+            <p style="color:var(--color-text-muted);margin-top:0.75rem;">The main community page, with support-group and Club pathways.</p>
+            <a href="/parkinsons-community" class="btn btn-outline-primary" style="margin-top:1rem;">Visit Community</a>
+          </article>
+          <article class="card">
+            <span class="section-label">Media</span>
+            <h3 style="margin-top:0.5rem;">Podcast and YouTube</h3>
+            <p style="color:var(--color-text-muted);margin-top:0.75rem;">Watch, listen, or search by topic through the audio and video hubs.</p>
+            <div class="btn-group" style="margin-top:1rem;justify-content:flex-start;">
+              <a href="/living-with-parkinsons-podcast" class="btn btn-outline-primary">Podcast</a>
+              <a href="/youtube" class="btn btn-outline-primary">YouTube</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-dark-2" aria-labelledby="recent-heading" style="padding:3rem 2rem;">
+      <div class="container">
+        <div class="section-header centered text-center" style="margin-bottom:2rem;">
+          <span class="section-label">Fresh Additions</span>
+          <h2 id="recent-heading" class="section-title">Newer Support and Media Pages</h2>
+          <p class="section-subtitle centered">These are some of the deeper-support and discovery pages that were missing from the old index.</p>
+        </div>
+        <div class="resource-nav-grid">
+          <a href="/parkinsons-help-and-support" class="resource-nav-card"><span class="rnc-icon" aria-hidden="true">🤝</span> Help and Support</a>
+          <a href="/free-parkinsons-community" class="resource-nav-card"><span class="rnc-icon" aria-hidden="true">🆓</span> Free Community</a>
+          <a href="/parkinsons-support-group-online" class="resource-nav-card"><span class="rnc-icon" aria-hidden="true">💻</span> Online Support Groups</a>
+          <a href="/parkinsons-daily-check-in" class="resource-nav-card"><span class="rnc-icon" aria-hidden="true">📓</span> Daily Check-In</a>
+          <a href="/parkinsons-symptom-tracker" class="resource-nav-card"><span class="rnc-icon" aria-hidden="true">📈</span> Symptom Tracker</a>
+          <a href="/caregiver-burnout" class="resource-nav-card"><span class="rnc-icon" aria-hidden="true">🔥</span> Caregiver Burnout</a>
+          <a href="/what-no-one-tells-you-after-parkinsons-diagnosis" class="resource-nav-card"><span class="rnc-icon" aria-hidden="true">💬</span> What No One Tells You</a>
+          <a href="/best-parkinsons-podcast" class="resource-nav-card"><span class="rnc-icon" aria-hidden="true">🎧</span> Best Parkinson's Podcast</a>
+          <a href="/best-new-parkinsons-podcast" class="resource-nav-card"><span class="rnc-icon" aria-hidden="true">🆕</span> Best New Parkinson's Podcast</a>
+          <a href="/parkinsons-podcast-for-newly-diagnosed" class="resource-nav-card"><span class="rnc-icon" aria-hidden="true">🧭</span> Podcast for Newly Diagnosed</a>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="library-index-heading" id="library-index" style="padding:3rem 2rem;">
+      <div class="container">
+        <div class="section-header centered text-center" style="margin-bottom:2rem;">
+          <span class="section-label">Library Index</span>
+          <h2 id="library-index-heading" class="section-title">All Parkinson's Resources</h2>
+          <p class="section-subtitle centered">This index covers the full written library that is currently part of the site, grouped by topic instead of only surfacing a small handful.</p>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem;max-width:1200px;margin:0 auto;align-items:start;">
+          <div>
+            <h3 style="font-size:1rem;margin-bottom:0.9rem;">General Guides</h3>
+            <ul class="footer-links" style="display:flex;flex-direction:column;gap:0.65rem;">
+              <li><a href="/community">Living With Parkinson's Guide</a></li>
+              <li><a href="/living-with-parkinsons">Living with Parkinson's: A Practical Guide</a></li>
+            </ul>
+          </div>
+
           <div>
             <h3 style="font-size:1rem;margin-bottom:0.9rem;">Newly Diagnosed</h3>
             <ul class="footer-links" style="display:flex;flex-direction:column;gap:0.65rem;">
-              <li><a href="first-90-days-parkinsons.html">Your First 90 Days After Diagnosis</a></li>
-              <li><a href="early-signs-of-parkinsons.html">Early Signs of Parkinson's</a></li>
-              <li><a href="living-with-parkinsons.html">Living With Parkinson's: A Practical Guide</a></li>
+              <li><a href="/newly-diagnosed">Newly Diagnosed with Parkinson's</a></li>
+              <li><a href="/first-90-days-parkinsons">Your First 90 Days After Diagnosis</a></li>
+              <li><a href="/early-signs-of-parkinsons">Early Signs of Parkinson's</a></li>
+              <li><a href="/what-no-one-tells-you-after-parkinsons-diagnosis">What No One Tells You After Diagnosis</a></li>
             </ul>
           </div>
 
           <div>
             <h3 style="font-size:1rem;margin-bottom:0.9rem;">Symptoms</h3>
             <ul class="footer-links" style="display:flex;flex-direction:column;gap:0.65rem;">
-              <li><a href="parkinsons-tremor.html">Parkinson's Tremor</a></li>
-              <li><a href="freezing-of-gait.html">Freezing of Gait</a></li>
-              <li><a href="parkinsons-constipation.html">Constipation and Parkinson's</a></li>
-              <li><a href="dyskinesia.html">Dyskinesia in Parkinson's</a></li>
-              <li><a href="hallucinations-delusions.html">Hallucinations and Delusions</a></li>
-              <li><a href="voice-changes.html">Voice Changes in Parkinson's</a></li>
+              <li><a href="/symptoms">Parkinson's Symptoms Explained</a></li>
+              <li><a href="/parkinsons-tremor">Parkinson's Tremor</a></li>
+              <li><a href="/freezing-of-gait">Freezing of Gait</a></li>
+              <li><a href="/parkinsons-constipation">Constipation and Parkinson's</a></li>
+              <li><a href="/hallucinations-delusions">Hallucinations and Delusions</a></li>
+              <li><a href="/voice-changes">Voice Changes in Parkinson's</a></li>
             </ul>
           </div>
 
           <div>
-            <h3 style="font-size:1rem;margin-bottom:0.9rem;">Lifestyle and Daily Living</h3>
+            <h3 style="font-size:1rem;margin-bottom:0.9rem;">Medication and Treatment</h3>
             <ul class="footer-links" style="display:flex;flex-direction:column;gap:0.65rem;">
-              <li><a href="best-exercises-for-parkinsons.html">Best Exercises for Parkinson's</a></li>
-              <li><a href="parkinsons-exercise.html">Exercise and Parkinson's: Why Movement Matters</a></li>
-              <li><a href="parkinsons-diet-nutrition.html">Parkinson's Diet and Nutrition</a></li>
-              <li><a href="parkinsons-sleep.html">Sleep and Parkinson's: Why It Happens and What Helps</a></li>
+              <li><a href="/medication-treatment">Medication and Treatment</a></li>
+              <li><a href="/parkinsons-medication-timing">Medication Timing Mistakes</a></li>
+              <li><a href="/dyskinesia">Dyskinesia in Parkinson's</a></li>
+              <li><a href="/dbs-surgery">DBS Surgery</a></li>
             </ul>
           </div>
 
           <div>
-            <h3 style="font-size:1rem;margin-bottom:0.9rem;">Treatment</h3>
+            <h3 style="font-size:1rem;margin-bottom:0.9rem;">Exercise and Movement</h3>
             <ul class="footer-links" style="display:flex;flex-direction:column;gap:0.65rem;">
-              <li><a href="parkinsons-medication-timing.html">Medication Timing Mistakes to Avoid With Parkinson's</a></li>
-              <li><a href="dbs-surgery.html">DBS Surgery for Parkinson's</a></li>
+              <li><a href="/parkinsons-exercise">Exercise and Parkinson's Disease</a></li>
+              <li><a href="/exercise-movement">Exercise and Movement</a></li>
+              <li><a href="/best-exercises-for-parkinsons">Best Exercises for Parkinson's</a></li>
             </ul>
           </div>
 
           <div>
-            <h3 style="font-size:1rem;margin-bottom:0.9rem;">Mental Health and Support</h3>
+            <h3 style="font-size:1rem;margin-bottom:0.9rem;">Sleep and Fatigue</h3>
             <ul class="footer-links" style="display:flex;flex-direction:column;gap:0.65rem;">
-              <li><a href="mental-health-parkinsons.html">The Mental Health Crisis in Parkinson's</a></li>
-              <li><a href="parkinsons-community.html">Parkinson's Community</a></li>
-              <li><a href="care-partners.html">Care Partners and Parkinson's</a></li>
+              <li><a href="/parkinsons-sleep">Sleep and Parkinson's</a></li>
+              <li><a href="/sleep-fatigue">Parkinson's Sleep Problems</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 style="font-size:1rem;margin-bottom:0.9rem;">Mental Health</h3>
+            <ul class="footer-links" style="display:flex;flex-direction:column;gap:0.65rem;">
+              <li><a href="/mental-health-parkinsons">The Mental Health Crisis in Parkinson's</a></li>
+              <li><a href="/mental-health">Mental Health and Parkinson's</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 style="font-size:1rem;margin-bottom:0.9rem;">Community and Support</h3>
+            <ul class="footer-links" style="display:flex;flex-direction:column;gap:0.65rem;">
+              <li><a href="/parkinsons-community">Parkinson's Community</a></li>
+              <li><a href="/parkinsons-support-group-online">Parkinson's Support Groups Online</a></li>
+              <li><a href="/free-parkinsons-community">Free Parkinson's Community</a></li>
+              <li><a href="/parkinsons-help-and-support">Parkinson's Help and Support</a></li>
+              <li><a href="/community-support">Parkinson's Support Community</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 style="font-size:1rem;margin-bottom:0.9rem;">Tracking and Daily Living</h3>
+            <ul class="footer-links" style="display:flex;flex-direction:column;gap:0.65rem;">
+              <li><a href="/parkinsons-daily-check-in">Parkinson's Daily Check-In</a></li>
+              <li><a href="/parkinsons-symptom-tracker">Parkinson's Symptom Tracker</a></li>
+              <li><a href="/parkinsons-diet-nutrition">Diet and Nutrition</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 style="font-size:1rem;margin-bottom:0.9rem;">Caregiving</h3>
+            <ul class="footer-links" style="display:flex;flex-direction:column;gap:0.65rem;">
+              <li><a href="/care-partners">Care Partners and Parkinson's</a></li>
+              <li><a href="/caregiver-burnout">Caregiver Burnout</a></li>
             </ul>
           </div>
 
           <div>
             <h3 style="font-size:1rem;margin-bottom:0.9rem;">Research</h3>
             <ul class="footer-links" style="display:flex;flex-direction:column;gap:0.65rem;">
-              <li><a href="clinical-trials.html">Clinical Trials for Parkinson's</a></li>
+              <li><a href="/clinical-trials">Clinical Trials for Parkinson's</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 style="font-size:1rem;margin-bottom:0.9rem;">Podcast Discovery</h3>
+            <ul class="footer-links" style="display:flex;flex-direction:column;gap:0.65rem;">
+              <li><a href="/parkinsons-podcasts">Best Podcasts About Parkinson's Disease</a></li>
+              <li><a href="/best-parkinsons-podcast">Best Parkinson's Podcast</a></li>
+              <li><a href="/best-new-parkinsons-podcast">Best New Parkinson's Podcast</a></li>
+              <li><a href="/parkinsons-podcast-for-newly-diagnosed">Podcast for Newly Diagnosed</a></li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
+    <section class="bg-dark-2" aria-labelledby="learn-elsewhere-heading" style="padding:3rem 2rem;">
+      <div class="container" style="max-width:900px;text-align:center;">
+        <span class="section-label">Watch and Listen</span>
+        <h2 id="learn-elsewhere-heading" class="section-title">Prefer Video, Audio, or the Directory?</h2>
+        <p class="section-subtitle centered">The written library is only one layer. You can also search the podcast archive, watch YouTube, or browse the public Exchange directory.</p>
+        <div class="btn-group" style="justify-content:center;margin-top:2rem;">
+          <a href="/living-with-parkinsons-podcast" class="btn btn-primary btn-lg">Podcast Hub</a>
+          <a href="/youtube" class="btn btn-secondary btn-lg">YouTube Hub</a>
+          <a href="/exchange" class="btn btn-secondary btn-lg">The Exchange</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
   <footer class="site-footer" role="contentinfo">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="nav-logo" aria-label="Doing Life Today - Home">
+          <a href="/" class="nav-logo" aria-label="Doing Life Today - Home">
             <div class="nav-logo-mark" aria-hidden="true">DL</div>
             <div class="nav-logo-text">Doing Life Today<span>Parkinson's Community</span></div>
           </a>
-          <p>Connecting people living with Parkinson's through podcasts, community, and real conversations — since 2018.</p>
-          <a href="https://bryceperry.org" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">Book Bryce for Speaking →</a>
+          <p>Doing Life Today connects people living with Parkinson's through guides, podcasts, community, tools, and real conversations.</p>
+          <a href="/theclub" class="btn btn-outline-primary btn-sm">Explore The Club</a>
         </div>
         <div class="footer-col">
           <h4>Quick Links</h4>
           <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="podcasts.html">Podcasts</a></li>
-            <li><a href="resources.html">Resources</a></li>
-            <li><a href="events.html">Events</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/podcasts">Podcasts</a></li>
+            <li><a href="/youtube">YouTube</a></li>
+            <li><a href="/resources">Resources</a></li>
+            <li><a href="/events">Events</a></li>
+            <li><a href="/contact">Contact</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>The DLT Platform</h4>
+          <h4>Support</h4>
           <ul class="footer-links">
-            <li><a href="https://dolifetoday.com">Doing Life Today</a></li>
-            <li><a href="/theclub">The Club</a></li>
-            <li><a href="https://podcast.dolifetoday.com" target="_blank" rel="noopener noreferrer">Podcast Network ↗</a></li>
-            <li><a href="https://bryceperry.org" target="_blank" rel="noopener noreferrer">Speaking &amp; Media ↗</a></li>
-            <li><a href="https://dolifetoday.myspreadshop.com" target="_blank" rel="noopener noreferrer">Merch Store ↗</a></li>
-            <li><a href="https://community.dolifetoday.com/pages/inner-circle" target="_blank" rel="noopener noreferrer">Inner Circle ↗</a></li>
+            <li><a href="/parkinsons-community">Parkinson's Community</a></li>
+            <li><a href="/parkinsons-help-and-support">Help and Support</a></li>
+            <li><a href="/parkinsons-daily-check-in">Daily Check-In</a></li>
+            <li><a href="/parkinsons-symptom-tracker">Symptom Tracker</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Connect</h4>
-          <div class="footer-social" role="list">
-            <a href="https://www.youtube.com/@doinglifetoday" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube" role="listitem">▶</a>
-            <a href="https://www.instagram.com/doinglifetoday" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Instagram" role="listitem">📷</a>
-            <a href="https://www.tiktok.com/@doinglifetoday" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="TikTok" role="listitem">♪</a>
-            <a href="https://www.facebook.com/doinglifetoday" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Facebook" role="listitem">f</a>
-          </div>
-          <ul class="footer-links mt-3">
-            <li><a href="mailto:office@dolifetoday.com">office@dolifetoday.com</a></li>
-            <li><a href="mailto:speaking@bryceperry.org">speaking@bryceperry.org</a></li>
-            <li><a href="mailto:media@bryceperry.org">media@bryceperry.org</a></li>
+          <h4>Legal</h4>
+          <ul class="footer-links">
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Use</a></li>
+            <li><a href="/content-policy">Content Policy</a></li>
+            <li><a href="/medical-disclaimer">Medical Disclaimer</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2025 Doing Life Today. All rights reserved. · <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Use</a></p>
-        <p class="footer-disclaimer">⚕️ This site provides peer support, not medical advice. Always consult your healthcare provider.</p>
+        <p>© 2026 Doing Life Today. All rights reserved.</p>
+        <p class="footer-disclaimer">Peer support, not medical advice. Always consult your healthcare provider.</p>
       </div>
     </div>
   </footer>
 
   <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">↑</button>
-  <script src="js/main.js"></script>
+  <script src="/js/main.js"></script>
 </body>
 </html>

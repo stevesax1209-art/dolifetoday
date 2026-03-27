@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Your email is confirmed for The Club waitlist. Your spot is secured and you will hear from Doing Life Today when your wave opens.">
+  <title>The Club | You're Confirmed</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body.club-confirmed-page {
+      --club-gold: #D4AF37;
+      --club-mint: #34D399;
+      --club-sky: #8BE9FD;
+      --club-ink: #07111F;
+      --club-panel: rgba(12, 20, 34, 0.84);
+      --club-panel-2: rgba(18, 28, 46, 0.94);
+      --club-border: rgba(212, 175, 55, 0.18);
+      background:
+        radial-gradient(circle at top left, rgba(212, 175, 55, 0.12), transparent 28%),
+        radial-gradient(circle at top right, rgba(52, 211, 153, 0.08), transparent 24%),
+        linear-gradient(180deg, #08111E 0%, #0D1728 48%, #07111F 100%);
+      color: #F8FAFC;
+      min-height: 100vh;
+    }
+
+    .club-confirmed-shell {
+      padding-top: 7.5rem;
+      padding-bottom: 5rem;
+    }
+
+    .club-confirmed-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(320px, 380px);
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .club-confirmed-card,
+    .club-confirmed-sidecard {
+      border-radius: 28px;
+      border: 1px solid var(--club-border);
+      background: linear-gradient(180deg, var(--club-panel) 0%, var(--club-panel-2) 100%);
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.34);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .club-confirmed-card {
+      padding: clamp(1.5rem, 4vw, 3rem);
+    }
+
+    .club-confirmed-sidecard {
+      padding: 1.5rem;
+      position: sticky;
+      top: 6.5rem;
+    }
+
+    .club-confirmed-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #052E2B;
+      background: linear-gradient(135deg, #34D399 0%, #6EE7B7 100%);
+      border: 1px solid rgba(110, 231, 183, 0.85);
+      box-shadow: 0 10px 24px rgba(52, 211, 153, 0.24);
+      margin-bottom: 1rem;
+    }
+
+    .club-confirmed-title {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      line-height: 1.02;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #FFFFFF 18%, #8BE9FD 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .club-confirmed-subtitle {
+      font-size: 1.06rem;
+      line-height: 1.7;
+      color: #D6DFEA;
+      max-width: 44ch;
+      margin-bottom: 1.5rem;
+    }
+
+    .club-confirmed-alert {
+      margin-bottom: 1.8rem;
+      padding: 1rem 1.05rem;
+      border-radius: 18px;
+      background: rgba(52, 211, 153, 0.08);
+      border: 1px solid rgba(52, 211, 153, 0.18);
+    }
+
+    .club-confirmed-alert strong {
+      color: #B8F7CB;
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+
+    .club-confirmed-alert p {
+      color: #DCFCE7;
+      margin: 0;
+    }
+
+    .club-confirmed-steps {
+      display: grid;
+      gap: 1rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .club-confirmed-step {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.9rem;
+      align-items: start;
+      padding: 1rem 1.05rem;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .club-confirmed-step-number {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: var(--club-ink);
+      background: linear-gradient(135deg, #8BE9FD 0%, #34D399 100%);
+      box-shadow: 0 8px 20px rgba(139, 233, 253, 0.2);
+    }
+
+    .club-confirmed-step h2 {
+      font-size: 1.05rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .club-confirmed-step p {
+      margin: 0;
+      color: #BFD0E3;
+      font-size: 0.96rem;
+    }
+
+    .club-confirmed-actions,
+    .club-confirmed-share-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+    }
+
+    .club-confirmed-page .btn-primary {
+      color: #0B1322;
+      box-shadow: 0 12px 28px rgba(52, 211, 153, 0.24);
+    }
+
+    .club-confirmed-page .btn-secondary {
+      color: #F8FAFC;
+      border: 1px solid rgba(139, 233, 253, 0.28);
+      background: rgba(139, 233, 253, 0.08);
+    }
+
+    .club-confirmed-page .btn-secondary:hover {
+      background: rgba(139, 233, 253, 0.14);
+      color: #FFFFFF;
+    }
+
+    .club-confirmed-sidecard h2 {
+      font-size: 1.15rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .club-confirmed-sidecard p {
+      color: #BFD0E3;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .club-confirmed-tiplist {
+      list-style: none;
+      display: grid;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .club-confirmed-tiplist li {
+      color: #E2E8F0;
+      font-size: 0.92rem;
+      padding-left: 1.35rem;
+      position: relative;
+    }
+
+    .club-confirmed-tiplist li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      top: -0.05rem;
+      color: #8BE9FD;
+      font-size: 1.15rem;
+      line-height: 1;
+    }
+
+    .club-confirmed-share-feedback {
+      margin-top: 0.9rem;
+      min-height: 1.4rem;
+      font-size: 0.88rem;
+      color: #BFD0E3;
+    }
+
+    .club-confirmed-share-feedback.is-success {
+      color: #86EFAC;
+    }
+
+    @media (max-width: 980px) {
+      .club-confirmed-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .club-confirmed-sidecard {
+        position: static;
+      }
+    }
+  </style>
+</head>
+<body class="club-confirmed-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a href="/" class="nav-logo" aria-label="Doing Life Today - Home">
+        <div class="nav-logo-mark" aria-hidden="true">DL</div>
+        <div class="nav-logo-text">Doing Life Today<span>Parkinson's Community</span></div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="/about">About</a></li>
+        <li><a href="/podcasts">Podcasts</a></li>
+        <li><a href="/youtube">YouTube</a></li>
+        <li><a href="/theclub">The Club</a></li>
+        <li><a href="/music">Music</a></li>
+        <li><a href="/community">Living With Parkinson's Guide</a></li>
+        <li><a href="/resources">Resources</a></li>
+        <li><a href="/events">Events</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <a href="/theclub" class="btn btn-primary btn-sm nav-cta">Back to The Club</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a href="/about">About</a>
+    <a href="/podcasts">Podcasts</a>
+    <a href="/youtube">YouTube</a>
+    <a href="/theclub">The Club</a>
+    <a href="/music">Music</a>
+    <a href="/community">Living With Parkinson's Guide</a>
+    <a href="/resources">Resources</a>
+    <a href="/events">Events</a>
+    <a href="/contact">Contact</a>
+    <div class="mobile-cta"><a href="/theclub" class="btn btn-primary">Back to The Club</a></div>
+  </nav>
+
+  <main id="main-content" class="club-confirmed-shell">
+    <div class="container club-confirmed-wrap">
+      <section class="club-confirmed-card" aria-labelledby="confirmed-heading">
+        <span class="club-confirmed-kicker">Confirmed</span>
+        <h1 id="confirmed-heading" class="club-confirmed-title">You’re Confirmed</h1>
+        <p class="club-confirmed-subtitle">Your email is confirmed and your place on The Club waitlist is secured. You will hear from Doing Life Today when your wave opens and your invitation is ready.</p>
+
+        <div class="club-confirmed-alert">
+          <strong>Your spot is locked in</strong>
+          <p>You do not need to sign up again. Watch for future emails from office@dolifetoday.com so you do not miss your invitation.</p>
+        </div>
+
+        <div class="club-confirmed-steps">
+          <article class="club-confirmed-step">
+            <span class="club-confirmed-step-number">1</span>
+            <div>
+              <h2>Keep an eye on your inbox</h2>
+              <p>Your invitation and future updates will come from office@dolifetoday.com.</p>
+            </div>
+          </article>
+          <article class="club-confirmed-step">
+            <span class="club-confirmed-step-number">2</span>
+            <div>
+              <h2>Add us to your safe senders</h2>
+              <p>If you can, mark office@dolifetoday.com as a trusted sender so future Club emails stay out of Spam or Junk.</p>
+            </div>
+          </article>
+          <article class="club-confirmed-step">
+            <span class="club-confirmed-step-number">3</span>
+            <div>
+              <h2>Share The Club with someone else</h2>
+              <p>If you know a friend or care partner who should be here too, send them the link while the current wave is still open.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="club-confirmed-actions">
+          <a href="/theclub" class="btn btn-primary">Back to The Club</a>
+          <a href="/community" class="btn btn-secondary">Explore the Community</a>
+        </div>
+      </section>
+
+      <aside class="club-confirmed-sidecard" aria-labelledby="confirmed-share-heading">
+        <h2 id="confirmed-share-heading">Invite someone else in</h2>
+        <p>Now that your spot is confirmed, send The Club to someone else who may want to join the waitlist too.</p>
+        <ul class="club-confirmed-tiplist">
+          <li>Share it with a person living with Parkinson’s who needs a stronger support system.</li>
+          <li>Share it with a care partner who would benefit from being around people who understand.</li>
+          <li>Remind them to confirm their email too.</li>
+        </ul>
+        <div class="club-confirmed-share-actions">
+          <button type="button" class="btn btn-primary" id="confirmed-share-email">Email a Friend</button>
+          <button type="button" class="btn btn-secondary" id="confirmed-share-copy">Copy Link</button>
+        </div>
+        <p class="club-confirmed-share-feedback" id="confirmed-share-feedback" aria-live="polite"></p>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo" aria-label="Doing Life Today - Home">
+            <div class="nav-logo-mark" aria-hidden="true">DL</div>
+            <div class="nav-logo-text">Doing Life Today<span>Parkinson's Community</span></div>
+          </a>
+          <p>Connecting people living with Parkinson's through podcasts, community, and real conversations.</p>
+          <a href="/theclub" class="btn btn-primary btn-sm">Back to The Club</a>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/podcasts">Podcasts</a></li>
+            <li><a href="/youtube">YouTube</a></li>
+            <li><a href="/resources">Resources</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>The Club</h4>
+          <ul class="footer-links">
+            <li><a href="/theclub">Join the Waitlist</a></li>
+            <li><a href="/theclub">What You'll Find Inside</a></li>
+            <li><a href="/theclub">First Wave Access</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:office@dolifetoday.com">office@dolifetoday.com</a></li>
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Doing Life Today. All rights reserved.</p>
+        <p class="footer-disclaimer">No one should have to figure Parkinson's out alone.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">↑</button>
+  <script src="js/main.js"></script>
+  <script>
+    (function () {
+      var shareFeedbackEl = document.getElementById('confirmed-share-feedback');
+      var emailShareButton = document.getElementById('confirmed-share-email');
+      var copyShareButton = document.getElementById('confirmed-share-copy');
+      var shareUrl = 'https://dolifetoday.com/theclub';
+      var shareEmailSubject = 'Thought you might want to join The Club';
+      var shareEmailBody = "I just confirmed my spot on The Club waitlist from Doing Life Today. If this sounds helpful for you or a care partner, here is the link: " + shareUrl;
+
+      function setShareFeedback(message, isSuccess) {
+        if (!shareFeedbackEl) return;
+        shareFeedbackEl.textContent = message || '';
+        shareFeedbackEl.classList.toggle('is-success', !!isSuccess);
+      }
+
+      function trackShare(channel) {
+        return fetch('/api/track-share', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ channel: channel, page: 'theclub-confirmed' }),
+          keepalive: true,
+        }).catch(function () {
+          return null;
+        });
+      }
+
+      function copyTextToClipboard(text) {
+        if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+          return navigator.clipboard.writeText(text);
+        }
+
+        return new Promise(function (resolve, reject) {
+          var tempInput = document.createElement('textarea');
+          tempInput.value = text;
+          tempInput.setAttribute('readonly', 'readonly');
+          tempInput.style.position = 'absolute';
+          tempInput.style.left = '-9999px';
+          document.body.appendChild(tempInput);
+          tempInput.select();
+
+          try {
+            var copied = document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            if (copied) {
+              resolve();
+              return;
+            }
+          } catch (error) {
+            document.body.removeChild(tempInput);
+            reject(error);
+            return;
+          }
+
+          reject(new Error('Copy failed'));
+        });
+      }
+
+      if (emailShareButton) {
+        emailShareButton.addEventListener('click', function () {
+          setShareFeedback('', false);
+          trackShare('email');
+          window.location.href = 'mailto:?subject=' + encodeURIComponent(shareEmailSubject) + '&body=' + encodeURIComponent(shareEmailBody);
+        });
+      }
+
+      if (copyShareButton) {
+        copyShareButton.addEventListener('click', async function () {
+          try {
+            await copyTextToClipboard(shareUrl);
+            await trackShare('copy');
+            setShareFeedback('Link copied. Send it to a friend or care partner.', true);
+          } catch (error) {
+            setShareFeedback('Unable to copy the link on this device. You can still share ' + shareUrl + '.', false);
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
