@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Owner mission control dashboard for Doing Life Today.">
+  <title>Mission Control | Doing Life Today</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/exchange.css">
+  <link rel="stylesheet" href="/css/provider-ecosystem.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a href="/" class="nav-logo" aria-label="Doing Life Today - Home">
+        <div class="nav-logo-mark" aria-hidden="true">DL</div>
+        <div class="nav-logo-text">Doing Life Today<span>Parkinson's Community</span></div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="/about">About</a></li>
+        <li><a href="/podcasts">Podcasts</a></li>
+        <li><a href="/youtube">YouTube</a></li>
+        <li><a href="/theclub">The Club</a></li>
+        <li><a href="/exchange">The Exchange</a></li>
+        <li><a href="/music">Music</a></li>
+        <li><a href="/community">Living With Parkinson's Guide</a></li>
+        <li><a href="/resources">Resources</a></li>
+        <li><a href="/events">Events</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <a href="/theclub" class="btn btn-primary btn-sm nav-cta">Join The Club</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a href="/about">About</a>
+    <a href="/podcasts">Podcasts</a>
+    <a href="/youtube">YouTube</a>
+    <a href="/theclub">The Club</a>
+    <a href="/exchange">The Exchange</a>
+    <a href="/music">Music</a>
+    <a href="/community">Living With Parkinson's Guide</a>
+    <a href="/resources">Resources</a>
+    <a href="/events">Events</a>
+    <a href="/contact">Contact</a>
+    <div class="mobile-cta"><a href="/theclub" class="btn btn-primary">Join The Club</a></div>
+  </nav>
+
+  <main id="main-content">
+    <!-- Loading -->
+    <div id="od-loading" class="container" style="padding:8rem 1.5rem 4rem;text-align:center;">
+      <p class="text-muted">Verifying access...</p>
+    </div>
+
+    <!-- Denied -->
+    <div id="od-denied" class="container" style="padding:8rem 1.5rem 4rem;text-align:center;" hidden>
+      <h1 class="hero-title" style="font-size:2rem;">Access Denied</h1>
+      <p class="text-muted">You don't have permission to access this page.</p>
+      <a href="/" class="btn btn-outline-primary" style="margin-top:1rem;">Go Home</a>
+    </div>
+
+    <!-- Dashboard Content -->
+    <div id="od-content" hidden>
+      <section class="od-hero" aria-labelledby="od-heading">
+        <div class="container">
+          <div id="pe-auth-bar-mount"></div>
+          <span class="section-label">Mission Control</span>
+          <h1 id="od-heading" class="hero-title" style="font-size:clamp(1.75rem,4vw,2.5rem);">Owner Dashboard</h1>
+          <p class="text-muted" style="max-width:48ch;">Real-time growth, conversions, and high-intent opportunities.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 1: Today Snapshot -->
+      <section class="od-section" aria-label="Today snapshot">
+        <div class="container">
+          <div class="od-snapshot-grid" id="od-snapshot">
+            <div class="od-snap-card">
+              <span class="od-snap-value" id="od-snap-claims">—</span>
+              <span class="od-snap-label">New Claims Today</span>
+            </div>
+            <div class="od-snap-card od-snap-green">
+              <span class="od-snap-value" id="od-snap-upgrades">—</span>
+              <span class="od-snap-label">Upgrades Today</span>
+            </div>
+            <div class="od-snap-card">
+              <span class="od-snap-value" id="od-snap-rate">—</span>
+              <span class="od-snap-label">Upgrade Rate</span>
+            </div>
+            <div class="od-snap-card od-snap-orange">
+              <span class="od-snap-value" id="od-snap-intent">—</span>
+              <span class="od-snap-label">High-Intent Providers</span>
+            </div>
+            <div class="od-snap-card od-snap-red">
+              <span class="od-snap-value" id="od-snap-pending">—</span>
+              <span class="od-snap-label">Pending Approvals</span>
+            </div>
+            <div class="od-snap-card">
+              <span class="od-snap-value" id="od-snap-trending">—</span>
+              <span class="od-snap-label">Trending Providers</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2: Conversion Funnel -->
+      <section class="od-section" aria-label="Conversion funnel">
+        <div class="container">
+          <span class="section-label">Analytics</span>
+          <h2 class="section-title" style="font-size:1.5rem;">Conversion Funnel</h2>
+          <div class="od-funnel-row" id="od-funnel">
+            <div class="od-funnel-step">
+              <span class="od-funnel-value" id="od-funnel-total">—</span>
+              <span class="od-funnel-label">Total Providers</span>
+            </div>
+            <div class="od-funnel-arrow" aria-hidden="true">→</div>
+            <div class="od-funnel-step">
+              <span class="od-funnel-value" id="od-funnel-free">—</span>
+              <span class="od-funnel-label">Free</span>
+            </div>
+            <div class="od-funnel-arrow" aria-hidden="true">→</div>
+            <div class="od-funnel-step">
+              <span class="od-funnel-value" id="od-funnel-verified">—</span>
+              <span class="od-funnel-label">Verified</span>
+            </div>
+            <div class="od-funnel-arrow" aria-hidden="true">→</div>
+            <div class="od-funnel-step od-funnel-highlight">
+              <span class="od-funnel-value" id="od-funnel-community">—</span>
+              <span class="od-funnel-label">Community ($49)</span>
+            </div>
+            <div class="od-funnel-rate">
+              <span class="od-funnel-value" id="od-funnel-rate">—</span>
+              <span class="od-funnel-label">Upgrade Rate</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3: High Intent Providers -->
+      <section class="od-section" aria-label="High intent providers">
+        <div class="container">
+          <span class="section-label">Action Zone</span>
+          <h2 class="section-title" style="font-size:1.5rem;">🔥 High Intent Providers (Ready to Convert)</h2>
+          <div class="admin-table-wrap">
+            <table class="admin-table" id="od-intent-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Score</th>
+                  <th>Views</th>
+                  <th>Disc.</th>
+                  <th>Rev.</th>
+                  <th>Tier</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="od-intent-body">
+                <tr><td colspan="8" class="admin-empty">Loading...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4: Approval Queue -->
+      <section class="od-section" aria-label="Approval queue">
+        <div class="container">
+          <span class="section-label">Approvals</span>
+          <h2 class="section-title" style="font-size:1.5rem;">Pending Approvals</h2>
+          <div class="admin-table-wrap">
+            <table class="admin-table" id="od-approval-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Submitted</th>
+                  <th>Tier</th>
+                  <th>Location</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="od-approval-body">
+                <tr><td colspan="5" class="admin-empty">Loading...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 5: Trending Momentum -->
+      <section class="od-section" aria-label="Trending momentum">
+        <div class="container">
+          <span class="section-label">Momentum</span>
+          <h2 class="section-title" style="font-size:1.5rem;">🔥 Trending Providers (Momentum Engine)</h2>
+          <div class="admin-table-wrap">
+            <table class="admin-table" id="od-trending-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Score</th>
+                  <th>Views</th>
+                  <th>Disc.</th>
+                  <th>Rev.</th>
+                </tr>
+              </thead>
+              <tbody id="od-trending-body">
+                <tr><td colspan="6" class="admin-empty">Loading...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 6: Recent Activity -->
+      <section class="od-section" aria-label="Recent activity">
+        <div class="container">
+          <span class="section-label">Activity Feed</span>
+          <h2 class="section-title" style="font-size:1.5rem;">Recent Activity</h2>
+          <div class="od-activity-feed" id="od-activity-feed">
+            <p class="text-muted">Loading events...</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 7: Quick Actions -->
+      <section class="od-section od-section-compact" aria-label="Quick actions">
+        <div class="container">
+          <div class="od-quick-actions">
+            <a href="/admin/providers" class="btn btn-outline-primary">View Full Admin Panel</a>
+            <a href="/exchange" class="btn btn-outline-primary">View Exchange</a>
+            <a href="/pricing" class="btn btn-outline-primary">View Pricing Page</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Rejection Modal (reused for approvals) -->
+    <div class="pe-modal-overlay" id="od-reject-modal">
+      <div class="pe-modal">
+        <h3>Reject Provider</h3>
+        <p class="text-muted">Provide a reason. This will be shown to the provider.</p>
+        <div class="pe-field" style="margin-top:1rem;">
+          <label for="od-reject-reason">Reason for rejection</label>
+          <textarea id="od-reject-reason" rows="3" placeholder="Why is this listing being rejected..."></textarea>
+        </div>
+        <div class="pe-modal-actions">
+          <button class="btn btn-outline-primary" id="od-reject-cancel">Cancel</button>
+          <button class="btn admin-action-btn admin-action-reject" id="od-reject-confirm" style="padding:0.65rem 1.25rem;font-size:0.92rem;">Confirm Rejection</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="/js/main.js" defer></script>
+  <script src="/js/provider-auth.js" defer></script>
+  <script src="/js/owner-dashboard.js" defer></script>
+</body>
+</html>

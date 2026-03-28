@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="description" content="Protected Club stats for Doing Life Today.">
+  <title>Protected Club Stats | Doing Life Today</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --panel: rgba(15, 23, 42, 0.82);
+      --panel-border: rgba(212, 175, 55, 0.2);
+      --text: #f8fafc;
+      --muted: #cbd5e1;
+      --accent: #d4af37;
+      --danger: #fecaca;
+      --success: #bbf7d0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(212, 175, 55, 0.16), transparent 28%),
+        radial-gradient(circle at top right, rgba(255, 255, 255, 0.08), transparent 18%),
+        linear-gradient(180deg, #0b1322 0%, #111c2d 52%, #0b1322 100%);
+      padding: 2rem 1rem 3rem;
+    }
+
+    .shell {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: 24px;
+      padding: 1.5rem;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.28);
+    }
+
+    .panel + .panel {
+      margin-top: 1rem;
+    }
+
+    h1 {
+      margin: 0 0 0.75rem;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      line-height: 1.05;
+    }
+
+    h2 {
+      margin: 0 0 0.8rem;
+      font-size: 1.15rem;
+      line-height: 1.2;
+    }
+
+    p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .kicker {
+      display: inline-block;
+      margin-bottom: 1rem;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    form {
+      margin-top: 1.5rem;
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    label {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    input {
+      width: 100%;
+      padding: 0.95rem 1rem;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      font: inherit;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: rgba(212, 175, 55, 0.45);
+      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.12);
+    }
+
+    button {
+      width: fit-content;
+      padding: 0.9rem 1.15rem;
+      border: 0;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #d4af37, #f3d678);
+      color: #111827;
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      opacity: 0.7;
+      cursor: wait;
+    }
+
+    .status {
+      min-height: 1.4rem;
+      margin-top: 0.2rem;
+      font-size: 0.92rem;
+    }
+
+    .status.error {
+      color: var(--danger);
+    }
+
+    .status.success {
+      color: var(--success);
+    }
+
+    .dashboard {
+      display: none;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .dashboard.is-visible {
+      display: grid;
+    }
+
+    .summary-grid,
+    .secondary-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .secondary-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .stat-card,
+    .list-card {
+      padding: 1.1rem;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .stat-label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-value {
+      display: block;
+      font-size: clamp(1.6rem, 3vw, 2.25rem);
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 1rem;
+    }
+
+    .list-card {
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .stats-list {
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .stats-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.8rem 0.9rem;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      color: var(--muted);
+    }
+
+    .stats-row strong {
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    .stats-row span:last-child {
+      color: var(--text);
+      font-weight: 700;
+      text-align: right;
+    }
+
+    .helper {
+      margin-top: 1rem;
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 980px) {
+      .summary-grid,
+      .secondary-grid,
+      .dashboard-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .summary-grid,
+      .secondary-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="panel">
+      <span class="kicker">Protected</span>
+      <h1>Club Stats</h1>
+      <p>Enter the password to view share totals, CTA performance, funnel numbers, role split, traffic sources, and daily signup activity for The Club page.</p>
+
+      <form id="stats-form" novalidate>
+        <label for="stats-password">Password</label>
+        <input id="stats-password" name="password" type="password" autocomplete="current-password" required>
+        <button type="submit" id="stats-submit">View Stats</button>
+        <div id="stats-status" class="status" aria-live="polite"></div>
+      </form>
+    </section>
+
+    <section id="dashboard" class="dashboard" aria-live="polite">
+      <section class="panel">
+        <h2>Overview</h2>
+        <div class="summary-grid">
+          <article class="stat-card"><span class="stat-label">Page Views</span><span class="stat-value" id="stats-page-views">0</span></article>
+          <article class="stat-card"><span class="stat-label">Form Starts</span><span class="stat-value" id="stats-form-starts">0</span></article>
+          <article class="stat-card"><span class="stat-label">Successful Signups</span><span class="stat-value" id="stats-signups">0</span></article>
+          <article class="stat-card"><span class="stat-label">Conversion Rate</span><span class="stat-value" id="stats-conversion-rate">0%</span></article>
+        </div>
+        <div class="secondary-grid" style="margin-top: 1rem;">
+          <article class="stat-card"><span class="stat-label">Submit Attempts</span><span class="stat-value" id="stats-submit-attempts">0</span></article>
+          <article class="stat-card"><span class="stat-label">Duplicate Signups</span><span class="stat-value" id="stats-duplicates">0</span></article>
+          <article class="stat-card"><span class="stat-label">Total Shares</span><span class="stat-value" id="stats-total-shares">0</span></article>
+        </div>
+      </section>
+
+      <div class="dashboard-grid">
+        <section class="panel list-card">
+          <h2>Funnel</h2>
+          <div id="funnel-list" class="stats-list"></div>
+        </section>
+
+        <section class="panel list-card">
+          <h2>Share Breakdown</h2>
+          <div id="share-list" class="stats-list"></div>
+        </section>
+      </div>
+
+      <div class="dashboard-grid">
+        <section class="panel list-card">
+          <h2>CTA Clicks By Location</h2>
+          <div id="cta-list" class="stats-list"></div>
+        </section>
+
+        <section class="panel list-card">
+          <h2>Role Breakdown</h2>
+          <div id="role-list" class="stats-list"></div>
+        </section>
+      </div>
+
+      <div class="dashboard-grid">
+        <section class="panel list-card">
+          <h2>Daily Signups</h2>
+          <div id="daily-list" class="stats-list"></div>
+        </section>
+
+        <section class="panel list-card">
+          <h2>Traffic Sources</h2>
+          <div id="source-list" class="stats-list"></div>
+        </section>
+      </div>
+
+      <section class="panel list-card">
+        <h2>Meta</h2>
+        <div id="meta-list" class="stats-list"></div>
+      </section>
+    </section>
+
+    <p class="helper">This dashboard tracks page events and button clicks. Share totals reflect click attempts, not whether an email was ultimately sent.</p>
+  </main>
+
+  <script>
+    (function () {
+      var form = document.getElementById('stats-form');
+      var passwordInput = document.getElementById('stats-password');
+      var submitButton = document.getElementById('stats-submit');
+      var statusEl = document.getElementById('stats-status');
+      var dashboardEl = document.getElementById('dashboard');
+      var pageViewsEl = document.getElementById('stats-page-views');
+      var formStartsEl = document.getElementById('stats-form-starts');
+      var signupsEl = document.getElementById('stats-signups');
+      var conversionRateEl = document.getElementById('stats-conversion-rate');
+      var submitAttemptsEl = document.getElementById('stats-submit-attempts');
+      var duplicatesEl = document.getElementById('stats-duplicates');
+      var totalSharesEl = document.getElementById('stats-total-shares');
+      var funnelListEl = document.getElementById('funnel-list');
+      var shareListEl = document.getElementById('share-list');
+      var ctaListEl = document.getElementById('cta-list');
+      var roleListEl = document.getElementById('role-list');
+      var dailyListEl = document.getElementById('daily-list');
+      var sourceListEl = document.getElementById('source-list');
+      var metaListEl = document.getElementById('meta-list');
+
+      var ctaLabels = {
+        nav: 'Header navigation',
+        mobile: 'Mobile call to action',
+        hero_form: 'Hero form button',
+        floating: 'Floating button',
+        section: 'Section buttons',
+        footer: 'Footer button'
+      };
+
+      var roleLabels = {
+        person_living_with_parkinsons: "Person living with Parkinson's",
+        care_partner: 'Care partner / family caregiver',
+        other: 'Other'
+      };
+
+      function setStatus(type, message) {
+        statusEl.className = 'status ' + (type || '');
+        statusEl.textContent = message || '';
+      }
+
+      function formatUpdatedAt(value) {
+        if (!value) return 'Not available yet';
+
+        try {
+          return new Date(value).toLocaleString();
+        } catch (error) {
+          return value;
+        }
+      }
+
+      function toSortedEntries(map) {
+        return Object.entries(map || {}).sort(function (left, right) {
+          return Number(right[1] || 0) - Number(left[1] || 0);
+        });
+      }
+
+      function renderRows(container, entries, emptyLabel, labelFormatter) {
+        if (!container) return;
+
+        if (!entries.length) {
+          container.innerHTML = '<div class="stats-row"><strong>' + emptyLabel + '</strong><span>0</span></div>';
+          return;
+        }
+
+        container.innerHTML = entries.map(function (entry) {
+          var rawLabel = entry[0];
+          var value = entry[1];
+          var label = typeof labelFormatter === 'function' ? labelFormatter(rawLabel) : rawLabel;
+          return '<div class="stats-row"><strong>' + label + '</strong><span>' + String(value) + '</span></div>';
+        }).join('');
+      }
+
+      function renderStats(data) {
+        var share = data.share || {};
+        var club = data.club || {};
+        var totals = club.totals || {};
+
+        pageViewsEl.textContent = String(totals.pageViews || 0);
+        formStartsEl.textContent = String(totals.formStarts || 0);
+        signupsEl.textContent = String(totals.signups || 0);
+        conversionRateEl.textContent = String(club.conversionRate || 0) + '%';
+        submitAttemptsEl.textContent = String(totals.submitAttempts || 0);
+        duplicatesEl.textContent = String(totals.duplicateSignups || 0);
+        totalSharesEl.textContent = String(share.total || 0);
+
+        renderRows(funnelListEl, [
+          ['Page views', totals.pageViews || 0],
+          ['Form starts', totals.formStarts || 0],
+          ['Submit attempts', totals.submitAttempts || 0],
+          ['Successful signups', totals.signups || 0],
+          ['Duplicate signups', totals.duplicateSignups || 0],
+          ['Form errors', totals.formErrors || 0],
+          ['Network errors', totals.networkErrors || 0]
+        ], 'No funnel data yet');
+
+        renderRows(shareListEl, [
+          ['Email share clicks', (share.channels && share.channels.email) || 0],
+          ['Copy-link clicks', (share.channels && share.channels.copy) || 0],
+          ['Total share clicks', share.total || 0]
+        ], 'No share data yet');
+
+        renderRows(ctaListEl, toSortedEntries(club.ctaClicks), 'No CTA clicks yet', function (label) {
+          return ctaLabels[label] || label;
+        });
+
+        renderRows(roleListEl, toSortedEntries(club.signupRoles), 'No role data yet', function (label) {
+          return roleLabels[label] || label;
+        });
+
+        renderRows(dailyListEl, Object.entries(club.dailySignups || {}).sort(function (left, right) {
+          return left[0] < right[0] ? 1 : -1;
+        }), 'No signup data yet');
+
+        renderRows(sourceListEl, toSortedEntries(club.trafficSources), 'No traffic sources yet');
+
+        renderRows(metaListEl, [
+          ['Tracked page', 'theclub'],
+          ['Shares tracked for', (share.pages && share.pages.theclub) || 0],
+          ['Last updated', formatUpdatedAt(club.updatedAt || share.updatedAt)]
+        ], 'No metadata yet');
+
+        dashboardEl.classList.add('is-visible');
+      }
+
+      if (!form || !passwordInput) return;
+
+      form.addEventListener('submit', async function (event) {
+        event.preventDefault();
+
+        var password = passwordInput.value;
+        if (!password) {
+          setStatus('error', 'Enter the password to view stats.');
+          return;
+        }
+
+        submitButton.disabled = true;
+        setStatus('', 'Checking password...');
+
+        try {
+          var response = await fetch('/api/share-stats', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ password: password })
+          });
+
+          var data = await response.json();
+
+          if (!response.ok) {
+            dashboardEl.classList.remove('is-visible');
+            setStatus('error', data.error || 'Unable to load stats.');
+            return;
+          }
+
+          renderStats(data);
+          setStatus('success', 'Stats loaded.');
+        } catch (error) {
+          dashboardEl.classList.remove('is-visible');
+          setStatus('error', 'Network error. Please try again.');
+        } finally {
+          submitButton.disabled = false;
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

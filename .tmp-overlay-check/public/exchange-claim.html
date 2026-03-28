@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Claim a Parkinson's provider listing on The Exchange and continue the verification process inside The Club.">
+  <title>Claim A Listing | Doing Life Today</title>
+  <link rel="canonical" href="https://dolifetoday.com/exchange" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/exchange.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a href="/" class="nav-logo" aria-label="Doing Life Today - Home">
+        <div class="nav-logo-mark" aria-hidden="true">DL</div>
+        <div class="nav-logo-text">Doing Life Today<span>Parkinson's Community</span></div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="/about">About</a></li>
+        <li><a href="/podcasts">Podcasts</a></li>
+        <li><a href="/youtube">YouTube</a></li>
+        <li><a href="/theclub">The Club</a></li>
+        <li><a href="/exchange">The Exchange</a></li>
+        <li><a href="/music">Music</a></li>
+        <li><a href="/community">Living With Parkinson's Guide</a></li>
+        <li><a href="/resources">Resources</a></li>
+        <li><a href="/events">Events</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <a href="/theclub" class="btn btn-primary btn-sm nav-cta">Join The Club</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a href="/about">About</a>
+    <a href="/podcasts">Podcasts</a>
+    <a href="/youtube">YouTube</a>
+    <a href="/theclub">The Club</a>
+    <a href="/exchange">The Exchange</a>
+    <a href="/music">Music</a>
+    <a href="/community">Living With Parkinson's Guide</a>
+    <a href="/resources">Resources</a>
+    <a href="/events">Events</a>
+    <a href="/contact">Contact</a>
+    <div class="mobile-cta"><a href="/theclub" class="btn btn-primary">Join The Club</a></div>
+  </nav>
+
+  <main id="main-content">
+    <section class="hero" aria-labelledby="exchange-claim-heading">
+      <div class="container hero-content exchange-claim-hero">
+        <nav class="exchange-breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span>/</span>
+          <a href="/exchange">The Exchange</a>
+          <span>/</span>
+          <span id="exchange-claim-breadcrumb-current">Claim listing</span>
+        </nav>
+        <span class="section-label">Provider Claim</span>
+        <div class="card exchange-loading-card" id="exchange-claim-loading">
+          <h1 id="exchange-claim-heading" class="hero-title">Loading claim details...</h1>
+          <p>Preparing the listing handoff so you can continue verification inside The Club.</p>
+        </div>
+        <div class="card exchange-error-card" id="exchange-claim-error" hidden>
+          <h1 class="hero-title">Claim page unavailable</h1>
+          <p>We could not match that provider listing. You can still view the directory inside The Club and search there directly.</p>
+          <div class="exchange-claim-actions">
+            <a href="/exchange" class="btn btn-outline-primary">Back to The Exchange</a>
+            <a href="https://club.dolifetoday.com/?publicExchange=true" class="btn btn-primary">View in The Club</a>
+          </div>
+        </div>
+        <div id="exchange-claim-content" hidden>
+          <h1 id="exchange-claim-title" class="hero-title"></h1>
+          <p id="exchange-claim-subtitle" class="hero-subtitle"></p>
+          <p class="hero-support">Listing claims are completed inside The Club so your organization can be verified against the canonical Exchange record.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="exchange-claim-shell" aria-labelledby="exchange-claim-next-step-heading">
+      <div class="container exchange-claim-layout">
+        <div class="exchange-claim-main">
+          <article class="card" id="exchange-claim-provider-card" hidden>
+            <span class="section-label">Claim target</span>
+            <h2 class="section-title" id="exchange-claim-next-step-heading">This is the listing you are about to claim</h2>
+            <div class="exchange-provider-heading">
+              <div class="exchange-provider-mark" id="exchange-claim-provider-mark">?</div>
+              <div>
+                <h3 id="exchange-claim-provider-name"></h3>
+                <p id="exchange-claim-provider-meta" class="exchange-card-meta"></p>
+              </div>
+            </div>
+            <div class="exchange-provider-meta" id="exchange-claim-provider-badges"></div>
+            <p id="exchange-claim-provider-description" class="exchange-provider-description"></p>
+          </article>
+
+          <article class="card">
+            <span class="section-label">What happens next</span>
+            <h2 class="section-title">The claim process continues inside The Club</h2>
+            <ul class="exchange-claim-checklist">
+              <li>Open the canonical listing record inside The Club.</li>
+              <li>Sign in or create an account if needed.</li>
+              <li>Submit your role and verification details for review.</li>
+              <li>Return later to manage your listing once approved.</li>
+            </ul>
+          </article>
+        </div>
+
+        <aside class="exchange-claim-sidebar">
+          <article class="card">
+            <span class="section-label">Continue</span>
+            <h2 class="section-title">Open the claim flow</h2>
+            <p class="exchange-card-copy">This handoff keeps the website public while ensuring the real listing claim and verification process stays inside The Club.</p>
+            <div class="exchange-stacked-actions">
+              <a id="exchange-claim-club-link" class="btn btn-primary" href="https://club.dolifetoday.com/?publicExchange=true">Claim In The Club</a>
+              <a class="btn btn-outline-primary" href="https://club.dolifetoday.com/?exchange=add-listing">Add Your Listing Instead</a>
+              <a id="exchange-claim-detail-link" class="btn btn-outline-primary" href="/exchange">View Listing Details</a>
+              <a href="/exchange" class="btn btn-outline-primary">Back to The Exchange</a>
+            </div>
+          </article>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <script src="/js/main.js" defer></script>
+  <script src="/js/exchange-claim.js" defer></script>
+</body>
+</html>

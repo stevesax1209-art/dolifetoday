@@ -1,0 +1,21 @@
+{
+  "name": "dolifetoday-tools",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Utility scripts for data workflows",
+  "scripts": {
+    "deploy:hosting-overlay": "node scripts/deploy-hosting-overlay.mjs",
+    "scrape:lsvt": "node scripts/scrape-lsvt-directory.mjs",
+    "normalize:lsvt": "node scripts/normalize-lsvt-for-exchange.mjs",
+    "scrape:parkinsons-uk": "node scripts/scrape-parkinsons-uk-directory.mjs",
+    "scrape:apda": "node scripts/scrape-apda-community.mjs",
+    "scrape:rock-steady": "node scripts/scrape-rock-steady-directory.mjs",
+    "normalize:parkinsons-uk": "node scripts/normalize-parkinsons-uk-for-exchange.mjs",
+    "normalize:apda": "node scripts/normalize-apda-for-exchange.mjs",
+    "normalize:rock-steady": "node scripts/normalize-rock-steady-for-exchange.mjs"
+  },
+  "dependencies": {
+    "cheerio": "^1.1.2",
+    "playwright": "^1.58.2"
+  }
+}

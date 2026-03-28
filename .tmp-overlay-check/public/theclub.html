@@ -1,0 +1,2999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Join the first wave of The Club, a private Parkinson's community built by people living with Parkinson's for people living with Parkinson's and their care partners.">
+  <title>The Club | Private Parkinson's Community Launching April 15</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body.theclub-page {
+      --color-primary: #D4AF37;
+      --color-secondary: #F2D27A;
+      --color-bg: #0F172A;
+      --color-bg-2: #1E293B;
+      --color-bg-3: #111827;
+      --color-card: #172235;
+      --color-border: rgba(212, 175, 55, 0.18);
+      --color-text: #F8FAFC;
+      --color-text-muted: #CBD5E1;
+      --gradient-primary: linear-gradient(135deg, #D4AF37 0%, #F3D678 100%);
+      --gradient-card: linear-gradient(135deg, rgba(212, 175, 55, 0.18) 0%, rgba(255, 255, 255, 0.03) 100%);
+      background: linear-gradient(180deg, #0F172A 0%, #111C2C 48%, #0B1322 100%);
+      color: var(--color-text);
+      overflow-x: clip;
+    }
+
+    body.theclub-page .site-header {
+      background: rgba(8, 12, 20, 0.98);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.16);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.28);
+    }
+
+    body.theclub-page .nav-inner {
+      max-width: 1320px;
+      padding-inline: clamp(1rem, 2vw, 1.5rem);
+    }
+
+    body.theclub-page .site-header .nav-logo-svg {
+      opacity: 1;
+      filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.24));
+    }
+
+    body.theclub-page .site-header .nav-logo--enhanced {
+      position: relative;
+      z-index: 1;
+    }
+
+    body.theclub-page .nav-links a.active,
+    body.theclub-page .nav-links a:hover,
+    body.theclub-page .mobile-nav a.active,
+    body.theclub-page .mobile-nav a:hover {
+      color: var(--color-primary);
+      background: rgba(212, 175, 55, 0.08);
+    }
+
+    body.theclub-page .btn-primary {
+      color: #101828;
+      box-shadow: 0 10px 28px rgba(212, 175, 55, 0.22);
+    }
+
+    body.theclub-page .btn-primary:hover {
+      color: #101828;
+      box-shadow: 0 14px 34px rgba(212, 175, 55, 0.34);
+    }
+
+    body.theclub-page .btn-secondary {
+      border-color: rgba(212, 175, 55, 0.4);
+      color: #F8FAFC;
+      background: rgba(212, 175, 55, 0.05);
+    }
+
+    body.theclub-page .btn-secondary:hover {
+      background: rgba(212, 175, 55, 0.12);
+      color: var(--color-primary);
+      border-color: var(--color-primary);
+    }
+
+    .club-launch-page {
+      background:
+        radial-gradient(circle at top left, rgba(212, 175, 55, 0.12), transparent 30%),
+        radial-gradient(circle at top right, rgba(255, 255, 255, 0.06), transparent 24%),
+        linear-gradient(180deg, #0F172A 0%, #132033 50%, #0B1322 100%);
+    }
+
+    .club-launch-page section {
+      position: relative;
+      overflow: hidden;
+      padding-block: 5.5rem;
+    }
+
+    .club-launch-page section + section {
+      border-top: 1px solid rgba(212, 175, 55, 0.18);
+    }
+
+    .club-launch-page section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.012), transparent 50%, rgba(212, 175, 55, 0.018));
+    }
+
+    .launch-shell {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-launch {
+      position: relative;
+      padding-top: 6.4rem;
+      padding-bottom: 6.6rem;
+      background:
+        radial-gradient(circle at 14% 14%, rgba(212, 175, 55, 0.22), transparent 22%),
+        radial-gradient(circle at 85% 10%, rgba(255, 255, 255, 0.07), transparent 20%),
+        radial-gradient(circle at 50% 100%, rgba(212, 175, 55, 0.12), transparent 32%),
+        linear-gradient(135deg, #0B1322 0%, #162338 52%, #101A2C 100%);
+    }
+
+    .hero-launch::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 88px;
+      pointer-events: none;
+      background: linear-gradient(180deg, rgba(11, 19, 34, 0), rgba(11, 19, 34, 0.55) 60%, rgba(11, 19, 34, 0.92));
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 390px);
+      gap: clamp(2rem, 4vw, 4rem);
+      align-items: start;
+      max-width: 1160px;
+      margin-inline: auto;
+    }
+
+    .hero-copy {
+      padding-top: 0.35rem;
+      max-width: 680px;
+    }
+
+    .club-wordmark-wrap {
+      margin-bottom: 1.6rem;
+    }
+
+    .club-wordmark {
+      display: block;
+      width: min(100%, 420px);
+      height: auto;
+      filter: brightness(1.15) drop-shadow(0 12px 28px rgba(212, 175, 55, 0.22));
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .pill-badge,
+    .founding-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+
+    .pill-badge {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--color-text);
+    }
+
+    .pill-badge-primary {
+      border-color: rgba(212, 175, 55, 0.36);
+      background: rgba(212, 175, 55, 0.12);
+      color: var(--color-primary);
+    }
+
+    .founding-badge {
+      margin-bottom: 1.35rem;
+      border: 1px solid rgba(212, 175, 55, 0.34);
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(243, 214, 120, 0.08));
+      color: #F7E4A5;
+      box-shadow: 0 8px 24px rgba(212, 175, 55, 0.16);
+    }
+
+    .hero-launch h1 {
+      font-size: clamp(3rem, 6vw, 5rem);
+      line-height: 1.02;
+      margin-bottom: 1.45rem;
+      background: linear-gradient(135deg, #fff 30%, #20b2aa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subheadline {
+      font-size: clamp(1.1rem, 2.4vw, 1.4rem);
+      line-height: 1.55;
+      max-width: 32ch;
+      color: #F3F4F6;
+      margin-bottom: 1.35rem;
+    }
+
+    .hero-supporting,
+    .hero-reassurance,
+    .hero-microcopy,
+    .hero-helper,
+    .section-copy,
+    .identity-line,
+    .subtle-line,
+    .launch-note,
+    .brand-tagline,
+    .final-line {
+      color: var(--color-text-muted);
+    }
+
+    .hero-supporting {
+      font-size: 1.02rem;
+      font-weight: 600;
+      color: #E5E7EB;
+      margin-bottom: 2rem;
+    }
+
+    .hero-helper,
+    .hero-reassurance,
+    .launch-note,
+    .subtle-line {
+      font-size: 0.92rem;
+    }
+
+    .hero-helper {
+      margin-top: 0.95rem;
+      color: #E9E3C3;
+      font-weight: 600;
+    }
+
+    .field-guidance,
+    .cta-helper,
+    .form-trust-note {
+      font-size: 0.84rem;
+      line-height: 1.55;
+      color: #94A3B8;
+    }
+
+    .field-guidance {
+      margin-top: -0.15rem;
+      margin-bottom: -0.05rem;
+      text-align: left;
+    }
+
+    .hero-card {
+      position: relative;
+      width: 100%;
+      max-width: 420px;
+      justify-self: end;
+      align-self: start;
+      margin-top: clamp(0.5rem, 1vw, 1.5rem);
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(24, 33, 52, 0.88) 0%, rgba(15, 23, 40, 0.8) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 0;
+      box-shadow:
+        0 22px 60px rgba(0, 0, 0, 0.34),
+        0 0 50px rgba(255, 200, 80, 0.09),
+        0 1px 0 rgba(255, 255, 255, 0.08) inset;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      transform: translateY(-4px);
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+
+    .hero-card-inner {
+      width: 100%;
+      padding: 34px 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card-inner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0) 24%),
+        radial-gradient(circle at top left, rgba(255, 211, 107, 0.12), transparent 40%);
+      pointer-events: none;
+    }
+
+    .hero-card-inner > * {
+      max-width: 100%;
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    .hero-card h2,
+    .hero-card h3,
+    .hero-card p,
+    .hero-card label,
+    .hero-card span {
+      max-width: 100%;
+      word-break: break-word;
+    }
+
+    .hero-card form,
+    .hero-card .waitlist-form,
+    .hero-card input,
+    .hero-card select,
+    .hero-card button {
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 24px;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(255, 211, 107, 0.48), rgba(255, 255, 255, 0.08) 45%, rgba(255, 255, 255, 0.02));
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .hero-card::after {
+      content: '';
+      position: absolute;
+      inset: 10% 8% auto;
+      height: 136px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(255, 211, 107, 0.24) 0%, rgba(255, 211, 107, 0.08) 42%, transparent 74%);
+      filter: blur(34px);
+      opacity: 0.95;
+      pointer-events: none;
+    }
+
+    .countdown-kicker,
+    .section-kicker {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-primary);
+      margin-bottom: 0.95rem;
+    }
+
+    .countdown-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .countdown-box {
+      position: relative;
+      min-width: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      text-align: center;
+      padding: 12px 8px;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      box-sizing: border-box;
+      box-shadow:
+        inset 0 0 18px rgba(255, 255, 255, 0.02),
+        0 8px 18px rgba(0, 0, 0, 0.14);
+    }
+
+    .countdown-value,
+    .countdown-number {
+      display: block;
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1;
+      color: #FFD36B;
+    }
+
+    .countdown-label {
+      display: block;
+      margin-top: 0.35rem;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .hero-secondary-timer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.8rem 0.9rem;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 211, 107, 0.18);
+      background: rgba(255, 211, 107, 0.06);
+    }
+
+    .hero-secondary-timer-label {
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #F6E7B2;
+    }
+
+    .hero-secondary-timer-value {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #F8FAFC;
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    @media (max-width: 600px) {
+      .hero-secondary-timer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-secondary-timer-value {
+        text-align: left;
+      }
+    }
+
+    .hero-card h2 {
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .hero-card p {
+      font-size: 14px;
+      opacity: 0.75;
+    }
+
+    .waitlist-title {
+      font-size: 22px;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .waitlist-copy {
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 14px;
+      margin-bottom: 1.2rem;
+      line-height: 1.65;
+      opacity: 1;
+    }
+
+    .waitlist-count {
+      margin-top: 0.2rem;
+      margin-bottom: 0;
+      text-align: center;
+      font-size: 0.84rem;
+      color: var(--color-text-muted);
+      opacity: 0;
+      transform: translateY(4px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .waitlist-count.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .waitlist-count-value {
+      color: #F8FAFC;
+      font-weight: 800;
+    }
+
+    .waitlist-count-meta {
+      margin-top: 0.4rem;
+      text-align: center;
+      font-size: 0.75rem;
+      letter-spacing: 0.03em;
+      color: #94A3B8;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+
+    .waitlist-count-meta.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .waitlist-form {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .waitlist-form .btn {
+      width: 100%;
+      justify-content: center;
+      white-space: normal;
+      text-align: center;
+      line-height: 1.25;
+      margin-top: 6px;
+      padding: 12px;
+      padding-inline: 1.35rem;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #FFD36B, #FFB347);
+      color: #1A1A1A;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(255, 180, 70, 0.22);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    }
+
+    .waitlist-form .btn:hover,
+    .waitlist-form .btn:focus-visible {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(255, 180, 70, 0.35);
+      filter: saturate(1.04);
+    }
+
+    .waitlist-form label {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #E5E7EB;
+      margin-bottom: -0.35rem;
+    }
+
+    .waitlist-form input,
+    .waitlist-form select {
+      width: 100%;
+      min-height: 54px;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.05);
+      color: #FFFFFF;
+      font-size: 1rem;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    }
+
+    .waitlist-form input:focus,
+    .waitlist-form select:focus {
+      outline: none;
+      border-color: rgba(255, 211, 107, 0.45);
+      box-shadow: 0 0 0 3px rgba(255, 211, 107, 0.12);
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .waitlist-form option {
+      color: #0F172A;
+    }
+
+    .waitlist-form input::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .waitlist-status {
+      display: none;
+      padding: 0.85rem 1rem;
+      border-radius: 14px;
+      font-weight: 600;
+      font-size: 0.94rem;
+    }
+
+    .waitlist-status.show {
+      display: block;
+    }
+
+    .waitlist-status.success {
+      background: rgba(212, 175, 55, 0.14);
+      border: 1px solid rgba(212, 175, 55, 0.34);
+      color: #F6E7B2;
+    }
+
+    .waitlist-status.error {
+      background: rgba(239, 68, 68, 0.14);
+      border: 1px solid rgba(239, 68, 68, 0.28);
+      color: #FECACA;
+    }
+
+    .waitlist-share-panel {
+      display: none;
+      margin-top: 0.9rem;
+      padding: 1rem;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 211, 107, 0.2);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .waitlist-share-panel.is-visible {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .waitlist-share-copy {
+      margin: 0;
+      color: #E5E7EB;
+      line-height: 1.6;
+      font-size: 0.93rem;
+    }
+
+    .waitlist-share-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .waitlist-share-actions .btn {
+      width: auto;
+      min-width: 0;
+      flex: 1 1 180px;
+    }
+
+    .waitlist-share-feedback {
+      margin: 0;
+      min-height: 1.25rem;
+      font-size: 0.82rem;
+      color: #94A3B8;
+    }
+
+    .waitlist-share-feedback.is-success {
+      color: #A7F3D0;
+    }
+
+    .access-works-panel {
+      margin-top: 1.6rem;
+      padding: 1.4rem;
+      border-radius: 22px;
+      border: 1px solid rgba(212, 175, 55, 0.16);
+      background: linear-gradient(180deg, rgba(18, 24, 42, 0.9), rgba(12, 17, 29, 0.88));
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+    }
+
+    .access-works-panel h2 {
+      font-size: 1.1rem;
+      margin-bottom: 0.7rem;
+      color: #F8FAFC;
+    }
+
+    .access-works-panel p {
+      margin-bottom: 0;
+      color: var(--color-text-muted);
+      line-height: 1.75;
+    }
+
+    .access-wave-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    @media (max-width: 600px) {
+      .access-wave-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .access-wave-card {
+      position: relative;
+      padding: 1.5rem 1.6rem;
+      border-radius: 20px;
+      border: 1px solid rgba(52, 211, 153, 0.16);
+      background: linear-gradient(160deg, rgba(16, 185, 129, 0.06) 0%, rgba(6, 78, 59, 0.08) 50%, rgba(0, 0, 0, 0.12) 100%);
+      box-shadow:
+        0 4px 24px rgba(16, 185, 129, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        inset 0 0 20px rgba(16, 185, 129, 0.03);
+      transition: border-color 0.4s, box-shadow 0.4s, transform 0.3s, background 0.4s;
+      overflow: hidden;
+    }
+
+    .access-wave-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(52, 211, 153, 0.3), transparent);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .access-wave-card.is-active {
+      border-color: rgba(52, 211, 153, 0.35);
+      background: linear-gradient(160deg, rgba(16, 185, 129, 0.1) 0%, rgba(6, 78, 59, 0.12) 50%, rgba(0, 0, 0, 0.1) 100%);
+      box-shadow:
+        0 8px 32px rgba(16, 185, 129, 0.12),
+        0 0 60px rgba(16, 185, 129, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06),
+        inset 0 0 30px rgba(16, 185, 129, 0.05);
+    }
+
+    .access-wave-card.is-active::before {
+      opacity: 1;
+    }
+
+    .access-wave-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(52, 211, 153, 0.4);
+      box-shadow:
+        0 12px 40px rgba(16, 185, 129, 0.14),
+        0 0 60px rgba(16, 185, 129, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+
+    .access-wave-card.is-full {
+      opacity: 0.5;
+      filter: saturate(0.4);
+    }
+
+    .access-wave-card.is-full:hover {
+      transform: none;
+    }
+
+    .wave-badge {
+      display: inline-block;
+      margin-bottom: 0.5rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.65rem;
+      border-radius: 5px;
+    }
+
+    .wave-badge--reserved {
+      color: #94A3B8;
+      background: rgba(148, 163, 184, 0.1);
+      border: 1px solid rgba(148, 163, 184, 0.18);
+    }
+
+    .wave-badge--active {
+      color: #052E2B;
+      background: linear-gradient(135deg, #34D399 0%, #6EE7B7 100%);
+      border: 1px solid rgba(110, 231, 183, 0.85);
+      box-shadow: 0 10px 24px rgba(52, 211, 153, 0.24);
+      animation: badgePulse 2.5s ease-in-out infinite;
+    }
+
+    .wave-badge--upcoming {
+      color: #CBD5E1;
+      background: rgba(148, 163, 184, 0.1);
+      border: 1px solid rgba(148, 163, 184, 0.18);
+    }
+
+    .wave-badge--live {
+      color: #F8FAFC;
+      background: rgba(16, 185, 129, 0.16);
+      border: 1px solid rgba(52, 211, 153, 0.34);
+      animation: badgePulse 2.5s ease-in-out infinite;
+    }
+
+    @keyframes badgePulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    .access-works-footer {
+      margin-top: 0.4rem;
+      font-size: 0.82rem;
+      color: #64748B;
+      line-height: 1.6;
+    }
+
+    .access-wave-title {
+      display: inline-block;
+      margin-bottom: 0.65rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #34D399;
+      background: rgba(52, 211, 153, 0.1);
+      padding: 0.22rem 0.7rem;
+      border-radius: 6px;
+    }
+
+    .access-wave-copy {
+      display: grid;
+      gap: 0.25rem;
+      color: var(--color-text-muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .access-wave-copy span:first-child {
+      color: #F1F5F9;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .access-wave-note {
+      margin-top: 0.2rem;
+      font-size: 0.82rem;
+      color: #A7F3D0;
+      line-height: 1.5;
+    }
+
+    .wave-countdown-stack {
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 0.95rem;
+    }
+
+    .wave-countdown {
+      padding: 0.8rem 0.85rem;
+      border-radius: 14px;
+      border: 1px solid rgba(52, 211, 153, 0.14);
+      background: rgba(7, 21, 18, 0.42);
+    }
+
+    .wave-countdown--grand {
+      border-color: rgba(212, 175, 55, 0.18);
+      background: rgba(24, 20, 8, 0.38);
+    }
+
+    .wave-countdown-heading {
+      display: block;
+      margin-bottom: 0.55rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #A7F3D0;
+    }
+
+    .wave-countdown--grand .wave-countdown-heading {
+      color: #F3D678;
+    }
+
+    .wave-countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.45rem;
+    }
+
+    @media (max-width: 480px) {
+      .wave-countdown-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .wave-countdown-box {
+      min-width: 0;
+      padding: 0.55rem 0.35rem;
+      border-radius: 10px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    }
+
+    .wave-countdown-value {
+      display: block;
+      font-size: 1rem;
+      font-weight: 800;
+      line-height: 1;
+      color: #F8FAFC;
+    }
+
+    .wave-countdown-unit {
+      display: block;
+      margin-top: 0.28rem;
+      font-size: 0.56rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #94A3B8;
+    }
+
+    .wave-countdown-status {
+      display: block;
+      min-height: 1.1rem;
+      margin-top: 0.45rem;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: #94A3B8;
+    }
+
+    .wave-countdown-status.is-live {
+      color: #34D399;
+    }
+
+    .wave-countdown--grand .wave-countdown-status.is-live {
+      color: #F3D678;
+    }
+
+    .wave-spots {
+      margin-top: 1rem;
+      padding-top: 0.85rem;
+      border-top: 1px solid rgba(52, 211, 153, 0.08);
+    }
+
+    .wave-progress-bar {
+      width: 100%;
+      height: 7px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.06);
+      overflow: hidden;
+      margin-bottom: 0.5rem;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    .wave-progress-fill {
+      height: 100%;
+      border-radius: 4px;
+      background: linear-gradient(90deg, #10B981, #34D399, #6EE7B7);
+      box-shadow: 0 0 12px rgba(52, 211, 153, 0.35);
+      transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+      width: 0%;
+    }
+
+    .wave-spots-text {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #34D399;
+      line-height: 1.4;
+    }
+
+    .wave-spots-text.is-full {
+      color: #64748B;
+    }
+
+    .section-heading {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      margin-bottom: 1rem;
+      max-width: 900px;
+    }
+
+    .section-copy {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      max-width: 880px;
+      margin-bottom: 1rem;
+    }
+
+    .dark-block {
+      background: linear-gradient(180deg, rgba(17, 24, 39, 0.96), rgba(15, 23, 42, 0.98));
+    }
+
+    .trust-line,
+    .identity-line {
+      margin-top: 1.35rem;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #F8FAFC;
+      line-height: 1.8;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      margin-top: 2rem;
+    }
+
+    .feature-grid,
+    .moments-grid,
+    .tracker-grid {
+      display: grid;
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+
+    .feature-grid {
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+    }
+
+    .moments-grid {
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+    }
+
+    .tracker-grid {
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr));
+      margin-top: 1.5rem;
+    }
+
+    .feature-card,
+    .moment-card,
+    .wave-card,
+    .founder-card,
+    .tracker-card,
+    .dashboard-panel,
+    .ai-panel,
+    .report-panel,
+    .bring-person-panel {
+      background: linear-gradient(180deg, rgba(18, 24, 42, 0.94), rgba(12, 17, 29, 0.92));
+      border: 1px solid rgba(212, 175, 55, 0.14);
+      border-radius: 24px;
+      padding: 1.5rem;
+      box-shadow: 0 14px 38px rgba(0, 0, 0, 0.22);
+    }
+
+    .feature-icon,
+    .wave-icon,
+    .tracker-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 15px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.95), rgba(243, 214, 120, 0.95));
+      color: #111827;
+      font-weight: 900;
+      font-size: 0.98rem;
+      letter-spacing: 0.04em;
+      margin-bottom: 1rem;
+      box-shadow: 0 10px 24px rgba(212, 175, 55, 0.18);
+    }
+
+    .feature-card h3,
+    .wave-card h3,
+    .founder-card h3,
+    .dashboard-panel h3,
+    .ai-panel h3,
+    .report-panel h3,
+    .bring-person-panel h3,
+    .tracker-card h3 {
+      font-size: 1.18rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .feature-card p,
+    .moment-card p,
+    .wave-card p,
+    .founder-card p,
+    .dashboard-panel p,
+    .ai-panel p,
+    .report-panel p,
+    .bring-person-panel p,
+    .tracker-card p {
+      color: var(--color-text-muted);
+      font-size: 0.96rem;
+      margin: 0;
+    }
+
+    .moment-card {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.9rem;
+      align-items: start;
+    }
+
+    .moment-card::before {
+      content: '\2022';
+      color: var(--color-primary);
+      font-size: 2rem;
+      line-height: 1;
+      margin-top: -0.1rem;
+    }
+
+    .moments-closing {
+      margin-top: 1.5rem;
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: #F8FAFC;
+    }
+
+    .wave-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .section-badge {
+      display: block;
+      width: min(100%, 148px);
+      height: auto;
+      margin: 0 auto 1.35rem;
+      filter: drop-shadow(0 18px 32px rgba(0, 0, 0, 0.28));
+    }
+
+    .wave-card {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .wave-icon,
+    .tracker-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      font-size: 0.82rem;
+      margin-bottom: 0;
+    }
+
+    .dashboard-list,
+    .ai-list,
+    .report-list {
+      display: grid;
+      gap: 0.8rem;
+      margin-top: 1.3rem;
+    }
+
+    .dashboard-list li,
+    .ai-list li,
+    .report-list li {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.8rem;
+      align-items: start;
+      color: var(--color-text-muted);
+    }
+
+    .dashboard-list li::before,
+    .ai-list li::before,
+    .report-list li::before {
+      content: '•';
+      color: var(--color-primary);
+      font-weight: 900;
+      font-size: 1.2rem;
+      line-height: 1;
+      margin-top: 0.1rem;
+    }
+
+    .tagline-emphasis {
+      margin-top: 1.25rem;
+      color: #F8FAFC;
+      font-weight: 800;
+      font-size: 1rem;
+    }
+
+    .subtle-line {
+      font-size: 0.9rem;
+      margin-top: 0.8rem;
+    }
+
+    .founder-card,
+    .bring-person-panel,
+    .dashboard-panel,
+    .ai-panel,
+    .report-panel {
+      margin-top: 2rem;
+      max-width: 920px;
+    }
+
+    .final-cta {
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      background:
+        radial-gradient(circle at center, rgba(212, 175, 55, 0.13), transparent 36%),
+        linear-gradient(180deg, rgba(8, 12, 20, 0.98), rgba(6, 8, 14, 1));
+    }
+
+    .final-cta::before {
+      content: '';
+      position: absolute;
+      width: min(52vw, 420px);
+      aspect-ratio: 1;
+      right: clamp(-4rem, -2vw, -1rem);
+      bottom: clamp(-6rem, -5vw, -2rem);
+      background: url('Images/app%20icon.png') center/contain no-repeat;
+      opacity: 0.08;
+      pointer-events: none;
+      filter: saturate(0.9);
+    }
+
+    .final-cta .section-heading,
+    .final-cta .section-copy {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .final-cta .launch-shell {
+      position: relative;
+      z-index: 1;
+    }
+
+    .final-note,
+    .brand-tagline,
+    .final-line {
+      color: #F8FAFC;
+      font-weight: 700;
+      line-height: 1.8;
+    }
+
+    .brand-tagline {
+      margin-top: 1.5rem;
+      color: #F1E2A2;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .final-line {
+      margin-top: 1.6rem;
+      color: #FAF2D1;
+      font-size: 1.08rem;
+    }
+
+    .faq-shell {
+      max-width: 860px;
+      margin-top: 2rem;
+    }
+
+    .faq-item {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(212, 175, 55, 0.14);
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      padding: 1.15rem 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      color: var(--color-text);
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .faq-icon {
+      font-size: 1.3rem;
+      line-height: 1;
+      color: var(--color-primary);
+      flex-shrink: 0;
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 1.2rem 1.2rem;
+      color: var(--color-text-muted);
+      font-size: 0.96rem;
+      line-height: 1.75;
+    }
+
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .floating-cta {
+      position: fixed;
+      right: 1rem;
+      bottom: 1rem;
+      z-index: 1100;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.34);
+      opacity: 0;
+      transform: translateY(16px);
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .floating-cta.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    /* --- Refinement styles --- */
+
+    .hero-signature {
+      text-align: center;
+      font-style: italic;
+      font-size: clamp(1.15rem, 2.2vw, 1.35rem);
+      line-height: 1.7;
+      color: #E9DFB8;
+      max-width: 720px;
+      margin: 0 auto 1.45rem;
+    }
+
+    .hero-divider {
+      display: block;
+      width: 92px;
+      height: 2px;
+      margin: 1.3rem auto 1.1rem;
+      background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+      border: none;
+    }
+
+    .cta-trust-line {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      margin-top: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-quote {
+      margin-top: 1.25rem;
+      text-align: center;
+      font-size: 0.96rem;
+      line-height: 1.7;
+      color: #DDE5F0;
+      font-style: italic;
+      opacity: 0.9;
+    }
+
+    .form-microcopy {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #94A3B8;
+      margin-top: -0.35rem;
+      margin-bottom: -0.15rem;
+    }
+
+    .cta-helper {
+      margin-top: -0.35rem;
+      text-align: center;
+      font-size: 0.82rem;
+    }
+
+    .form-trust-note {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      margin-top: -0.35rem;
+      margin-bottom: 0;
+      text-align: center;
+      font-size: 0.82rem;
+    }
+
+    .form-trust-note::before {
+      content: '✓';
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.05rem;
+      height: 1.05rem;
+      border-radius: 999px;
+      background: rgba(212, 175, 55, 0.14);
+      color: #F7E4A5;
+      font-size: 0.72rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .card-community-note {
+      margin-top: 0.15rem;
+      margin-bottom: -0.1rem;
+      padding: 0.7rem 0.85rem;
+      border-radius: 12px;
+      background: rgba(212, 175, 55, 0.06);
+      border: 1px solid rgba(212, 175, 55, 0.12);
+      font-size: 0.84rem;
+      font-weight: 600;
+      line-height: 1.55;
+      color: #E9E3C3;
+      text-align: center;
+    }
+
+    .catch-panel {
+      background: linear-gradient(180deg, rgba(18, 24, 42, 0.94), rgba(12, 17, 29, 0.92));
+      border: 1px solid rgba(212, 175, 55, 0.14);
+      border-radius: 24px;
+      padding: 2.5rem;
+      max-width: 820px;
+      margin: 2rem auto 0;
+      box-shadow: 0 14px 38px rgba(0, 0, 0, 0.22);
+    }
+
+    /* Centering & spacing polish */
+    .club-launch-page section {
+      padding-block: 6.5rem;
+    }
+
+    .hero-launch {
+      padding-bottom: 6rem;
+    }
+
+    .club-launch-page .section-kicker,
+    .club-launch-page .section-heading,
+    .club-launch-page .section-copy,
+    .club-launch-page .tagline-emphasis,
+    .club-launch-page .moments-closing,
+    .club-launch-page .identity-line,
+    .club-launch-page .trust-line {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .club-launch-page .cta-row {
+      justify-content: center;
+    }
+
+    .club-launch-page .feature-grid,
+    .club-launch-page .tracker-grid,
+    .club-launch-page .moments-grid,
+    .club-launch-page .wave-grid {
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .feature-card,
+    .tracker-card {
+      text-align: center;
+    }
+
+    .feature-card .feature-icon,
+    .tracker-card .tracker-icon {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .feature-icon svg,
+    .tracker-icon svg,
+    .wave-icon svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .dashboard-panel,
+    .ai-panel,
+    .report-panel,
+    .bring-person-panel,
+    .founder-card {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .dashboard-panel .section-copy,
+    .ai-panel .section-copy,
+    .report-panel .section-copy,
+    .bring-person-panel .section-copy,
+    .founder-card .section-copy {
+      text-align: left;
+      margin-left: 0;
+    }
+
+    .dashboard-list,
+    .ai-list,
+    .report-list {
+      max-width: 600px;
+    }
+
+    .faq-shell {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .relatable-list {
+      display: grid;
+      gap: 0.9rem;
+      max-width: 720px;
+      margin: 2rem auto 0;
+      list-style: none;
+      padding: 0;
+    }
+
+    .relatable-list li {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.8rem;
+      align-items: start;
+      font-size: 1.05rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+    }
+
+    .relatable-list li::before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--color-primary);
+      margin-top: 0.55rem;
+      flex-shrink: 0;
+    }
+
+    .relatable-closing {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: #F8FAFC;
+      line-height: 1.75;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    body.theclub-page .nav-links {
+      flex: 1 1 auto;
+      justify-content: center;
+      min-width: 0;
+      gap: 0.1rem;
+    }
+
+    body.theclub-page .nav-links a {
+      padding-inline: clamp(0.3rem, 0.55vw, 0.55rem);
+      font-size: clamp(0.76rem, 0.7rem + 0.15vw, 0.84rem);
+    }
+
+    body.theclub-page .nav-cta {
+      margin-left: 0;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    body.theclub-page .nav-logo {
+      flex-shrink: 0;
+      max-width: 200px;
+    }
+
+    @media (max-width: 1180px) {
+      body.theclub-page .nav-links,
+      body.theclub-page .nav-cta {
+        display: none;
+      }
+      body.theclub-page .hamburger {
+        display: flex;
+      }
+    }
+
+    @media (max-width: 1180px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 2.25rem;
+      }
+
+      .hero-card {
+        max-width: 640px;
+        width: min(100%, 640px);
+        margin: 0 auto;
+        justify-self: center;
+        transform: none;
+      }
+
+      .hero-card-inner {
+        padding: 36px 34px;
+      }
+
+      .countdown-grid {
+        gap: 14px;
+      }
+
+      .hero-copy {
+        text-align: center;
+      }
+
+      .hero-subheadline,
+      .hero-supporting {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .club-launch-page section {
+        padding-block: 5rem;
+      }
+
+      .hero-card {
+        border-radius: 22px;
+      }
+
+      .hero-card-inner {
+        padding: 28px 24px;
+        gap: 18px;
+      }
+
+      .countdown-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .countdown-value,
+      .countdown-number {
+        font-size: 24px;
+      }
+
+      .waitlist-title {
+        font-size: 21px;
+      }
+
+      .waitlist-form input,
+      .waitlist-form select,
+      .waitlist-form .btn {
+        min-height: 52px;
+      }
+
+      .cta-row,
+      .btn-group {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .cta-row .btn,
+      .btn-group .btn,
+      .waitlist-form .btn {
+        width: 100%;
+      }
+
+      .floating-cta {
+        left: 0.75rem;
+        right: 0.75rem;
+        bottom: 0.75rem;
+      }
+
+      .floating-cta.btn {
+        width: calc(100% - 1.5rem);
+        justify-content: center;
+      }
+
+      .club-wordmark {
+        width: min(100%, 290px);
+      }
+
+      .section-badge {
+        width: min(100%, 120px);
+        margin-bottom: 1.1rem;
+      }
+
+      .final-cta::before {
+        width: 250px;
+        right: -3.5rem;
+        bottom: -4rem;
+        opacity: 0.07;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .hero-card {
+        border-radius: 20px;
+      }
+
+      .hero-card-inner {
+        padding: 24px 18px;
+        gap: 16px;
+      }
+
+      .countdown-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 9px;
+      }
+
+      .countdown-box {
+        padding: 11px 6px;
+      }
+
+      .countdown-value,
+      .countdown-number {
+        font-size: 22px;
+      }
+
+      .countdown-label {
+        font-size: 10px;
+      }
+
+      .waitlist-title {
+        font-size: 20px;
+      }
+
+      .waitlist-form label {
+        font-size: 0.84rem;
+      }
+
+      .waitlist-form input,
+      .waitlist-form select,
+      .waitlist-form .btn {
+        min-height: 50px;
+      }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3LZZWBTWT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K3LZZWBTWT');
+  </script>
+</head>
+<body class="theclub-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a href="/" class="nav-logo" aria-label="Doing Life Today - Home">
+        <div class="nav-logo-mark" aria-hidden="true">DL</div>
+        <div class="nav-logo-text">Doing Life Today<span>Parkinson's Community</span></div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="/about">About</a></li>
+        <li><a href="/podcasts">Podcasts</a></li>
+        <li><a href="/youtube">YouTube</a></li>
+        <li><a href="/theclub">The Club</a></li>
+        <li><a href="/music">Music</a></li>
+        <li><a href="/community">Living With Parkinson's Guide</a></li>
+        <li><a href="/resources">Resources</a></li>
+        <li><a href="/events">Events</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <a href="#waitlist-form" class="btn btn-primary btn-sm nav-cta">Save My Spot</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a href="/about">About</a>
+    <a href="/podcasts">Podcasts</a>
+    <a href="/theclub">The Club</a>
+    <a href="/music">Music</a>
+    <a href="/community">Living With Parkinson's Guide</a>
+    <a href="/resources">Resources</a>
+    <a href="/events">Events</a>
+    <a href="/contact">Contact</a>
+    <div class="mobile-cta"><a href="#waitlist-form" class="btn btn-primary">Save My Spot</a></div>
+  </nav>
+
+  <main id="main-content" class="club-launch-page">
+    <section class="hero-launch" aria-labelledby="club-launch-heading">
+      <div class="container hero-grid launch-shell">
+        <div class="hero-copy">
+          <div class="club-wordmark-wrap">
+            <img src="Images/the-club-logo.png" alt="The Club" class="club-wordmark" width="800" height="300">
+          </div>
+          <div class="founding-badge">Founding Members: First Wave</div>
+          <h1 id="club-launch-heading">Welcome to The Club</h1>
+          <hr class="hero-divider" aria-hidden="true">
+          <p class="hero-signature">Welcome to the club nobody wanted to join&hellip;<br>but the members are some of the strongest people you'll ever meet.</p>
+          <p class="hero-subheadline">A private community built by people living with Parkinson&rsquo;s, for people who truly understand it.</p>
+          <div class="badge-row">
+            <span class="pill-badge pill-badge-primary">🔒 Private Community</span>
+            <span class="pill-badge">🟢 Completely Free to Join</span>
+            <span class="pill-badge">🤝 Built by People Living with Parkinson's</span>
+          </div>
+          <p class="hero-supporting">Exclusive to people living with Parkinson's and their care partners.</p>
+
+          <div class="btn-group mt-3">
+            <a href="#inside-club-heading" class="btn btn-primary btn-lg">See What's Inside</a>
+            <a href="#access-works-heading" class="btn btn-secondary btn-lg">How Access Works</a>
+          </div>
+
+          <section class="access-works-panel" aria-labelledby="access-works-heading">
+            <h2 id="access-works-heading">How Access Works</h2>
+            <p>We&rsquo;re opening The Club in small waves, not to limit access, but to protect the experience inside.</p>
+            <div class="access-wave-grid" aria-label="Wave access details">
+              <article class="access-wave-card" id="wave-card-1" data-wave="1" data-capacity="200">
+                <span class="wave-badge wave-badge--reserved">&check; Fully Reserved</span>
+                <span class="access-wave-title">Founding Members</span>
+                <div class="access-wave-copy">
+                  <span>Opens April 15</span>
+                  <span>200 spots</span>
+                  <span class="access-wave-note">First group shaping the community</span>
+                </div>
+                <div class="wave-countdown-stack">
+                  <div class="wave-countdown" data-countdown-target="2026-04-15T00:00:00" data-countdown-expired-label="Wave 1 is now open">
+                    <span class="wave-countdown-heading">Wave 1 countdown</span>
+                    <div class="wave-countdown-grid" aria-live="polite">
+                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="days">00</span><span class="wave-countdown-unit">Days</span></div>
+                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="hours">00</span><span class="wave-countdown-unit">Hours</span></div>
+                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="minutes">00</span><span class="wave-countdown-unit">Minutes</span></div>
+                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="seconds">00</span><span class="wave-countdown-unit">Seconds</span></div>
+                    </div>
+                    <span class="wave-countdown-status" data-countdown-status></span>
+                  </div>
+                </div>
+                <div class="wave-spots" aria-live="polite">
+                  <div class="wave-progress-bar"><div class="wave-progress-fill" id="wave-fill-1"></div></div>
+                  <span class="wave-spots-text" id="wave-spots-1">Loading...</span>
+                </div>
+              </article>
+              <article class="access-wave-card" id="wave-card-2" data-wave="2" data-capacity="200">
+                <span class="wave-badge wave-badge--active">Now Accepting Members</span>
+                <span class="access-wave-title">Early Community</span>
+                <div class="access-wave-copy">
+                  <span>Opens April 29</span>
+                  <span>200 spots</span>
+                  <span class="access-wave-note">A smaller group joining before wider access opens</span>
+                </div>
+                <div class="wave-countdown-stack">
+                  <div class="wave-countdown" data-countdown-target="2026-04-29T00:00:00" data-countdown-expired-label="Wave 2 is now open">
+                    <span class="wave-countdown-heading">Wave 2 countdown</span>
+                    <div class="wave-countdown-grid" aria-live="polite">
+                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="days">00</span><span class="wave-countdown-unit">Days</span></div>
+                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="hours">00</span><span class="wave-countdown-unit">Hours</span></div>
+                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="minutes">00</span><span class="wave-countdown-unit">Minutes</span></div>
+                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="seconds">00</span><span class="wave-countdown-unit">Seconds</span></div>
+                    </div>
+                    <span class="wave-countdown-status" data-countdown-status></span>
+                  </div>
+                </div>
+                <div class="wave-spots" aria-live="polite">
+                  <div class="wave-progress-bar"><div class="wave-progress-fill" id="wave-fill-2"></div></div>
+                  <span class="wave-spots-text" id="wave-spots-2">Loading...</span>
+                </div>
+              </article>
+              <article class="access-wave-card" id="wave-card-3" data-wave="3" data-capacity="200">
+                <span class="wave-badge wave-badge--upcoming" data-live-badge="true">Upcoming</span>
+                <span class="access-wave-title">Priority Access</span>
+                <div class="access-wave-copy">
+                  <span>Opens May 13</span>
+                  <span>200 spots</span>
+                  <span class="access-wave-note">Early entry before the broader May 28 opening</span>
+                </div>
+                <div class="wave-countdown-stack">
+                  <div class="wave-countdown" data-countdown-target="2026-05-13T00:00:00" data-countdown-expired-label="Priority Access is now open" data-primary-countdown="true">
+                    <span class="wave-countdown-heading">Priority Access countdown</span>
+                    <div class="wave-countdown-grid" aria-live="polite">
+                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="days">00</span><span class="wave-countdown-unit">Days</span></div>
+                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="hours">00</span><span class="wave-countdown-unit">Hours</span></div>
+                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="minutes">00</span><span class="wave-countdown-unit">Minutes</span></div>
+                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="seconds">00</span><span class="wave-countdown-unit">Seconds</span></div>
+                    </div>
+                    <span class="wave-countdown-status" data-countdown-status></span>
+                  </div>
+                </div>
+                <div class="wave-spots" aria-live="polite">
+                  <div class="wave-progress-bar"><div class="wave-progress-fill" id="wave-fill-3"></div></div>
+                  <span class="wave-spots-text" id="wave-spots-3">Loading...</span>
+                </div>
+              </article>
+              <article class="access-wave-card" id="wave-card-4" data-wave="4" data-capacity="500">
+                <span class="wave-badge wave-badge--upcoming" data-live-badge="true">Upcoming</span>
+                <span class="access-wave-title">Next Wave</span>
+                <div class="access-wave-copy">
+                  <span>Opens May 28</span>
+                  <span>500 spots</span>
+                  <span class="access-wave-note">Final waitlist wave before Public Launch on July 1</span>
+                </div>
+                <div class="wave-countdown-stack">
+                  <div class="wave-countdown" data-countdown-target="2026-05-28T00:00:00" data-countdown-expired-label="Next Wave is now open" data-primary-countdown="true">
+                    <span class="wave-countdown-heading">Next Wave countdown</span>
+                    <div class="wave-countdown-grid" aria-live="polite">
+                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="days">00</span><span class="wave-countdown-unit">Days</span></div>
+                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="hours">00</span><span class="wave-countdown-unit">Hours</span></div>
+                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="minutes">00</span><span class="wave-countdown-unit">Minutes</span></div>
+                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="seconds">00</span><span class="wave-countdown-unit">Seconds</span></div>
+                    </div>
+                    <span class="wave-countdown-status" data-countdown-status></span>
+                  </div>
+                  <div class="wave-countdown wave-countdown--grand" data-countdown-target="2026-07-01T00:00:00" data-countdown-expired-label="Public Launch is now live">
+                    <span class="wave-countdown-heading">Public Launch countdown</span>
+                    <div class="wave-countdown-grid" aria-live="polite">
+                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="days">00</span><span class="wave-countdown-unit">Days</span></div>
+                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="hours">00</span><span class="wave-countdown-unit">Hours</span></div>
+                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="minutes">00</span><span class="wave-countdown-unit">Minutes</span></div>
+                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="seconds">00</span><span class="wave-countdown-unit">Seconds</span></div>
+                    </div>
+                    <span class="wave-countdown-status" data-countdown-status></span>
+                  </div>
+                </div>
+                <div class="wave-spots" aria-live="polite">
+                  <div class="wave-progress-bar"><div class="wave-progress-fill" id="wave-fill-4"></div></div>
+                  <span class="wave-spots-text" id="wave-spots-4">Loading...</span>
+                </div>
+              </article>
+            </div>
+            <p>As each wave fills, new members are automatically moved into the next available opening.</p>
+            <p class="access-works-footer">Early members help shape the community experience for everyone who follows.</p>
+          </section>
+
+          <p class="hero-helper">Come on your own or bring your person. You belong here.</p>
+          <p class="cta-trust-line">Always open. Always free.</p>
+          <p class="hero-quote">&ldquo;For the first time, I don&rsquo;t feel like I have to explain everything.&rdquo;</p>
+        </div>
+
+        <aside class="hero-card" aria-label="Waitlist signup and countdown">
+          <div class="hero-card-inner">
+          <p class="countdown-kicker">First Wave Access Begins In</p>
+          <div class="countdown-grid" aria-live="polite">
+            <div class="countdown-box">
+              <span class="countdown-value" id="countdown-days">00</span>
+              <span class="countdown-label">Days</span>
+            </div>
+            <div class="countdown-box">
+              <span class="countdown-value" id="countdown-hours">00</span>
+              <span class="countdown-label">Hours</span>
+            </div>
+            <div class="countdown-box">
+              <span class="countdown-value" id="countdown-minutes">00</span>
+              <span class="countdown-label">Minutes</span>
+            </div>
+            <div class="countdown-box">
+              <span class="countdown-value" id="countdown-seconds">00</span>
+              <span class="countdown-label">Seconds</span>
+            </div>
+          </div>
+          <div class="hero-secondary-timer" aria-live="polite">
+            <span class="hero-secondary-timer-label">Public Launch July 1</span>
+            <span class="hero-secondary-timer-value" id="hero-public-launch-countdown">00d 00h 00m 00s</span>
+          </div>
+
+          <h2 class="waitlist-title">Secure your spot in the first wave</h2>
+          <p class="waitlist-copy">Be among the people who receive the first invitation when access begins on April 15.</p>
+
+          <form id="waitlist-form" class="waitlist-form" novalidate>
+            <label for="waitlist-email">Email address</label>
+            <input id="waitlist-email" name="email" type="email" placeholder="Enter your email address" autocomplete="email" required>
+            <p class="field-guidance">You&rsquo;ll get your invitation when your wave opens.</p>
+            <p class="form-microcopy">We&rsquo;ll only email you about your access. No spam. Ever.</p>
+
+            <p class="card-community-note">This community is reserved for people living with Parkinson's and the care partners who walk beside them.</p>
+
+            <label for="waitlist-role">I'm joining as:</label>
+            <select id="waitlist-role" name="audienceRole" required>
+              <option value="A person living with Parkinson's">A person living with Parkinson's</option>
+              <option value="A care partner / spouse / family caregiver">A care partner / spouse / family caregiver</option>
+            </select>
+
+            <button type="submit" class="btn btn-primary btn-lg" data-wave-cta="true">Save My Spot in the First Wave</button>
+            <p class="cta-helper">Takes 10 seconds. No spam. You can leave anytime.</p>
+            <p class="form-trust-note">Built with people living with Parkinson&rsquo;s</p>
+            <p class="waitlist-count" id="waitlist-count" data-fallback-count="104" aria-live="polite"><span class="waitlist-count-value" id="waitlist-count-value">104</span> people have already reserved their spot</p>
+            <p class="waitlist-count-meta" id="waitlist-count-meta">Live waitlist count. Updates automatically.</p>
+            <p class="launch-note">You&rsquo;ll be notified when your wave opens.</p>
+            <div id="waitlist-status" class="waitlist-status" aria-live="polite"></div>
+            <div id="waitlist-share-panel" class="waitlist-share-panel" aria-live="polite">
+              <p class="waitlist-share-copy">Know someone who should see this? Share The Club with a friend or care partner.</p>
+              <div class="waitlist-share-actions">
+                <button type="button" class="btn btn-secondary" id="waitlist-share-email">Email a Friend</button>
+                <button type="button" class="btn btn-secondary" id="waitlist-share-copy">Copy Link</button>
+              </div>
+              <p id="waitlist-share-feedback" class="waitlist-share-feedback"></p>
+            </div>
+          </form>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section aria-labelledby="relatable-heading">
+      <div class="container launch-shell">
+        <span class="section-kicker">Sound Familiar?</span>
+        <h2 id="relatable-heading" class="section-heading">If you're living with Parkinson's, some of this may feel familiar</h2>
+
+        <ul class="relatable-list">
+          <li>Trying to explain symptoms people can't see</li>
+          <li>Planning your day around medication timing</li>
+          <li>Wondering why some days feel completely different than others</li>
+          <li>Lying awake at night because turning over is difficult</li>
+          <li>Feeling like the world expects you to look "fine"</li>
+          <li>Searching for answers that actually make sense for your life</li>
+        </ul>
+
+        <p class="relatable-closing">You're not the only one.</p>
+        <p class="relatable-closing" style="font-weight:400;color:var(--color-text-muted);font-size:1rem;">Inside the Club, you'll meet people who understand these moments, because they're living them too.</p>
+
+        <div class="cta-row">
+          <a href="#waitlist-form" class="btn btn-primary btn-lg" data-wave-cta="true">Save My Spot in the First Wave</a>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="this-is-our-club-heading">
+      <div class="container launch-shell">
+        <span class="section-kicker">This Is Our Club</span>
+        <h2 id="this-is-our-club-heading" class="section-heading">This Is Our Club</h2>
+        <p class="section-copy">Not sponsored.</p>
+        <p class="section-copy">Not run by a corporation.</p>
+        <p class="section-copy">Not owned by an organization.</p>
+        <p class="section-copy">This community is being built by people living with Parkinson's, for people living with Parkinson's.</p>
+        <p class="section-copy">A place where we support each other, learn from each other, and remind each other that none of us are walking this journey alone.</p>
+        <p class="section-copy">And it will always be free to join.</p>
+
+        <div class="cta-row">
+          <a href="#waitlist-form" class="btn btn-primary btn-lg" data-wave-cta="true">Save My Spot in the First Wave</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark-block" aria-labelledby="private-space-heading">
+      <div class="container launch-shell">
+        <span class="section-kicker">A Private Space Just For Us</span>
+        <h2 id="private-space-heading" class="section-heading">Not Another Public Facebook Group</h2>
+        <p class="section-copy">Most Parkinson's groups online are public.</p>
+        <p class="section-copy">Anyone can join.</p>
+        <p class="section-copy">Anyone can comment.</p>
+        <p class="section-copy">Anyone can watch.</p>
+        <p class="section-copy">The Club is different.</p>
+        <p class="section-copy">It's a private community exclusively for people living with Parkinson's and their care partners.</p>
+        <p class="section-copy">That means:</p>
+        <p class="section-copy">• No random internet trolls</p>
+        <p class="section-copy">• No advertisers jumping into conversations</p>
+        <p class="section-copy">• No outsiders trying to explain Parkinson's to the people actually living with it</p>
+        <p class="section-copy">Just people who understand.</p>
+        <p class="identity-line">For people living with Parkinson's.<br>For care partners walking beside them.<br>For no one else.</p>
+        <p class="trust-line">Some members come on their own.<br>Some come with someone beside them.<br>Both are welcome inside the Club.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="bring-your-person-heading">
+      <div class="container launch-shell">
+        <span class="section-kicker">Bring Your Person</span>
+        <h2 id="bring-your-person-heading" class="section-heading">Bring Your Person (If You Have One)</h2>
+        <article class="bring-person-panel">
+          <p class="section-copy">Parkinson's journeys look different for everyone.</p>
+          <p class="section-copy">Some members navigate it independently.</p>
+          <p class="section-copy">Others have a partner, spouse, or loved one walking beside them.</p>
+          <p class="section-copy">When the Club opens, members will have the option to invite one person connected to their Parkinson's journey.</p>
+          <p class="section-copy">If you're living with Parkinson's, you can invite a care partner.</p>
+          <p class="section-copy">If you're a care partner, you can invite the person you support.</p>
+          <p class="section-copy">Each person receives their own membership and login inside the community.</p>
+          <p class="section-copy">No shared accounts.</p>
+          <p class="section-copy">Because everyone affected by Parkinson's deserves their own voice.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="never-alone-heading">
+      <div class="container launch-shell">
+        <span class="section-kicker">Why It Matters</span>
+        <h2 id="never-alone-heading" class="section-heading">You Were Never Meant to Figure Parkinson's Out Alone</h2>
+        <p class="section-copy">The Parkinson's Club is a global community built for people living with Parkinson's and their care partners who want real support from others who truly understand the journey.</p>
+        <p class="section-copy">Members connect through topic-based clubs covering sleep, medication, movement, daily challenges, and more.</p>
+        <p class="section-copy">You can share experiences, learn practical strategies, and support each other without judgment.</p>
+        <p class="section-copy">Parkinson's journeys look different for everyone. Some people navigate it on their own. Others have a partner or loved one walking beside them. Both belong here.</p>
+        <p class="section-copy">And the best part?</p>
+        <p class="section-copy">The Club is completely free to join.</p>
+
+        <div class="cta-row">
+          <a href="#waitlist-form" class="btn btn-primary btn-lg" data-wave-cta="true">Save My Spot in the First Wave</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark-block" aria-labelledby="inside-club-heading">
+      <div class="container launch-shell">
+        <span class="section-kicker">What You'll Find Inside</span>
+        <h2 id="inside-club-heading" class="section-heading">What You'll Find Inside</h2>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+            <h3>Personal Parkinson's Dashboard</h3>
+            <p>Your own personalized home base for tracking what matters and following the conversations you care about most.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg></div>
+            <h3>AI Parkinson's Coach (Lil Bryce)</h3>
+            <p>A built-in guide to help answer questions, explain tools, and offer practical direction inside the Club.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+            <h3>Topic-Based Clubs</h3>
+            <p>Join focused communities around sleep, medication, movement, caregiving, tracking symptoms, and everyday life with Parkinson's.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23,6 13.5,15.5 8.5,10.5 1,18"/><polyline points="17,6 23,6 23,12"/></svg></div>
+            <h3>TrendSense Tracking</h3>
+            <p>Track symptoms, medications, sleep patterns, and daily changes so you can start recognizing your own Parkinson's patterns.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <h3>Private Community</h3>
+            <p>A private space built only for people living with Parkinson's and their care partners.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0018 8 6 6 0 006 8c0 1 .23 2.23 1.5 3.5.76.76 1.23 1.52 1.41 2.5"/></svg></div>
+            <h3>Shared Wisdom</h3>
+            <p>Practical tips, lessons, and lived insight from people navigating the journey every day.</p>
+          </article>
+        </div>
+
+        <div class="cta-row">
+          <a href="#waitlist-form" class="btn btn-primary btn-lg" data-wave-cta="true">Save My Spot in the First Wave</a>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="dashboard-heading">
+      <div class="container launch-shell">
+        <span class="section-kicker">Personal Dashboard</span>
+        <h2 id="dashboard-heading" class="section-heading">Your Own Parkinson's Dashboard</h2>
+        <article class="dashboard-panel">
+          <p class="section-copy">Inside the Club you'll have your own personalized Parkinson's dashboard.</p>
+          <p class="section-copy">You decide what you want to see and what you don't.</p>
+          <p class="section-copy">Track what matters to you, follow conversations you care about, and organize your Parkinson's journey in a way that makes sense for your life.</p>
+          <p class="section-copy">Possible dashboard items include:</p>
+          <ul class="dashboard-list">
+            <li>symptom tracking</li>
+            <li>medication tracking</li>
+            <li>sleep tracking</li>
+            <li>goals</li>
+            <li>club discussions</li>
+            <li>updates from the clubs you follow</li>
+          </ul>
+          <p class="tagline-emphasis">Your Parkinson's. Your dashboard. Your pace.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="dark-block" aria-labelledby="ai-coach-heading">
+      <div class="container launch-shell">
+        <span class="section-kicker">AI Coach</span>
+        <h2 id="ai-coach-heading" class="section-heading">Meet Your Parkinson's AI Coach</h2>
+        <article class="ai-panel">
+          <p class="section-copy">Inside the Club you'll have access to Lil Bryce, your Parkinson's AI coach.</p>
+          <p class="section-copy">Lil Bryce can help:</p>
+          <ul class="ai-list">
+            <li>answer Parkinson's questions</li>
+            <li>explain symptoms</li>
+            <li>guide you through the tools inside the platform</li>
+            <li>offer suggestions and encouragement</li>
+          </ul>
+          <p class="section-copy">It's like having a knowledgeable companion whenever you need one.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="trendsense-heading">
+      <div class="container launch-shell">
+        <span class="section-kicker">TrendSense</span>
+        <h2 id="trendsense-heading" class="section-heading">Understand Your Parkinson's Patterns with TrendSense</h2>
+        <p class="section-copy">Track it. Understand it. Share it with your care team.</p>
+        <p class="section-copy">TrendSense helps you track and understand patterns in your Parkinson's.</p>
+        <p class="section-copy">Members can track medication timing, symptoms, sleep, meals, exercise, and on/off periods.</p>
+        <p class="section-copy">TrendSense analyzes these patterns so you can better understand how different factors affect your daily life.</p>
+
+        <div class="tracker-grid">
+          <article class="tracker-card">
+            <div class="tracker-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 1.5L2.47 9.53a5.68 5.68 0 008.03 8.03l8.03-8.03a5.68 5.68 0 00-8.03-8.03z"/><line x1="6.47" y1="13.5" x2="13.5" y2="6.47"/></svg></div>
+            <h3>Medication Tracker</h3>
+            <p>Stay on top of dose timing and patterns.</p>
+          </article>
+          <article class="tracker-card">
+            <div class="tracker-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/></svg></div>
+            <h3>Symptom Tracker</h3>
+            <p>Notice what shifts and when.</p>
+          </article>
+          <article class="tracker-card">
+            <div class="tracker-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></div>
+            <h3>Sleep Tracker</h3>
+            <p>Capture nighttime disruptions and rest quality.</p>
+          </article>
+          <article class="tracker-card">
+            <div class="tracker-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
+            <h3>Meal Tracker</h3>
+            <p>See how food timing connects to your day.</p>
+          </article>
+          <article class="tracker-card">
+            <div class="tracker-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13,2 3,14 12,14 11,22 21,10 12,10"/></svg></div>
+            <h3>Exercise Tracker</h3>
+            <p>Track movement, effort, and momentum.</p>
+          </article>
+          <article class="tracker-card">
+            <div class="tracker-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="5" width="22" height="14" rx="7"/><circle cx="16" cy="12" r="3"/></svg></div>
+            <h3>On/Off Tracker</h3>
+            <p>Recognize when patterns shift across the day.</p>
+          </article>
+        </div>
+
+        <p class="tagline-emphasis">Track it. Understand it. Share it with your care team.</p>
+      </div>
+    </section>
+
+    <section class="dark-block" aria-labelledby="report-heading">
+      <div class="container launch-shell">
+        <span class="section-kicker">Reports</span>
+        <h2 id="report-heading" class="section-heading">Turn Your Tracking Into Real Insights</h2>
+        <article class="report-panel">
+          <p class="section-copy">TrendSense generates reports that show patterns in symptoms, medication timing, sleep, and more.</p>
+          <p class="section-copy">Members will be able to generate clear, printable reports showing patterns in medication, symptoms, sleep, and more.</p>
+          <p class="section-copy">These reports can be:</p>
+          <ul class="report-list">
+            <li>shared with neurologists</li>
+            <li>printed for appointments</li>
+            <li>used to guide treatment discussions</li>
+          </ul>
+          <p class="section-copy">Instead of trying to remember how the last few months felt, you'll have the information to show what's really been happening.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="dark-block" aria-labelledby="first-wave-heading">
+      <div class="container launch-shell">
+        <img src="Images/app%20icon.png" alt="The Club app icon" class="section-badge" width="280" height="280" loading="lazy">
+        <span class="section-kicker">First Wave Access</span>
+        <h2 id="first-wave-heading" class="section-heading">We're Not Opening the Doors to Everyone at Once</h2>
+        <p class="section-copy">The Club opens April 15.<br>The first invitations will go to people already on the early-access list.</p>
+
+        <div class="wave-grid">
+          <article class="wave-card">
+            <div class="wave-icon" aria-hidden="true">EA</div>
+            <div>
+              <h3>EARLY ACCESS</h3>
+              <p>Enter before the wider rollout begins.</p>
+            </div>
+          </article>
+          <article class="wave-card">
+            <div class="wave-icon" aria-hidden="true">SC</div>
+            <div>
+              <h3>HELP SHAPE THE COMMUNITY</h3>
+              <p>Be part of how the Club feels from the beginning.</p>
+            </div>
+          </article>
+          <article class="wave-card">
+            <div class="wave-icon" aria-hidden="true">EP</div>
+            <div>
+              <h3>EXPLORE BEFORE PUBLIC LAUNCH</h3>
+              <p>Experience the platform before the public rollout.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="cta-row">
+          <a href="#waitlist-form" class="btn btn-primary btn-lg" data-wave-cta="true">Save My Spot in the First Wave</a>
+        </div>
+        <p class="subtle-line">Joining the waitlist takes less than 10 seconds.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="why-free-heading">
+      <div class="container launch-shell">
+        <span class="section-kicker">Why The Club Is Free</span>
+        <h2 id="why-free-heading" class="section-heading">Why The Club Is Free</h2>
+        <p class="section-copy">The goal of The Club is simple.</p>
+        <p class="section-copy">Make sure every person living with Parkinson's has access to support and community.</p>
+        <p class="section-copy">That's why membership to the club itself will always be free.</p>
+        <p class="section-copy">There may be optional deeper experiences like Inner Circle events in the future, but the core community will remain open to everyone living with Parkinson's and their care partners.</p>
+      </div>
+    </section>
+
+    <section class="dark-block" aria-labelledby="founder-story-heading">
+      <div class="container launch-shell">
+        <span class="section-kicker">Founder Story</span>
+        <h2 id="founder-story-heading" class="section-heading">Why Bryce Built The Club</h2>
+        <article class="founder-card">
+          <p class="section-copy">Bryce Perry was diagnosed with Parkinson's at age 40.</p>
+          <p class="section-copy">After years of sharing his journey online and connecting with thousands of others living with Parkinson's, one thing became clear.</p>
+          <p class="section-copy">People don't just want information.</p>
+          <p class="section-copy">They want connection with people who understand.</p>
+          <p class="section-copy">The Club exists to make that connection easier.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="catch-heading">
+      <div class="container launch-shell">
+        <span class="section-kicker">Honest Answer</span>
+        <h2 id="catch-heading" class="section-heading">So&hellip; what's the catch?</h2>
+        <div class="catch-panel">
+          <p class="section-copy">There isn't one.</p>
+          <p class="section-copy">The Club is a free community for people living with Parkinson's and their care partners.</p>
+          <p class="section-copy">You can connect with others, use the tools, and be part of the conversations without paying anything.</p>
+          <p class="section-copy">In the future there may be optional experiences like events or deeper Inner Circle programs for those who want them.</p>
+          <p class="section-copy">But the community itself will always remain open and free.</p>
+          <p class="section-copy">No tricks.</p>
+          <p class="section-copy">No hidden costs.</p>
+          <p class="section-copy">Just people helping each other navigate Parkinson's.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta" aria-labelledby="final-cta-heading">
+      <div class="container launch-shell">
+        <span class="section-kicker">Final Invitation</span>
+        <h2 id="final-cta-heading" class="section-heading">Be Part of the First Wave</h2>
+        <p class="section-copy">Imagine a place where everyone understands Parkinson's without you needing to explain it.</p>
+
+        <div class="cta-row" style="justify-content:center;">
+          <a href="#waitlist-form" class="btn btn-primary btn-lg" data-wave-cta="true">Save My Spot in the First Wave</a>
+        </div>
+
+        <p class="cta-trust-line">Always open. Always free.</p>
+        <p class="brand-tagline">Our club.<br>Our journey.<br>Our voices.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="faq-heading">
+      <div class="container launch-shell">
+        <span class="section-kicker">FAQ</span>
+        <h2 id="faq-heading" class="section-heading">Questions before launch?</h2>
+
+        <div class="faq-shell">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">Is the club free to join? <span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-answer">Yes. The Club itself will be free to join.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">Who is it for? <span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-answer">The Club is for people living with Parkinson's and their care partners. Some members come on their own. Others come with someone beside them. Both belong here.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">When does access begin? <span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-answer">First wave access begins April 15.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">What does first wave access mean? <span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-answer">People on the waitlist will receive the first invitations into the community before the broader rollout.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo" aria-label="Doing Life Today - Home">
+            <div class="nav-logo-mark" aria-hidden="true">DL</div>
+            <div class="nav-logo-text">Doing Life Today<span>Parkinson's Community</span></div>
+          </a>
+          <p>Connecting people living with Parkinson's through podcasts, community, and real conversations.</p>
+          <a href="#waitlist-form" class="btn btn-primary btn-sm">Save My Spot</a>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/podcasts">Podcasts</a></li>
+            <li><a href="/youtube">YouTube</a></li>
+            <li><a href="/community">Living With Parkinson's Guide</a></li>
+            <li><a href="/resources">Resources</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>The Club</h4>
+          <ul class="footer-links">
+            <li><a href="#waitlist-form">Save My Spot</a></li>
+            <li><a href="#inside-club-heading">What You'll Find Inside</a></li>
+            <li><a href="#first-wave-heading">First Wave Access</a></li>
+            <li><a href="#founder-story-heading">Why Bryce Built The Club</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:office@dolifetoday.com">office@dolifetoday.com</a></li>
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Doing Life Today. All rights reserved.</p>
+        <p class="footer-disclaimer">Imagine a place where everyone understands Parkinson's without you needing to explain it.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#waitlist-form" class="btn btn-primary floating-cta">Save My Spot</a>
+  <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">↑</button>
+
+  <script src="js/main.js"></script>
+  <script>
+    (function () {
+      var waveContent = {
+        1: {
+          cta: 'Save My Spot in the First Wave',
+          badge: 'Founding Members: First Wave',
+          kicker: 'First Wave Access Begins In',
+          title: 'Secure your spot in the first wave',
+          copy: 'Be among the people who receive the first invitation when access begins on April 15.',
+        },
+        2: {
+          cta: 'Save My Spot for Early Community Access',
+          badge: 'Now Accepting: Early Community',
+          kicker: 'Early Community Access Begins In',
+          title: 'Secure your spot in Early Community',
+          copy: 'Founding Members is full. Join Early Community when access opens on April 29.',
+        },
+        3: {
+          cta: 'Save My Spot for Priority Access',
+          badge: 'Now Accepting: Priority Access',
+          kicker: 'Priority Access Begins In',
+          title: 'Secure your spot for Priority Access',
+          copy: 'Join Priority Access for early entry on May 13, ahead of the broader May 28 opening.',
+        },
+        4: {
+          cta: 'Save My Spot in the Next Wave',
+          badge: 'Now Accepting: Next Wave',
+          kicker: 'Next Wave Access Begins In',
+          title: 'Secure your spot in the Next Wave',
+          copy: 'Join the Next Wave on May 28. Public Launch begins July 1.',
+        },
+      };
+      var waveLabels = {
+        1: 'Founding Members',
+        2: 'Early Community',
+        3: 'Priority Access',
+        4: 'Next Wave',
+      };
+
+      function computeWave(count) {
+        if (count <= 200) return 1;
+        if (count <= 400) return 2;
+        if (count <= 600) return 3;
+        return 4;
+      }
+
+      var countdownTargets = {
+        1: new Date('2026-04-15T00:00:00'),
+        2: new Date('2026-04-29T00:00:00'),
+        3: new Date('2026-05-13T00:00:00'),
+        4: new Date('2026-05-28T00:00:00')
+      };
+      var launchDate = countdownTargets[1];
+      var heroSection = document.querySelector('.hero-launch');
+      var daysEl = document.getElementById('countdown-days');
+      var hoursEl = document.getElementById('countdown-hours');
+      var minutesEl = document.getElementById('countdown-minutes');
+      var secondsEl = document.getElementById('countdown-seconds');
+      var waveCountdownEls = Array.prototype.slice.call(document.querySelectorAll('[data-countdown-target]'));
+      var form = document.getElementById('waitlist-form');
+      var emailInput = document.getElementById('waitlist-email');
+      var roleInput = document.getElementById('waitlist-role');
+      var statusEl = document.getElementById('waitlist-status');
+      var sharePanelEl = document.getElementById('waitlist-share-panel');
+      var shareEmailButtonEl = document.getElementById('waitlist-share-email');
+      var shareCopyButtonEl = document.getElementById('waitlist-share-copy');
+      var shareFeedbackEl = document.getElementById('waitlist-share-feedback');
+      var waitlistCountEl = document.getElementById('waitlist-count');
+      var waitlistCountValueEl = document.getElementById('waitlist-count-value');
+      var waitlistCountMetaEl = document.getElementById('waitlist-count-meta');
+      var floatingCtaEl = document.querySelector('.floating-cta');
+      var heroPublicLaunchCountdownEl = document.getElementById('hero-public-launch-countdown');
+      var trackedCtaEls = Array.prototype.slice.call(document.querySelectorAll('a[href="#waitlist-form"], button[data-wave-cta="true"]'));
+      var shareUrl = 'https://dolifetoday.com/theclub';
+      var shareEmailSubject = 'Thought you might want to join The Club';
+      var shareEmailBody = "I just joined the waitlist for The Club from Doing Life Today. It looks like a thoughtful Parkinson's support space. Here is the link if you want to take a look: " + shareUrl;
+      var publicLaunchDate = new Date('2026-07-01T00:00:00');
+      var formStartTracked = false;
+
+      function pad(value) {
+        return String(value).padStart(2, '0');
+      }
+
+      function getCountdownState(targetDate) {
+        var now = new Date();
+        var diff = targetDate.getTime() - now.getTime();
+
+        if (diff <= 0) {
+          return {
+            isLive: true,
+            days: '00',
+            hours: '00',
+            minutes: '00',
+            seconds: '00'
+          };
+        }
+
+        return {
+          isLive: false,
+          days: pad(Math.floor(diff / (1000 * 60 * 60 * 24))),
+          hours: pad(Math.floor((diff / (1000 * 60 * 60)) % 24)),
+          minutes: pad(Math.floor((diff / (1000 * 60)) % 60)),
+          seconds: pad(Math.floor((diff / 1000) % 60))
+        };
+      }
+
+      function updateCountdown() {
+        var state = getCountdownState(launchDate);
+        daysEl.textContent = state.days;
+        hoursEl.textContent = state.hours;
+        minutesEl.textContent = state.minutes;
+        secondsEl.textContent = state.seconds;
+
+        if (heroPublicLaunchCountdownEl) {
+          var publicLaunchState = getCountdownState(publicLaunchDate);
+          heroPublicLaunchCountdownEl.textContent = publicLaunchState.isLive
+            ? 'Now live'
+            : publicLaunchState.days + 'd ' + publicLaunchState.hours + 'h ' + publicLaunchState.minutes + 'm ' + publicLaunchState.seconds + 's';
+        }
+      }
+
+      function updateWaveCountdowns() {
+        waveCountdownEls.forEach(function (el) {
+          var targetDate = new Date(el.getAttribute('data-countdown-target'));
+          var state = getCountdownState(targetDate);
+          var cardEl = el.closest('.access-wave-card');
+
+          ['days', 'hours', 'minutes', 'seconds'].forEach(function (part) {
+            var valueEl = el.querySelector('[data-countdown-part="' + part + '"]');
+            if (valueEl) valueEl.textContent = state[part];
+          });
+
+          var countdownStatusEl = el.querySelector('[data-countdown-status]');
+          if (countdownStatusEl) {
+            countdownStatusEl.textContent = state.isLive
+              ? (el.getAttribute('data-countdown-expired-label') || 'Now live')
+              : '';
+            countdownStatusEl.classList.toggle('is-live', state.isLive);
+          }
+
+          if (cardEl && el.hasAttribute('data-primary-countdown')) {
+            var badgeEl = cardEl.querySelector('[data-live-badge="true"]');
+            if (badgeEl && !cardEl.classList.contains('is-active') && !cardEl.classList.contains('is-full')) {
+              badgeEl.textContent = state.isLive ? 'Now Open' : 'Upcoming';
+              badgeEl.className = state.isLive
+                ? 'wave-badge wave-badge--live'
+                : 'wave-badge wave-badge--upcoming';
+            }
+          }
+        });
+      }
+
+      function showStatus(type, text) {
+        statusEl.className = 'waitlist-status show ' + type;
+        statusEl.textContent = text;
+      }
+
+      function hideSharePanel() {
+        if (!sharePanelEl) return;
+        sharePanelEl.classList.remove('is-visible');
+        if (shareFeedbackEl) {
+          shareFeedbackEl.textContent = '';
+          shareFeedbackEl.classList.remove('is-success');
+        }
+      }
+
+      function showSharePanel() {
+        if (!sharePanelEl) return;
+        sharePanelEl.classList.add('is-visible');
+        if (shareFeedbackEl) {
+          shareFeedbackEl.textContent = '';
+          shareFeedbackEl.classList.remove('is-success');
+        }
+      }
+
+      function setShareFeedback(message, isSuccess) {
+        if (!shareFeedbackEl) return;
+        shareFeedbackEl.textContent = message || '';
+        shareFeedbackEl.classList.toggle('is-success', !!isSuccess);
+      }
+
+      function trackShare(channel) {
+        return fetch('/api/track-share', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ channel: channel, page: 'theclub' }),
+          keepalive: true,
+        }).catch(function () {
+          return null;
+        });
+      }
+
+      function getTrafficSource() {
+        if (!document.referrer) return 'direct';
+
+        try {
+          var referrerHost = new URL(document.referrer).hostname.replace(/^www\./, '');
+          return referrerHost || 'direct';
+        } catch (error) {
+          return 'direct';
+        }
+      }
+
+      function trackClubAnalytics(eventType, details) {
+        return fetch('/api/track-club-analytics', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(Object.assign({ eventType: eventType }, details || {})),
+          keepalive: true,
+        }).catch(function () {
+          return null;
+        });
+      }
+
+      function getCtaLocation(element) {
+        if (!element) return 'section';
+        if (element.classList.contains('nav-cta')) return 'nav';
+        if (element.classList.contains('floating-cta')) return 'floating';
+        if (element.closest('.mobile-cta')) return 'mobile';
+        if (element.closest('#waitlist-form')) return 'hero_form';
+        if (element.closest('.footer-brand')) return 'footer';
+        return 'section';
+      }
+
+      function copyTextToClipboard(text) {
+        if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+          return navigator.clipboard.writeText(text);
+        }
+
+        return new Promise(function (resolve, reject) {
+          var tempInput = document.createElement('textarea');
+          tempInput.value = text;
+          tempInput.setAttribute('readonly', 'readonly');
+          tempInput.style.position = 'absolute';
+          tempInput.style.left = '-9999px';
+          document.body.appendChild(tempInput);
+          tempInput.select();
+
+          try {
+            var copied = document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            if (copied) {
+              resolve();
+              return;
+            }
+          } catch (error) {
+            document.body.removeChild(tempInput);
+            reject(error);
+            return;
+          }
+
+          reject(new Error('Copy failed'));
+        });
+      }
+
+      function animateCount(startValue, targetValue) {
+        if (!waitlistCountValueEl) return;
+
+        var safeStart = Math.max(0, Number(startValue) || 0);
+        var safeTarget = Math.max(0, Number(targetValue) || 0);
+        var duration = 700;
+        var startTime = performance.now();
+
+        function step(now) {
+          var progress = Math.min((now - startTime) / duration, 1);
+          var eased = 1 - Math.pow(1 - progress, 3);
+          var currentValue = Math.round(safeStart + ((safeTarget - safeStart) * eased));
+
+          waitlistCountValueEl.textContent = String(currentValue);
+
+          if (progress < 1) {
+            window.requestAnimationFrame(step);
+          }
+        }
+
+        window.requestAnimationFrame(step);
+      }
+
+      function getDisplayedWaitlistCount() {
+        if (!waitlistCountValueEl) return 0;
+
+        var parsedCount = Number(waitlistCountValueEl.textContent);
+        return Number.isFinite(parsedCount) ? Math.max(0, Math.floor(parsedCount)) : 0;
+      }
+
+      /* ── Update all wave-dependent messaging ── */
+      function updateWaveMessaging(count) {
+        var wave = computeWave(count);
+        var content = waveContent[wave];
+        launchDate = countdownTargets[wave] || countdownTargets[1];
+
+        document.querySelectorAll('[data-wave-cta="true"]').forEach(function (el) {
+          el.textContent = content.cta;
+        });
+
+        document.querySelectorAll('.founding-badge').forEach(function (el) {
+          el.textContent = content.badge;
+        });
+
+        var kickerEl = document.querySelector('.countdown-kicker');
+        if (kickerEl) kickerEl.textContent = content.kicker;
+
+        var titleEl = document.querySelector('.waitlist-title');
+        if (titleEl) titleEl.textContent = content.title;
+
+        var copyEl = document.querySelector('.waitlist-copy');
+        if (copyEl) copyEl.textContent = content.copy;
+
+        updateCountdown();
+      }
+
+      /* ── Wave spots-remaining tracker ── */
+      var waveConfig = [
+        { wave: 1, capacity: 200 },
+        { wave: 2, capacity: 200 },
+        { wave: 3, capacity: 200 },
+        { wave: 4, capacity: 500 },
+      ];
+
+      function updateWaveSpots(totalSignups) {
+        var count = typeof totalSignups === 'number'
+          ? totalSignups
+          : getDisplayedWaitlistCount();
+
+        var remaining = count;
+
+        waveConfig.forEach(function (w) {
+          var fillEl = document.getElementById('wave-fill-' + w.wave);
+          var textEl = document.getElementById('wave-spots-' + w.wave);
+          var cardEl = document.getElementById('wave-card-' + w.wave);
+          if (!fillEl || !textEl || !cardEl) return;
+
+          var filled = Math.min(remaining, w.capacity);
+          var spotsLeft = w.capacity - filled;
+          remaining = Math.max(0, remaining - w.capacity);
+
+          var pct = Math.round((filled / w.capacity) * 100);
+          fillEl.style.width = pct + '%';
+
+          cardEl.classList.remove('is-active', 'is-full');
+
+          /* Update badge visibility based on live state */
+          var badgeEl = cardEl.querySelector('.wave-badge');
+          var isCurrentlyFilling = filled > 0 && spotsLeft > 0;
+
+          if (spotsLeft <= 0) {
+            /* Wave is full */
+            if (w.wave === 1) {
+              textEl.textContent = 'This first wave is now closed';
+            } else if (w.wave === 4) {
+              textEl.textContent = 'All waves filled';
+            } else {
+              textEl.textContent = 'This wave is now closed';
+            }
+            textEl.classList.add('is-full');
+            cardEl.classList.add('is-full');
+            if (badgeEl) {
+              badgeEl.textContent = '\u2714 Fully Reserved';
+              badgeEl.className = 'wave-badge wave-badge--reserved';
+            }
+          } else if (isCurrentlyFilling) {
+            /* This is the active wave (partially filled) */
+            textEl.textContent = 'Only ' + spotsLeft + ' of ' + w.capacity + ' spots remaining';
+            textEl.classList.remove('is-full');
+            cardEl.classList.add('is-active');
+            if (badgeEl) {
+              badgeEl.textContent = 'Now Accepting';
+              badgeEl.className = 'wave-badge wave-badge--active';
+            }
+          } else {
+            /* Future wave (not yet filling) */
+            textEl.classList.remove('is-full');
+            if (w.wave === 3) {
+              textEl.textContent = 'Priority Access opens May 13, join the waitlist to be included';
+            } else if (w.wave === 4) {
+              textEl.textContent = 'Final waitlist wave opens May 28, and Public Launch follows on July 1';
+            } else {
+              textEl.textContent = spotsLeft + ' of ' + w.capacity + ' spots available';
+            }
+          }
+        });
+
+        updateWaveMessaging(count);
+      }
+
+      async function loadWaitlistCount() {
+        if (!waitlistCountEl || !waitlistCountValueEl) return;
+
+        var fallbackCount = Number(waitlistCountEl.dataset.fallbackCount || '104');
+        var startingCount = Number(waitlistCountValueEl.textContent || fallbackCount);
+        var count = fallbackCount;
+
+        waitlistCountValueEl.textContent = String(startingCount);
+        waitlistCountEl.classList.add('is-visible');
+        if (waitlistCountMetaEl) {
+          waitlistCountMetaEl.classList.add('is-visible');
+        }
+
+        try {
+          var response = await fetch('/api/waitlist-count?ts=' + Date.now(), {
+            method: 'GET',
+            headers: { Accept: 'application/json' },
+            cache: 'no-store'
+          });
+
+          if (response.ok) {
+            var data = await response.json();
+            if (typeof data.count === 'number') {
+              count = data.count;
+            }
+          }
+        } catch (error) {
+          count = fallbackCount;
+        }
+
+        animateCount(startingCount, count);
+        setTimeout(function () {
+          updateWaveSpots(count);
+        }, 850);
+      }
+
+      /* Set initial messaging from fallback count */
+      updateWaveMessaging(Number(waitlistCountEl && waitlistCountEl.dataset.fallbackCount || 104));
+
+      try {
+        if (!window.sessionStorage.getItem('theclub-page-view-tracked')) {
+          window.sessionStorage.setItem('theclub-page-view-tracked', '1');
+          trackClubAnalytics('page_view', { source: getTrafficSource() });
+        }
+      } catch (error) {
+        trackClubAnalytics('page_view', { source: getTrafficSource() });
+      }
+
+      trackedCtaEls.forEach(function (el) {
+        el.addEventListener('click', function () {
+          trackClubAnalytics('cta_click', { location: getCtaLocation(el) });
+        });
+      });
+
+      if (emailInput) {
+        emailInput.addEventListener('focus', function () {
+          if (formStartTracked) return;
+          formStartTracked = true;
+          trackClubAnalytics('form_start');
+        }, { once: true });
+      }
+
+      if (floatingCtaEl && heroSection && 'IntersectionObserver' in window) {
+        var heroObserver = new IntersectionObserver(function (entries) {
+          var entry = entries[0];
+          floatingCtaEl.classList.toggle('is-visible', !entry.isIntersecting);
+        }, {
+          threshold: 0.2,
+        });
+
+        heroObserver.observe(heroSection);
+      } else if (floatingCtaEl) {
+        floatingCtaEl.classList.add('is-visible');
+      }
+
+      loadWaitlistCount();
+      hideSharePanel();
+
+      if (window.dltSpamProtection && typeof window.dltSpamProtection.prepareForm === 'function' && form) {
+        window.dltSpamProtection.prepareForm(form).catch(function () {
+          return null;
+        });
+      }
+
+      /* Also kick off an immediate wave-spots fetch */
+      (async function () {
+        try {
+          var res = await fetch('/api/waitlist-count?ts=' + Date.now(), {
+            method: 'GET',
+            headers: { Accept: 'application/json' },
+            cache: 'no-store'
+          });
+          if (res.ok) {
+            var data = await res.json();
+            if (typeof data.count === 'number') {
+              updateWaveSpots(data.count);
+              return;
+            }
+          }
+        } catch (e) { /* fallback below */ }
+        updateWaveSpots(Number(waitlistCountEl && waitlistCountEl.dataset.fallbackCount || 104));
+      })();
+
+      if (form && emailInput && statusEl) {
+        form.addEventListener('submit', async function (event) {
+          event.preventDefault();
+
+          var email = emailInput.value.trim();
+          var audienceRole = roleInput ? roleInput.value : "A person living with Parkinson's";
+          var button = form.querySelector('button[type="submit"]');
+          var originalText = button ? button.textContent : '';
+          var protection = null;
+
+          if (!email) {
+            hideSharePanel();
+            trackClubAnalytics('form_error');
+            showStatus('error', 'Please enter your email address.');
+            return;
+          }
+
+          trackClubAnalytics('submit_attempt');
+
+          if (button) {
+            button.disabled = true;
+            button.textContent = 'Joining...';
+          }
+
+          try {
+            if (!window.dltSpamProtection || typeof window.dltSpamProtection.collectSubmissionData !== 'function') {
+              hideSharePanel();
+              trackClubAnalytics('form_error');
+              showStatus('error', 'Spam protection is currently unavailable. Please try again later.');
+              return;
+            }
+
+            protection = await window.dltSpamProtection.collectSubmissionData(form);
+            if (protection.errorMessage) {
+              hideSharePanel();
+              trackClubAnalytics('form_error');
+              showStatus('error', protection.errorMessage);
+              return;
+            }
+
+            var response = await fetch('/api/subscribe', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                email: email,
+                list: 'theclub_waitlist',
+                audienceRole: audienceRole,
+                source: 'club_waitlist',
+                recaptchaToken: protection.recaptchaToken,
+                company_name_hidden: protection.honeypotValue
+              })
+            });
+            var data = await response.json();
+
+            if (response.ok) {
+              if (data.waitlistCounted) {
+                var currentVisibleCount = getDisplayedWaitlistCount();
+                animateCount(currentVisibleCount, currentVisibleCount + 1);
+              }
+
+              try {
+                window.sessionStorage.setItem('dltClubWaitlistSignup', JSON.stringify({
+                  email: email,
+                  count: typeof data.count === 'number' ? data.count : null,
+                  wave: typeof data.wave === 'number' ? data.wave : null,
+                  submittedAt: Date.now()
+                }));
+              } catch (storageError) {
+                return null;
+              }
+
+              window.location.href = '/theclub-next-steps';
+              return;
+            } else {
+              hideSharePanel();
+              trackClubAnalytics('form_error');
+              showStatus('error', data.error || 'Something went wrong. Please try again.');
+            }
+          } catch (error) {
+            hideSharePanel();
+            trackClubAnalytics('network_error');
+            showStatus('error', 'Network error. Please try again in a moment.');
+          } finally {
+            if (window.dltSpamProtection && typeof window.dltSpamProtection.resetForm === 'function') {
+              window.dltSpamProtection.resetForm(form);
+            }
+            if (button) {
+              button.disabled = false;
+              button.textContent = originalText;
+            }
+          }
+        });
+      }
+
+      if (shareEmailButtonEl) {
+        shareEmailButtonEl.addEventListener('click', function () {
+          setShareFeedback('', false);
+          trackShare('email');
+          window.location.href = 'mailto:?subject=' + encodeURIComponent(shareEmailSubject) + '&body=' + encodeURIComponent(shareEmailBody);
+        });
+      }
+
+      if (shareCopyButtonEl) {
+        shareCopyButtonEl.addEventListener('click', async function () {
+          try {
+            await copyTextToClipboard(shareUrl);
+            await trackShare('copy');
+            setShareFeedback('Link copied. Share it with someone who should see this.', true);
+          } catch (error) {
+            setShareFeedback('Unable to copy the link on this device. You can still share ' + shareUrl + '.', false);
+          }
+        });
+      }
+
+      updateCountdown();
+      updateWaveCountdowns();
+      window.setInterval(updateCountdown, 1000);
+      window.setInterval(updateWaveCountdowns, 1000);
+    })();
+  </script>
+</body>
+</html>

@@ -5,6 +5,7 @@
   const loadingNode = document.getElementById('exchange-claim-loading');
   const errorNode = document.getElementById('exchange-claim-error');
   const contentNode = document.getElementById('exchange-claim-content');
+  const detailShellNode = document.getElementById('exchange-claim-shell');
 
   if (!loadingNode || !errorNode || !contentNode) {
     return;
@@ -34,11 +35,46 @@
     node.hidden = !visible;
   }
 
+  function showLoading() {
+    setVisible(loadingNode, true);
+    setVisible(errorNode, false);
+    setVisible(contentNode, false);
+    setVisible(detailShellNode, false);
+  }
+
+  function ensureRobotsMeta() {
+    let robotsMeta = document.querySelector('meta[name="robots"]');
+    if (!robotsMeta) {
+      robotsMeta = document.createElement('meta');
+      robotsMeta.setAttribute('name', 'robots');
+      document.head.appendChild(robotsMeta);
+    }
+
+    return robotsMeta;
+  }
+
   function updateCanonical(url) {
     const link = document.querySelector('link[rel="canonical"]');
     if (link) {
       link.setAttribute('href', url);
     }
+  }
+
+  function showMissingClaimState() {
+    document.title = 'Claim page unavailable | The Exchange | Doing Life Today';
+
+    const descriptionMeta = document.querySelector('meta[name="description"]');
+    if (descriptionMeta) {
+      descriptionMeta.setAttribute('content', 'That Exchange claim page is no longer available. Browse the public directory or continue inside The Club.');
+    }
+
+    const breadcrumbCurrent = document.getElementById('exchange-claim-breadcrumb-current');
+    if (breadcrumbCurrent) {
+      breadcrumbCurrent.textContent = 'Claim unavailable';
+    }
+
+    updateCanonical('https://dolifetoday.com/exchange');
+    ensureRobotsMeta().setAttribute('content', 'noindex, nofollow');
   }
 
   function renderProvider(provider) {
@@ -48,6 +84,7 @@
       descriptionMeta.setAttribute('content', 'Claim the listing for ' + provider.name + ' inside The Club and continue the verification process there.');
     }
     updateCanonical('https://dolifetoday.com' + (provider.claimPagePath || window.location.pathname));
+    ensureRobotsMeta().setAttribute('content', 'index, follow');
 
     const breadcrumbCurrent = document.getElementById('exchange-claim-breadcrumb-current');
     const titleNode = document.getElementById('exchange-claim-title');
@@ -68,7 +105,7 @@
     if (providerMetaNode) {
       providerMetaNode.textContent = provider.reviewCount > 0
         ? provider.rating.toFixed(1) + ' rating from ' + provider.reviewCount + ' reviews'
-        : 'Public Exchange listing';
+        : 'Part of The Exchange directory';
     }
     if (providerDescriptionNode) providerDescriptionNode.textContent = provider.excerpt || provider.description || '';
     if (claimLinkNode) claimLinkNode.href = provider.claimAppUrl || provider.claimUrl || 'https://club.dolifetoday.com/?publicExchange=true';
@@ -99,7 +136,11 @@
     setVisible(loadingNode, false);
     setVisible(contentNode, false);
     setVisible(errorNode, true);
+    setVisible(detailShellNode, false);
+    showMissingClaimState();
   }
+
+  showLoading();
 
   const slug = extractSlugFromPath();
   if (!slug) {
@@ -128,6 +169,7 @@
       setVisible(loadingNode, false);
       setVisible(errorNode, false);
       setVisible(contentNode, true);
+      setVisible(detailShellNode, true);
     })
     .catch(showError);
 })();

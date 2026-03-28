@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Claim your provider listing on The Exchange. Update your information, add photos, and track performance in the Parkinson's community.">
+  <title>Claim Your Listing | The Exchange</title>
+  <link rel="canonical" href="https://dolifetoday.com/claim-listing" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/exchange.css">
+  <link rel="stylesheet" href="/css/provider-ecosystem.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a href="/" class="nav-logo" aria-label="Doing Life Today - Home">
+        <div class="nav-logo-mark" aria-hidden="true">DL</div>
+        <div class="nav-logo-text">Doing Life Today<span>Parkinson's Community</span></div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="/about">About</a></li>
+        <li><a href="/podcasts">Podcasts</a></li>
+        <li><a href="/youtube">YouTube</a></li>
+        <li><a href="/theclub">The Club</a></li>
+        <li><a href="/exchange">The Exchange</a></li>
+        <li><a href="/music">Music</a></li>
+        <li><a href="/community">Living With Parkinson's Guide</a></li>
+        <li><a href="/resources">Resources</a></li>
+        <li><a href="/events">Events</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <a href="/theclub" class="btn btn-primary btn-sm nav-cta">Join The Club</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a href="/about">About</a>
+    <a href="/podcasts">Podcasts</a>
+    <a href="/youtube">YouTube</a>
+    <a href="/theclub">The Club</a>
+    <a href="/exchange">The Exchange</a>
+    <a href="/music">Music</a>
+    <a href="/community">Living With Parkinson's Guide</a>
+    <a href="/resources">Resources</a>
+    <a href="/events">Events</a>
+    <a href="/contact">Contact</a>
+    <div class="mobile-cta"><a href="/theclub" class="btn btn-primary">Join The Club</a></div>
+  </nav>
+
+  <main id="main-content">
+    <section class="pe-auth-section" aria-labelledby="claim-heading">
+      <div class="container">
+        <div id="pe-auth-bar-mount"></div>
+
+        <!-- Auth Form (Sign In / Sign Up) -->
+        <div id="claim-auth-view" class="pe-auth-card pe-card" hidden>
+          <span class="section-label">Provider Account</span>
+          <h1 id="claim-auth-heading" class="section-title">Sign in to claim your listing</h1>
+          <p class="text-muted" id="claim-auth-subtitle">Create an account or sign in to manage your provider listing.</p>
+
+          <div id="claim-auth-tabs" style="display:flex;gap:0.5rem;margin:1rem 0;">
+            <button class="btn btn-primary btn-sm" id="claim-tab-signin" type="button">Sign In</button>
+            <button class="btn btn-outline-primary btn-sm" id="claim-tab-signup" type="button">Create Account</button>
+          </div>
+
+          <form id="claim-auth-form" class="pe-form" novalidate>
+            <div class="pe-field" id="claim-name-field" hidden>
+              <label for="claim-auth-name">Full Name</label>
+              <input id="claim-auth-name" type="text" placeholder="Your full name" autocomplete="name">
+              <span class="pe-field-error">Please enter your name</span>
+            </div>
+            <div class="pe-field">
+              <label for="claim-auth-email">Email</label>
+              <input id="claim-auth-email" type="email" placeholder="your@email.com" autocomplete="email" required>
+              <span class="pe-field-error">Please enter a valid email</span>
+            </div>
+            <div class="pe-field">
+              <label for="claim-auth-password">Password</label>
+              <input id="claim-auth-password" type="password" placeholder="••••••••" autocomplete="current-password" required>
+              <span class="pe-field-error">Password must be at least 8 characters</span>
+            </div>
+            <p id="claim-auth-error" style="color:#ef4444;font-size:0.92rem;display:none;"></p>
+            <div class="pe-form-actions">
+              <button type="submit" class="btn btn-primary btn-lg" id="claim-auth-submit">Sign In</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Step Flow -->
+        <div id="claim-flow-view" hidden>
+          <div class="pe-flow-steps" id="claim-steps-bar">
+            <div class="pe-flow-step active" data-step="1">
+              <span class="pe-flow-step-num">1</span>
+              <span>Find Listing</span>
+            </div>
+            <div class="pe-flow-divider"></div>
+            <div class="pe-flow-step" data-step="2">
+              <span class="pe-flow-step-num">2</span>
+              <span>Verify Details</span>
+            </div>
+            <div class="pe-flow-divider"></div>
+            <div class="pe-flow-step" data-step="3">
+              <span class="pe-flow-step-num">3</span>
+              <span>Submit</span>
+            </div>
+          </div>
+
+          <!-- Step 1: Find listing -->
+          <div id="claim-step-1" class="pe-card">
+            <span class="section-label" id="claim-heading">Claim Your Listing</span>
+            <h2 class="section-title">Find your listing on The Exchange</h2>
+            <p class="text-muted">Search for your organization to claim it. If your listing isn't here yet, you can <a href="/create-listing">add a new listing</a> instead.</p>
+            <div class="pe-form" style="margin-top:1.25rem;">
+              <div class="pe-field">
+                <label for="claim-search-input">Search by provider name</label>
+                <input id="claim-search-input" type="search" placeholder="Search your organization name...">
+              </div>
+              <div id="claim-search-results" style="display:none;">
+                <p class="text-muted" style="font-size:0.88rem;margin-bottom:0.75rem;" id="claim-search-count"></p>
+                <div id="claim-search-list" style="display:grid;gap:0.75rem;"></div>
+              </div>
+              <div id="claim-search-empty" style="display:none;" class="text-muted">
+                <p>No matching listings found. <a href="/create-listing">Create a new listing</a> instead.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: Verify details -->
+          <div id="claim-step-2" class="pe-card" hidden>
+            <span class="section-label">Verify Details</span>
+            <h2 class="section-title">Confirm this is your listing</h2>
+            <div id="claim-selected-provider" style="margin:1.25rem 0;">
+              <div style="display:flex;gap:1rem;align-items:flex-start;">
+                <div class="exchange-provider-mark" id="claim-provider-mark" style="width:64px;height:64px;">?</div>
+                <div>
+                  <h3 id="claim-provider-name" style="margin-bottom:0.35rem;"></h3>
+                  <p id="claim-provider-meta" class="text-muted" style="font-size:0.92rem;"></p>
+                </div>
+              </div>
+            </div>
+            <form id="claim-verify-form" class="pe-form" novalidate>
+              <div class="pe-field">
+                <label for="claim-verify-role">Your role at this organization</label>
+                <select id="claim-verify-role" required>
+                  <option value="">Select your role</option>
+                  <option value="owner">Owner / Director</option>
+                  <option value="manager">Manager</option>
+                  <option value="staff">Staff member</option>
+                  <option value="marketing">Marketing / Outreach</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="pe-field">
+                <label for="claim-verify-phone">Organization phone (optional)</label>
+                <input id="claim-verify-phone" type="tel" placeholder="(555) 123-4567" autocomplete="tel">
+              </div>
+              <div class="pe-form-actions">
+                <button type="button" class="btn btn-outline-primary" id="claim-back-1">Back</button>
+                <button type="submit" class="btn btn-primary">Continue</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Step 3: Submit -->
+          <div id="claim-step-3" class="pe-card" hidden>
+            <span class="section-label">Submit Claim</span>
+            <h2 class="section-title">Review and submit</h2>
+            <p class="text-muted">Once submitted, your claim will be reviewed by our team. This usually takes 24–48 hours.</p>
+            <div id="claim-review-summary" style="margin:1.25rem 0;padding:1.25rem;border-radius:16px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);">
+              <p><strong>Provider:</strong> <span id="claim-review-name"></span></p>
+              <p><strong>Your role:</strong> <span id="claim-review-role"></span></p>
+              <p><strong>Account:</strong> <span id="claim-review-email"></span></p>
+            </div>
+            <p id="claim-submit-error" style="color:#ef4444;font-size:0.92rem;display:none;"></p>
+            <div class="pe-form-actions">
+              <button type="button" class="btn btn-outline-primary" id="claim-back-2">Back</button>
+              <button type="button" class="btn btn-primary btn-lg" id="claim-submit-btn">Submit Claim</button>
+            </div>
+          </div>
+
+          <!-- Success State -->
+          <div id="claim-success" class="pe-card pe-success-card" hidden>
+            <div class="pe-success-icon">✅</div>
+            <h2 class="section-title">Your listing is now live</h2>
+            <div class="pe-success-benefits">
+              <div class="pe-success-benefit">
+                <span class="pe-success-benefit-icon">✦</span>
+                <span>Visible in search</span>
+              </div>
+              <div class="pe-success-benefit">
+                <span class="pe-success-benefit-icon">✦</span>
+                <span>Reach local and global users</span>
+              </div>
+              <div class="pe-success-benefit">
+                <span class="pe-success-benefit-icon">✦</span>
+                <span>Part of The Exchange</span>
+              </div>
+              <div class="pe-success-benefit">
+                <span class="pe-success-benefit-icon">✦</span>
+                <span>Already being discovered</span>
+              </div>
+            </div>
+            <div class="pe-success-transition">
+              <h3>Now turn visibility into trust</h3>
+              <p>Inside The Club, people explore insights, discussions, and reviews before choosing providers.</p>
+              <div style="display:flex;flex-direction:column;gap:0.75rem;align-items:center;">
+                <a href="/pricing" class="btn btn-primary btn-lg">Upgrade your presence</a>
+                <a href="/provider-dashboard" class="btn btn-outline-primary">Go to Dashboard</a>
+              </div>
+            </div>
+            <div class="pe-trust-strip">
+              <span class="pe-trust-item"><span class="pe-trust-item-icon">✦</span> Part of The Exchange</span>
+              <span class="pe-trust-item"><span class="pe-trust-item-icon">✦</span> Built for the Parkinson's community</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <script src="/js/main.js" defer></script>
+  <script src="/js/provider-auth.js" defer></script>
+  <script src="/js/claim-listing.js" defer></script>
+</body>
+</html>

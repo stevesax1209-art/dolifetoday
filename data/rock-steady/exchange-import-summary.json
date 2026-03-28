@@ -1,0 +1,38 @@
+{
+  "total": 902,
+  "byDirectory": [
+    [
+      "Rock Steady Boxing Member Directory",
+      809
+    ],
+    [
+      "Rock Steady Boxing Clinician Directory",
+      50
+    ],
+    [
+      "Rock Steady Boxing International Directory",
+      43
+    ]
+  ],
+  "byType": [
+    [
+      "Community Program",
+      722
+    ],
+    [
+      "Exercise Program",
+      130
+    ],
+    [
+      "Rehab Professional",
+      47
+    ],
+    [
+      "Physical Therapy",
+      3
+    ]
+  ],
+  "withWebsite": 56,
+  "withPhone": 865,
+  "withCoordinates": 902
+}

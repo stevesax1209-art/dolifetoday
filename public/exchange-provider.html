@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Explore a Parkinson's provider listing on The Exchange, Doing Life Today's public directory of programs, clinics, and support services.">
+  <meta name="description" content="Explore a Parkinson's provider listing in The Exchange, a Parkinson's directory connected to The Club for insights, discussions, and reviews around Parkinson's services, programs, and support.">
   <title>Exchange Provider | Doing Life Today</title>
   <link rel="canonical" href="https://dolifetoday.com/exchange" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/exchange.css">
+  <link rel="stylesheet" href="/css/provider-ecosystem.css">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -74,7 +75,7 @@
           <p>That Exchange listing could not be loaded from the public directory right now.</p>
           <div class="exchange-provider-actions">
             <a href="/exchange" class="btn btn-primary">Back to The Exchange</a>
-            <a href="https://club.dolifetoday.com/?publicExchange=true" class="btn btn-outline-primary">Open The Club Directory</a>
+            <a href="https://club.dolifetoday.com/?publicExchange=true" class="btn btn-outline-primary">View in The Club</a>
           </div>
         </div>
         <div id="exchange-provider-content" hidden>
@@ -83,21 +84,28 @@
             <div>
               <h1 id="exchange-provider-title" class="hero-title"></h1>
               <p id="exchange-provider-subtitle" class="hero-subtitle"></p>
+              <p id="exchange-provider-club-note" class="hero-support">Part of The Exchange - connected to The Club community</p>
               <p id="exchange-provider-rating" class="hero-support"></p>
             </div>
           </div>
           <div class="exchange-provider-meta" id="exchange-provider-badges"></div>
+          <div id="exchange-provider-unclaimed-badge" class="exchange-unclaimed-badge" hidden>
+            <span class="exchange-unclaimed-label" title="Claim this listing to take control and grow your visibility">Unclaimed</span>
+          </div>
+          <div id="exchange-provider-ownership-trigger" class="exchange-ownership-trigger" hidden>
+            <p>This listing is getting attention. <a href="/claim-listing" onclick="if(window.ProviderTrack){ProviderTrack.track('claim_listing_clicked',{source:'ownership_trigger'})}">Claim it to take control →</a></p>
+          </div>
           <div class="exchange-provider-actions">
-            <a id="exchange-provider-claim-link" class="btn btn-primary" href="https://club.dolifetoday.com/?publicExchange=true">Claim This Listing</a>
-            <a class="btn btn-outline-primary" href="https://club.dolifetoday.com/?exchange=add-listing">Add Your Listing</a>
-            <a id="exchange-provider-club-link" class="btn btn-outline-primary" href="https://club.dolifetoday.com/?publicExchange=true">Open In The Club</a>
+            <a id="exchange-provider-claim-link" class="btn btn-primary" href="/claim-listing" onclick="if(window.ProviderTrack){ProviderTrack.track('claim_listing_clicked',{source:'provider_page'})}">Claim This Listing</a>
+            <a class="btn btn-outline-primary" href="/create-listing">Add Your Listing</a>
+            <a id="exchange-provider-club-link" class="btn btn-outline-primary" href="https://club.dolifetoday.com/?publicExchange=true">View in The Club</a>
             <a id="exchange-provider-website-link" class="btn btn-outline-primary" href="/exchange" target="_blank" rel="noopener noreferrer" hidden>Visit Website</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="exchange-detail-shell" aria-labelledby="exchange-provider-overview-heading">
+    <section class="exchange-detail-shell" id="exchange-provider-shell" aria-labelledby="exchange-provider-overview-heading" hidden>
       <div class="container exchange-detail-layout">
         <div class="exchange-detail-main">
           <article class="card" id="exchange-provider-overview-card" hidden>
@@ -139,21 +147,48 @@
           </article>
 
           <article class="card">
-            <span class="section-label">Need more context?</span>
-            <h2 class="section-title">Continue inside The Club</h2>
-            <p class="exchange-card-copy">The Club is where provider claims, listing updates, reviews, and community connections actually happen.</p>
+            <span class="section-label">The Club</span>
+            <h2 class="section-title">See insights, discussions, and reviews in The Club</h2>
+            <p class="exchange-card-copy">Explore how members are talking about this provider, sharing insights, asking questions, and leaving reviews that help others make confident decisions.</p>
             <div class="exchange-stacked-actions">
-              <a id="exchange-provider-sidebar-claim" class="btn btn-primary" href="https://club.dolifetoday.com/?publicExchange=true">Claim This Listing</a>
-              <a class="btn btn-outline-primary" href="https://club.dolifetoday.com/?exchange=add-listing">Add Your Listing</a>
-              <a id="exchange-provider-sidebar-club" class="btn btn-outline-primary" href="https://club.dolifetoday.com/?publicExchange=true">Open In The Club</a>
+              <a id="exchange-provider-sidebar-club" class="btn btn-outline-primary" href="https://club.dolifetoday.com/?publicExchange=true">View in The Club</a>
+              <a id="exchange-provider-sidebar-claim" class="btn btn-primary" href="/claim-listing">Claim This Listing</a>
+              <a class="btn btn-outline-primary" href="/create-listing">Add Your Listing</a>
             </div>
           </article>
         </aside>
       </div>
     </section>
+
+    <section class="pe-club-teaser" aria-label="Club teaser">
+      <div class="container">
+        <div class="card pe-teaser-card">
+          <span class="section-label">Inside The Club</span>
+          <h2 class="section-title">See how providers show up inside The Club</h2>
+          <p>When a provider joins The Club at the Community tier, members can leave reviews, start discussions, and share experiences — building a trusted reputation that helps you make confident decisions.</p>
+          <div class="pe-teaser-stats" id="exchange-provider-club-stats" hidden>
+            <div class="pe-teaser-stat"><span id="ep-club-discussions">0</span><small>Discussions</small></div>
+            <div class="pe-teaser-stat"><span id="ep-club-reviews">0</span><small>Reviews</small></div>
+            <div class="pe-teaser-stat"><span id="ep-club-views">0</span><small>Club Views</small></div>
+          </div>
+          <p id="ep-club-activity-line" class="pe-activity-line" hidden>Activity is happening around services like this inside The Club.</p>
+          <div class="exchange-provider-actions">
+            <a href="/theclub" class="btn btn-primary">Explore The Club</a>
+            <a href="/pricing" class="btn btn-outline-primary">See Provider Plans</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pe-trust-strip" aria-label="Trust">
+      <div class="container">
+        <p>Part of <strong>The Exchange</strong> · Built for the Parkinson's community · <a href="/exchange">Browse all providers</a></p>
+      </div>
+    </section>
   </main>
 
   <script src="/js/main.js" defer></script>
+  <script src="/js/provider-track.js" defer></script>
   <script src="/js/exchange-provider.js" defer></script>
 </body>
 </html>

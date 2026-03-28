@@ -1,0 +1,106 @@
+{
+  "total": 6207,
+  "countries": [
+    [
+      "United States",
+      3952
+    ],
+    [
+      "Netherlands",
+      576
+    ],
+    [
+      "Japan",
+      488
+    ],
+    [
+      "Germany",
+      456
+    ],
+    [
+      "Canada",
+      322
+    ],
+    [
+      "France",
+      107
+    ],
+    [
+      "United Kingdom",
+      67
+    ],
+    [
+      "South Korea",
+      67
+    ],
+    [
+      "Singapore",
+      44
+    ],
+    [
+      "Ireland",
+      41
+    ],
+    [
+      "Australia",
+      30
+    ],
+    [
+      "Sweden",
+      12
+    ],
+    [
+      "India",
+      9
+    ],
+    [
+      "Italy",
+      7
+    ],
+    [
+      "New Zealand",
+      7
+    ],
+    [
+      "United Arab Emirates",
+      6
+    ],
+    [
+      "South Africa",
+      6
+    ],
+    [
+      "Israel",
+      5
+    ],
+    [
+      "Turkey",
+      3
+    ],
+    [
+      "Brazil",
+      1
+    ],
+    [
+      "Spain",
+      1
+    ]
+  ],
+  "typeLabels": [
+    [
+      "Physical Therapy",
+      3850
+    ],
+    [
+      "Occupational Therapy",
+      1355
+    ],
+    [
+      "Parkinson's Rehabilitation",
+      1002
+    ]
+  ],
+  "missingWebsite": 4329,
+  "missingEmail": 1555,
+  "missingPhone": 1252
+}

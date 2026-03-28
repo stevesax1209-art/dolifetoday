@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Add your Parkinson's service, program, or provider listing to The Exchange directory and reach people searching for support.">
+  <title>Add Your Listing | The Exchange</title>
+  <link rel="canonical" href="https://dolifetoday.com/create-listing" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/exchange.css">
+  <link rel="stylesheet" href="/css/provider-ecosystem.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a href="/" class="nav-logo" aria-label="Doing Life Today - Home">
+        <div class="nav-logo-mark" aria-hidden="true">DL</div>
+        <div class="nav-logo-text">Doing Life Today<span>Parkinson's Community</span></div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="/about">About</a></li>
+        <li><a href="/podcasts">Podcasts</a></li>
+        <li><a href="/youtube">YouTube</a></li>
+        <li><a href="/theclub">The Club</a></li>
+        <li><a href="/exchange">The Exchange</a></li>
+        <li><a href="/music">Music</a></li>
+        <li><a href="/community">Living With Parkinson's Guide</a></li>
+        <li><a href="/resources">Resources</a></li>
+        <li><a href="/events">Events</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <a href="/theclub" class="btn btn-primary btn-sm nav-cta">Join The Club</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a href="/about">About</a>
+    <a href="/podcasts">Podcasts</a>
+    <a href="/youtube">YouTube</a>
+    <a href="/theclub">The Club</a>
+    <a href="/exchange">The Exchange</a>
+    <a href="/music">Music</a>
+    <a href="/community">Living With Parkinson's Guide</a>
+    <a href="/resources">Resources</a>
+    <a href="/events">Events</a>
+    <a href="/contact">Contact</a>
+    <div class="mobile-cta"><a href="/theclub" class="btn btn-primary">Join The Club</a></div>
+  </nav>
+
+  <main id="main-content">
+    <section class="pe-auth-section" aria-labelledby="create-heading">
+      <div class="container">
+        <div id="pe-auth-bar-mount"></div>
+
+        <!-- Auth Form -->
+        <div id="create-auth-view" class="pe-auth-card pe-card" hidden>
+          <span class="section-label">Provider Account</span>
+          <h1 class="section-title">Create an account to add your listing</h1>
+          <p class="text-muted">Sign in or create an account to submit a new provider listing.</p>
+
+          <div style="display:flex;gap:0.5rem;margin:1rem 0;">
+            <button class="btn btn-outline-primary btn-sm" id="create-tab-signin" type="button">Sign In</button>
+            <button class="btn btn-primary btn-sm" id="create-tab-signup" type="button">Create Account</button>
+          </div>
+
+          <form id="create-auth-form" class="pe-form" novalidate>
+            <div class="pe-field" id="create-name-field">
+              <label for="create-auth-name">Full Name</label>
+              <input id="create-auth-name" type="text" placeholder="Your full name" autocomplete="name">
+              <span class="pe-field-error">Please enter your name</span>
+            </div>
+            <div class="pe-field">
+              <label for="create-auth-email">Email</label>
+              <input id="create-auth-email" type="email" placeholder="your@email.com" autocomplete="email" required>
+              <span class="pe-field-error">Please enter a valid email</span>
+            </div>
+            <div class="pe-field">
+              <label for="create-auth-password">Password</label>
+              <input id="create-auth-password" type="password" placeholder="••••••••" autocomplete="new-password" required>
+              <span class="pe-field-error">Password must be at least 8 characters</span>
+            </div>
+            <p id="create-auth-error" style="color:#ef4444;font-size:0.92rem;display:none;"></p>
+            <div class="pe-form-actions">
+              <button type="submit" class="btn btn-primary btn-lg" id="create-auth-submit">Create Account</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Listing Form -->
+        <div id="create-flow-view" hidden>
+          <div class="pe-flow-steps" id="create-steps-bar">
+            <div class="pe-flow-step active" data-step="1">
+              <span class="pe-flow-step-num">1</span>
+              <span>Basic Info</span>
+            </div>
+            <div class="pe-flow-divider"></div>
+            <div class="pe-flow-step" data-step="2">
+              <span class="pe-flow-step-num">2</span>
+              <span>Details</span>
+            </div>
+            <div class="pe-flow-divider"></div>
+            <div class="pe-flow-step" data-step="3">
+              <span class="pe-flow-step-num">3</span>
+              <span>Submit</span>
+            </div>
+          </div>
+
+          <!-- Step 1: Basic info -->
+          <div id="create-step-1" class="pe-card">
+            <span class="section-label" id="create-heading">Add Your Listing</span>
+            <h2 class="section-title">Tell us about your organization</h2>
+            <form id="create-basic-form" class="pe-form" novalidate>
+              <div class="pe-field">
+                <label for="create-name">Organization Name *</label>
+                <input id="create-name" type="text" placeholder="Your organization or practice name" required>
+                <span class="pe-field-error">Organization name is required</span>
+              </div>
+              <div class="pe-form-row">
+                <div class="pe-field">
+                  <label for="create-category">Category *</label>
+                  <select id="create-category" required>
+                    <option value="">Select a category</option>
+                    <option value="exercise">Exercise &amp; Movement</option>
+                    <option value="therapy">Therapy &amp; Rehabilitation</option>
+                    <option value="neurology">Neurology &amp; Medical</option>
+                    <option value="support-group">Support Group</option>
+                    <option value="speech">Speech &amp; Language</option>
+                    <option value="mental-health">Mental Health</option>
+                    <option value="nutrition">Nutrition &amp; Wellness</option>
+                    <option value="caregiving">Caregiving Support</option>
+                    <option value="research">Research &amp; Clinical Trials</option>
+                    <option value="other">Other</option>
+                  </select>
+                  <span class="pe-field-error">Please select a category</span>
+                </div>
+                <div class="pe-field">
+                  <label for="create-format">Service Mode *</label>
+                  <select id="create-format" required>
+                    <option value="">Select service mode</option>
+                    <option value="in-person">In-person</option>
+                    <option value="virtual">Virtual</option>
+                    <option value="hybrid">Hybrid (both)</option>
+                  </select>
+                  <span class="pe-field-error">Please select a service mode</span>
+                </div>
+              </div>
+              <div class="pe-form-row">
+                <div class="pe-field">
+                  <label for="create-city">City *</label>
+                  <input id="create-city" type="text" placeholder="City" required>
+                  <span class="pe-field-error">City is required</span>
+                </div>
+                <div class="pe-field">
+                  <label for="create-state">State / Province</label>
+                  <input id="create-state" type="text" placeholder="State or province">
+                </div>
+                <div class="pe-field">
+                  <label for="create-country">Country *</label>
+                  <input id="create-country" type="text" placeholder="Country" required>
+                  <span class="pe-field-error">Country is required</span>
+                </div>
+              </div>
+              <div class="pe-form-actions">
+                <button type="submit" class="btn btn-primary">Continue</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Step 2: Details -->
+          <div id="create-step-2" class="pe-card" hidden>
+            <span class="section-label">Details</span>
+            <h2 class="section-title">Additional information</h2>
+            <form id="create-details-form" class="pe-form" novalidate>
+              <div class="pe-field">
+                <label for="create-description">Description</label>
+                <textarea id="create-description" placeholder="Describe your organization and the services you offer for people with Parkinson's..."></textarea>
+              </div>
+              <div class="pe-form-row">
+                <div class="pe-field">
+                  <label for="create-website">Website</label>
+                  <input id="create-website" type="url" placeholder="https://yourwebsite.com">
+                </div>
+                <div class="pe-field">
+                  <label for="create-phone">Phone</label>
+                  <input id="create-phone" type="tel" placeholder="(555) 123-4567">
+                </div>
+              </div>
+              <div class="pe-form-row">
+                <div class="pe-field">
+                  <label for="create-email-contact">Contact Email</label>
+                  <input id="create-email-contact" type="email" placeholder="info@yourorg.com">
+                </div>
+                <div class="pe-field">
+                  <label for="create-language">Primary Language</label>
+                  <input id="create-language" type="text" placeholder="English" value="English">
+                </div>
+              </div>
+              <div class="pe-field">
+                <label for="create-tags">Tags (comma-separated)</label>
+                <input id="create-tags" type="text" placeholder="boxing, balance, senior fitness">
+              </div>
+              <div class="pe-form-actions">
+                <button type="button" class="btn btn-outline-primary" id="create-back-1">Back</button>
+                <button type="submit" class="btn btn-primary">Continue</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Step 3: Review & Submit -->
+          <div id="create-step-3" class="pe-card" hidden>
+            <span class="section-label">Review</span>
+            <h2 class="section-title">Review your listing</h2>
+            <p class="text-muted">Your listing will be reviewed by our team before going live. This usually takes 24–48 hours.</p>
+            <div id="create-review-summary" style="margin:1.25rem 0;padding:1.25rem;border-radius:16px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);display:grid;gap:0.5rem;">
+            </div>
+            <p id="create-submit-error" style="color:#ef4444;font-size:0.92rem;display:none;"></p>
+            <div class="pe-form-actions">
+              <button type="button" class="btn btn-outline-primary" id="create-back-2">Back</button>
+              <button type="button" class="btn btn-primary btn-lg" id="create-submit-btn">Submit Listing</button>
+            </div>
+          </div>
+
+          <!-- Success State -->
+          <div id="create-success" class="pe-card pe-success-card" hidden>
+            <div class="pe-success-icon">✅</div>
+            <h2 class="section-title">Your listing is now live</h2>
+            <div class="pe-success-benefits">
+              <div class="pe-success-benefit">
+                <span class="pe-success-benefit-icon">✦</span>
+                <span>Visible in search</span>
+              </div>
+              <div class="pe-success-benefit">
+                <span class="pe-success-benefit-icon">✦</span>
+                <span>Reach local and global users</span>
+              </div>
+              <div class="pe-success-benefit">
+                <span class="pe-success-benefit-icon">✦</span>
+                <span>Part of The Exchange</span>
+              </div>
+              <div class="pe-success-benefit">
+                <span class="pe-success-benefit-icon">✦</span>
+                <span>Already being discovered</span>
+              </div>
+            </div>
+            <div class="pe-success-transition">
+              <h3>Now turn visibility into trust</h3>
+              <p>Inside The Club, people explore insights, discussions, and reviews before choosing providers.</p>
+              <div style="display:flex;flex-direction:column;gap:0.75rem;align-items:center;">
+                <a href="/pricing" class="btn btn-primary btn-lg">Upgrade your presence</a>
+                <a href="/provider-dashboard" class="btn btn-outline-primary">Go to Dashboard</a>
+              </div>
+            </div>
+            <div class="pe-trust-strip">
+              <span class="pe-trust-item"><span class="pe-trust-item-icon">✦</span> Part of The Exchange</span>
+              <span class="pe-trust-item"><span class="pe-trust-item-icon">✦</span> Built for the Parkinson's community</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <script src="/js/main.js" defer></script>
+  <script src="/js/provider-auth.js" defer></script>
+  <script src="/js/create-listing.js" defer></script>
+</body>
+</html>

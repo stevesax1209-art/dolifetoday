@@ -5,6 +5,7 @@
   const loadingNode = document.getElementById('exchange-provider-loading');
   const errorNode = document.getElementById('exchange-provider-error');
   const contentNode = document.getElementById('exchange-provider-content');
+  const detailShellNode = document.getElementById('exchange-provider-shell');
 
   if (!loadingNode || !errorNode || !contentNode) {
     return;
@@ -63,12 +64,42 @@
     setVisible(loadingNode, true);
     setVisible(errorNode, false);
     setVisible(contentNode, false);
+    setVisible(detailShellNode, false);
   }
 
   function showReady() {
     setVisible(loadingNode, false);
     setVisible(errorNode, false);
     setVisible(contentNode, true);
+    setVisible(detailShellNode, true);
+  }
+
+  function ensureRobotsMeta() {
+    let robotsMeta = document.querySelector('meta[name="robots"]');
+    if (!robotsMeta) {
+      robotsMeta = document.createElement('meta');
+      robotsMeta.setAttribute('name', 'robots');
+      document.head.appendChild(robotsMeta);
+    }
+
+    return robotsMeta;
+  }
+
+  function showMissingProviderState() {
+    document.title = 'Provider not found | The Exchange | Doing Life Today';
+
+    const descriptionMeta = document.querySelector('meta[name="description"]');
+    if (descriptionMeta) {
+      descriptionMeta.setAttribute('content', 'That Exchange provider listing is no longer available in the public directory. Browse active Parkinson\'s providers in The Exchange instead.');
+    }
+
+    const breadcrumbCurrent = document.getElementById('exchange-provider-breadcrumb-current');
+    if (breadcrumbCurrent) {
+      breadcrumbCurrent.textContent = 'Provider not found';
+    }
+
+    updateCanonical('https://dolifetoday.com/exchange');
+    ensureRobotsMeta().setAttribute('content', 'noindex, nofollow');
   }
 
   function slugify(value) {
@@ -112,7 +143,7 @@
     const reviewCount = Number(provider.reviewCount) || 0;
     const rating = Number(provider.rating) || 0;
     const pageTitle = provider.name + ' | The Exchange | Doing Life Today';
-    const metaDescription = provider.excerpt || provider.description || 'Parkinson\'s provider listing from The Exchange.';
+    const metaDescription = provider.excerpt || provider.description || ('Explore ' + provider.name + ' in The Exchange, a Parkinson\'s directory connected to The Club for insights, discussions, and reviews.');
 
     document.title = pageTitle;
     const descriptionMeta = document.querySelector('meta[name="description"]');
@@ -120,6 +151,7 @@
       descriptionMeta.setAttribute('content', metaDescription);
     }
     updateCanonical('https://dolifetoday.com' + (provider.detailPagePath || window.location.pathname));
+    ensureRobotsMeta().setAttribute('content', 'index, follow');
 
     const breadcrumbCurrent = document.getElementById('exchange-provider-breadcrumb-current');
     const titleNode = document.getElementById('exchange-provider-title');
@@ -151,7 +183,7 @@
     if (ratingNode) {
       ratingNode.textContent = reviewCount > 0
         ? rating.toFixed(1) + ' rating from ' + reviewCount + ' community reviews'
-        : 'Public Exchange listing';
+        : 'Part of The Exchange directory';
     }
 
     if (markNode) {
@@ -243,6 +275,8 @@
     setVisible(loadingNode, false);
     setVisible(contentNode, false);
     setVisible(errorNode, true);
+    setVisible(detailShellNode, false);
+    showMissingProviderState();
   }
 
   showLoading();
@@ -272,6 +306,32 @@
 
       renderProvider(provider);
       showReady();
+
+      // Display unclaimed badge if provider is not claimed
+      if (!provider.claimedBy && !provider.verified) {
+        var unclaimedBadge = document.getElementById('exchange-provider-unclaimed-badge');
+        if (unclaimedBadge) unclaimedBadge.hidden = false;
+
+        var ownershipTrigger = document.getElementById('exchange-provider-ownership-trigger');
+        if (ownershipTrigger) ownershipTrigger.hidden = false;
+      }
+
+      // Display Club metrics from provider data
+      var disc = Number(provider.discussion_count || (provider.clubData || {}).discussion_count || 0);
+      var revs = Number(provider.review_count || (provider.clubData || {}).review_count || 0);
+      var clubViews = Number(provider.club_views || (provider.clubData || {}).club_views || 0);
+
+      if (disc > 0 || revs > 0 || clubViews > 0) {
+        var statsEl = document.getElementById('exchange-provider-club-stats');
+        var activityLine = document.getElementById('ep-club-activity-line');
+        if (statsEl) {
+          document.getElementById('ep-club-discussions').textContent = String(disc);
+          document.getElementById('ep-club-reviews').textContent = String(revs);
+          document.getElementById('ep-club-views').textContent = String(clubViews);
+          statsEl.hidden = false;
+        }
+        if (activityLine) activityLine.hidden = false;
+      }
     })
     .catch(showError);
 })();

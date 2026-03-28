@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore a Parkinson's provider listing in The Exchange, a Parkinson's directory connected to The Club for insights, discussions, and reviews around Parkinson's services, programs, and support.">
+  <title>Exchange Provider | Doing Life Today</title>
+  <link rel="canonical" href="https://dolifetoday.com/exchange" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/exchange.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a href="/" class="nav-logo" aria-label="Doing Life Today - Home">
+        <div class="nav-logo-mark" aria-hidden="true">DL</div>
+        <div class="nav-logo-text">Doing Life Today<span>Parkinson's Community</span></div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="/about">About</a></li>
+        <li><a href="/podcasts">Podcasts</a></li>
+        <li><a href="/youtube">YouTube</a></li>
+        <li><a href="/theclub">The Club</a></li>
+        <li><a href="/exchange">The Exchange</a></li>
+        <li><a href="/music">Music</a></li>
+        <li><a href="/community">Living With Parkinson's Guide</a></li>
+        <li><a href="/resources">Resources</a></li>
+        <li><a href="/events">Events</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <a href="/theclub" class="btn btn-primary btn-sm nav-cta">Join The Club</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a href="/about">About</a>
+    <a href="/podcasts">Podcasts</a>
+    <a href="/youtube">YouTube</a>
+    <a href="/theclub">The Club</a>
+    <a href="/exchange">The Exchange</a>
+    <a href="/music">Music</a>
+    <a href="/community">Living With Parkinson's Guide</a>
+    <a href="/resources">Resources</a>
+    <a href="/events">Events</a>
+    <a href="/contact">Contact</a>
+    <div class="mobile-cta"><a href="/theclub" class="btn btn-primary">Join The Club</a></div>
+  </nav>
+
+  <main id="main-content">
+    <section class="hero" aria-label="Exchange provider profile">
+      <div class="container hero-content exchange-provider-hero">
+        <nav class="exchange-breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span>/</span>
+          <a href="/exchange">The Exchange</a>
+          <span>/</span>
+          <span id="exchange-provider-breadcrumb-current">Provider</span>
+        </nav>
+        <span class="section-label">The Exchange</span>
+        <div class="card exchange-loading-card" id="exchange-provider-loading">
+          <h1 id="exchange-provider-loading-title" class="hero-title">Loading provider...</h1>
+          <p>Pulling the public provider profile from the canonical Exchange data.</p>
+        </div>
+        <div class="card exchange-error-card" id="exchange-provider-error" hidden>
+          <h1 class="hero-title">Provider not found</h1>
+          <p>That Exchange listing could not be loaded from the public directory right now.</p>
+          <div class="exchange-provider-actions">
+            <a href="/exchange" class="btn btn-primary">Back to The Exchange</a>
+            <a href="https://club.dolifetoday.com/?publicExchange=true" class="btn btn-outline-primary">View in The Club</a>
+          </div>
+        </div>
+        <div id="exchange-provider-content" hidden>
+          <div class="exchange-provider-heading">
+            <div class="exchange-provider-mark" id="exchange-provider-mark">?</div>
+            <div>
+              <h1 id="exchange-provider-title" class="hero-title"></h1>
+              <p id="exchange-provider-subtitle" class="hero-subtitle"></p>
+              <p id="exchange-provider-club-note" class="hero-support">Part of The Exchange - connected to The Club community</p>
+              <p id="exchange-provider-rating" class="hero-support"></p>
+            </div>
+          </div>
+          <div class="exchange-provider-meta" id="exchange-provider-badges"></div>
+          <div class="exchange-provider-actions">
+            <a id="exchange-provider-claim-link" class="btn btn-primary" href="https://club.dolifetoday.com/?publicExchange=true">Claim This Listing</a>
+            <a class="btn btn-outline-primary" href="https://club.dolifetoday.com/?exchange=add-listing">Add Your Listing</a>
+            <a id="exchange-provider-club-link" class="btn btn-outline-primary" href="https://club.dolifetoday.com/?publicExchange=true">View in The Club</a>
+            <a id="exchange-provider-website-link" class="btn btn-outline-primary" href="/exchange" target="_blank" rel="noopener noreferrer" hidden>Visit Website</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="exchange-detail-shell" aria-labelledby="exchange-provider-overview-heading">
+      <div class="container exchange-detail-layout">
+        <div class="exchange-detail-main">
+          <article class="card" id="exchange-provider-overview-card" hidden>
+            <span class="section-label">Overview</span>
+            <h2 id="exchange-provider-overview-heading" class="section-title">About this provider</h2>
+            <p id="exchange-provider-description" class="exchange-provider-description"></p>
+          </article>
+
+          <article class="card" id="exchange-provider-specialties-card" hidden>
+            <span class="section-label">Specialties</span>
+            <h2 class="section-title">What they focus on</h2>
+            <div class="exchange-card-tags" id="exchange-provider-specialties"></div>
+          </article>
+
+          <article class="card" id="exchange-provider-formats-card" hidden>
+            <span class="section-label">Access</span>
+            <h2 class="section-title">How support is offered</h2>
+            <ul class="exchange-detail-list" id="exchange-provider-formats"></ul>
+          </article>
+
+          <article class="card" id="exchange-provider-discovery-card" hidden>
+            <span class="section-label">Keep exploring</span>
+            <h2 class="section-title">Browse more providers like this</h2>
+            <div class="exchange-discovery-links" id="exchange-provider-discovery-links"></div>
+          </article>
+        </div>
+
+        <aside class="exchange-detail-sidebar">
+          <article class="card" id="exchange-provider-contact-card" hidden>
+            <span class="section-label">Contact</span>
+            <h2 class="section-title">Reach this provider</h2>
+            <ul class="exchange-contact-list" id="exchange-provider-contact-list"></ul>
+          </article>
+
+          <article class="card" id="exchange-provider-details-card" hidden>
+            <span class="section-label">Listing details</span>
+            <h2 class="section-title">Directory snapshot</h2>
+            <ul class="exchange-detail-list" id="exchange-provider-details-list"></ul>
+          </article>
+
+          <article class="card">
+            <span class="section-label">The Club</span>
+            <h2 class="section-title">See insights, discussions, and reviews in The Club</h2>
+            <p class="exchange-card-copy">Explore how members are talking about this provider, sharing insights, asking questions, and leaving reviews that help others make confident decisions.</p>
+            <div class="exchange-stacked-actions">
+              <a id="exchange-provider-sidebar-club" class="btn btn-outline-primary" href="https://club.dolifetoday.com/?publicExchange=true">View in The Club</a>
+              <a id="exchange-provider-sidebar-claim" class="btn btn-primary" href="https://club.dolifetoday.com/?publicExchange=true">Claim This Listing</a>
+              <a class="btn btn-outline-primary" href="https://club.dolifetoday.com/?exchange=add-listing">Add Your Listing</a>
+            </div>
+          </article>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <script src="/js/main.js" defer></script>
+  <script src="/js/exchange-provider.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "total": 321,
+  "byType": [
+    [
+      "Support Group",
+      171
+    ],
+    [
+      "Exercise Class",
+      150
+    ]
+  ],
+  "withPhone": 316,
+  "withEmail": 320,
+  "withWebsite": 321
+}

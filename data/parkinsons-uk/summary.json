@@ -1,0 +1,20 @@
+{
+  "source": "https://www.parkinsons.org.uk/community/groups/list",
+  "totalDiscoveredUrls": 323,
+  "totalScraped": 321,
+  "totalFailures": 2,
+  "byPageType": [
+    [
+      "provider",
+      310
+    ],
+    [
+      "activity",
+      11
+    ]
+  ],
+  "withPhone": 316,
+  "withEmail": 320,
+  "withAddress": 307,
+  "uniqueCities": 294
+}

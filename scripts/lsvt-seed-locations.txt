@@ -1,0 +1,34 @@
+New York, NY
+Los Angeles, CA
+Chicago, IL
+Houston, TX
+Miami, FL
+Seattle, WA
+Toronto, ON
+Vancouver, BC
+Montreal, QC
+Mexico City, Mexico
+Sao Paulo, Brazil
+Buenos Aires, Argentina
+London, UK
+Dublin, Ireland
+Paris, France
+Madrid, Spain
+Berlin, Germany
+Rome, Italy
+Amsterdam, Netherlands
+Stockholm, Sweden
+Warsaw, Poland
+Istanbul, Turkey
+Tel Aviv, Israel
+Dubai, UAE
+Cairo, Egypt
+Johannesburg, South Africa
+Mumbai, India
+Delhi, India
+Singapore
+Tokyo, Japan
+Seoul, South Korea
+Sydney, Australia
+Melbourne, Australia
+Auckland, New Zealand

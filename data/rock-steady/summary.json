@@ -1,0 +1,21 @@
+{
+  "total": 902,
+  "byDirectory": [
+    [
+      "member-directory",
+      809
+    ],
+    [
+      "clinician-directory",
+      50
+    ],
+    [
+      "international-directory",
+      43
+    ]
+  ],
+  "withWebsite": 56,
+  "withPhone": 865,
+  "withAddress": 900,
+  "withCoordinates": 897
+}

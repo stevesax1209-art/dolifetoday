@@ -3,6 +3,22 @@
 .env.local
 .env.*.local
 
+# Dependencies and local tooling
+node_modules/
+functions/node_modules/
+*.log
+
+# Editor and OS noise
+.DS_Store
+Thumbs.db
+
+# Office and local temp files
+~$*
+
 # Firebase build artifacts
 .firebase/
-functions/node_modules/
+
+# One-off local snapshots and scraper checkpoints
+live-*.html
+data/*/checkpoint.json
+data/*/modal-debug.png

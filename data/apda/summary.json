@@ -1,0 +1,116 @@
+{
+  "source": "https://www.apdaparkinson.org/community/",
+  "totalStates": 50,
+  "totalPages": 290,
+  "totalFailures": 33,
+  "withPhone": 42,
+  "withEmail": 146,
+  "byPageType": [
+    [
+      "resource-page",
+      193
+    ],
+    [
+      "support-groups",
+      55
+    ],
+    [
+      "events",
+      24
+    ],
+    [
+      "referral-center-page",
+      13
+    ],
+    [
+      "state-resource-page",
+      5
+    ]
+  ],
+  "byState": [
+    [
+      "Massachusetts",
+      38
+    ],
+    [
+      "Missouri",
+      36
+    ],
+    [
+      "Iowa",
+      28
+    ],
+    [
+      "Illinois",
+      23
+    ],
+    [
+      "Minnesota",
+      23
+    ],
+    [
+      "Connecticut",
+      21
+    ],
+    [
+      "Virginia",
+      20
+    ],
+    [
+      "Georgia",
+      16
+    ],
+    [
+      "Florida",
+      14
+    ],
+    [
+      "Rhode Island",
+      11
+    ],
+    [
+      "Vermont",
+      11
+    ],
+    [
+      "Wisconsin",
+      11
+    ],
+    [
+      "New Jersey",
+      10
+    ],
+    [
+      "Arizona",
+      6
+    ],
+    [
+      "Oklahoma",
+      6
+    ],
+    [
+      "New York",
+      5
+    ],
+    [
+      "Alabama",
+      4
+    ],
+    [
+      "Pennsylvania",
+      3
+    ],
+    [
+      "California",
+      2
+    ],
+    [
+      "Maryland",
+      1
+    ],
+    [
+      "Texas",
+      1
+    ]
+  ]
+}

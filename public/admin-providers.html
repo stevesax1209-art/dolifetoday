@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Admin panel for managing provider listings in The Exchange.">
+  <title>Admin — Provider Management | The Exchange</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/exchange.css">
+  <link rel="stylesheet" href="/css/provider-ecosystem.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a href="/" class="nav-logo" aria-label="Doing Life Today - Home">
+        <div class="nav-logo-mark" aria-hidden="true">DL</div>
+        <div class="nav-logo-text">Doing Life Today<span>Parkinson's Community</span></div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="/about">About</a></li>
+        <li><a href="/podcasts">Podcasts</a></li>
+        <li><a href="/youtube">YouTube</a></li>
+        <li><a href="/theclub">The Club</a></li>
+        <li><a href="/exchange">The Exchange</a></li>
+        <li><a href="/music">Music</a></li>
+        <li><a href="/community">Living With Parkinson's Guide</a></li>
+        <li><a href="/resources">Resources</a></li>
+        <li><a href="/events">Events</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <a href="/theclub" class="btn btn-primary btn-sm nav-cta">Join The Club</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a href="/about">About</a>
+    <a href="/podcasts">Podcasts</a>
+    <a href="/youtube">YouTube</a>
+    <a href="/theclub">The Club</a>
+    <a href="/exchange">The Exchange</a>
+    <a href="/music">Music</a>
+    <a href="/community">Living With Parkinson's Guide</a>
+    <a href="/resources">Resources</a>
+    <a href="/events">Events</a>
+    <a href="/contact">Contact</a>
+    <div class="mobile-cta"><a href="/theclub" class="btn btn-primary">Join The Club</a></div>
+  </nav>
+
+  <main id="main-content">
+    <div id="admin-loading" class="container" style="padding:8rem 1.5rem 4rem;text-align:center;">
+      <p class="text-muted">Verifying admin access...</p>
+    </div>
+
+    <div id="admin-denied" class="container" style="padding:8rem 1.5rem 4rem;text-align:center;" hidden>
+      <h1 class="hero-title" style="font-size:2rem;">Access Denied</h1>
+      <p class="text-muted">You don't have permission to access this page.</p>
+      <a href="/" class="btn btn-outline-primary" style="margin-top:1rem;">Go Home</a>
+    </div>
+
+    <div id="admin-content" hidden>
+      <section class="admin-hero" aria-labelledby="admin-heading">
+        <div class="container">
+          <div id="pe-auth-bar-mount"></div>
+          <span class="section-label">Admin Panel</span>
+          <h1 id="admin-heading" class="hero-title" style="font-size:clamp(1.75rem,4vw,2.5rem);">Provider Management</h1>
+        </div>
+      </section>
+
+      <section class="admin-section" aria-label="Provider management">
+        <div class="container">
+          <!-- Stats -->
+          <div class="admin-stats-row" id="admin-stats">
+            <div class="admin-stat">
+              <span class="admin-stat-value" id="admin-stat-total">0</span>
+              <span class="admin-stat-label">Total</span>
+            </div>
+            <div class="admin-stat">
+              <span class="admin-stat-value" id="admin-stat-pending">0</span>
+              <span class="admin-stat-label">Pending</span>
+            </div>
+            <div class="admin-stat">
+              <span class="admin-stat-value" id="admin-stat-approved">0</span>
+              <span class="admin-stat-label">Approved</span>
+            </div>
+            <div class="admin-stat">
+              <span class="admin-stat-value" id="admin-stat-rejected">0</span>
+              <span class="admin-stat-label">Rejected</span>
+            </div>
+            <div class="admin-stat">
+              <span class="admin-stat-value" id="admin-stat-flagged">0</span>
+              <span class="admin-stat-label">Flagged</span>
+            </div>
+          </div>
+
+          <!-- Filters -->
+          <div class="admin-toolbar">
+            <div class="admin-toolbar-search">
+              <input type="search" id="admin-search" placeholder="Search providers by name or email...">
+            </div>
+            <div class="admin-toolbar-filter">
+              <select id="admin-filter-status">
+                <option value="all">All statuses</option>
+                <option value="PENDING">Pending</option>
+                <option value="APPROVED">Approved</option>
+                <option value="REJECTED">Rejected</option>
+                <option value="FLAGGED">Flagged</option>
+              </select>
+            </div>
+            <div class="admin-toolbar-filter">
+              <select id="admin-filter-tier">
+                <option value="all">All tiers</option>
+                <option value="FREE">Free</option>
+                <option value="VERIFIED">Verified</option>
+                <option value="COMMUNITY">Community</option>
+              </select>
+            </div>
+            <div class="admin-toolbar-filter">
+              <select id="admin-filter-category">
+                <option value="all">All categories</option>
+                <option value="exercise">Exercise</option>
+                <option value="therapy">Therapy</option>
+                <option value="neurology">Neurology</option>
+                <option value="support-group">Support Group</option>
+                <option value="speech">Speech</option>
+                <option value="mental-health">Mental Health</option>
+                <option value="nutrition">Nutrition</option>
+                <option value="caregiving">Caregiving</option>
+                <option value="research">Research</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="admin-toolbar-filter">
+              <select id="admin-filter-sort">
+                <option value="newest">Newest first</option>
+                <option value="most-active">Most active</option>
+                <option value="high-intent">High intent</option>
+                <option value="name">Name A–Z</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Table -->
+          <div class="admin-table-wrap">
+            <table class="admin-table" id="admin-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Status</th>
+                  <th>Tier</th>
+                  <th>Category</th>
+                  <th>Score</th>
+                  <th>Disc.</th>
+                  <th>Rev.</th>
+                  <th>Date</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="admin-table-body">
+                <tr><td colspan="9" class="admin-empty">Loading providers...</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="admin-pagination" id="admin-pagination"></div>
+        </div>
+      </section>
+
+      <!-- Conversion Metrics -->
+      <section class="admin-section" id="admin-conversion-section" aria-label="Conversion metrics">
+        <div class="container">
+          <span class="section-label">Analytics</span>
+          <h2 class="section-title" style="font-size:1.5rem;">Conversion Metrics</h2>
+          <div class="admin-stats-row" id="admin-conversion-stats">
+            <div class="admin-stat">
+              <span class="admin-stat-value" id="admin-metric-total">—</span>
+              <span class="admin-stat-label">Total Providers</span>
+            </div>
+            <div class="admin-stat">
+              <span class="admin-stat-value" id="admin-metric-free">—</span>
+              <span class="admin-stat-label">Free</span>
+            </div>
+            <div class="admin-stat">
+              <span class="admin-stat-value" id="admin-metric-verified">—</span>
+              <span class="admin-stat-label">Verified</span>
+            </div>
+            <div class="admin-stat">
+              <span class="admin-stat-value" id="admin-metric-community">—</span>
+              <span class="admin-stat-label">Community</span>
+            </div>
+            <div class="admin-stat">
+              <span class="admin-stat-value" id="admin-metric-rate">—</span>
+              <span class="admin-stat-label">Upgrade Rate</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- High Intent Providers -->
+      <section class="admin-section" id="admin-high-intent-section" aria-label="High intent providers">
+        <div class="container">
+          <span class="section-label">Outreach</span>
+          <h2 class="section-title" style="font-size:1.5rem;">High Intent Providers</h2>
+          <p class="text-muted" style="margin-bottom:1rem;">Providers with upgradeScore &gt; 30 who haven't upgraded to Community yet.</p>
+          <div class="admin-table-wrap">
+            <table class="admin-table" id="admin-high-intent-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Tier</th>
+                  <th>Score</th>
+                  <th>Views</th>
+                  <th>Disc.</th>
+                  <th>Rev.</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="admin-high-intent-body">
+                <tr><td colspan="8" class="admin-empty">Loading...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Rejection Modal -->
+    <div class="pe-modal-overlay" id="admin-reject-modal">
+      <div class="pe-modal">
+        <h3>Reject Provider</h3>
+        <p class="text-muted">Please provide a reason for rejection. This will be shown to the provider.</p>
+        <div class="pe-field" style="margin-top:1rem;">
+          <label for="admin-reject-reason">Reason for rejection</label>
+          <textarea id="admin-reject-reason" rows="3" placeholder="Explain why this listing is being rejected..."></textarea>
+        </div>
+        <div class="pe-modal-actions">
+          <button class="btn btn-outline-primary" id="admin-reject-cancel">Cancel</button>
+          <button class="btn admin-action-btn admin-action-reject" id="admin-reject-confirm" style="padding:0.65rem 1.25rem;font-size:0.92rem;">Confirm Rejection</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="/js/main.js" defer></script>
+  <script src="/js/provider-auth.js" defer></script>
+  <script src="/js/admin-providers.js" defer></script>
+</body>
+</html>

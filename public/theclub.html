@@ -2930,9 +2930,32 @@
             var data = await response.json();
 
             if (response.ok) {
-              if (data.waitlistCounted) {
-                var currentVisibleCount = getDisplayedWaitlistCount();
-                animateCount(currentVisibleCount, currentVisibleCount + 1);
+              var currentVisibleCount = getDisplayedWaitlistCount();
+              var resolvedCount = typeof data.count === 'number'
+                ? data.count
+                : currentVisibleCount;
+
+              animateCount(currentVisibleCount, resolvedCount);
+              setTimeout(function () {
+                updateWaveSpots(resolvedCount);
+              }, 850);
+
+              if (!data.waitlistCounted) {
+                hideSharePanel();
+                showStatus(
+                  'success',
+                  data.message || (
+                    resolvedCount === currentVisibleCount
+                      ? "You're already on the waitlist with this email. The live count stays the same for duplicate signups."
+                      : "You're already on the waitlist with this email."
+                  )
+                );
+                spamProtection.resetForm(form);
+                if (button) {
+                  button.disabled = false;
+                  button.textContent = originalText;
+                }
+                return;
               }
 
               try {

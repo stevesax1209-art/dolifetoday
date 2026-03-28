@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Next steps after joining The Club waitlist. Check your inbox, spam, and junk folders to confirm your email and secure your place.">
+  <title>The Club | Check Your Email</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body.club-confirmation-page {
+      --club-gold: #D4AF37;
+      --club-mint: #4ADE80;
+      --club-ink: #07111F;
+      --club-panel: rgba(12, 20, 34, 0.84);
+      --club-panel-2: rgba(18, 28, 46, 0.94);
+      --club-border: rgba(212, 175, 55, 0.18);
+      background:
+        radial-gradient(circle at top left, rgba(212, 175, 55, 0.12), transparent 28%),
+        radial-gradient(circle at top right, rgba(74, 222, 128, 0.08), transparent 24%),
+        linear-gradient(180deg, #08111E 0%, #0D1728 48%, #07111F 100%);
+      color: #F8FAFC;
+      min-height: 100vh;
+    }
+
+    .club-confirmation-shell {
+      padding-top: 7.5rem;
+      padding-bottom: 5rem;
+    }
+
+    .club-confirmation-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(320px, 380px);
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .club-confirmation-card,
+    .club-confirmation-sidecard {
+      border-radius: 28px;
+      border: 1px solid var(--club-border);
+      background: linear-gradient(180deg, var(--club-panel) 0%, var(--club-panel-2) 100%);
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.34);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .club-confirmation-card {
+      padding: clamp(1.5rem, 4vw, 3rem);
+    }
+
+    .club-confirmation-sidecard {
+      padding: 1.5rem;
+      position: sticky;
+      top: 6.5rem;
+    }
+
+    .club-confirmation-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #F7E4A5;
+      background: rgba(212, 175, 55, 0.14);
+      border: 1px solid rgba(212, 175, 55, 0.28);
+      margin-bottom: 1rem;
+    }
+
+    .club-confirmation-title {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      line-height: 1.02;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #FFFFFF 18%, #F3D678 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .club-confirmation-subtitle {
+      font-size: 1.06rem;
+      line-height: 1.7;
+      color: #D6DFEA;
+      max-width: 44ch;
+      margin-bottom: 1.5rem;
+    }
+
+    .club-confirmation-email {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      align-items: center;
+      margin-bottom: 1.8rem;
+      padding: 0.7rem 1rem;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #E8EEF8;
+      font-weight: 600;
+    }
+
+    .club-confirmation-email strong {
+      color: #FFFFFF;
+    }
+
+    .club-next-steps {
+      display: grid;
+      gap: 1rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .club-step {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.9rem;
+      align-items: start;
+      padding: 1rem 1.05rem;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .club-step-number {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: var(--club-ink);
+      background: linear-gradient(135deg, #F3D678 0%, #D4AF37 100%);
+      box-shadow: 0 8px 20px rgba(212, 175, 55, 0.22);
+    }
+
+    .club-step h2 {
+      font-size: 1.05rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .club-step p {
+      margin: 0;
+      color: #BFD0E3;
+      font-size: 0.96rem;
+    }
+
+    .club-alert {
+      margin-bottom: 1.8rem;
+      padding: 1rem 1.05rem;
+      border-radius: 18px;
+      background: rgba(74, 222, 128, 0.08);
+      border: 1px solid rgba(74, 222, 128, 0.18);
+    }
+
+    .club-alert strong {
+      color: #B8F7CB;
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+
+    .club-alert p {
+      color: #DCFCE7;
+      margin: 0;
+    }
+
+    .club-confirmation-actions,
+    .club-share-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+    }
+
+    .club-confirmation-page .btn-primary {
+      color: #0B1322;
+      box-shadow: 0 12px 28px rgba(212, 175, 55, 0.24);
+    }
+
+    .club-confirmation-page .btn-secondary {
+      color: #F8FAFC;
+      border: 1px solid rgba(212, 175, 55, 0.28);
+      background: rgba(212, 175, 55, 0.08);
+    }
+
+    .club-confirmation-page .btn-secondary:hover {
+      background: rgba(212, 175, 55, 0.14);
+      color: #FFFFFF;
+    }
+
+    .club-sidecard-title {
+      font-size: 1.15rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .club-sidecard-copy {
+      color: #BFD0E3;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .club-sidecard-tiplist {
+      list-style: none;
+      display: grid;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .club-sidecard-tiplist li {
+      color: #E2E8F0;
+      font-size: 0.92rem;
+      padding-left: 1.35rem;
+      position: relative;
+    }
+
+    .club-sidecard-tiplist li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      top: -0.05rem;
+      color: #6EE7B7;
+      font-size: 1.15rem;
+      line-height: 1;
+    }
+
+    .club-share-feedback {
+      margin-top: 0.9rem;
+      min-height: 1.4rem;
+      font-size: 0.88rem;
+      color: #BFD0E3;
+    }
+
+    .club-share-feedback.is-success {
+      color: #86EFAC;
+    }
+
+    @media (max-width: 980px) {
+      .club-confirmation-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .club-confirmation-sidecard {
+        position: static;
+      }
+    }
+  </style>
+</head>
+<body class="club-confirmation-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a href="/" class="nav-logo" aria-label="Doing Life Today - Home">
+        <div class="nav-logo-mark" aria-hidden="true">DL</div>
+        <div class="nav-logo-text">Doing Life Today<span>Parkinson's Community</span></div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="/about">About</a></li>
+        <li><a href="/podcasts">Podcasts</a></li>
+        <li><a href="/youtube">YouTube</a></li>
+        <li><a href="/theclub">The Club</a></li>
+        <li><a href="/music">Music</a></li>
+        <li><a href="/community">Living With Parkinson's Guide</a></li>
+        <li><a href="/resources">Resources</a></li>
+        <li><a href="/events">Events</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <a href="/theclub" class="btn btn-primary btn-sm nav-cta">Back to The Club</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a href="/about">About</a>
+    <a href="/podcasts">Podcasts</a>
+    <a href="/youtube">YouTube</a>
+    <a href="/theclub">The Club</a>
+    <a href="/music">Music</a>
+    <a href="/community">Living With Parkinson's Guide</a>
+    <a href="/resources">Resources</a>
+    <a href="/events">Events</a>
+    <a href="/contact">Contact</a>
+    <div class="mobile-cta"><a href="/theclub" class="btn btn-primary">Back to The Club</a></div>
+  </nav>
+
+  <main id="main-content" class="club-confirmation-shell">
+    <div class="container club-confirmation-wrap">
+      <section class="club-confirmation-card" aria-labelledby="confirmation-heading">
+        <span class="club-confirmation-kicker">One More Step</span>
+        <h1 id="confirmation-heading" class="club-confirmation-title">You’re Almost Done</h1>
+        <p class="club-confirmation-subtitle">Your waitlist signup went through. The next step is important: you must confirm your email before your place is fully secured.</p>
+        <div class="club-confirmation-email" id="confirmation-email" hidden>
+          Confirmation email sent to <strong id="confirmation-email-value"></strong>
+        </div>
+
+        <div class="club-next-steps">
+          <article class="club-step">
+            <span class="club-step-number">1</span>
+            <div>
+              <h2>Check your inbox now</h2>
+              <p>Look for an email from office@dolifetoday.com asking you to confirm your place on The Club waitlist.</p>
+            </div>
+          </article>
+          <article class="club-step">
+            <span class="club-step-number">2</span>
+            <div>
+              <h2>Check Spam, Junk, and Promotions</h2>
+              <p>If you do not see an email from office@dolifetoday.com within a few minutes, check those folders next. This is the most common reason people miss the confirmation email.</p>
+            </div>
+          </article>
+          <article class="club-step">
+            <span class="club-step-number">3</span>
+            <div>
+              <h2>Click the confirmation link</h2>
+              <p>You must click the link in that email so your spot is confirmed and you can receive your invitation when your wave opens.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="club-alert">
+          <strong>Important</strong>
+          <p>If the email from office@dolifetoday.com lands in Spam or Junk, move it to your inbox before clicking the confirmation link. That gives future Club emails a much better chance of reaching you.</p>
+        </div>
+
+        <div class="club-confirmation-actions">
+          <a href="/theclub" class="btn btn-secondary">Back to The Club</a>
+          <a href="/contact" class="btn btn-secondary">Need Help?</a>
+        </div>
+      </section>
+
+      <aside class="club-confirmation-sidecard" aria-labelledby="share-heading">
+        <h2 id="share-heading" class="club-sidecard-title">Know someone who should see this?</h2>
+        <p class="club-sidecard-copy">While you wait for your confirmation email, share The Club with a friend or care partner who may want to join too.</p>
+        <ul class="club-sidecard-tiplist">
+          <li>People often miss confirmation emails because they land in Spam or Junk.</li>
+          <li>Send the link now so they can still get into the current wave while spots remain.</li>
+          <li>They will need to confirm their email too.</li>
+        </ul>
+        <div class="club-share-actions">
+          <button type="button" class="btn btn-primary" id="confirmation-share-email">Email a Friend</button>
+          <button type="button" class="btn btn-secondary" id="confirmation-share-copy">Copy Link</button>
+        </div>
+        <p class="club-share-feedback" id="confirmation-share-feedback" aria-live="polite"></p>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo" aria-label="Doing Life Today - Home">
+            <div class="nav-logo-mark" aria-hidden="true">DL</div>
+            <div class="nav-logo-text">Doing Life Today<span>Parkinson's Community</span></div>
+          </a>
+          <p>Connecting people living with Parkinson's through podcasts, community, and real conversations.</p>
+          <a href="/theclub" class="btn btn-primary btn-sm">Back to The Club</a>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/podcasts">Podcasts</a></li>
+            <li><a href="/youtube">YouTube</a></li>
+            <li><a href="/resources">Resources</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>The Club</h4>
+          <ul class="footer-links">
+            <li><a href="/theclub">Join the Waitlist</a></li>
+            <li><a href="/theclub">What You'll Find Inside</a></li>
+            <li><a href="/theclub">First Wave Access</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:office@dolifetoday.com">office@dolifetoday.com</a></li>
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Doing Life Today. All rights reserved.</p>
+        <p class="footer-disclaimer">No one should have to figure Parkinson's out alone.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">↑</button>
+  <script src="js/main.js"></script>
+  <script>
+    (function () {
+      var signupStorageKey = 'dltClubWaitlistSignup';
+      var confirmationEmailWrap = document.getElementById('confirmation-email');
+      var confirmationEmailValue = document.getElementById('confirmation-email-value');
+      var shareFeedbackEl = document.getElementById('confirmation-share-feedback');
+      var emailShareButton = document.getElementById('confirmation-share-email');
+      var copyShareButton = document.getElementById('confirmation-share-copy');
+      var shareUrl = 'https://dolifetoday.com/theclub';
+      var shareEmailSubject = 'Thought you might want to join The Club';
+      var shareEmailBody = "I just joined the waitlist for The Club from Doing Life Today. If this sounds helpful for you or a care partner, here is the link: " + shareUrl;
+
+      function maskEmail(email) {
+        if (typeof email !== 'string' || email.indexOf('@') === -1) {
+          return '';
+        }
+
+        var parts = email.split('@');
+        var localPart = parts[0];
+        var domainPart = parts[1];
+        if (!localPart || !domainPart) {
+          return '';
+        }
+
+        if (localPart.length <= 2) {
+          return localPart.charAt(0) + '***@' + domainPart;
+        }
+
+        return localPart.slice(0, 2) + '***@' + domainPart;
+      }
+
+      function setShareFeedback(message, isSuccess) {
+        if (!shareFeedbackEl) return;
+        shareFeedbackEl.textContent = message || '';
+        shareFeedbackEl.classList.toggle('is-success', !!isSuccess);
+      }
+
+      function trackShare(channel) {
+        return fetch('/api/track-share', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ channel: channel, page: 'theclub-next-steps' }),
+          keepalive: true,
+        }).catch(function () {
+          return null;
+        });
+      }
+
+      function copyTextToClipboard(text) {
+        if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+          return navigator.clipboard.writeText(text);
+        }
+
+        return new Promise(function (resolve, reject) {
+          var tempInput = document.createElement('textarea');
+          tempInput.value = text;
+          tempInput.setAttribute('readonly', 'readonly');
+          tempInput.style.position = 'absolute';
+          tempInput.style.left = '-9999px';
+          document.body.appendChild(tempInput);
+          tempInput.select();
+
+          try {
+            var copied = document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            if (copied) {
+              resolve();
+              return;
+            }
+          } catch (error) {
+            document.body.removeChild(tempInput);
+            reject(error);
+            return;
+          }
+
+          reject(new Error('Copy failed'));
+        });
+      }
+
+      try {
+        var storedSignup = window.sessionStorage.getItem(signupStorageKey);
+        if (storedSignup) {
+          var parsedSignup = JSON.parse(storedSignup);
+          var maskedEmail = maskEmail(parsedSignup.email || '');
+          if (maskedEmail && confirmationEmailWrap && confirmationEmailValue) {
+            confirmationEmailValue.textContent = maskedEmail;
+            confirmationEmailWrap.hidden = false;
+          }
+        }
+      } catch (error) {
+        return null;
+      }
+
+      if (emailShareButton) {
+        emailShareButton.addEventListener('click', function () {
+          setShareFeedback('', false);
+          trackShare('email');
+          window.location.href = 'mailto:?subject=' + encodeURIComponent(shareEmailSubject) + '&body=' + encodeURIComponent(shareEmailBody);
+        });
+      }
+
+      if (copyShareButton) {
+        copyShareButton.addEventListener('click', async function () {
+          try {
+            await copyTextToClipboard(shareUrl);
+            await trackShare('copy');
+            setShareFeedback('Link copied. Send it to a friend or care partner.', true);
+          } catch (error) {
+            setShareFeedback('Unable to copy the link on this device. You can still share ' + shareUrl + '.', false);
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
