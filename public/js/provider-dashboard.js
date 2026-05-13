@@ -82,6 +82,59 @@
     document.getElementById('dash-club-discussions').textContent = formatNumber(clubData.discussion_count || 0);
     document.getElementById('dash-club-reviews').textContent = formatNumber(clubData.review_count || 0);
 
+    // Club average rating
+    var avgRating = clubData.average_rating || 0;
+    var reviewCount = clubData.review_count || 0;
+    if (reviewCount > 0 && avgRating > 0) {
+      var ratingEl = document.getElementById('dash-club-rating');
+      if (ratingEl) {
+        var fullStars = Math.floor(avgRating);
+        var halfStar = (avgRating - fullStars) >= 0.5 ? 1 : 0;
+        var emptyStars = 5 - fullStars - halfStar;
+        var starsHtml = '★'.repeat(fullStars) + (halfStar ? '½' : '') + '☆'.repeat(emptyStars);
+        document.getElementById('dash-club-rating-stars').textContent = starsHtml;
+        document.getElementById('dash-club-rating-value').textContent = avgRating.toFixed(1);
+        document.getElementById('dash-club-rating-count').textContent = '(' + reviewCount + ' review' + (reviewCount !== 1 ? 's' : '') + ')';
+        ratingEl.hidden = false;
+      }
+    }
+
+    // Club recent activity feed
+    var recentActivity = clubData.recent_activity || [];
+    if (recentActivity.length > 0) {
+      var feedEl = document.getElementById('dash-club-activity-feed');
+      var feedList = document.getElementById('dash-club-feed-list');
+      if (feedEl && feedList) {
+        feedList.innerHTML = recentActivity.slice(0, 5).map(function (item) {
+          var icon = item.type === 'review' ? '⭐' : item.type === 'discussion' ? '💬' : '👀';
+          var timeAgo = item.timestamp ? getTimeAgo(item.timestamp) : '';
+          var text = ProviderAuth.escapeHtml(item.summary || item.type);
+          return '<li style="display:flex;align-items:flex-start;gap:0.5rem;padding:0.6rem 0.75rem;border-radius:10px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);">' +
+            '<span style="flex-shrink:0;font-size:1rem;">' + icon + '</span>' +
+            '<div style="flex:1;min-width:0;">' +
+              '<span style="font-size:0.88rem;color:var(--color-white);">' + text + '</span>' +
+              (timeAgo ? '<span style="display:block;font-size:0.78rem;color:var(--color-text-muted);margin-top:0.15rem;">' + timeAgo + '</span>' : '') +
+            '</div></li>';
+        }).join('');
+        feedEl.hidden = false;
+      }
+    }
+
+    // Club engagement trend
+    var trend = clubData.trend || null;
+    if (trend) {
+      var trendEl = document.getElementById('dash-club-trend');
+      if (trendEl) {
+        var trendIcon = trend === 'up' ? '📈' : trend === 'down' ? '📉' : '➡️';
+        var trendText = trend === 'up' ? 'Engagement is increasing this week'
+          : trend === 'down' ? 'Engagement has slowed this week'
+          : 'Engagement is steady';
+        document.getElementById('dash-club-trend-icon').textContent = trendIcon;
+        document.getElementById('dash-club-trend-text').textContent = trendText;
+        trendEl.hidden = false;
+      }
+    }
+
     // Club locked/unlocked
     const isCommunity = (p.tier || '').toUpperCase() === 'COMMUNITY';
     document.getElementById('dash-club-locked').hidden = isCommunity;
@@ -130,6 +183,89 @@
     document.getElementById('dash-edit-website').value = p.website || '';
     document.getElementById('dash-edit-phone').value = p.phone || '';
     document.getElementById('dash-edit-tags').value = (p.tags || []).join(', ');
+
+    // Buy link (products only)
+    const buyEl = document.getElementById('dash-edit-buylink');
+    if (buyEl) buyEl.value = p.buyLink || '';
+
+    // Ships to (products only)
+    const ships = Array.isArray(p.shippingCountries) ? p.shippingCountries : [];
+    document.querySelectorAll('[data-ships="dash"]').forEach(cb => {
+      cb.checked = ships.includes(cb.value);
+    });
+
+    // Toggle product vs service fields
+    toggleDashProductFields(p.category || '');
+    const catSelect = document.getElementById('dash-edit-category');
+    catSelect.addEventListener('change', function () { toggleDashProductFields(catSelect.value); });
+
+    // Gate paid-only fields for free tier
+    const isFree = (p.tier || 'FREE').toUpperCase() === 'FREE';
+    document.querySelectorAll('.dash-paid-field').forEach(el => {
+      if (isFree) {
+        el.querySelectorAll('input, textarea, select').forEach(ctrl => {
+          ctrl.disabled = true;
+          if (ctrl.tagName === 'INPUT') ctrl.placeholder = 'Upgrade to $9/mo to edit';
+        });
+      }
+    });
+
+    // Show upgrade banner for non-COMMUNITY approved providers
+    const currentTier = (p.tier || 'FREE').toUpperCase();
+    if (currentTier !== 'COMMUNITY' && (p.status || '').toUpperCase() === 'APPROVED') {
+      const banner = document.getElementById('dash-upgrade-banner');
+      if (banner) banner.hidden = false;
+
+      // If already VERIFIED, hide the Verified card and just show Club Partner upsell
+      if (currentTier === 'VERIFIED') {
+        const vCard = document.getElementById('dash-upgrade-verified-card');
+        if (vCard) vCard.style.display = 'none';
+        const title = document.getElementById('dash-upgrade-title');
+        const sub = document.getElementById('dash-upgrade-subtitle');
+        if (title) title.textContent = '🔥 Ready to build a following?';
+        if (sub) sub.textContent = 'You\'re Verified. Become a Club Partner and members can follow you, see your posts, and join your conversation.';
+      }
+
+      wireUpgradeButton('dash-upgrade-verified-btn', 'VERIFIED');
+      wireUpgradeButton('dash-upgrade-community-btn', 'COMMUNITY');
+    }
+  }
+
+  function wireUpgradeButton(btnId, tier) {
+    const btn = document.getElementById(btnId);
+    if (!btn) return;
+    btn.addEventListener('click', async function () {
+      const errEl = document.getElementById('dash-upgrade-error');
+      if (errEl) { errEl.style.display = 'none'; errEl.textContent = ''; }
+      const originalText = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Redirecting…';
+      if (window.ProviderTrack) ProviderTrack.track('upgrade_clicked', { source: 'dashboard_banner', tier: tier.toLowerCase() });
+      try {
+        const data = await ProviderAuth.apiCall('/provider/checkout-session', {
+          method: 'POST',
+          body: JSON.stringify({ tier }),
+        });
+        if (data && data.url) {
+          window.location.href = data.url;
+        } else {
+          throw new Error('No checkout URL returned.');
+        }
+      } catch (err) {
+        btn.disabled = false;
+        btn.textContent = originalText;
+        if (errEl) {
+          errEl.textContent = err.message || 'Could not start checkout. Please try again.';
+          errEl.style.display = 'block';
+        }
+      }
+    });
+  }
+
+  function toggleDashProductFields(category) {
+    const isProduct = (category || '').startsWith('products');
+    document.querySelectorAll('.dash-service-field').forEach(el => el.style.display = isProduct ? 'none' : '');
+    document.querySelectorAll('.dash-product-field').forEach(el => el.style.display = isProduct ? '' : 'none');
   }
 
   function renderTriggers(p) {
@@ -204,18 +340,31 @@
     btn.disabled = true;
     btn.textContent = 'Saving...';
 
+    const cat = document.getElementById('dash-edit-category').value;
+    const isProduct = (cat || '').startsWith('products');
+
     const updates = {
       name: document.getElementById('dash-edit-name').value.trim(),
-      category: document.getElementById('dash-edit-category').value,
-      format: document.getElementById('dash-edit-format').value,
+      category: cat,
       description: document.getElementById('dash-edit-description').value.trim(),
-      city: document.getElementById('dash-edit-city').value.trim(),
-      state: document.getElementById('dash-edit-state').value.trim(),
-      country: document.getElementById('dash-edit-country').value.trim(),
-      website: document.getElementById('dash-edit-website').value.trim(),
       phone: document.getElementById('dash-edit-phone').value.trim(),
       tags: document.getElementById('dash-edit-tags').value.trim(),
     };
+
+    if (isProduct) {
+      updates.format = 'product';
+      updates.shippingCountries = Array.from(document.querySelectorAll('[data-ships="dash"]:checked')).map(cb => cb.value);
+      const buyEl = document.getElementById('dash-edit-buylink');
+      if (buyEl && !buyEl.disabled) updates.buyLink = buyEl.value.trim();
+    } else {
+      updates.format = document.getElementById('dash-edit-format').value;
+      updates.city = document.getElementById('dash-edit-city').value.trim();
+      updates.state = document.getElementById('dash-edit-state').value.trim();
+      updates.country = document.getElementById('dash-edit-country').value.trim();
+    }
+
+    const websiteEl = document.getElementById('dash-edit-website');
+    if (websiteEl && !websiteEl.disabled) updates.website = websiteEl.value.trim();
 
     try {
       await ProviderAuth.apiCall('/provider/update', {
@@ -247,11 +396,24 @@
   function checkUpgradeSuccess() {
     const params = new URLSearchParams(window.location.search);
     if (params.get('upgraded') === 'true') {
+      const tier = (params.get('tier') || 'VERIFIED').toUpperCase();
       document.getElementById('dash-upgrade-success').hidden = false;
+      // Customize success copy
+      const titleEl = document.querySelector('#dash-upgrade-success .section-title');
+      const bodyEl = document.querySelector('#dash-upgrade-success .text-muted');
+      if (tier === 'COMMUNITY') {
+        if (titleEl) titleEl.textContent = "🎉 You're a Club Partner";
+        if (bodyEl) bodyEl.textContent = "Your provider club is being set up inside The Club. Members can now follow you, ask questions, and leave reviews.";
+      } else {
+        if (titleEl) titleEl.textContent = "🎉 You're Verified";
+        if (bodyEl) bodyEl.textContent = "All listing fields are now unlocked. Polish your details so people can find and contact you.";
+      }
       if (providerData && providerData.status === 'PENDING') {
         document.getElementById('dash-upgrade-pending-note').hidden = false;
       }
-      if (window.ProviderTrack) ProviderTrack.track('upgrade_completed', { tier: 'COMMUNITY' });
+      if (window.ProviderTrack) ProviderTrack.track('upgrade_completed', { tier });
+      window.history.replaceState({}, '', '/provider-dashboard');
+    } else if (params.get('upgrade') === 'cancelled') {
       window.history.replaceState({}, '', '/provider-dashboard');
     }
   }
@@ -259,5 +421,19 @@
   function formatNumber(n) {
     if (n >= 1000) return (n / 1000).toFixed(1).replace(/\.0$/, '') + 'k';
     return String(n);
+  }
+
+  function getTimeAgo(timestamp) {
+    var now = Date.now();
+    var diff = now - new Date(timestamp).getTime();
+    var mins = Math.floor(diff / 60000);
+    if (mins < 1) return 'Just now';
+    if (mins < 60) return mins + 'm ago';
+    var hrs = Math.floor(mins / 60);
+    if (hrs < 24) return hrs + 'h ago';
+    var days = Math.floor(hrs / 24);
+    if (days < 7) return days + 'd ago';
+    var weeks = Math.floor(days / 7);
+    return weeks + 'w ago';
   }
 })();

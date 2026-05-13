@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  const API_ENDPOINT = 'https://club.dolifetoday.com/api/exchange/providers?limit=10000&v=20260327-1';
+  const API_ENDPOINT = 'https://club.dolifetoday.com/api/exchange/providers?limit=25000&v=20260406';
   const GEOCODE_ENDPOINT = 'https://nominatim.openstreetmap.org/search?format=jsonv2&addressdetails=1&limit=1&q=';
   const GEOCODE_CACHE_KEY = 'exchange-geocode-cache-v1';
   const MAX_DISTANCE_LOCATION_LOOKUPS = 120;
@@ -43,12 +43,8 @@
   }
 
   function buildProviderClaimUrl(provider) {
-    if (provider && provider.claimPagePath) {
-      return provider.claimPagePath;
-    }
-
-    if (provider && provider.claimUrl) {
-      return provider.claimUrl;
+    if (provider && (provider.id || provider.slug)) {
+      return '/claim-listing?provider=' + encodeURIComponent(provider.id || provider.slug);
     }
 
     return '/claim-listing';
@@ -371,10 +367,17 @@
       const haystack = [
         provider.name,
         provider.excerpt,
+        provider.description,
         provider.location,
         provider.typeLabel,
+        provider.shortTypeLabel,
+        provider.subcategory,
+        provider.useCase,
+        provider.organizationName,
         getVisibleSpecialties(provider).join(' '),
-        (provider.languages || []).join(' ')
+        (provider.languages || []).join(' '),
+        (provider.shippingCountries || []).join(' '),
+        provider.searchableText
       ].join(' ').toLowerCase();
 
       return haystack.indexOf(searchTerm) !== -1;
@@ -619,36 +622,58 @@
         : '<div class="exchange-card-mark">' + initial + '</div>';
 
       const ratingLabel = provider.reviewCount > 0
-        ? provider.rating.toFixed(1) + ' rating from ' + provider.reviewCount + ' reviews'
-        : 'Community listing';
+        ? provider.rating.toFixed(1) + ' rating · ' + provider.reviewCount + ' reviews'
+        : '';
 
       const ratingPill = provider.reviewCount > 0
-        ? '<span class="exchange-card-rating-pill">' + escapeHtml(provider.rating.toFixed(1) + ' stars') + '</span>'
-        : '<span class="exchange-card-rating-pill exchange-card-rating-pill-muted">New listing</span>';
+        ? '<span class="exchange-card-rating-pill">' + escapeHtml(provider.rating.toFixed(1) + ' ★') + '</span>'
+        : '<span class="exchange-card-rating-pill exchange-card-rating-pill-muted">New</span>';
 
       const submeta = [
         provider.typeLabel,
         provider.locationLabel || provider.location,
         Number.isFinite(provider.distanceKilometers) ? '<span class="exchange-card-distance">' + escapeHtml(getDistanceDisplay(provider.distanceKilometers, distanceUnit)) + ' away</span>' : ''
-      ].filter(Boolean).join('<span aria-hidden="true">|</span>');
+      ].filter(Boolean).join('<span class="exchange-card-sep" aria-hidden="true"> · </span>');
 
-      const badges = ((provider.publicBadges || []).length ? provider.publicBadges : [provider.typeLabel, provider.location])
-        .concat((provider.formats || []).slice(0, 2).map((format) => format.replace('-', ' ')))
-        .map((badge) => '<span class="exchange-badge">' + escapeHtml(badge) + '</span>')
+      var formatLabels = (provider.formats || []).slice(0, 2).map(function (f) {
+        var lower = f.toLowerCase().replace(/-/g, ' ');
+        return lower.charAt(0).toUpperCase() + lower.slice(1);
+      });
+      var rawBadges = (provider.publicBadges || []).length ? provider.publicBadges : [];
+      var badgeSeen = {};
+      var badges = rawBadges.concat(formatLabels)
+        .filter(function (b) {
+          var key = b.toLowerCase().replace(/[\s\-]+/g, '');
+          if (badgeSeen[key]) return false;
+          badgeSeen[key] = true;
+          return true;
+        })
+        .map(function (badge) { return '<span class="exchange-badge">' + escapeHtml(badge) + '</span>'; })
         .join('');
 
-      const tags = getVisibleSpecialties(provider).slice(0, 4)
-        .map((tag) => '<span class="exchange-tag">' + escapeHtml(tag) + '</span>')
+      var tagExclusions = {};
+      tagExclusions[(provider.typeLabel || '').toLowerCase().replace(/[\s\-]+/g, '')] = true;
+      tagExclusions[(provider.locationLabel || provider.location || '').toLowerCase().replace(/[\s\-]+/g, '')] = true;
+      (provider.formats || []).forEach(function (f) { tagExclusions[f.toLowerCase().replace(/[\s\-]+/g, '')] = true; });
+      rawBadges.forEach(function (b) { tagExclusions[b.toLowerCase().replace(/[\s\-]+/g, '')] = true; });
+      var tags = getVisibleSpecialties(provider)
+        .filter(function (tag) { return !tagExclusions[tag.toLowerCase().replace(/[\s\-]+/g, '')]; })
+        .slice(0, 4)
+        .map(function (tag) { return '<span class="exchange-tag">' + escapeHtml(tag) + '</span>'; })
         .join('');
 
       const detailButton = '<a class="btn btn-primary" href="' + escapeHtml(detailUrl) + '">View Details</a>';
-      const clubButton = '<a class="btn btn-outline-primary" href="' + escapeHtml(provider.detailAppUrl || provider.joinClubUrl) + '">View in The Club</a>';
+      const claimButton = '<a class="btn btn-outline-primary btn-sm" href="' + escapeHtml(claimUrl) + '">Claim Listing</a>';
 
       const verifiedBadge = provider.verified
         ? '<span class="exchange-card-kicker">Verified provider</span>'
         : '';
 
       const typeKicker = provider.shortTypeLabel || provider.typeLabel || 'Provider';
+
+      var shippingLine = (provider.shippingCountries || []).length > 0
+        ? '  <p class="exchange-card-shipping">Ships to: ' + (provider.shippingCountries || []).map(function (c) { return escapeHtml(c); }).join(', ') + '</p>'
+        : '';
 
       return [
         '<article class="card exchange-card">',
@@ -666,13 +691,11 @@
         '  </div>',
         '  <div class="exchange-card-badges">' + badges + '</div>',
         '  <p class="exchange-card-copy">' + escapeHtml(provider.excerpt) + '</p>',
+        shippingLine,
         tags ? '  <div class="exchange-card-tags">' + tags + '</div>' : '',
         '  <div class="exchange-card-actions">',
            detailButton,
-        '  </div>',
-        '  <div class="exchange-card-actions exchange-card-actions-secondary">',
-          clubButton,
-           '    <a class="btn btn-primary" href="' + escapeHtml(claimUrl) + '">Claim This Listing</a>',
+           claimButton,
         '  </div>',
         '</article>',
       ].join('');
@@ -695,7 +718,7 @@
       const sortedProviders = sortProviders(baseProviders, sortSelect.value, false);
       setStatus(
         sortedProviders.length === 1 ? '1 provider shown' : sortedProviders.length + ' providers shown',
-        'Search Parkinson\'s providers, programs, and services by location, service type, language, or ZIP/postal code, then step into The Club for insights, discussions, and reviews.'
+        'Showing Parkinson\'s providers, programs, and services matching your filters.'
       );
 
       if (!sortedProviders.length) {
@@ -808,7 +831,7 @@
       updateDirectoryStats(allProviders, countries, languages);
 
       buildOptions(countrySelect, countries, 'All countries');
-      buildOptions(typeSelect, types, 'All provider types');
+      buildOptions(typeSelect, types, 'All programs, services & products');
       buildOptions(languageSelect, languages, 'All languages');
       updateRadiusOptions('mi');
       bindFilters();
@@ -817,7 +840,7 @@
       renderProviders();
     })
     .catch(function () {
-      setStatus('The Exchange is temporarily unavailable.', 'Please try again shortly or view the directory inside The Club.');
-      resultsNode.innerHTML = '<article class="card exchange-empty-state"><h3>Unable to load providers right now</h3><p>Please try again shortly or view the directory inside The Club.</p><p><a class="btn btn-primary" href="https://club.dolifetoday.com/?publicExchange=true">View in The Club</a></p></article>';
+      setStatus('The Exchange is temporarily unavailable.', 'Please try again shortly.');
+      resultsNode.innerHTML = '<article class="card exchange-empty-state"><h3>Unable to load providers right now</h3><p>Please try again shortly or browse the directory.</p><p><a class="btn btn-primary" href="/exchange">Refresh The Exchange</a></p></article>';
     });
 })();

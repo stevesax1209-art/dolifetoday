@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -12,8 +12,21 @@
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/exchange.css">
   <link rel="stylesheet" href="/css/provider-ecosystem.css">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3LZZWBTWT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K3LZZWBTWT');
+  </script>
+  <script src="/js/analytics-events.js" defer></script>
+  <script src="/js/meta-pixel.js"></script>
 </head>
 <body>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=771485525759396&ev=PageView&noscript=1"
+  /></noscript>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <header class="site-header" role="banner">
@@ -29,7 +42,7 @@
         <li><a href="/theclub">The Club</a></li>
         <li><a href="/exchange">The Exchange</a></li>
         <li><a href="/music">Music</a></li>
-        <li><a href="/community">Living With Parkinson's Guide</a></li>
+        <li><a href="/living-with-parkinsons-guide">Living With Parkinson's Guide</a></li>
         <li><a href="/resources">Resources</a></li>
         <li><a href="/events">Events</a></li>
         <li><a href="/contact">Contact</a></li>
@@ -48,7 +61,7 @@
     <a href="/theclub">The Club</a>
     <a href="/exchange">The Exchange</a>
     <a href="/music">Music</a>
-    <a href="/community">Living With Parkinson's Guide</a>
+    <a href="/living-with-parkinsons-guide">Living With Parkinson's Guide</a>
     <a href="/resources">Resources</a>
     <a href="/events">Events</a>
     <a href="/contact">Contact</a>
@@ -117,11 +130,11 @@
           <div id="claim-step-1" class="pe-card">
             <span class="section-label" id="claim-heading">Claim Your Listing</span>
             <h2 class="section-title">Find your listing on The Exchange</h2>
-            <p class="text-muted">Search for your organization to claim it. If your listing isn't here yet, you can <a href="/create-listing">add a new listing</a> instead.</p>
+            <p class="text-muted">Search for your program, service, or product to claim it. If your listing isn't here yet, you can <a href="/create-listing">add a new listing</a> instead.</p>
             <div class="pe-form" style="margin-top:1.25rem;">
               <div class="pe-field">
-                <label for="claim-search-input">Search by provider name</label>
-                <input id="claim-search-input" type="search" placeholder="Search your organization name...">
+                <label for="claim-search-input">Search by name</label>
+                <input id="claim-search-input" type="search" placeholder="Search your program, service, or product name...">
               </div>
               <div id="claim-search-results" style="display:none;">
                 <p class="text-muted" style="font-size:0.88rem;margin-bottom:0.75rem;" id="claim-search-count"></p>
@@ -232,3 +245,4 @@
   <script src="/js/claim-listing.js" defer></script>
 </body>
 </html>
+

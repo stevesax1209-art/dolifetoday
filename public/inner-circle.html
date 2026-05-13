@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Join the Inner Circle &middot; monthly live Zoom calls with Bryce, real conversations in a smaller group, priority support, and a deeper level of connection inside The Club.">
+  <title>The Inner Circle | Doing Life Today</title>
+
+  <meta property="og:title" content="The Inner Circle | Doing Life Today">
+  <meta property="og:description" content="Monthly live calls with Bryce, real conversations in a smaller group, priority support, and deeper connection inside The Club.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dolifetoday.com/inner-circle">
+  <meta property="og:site_name" content="Doing Life Today">
+
+  <link rel="canonical" href="https://dolifetoday.com/inner-circle">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3LZZWBTWT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K3LZZWBTWT');
+  </script>
+
+  <style>
+    .ic-hero {
+      padding: 5rem 0 3.5rem;
+      text-align: center;
+      background: var(--gradient-hero);
+      position: relative;
+      overflow: hidden;
+    }
+    .ic-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 55% at 50% 0%, rgba(32,178,170,0.14) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .ic-hero h1 {
+      font-size: clamp(2rem, 5.5vw, 3.25rem);
+      font-weight: 800;
+      line-height: 1.15;
+      background: linear-gradient(135deg, #fff 30%, var(--color-primary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+    }
+    .ic-hero .ic-sub {
+      font-size: 1.2rem;
+      color: var(--color-text-muted);
+      font-weight: 500;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    .ic-section {
+      padding-block: 4.5rem;
+    }
+    .ic-section.alt-bg {
+      background: var(--color-bg-2);
+    }
+    .ic-section .section-label {
+      display: block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--color-primary);
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+    .ic-section h2 {
+      font-size: clamp(1.5rem, 4vw, 2.25rem);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    .ic-section p {
+      line-height: 1.75;
+      color: var(--color-text);
+    }
+
+    .ic-benefits {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+    .ic-benefit {
+      background: var(--color-bg-2, #141414);
+      border: 1px solid var(--color-border, #222);
+      border-radius: 1rem;
+      padding: 2rem;
+      text-align: center;
+    }
+    .ic-benefit-icon {
+      font-size: 2.25rem;
+      margin-bottom: 1rem;
+    }
+    .ic-benefit h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .ic-benefit p {
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    .ic-quote {
+      max-width: 580px;
+      border-left: 3px solid var(--color-primary);
+      padding-left: 1.5rem;
+      margin: 2rem auto;
+      font-size: 1.1rem;
+      line-height: 1.75;
+      color: var(--color-text);
+    }
+    .ic-quote-attr {
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      font-weight: 600;
+    }
+
+    .ic-pricing {
+      text-align: center;
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 2.5rem;
+      background: var(--color-bg-2, #141414);
+      border: 1px solid var(--color-border, #222);
+      border-radius: 1.25rem;
+    }
+    .ic-pricing .ic-price {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .ic-pricing .ic-price-note {
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+      margin-bottom: 1.5rem;
+    }
+    .ic-pricing .ic-price-orig {
+      text-decoration: line-through;
+      color: var(--color-text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .ic-footer-cta {
+      text-align: center;
+      padding-block: 5rem;
+      background: linear-gradient(135deg, #0A0A0A 0%, #1a0a2e 50%, #0a1a2e 100%);
+      position: relative;
+    }
+    .ic-footer-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 50% at 50% 100%, rgba(32,178,170,0.10) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .ic-footer-cta h2 {
+      font-size: clamp(1.5rem, 4vw, 2.25rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    .ic-footer-cta p {
+      color: var(--color-text-muted);
+      max-width: 500px;
+      margin: 0 auto 2rem;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 600px) {
+      .ic-hero { padding: 3.5rem 0 2.5rem; }
+      .ic-section { padding-block: 3rem; }
+      .ic-footer-cta { padding-block: 3.5rem; }
+    }
+  </style>
+  <script src="/js/meta-pixel.js"></script>
+</head>
+<body>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=771485525759396&ev=PageView&noscript=1"
+  /></noscript>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a href="/" class="nav-logo" aria-label="Doing Life Today - Home">
+        <div class="nav-logo-mark" aria-hidden="true">DL</div>
+        <div class="nav-logo-text">Doing Life Today<span>Parkinson's Community</span></div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="/about">About</a></li>
+        <li><a href="/podcasts">Podcasts</a></li>
+        <li><a href="/youtube">YouTube</a></li>
+        <li><a href="/theclub">The Club</a></li>
+        <li><a href="/exchange">The Exchange</a></li>
+        <li><a href="/music">Music</a></li>
+        <li><a href="/living-with-parkinsons-guide">Living With Parkinson's Guide</a></li>
+        <li><a href="/resources">Resources</a></li>
+        <li><a href="/events">Events</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <a href="/theclub" class="btn btn-primary btn-sm nav-cta">Join The Club</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a href="/about">About</a>
+    <a href="/podcasts">Podcasts</a>
+    <a href="/youtube">YouTube</a>
+    <a href="/theclub">The Club</a>
+    <a href="/exchange">The Exchange</a>
+    <a href="/music">Music</a>
+    <a href="/living-with-parkinsons-guide">Living With Parkinson's Guide</a>
+    <a href="/resources">Resources</a>
+    <a href="/events">Events</a>
+    <a href="/contact">Contact</a>
+    <div class="mobile-cta"><a href="/theclub" class="btn btn-primary">Join The Club</a></div>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- HERO -->
+    <section class="ic-hero" aria-labelledby="ic-heading">
+      <div class="container">
+        <h1 id="ic-heading">The Inner Circle</h1>
+        <p class="ic-sub">Some conversations need a smaller room. This is that room.</p>
+        <a href="https://community.dolifetoday.com/pages/inner-circle" class="btn btn-primary btn-lg">Join the Inner Circle</a>
+      </div>
+    </section>
+
+    <!-- WHAT IS IT -->
+    <section class="ic-section" aria-labelledby="ic-what-heading">
+      <div class="container">
+        <span class="section-label">About</span>
+        <h2 id="ic-what-heading">What Is the Inner Circle?</h2>
+        <p style="max-width:650px;">The Inner Circle is a premium experience inside <a href="/theclub">The Club</a> &mdash; Doing Life Today's private Parkinson's community. It's built for people who want more than surface-level conversation. More real talk, more direct access, more connection with others who truly get it.</p>
+      </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section class="ic-section alt-bg" aria-labelledby="ic-benefits-heading">
+      <div class="container">
+        <span class="section-label">Membership</span>
+        <h2 id="ic-benefits-heading">What You Get</h2>
+        <div class="ic-benefits">
+          <div class="ic-benefit">
+            <div class="ic-benefit-icon">&#127909;</div>
+            <h3>Monthly Live Zoom Calls</h3>
+            <p>Join Bryce for honest, unscripted conversations about living with Parkinson's &middot; ask questions, share your story, and hear from others in real time.</p>
+          </div>
+          <div class="ic-benefit">
+            <div class="ic-benefit-icon">&#128101;</div>
+            <h3>A Smaller, Closer Group</h3>
+            <p>Not a crowd &middot; a circle. This is a tight-knit group of people who show up for each other, where every voice matters.</p>
+          </div>
+          <div class="ic-benefit">
+            <div class="ic-benefit-icon">&#11088;</div>
+            <h3>Priority Responses &amp; Support</h3>
+            <p>Get faster responses from Bryce and the team. Your questions and posts get priority attention inside The Club.</p>
+          </div>
+          <div class="ic-benefit">
+            <div class="ic-benefit-icon">&#128172;</div>
+            <h3>Deeper Conversations</h3>
+            <p>Go beyond the basics. Talk about the stuff that's hard to say out loud &middot; fears, frustrations, wins, and everything in between.</p>
+          </div>
+          <div class="ic-benefit">
+            <div class="ic-benefit-icon">&#128222;</div>
+            <h3>Direct Access to Bryce</h3>
+            <p>Bryce Perry, diagnosed at 40, shares what he's learned firsthand. Inner Circle members get direct access to his experience and perspective.</p>
+          </div>
+          <div class="ic-benefit">
+            <div class="ic-benefit-icon">&#128274;</div>
+            <h3>Exclusive Inner Circle Space</h3>
+            <p>A dedicated area inside The Club just for members &middot; your space for the conversations that matter most.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BRYCE QUOTE -->
+    <section class="ic-section" aria-labelledby="ic-quote-heading">
+      <div class="container" style="text-align:center;">
+        <blockquote class="ic-quote" style="text-align:left;">
+          "The Inner Circle exists because some conversations need a smaller room. Thank you for choosing to be in it."
+        </blockquote>
+        <p class="ic-quote-attr">&mdash; Bryce Perry, Founder of Doing Life Today</p>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="ic-section alt-bg" aria-labelledby="ic-pricing-heading">
+      <div class="container" style="text-align:center;">
+        <span class="section-label">Pricing</span>
+        <h2 id="ic-pricing-heading">Simple, Affordable, Worth It</h2>
+        <p style="max-width:500px;margin:0 auto 2.5rem;color:var(--color-text-muted);">Less than a dollar a week to be part of something that actually matters.</p>
+        <div class="ic-pricing">
+          <p class="ic-price-orig">$99/year</p>
+          <p class="ic-price">$50<span style="font-size:1.1rem;font-weight:500;color:var(--color-text-muted);">/year</span></p>
+          <p class="ic-price-note">Launch price &middot; limited time</p>
+          <a href="https://community.dolifetoday.com/pages/inner-circle" class="btn btn-primary btn-lg" style="width:100%;margin-top:1rem;">Join Now</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="ic-footer-cta" aria-labelledby="ic-final-heading">
+      <div class="container">
+        <h2 id="ic-final-heading">Ready to Go Deeper?</h2>
+        <p>Join Bryce and a small group of people who are choosing connection over isolation. The Inner Circle is waiting.</p>
+        <a href="https://community.dolifetoday.com/pages/inner-circle" class="btn btn-primary btn-lg">Join the Inner Circle</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo" aria-label="Doing Life Today - Home">
+            <div class="nav-logo-mark" aria-hidden="true">DL</div>
+            <div class="nav-logo-text">Doing Life Today<span>Parkinson's Community</span></div>
+          </a>
+          <p>Connecting people living with Parkinson's through podcasts, community, and real conversations - since 2018.</p>
+          <a href="https://bryceperry.org" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">Book Bryce for Speaking ?</a>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/podcasts">Podcasts</a></li>
+            <li><a href="/youtube">YouTube</a></li>
+            <li><a href="/resources">Resources</a></li>
+            <li><a href="/events">Events</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>The DLT Platform</h4>
+          <ul class="footer-links">
+            <li><a href="https://dolifetoday.com">Doing Life Today</a></li>
+            <li><a href="/theclub">The Club</a></li>
+            <li><a href="https://podcast.dolifetoday.com" target="_blank" rel="noopener noreferrer">Podcast Network ?</a></li>
+            <li><a href="https://bryceperry.org" target="_blank" rel="noopener noreferrer">Speaking &amp; Media ?</a></li>
+            <li><a href="https://shop.dolifetoday.com" target="_blank" rel="noopener noreferrer">Merch Store ?</a></li>
+            <li><a href="/exchange">The Exchange</a></li>
+            <li><a href="/inner-circle">Inner Circle</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Parkinson's Resources</h4>
+          <ul class="footer-links">
+            <li><a href="/parkinsons-medication-timing">Medication Timing</a></li>
+            <li><a href="/parkinsons-sleep">Sleep</a></li>
+            <li><a href="/first-90-days-parkinsons">First 90 Days</a></li>
+            <li><a href="/best-exercises-for-parkinsons">Best Exercises</a></li>
+            <li><a href="/parkinsons-diet-nutrition">Diet &amp; Nutrition</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Doing Life Today. All rights reserved. &middot; <a href="/privacy">Privacy Policy</a> &middot; <a href="/terms">Terms of Use</a></p>
+        <p class="footer-disclaimer">&#9888;&#65039; This site provides peer support, not medical advice. Always consult your healthcare provider.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">?</button>
+  <script src="js/main.js"></script>
+</body>
+</html>
+

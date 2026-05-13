@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -11,8 +11,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/exchange.css">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3LZZWBTWT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K3LZZWBTWT');
+  </script>
+  <script src="/js/analytics-events.js" defer></script>
+  <script src="/js/meta-pixel.js"></script>
 </head>
 <body>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=771485525759396&ev=PageView&noscript=1"
+  /></noscript>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <header class="site-header" role="banner">
@@ -28,7 +41,7 @@
         <li><a href="/theclub">The Club</a></li>
         <li><a href="/exchange">The Exchange</a></li>
         <li><a href="/music">Music</a></li>
-        <li><a href="/community">Living With Parkinson's Guide</a></li>
+        <li><a href="/living-with-parkinsons-guide">Living With Parkinson's Guide</a></li>
         <li><a href="/resources">Resources</a></li>
         <li><a href="/events">Events</a></li>
         <li><a href="/contact">Contact</a></li>
@@ -47,7 +60,7 @@
     <a href="/theclub">The Club</a>
     <a href="/exchange">The Exchange</a>
     <a href="/music">Music</a>
-    <a href="/community">Living With Parkinson's Guide</a>
+    <a href="/living-with-parkinsons-guide">Living With Parkinson's Guide</a>
     <a href="/resources">Resources</a>
     <a href="/events">Events</a>
     <a href="/contact">Contact</a>
@@ -74,13 +87,13 @@
           <p>We could not match that provider listing. You can still view the directory inside The Club and search there directly.</p>
           <div class="exchange-claim-actions">
             <a href="/exchange" class="btn btn-outline-primary">Back to The Exchange</a>
-            <a href="https://club.dolifetoday.com/?publicExchange=true" class="btn btn-primary">View in The Club</a>
+            <a href="/claim-listing" class="btn btn-primary">Start Claim Process</a>
           </div>
         </div>
         <div id="exchange-claim-content" hidden>
           <h1 id="exchange-claim-title" class="hero-title"></h1>
           <p id="exchange-claim-subtitle" class="hero-subtitle"></p>
-          <p class="hero-support">Listing claims are completed inside The Club so your organization can be verified against the canonical Exchange record.</p>
+          <p class="hero-support">Listing claims are completed right here so your organization can be verified against the canonical Exchange record.</p>
         </div>
       </div>
     </section>
@@ -104,9 +117,9 @@
 
           <article class="card">
             <span class="section-label">What happens next</span>
-            <h2 class="section-title">The claim process continues inside The Club</h2>
+            <h2 class="section-title">How the claim process works</h2>
             <ul class="exchange-claim-checklist">
-              <li>Open the canonical listing record inside The Club.</li>
+              <li>Start the claim process for your listing.</li>
               <li>Sign in or create an account if needed.</li>
               <li>Submit your role and verification details for review.</li>
               <li>Return later to manage your listing once approved.</li>
@@ -117,11 +130,11 @@
         <aside class="exchange-claim-sidebar">
           <article class="card">
             <span class="section-label">Continue</span>
-            <h2 class="section-title">Open the claim flow</h2>
-            <p class="exchange-card-copy">This handoff keeps the website public while ensuring the real listing claim and verification process stays inside The Club.</p>
+            <h2 class="section-title">Start the claim flow</h2>
+            <p class="exchange-card-copy">Claim your listing to take control of your profile, respond to reviews, and unlock analytics.</p>
             <div class="exchange-stacked-actions">
-              <a id="exchange-claim-club-link" class="btn btn-primary" href="https://club.dolifetoday.com/?publicExchange=true">Claim In The Club</a>
-              <a class="btn btn-outline-primary" href="https://club.dolifetoday.com/?exchange=add-listing">Add Your Listing Instead</a>
+              <a id="exchange-claim-club-link" class="btn btn-primary" href="/claim-listing">Start Claim Process</a>
+              <a class="btn btn-outline-primary" href="/create-listing">Add Your Listing Instead</a>
               <a id="exchange-claim-detail-link" class="btn btn-outline-primary" href="/exchange">View Listing Details</a>
               <a href="/exchange" class="btn btn-outline-primary">Back to The Exchange</a>
             </div>

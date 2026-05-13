@@ -30,10 +30,17 @@ if (!admin.apps.length) {
 }
 
 const db = admin.firestore();
+
+// Cross-project Firestore for pathway-providers (lives in pcn---new)
+const pcnApp = admin.apps.find(a => a.name === 'pcn') ||
+  admin.initializeApp({ projectId: 'pcn---new' }, 'pcn');
+const pcnDb = admin.firestore(pcnApp);
+
 const WAITLIST_STATS_COLLECTION = 'site_stats';
 const WAITLIST_STATS_DOC_ID = 'club_waitlist';
 const SHARE_STATS_DOC_ID = 'club_share_stats';
 const CLUB_PAGE_STATS_DOC_ID = 'club_page_stats';
+const CHECK_WAVE_STATS_DOC_ID = 'check_wave_stats';
 const LEGACY_WAITLIST_MIGRATION_COUNT = 68;
 const WAITLIST_MANUAL_COUNT_ADJUSTMENT = 19;
 const RATE_LIMIT_COLLECTION = 'submission_rate_limits';
@@ -43,7 +50,8 @@ const RATE_LIMIT_WINDOW_MS = 60 * 1000;
 const RATE_LIMIT_BLOCK_THRESHOLD = 3;
 const RATE_LIMIT_BLOCK_MS = 15 * 60 * 1000;
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const WAITLIST_TRACKING_WAVES = Object.freeze([1, 2, 3, 4]);
+const WAITLIST_TRACKING_WAVES = Object.freeze([1, 2, 3, 4, 5, 6, 17]);
+const EVENT_WAVE_GROUPS = Object.freeze({ 17: '184137771747641308' });
 const COMMON_FREE_EMAIL_DOMAINS = new Set([
   'gmail.com',
   'googlemail.com',
@@ -130,7 +138,7 @@ function parseBody(req) {
 function setCorsHeaders(res, methods = 'POST, OPTIONS') {
   res.set('Access-Control-Allow-Origin', '*');
   res.set('Access-Control-Allow-Methods', methods);
-  res.set('Access-Control-Allow-Headers', 'Content-Type');
+  res.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 }
 
 function getRawBodyText(req) {
@@ -522,6 +530,50 @@ function getMergedStatMap(data, nestedKey, defaults = {}) {
   return merged;
 }
 
+function getCheckWaveStatsRef() {
+  return db.collection(WAITLIST_STATS_COLLECTION).doc(CHECK_WAVE_STATS_DOC_ID);
+}
+
+async function recordCheckWaveEvent(eventType, details = {}) {
+  const ref = getCheckWaveStatsRef();
+  const updates = { updatedAt: admin.firestore.FieldValue.serverTimestamp() };
+  const validEvents = ['lookup', 'found', 'not_found', 'unconfirmed', 'share_copy', 'share_email', 'share_text', 'join_click'];
+
+  if (!validEvents.includes(eventType)) return;
+
+  updates.totals = { [eventType]: admin.firestore.FieldValue.increment(1) };
+
+  if (details.page) {
+    updates.pages = { [details.page]: admin.firestore.FieldValue.increment(1) };
+  }
+
+  if (details.wave && (eventType === 'found' || eventType === 'unconfirmed')) {
+    updates.waveBreakdown = { ['wave_' + details.wave]: admin.firestore.FieldValue.increment(1) };
+  }
+
+  await ref.set(updates, { merge: true });
+}
+
+async function getCheckWaveStats() {
+  const snapshot = await getCheckWaveStatsRef().get();
+
+  if (!snapshot.exists) {
+    return { totals: {}, pages: {}, waveBreakdown: {}, updatedAt: null };
+  }
+
+  const data = snapshot.data() || {};
+  const updatedAt = data.updatedAt && typeof data.updatedAt.toDate === 'function'
+    ? data.updatedAt.toDate().toISOString()
+    : null;
+
+  return {
+    totals: getMergedStatMap(data, 'totals'),
+    pages: getMergedStatMap(data, 'pages'),
+    waveBreakdown: getMergedStatMap(data, 'waveBreakdown'),
+    updatedAt,
+  };
+}
+
 async function getShareStats() {
   const snapshot = await getShareStatsRef().get();
 
@@ -678,7 +730,9 @@ function computeWave(count) {
   if (count <= 200) return 1;
   if (count <= 400) return 2;
   if (count <= 600) return 3;
-  return 4;
+  if (count <= 800) return 4;
+  if (count <= 1000) return 5;
+  return 6;
 }
 
 function buildWaitlistWaveTrackingFields(wave) {
@@ -821,12 +875,12 @@ function isWaitlistWebhookSubscriber(subscriber) {
     || (waitlistGroupId && subscriber.groupIds.includes(waitlistGroupId));
 }
 
-async function syncConfirmedWaitlistSubscriber({ email, source, audienceRole, apiToken }) {
+async function syncConfirmedWaitlistSubscriber({ email, source, audienceRole, apiToken, waveOverride }) {
   await ensureWaitlistStatsDoc();
 
   const waitlistCounted = await upsertWaitlistEntry(email, source || WAITLIST_SOURCE);
   const count = await getWaitlistCount();
-  const wave = computeWave(count);
+  const wave = waveOverride || computeWave(count);
 
   if (apiToken) {
     try {
@@ -1048,9 +1102,6 @@ exports.podcastFeed = onRequest(async (req, res) => {
 /* ── publicConfig ───────────────────────────────────────────── */
 
 exports.publicConfig = onRequest(
-  {
-    secrets: ['RECAPTCHA_SITE_KEY'],
-  },
   async (req, res) => {
     setCorsHeaders(res, 'GET, OPTIONS');
 
@@ -1075,14 +1126,6 @@ exports.publicConfig = onRequest(
 /* ── subscribe ───────────────────────────────────────────────── */
 
 exports.subscribe = onRequest(
-  {
-    secrets: [
-      'MAILERLITE_API_TOKEN',
-      'MAILERLITE_GROUP_ID',
-      'MAILERLITE_THECLUB_WAITLIST_GROUP_ID',
-      'RECAPTCHA_SECRET_KEY',
-    ],
-  },
   async (req, res) => {
     setCorsHeaders(res);
     if (req.method === 'OPTIONS') { res.status(204).send(''); return; }
@@ -1094,9 +1137,10 @@ exports.subscribe = onRequest(
     }
 
     const body = parseBody(req);
-    const { email, list, audienceRole, source, recaptchaToken, website_url, company_name_hidden } = body;
+    const { email, list, audienceRole, source, recaptchaToken, website_url, company_name_hidden, waveOverride } = body;
     const clientIp = getClientIp(req);
     const requestedList = typeof list === 'string' ? list.trim() : '';
+    const validWaveOverride = Number.isInteger(Number(waveOverride)) && WAITLIST_TRACKING_WAVES.includes(Number(waveOverride)) ? Number(waveOverride) : null;
 
     if (!email || !EMAIL_REGEX.test(email)) {
       res.status(400).json({ error: 'A valid email address is required.' });
@@ -1171,7 +1215,7 @@ exports.subscribe = onRequest(
     if (requestedList === 'theclub_waitlist') {
       await ensureWaitlistStatsDoc();
       projectedWaitlistCount = await getWaitlistCount();
-      projectedWave = computeWave(projectedWaitlistCount + 1);
+      projectedWave = validWaveOverride || computeWave(projectedWaitlistCount + 1);
     }
 
     const payload = {
@@ -1179,6 +1223,10 @@ exports.subscribe = onRequest(
       status: requestedList === 'theclub_waitlist' ? 'unconfirmed' : 'active',
     };
     if (groupId) payload.groups = [groupId];
+    if (validWaveOverride && EVENT_WAVE_GROUPS[validWaveOverride]) {
+      payload.groups = payload.groups || [];
+      payload.groups.push(EVENT_WAVE_GROUPS[validWaveOverride]);
+    }
 
     if (requestedList === 'theclub_waitlist') {
       payload.fields = buildWaitlistSubscriberFields({
@@ -1215,6 +1263,7 @@ exports.subscribe = onRequest(
             source,
             audienceRole,
             apiToken,
+            waveOverride: validWaveOverride,
           });
           waitlistCounted = confirmationSync.waitlistCounted;
           count = confirmationSync.count;
@@ -1222,7 +1271,7 @@ exports.subscribe = onRequest(
         } else if (requestedList === 'theclub_waitlist') {
           waitlistCounted = await upsertWaitlistEntry(email, source || WAITLIST_SOURCE);
           count = await getWaitlistCount();
-          wave = computeWave(count);
+          wave = validWaveOverride || computeWave(count);
 
           if (apiToken) {
             try {
@@ -1302,6 +1351,193 @@ exports.waitlistCount = onRequest(async (req, res) => {
   } catch (error) {
     functions.logger.error('Unable to read waitlist count:', error);
     res.status(500).json({ error: 'Unable to retrieve waitlist count.' });
+  }
+});
+
+/* ── checkWave ─────────────────────────────────────────────── */
+
+const WAVE_NAMES = {
+  1: 'Founders Wave',
+  2: 'Early Adopters Wave',
+  3: 'Priority Access',
+  4: 'Growth Wave',
+  5: 'Community Wave',
+  6: 'Final Wave',
+  17: 'Ohio Wave',
+};
+
+const WAVE_OPEN_DATES = {
+  1: 'Closed',
+  2: 'Closed',
+  3: 'May 13, 2026',
+  4: 'May 27, 2026',
+  5: 'June 10, 2026',
+  6: 'June 24, 2026',
+  17: 'April 21, 2026',
+};
+
+exports.checkWave = onRequest(
+  async (req, res) => {
+  setCorsHeaders(res);
+
+  if (req.method === 'OPTIONS') {
+    res.status(204).send('');
+    return;
+  }
+
+  if (req.method !== 'GET') {
+    res.set('Allow', 'GET');
+    res.status(405).json({ error: 'Method Not Allowed' });
+    return;
+  }
+
+  const email = (req.query.email || '').trim().toLowerCase();
+  if (!email || !email.includes('@')) {
+    res.status(400).json({ error: 'A valid email address is required.' });
+    return;
+  }
+
+  /* Helper: look up subscriber status from MailerLite */
+  async function getMailerLiteStatus(emailAddress) {
+    const apiToken = getEnvValue('MAILERLITE_API_TOKEN');
+    if (!apiToken) return { status: 'unknown', fields: {}, groupIds: [] };
+    try {
+      const mlResponse = await fetch(
+        `${MAILERLITE_API_URL}/${encodeURIComponent(emailAddress)}`,
+        { headers: { Authorization: `Bearer ${apiToken}` } }
+      );
+      if (!mlResponse.ok) return { status: 'unknown', fields: {}, groupIds: [] };
+      const mlPayload = await mlResponse.json();
+      const subscriberData = mlPayload.data || mlPayload;
+      return {
+        status: normalizeText(subscriberData.status).toLowerCase() || 'unknown',
+        fields: subscriberData.fields || {},
+        groupIds: extractGroupIds(subscriberData.groups || []),
+      };
+    } catch (err) {
+      functions.logger.warn('MailerLite status lookup failed:', err);
+      return { status: 'unknown', fields: {}, groupIds: [] };
+    }
+  }
+
+  const page = (req.query.page || 'check-wave').trim();
+
+  try {
+    const docId = buildWaitlistDocId(email);
+    const snapshot = await db.collection('waitlist').doc(docId).get();
+
+    if (snapshot.exists) {
+      const data = snapshot.data();
+      const userCreatedAt = data.createdAt;
+
+      /* Count how many waitlist entries were created at or before this user */
+      const [earlierSnapshot, legacyCount, mlInfo] = await Promise.all([
+        db.collection('waitlist')
+          .where('source', '==', 'club_waitlist')
+          .where('createdAt', '<=', userCreatedAt)
+          .count()
+          .get(),
+        getLegacyWaitlistCount(),
+        getMailerLiteStatus(email),
+      ]);
+
+      const position = earlierSnapshot.data().count;
+      const adjustedPosition = legacyCount + WAITLIST_MANUAL_COUNT_ADJUSTMENT + position;
+      const wave = computeWave(adjustedPosition);
+      const confirmed = mlInfo.status === 'active';
+
+      recordCheckWaveEvent('lookup', { page }).catch(() => {});
+      recordCheckWaveEvent('found', { page, wave }).catch(() => {});
+      if (!confirmed) recordCheckWaveEvent('unconfirmed', { page, wave }).catch(() => {});
+
+      res.set('Cache-Control', 'no-store, max-age=0');
+      res.status(200).json({
+        found: true,
+        confirmed,
+        wave,
+        waveName: WAVE_NAMES[wave] || 'Wave ' + wave,
+        opensAt: WAVE_OPEN_DATES[wave] || 'TBD',
+        position: adjustedPosition,
+      });
+      return;
+    }
+
+    /* Firestore doc not found — check MailerLite for legacy/early subscribers */
+    const mlInfo = await getMailerLiteStatus(email);
+    if (mlInfo.status !== 'unknown') {
+      const waitlistGroupId = getEnvValue('MAILERLITE_THECLUB_WAITLIST_GROUP_ID');
+      const confirmed = mlInfo.status === 'active';
+
+      /* If subscriber has a wave field from a prior sync, use it */
+      const existingWave = Number(mlInfo.fields.wave);
+      if (Number.isInteger(existingWave) && existingWave >= 1 && existingWave <= 6) {
+        recordCheckWaveEvent('lookup', { page }).catch(() => {});
+        recordCheckWaveEvent('found', { page, wave: existingWave }).catch(() => {});
+        if (!confirmed) recordCheckWaveEvent('unconfirmed', { page, wave: existingWave }).catch(() => {});
+
+        res.set('Cache-Control', 'no-store, max-age=0');
+        res.status(200).json({
+          found: true,
+          confirmed,
+          wave: existingWave,
+          waveName: WAVE_NAMES[existingWave] || 'Wave ' + existingWave,
+          opensAt: WAVE_OPEN_DATES[existingWave] || 'TBD',
+        });
+        return;
+      }
+
+      /* If subscriber is in the waitlist group, they're a legacy user (wave 1) */
+      if (waitlistGroupId && mlInfo.groupIds.includes(waitlistGroupId)) {
+        recordCheckWaveEvent('lookup', { page }).catch(() => {});
+        recordCheckWaveEvent('found', { page, wave: 1 }).catch(() => {});
+        if (!confirmed) recordCheckWaveEvent('unconfirmed', { page, wave: 1 }).catch(() => {});
+
+        res.set('Cache-Control', 'no-store, max-age=0');
+        res.status(200).json({
+          found: true,
+          confirmed,
+          wave: 1,
+          waveName: WAVE_NAMES[1],
+          opensAt: WAVE_OPEN_DATES[1],
+        });
+        return;
+      }
+    }
+
+    recordCheckWaveEvent('lookup', { page }).catch(() => {});
+    recordCheckWaveEvent('not_found', { page }).catch(() => {});
+
+    res.status(404).json({ found: false, message: "We didn't find that email on the waitlist. Double-check your spelling or sign up at dolifetoday.com/theclub." });
+  } catch (error) {
+    functions.logger.error('Unable to check wave:', error);
+    res.status(500).json({ error: 'Unable to look up your wave. Please try again later.' });
+  }
+});
+
+/* ── trackCheckWave ────────────────────────────────────────── */
+
+exports.trackCheckWave = onRequest(async (req, res) => {
+  setCorsHeaders(res);
+
+  if (req.method === 'OPTIONS') {
+    res.status(204).send('');
+    return;
+  }
+
+  if (req.method !== 'POST') {
+    res.set('Allow', 'POST');
+    res.status(405).json({ error: 'Method Not Allowed' });
+    return;
+  }
+
+  const { eventType, page } = parseBody(req);
+
+  try {
+    await recordCheckWaveEvent(eventType, { page });
+    res.status(200).json({ ok: true });
+  } catch (error) {
+    functions.logger.error('Unable to record check-wave event:', error);
+    res.status(400).json({ error: 'Unable to record event.' });
   }
 });
 
@@ -1430,13 +1666,6 @@ exports.shareStats = onRequest(async (req, res) => {
 /* ── contact ─────────────────────────────────────────────────── */
 
 exports.contact = onRequest(
-  {
-    secrets: [
-      'MAILERLITE_API_TOKEN',
-      'MAILERLITE_CONTACT_GROUP_ID',
-      'RECAPTCHA_SECRET_KEY',
-    ],
-  },
   async (req, res) => {
     setCorsHeaders(res);
     if (req.method === 'OPTIONS') { res.status(204).send(''); return; }
@@ -1658,14 +1887,6 @@ exports.contact = onRequest(
 /* ── mailerLiteWebhook ─────────────────────────────────────── */
 
 exports.mailerLiteWebhook = onRequest(
-  {
-    secrets: [
-      'MAILERLITE_API_TOKEN',
-      'MAILERLITE_GROUP_ID',
-      'MAILERLITE_THECLUB_WAITLIST_GROUP_ID',
-      'MAILERLITE_WEBHOOK_SECRET',
-    ],
-  },
   async (req, res) => {
     if (req.method !== 'POST') {
       res.set('Allow', 'POST');
@@ -1871,30 +2092,54 @@ async function verifyProviderToken(req) {
   }
 }
 
-async function sendProviderEmail(to, subject, body) {
-  const apiToken = getEnvValue('MAILERLITE_API_TOKEN');
-  if (!apiToken) {
-    functions.logger.warn('MAILERLITE_API_TOKEN not set — skipping provider email');
+async function sendProviderEmail(to, subject, textBody, htmlBody) {
+  const apiKey = getEnvValue('MAILERSEND_API_KEY');
+  if (!apiKey) {
+    functions.logger.warn('MAILERSEND_API_KEY not set — skipping provider email');
+    return;
+  }
+  if (!to || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(to)) {
+    functions.logger.warn('Invalid recipient for provider email:', to);
     return;
   }
   try {
-    await fetch('https://connect.mailerlite.com/api/subscribers', {
+    const res = await fetch('https://api.mailersend.com/v1/email', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiToken}`,
+        'Authorization': `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        email: to,
-        fields: {
-          provider_email_subject: subject,
-          provider_email_body: body,
-        },
+        from: { email: 'exchange@dolifetoday.com', name: 'The Exchange – Doing Life Today' },
+        to: [{ email: to }],
+        reply_to: { email: 'exchange@dolifetoday.com', name: 'The Exchange – Doing Life Today' },
+        subject,
+        text: textBody,
+        html: htmlBody || textBody,
       }),
     });
+    if (!res.ok) {
+      const errText = await res.text();
+      functions.logger.error(`MailerSend API error (${res.status}):`, errText);
+    }
   } catch (err) {
     functions.logger.error('Provider email send failed:', err);
   }
+}
+
+function buildProviderEmailHtml(title, paragraphs, ctaLink) {
+  const esc = (s) => String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  const ctaButton = ctaLink
+    ? `<p style="margin:24px 0 16px;"><a href="${esc(ctaLink.url)}" style="display:inline-block;background-color:#1f7a8c;color:#ffffff;font-weight:600;text-decoration:none;padding:12px 24px;border-radius:8px;font-size:16px;">${esc(ctaLink.label)}</a></p>`
+    : '';
+  return [
+    '<div style="font-family:Arial,sans-serif;line-height:1.6;color:#1f2937;max-width:640px;margin:0 auto;padding:24px;">',
+    `<h1 style="font-size:22px;line-height:1.3;margin:0 0 20px;color:#1f2937;">${esc(title)}</h1>`,
+    ...paragraphs.map(p => `<p style="margin:0 0 14px;">${p}</p>`),
+    ctaButton,
+    '<p style="margin:24px 0 0;color:#6b7280;font-size:14px;">— The Exchange, Doing Life Today</p>',
+    '</div>',
+  ].join('');
 }
 
 /* ── Provider Sign Up ──────────────────────────────────────── */
@@ -1921,7 +2166,6 @@ exports.providerSignup = onRequest(async (req, res) => {
       password,
       displayName: name.trim(),
     });
-    const customToken = await admin.auth().createCustomToken(userRecord.uid);
 
     await db.collection(PROVIDER_ACCOUNTS_COLLECTION).doc(userRecord.uid).set({
       email: email.trim().toLowerCase(),
@@ -1930,9 +2174,25 @@ exports.providerSignup = onRequest(async (req, res) => {
       createdAt: admin.firestore.FieldValue.serverTimestamp(),
     });
 
+    // Sign in the new user to get a real ID token (customTokens don't work with verifyIdToken)
+    const apiKey = getEnvValue('WEB_API_KEY');
+    if (!apiKey) {
+      res.status(500).json({ error: 'Server configuration error.' }); return;
+    }
+    const authRes = await fetch(
+      `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${encodeURIComponent(apiKey)}`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email.trim().toLowerCase(), password, returnSecureToken: true }),
+      }
+    );
+    const authData = await authRes.json();
+    const idToken = authData.idToken || '';
+
     res.status(201).json({
-      token: customToken,
-      expiresIn: 3600000,
+      token: idToken,
+      expiresIn: parseInt(authData.expiresIn, 10) * 1000 || 3600000,
       user: { uid: userRecord.uid, email: userRecord.email, name: name.trim() },
     });
   } catch (err) {
@@ -1959,7 +2219,7 @@ exports.providerSignin = onRequest(async (req, res) => {
 
   try {
     // Use Firebase Auth REST API to verify password
-    const apiKey = getEnvValue('FIREBASE_WEB_API_KEY');
+    const apiKey = getEnvValue('WEB_API_KEY');
     if (!apiKey) {
       res.status(500).json({ error: 'Server configuration error.' }); return;
     }
@@ -1992,6 +2252,28 @@ exports.providerSignin = onRequest(async (req, res) => {
     const accountDoc = await db.collection(PROVIDER_ACCOUNTS_COLLECTION).doc(uid).get();
     const accountData = accountDoc.exists ? accountDoc.data() : {};
 
+    // Look up claimed provider listing to include in response
+    let providerInfo = null;
+    try {
+      const claimedSnap = await db.collection(PROVIDERS_COLLECTION)
+        .where('claimedBy', '==', uid)
+        .where('status', '==', 'APPROVED')
+        .limit(1)
+        .get();
+      if (!claimedSnap.empty) {
+        const pData = claimedSnap.docs[0].data();
+        providerInfo = {
+          id: claimedSnap.docs[0].id,
+          externalProviderId: pData.externalProviderId || null,
+          name: pData.name || '',
+          tier: pData.tier || 'FREE',
+          status: pData.status || '',
+        };
+      }
+    } catch (lookupErr) {
+      functions.logger.warn('Provider listing lookup failed:', lookupErr.message);
+    }
+
     res.status(200).json({
       token: authData.idToken,
       expiresIn: parseInt(authData.expiresIn, 10) * 1000 || 3600000,
@@ -2000,6 +2282,7 @@ exports.providerSignin = onRequest(async (req, res) => {
         email: authData.email,
         name: accountData.name || authData.displayName || '',
       },
+      provider: providerInfo,
     });
   } catch (err) {
     functions.logger.error('Provider signin error:', err);
@@ -2007,9 +2290,108 @@ exports.providerSignin = onRequest(async (req, res) => {
   }
 });
 
+/* ── Club Auth Link ────────────────────────────────────────── */
+/* Called by club app after creating a pcn---new account to link the
+   pathway-providers record to the new user. Requires the idToken from
+   providerSignin (doing-life-today project) to prove ownership. */
+
+exports.providerClubLink = onRequest(async (req, res) => {
+  setCorsHeaders(res);
+  if (req.method === 'OPTIONS') { res.status(204).send(''); return; }
+  if (req.method !== 'POST') { res.status(405).json({ error: 'Method Not Allowed' }); return; }
+
+  const decoded = await verifyProviderToken(req);
+  if (!decoded) { res.status(401).json({ error: 'Authentication required.' }); return; }
+
+  const { pcnUid } = parseBody(req);
+  if (!pcnUid || typeof pcnUid !== 'string') {
+    res.status(400).json({ error: 'pcnUid is required.' }); return;
+  }
+
+  try {
+    const dltUid = decoded.uid;
+
+    // Find the APPROVED provider record claimed by this user
+    const claimedSnap = await db.collection(PROVIDERS_COLLECTION)
+      .where('claimedBy', '==', dltUid)
+      .where('status', '==', 'APPROVED')
+      .limit(1)
+      .get();
+
+    if (claimedSnap.empty) {
+      res.status(404).json({ error: 'No approved provider listing found for this account.' }); return;
+    }
+
+    const providerData = claimedSnap.docs[0].data();
+    let extId = providerData.externalProviderId;
+
+    // If no externalProviderId, search pathway-providers by name to find the record
+    if (!extId && providerData.name) {
+      try {
+        const nameSnap = await pcnDb.collection('pathway-providers')
+          .where('name', '==', providerData.name)
+          .limit(5)
+          .get();
+        if (!nameSnap.empty) {
+          // Prefer an unlinked record (no ownerId)
+          const unlinked = nameSnap.docs.find(d => !d.data().ownerId);
+          const match = unlinked || nameSnap.docs[0];
+          extId = match.id;
+          // Back-fill externalProviderId on the providers record
+          await db.collection(PROVIDERS_COLLECTION).doc(claimedSnap.docs[0].id).update({ externalProviderId: extId });
+        }
+      } catch (searchErr) {
+        functions.logger.warn('Pathway-providers name search failed:', searchErr.message);
+      }
+    }
+
+    if (!extId) {
+      res.status(404).json({ error: 'Provider listing has no linked pathway record.' }); return;
+    }
+
+    // Get the account email
+    let accountEmail = decoded.email || '';
+    if (!accountEmail) {
+      const accountDoc = await db.collection(PROVIDER_ACCOUNTS_COLLECTION).doc(dltUid).get();
+      accountEmail = accountDoc.exists ? (accountDoc.data().email || '') : '';
+    }
+
+    // Update the pathway-providers record in pcn---new project
+    const tierMap = { 'FREE': 'free', 'COMMUNITY': 'community', 'PREMIUM': 'premium', 'ENTERPRISE': 'enterprise' };
+    const rawTier = (providerData.tier || 'community').toUpperCase();
+    const subscriptionTier = tierMap[rawTier] || rawTier.toLowerCase();
+    // Convert Firestore Timestamps to milliseconds so the client can use new Date()
+    const toMs = (ts) => {
+      if (!ts) return null;
+      if (typeof ts === 'number') return ts;
+      if (ts.toMillis) return ts.toMillis();
+      if (ts.seconds) return ts.seconds * 1000;
+      return null;
+    };
+    const partnerSince = toMs(providerData.approvedAt) || toMs(providerData.claimedAt) || toMs(providerData.createdAt) || Date.now();
+
+    await pcnDb.collection('pathway-providers').doc(extId).update({
+      ownerId: pcnUid,
+      email: accountEmail.toLowerCase(),
+      subscriptionTier,
+      partnerSince,
+      updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+    });
+
+    res.status(200).json({
+      success: true,
+      externalProviderId: extId,
+      providerName: providerData.name || '',
+    });
+  } catch (err) {
+    functions.logger.error('Provider club link error:', err);
+    res.status(500).json({ error: 'Unable to link provider account.' });
+  }
+});
+
 /* ── Create Listing ────────────────────────────────────────── */
 
-exports.providerCreate = onRequest(async (req, res) => {
+exports.providerCreate = onRequest({ secrets: ['MAILERSEND_API_KEY'] }, async (req, res) => {
   setCorsHeaders(res);
   if (req.method === 'OPTIONS') { res.status(204).send(''); return; }
   if (req.method !== 'POST') { res.status(405).json({ error: 'Method Not Allowed' }); return; }
@@ -2059,18 +2441,23 @@ exports.providerCreate = onRequest(async (req, res) => {
     { merge: true }
   );
 
-  await sendProviderEmail(
-    decoded.email || '',
-    'Your listing is under review',
-    `Hi! Your listing "${name}" has been submitted and is under review. This usually takes 24–48 hours.`
-  );
+  const createSubject = 'Your listing is under review \ud83d\udc40';
+  const createTextBody = `Your listing ${name} has been submitted to The Exchange and is currently under review.\n\nThis usually takes 24-48 hours. You'll receive another email once it's been approved.\n\nWhile you're waiting, just a quick note...\n\nThe Exchange is part of a growing community inside Doing Life Today - where people living with Parkinson's and care partners connect, share, and discover resources like yours every day.\n\nOnce approved, your listing won't just be visible... it'll be part of real conversations happening in the community.\n\nView your dashboard: https://dolifetoday.com/provider-dashboard`;
+  const createHtmlBody = buildProviderEmailHtml('Your listing is under review \ud83d\udc40', [
+    `Your listing <strong>${name}</strong> has been submitted to The Exchange and is currently under review.`,
+    'This usually takes <strong>24\u201348 hours</strong>. You\'ll receive another email once it\'s been approved.',
+    'While you\'re waiting, just a quick note\u2026',
+    'The Exchange is part of a growing community inside <strong>Doing Life Today</strong> \u2014 where people living with Parkinson\'s and care partners connect, share, and discover resources like yours every day.',
+    'Once approved, your listing won\'t just be visible\u2026<br>it\'ll be part of <strong>real conversations</strong> happening in the community.',
+  ], { url: 'https://dolifetoday.com/provider-dashboard', label: '\ud83d\udc49 View Your Dashboard' });
+  await sendProviderEmail(decoded.email || '', createSubject, createTextBody, createHtmlBody);
 
   res.status(201).json({ id: docRef.id, slug, status: 'PENDING' });
 });
 
 /* ── Claim Listing ─────────────────────────────────────────── */
 
-exports.providerClaim = onRequest(async (req, res) => {
+exports.providerClaim = onRequest({ secrets: ['MAILERSEND_API_KEY'] }, async (req, res) => {
   setCorsHeaders(res);
   if (req.method === 'OPTIONS') { res.status(204).send(''); return; }
   if (req.method !== 'POST') { res.status(405).json({ error: 'Method Not Allowed' }); return; }
@@ -2089,16 +2476,20 @@ exports.providerClaim = onRequest(async (req, res) => {
 
   // Check if listing is already claimed
   if (providerId) {
-    const existingClaims = await db.collection(PROVIDERS_COLLECTION)
-      .where('externalProviderId', '==', providerId)
-      .where('status', 'in', ['PENDING', 'APPROVED'])
-      .limit(1).get();
-    if (!existingClaims.empty) {
-      res.status(409).json({
-        error: 'ALREADY_CLAIMED',
-        message: 'This listing is already managed. Request access?',
-      });
-      return;
+    try {
+      const existingClaims = await db.collection(PROVIDERS_COLLECTION)
+        .where('externalProviderId', '==', providerId)
+        .where('status', 'in', ['PENDING', 'APPROVED'])
+        .limit(1).get();
+      if (!existingClaims.empty) {
+        res.status(409).json({
+          error: 'ALREADY_CLAIMED',
+          message: 'This listing is already managed. Request access?',
+        });
+        return;
+      }
+    } catch (indexErr) {
+      console.error('Claim duplicate-check query failed (index may be missing):', indexErr.message);
     }
   }
 
@@ -2139,11 +2530,38 @@ exports.providerClaim = onRequest(async (req, res) => {
     { merge: true }
   );
 
-  await sendProviderEmail(
-    decoded.email || '',
-    'Your listing is under review',
-    `Hi! Your claim for "${providerName}" has been submitted and is under review. This usually takes 24–48 hours.`
-  );
+  const claimSubject = 'Your claim is under review \ud83d\udc40';
+  const claimTextBody = `Your claim for ${providerName} has been submitted to The Exchange and is currently under review.\n\nThis usually takes 24-48 hours. You'll receive another email once it's been approved.\n\nWhile you're waiting, just a quick note...\n\nThe Exchange is part of a growing community inside Doing Life Today - where people living with Parkinson's and care partners connect, share, and discover resources like yours every day.\n\nOnce approved, your listing won't just be visible... it'll be part of real conversations happening in the community.\n\nView your dashboard: https://dolifetoday.com/provider-dashboard`;
+  const claimHtmlBody = buildProviderEmailHtml('Your claim is under review \ud83d\udc40', [
+    `Your claim for <strong>${providerName}</strong> has been submitted to The Exchange and is currently under review.`,
+    'This usually takes <strong>24\u201348 hours</strong>. You\'ll receive another email once it\'s been approved.',
+    'While you\'re waiting, just a quick note\u2026',
+    'The Exchange is part of a growing community inside <strong>Doing Life Today</strong> \u2014 where people living with Parkinson\'s and care partners connect, share, and discover resources like yours every day.',
+    'Once approved, your listing won\'t just be visible\u2026<br>it\'ll be part of <strong>real conversations</strong> happening in the community.',
+  ], { url: 'https://dolifetoday.com/provider-dashboard', label: '\ud83d\udc49 View Your Dashboard' });
+  await sendProviderEmail(decoded.email || '', claimSubject, claimTextBody, claimHtmlBody);
+
+  // Notify admin so they can review quickly (don't block the response).
+  try {
+    const adminNotifyEmail = process.env.ADMIN_NOTIFY_EMAIL;
+    if (adminNotifyEmail) {
+      const where = [body.city, body.stateProvince].filter(Boolean).join(', ');
+      const adminSubject = `🔔 New claim: ${providerName}`;
+      const adminText = `New provider claim awaiting review.\n\nProvider: ${providerName}\nLocation: ${where || '(not provided)'}\nClaimed by: ${decoded.email || decoded.uid}\nRole: ${role || '(not provided)'}\nDoc ID: ${docRef.id}\n\nReview: https://dolifetoday.com/admin-providers`;
+      const adminHtml = buildProviderEmailHtml('🔔 New provider claim awaiting review', [
+        `<strong>Provider:</strong> ${providerName}`,
+        `<strong>Location:</strong> ${where || '(not provided)'}`,
+        `<strong>Claimed by:</strong> ${decoded.email || decoded.uid}`,
+        `<strong>Role:</strong> ${role || '(not provided)'}`,
+        `<strong>Doc ID:</strong> ${docRef.id}`,
+      ], { url: 'https://dolifetoday.com/admin-providers', label: 'Review in Admin' });
+      sendProviderEmail(adminNotifyEmail, adminSubject, adminText, adminHtml).catch((err) => {
+        console.error('Admin claim notification failed:', err.message);
+      });
+    }
+  } catch (err) {
+    console.error('Admin claim notification setup failed:', err.message);
+  }
 
   res.status(201).json({ id: docRef.id, slug, status: 'PENDING' });
 });
@@ -2292,14 +2710,12 @@ exports.providerUpdate = onRequest(async (req, res) => {
     res.status(403).json({ error: 'You do not own this listing.' }); return;
   }
 
-  // Only VERIFIED and COMMUNITY tiers can edit
-  const tier = (existing.tier || 'FREE').toUpperCase();
-  if (tier === 'FREE') {
-    res.status(403).json({ error: 'Upgrade to Verified ($9/mo) to edit your listing.' }); return;
-  }
-
   const body = parseBody(req);
-  const ALLOWED_FIELDS = ['name', 'category', 'format', 'description', 'city', 'state', 'country', 'website', 'phone', 'tags'];
+  const tier = (existing.tier || 'FREE').toUpperCase();
+  const isPaid = tier !== 'FREE';
+  const FREE_FIELDS = ['name', 'description'];
+  const PAID_FIELDS = ['name', 'category', 'format', 'description', 'city', 'state', 'country', 'website', 'phone', 'tags', 'buyLink'];
+  const ALLOWED_FIELDS = isPaid ? PAID_FIELDS : FREE_FIELDS;
   const updates = { updatedAt: admin.firestore.FieldValue.serverTimestamp() };
 
   for (const field of ALLOWED_FIELDS) {
@@ -2310,12 +2726,18 @@ exports.providerUpdate = onRequest(async (req, res) => {
           : [];
       } else if (field === 'description') {
         updates.description = String(body.description || '').trim().slice(0, 2000);
-      } else if (field === 'website') {
-        updates.website = String(body.website || '').trim().slice(0, 500);
+      } else if (field === 'website' || field === 'buyLink') {
+        updates[field] = String(body[field] || '').trim().slice(0, 500);
       } else {
         updates[field] = normalizeText(body[field]).slice(0, 200);
       }
     }
+  }
+
+  if (body.shippingCountries !== undefined) {
+    updates.shippingCountries = Array.isArray(body.shippingCountries)
+      ? body.shippingCountries.filter(v => typeof v === 'string').slice(0, 10)
+      : [];
   }
 
   await db.collection(PROVIDERS_COLLECTION).doc(providerId).update(updates);
@@ -2353,6 +2775,22 @@ exports.adminProviders = onRequest(async (req, res) => {
 
   const snapshot = await db.collection(PROVIDERS_COLLECTION).orderBy('createdAt', 'desc').get();
   const providers = [];
+  const claimedByUids = new Set();
+
+  snapshot.forEach(doc => {
+    const data = doc.data();
+    if (data.claimedBy) claimedByUids.add(data.claimedBy);
+  });
+
+  // Batch resolve claim user emails
+  const uidToEmail = {};
+  for (const uid of claimedByUids) {
+    try {
+      const userRecord = await admin.auth().getUser(uid);
+      uidToEmail[uid] = userRecord.email || '';
+    } catch { uidToEmail[uid] = ''; }
+  }
+
   snapshot.forEach(doc => {
     const data = doc.data();
     const views = data.views || 0;
@@ -2374,6 +2812,11 @@ exports.adminProviders = onRequest(async (req, res) => {
       review_count: revs,
       views,
       createdAt: data.createdAt?.toDate?.()?.toISOString() || null,
+      claimedBy: data.claimedBy || null,
+      claimEmail: data.claimedBy ? (uidToEmail[data.claimedBy] || '') : '',
+      claimRole: data.claimRole || '',
+      claimPhone: data.claimPhone || '',
+      externalProviderId: data.externalProviderId || '',
     });
   });
 
@@ -2382,7 +2825,7 @@ exports.adminProviders = onRequest(async (req, res) => {
 
 /* ── Admin: Approve ────────────────────────────────────────── */
 
-exports.adminProviderApprove = onRequest(async (req, res) => {
+exports.adminProviderApprove = onRequest({ secrets: ['MAILERSEND_API_KEY'] }, async (req, res) => {
   setCorsHeaders(res);
   if (req.method === 'OPTIONS') { res.status(204).send(''); return; }
   if (req.method !== 'POST') { res.status(405).json({ error: 'Method Not Allowed' }); return; }
@@ -2402,6 +2845,7 @@ exports.adminProviderApprove = onRequest(async (req, res) => {
   const data = doc.data();
   const approveUpdate = {
     status: 'APPROVED',
+    verified: true,
     approved_at: Date.now(),
     updatedAt: admin.firestore.FieldValue.serverTimestamp(),
   };
@@ -2414,15 +2858,70 @@ exports.adminProviderApprove = onRequest(async (req, res) => {
 
   await providerRef.update(approveUpdate);
 
-  // Send approval email
+  // Sync verified + listingStatus back to the pathway-providers record (pcn---new project)
+  const extId = data.externalProviderId;
+  if (extId) {
+    // Resolve the claimer's email so the club app can find the record
+    let claimerEmail = '';
+    if (data.claimedBy) {
+      const acctDoc = await db.collection(PROVIDER_ACCOUNTS_COLLECTION).doc(data.claimedBy).get();
+      claimerEmail = acctDoc.exists ? (acctDoc.data().email || '') : '';
+      if (!claimerEmail) {
+        try { claimerEmail = (await admin.auth().getUser(data.claimedBy)).email || ''; } catch (e) { /* */ }
+      }
+    }
+    try {
+      const syncPayload = {
+        verified: true,
+        listingStatus: 'community_provider',
+        claimedBy: data.claimedBy || null,
+        verifiedAt: admin.firestore.FieldValue.serverTimestamp(),
+      };
+      if (claimerEmail) syncPayload.email = claimerEmail.toLowerCase();
+      await pcnDb.collection('pathway-providers').doc(extId).update(syncPayload);
+    } catch (syncErr) {
+      functions.logger.warn('pathway-providers sync skipped (doc may not exist):', syncErr.message);
+    }
+  }
+
+  // Send approval email + add to MailerLite group
   const ownerUid = data.claimedBy;
   if (ownerUid) {
+    let accountEmail = '';
     const accountDoc = await db.collection(PROVIDER_ACCOUNTS_COLLECTION).doc(ownerUid).get();
-    const accountEmail = accountDoc.exists ? accountDoc.data().email : '';
+    accountEmail = accountDoc.exists ? (accountDoc.data().email || '') : '';
+    if (!accountEmail) {
+      try { accountEmail = (await admin.auth().getUser(ownerUid)).email || ''; } catch (e) { /* user deleted */ }
+    }
     if (accountEmail) {
-      await sendProviderEmail(accountEmail, 'Your listing is live!',
-        `Great news! Your listing "${data.name || ''}" has been approved and is now live on The Exchange.`
-      );
+      const approveSubject = 'Your listing is live! \ud83c\udf89';
+      const approveText = `Great news! Your listing ${data.name || ''} has been approved and is now live on The Exchange.\n\nPeople living with Parkinson's and care partners can now discover you when they search for resources in the community.\n\nHere's what happens next:\n- Your listing is visible in Exchange search results\n- Community members can view your details, leave reviews, and start discussions\n- You can track views, clicks, and engagement from your dashboard\n\nThis is just the beginning. The more you engage, the more visible you become.\n\nView your dashboard: https://dolifetoday.com/provider-dashboard`;
+      const approveHtml = buildProviderEmailHtml('Your listing is live! \ud83c\udf89', [
+        `Great news! Your listing <strong>${data.name || ''}</strong> has been approved and is now live on The Exchange.`,
+        'People living with Parkinson\'s and care partners can now discover you when they search for resources in the community.',
+        '<strong>Here\'s what happens next:</strong>',
+        '\u2022 Your listing is visible in Exchange search results<br>\u2022 Community members can view your details, leave reviews, and start discussions<br>\u2022 You can track views, clicks, and engagement from your dashboard',
+        'This is just the beginning. The more you engage, the more visible you become.',
+      ], { url: 'https://dolifetoday.com/provider-dashboard', label: '\ud83d\udc49 Go to Your Dashboard' });
+      await sendProviderEmail(accountEmail, approveSubject, approveText, approveHtml);
+
+      // Add to MailerLite Exchange Providers group
+      const mlToken = getEnvValue('MAILERLITE_API_TOKEN');
+      if (mlToken) {
+        try {
+          await fetch(MAILERLITE_API_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${mlToken}` },
+            body: JSON.stringify({
+              email: accountEmail,
+              groups: ['181164512559236805'],
+              fields: { provider_name: (data.name || '').slice(0, 200) },
+            }),
+          });
+        } catch (mlErr) {
+          functions.logger.error('MailerLite group add failed:', mlErr);
+        }
+      }
     }
   }
 
@@ -2431,7 +2930,7 @@ exports.adminProviderApprove = onRequest(async (req, res) => {
 
 /* ── Admin: Reject ─────────────────────────────────────────── */
 
-exports.adminProviderReject = onRequest(async (req, res) => {
+exports.adminProviderReject = onRequest({ secrets: ['MAILERSEND_API_KEY'] }, async (req, res) => {
   setCorsHeaders(res);
   if (req.method === 'OPTIONS') { res.status(204).send(''); return; }
   if (req.method !== 'POST') { res.status(405).json({ error: 'Method Not Allowed' }); return; }
@@ -2454,18 +2953,42 @@ exports.adminProviderReject = onRequest(async (req, res) => {
   const data = doc.data();
   await providerRef.update({
     status: 'REJECTED',
+    verified: false,
     rejectionReason: reason.trim().slice(0, 500),
     updatedAt: admin.firestore.FieldValue.serverTimestamp(),
   });
 
+  // Sync verified=false back to the pathway-providers record (pcn---new project)
+  const extId = data.externalProviderId;
+  if (extId) {
+    try {
+      await pcnDb.collection('pathway-providers').doc(extId).update({
+        verified: false,
+        listingStatus: 'unclaimed',
+      });
+    } catch (syncErr) {
+      functions.logger.warn('pathway-providers reject sync skipped:', syncErr.message);
+    }
+  }
+
   const ownerUid = data.claimedBy;
   if (ownerUid) {
+    let accountEmail = '';
     const accountDoc = await db.collection(PROVIDER_ACCOUNTS_COLLECTION).doc(ownerUid).get();
-    const accountEmail = accountDoc.exists ? accountDoc.data().email : '';
+    accountEmail = accountDoc.exists ? (accountDoc.data().email || '') : '';
+    if (!accountEmail) {
+      try { accountEmail = (await admin.auth().getUser(ownerUid)).email || ''; } catch (e) { /* user deleted */ }
+    }
     if (accountEmail) {
-      await sendProviderEmail(accountEmail, 'Action required — your listing needs changes',
-        `Your listing "${data.name || ''}" needs some changes before it can go live. Reason: ${reason.trim()}`
-      );
+      const rejectSubject = 'Almost there \u2014 your listing needs a quick update';
+      const rejectText = `Your listing ${data.name || ''} is close, but it needs a small update before it can go live on The Exchange.\n\nHere's what we noticed:\n${reason.trim()}\n\nNo worries - just head to your dashboard, make the update, and we'll review it again right away.\n\nWe want to make sure every listing on The Exchange is helpful and accurate for the Parkinson's community. Thanks for being part of it.\n\nUpdate your listing: https://dolifetoday.com/provider-dashboard`;
+      const rejectHtml = buildProviderEmailHtml('Almost there \u2014 your listing needs a quick update', [
+        `Your listing <strong>${data.name || ''}</strong> is close, but it needs a small update before it can go live on The Exchange.`,
+        `<strong>Here\'s what we noticed:</strong><br>${reason.trim()}`,
+        'No worries \u2014 just head to your dashboard, make the update, and we\'ll review it again right away.',
+        'We want to make sure every listing on The Exchange is helpful and accurate for the Parkinson\'s community. Thanks for being part of it.',
+      ], { url: 'https://dolifetoday.com/provider-dashboard', label: '\ud83d\udc49 Update Your Listing' });
+      await sendProviderEmail(accountEmail, rejectSubject, rejectText, rejectHtml);
     }
   }
 
@@ -2474,7 +2997,7 @@ exports.adminProviderReject = onRequest(async (req, res) => {
 
 /* ── Admin: Flag ───────────────────────────────────────────── */
 
-exports.adminProviderFlag = onRequest(async (req, res) => {
+exports.adminProviderFlag = onRequest({ secrets: ['MAILERSEND_API_KEY'] }, async (req, res) => {
   setCorsHeaders(res);
   if (req.method === 'OPTIONS') { res.status(204).send(''); return; }
   if (req.method !== 'POST') { res.status(405).json({ error: 'Method Not Allowed' }); return; }
@@ -2491,12 +3014,517 @@ exports.adminProviderFlag = onRequest(async (req, res) => {
   const doc = await providerRef.get();
   if (!doc.exists) { res.status(404).json({ error: 'Provider not found.' }); return; }
 
+  const data = doc.data();
   await providerRef.update({
     status: 'FLAGGED',
     updatedAt: admin.firestore.FieldValue.serverTimestamp(),
   });
 
+  // Notify the provider their listing has been paused
+  const ownerUid = data.claimedBy;
+  if (ownerUid) {
+    let accountEmail = '';
+    const accountDoc = await db.collection(PROVIDER_ACCOUNTS_COLLECTION).doc(ownerUid).get();
+    accountEmail = accountDoc.exists ? (accountDoc.data().email || '') : '';
+    if (!accountEmail) {
+      try { accountEmail = (await admin.auth().getUser(ownerUid)).email || ''; } catch (e) { /* user deleted */ }
+    }
+    if (accountEmail) {
+      const flagSubject = 'Your listing has been paused \u23f8\ufe0f';
+      const flagText = `Just a heads up - your listing ${data.name || ''} on The Exchange has been temporarily paused.\n\nThis means it's not currently visible in search results. This can happen when a listing needs verification or a quick update.\n\nIf you think this was a mistake, or if you have any questions, just reply to this email and we'll sort it out.\n\nWe appreciate you being part of The Exchange and the Doing Life Today community.\n\nView your dashboard: https://dolifetoday.com/provider-dashboard`;
+      const flagHtml = buildProviderEmailHtml('Your listing has been paused \u23f8\ufe0f', [
+        `Just a heads up \u2014 your listing <strong>${data.name || ''}</strong> on The Exchange has been temporarily paused.`,
+        'This means it\'s not currently visible in search results. This can happen when a listing needs verification or a quick update.',
+        'If you think this was a mistake, or if you have any questions, just reply to this email and we\'ll sort it out.',
+        'We appreciate you being part of The Exchange and the <strong>Doing Life Today</strong> community.',
+      ], { url: 'https://dolifetoday.com/provider-dashboard', label: '\ud83d\udc49 View Your Dashboard' });
+      await sendProviderEmail(accountEmail, flagSubject, flagText, flagHtml);
+    }
+  }
+
   res.status(200).json({ success: true, status: 'FLAGGED' });
+});
+
+/* ── Admin: Add Provider ───────────────────────────────────── */
+
+exports.adminProviderAdd = onRequest(async (req, res) => {
+  setCorsHeaders(res);
+  if (req.method === 'OPTIONS') { res.status(204).send(''); return; }
+  if (req.method !== 'POST') { res.status(405).json({ error: 'Method Not Allowed' }); return; }
+
+  const decoded = await verifyProviderToken(req);
+  if (!decoded || !ADMIN_UIDS.has(decoded.uid)) {
+    res.status(403).json({ error: 'Admin access required.' }); return;
+  }
+
+  const body = parseBody(req);
+  const name = normalizeText(body.name);
+  if (!name || name.length < 2) {
+    res.status(400).json({ error: 'Provider name is required.' }); return;
+  }
+
+  const tier = ['FREE', 'VERIFIED', 'COMMUNITY'].includes((body.tier || '').toUpperCase())
+    ? body.tier.toUpperCase()
+    : 'FREE';
+
+  const slug = slugify(name) + '-' + Date.now().toString(36);
+
+  const providerDoc = {
+    name,
+    slug,
+    category: normalizeText(body.category) || 'other',
+    format: normalizeText(body.format) || 'in-person',
+    city: normalizeText(body.city),
+    state: normalizeText(body.state),
+    country: normalizeText(body.country),
+    description: (body.description || '').trim().slice(0, 2000),
+    website: (body.website || '').trim().slice(0, 500),
+    buyLink: (body.buyLink || '').trim().slice(0, 500),
+    phone: (body.phone || '').trim().slice(0, 50),
+    contactEmail: (body.contactEmail || '').trim().slice(0, 200),
+    language: normalizeText(body.language) || 'English',
+    tags: typeof body.tags === 'string'
+      ? body.tags.split(',').map(t => t.trim()).filter(Boolean).slice(0, 20)
+      : [],
+    shippingCountries: Array.isArray(body.shippingCountries)
+      ? body.shippingCountries.filter(v => typeof v === 'string').slice(0, 10)
+      : [],
+    status: 'APPROVED',
+    tier,
+    views: 0,
+    clicks: 0,
+    searchAppearances: 0,
+    clubData: { discussion_count: 0, review_count: 0, club_views: 0 },
+    createdAt: admin.firestore.FieldValue.serverTimestamp(),
+    updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+  };
+
+  const docRef = await db.collection(PROVIDERS_COLLECTION).add(providerDoc);
+  res.status(201).json({ success: true, id: docRef.id, slug, tier });
+});
+
+/* ── Admin: Edit Provider ──────────────────────────────────── */
+
+exports.adminProviderEdit = onRequest(async (req, res) => {
+  setCorsHeaders(res);
+  if (req.method === 'OPTIONS') { res.status(204).send(''); return; }
+  if (req.method !== 'POST') { res.status(405).json({ error: 'Method Not Allowed' }); return; }
+
+  const decoded = await verifyProviderToken(req);
+  if (!decoded || !ADMIN_UIDS.has(decoded.uid)) {
+    res.status(403).json({ error: 'Admin access required.' }); return;
+  }
+
+  const body = parseBody(req);
+  const providerId = normalizeText(body.providerId);
+  if (!providerId) { res.status(400).json({ error: 'Provider ID is required.' }); return; }
+
+  const providerRef = db.collection(PROVIDERS_COLLECTION).doc(providerId);
+  const doc = await providerRef.get();
+  if (!doc.exists) { res.status(404).json({ error: 'Provider not found.' }); return; }
+
+  const ALLOWED = ['name', 'category', 'format', 'description', 'city', 'state', 'country', 'website', 'phone', 'contactEmail', 'language', 'tags', 'buyLink'];
+  const updates = { updatedAt: admin.firestore.FieldValue.serverTimestamp() };
+
+  for (const field of ALLOWED) {
+    if (body[field] !== undefined) {
+      if (field === 'tags') {
+        updates.tags = typeof body.tags === 'string'
+          ? body.tags.split(',').map(t => t.trim()).filter(Boolean).slice(0, 20)
+          : [];
+      } else if (field === 'description') {
+        updates.description = String(body.description || '').trim().slice(0, 2000);
+      } else if (field === 'website' || field === 'buyLink') {
+        updates[field] = String(body[field] || '').trim().slice(0, 500);
+      } else {
+        updates[field] = normalizeText(body[field]).slice(0, 200);
+      }
+    }
+  }
+
+  if (body.shippingCountries !== undefined) {
+    updates.shippingCountries = Array.isArray(body.shippingCountries)
+      ? body.shippingCountries.filter(v => typeof v === 'string').slice(0, 10)
+      : [];
+  }
+
+  await providerRef.update(updates);
+  res.status(200).json({ success: true });
+});
+
+/* ── Admin: Delete Provider ────────────────────────────────── */
+
+exports.adminProviderDelete = onRequest(async (req, res) => {
+  setCorsHeaders(res);
+  if (req.method === 'OPTIONS') { res.status(204).send(''); return; }
+  if (req.method !== 'POST') { res.status(405).json({ error: 'Method Not Allowed' }); return; }
+
+  const decoded = await verifyProviderToken(req);
+  if (!decoded || !ADMIN_UIDS.has(decoded.uid)) {
+    res.status(403).json({ error: 'Admin access required.' }); return;
+  }
+
+  const { providerId } = parseBody(req);
+  if (!providerId) { res.status(400).json({ error: 'Provider ID is required.' }); return; }
+
+  const providerRef = db.collection(PROVIDERS_COLLECTION).doc(providerId);
+  const doc = await providerRef.get();
+  if (!doc.exists) { res.status(404).json({ error: 'Provider not found.' }); return; }
+
+  await providerRef.delete();
+  res.status(200).json({ success: true });
+});
+
+/* ── Admin: Set Tier ───────────────────────────────────────── */
+
+exports.adminProviderSetTier = onRequest(async (req, res) => {
+  setCorsHeaders(res);
+  if (req.method === 'OPTIONS') { res.status(204).send(''); return; }
+  if (req.method !== 'POST') { res.status(405).json({ error: 'Method Not Allowed' }); return; }
+
+  const decoded = await verifyProviderToken(req);
+  if (!decoded || !ADMIN_UIDS.has(decoded.uid)) {
+    res.status(403).json({ error: 'Admin access required.' }); return;
+  }
+
+  const { providerId, tier } = parseBody(req);
+  if (!providerId) { res.status(400).json({ error: 'Provider ID is required.' }); return; }
+
+  const validTier = ['FREE', 'VERIFIED', 'COMMUNITY'].includes((tier || '').toUpperCase())
+    ? tier.toUpperCase()
+    : null;
+  if (!validTier) { res.status(400).json({ error: 'Tier must be FREE, VERIFIED, or COMMUNITY.' }); return; }
+
+  const providerRef = db.collection(PROVIDERS_COLLECTION).doc(providerId);
+  const doc = await providerRef.get();
+  if (!doc.exists) { res.status(404).json({ error: 'Provider not found.' }); return; }
+
+  const updates = {
+    tier: validTier,
+    updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+  };
+
+  if (validTier === 'COMMUNITY') {
+    updates.boostScore = 100;
+    updates.clubActivatedAt = admin.firestore.FieldValue.serverTimestamp();
+  }
+
+  await providerRef.update(updates);
+  res.status(200).json({ success: true, tier: validTier });
+});
+
+/* ════════════════════════════════════════════════════════════════
+   STRIPE — Provider subscriptions ($9 Verified, $49 Club Partner)
+   ════════════════════════════════════════════════════════════════ */
+
+let _stripeClient = null;
+function getStripe() {
+  if (_stripeClient) return _stripeClient;
+  const key = getEnvValue('STRIPE_SECRET_KEY');
+  if (!key) return null;
+  // eslint-disable-next-line global-require
+  _stripeClient = require('stripe')(key, { apiVersion: '2024-06-20' });
+  return _stripeClient;
+}
+
+const STRIPE_TIER_BY_PRICE = () => ({
+  [getEnvValue('STRIPE_PRICE_VERIFIED') || '']: 'VERIFIED',
+  [getEnvValue('STRIPE_PRICE_COMMUNITY') || '']: 'COMMUNITY',
+});
+
+function tierForPriceId(priceId) {
+  const map = STRIPE_TIER_BY_PRICE();
+  return map[priceId] || null;
+}
+
+/* ── providerCheckoutSession ──────────────────────────────────
+   POST { tier: 'VERIFIED' | 'COMMUNITY' }  (Bearer auth required)
+   Returns { url } — redirect provider to Stripe Checkout.
+   ─────────────────────────────────────────────────────────── */
+exports.providerCheckoutSession = onRequest(async (req, res) => {
+  setCorsHeaders(res);
+  if (req.method === 'OPTIONS') { res.status(204).send(''); return; }
+  if (req.method !== 'POST') { res.status(405).json({ error: 'Method Not Allowed' }); return; }
+
+  const stripe = getStripe();
+  if (!stripe) { res.status(500).json({ error: 'Stripe is not configured.' }); return; }
+
+  const decoded = await verifyProviderToken(req);
+  if (!decoded) { res.status(401).json({ error: 'Authentication required.' }); return; }
+
+  const { tier } = parseBody(req);
+  const targetTier = (tier || '').toUpperCase();
+  if (!['VERIFIED', 'COMMUNITY'].includes(targetTier)) {
+    res.status(400).json({ error: 'Tier must be VERIFIED or COMMUNITY.' }); return;
+  }
+
+  const priceId = targetTier === 'VERIFIED'
+    ? getEnvValue('STRIPE_PRICE_VERIFIED')
+    : getEnvValue('STRIPE_PRICE_COMMUNITY');
+  if (!priceId) { res.status(500).json({ error: `Stripe price for ${targetTier} not configured.` }); return; }
+
+  // Look up provider for this account
+  const accountDoc = await db.collection(PROVIDER_ACCOUNTS_COLLECTION).doc(decoded.uid).get();
+  if (!accountDoc.exists || !accountDoc.data().providerId) {
+    res.status(404).json({ error: 'No provider listing found.' }); return;
+  }
+  const providerId = accountDoc.data().providerId;
+  const providerDoc = await db.collection(PROVIDERS_COLLECTION).doc(providerId).get();
+  if (!providerDoc.exists) { res.status(404).json({ error: 'Provider listing not found.' }); return; }
+  const providerData = providerDoc.data();
+
+  const successUrl = 'https://dolifetoday.com/provider-dashboard?upgraded=true&tier=' + targetTier;
+  const cancelUrl = 'https://dolifetoday.com/provider-dashboard?upgrade=cancelled';
+
+  try {
+    const sessionParams = {
+      mode: 'subscription',
+      line_items: [{ price: priceId, quantity: 1 }],
+      success_url: successUrl,
+      cancel_url: cancelUrl,
+      client_reference_id: providerId,
+      metadata: { providerId, targetTier, accountUid: decoded.uid },
+      subscription_data: {
+        metadata: { providerId, targetTier, accountUid: decoded.uid },
+      },
+      allow_promotion_codes: true,
+    };
+    if (providerData.stripeCustomerId) {
+      sessionParams.customer = providerData.stripeCustomerId;
+    } else if (decoded.email) {
+      sessionParams.customer_email = decoded.email;
+    }
+
+    const session = await stripe.checkout.sessions.create(sessionParams);
+    res.status(200).json({ url: session.url, sessionId: session.id });
+  } catch (err) {
+    functions.logger.error('Stripe checkout session error:', err);
+    res.status(500).json({ error: 'Could not create checkout session.' });
+  }
+});
+
+/* ── stripeWebhook ──────────────────────────────────────────
+   Handles checkout.session.completed and subscription lifecycle.
+   Stripe must POST to /api/stripe/webhook with the signing secret.
+   ─────────────────────────────────────────────────────────── */
+exports.stripeWebhook = onRequest({ cors: false }, async (req, res) => {
+  if (req.method !== 'POST') { res.status(405).send('Method Not Allowed'); return; }
+
+  const stripe = getStripe();
+  const webhookSecret = getEnvValue('STRIPE_WEBHOOK_SECRET');
+  if (!stripe || !webhookSecret) {
+    functions.logger.error('Stripe webhook not configured (missing secret key or webhook secret).');
+    res.status(500).send('Stripe not configured.');
+    return;
+  }
+
+  const sig = req.headers['stripe-signature'];
+  let event;
+  try {
+    // Firebase 2nd gen onRequest exposes the raw body buffer at req.rawBody
+    event = stripe.webhooks.constructEvent(req.rawBody, sig, webhookSecret);
+  } catch (err) {
+    functions.logger.warn('Stripe webhook signature verification failed:', err.message);
+    res.status(400).send(`Webhook Error: ${err.message}`);
+    return;
+  }
+
+  try {
+    switch (event.type) {
+      case 'checkout.session.completed': {
+        const session = event.data.object;
+        await handleCheckoutCompleted(stripe, session);
+        break;
+      }
+      case 'customer.subscription.updated': {
+        const sub = event.data.object;
+        await handleSubscriptionChange(sub);
+        break;
+      }
+      case 'customer.subscription.deleted': {
+        const sub = event.data.object;
+        await handleSubscriptionDeleted(sub);
+        break;
+      }
+      case 'invoice.payment_failed': {
+        const invoice = event.data.object;
+        await handlePaymentFailed(invoice);
+        break;
+      }
+      default:
+        // Unhandled event type — ack
+        break;
+    }
+    res.status(200).json({ received: true });
+  } catch (err) {
+    functions.logger.error('Stripe webhook handler error:', err);
+    res.status(500).send('Webhook handler failed.');
+  }
+});
+
+async function handleCheckoutCompleted(stripe, session) {
+  const providerId = session.client_reference_id || (session.metadata && session.metadata.providerId);
+  if (!providerId) {
+    functions.logger.warn('Stripe checkout.session.completed missing providerId', { sessionId: session.id });
+    return;
+  }
+
+  // Fetch full subscription to get price + status
+  let subscription = null;
+  if (session.subscription) {
+    subscription = await stripe.subscriptions.retrieve(session.subscription);
+  }
+  const priceId = subscription && subscription.items.data[0] ? subscription.items.data[0].price.id : null;
+  const tier = tierForPriceId(priceId) || (session.metadata && session.metadata.targetTier) || 'VERIFIED';
+
+  const providerRef = db.collection(PROVIDERS_COLLECTION).doc(providerId);
+  const updates = {
+    tier,
+    stripeCustomerId: session.customer || null,
+    stripeSubscriptionId: session.subscription || null,
+    stripePriceId: priceId,
+    stripeSubscriptionStatus: subscription ? subscription.status : 'active',
+    paidAt: admin.firestore.FieldValue.serverTimestamp(),
+    updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+  };
+  if (tier === 'COMMUNITY') {
+    updates.boostScore = 100;
+    updates.clubActivatedAt = admin.firestore.FieldValue.serverTimestamp();
+  }
+  await providerRef.set(updates, { merge: true });
+
+  // Sync verified flag to pcn---new pathway-providers
+  try {
+    const providerDoc = await providerRef.get();
+    const slug = providerDoc.data() && providerDoc.data().slug;
+    if (slug) {
+      await pcnDb.collection('pathway-providers').doc(slug).set({
+        verified: true,
+        tier,
+        verifiedAt: admin.firestore.FieldValue.serverTimestamp(),
+      }, { merge: true });
+    }
+  } catch (err) {
+    functions.logger.warn('Cross-project sync after Stripe upgrade failed:', err.message);
+  }
+
+  // Notify admin
+  try {
+    const adminEmail = getEnvValue('ADMIN_NOTIFY_EMAIL');
+    const providerDoc = await providerRef.get();
+    const pData = providerDoc.data() || {};
+    if (adminEmail) {
+      const subj = `💳 New ${tier} subscription: ${pData.name || providerId}`;
+      const body = `A provider just upgraded.\n\nProvider: ${pData.name || '(unknown)'}\nTier: ${tier}\nID: ${providerId}\nCustomer: ${session.customer}\nSubscription: ${session.subscription}\n\nAdmin: https://dolifetoday.com/admin-providers`;
+      await sendProviderEmail(adminEmail, subj, body, body.replace(/\n/g, '<br>'));
+    }
+  } catch (err) {
+    functions.logger.warn('Admin notify after Stripe upgrade failed:', err.message);
+  }
+}
+
+async function handleSubscriptionChange(sub) {
+  const providerId = sub.metadata && sub.metadata.providerId;
+  if (!providerId) return;
+  const priceId = sub.items.data[0] ? sub.items.data[0].price.id : null;
+  const tier = tierForPriceId(priceId);
+
+  const providerRef = db.collection(PROVIDERS_COLLECTION).doc(providerId);
+  const updates = {
+    stripeSubscriptionStatus: sub.status,
+    stripePriceId: priceId,
+    updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+  };
+  // If subscription is active and tier changed, apply it
+  if (tier && (sub.status === 'active' || sub.status === 'trialing')) {
+    updates.tier = tier;
+    if (tier === 'COMMUNITY') {
+      updates.boostScore = 100;
+      updates.clubActivatedAt = admin.firestore.FieldValue.serverTimestamp();
+    }
+  }
+  // If subscription is past_due / unpaid / cancelled, downgrade to FREE
+  if (['canceled', 'unpaid', 'incomplete_expired'].includes(sub.status)) {
+    updates.tier = 'FREE';
+    updates.boostScore = 0;
+  }
+  await providerRef.set(updates, { merge: true });
+}
+
+async function handleSubscriptionDeleted(sub) {
+  const providerId = sub.metadata && sub.metadata.providerId;
+  if (!providerId) return;
+  const providerRef = db.collection(PROVIDERS_COLLECTION).doc(providerId);
+  await providerRef.set({
+    tier: 'FREE',
+    boostScore: 0,
+    stripeSubscriptionStatus: 'canceled',
+    canceledAt: admin.firestore.FieldValue.serverTimestamp(),
+    updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+  }, { merge: true });
+
+  // Sync downgrade to pcn---new
+  try {
+    const providerDoc = await providerRef.get();
+    const slug = providerDoc.data() && providerDoc.data().slug;
+    if (slug) {
+      await pcnDb.collection('pathway-providers').doc(slug).set({
+        verified: false,
+        tier: 'FREE',
+      }, { merge: true });
+    }
+  } catch (err) {
+    functions.logger.warn('Cross-project sync after Stripe cancel failed:', err.message);
+  }
+}
+
+async function handlePaymentFailed(invoice) {
+  const subId = invoice.subscription;
+  if (!subId) return;
+  const stripe = getStripe();
+  const sub = await stripe.subscriptions.retrieve(subId);
+  const providerId = sub.metadata && sub.metadata.providerId;
+  if (!providerId) return;
+  await db.collection(PROVIDERS_COLLECTION).doc(providerId).set({
+    stripeSubscriptionStatus: sub.status,
+    paymentFailedAt: admin.firestore.FieldValue.serverTimestamp(),
+  }, { merge: true });
+}
+
+/* ── providerBillingPortal ──────────────────────────────────
+   POST (Bearer auth required) — returns Stripe Customer Portal URL
+   so providers can manage/cancel their subscription.
+   ─────────────────────────────────────────────────────────── */
+exports.providerBillingPortal = onRequest(async (req, res) => {
+  setCorsHeaders(res);
+  if (req.method === 'OPTIONS') { res.status(204).send(''); return; }
+  if (req.method !== 'POST') { res.status(405).json({ error: 'Method Not Allowed' }); return; }
+
+  const stripe = getStripe();
+  if (!stripe) { res.status(500).json({ error: 'Stripe is not configured.' }); return; }
+
+  const decoded = await verifyProviderToken(req);
+  if (!decoded) { res.status(401).json({ error: 'Authentication required.' }); return; }
+
+  const accountDoc = await db.collection(PROVIDER_ACCOUNTS_COLLECTION).doc(decoded.uid).get();
+  if (!accountDoc.exists || !accountDoc.data().providerId) {
+    res.status(404).json({ error: 'No provider listing found.' }); return;
+  }
+  const providerId = accountDoc.data().providerId;
+  const providerDoc = await db.collection(PROVIDERS_COLLECTION).doc(providerId).get();
+  const customerId = providerDoc.data() && providerDoc.data().stripeCustomerId;
+  if (!customerId) { res.status(400).json({ error: 'No active subscription found.' }); return; }
+
+  try {
+    const session = await stripe.billingPortal.sessions.create({
+      customer: customerId,
+      return_url: 'https://dolifetoday.com/provider-dashboard',
+    });
+    res.status(200).json({ url: session.url });
+  } catch (err) {
+    functions.logger.error('Stripe billing portal error:', err);
+    res.status(500).json({ error: 'Could not create billing portal session.' });
+  }
 });
 
 /* ── Club Sync Layer — Expose limited metrics ──────────────── */
@@ -2851,4 +3879,324 @@ exports.adminOwnerDashboard = onRequest(async (req, res) => {
     trending: trendingTop10,
     recentEvents: recent20,
   });
+});
+
+/* ── Suggest Provider Edit (public, no auth) ───────────────── */
+
+const SUGGEST_EDIT_COLLECTION = 'provider_edit_suggestions';
+const SUGGEST_EDIT_RATE_WINDOW_MS = 60 * 60 * 1000; // 1 hour
+const SUGGEST_EDIT_MAX_PER_WINDOW = 10;
+
+exports.suggestProviderEdit = onRequest(async (req, res) => {
+  setCorsHeaders(res);
+  if (req.method === 'OPTIONS') { res.status(204).send(''); return; }
+  if (req.method !== 'POST') { res.status(405).json({ error: 'Method Not Allowed' }); return; }
+
+  const ip = (req.headers['x-forwarded-for'] || req.ip || 'unknown').split(',')[0].trim();
+  const ipHash = createHash('sha256').update(ip).digest('hex').slice(0, 16);
+
+  // Rate limit by hashed IP using a dedicated rate-limit doc
+  const rateLimitRef = db.collection(SUGGEST_EDIT_COLLECTION).doc('_rate_' + ipHash);
+  const rateLimitDoc = await rateLimitRef.get();
+  const now = Date.now();
+
+  if (rateLimitDoc.exists) {
+    const data = rateLimitDoc.data();
+    const windowStart = data.windowStart || 0;
+    const count = data.count || 0;
+
+    if (now - windowStart < SUGGEST_EDIT_RATE_WINDOW_MS && count >= SUGGEST_EDIT_MAX_PER_WINDOW) {
+      res.status(429).json({ error: 'Too many suggestions. Please try again later.' });
+      return;
+    }
+
+    if (now - windowStart >= SUGGEST_EDIT_RATE_WINDOW_MS) {
+      await rateLimitRef.set({ windowStart: now, count: 1 });
+    } else {
+      await rateLimitRef.update({ count: admin.firestore.FieldValue.increment(1) });
+    }
+  } else {
+    await rateLimitRef.set({ windowStart: now, count: 1 });
+  }
+
+  const body = parseBody(req);
+  const providerId = String(body.providerId || '').trim();
+  const providerSlug = String(body.providerSlug || '').trim();
+
+  if (!providerId && !providerSlug) {
+    res.status(400).json({ error: 'Provider ID or slug is required.' });
+    return;
+  }
+
+  const ALLOWED_FIELDS = ['name', 'city', 'state', 'description'];
+  const edits = {};
+  let hasEdit = false;
+
+  for (const field of ALLOWED_FIELDS) {
+    if (body[field] !== undefined && body[field] !== null) {
+      const value = String(body[field]).trim();
+      if (value) {
+        edits[field] = field === 'description' ? value.slice(0, 2000) : value.slice(0, 200);
+        hasEdit = true;
+      }
+    }
+  }
+
+  if (!hasEdit) {
+    res.status(400).json({ error: 'At least one field to edit is required.' });
+    return;
+  }
+
+  await db.collection(SUGGEST_EDIT_COLLECTION).add({
+    providerId: providerId || null,
+    providerSlug: providerSlug || null,
+    edits,
+    status: 'pending',
+    createdAt: admin.firestore.FieldValue.serverTimestamp(),
+  });
+
+  res.status(200).json({ success: true, message: 'Thank you! Your suggestion has been submitted for review.' });
+});
+
+/* ═══════════════════════════════════════════════════════════════
+   ANALYTICS DASHBOARD — GA4 Data API
+   ═══════════════════════════════════════════════════════════════ */
+
+const { BetaAnalyticsDataClient } = require('@google-analytics/data');
+
+exports.analyticsReport = onRequest(async (req, res) => {
+  setCorsHeaders(res, 'GET, OPTIONS');
+  if (req.method === 'OPTIONS') { res.status(204).send(''); return; }
+  if (req.method !== 'GET') { res.status(405).json({ error: 'Method Not Allowed' }); return; }
+
+  const decoded = await verifyProviderToken(req);
+  if (!decoded || !ADMIN_UIDS.has(decoded.uid)) {
+    res.status(403).json({ error: 'Admin access required.' }); return;
+  }
+
+  const GA_PROPERTY_ID = process.env.GA_PROPERTY_ID;
+  if (!GA_PROPERTY_ID) {
+    res.status(500).json({ error: 'GA_PROPERTY_ID not configured.' }); return;
+  }
+
+  const range = req.query.range || '30';
+  const validRanges = { '1': 'today', '7': '7daysAgo', '30': '30daysAgo', '90': '90daysAgo', '365': '365daysAgo' };
+  const startDate = validRanges[range] || '30daysAgo';
+
+  const client = new BetaAnalyticsDataClient();
+  const property = `properties/${GA_PROPERTY_ID}`;
+
+  try {
+    // Run all reports in parallel
+    const [overviewRes, pagesRes, sourcesRes, sourceDetailRes, devicesRes, countriesRes, dailyRes] = await Promise.all([
+      // Overview metrics
+      client.runReport({
+        property,
+        dateRanges: [{ startDate, endDate: 'today' }],
+        metrics: [
+          { name: 'screenPageViews' },
+          { name: 'sessions' },
+          { name: 'totalUsers' },
+          { name: 'newUsers' },
+          { name: 'averageSessionDuration' },
+          { name: 'bounceRate' },
+          { name: 'engagedSessions' },
+        ],
+      }),
+      // Top pages
+      client.runReport({
+        property,
+        dateRanges: [{ startDate, endDate: 'today' }],
+        dimensions: [{ name: 'pagePath' }],
+        metrics: [
+          { name: 'screenPageViews' },
+          { name: 'totalUsers' },
+          { name: 'averageSessionDuration' },
+          { name: 'bounceRate' },
+        ],
+        orderBys: [{ metric: { metricName: 'screenPageViews' }, desc: true }],
+        limit: 200,
+      }),
+      // Traffic sources
+      client.runReport({
+        property,
+        dateRanges: [{ startDate, endDate: 'today' }],
+        dimensions: [{ name: 'sessionDefaultChannelGroup' }],
+        metrics: [
+          { name: 'sessions' },
+          { name: 'totalUsers' },
+          { name: 'engagedSessions' },
+        ],
+        orderBys: [{ metric: { metricName: 'sessions' }, desc: true }],
+        limit: 20,
+      }),
+      // Detailed sources (channel + source + medium)
+      client.runReport({
+        property,
+        dateRanges: [{ startDate, endDate: 'today' }],
+        dimensions: [
+          { name: 'sessionDefaultChannelGroup' },
+          { name: 'sessionSource' },
+          { name: 'sessionMedium' },
+        ],
+        metrics: [
+          { name: 'sessions' },
+          { name: 'totalUsers' },
+          { name: 'engagedSessions' },
+          { name: 'bounceRate' },
+        ],
+        orderBys: [{ metric: { metricName: 'sessions' }, desc: true }],
+        limit: 100,
+      }),
+      // Devices
+      client.runReport({
+        property,
+        dateRanges: [{ startDate, endDate: 'today' }],
+        dimensions: [{ name: 'deviceCategory' }],
+        metrics: [{ name: 'sessions' }, { name: 'totalUsers' }],
+        orderBys: [{ metric: { metricName: 'sessions' }, desc: true }],
+      }),
+      // Countries
+      client.runReport({
+        property,
+        dateRanges: [{ startDate, endDate: 'today' }],
+        dimensions: [{ name: 'country' }],
+        metrics: [{ name: 'sessions' }, { name: 'totalUsers' }],
+        orderBys: [{ metric: { metricName: 'sessions' }, desc: true }],
+        limit: 20,
+      }),
+      // Daily trend
+      client.runReport({
+        property,
+        dateRanges: [{ startDate, endDate: 'today' }],
+        dimensions: [{ name: 'date' }],
+        metrics: [
+          { name: 'screenPageViews' },
+          { name: 'sessions' },
+          { name: 'totalUsers' },
+        ],
+        orderBys: [{ dimension: { dimensionName: 'date' }, desc: false }],
+      }),
+    ]);
+
+    function extractRow(report) {
+      // runReport returns [response, request] — response is the report
+      const data = Array.isArray(report) ? report[0] : report;
+      const row = data?.rows?.[0];
+      if (!row) return {};
+      const out = {};
+      (data.metricHeaders || []).forEach((h, i) => {
+        out[h.name] = row.metricValues[i]?.value || '0';
+      });
+      return out;
+    }
+
+    function extractTable(report) {
+      const data = Array.isArray(report) ? report[0] : report;
+      const rows = data?.rows || [];
+      const dims = (data?.dimensionHeaders || []).map(h => h.name);
+      const mets = (data?.metricHeaders || []).map(h => h.name);
+      return rows.map(r => {
+        const obj = {};
+        dims.forEach((d, i) => { obj[d] = r.dimensionValues[i]?.value || ''; });
+        mets.forEach((m, i) => { obj[m] = r.metricValues[i]?.value || '0'; });
+        return obj;
+      });
+    }
+
+    res.status(200).json({
+      range: range + 'd',
+      overview: extractRow(overviewRes),
+      pages: extractTable(pagesRes),
+      sources: extractTable(sourcesRes),
+      sourceDetail: extractTable(sourceDetailRes),
+      devices: extractTable(devicesRes),
+      countries: extractTable(countriesRes),
+      daily: extractTable(dailyRes),
+    });
+  } catch (err) {
+    console.error('Analytics API error:', err);
+    res.status(500).json({ error: 'Failed to fetch analytics data.', detail: err.message });
+  }
+});
+
+/* ── Analytics: Custom Events Summary ──────────────────────── */
+
+exports.analyticsEvents = onRequest(async (req, res) => {
+  setCorsHeaders(res, 'GET, OPTIONS');
+  if (req.method === 'OPTIONS') { res.status(204).send(''); return; }
+  if (req.method !== 'GET') { res.status(405).json({ error: 'Method Not Allowed' }); return; }
+
+  const decoded = await verifyProviderToken(req);
+  if (!decoded || !ADMIN_UIDS.has(decoded.uid)) {
+    res.status(403).json({ error: 'Admin access required.' }); return;
+  }
+
+  const GA_PROPERTY_ID = process.env.GA_PROPERTY_ID;
+  if (!GA_PROPERTY_ID) {
+    res.status(500).json({ error: 'GA_PROPERTY_ID not configured.' }); return;
+  }
+
+  const range = req.query.range || '30';
+  const validRanges = { '1': 'today', '7': '7daysAgo', '30': '30daysAgo', '90': '90daysAgo', '365': '365daysAgo' };
+  const startDate = validRanges[range] || '30daysAgo';
+
+  const client = new BetaAnalyticsDataClient();
+  const property = `properties/${GA_PROPERTY_ID}`;
+
+  try {
+    const [eventsRes] = await client.runReport({
+      property,
+      dateRanges: [{ startDate, endDate: 'today' }],
+      dimensions: [{ name: 'eventName' }],
+      metrics: [{ name: 'eventCount' }, { name: 'totalUsers' }],
+      dimensionFilter: {
+        filter: {
+          fieldName: 'eventName',
+          inListFilter: {
+            values: ['scroll_depth', 'cta_click', 'outbound_click', 'file_download', 'form_submit', 'video_play', 'video_complete', 'engagement_time'],
+          },
+        },
+      },
+      orderBys: [{ metric: { metricName: 'eventCount' }, desc: true }],
+    });
+
+    const rows = eventsRes?.rows || [];
+    const events = rows.map(r => ({
+      event: r.dimensionValues[0]?.value || '',
+      count: r.metricValues[0]?.value || '0',
+      users: r.metricValues[1]?.value || '0',
+    }));
+
+    // Top CTAs — requires custom dimensions to be registered in GA4
+    let ctas = [];
+    try {
+      const [ctaRes] = await client.runReport({
+        property,
+        dateRanges: [{ startDate, endDate: 'today' }],
+        dimensions: [{ name: 'customEvent:cta_text' }, { name: 'customEvent:page_path' }],
+        metrics: [{ name: 'eventCount' }],
+        dimensionFilter: {
+          filter: {
+            fieldName: 'eventName',
+            stringFilter: { value: 'cta_click', matchType: 'EXACT' },
+          },
+        },
+        orderBys: [{ metric: { metricName: 'eventCount' }, desc: true }],
+        limit: 30,
+      });
+      ctas = (ctaRes?.rows || []).map(r => ({
+        text: r.dimensionValues[0]?.value || '',
+        page: r.dimensionValues[1]?.value || '',
+        clicks: r.metricValues[0]?.value || '0',
+      }));
+    } catch (ctaErr) {
+      console.warn('CTA report skipped (custom dimensions not yet registered):', ctaErr.message);
+    }
+
+    res.status(200).json({ events, ctas });
+  } catch (err) {
+    console.error('Analytics Events API error:', err);
+    res.status(500).json({ error: 'Failed to fetch event data.', detail: err.message });
+  }
 });

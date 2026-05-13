@@ -1,0 +1,9 @@
+# Inner Circle Promo Image (1024x1024)
+
+**Title:** Inner Circle
+**Subtitle:** $14.99/month
+**Icon:** [App logo or a simple circle/lock icon]
+**Features:**
+- Live Zoom calls
+- Private group
+- Early access

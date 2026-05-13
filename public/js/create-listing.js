@@ -105,21 +105,49 @@
   }
 
   function bindFlowEvents() {
+    const catSelect = document.getElementById('create-category');
+    catSelect.addEventListener('change', function () {
+      const isProduct = catSelect.value.startsWith('products');
+      document.querySelectorAll('.create-service-field').forEach(el => el.style.display = isProduct ? 'none' : '');
+      document.querySelectorAll('.create-product-field').forEach(el => el.style.display = isProduct ? '' : 'none');
+      // Remove required from hidden fields
+      const fmt = document.getElementById('create-format');
+      const city = document.getElementById('create-city');
+      const country = document.getElementById('create-country');
+      if (isProduct) {
+        fmt.removeAttribute('required');
+        city.removeAttribute('required');
+        country.removeAttribute('required');
+      } else {
+        fmt.setAttribute('required', '');
+        city.setAttribute('required', '');
+        country.setAttribute('required', '');
+      }
+    });
+
     document.getElementById('create-basic-form').addEventListener('submit', (e) => {
       e.preventDefault();
       const name = document.getElementById('create-name').value.trim();
       const category = document.getElementById('create-category').value;
-      const format = document.getElementById('create-format').value;
-      const city = document.getElementById('create-city').value.trim();
-      const country = document.getElementById('create-country').value.trim();
+      const isProduct = category.startsWith('products');
 
-      if (!name || !category || !format || !city || !country) return;
-
-      basicData = {
-        name, category, format, city,
-        state: document.getElementById('create-state').value.trim(),
-        country,
-      };
+      if (!isProduct) {
+        const format = document.getElementById('create-format').value;
+        const city = document.getElementById('create-city').value.trim();
+        const country = document.getElementById('create-country').value.trim();
+        if (!name || !category || !format || !city || !country) return;
+        basicData = {
+          name, category, format, city,
+          state: document.getElementById('create-state').value.trim(),
+          country,
+        };
+      } else {
+        if (!name || !category) return;
+        basicData = {
+          name, category, format: 'product',
+          shippingCountries: Array.from(document.querySelectorAll('[data-ships="create"]:checked')).map(cb => cb.value),
+        };
+      }
       goToStep(2);
     });
 

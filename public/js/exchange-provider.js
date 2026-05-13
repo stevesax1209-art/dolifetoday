@@ -143,7 +143,7 @@
     const reviewCount = Number(provider.reviewCount) || 0;
     const rating = Number(provider.rating) || 0;
     const pageTitle = provider.name + ' | The Exchange | Doing Life Today';
-    const metaDescription = provider.excerpt || provider.description || ('Explore ' + provider.name + ' in The Exchange, a Parkinson\'s directory connected to The Club for insights, discussions, and reviews.');
+    const metaDescription = provider.excerpt || provider.description || ('Explore ' + provider.name + ' on The Exchange — the Parkinson\'s provider directory by Doing Life Today.');
 
     document.title = pageTitle;
     const descriptionMeta = document.querySelector('meta[name="description"]');
@@ -152,6 +152,46 @@
     }
     updateCanonical('https://dolifetoday.com' + (provider.detailPagePath || window.location.pathname));
     ensureRobotsMeta().setAttribute('content', 'index, follow');
+
+    // Update JSON-LD structured data for SEO
+    var jsonLd = document.getElementById('provider-jsonld');
+    if (jsonLd) {
+      var schema = {
+        '@context': 'https://schema.org',
+        '@type': 'LocalBusiness',
+        'name': provider.name,
+        'description': metaDescription,
+        'url': 'https://dolifetoday.com' + (provider.detailPagePath || window.location.pathname)
+      };
+      if (provider.website) schema.sameAs = provider.website;
+      if (provider.phone) schema.telephone = provider.phone;
+      if (provider.email) schema.email = provider.email;
+      if (provider.city || provider.state) {
+        schema.address = {
+          '@type': 'PostalAddress',
+          'addressLocality': provider.city || '',
+          'addressRegion': provider.state || '',
+          'addressCountry': 'US'
+        };
+      }
+      if (reviewCount > 0 && rating > 0) {
+        schema.aggregateRating = {
+          '@type': 'AggregateRating',
+          'ratingValue': rating.toFixed(1),
+          'reviewCount': reviewCount
+        };
+      }
+      if (provider.logo) schema.image = provider.logo;
+      jsonLd.textContent = JSON.stringify(schema);
+    }
+
+    // Update OG tags for social sharing
+    var ogTitle = document.querySelector('meta[property="og:title"]');
+    var ogDesc = document.querySelector('meta[property="og:description"]');
+    var ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogTitle) ogTitle.setAttribute('content', pageTitle);
+    if (ogDesc) ogDesc.setAttribute('content', metaDescription);
+    if (ogUrl) ogUrl.setAttribute('content', 'https://dolifetoday.com' + (provider.detailPagePath || window.location.pathname));
 
     const breadcrumbCurrent = document.getElementById('exchange-provider-breadcrumb-current');
     const titleNode = document.getElementById('exchange-provider-title');
@@ -182,8 +222,8 @@
     if (subtitleNode) subtitleNode.textContent = [provider.shortTypeLabel || provider.typeLabel, provider.locationLabel || provider.location].filter(Boolean).join(' · ');
     if (ratingNode) {
       ratingNode.textContent = reviewCount > 0
-        ? rating.toFixed(1) + ' rating from ' + reviewCount + ' community reviews'
-        : 'Part of The Exchange directory';
+        ? rating.toFixed(1) + ' rating \u00b7 ' + reviewCount + ' community reviews'
+        : 'Listed on The Exchange';
     }
 
     if (markNode) {
@@ -199,7 +239,12 @@
       if (provider.typeLabel && badges.indexOf(provider.typeLabel) === -1) {
         badges.unshift(provider.typeLabel);
       }
-      badgesNode.innerHTML = badges.map((badge) => '<span class="exchange-badge">' + escapeHtml(badge) + '</span>').join('');
+      badgesNode.innerHTML = badges.map(function (badge) {
+        var cls = 'exchange-badge';
+        if (badge === 'Verified') cls += ' exchange-badge--verified';
+        if (badge === 'Community Provider') cls += ' exchange-badge--partner';
+        return '<span class="' + cls + '">' + escapeHtml(badge) + '</span>';
+      }).join('');
     }
 
     if (descriptionNode) descriptionNode.textContent = provider.description || provider.excerpt || '';
@@ -249,10 +294,17 @@
       discoveryLinksNode.innerHTML = discoveryLinks.join('');
     }
 
-    if (claimLink) claimLink.href = provider.claimAppUrl || provider.claimUrl || 'https://club.dolifetoday.com/?publicExchange=true';
-    if (sidebarClaimLink) sidebarClaimLink.href = provider.claimAppUrl || provider.claimUrl || 'https://club.dolifetoday.com/?publicExchange=true';
-    if (clubLink) clubLink.href = provider.detailAppUrl || provider.joinClubUrl || 'https://club.dolifetoday.com/?publicExchange=true';
-    if (sidebarClubLink) sidebarClubLink.href = provider.detailAppUrl || provider.joinClubUrl || 'https://club.dolifetoday.com/?publicExchange=true';
+    var claimHref = '/claim-listing?provider=' + encodeURIComponent(provider.id || provider.slug || '');
+    if (claimLink) claimLink.href = claimHref;
+    if (sidebarClaimLink) sidebarClaimLink.href = claimHref;
+
+    // Hide claim buttons for verified / claimed providers
+    if (provider.verified || provider.claimedBy) {
+      if (claimLink) setVisible(claimLink, false);
+      if (sidebarClaimLink) setVisible(sidebarClaimLink, false);
+    }
+    if (clubLink) clubLink.href = provider.detailAppUrl || provider.detailPagePath || '/exchange';
+    if (sidebarClubLink) sidebarClubLink.href = provider.detailAppUrl || provider.detailPagePath || '/exchange';
 
     if (websiteLink) {
       if (provider.website) {
@@ -269,6 +321,60 @@
     setVisible(contactCard, Boolean(contacts.length));
     setVisible(detailsCard, Boolean(details.length));
     setVisible(discoveryCard, Boolean(discoveryLinks.length));
+
+    /* Product context line + disclaimer */
+    var isProduct = (provider.type || provider.category) && String(provider.type || provider.category).indexOf('products') === 0;
+    if (isProduct && overviewCard) {
+      var disclaimerEl = document.createElement('p');
+      disclaimerEl.className = 'exchange-product-disclaimer';
+      disclaimerEl.style.cssText = 'font-size:0.82rem;color:var(--color-text-muted,#64748b);margin-top:1rem;line-height:1.6;';
+      disclaimerEl.textContent = 'Product listings are provided for discovery and awareness. Always review details and consult with a healthcare professional when appropriate.';
+      overviewCard.appendChild(disclaimerEl);
+    }
+
+    /* Shipping countries */
+    if (isProduct && provider.shippingCountries && provider.shippingCountries.length) {
+      var shipsNode = formatsCard || overviewCard;
+      if (shipsNode) {
+        var shipsEl = document.createElement('p');
+        shipsEl.style.cssText = 'margin-top:0.75rem;font-size:0.92rem;color:var(--color-text-muted,#64748b);';
+        shipsEl.textContent = 'Ships to: ' + provider.shippingCountries.join(', ');
+        shipsNode.appendChild(shipsEl);
+      }
+    }
+
+    /* Buy link for products */
+    if (isProduct && provider.buyLink) {
+      var buyContainer = contactCard || overviewCard;
+      if (buyContainer) {
+        var buyEl = document.createElement('a');
+        buyEl.href = provider.buyLink;
+        buyEl.target = '_blank';
+        buyEl.rel = 'noopener noreferrer';
+        buyEl.className = 'btn btn-primary';
+        buyEl.style.cssText = 'margin-top:1rem;display:inline-flex;align-items:center;gap:0.5rem;';
+        buyEl.textContent = 'View Product';
+        buyContainer.appendChild(buyEl);
+      }
+    }
+
+    /* ── Tier treatments ─────────────────────────────────── */
+    var heroContent = document.getElementById('exchange-provider-content');
+    var isPartner = provider.listingStatus === 'community_provider' || (provider.publicBadges || []).indexOf('Community Provider') !== -1;
+    var isVerified = provider.verified;
+
+    if (isPartner && heroContent) {
+      heroContent.classList.add('exchange-tier--partner');
+      if (markNode) markNode.classList.add('exchange-provider-mark--partner');
+      // Insert partner banner before badges
+      var bannerEl = document.createElement('div');
+      bannerEl.className = 'exchange-partner-banner';
+      bannerEl.innerHTML = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 0l2.35 4.76L16 5.53l-4 3.9.94 5.51L8 12.27l-4.94 2.67L4 9.43 0 5.53l5.65-.77L8 0z" fill="currentColor"/></svg> Community Partner';
+      badgesNode.parentNode.insertBefore(bannerEl, badgesNode);
+    } else if (isVerified && heroContent) {
+      heroContent.classList.add('exchange-tier--verified');
+      if (markNode) markNode.classList.add('exchange-provider-mark--verified');
+    }
   }
 
   function showError() {

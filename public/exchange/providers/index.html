@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -12,8 +12,12 @@
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/exchange.css">
   <link rel="stylesheet" href="/css/exchange-providers.css">
+  <script src="/js/meta-pixel.js"></script>
 </head>
-<body class="exchange-provider-portal-body">
+<body>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=771485525759396&ev=PageView&noscript=1"
+  /></noscript>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <header class="exchange-provider-topbar" role="banner">
@@ -34,7 +38,7 @@
 
   <main id="main-content">
 
-    <!-- ════════ HERO ════════ -->
+    <!-- â•â•â•â•â•â•â•â• HERO â•â•â•â•â•â•â•â• -->
     <section class="exchange-provider-hero" aria-labelledby="exchange-provider-hero-heading">
       <div class="exchange-provider-hero-glow" aria-hidden="true"></div>
       <div class="container exchange-provider-hero-center">
@@ -43,12 +47,12 @@
         <p class="exchange-provider-lead">Get listed in the only Parkinson's-focused provider directory with built-in verification, direct contact paths, and a clear upgrade into a full community presence.</p>
         <div class="exchange-provider-hero-actions">
           <a href="#pricing" class="btn btn-primary btn-lg exchange-provider-hero-btn">See Plans &amp; Pricing</a>
-          <a href="https://club.dolifetoday.com/?exchange=add-listing" class="btn btn-outline-primary btn-lg">List Free &mdash; No Card Needed</a>
+          <a href="/create-listing" class="btn btn-outline-primary btn-lg">List Free &mdash; No Card Needed</a>
         </div>
       </div>
     </section>
 
-    <!-- ════════ SOCIAL PROOF BAR ════════ -->
+    <!-- â•â•â•â•â•â•â•â• SOCIAL PROOF BAR â•â•â•â•â•â•â•â• -->
     <section class="exchange-provider-proof" aria-label="Platform highlights">
       <div class="container">
         <div class="exchange-provider-proof-grid">
@@ -72,7 +76,7 @@
       </div>
     </section>
 
-    <!-- ════════ HOW IT WORKS ════════ -->
+    <!-- â•â•â•â•â•â•â•â• HOW IT WORKS â•â•â•â•â•â•â•â• -->
     <section class="exchange-provider-steps" aria-labelledby="exchange-provider-steps-heading">
       <div class="container">
         <div class="section-header centered text-center">
@@ -101,7 +105,7 @@
       </div>
     </section>
 
-    <!-- ════════ VALUE PROPS ════════ -->
+    <!-- â•â•â•â•â•â•â•â• VALUE PROPS â•â•â•â•â•â•â•â• -->
     <section class="exchange-provider-benefits" aria-labelledby="exchange-provider-benefits-heading">
       <div class="container">
         <div class="section-header centered text-center">
@@ -141,7 +145,7 @@
       </div>
     </section>
 
-    <!-- ════════ PRICING ════════ -->
+    <!-- â•â•â•â•â•â•â•â• PRICING â•â•â•â•â•â•â•â• -->
     <section id="pricing" class="exchange-provider-pricing" aria-labelledby="exchange-provider-pricing-heading">
       <div class="container">
         <div class="section-header centered text-center">
@@ -169,7 +173,7 @@
               <p class="exchange-provider-plan-tagline">Forever free. No credit card.</p>
             </div>
             <div class="exchange-provider-cta-stack">
-              <a href="https://club.dolifetoday.com/?exchange=add-listing" class="btn btn-outline-primary exchange-provider-plan-button">Create Free Listing</a>
+              <a href="/create-listing" class="btn btn-outline-primary exchange-provider-plan-button">Create Free Listing</a>
             </div>
             <ul class="pricing-features">
               <li>Appear in public directory search</li>
@@ -201,20 +205,59 @@
             </ul>
           </article>
 
-          <!-- Community -->
-          <article class="pricing-card featured exchange-provider-plan-card exchange-provider-plan-card-popular" data-plan-card data-plan="community" data-monthly-price="49.99" data-yearly-price="499" data-monthly-suffix="/mo" data-yearly-suffix="/yr">
-            <div class="exchange-provider-popular-badge">Most Popular</div>
+          <!-- Community â€” Wave Access -->
+          <article class="pricing-card featured exchange-provider-plan-card exchange-provider-plan-card-popular exchange-provider-wave-card" id="community-wave-card">
+            <div class="exchange-provider-wave-badge">ðŸŸ¡ Limited Access</div>
             <div class="exchange-provider-plan-head">
               <p class="exchange-provider-plan-chip exchange-provider-plan-chip-orange">Community Provider</p>
-              <div class="exchange-provider-price-row">
-                <span class="price" data-price-value>$49.99</span>
-                <span class="exchange-provider-price-suffix" data-price-suffix>/mo</span>
+              <h3 class="exchange-provider-wave-title">Wave Access</h3>
+              <p class="exchange-provider-plan-tagline">We're onboarding providers in small waves to ensure every listing gets real visibility and engagement from the community.</p>
+              <p class="exchange-provider-wave-subtitle">New provider access opens every two weeks.</p>
+            </div>
+
+            <!-- Countdown Timer -->
+            <div class="exchange-provider-wave-countdown-section">
+              <p class="exchange-provider-wave-label">Next Wave Opens In:</p>
+              <div class="exchange-provider-wave-timer" id="wave-countdown">
+                <div class="exchange-provider-wave-timer-unit">
+                  <span class="exchange-provider-wave-timer-num" id="wave-days">--</span>
+                  <span class="exchange-provider-wave-timer-label">Days</span>
+                </div>
+                <span class="exchange-provider-wave-timer-sep">:</span>
+                <div class="exchange-provider-wave-timer-unit">
+                  <span class="exchange-provider-wave-timer-num" id="wave-hours">--</span>
+                  <span class="exchange-provider-wave-timer-label">Hours</span>
+                </div>
+                <span class="exchange-provider-wave-timer-sep">:</span>
+                <div class="exchange-provider-wave-timer-unit">
+                  <span class="exchange-provider-wave-timer-num" id="wave-minutes">--</span>
+                  <span class="exchange-provider-wave-timer-label">Min</span>
+                </div>
+                <span class="exchange-provider-wave-timer-sep">:</span>
+                <div class="exchange-provider-wave-timer-unit">
+                  <span class="exchange-provider-wave-timer-num" id="wave-seconds">--</span>
+                  <span class="exchange-provider-wave-timer-label">Sec</span>
+                </div>
               </div>
-              <p class="exchange-provider-plan-tagline">Your own channel. Your own audience.</p>
             </div>
+
+            <!-- Spots Counter -->
+            <div class="exchange-provider-wave-spots-section">
+              <p class="exchange-provider-wave-label">Spots Available This Wave:</p>
+              <div class="exchange-provider-wave-spots-bar-wrap">
+                <div class="exchange-provider-wave-spots-bar">
+                  <div class="exchange-provider-wave-spots-fill" id="wave-spots-fill" style="width:100%"></div>
+                </div>
+                <p class="exchange-provider-wave-spots-count"><span id="wave-spots-remaining">10</span> of <span id="wave-spots-total">10</span> remaining</p>
+              </div>
+              <p class="exchange-provider-wave-urgency" id="wave-urgency-msg" hidden>Only a few spots left in this wave</p>
+            </div>
+
             <div class="exchange-provider-cta-stack">
-              <a href="/contact?topic=community-provider" class="btn btn-primary exchange-provider-plan-button" data-plan-link data-plan="community">Start Community Plan</a>
+              <a href="/provider-waitlist" class="btn btn-primary exchange-provider-plan-button exchange-provider-wave-btn" id="wave-join-btn">Join Provider Waitlist</a>
+              <p class="exchange-provider-wave-microcopy">Early providers receive priority visibility, founding provider positioning, and early access to community insights.</p>
             </div>
+
             <ul class="pricing-features">
               <li>Everything in Verified, plus:</li>
               <li><strong>Dedicated channel inside THE CLUB</strong></li>
@@ -223,6 +266,8 @@
               <li>Engagement and community tools</li>
               <li>Advanced analytics: followers and reach</li>
             </ul>
+
+            <p class="exchange-provider-wave-social-proof">Over 500+ providers are already being discovered on the platform</p>
           </article>
         </div>
 
@@ -233,7 +278,7 @@
       </div>
     </section>
 
-    <!-- ════════ COMPARISON ════════ -->
+    <!-- â•â•â•â•â•â•â•â• COMPARISON â•â•â•â•â•â•â•â• -->
     <section class="exchange-provider-comparison" aria-labelledby="exchange-provider-comparison-heading">
       <div class="container">
         <h3 id="exchange-provider-comparison-heading" class="exchange-provider-comparison-title">Compare every feature</h3>
@@ -266,7 +311,7 @@
       </div>
     </section>
 
-    <!-- ════════ FAQ ════════ -->
+    <!-- â•â•â•â•â•â•â•â• FAQ â•â•â•â•â•â•â•â• -->
     <section class="exchange-provider-faq" aria-labelledby="exchange-provider-faq-heading">
       <div class="container exchange-provider-faq-shell">
         <div class="section-header centered text-center">
@@ -302,14 +347,14 @@
       </div>
     </section>
 
-    <!-- ════════ FINAL CTA ════════ -->
+    <!-- â•â•â•â•â•â•â•â• FINAL CTA â•â•â•â•â•â•â•â• -->
     <section class="exchange-provider-final-cta" aria-labelledby="exchange-provider-final-cta-heading">
       <div class="container exchange-provider-final-cta-shell">
         <h2 id="exchange-provider-final-cta-heading" class="section-title">Ready to grow your practice?</h2>
         <p class="section-subtitle centered">Join the only Parkinson's-specific provider directory with built-in verification, analytics, and community tools.</p>
         <div class="exchange-provider-hero-actions">
           <a href="#pricing" class="btn btn-primary btn-lg exchange-provider-hero-btn">See Plans &amp; Pricing</a>
-          <a href="https://club.dolifetoday.com/?exchange=add-listing" class="btn btn-outline-primary btn-lg">List Free Now</a>
+          <a href="/create-listing" class="btn btn-outline-primary btn-lg">List Free Now</a>
         </div>
       </div>
     </section>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Welcome to the Inner Circle - you just unlocked a deeper level of connection inside The Club. Monthly live calls with Bryce, real conversations, and priority community support.">
+  <title>Welcome to the Inner Circle | Doing Life Today</title>
+
+  <meta property="og:title" content="Welcome to the Inner Circle">
+  <meta property="og:description" content="You just unlocked a deeper level of connection inside The Club.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dolifetoday.com/inner-circle-welcome">
+  <meta property="og:site_name" content="Doing Life Today">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3LZZWBTWT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K3LZZWBTWT');
+  </script>
+  <script src="/js/analytics-events.js" defer></script>
+
+  <style>
+    .icw-hero {
+      padding: 5rem 0 3.5rem;
+      text-align: center;
+      background: var(--gradient-hero);
+      position: relative;
+      overflow: hidden;
+    }
+    .icw-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 55% at 50% 0%, rgba(32,178,170,0.14) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .icw-hero h1 {
+      font-size: clamp(2rem, 5.5vw, 3.25rem);
+      font-weight: 800;
+      line-height: 1.15;
+      background: linear-gradient(135deg, #fff 30%, var(--color-primary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+    }
+    .icw-hero .icw-sub {
+      font-size: 1.2rem;
+      color: var(--color-text-muted);
+      font-weight: 500;
+      margin-bottom: 2rem;
+    }
+    .icw-hero .icw-body {
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--color-text);
+    }
+
+    .icw-section {
+      padding-block: 4.5rem;
+    }
+    .icw-section.alt-bg {
+      background: var(--color-bg-2);
+    }
+    .icw-section .section-label {
+      display: block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--color-primary);
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+    .icw-section h2 {
+      font-size: clamp(1.5rem, 4vw, 2.25rem);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    .icw-section p {
+      line-height: 1.75;
+      color: var(--color-text);
+    }
+
+    .icw-steps {
+      list-style: none;
+      padding: 0;
+      margin: 2rem 0;
+      max-width: 560px;
+      counter-reset: step;
+    }
+    .icw-steps li {
+      counter-increment: step;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: var(--color-text);
+    }
+    .icw-steps li::before {
+      content: counter(step);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--gradient-primary);
+      color: #fff;
+      font-weight: 800;
+      font-size: 1rem;
+    }
+
+    .icw-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .icw-cta-group.center {
+      justify-content: center;
+    }
+
+    .icw-bryce-quote {
+      max-width: 580px;
+      border-left: 3px solid var(--color-primary);
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+      font-size: 1.1rem;
+      line-height: 1.75;
+      color: var(--color-text);
+      font-style: normal;
+    }
+    .icw-bryce-attr {
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      font-weight: 600;
+    }
+
+    .icw-footer-cta {
+      text-align: center;
+      padding-block: 5rem;
+      background: linear-gradient(135deg, #0A0A0A 0%, #1a0a2e 50%, #0a1a2e 100%);
+      position: relative;
+    }
+    .icw-footer-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 50% at 50% 100%, rgba(32,178,170,0.10) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .icw-footer-cta h2 {
+      font-size: clamp(1.5rem, 4vw, 2.25rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    .icw-footer-cta p {
+      color: var(--color-text-muted);
+      max-width: 500px;
+      margin: 0 auto 2rem;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 600px) {
+      .icw-hero { padding: 3.5rem 0 2.5rem; }
+      .icw-section { padding-block: 3rem; }
+      .icw-cta-group { flex-direction: column; align-items: stretch; }
+      .icw-cta-group .btn { text-align: center; }
+      .icw-footer-cta { padding-block: 3.5rem; }
+    }
+  </style>
+  <script src="/js/meta-pixel.js"></script>
+</head>
+<body>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=771485525759396&ev=PageView&noscript=1"
+  /></noscript>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a href="/" class="nav-logo" aria-label="Doing Life Today - Home">
+        <div class="nav-logo-mark" aria-hidden="true">DL</div>
+        <div class="nav-logo-text">Doing Life Today<span>Parkinson's Community</span></div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="/">Home</a></li>
+        <li><a href="/parkinsons-help-and-support">Support</a></li>
+        <li><a href="/parkinsons-community">Parkinson's Community</a></li>
+        <li><a href="/parkinsons-daily-check-in">Daily Check-In</a></li>
+        <li><a href="/parkinsons-symptom-tracker">Symptom Tracker</a></li>
+        <li><a href="/resources">Resources</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <a href="https://club.dolifetoday.com" class="btn btn-primary btn-sm nav-cta">Join The Club</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a href="/">Home</a>
+    <a href="/parkinsons-help-and-support">Support</a>
+    <a href="/parkinsons-community">Parkinson's Community</a>
+    <a href="/parkinsons-daily-check-in">Daily Check-In</a>
+    <a href="/parkinsons-symptom-tracker">Symptom Tracker</a>
+    <a href="/resources">Resources</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+    <div class="mobile-cta"><a href="https://club.dolifetoday.com" class="btn btn-primary">Join The Club</a></div>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+         HERO - CONFIRMATION
+         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <section class="icw-hero" aria-labelledby="icw-heading">
+      <div class="container">
+        <h1 id="icw-heading">You're in the Inner Circle &#128142;</h1>
+        <p class="icw-sub">Welcome to a deeper level of connection.</p>
+        <div class="icw-body">
+          <p>You just made a decision that says a lot about who you are. You're not just watching from the sidelines - you're choosing to be part of something real.</p>
+          <p>This is where the conversations go deeper, the support gets more personal, and the connections actually matter.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+         WHAT HAPPENS NEXT
+         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <section class="icw-section" aria-labelledby="icw-next-heading">
+      <div class="container">
+        <span class="section-label">Getting Started</span>
+        <h2 id="icw-next-heading">Here's What Happens Next</h2>
+
+        <ol class="icw-steps">
+          <li>You'll receive a confirmation email with your membership details</li>
+          <li>Head into The Club and explore the Inner Circle space</li>
+          <li>Watch for announcements about the next live Zoom call with Bryce</li>
+        </ol>
+
+        <div class="icw-cta-group">
+          <a href="https://club.dolifetoday.com" class="btn btn-primary btn-lg">Go to The Club</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+         WHAT YOU UNLOCKED
+         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <section class="icw-section alt-bg" aria-labelledby="icw-unlocked-heading">
+      <div class="container">
+        <span class="section-label">Your Membership</span>
+        <h2 id="icw-unlocked-heading">What You've Unlocked</h2>
+        <p style="max-width:600px;">As an Inner Circle member, you now have access to:</p>
+        <ul style="max-width:560px;margin-top:1.5rem;padding-left:0;list-style:none;">
+          <li style="padding:0.6rem 0;padding-left:1.75rem;position:relative;font-size:1rem;line-height:1.6;color:var(--color-text);"><span style="position:absolute;left:0;color:var(--color-primary);font-weight:700;">✓</span> Monthly live Zoom calls with Bryce</li>
+          <li style="padding:0.6rem 0;padding-left:1.75rem;position:relative;font-size:1rem;line-height:1.6;color:var(--color-text);"><span style="position:absolute;left:0;color:var(--color-primary);font-weight:700;">✓</span> Real conversations in a smaller group</li>
+          <li style="padding:0.6rem 0;padding-left:1.75rem;position:relative;font-size:1rem;line-height:1.6;color:var(--color-text);"><span style="position:absolute;left:0;color:var(--color-primary);font-weight:700;">✓</span> Priority responses and support</li>
+          <li style="padding:0.6rem 0;padding-left:1.75rem;position:relative;font-size:1rem;line-height:1.6;color:var(--color-text);"><span style="position:absolute;left:0;color:var(--color-primary);font-weight:700;">✓</span> A deeper level of connection</li>
+          <li style="padding:0.6rem 0;padding-left:1.75rem;position:relative;font-size:1rem;line-height:1.6;color:var(--color-text);"><span style="position:absolute;left:0;color:var(--color-primary);font-weight:700;">✓</span> Direct access to Bryce and the community</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+         BRYCE QUOTE
+         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <section class="icw-section">
+      <div class="container">
+        <blockquote class="icw-bryce-quote">
+          "The Inner Circle exists because some conversations need a smaller room. Thank you for choosing to be in it."
+        </blockquote>
+        <p class="icw-bryce-attr">- Bryce Perry, Founder</p>
+      </div>
+    </section>
+
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+         FINAL CTA
+         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <section class="icw-footer-cta" aria-labelledby="icw-final-heading">
+      <div class="container">
+        <h2 id="icw-final-heading">You're Ready</h2>
+        <p>The community is waiting. Jump in whenever you're ready.</p>
+
+        <div class="icw-cta-group center">
+          <a href="https://club.dolifetoday.com" class="btn btn-primary btn-lg">Go to The Club</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Learn More</h4>
+          <ul class="footer-links">
+            <li><a href="/parkinsons-daily-check-in">Parkinson's Daily Check-In</a></li>
+            <li><a href="/parkinsons-community">Parkinson's Support Community</a></li>
+            <li><a href="/parkinsons-symptom-tracker">Parkinson's Symptom Tracker</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul class="footer-links">
+            <li><a href="/resources">Parkinson's Resources</a></li>
+            <li><a href="/parkinsons-help-and-support">Education &amp; Support</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>About</h4>
+          <ul class="footer-links">
+            <li><a href="/about">About Doing Life Today</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul class="footer-links">
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Doing Life Today. All rights reserved.</p>
+        <p class="footer-disclaimer">Peer support, not medical advice.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">&uarr;</button>
+  <script src="js/main.js"></script>
+</body>
+</html>
+

@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  const API_URL = 'https://club.dolifetoday.com/api/exchange/providers?limit=10000&v=20260327-1';
+  const API_URL = 'https://club.dolifetoday.com/api/exchange/providers?limit=25000&v=20260406';
   const loadingNode = document.getElementById('exchange-category-loading');
   const errorNode = document.getElementById('exchange-category-error');
   const contentNode = document.getElementById('exchange-category-content');
@@ -84,8 +84,7 @@
       tags ? '  <div class="exchange-card-tags">' + tags + '</div>' : '',
       '  <div class="exchange-card-actions">',
       '    <a class="btn btn-outline-primary" href="' + escapeHtml(provider.detailPagePath || '/exchange') + '">View Details</a>',
-      '    <a class="btn btn-outline-primary" href="' + escapeHtml(provider.detailAppUrl || provider.joinClubUrl || 'https://club.dolifetoday.com/?publicExchange=true') + '">View in The Club</a>',
-      '    <a class="btn btn-primary" href="' + escapeHtml(provider.claimPagePath || provider.claimUrl || 'https://club.dolifetoday.com/?publicExchange=true') + '">Claim This Listing</a>',
+      '    <a class="btn btn-primary" href="' + escapeHtml(provider.claimPagePath || provider.claimUrl || '/claim-listing') + '">Claim Listing</a>',
       '  </div>',
       '</article>'
     ].join('');
@@ -124,9 +123,28 @@
       document.title = categoryLabel + ' | The Exchange | Doing Life Today';
       const descriptionMeta = document.querySelector('meta[name="description"]');
       if (descriptionMeta) {
-        descriptionMeta.setAttribute('content', 'Browse Parkinson\'s providers, programs, and services in the ' + categoryLabel + ' category on The Exchange, then move into The Club for insights, discussions, and reviews.');
+        descriptionMeta.setAttribute('content', 'Browse Parkinson\'s providers, programs, and services in the ' + categoryLabel + ' category on The Exchange directory.');
       }
       updateCanonical('https://dolifetoday.com/exchange/category/' + encodeURIComponent(slug));
+
+      // Update JSON-LD and OG tags for SEO
+      var jsonLd = document.querySelector('script[type="application/ld+json"]');
+      if (jsonLd) {
+        jsonLd.textContent = JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'CollectionPage',
+          'name': categoryLabel + ' \u2014 Parkinson\'s Providers',
+          'description': 'Browse ' + matches.length + ' Parkinson\'s providers in the ' + categoryLabel + ' category on The Exchange.',
+          'url': 'https://dolifetoday.com/exchange/category/' + encodeURIComponent(slug),
+          'isPartOf': { '@type': 'WebSite', 'name': 'Doing Life Today', 'url': 'https://dolifetoday.com' }
+        });
+      }
+      var ogTitle = document.querySelector('meta[property="og:title"]');
+      var ogDesc = document.querySelector('meta[property="og:description"]');
+      var ogUrl = document.querySelector('meta[property="og:url"]');
+      if (ogTitle) ogTitle.setAttribute('content', categoryLabel + ' | Parkinson\'s Providers | The Exchange');
+      if (ogDesc) ogDesc.setAttribute('content', 'Browse ' + matches.length + ' Parkinson\'s ' + categoryLabel + ' providers on The Exchange.');
+      if (ogUrl) ogUrl.setAttribute('content', 'https://dolifetoday.com/exchange/category/' + encodeURIComponent(slug));
 
       const headingNode = document.getElementById('exchange-category-heading');
       const subtitleNode = document.getElementById('exchange-category-subtitle');
@@ -137,7 +155,7 @@
       const emptyNode = document.getElementById('exchange-category-empty');
 
       if (headingNode) headingNode.textContent = categoryLabel + ' providers and programs';
-      if (subtitleNode) subtitleNode.textContent = 'Parkinson\'s providers, programs, and services grouped under ' + categoryLabel + ', with deeper insight available in The Club.';
+      if (subtitleNode) subtitleNode.textContent = 'Parkinson\'s providers, programs, and services grouped under ' + categoryLabel + '.';
       if (breadcrumbNode) breadcrumbNode.textContent = categoryLabel;
       if (countNode) countNode.textContent = matches.length === 1 ? '1 listing' : matches.length + ' listings';
 

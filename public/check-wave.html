@@ -1,0 +1,309 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Check which wave you're in for The Club, a private Parkinson's community by Doing Life Today.">
+  <title>Check Your Wave | The Club - Doing Life Today</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body.check-wave-page {
+      --color-bg: #0F172A;
+      --color-mint: #34D399;
+      background: linear-gradient(180deg, #0F172A 0%, #111C2C 48%, #0B1322 100%);
+      color: #F8FAFC;
+      min-height: 100vh;
+      overflow-x: clip;
+    }
+    .cw-container {
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 80px 24px 60px;
+      text-align: center;
+    }
+    .cw-container h1 {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-weight: 800;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+    .cw-container h1 span {
+      background: linear-gradient(135deg, #34D399, #22D3EE);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .cw-subtitle {
+      color: #94A3B8;
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+    .cw-card {
+      background: rgba(30, 41, 59, 0.7);
+      border: 1px solid rgba(52, 211, 153, 0.15);
+      border-radius: 20px;
+      padding: 2rem;
+    }
+    .cw-form {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .cw-form input {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(0,0,0,0.3);
+      color: #fff;
+      font-size: 1rem;
+      font-family: inherit;
+    }
+    .cw-form input::placeholder { color: #64748B; }
+    .cw-form input:focus { outline: none; border-color: var(--color-mint); }
+    .cw-form button {
+      padding: 0.75rem 1.5rem;
+      border-radius: 12px;
+      border: none;
+      background: var(--color-mint);
+      color: #0F172A;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: opacity 0.2s;
+      font-family: inherit;
+    }
+    .cw-form button:hover { opacity: 0.9; }
+    .cw-form button:disabled { opacity: 0.5; cursor: not-allowed; }
+    .cw-result {
+      margin-top: 1.25rem;
+      padding: 1.25rem;
+      border-radius: 14px;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      display: none;
+    }
+    .cw-result.is-visible { display: block; }
+    .cw-result.is-success {
+      background: rgba(52, 211, 153, 0.08);
+      border: 1px solid rgba(52, 211, 153, 0.2);
+      color: #D1FAE5;
+    }
+    .cw-result.is-error {
+      background: rgba(239, 68, 68, 0.08);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+      color: #FECACA;
+    }
+    .cw-result .wave-big {
+      font-size: 2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #34D399, #22D3EE);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+    .cw-result .wave-detail {
+      font-size: 0.85rem;
+      color: #94A3B8;
+      margin-top: 0.5rem;
+    }
+    .cw-share {
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .cw-share p {
+      margin: 0 0 0.75rem;
+      font-size: 0.9rem;
+      color: #CBD5E1;
+    }
+    .cw-share-actions {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .cw-share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.55rem 1rem;
+      border-radius: 10px;
+      border: 1px solid rgba(52, 211, 153, 0.3);
+      background: rgba(52, 211, 153, 0.08);
+      color: #34D399;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+      font-family: inherit;
+      text-decoration: none;
+    }
+    .cw-share-btn:hover { background: rgba(52, 211, 153, 0.15); }
+    .cw-join-btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.75rem 1.75rem;
+      border-radius: 12px;
+      border: none;
+      background: var(--color-mint);
+      color: #0F172A;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.2s;
+      font-family: inherit;
+    }
+    .cw-join-btn:hover { opacity: 0.9; }
+    .cw-confirm-warning {
+      margin-top: 1rem;
+      padding: 0.75rem 1rem;
+      border-radius: 10px;
+      background: rgba(251, 191, 36, 0.1);
+      border: 1px solid rgba(251, 191, 36, 0.25);
+      color: #FDE68A;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+    .cw-back {
+      display: inline-block;
+      margin-top: 2rem;
+      color: #34D399;
+      font-size: 0.9rem;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .cw-back:hover { text-decoration: underline; }
+    @media (max-width: 480px) {
+      .cw-form { flex-direction: column; }
+      .cw-container { padding: 60px 16px 40px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3LZZWBTWT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K3LZZWBTWT');
+  </script>
+  <script src="/js/analytics-events.js" defer></script>
+  <script src="/js/meta-pixel.js"></script>
+</head>
+<body>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=771485525759396&ev=PageView&noscript=1"
+  /></noscript>
+  <div class="cw-container">
+    <h1>Check <span>Your Wave</span></h1>
+    <p class="cw-subtitle">Already on the waitlist for The Club? Enter your email to see which wave you're in and when it opens.</p>
+
+    <div class="cw-card">
+      <form class="cw-form" id="cw-form" autocomplete="off">
+        <input type="email" id="cw-email" placeholder="Your email address" required>
+        <button type="submit" id="cw-btn">Check My Wave</button>
+      </form>
+      <div class="cw-result" id="cw-result" aria-live="polite"></div>
+    </div>
+
+    <a href="/theclub" class="cw-back">&larr; Back to The Club</a>
+  </div>
+
+  <script>
+    (function () {
+      var form = document.getElementById('cw-form');
+      var input = document.getElementById('cw-email');
+      var btn = document.getElementById('cw-btn');
+      var result = document.getElementById('cw-result');
+
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        var email = input.value.trim().toLowerCase();
+        if (!email) return;
+
+        btn.disabled = true;
+        btn.textContent = 'Checking...';
+        result.className = 'cw-result';
+        result.classList.remove('is-visible');
+
+        try {
+          var res = await fetch('/api/check-wave?email=' + encodeURIComponent(email) + '&ts=' + Date.now(), {
+            method: 'GET',
+            headers: { Accept: 'application/json' },
+            cache: 'no-store',
+          });
+          var data = await res.json();
+
+          if (res.ok && data.found) {
+            result.className = 'cw-result is-success is-visible';
+
+            var message = '<span class="wave-big">Wave ' + data.wave + ' \u2014 ' + data.waveName + '</span>';
+
+            if (data.wave <= 2) {
+              message += 'You were one of the first! Your wave has already been invited.';
+            } else {
+              message += 'Your wave opens <strong>' + data.opensAt + '</strong>.<br>We\u2019ll send you an email when it\u2019s time to join.';
+            }
+
+            if (data.position) {
+              message += '<span class="wave-detail">Waitlist position: #' + data.position + '</span>';
+            }
+
+            if (data.confirmed === false) {
+              message += '<div class="cw-confirm-warning">\u26A0\uFE0F <strong>Your email isn\u2019t confirmed yet.</strong> Check your inbox (and spam / junk folder) for a confirmation email so you don\u2019t miss your invite.</div>';
+            }
+
+            message += '<div class="cw-share">';
+            message += '<p>Know someone who should join? Get your friends, partner, or family on the list \u{1F447}</p>';
+            message += '<div class="cw-share-actions">';
+            message += '<button class="cw-share-btn" onclick="cwCopyLink()" type="button">\u{1F4CB} Copy Link</button>';
+            message += '<a class="cw-share-btn" onclick="cwTrack(\'share_email\')" href="mailto:?subject=Join%20The%20Club%20Waitlist&body=I%20just%20checked%20my%20wave%20for%20The%20Club%20%E2%80%94%20a%20private%20Parkinson%27s%20community.%20You%20should%20get%20on%20the%20list%20too%3A%20https%3A%2F%2Fdolifetoday.com%2Ftheclub" target="_blank">\u2709\uFE0F Email</a>';
+            message += '<a class="cw-share-btn" onclick="cwTrack(\'share_text\')" href="sms:?body=Check%20out%20The%20Club%20%E2%80%94%20a%20private%20Parkinson%27s%20community.%20Join%20the%20waitlist%3A%20https%3A%2F%2Fdolifetoday.com%2Ftheclub" target="_blank">\u{1F4AC} Text</a>';
+            message += '</div></div>';
+
+            result.innerHTML = message;
+          } else {
+            result.className = 'cw-result is-error is-visible';
+            result.innerHTML = 'We didn\u2019t find that email on the waitlist.<br>Double-check your spelling, or join now:' +
+              '<br><a class="cw-join-btn" href="/theclub" onclick="cwTrack(\'join_click\')">Join the Waitlist</a>';
+          }
+        } catch (err) {
+          result.className = 'cw-result is-error is-visible';
+          result.textContent = 'Something went wrong. Please try again.';
+        }
+
+        btn.disabled = false;
+        btn.textContent = 'Check My Wave';
+      });
+    })();
+
+    function cwTrack(eventType) {
+      fetch('/api/track-check-wave', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ eventType: eventType, page: 'check-wave' }),
+        keepalive: true
+      }).catch(function () {});
+    }
+
+    function cwCopyLink() {
+      var url = 'https://dolifetoday.com/theclub';
+      cwTrack('share_copy');
+      navigator.clipboard.writeText(url).then(function () {
+        var btn = document.querySelector('.cw-share-btn');
+        if (btn) { btn.textContent = '\u2705 Copied!'; setTimeout(function () { btn.innerHTML = '\u{1F4CB} Copy Link'; }, 2000); }
+      });
+    }
+  </script>
+</body>
+</html>
+

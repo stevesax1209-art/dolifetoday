@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Welcome to The Club - you're officially part of the Doing Life Today community. Here's what to do next.">
+  <title>Welcome to The Club | Doing Life Today</title>
+
+  <meta property="og:title" content="Welcome to The Club">
+  <meta property="og:description" content="You just joined a community of people who get it.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dolifetoday.com/welcome">
+  <meta property="og:site_name" content="Doing Life Today">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3LZZWBTWT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K3LZZWBTWT');
+  </script>
+  <script src="/js/analytics-events.js" defer></script>
+
+  <style>
+    .wc-hero {
+      padding: 5rem 0 3rem;
+      text-align: center;
+      background: var(--gradient-hero);
+      position: relative;
+      overflow: hidden;
+    }
+    .wc-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 55% at 50% 0%, rgba(32,178,170,0.14) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .wc-hero h1 {
+      font-size: clamp(2rem, 5.5vw, 3.25rem);
+      font-weight: 800;
+      line-height: 1.15;
+      background: linear-gradient(135deg, #fff 30%, var(--color-primary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+    }
+    .wc-hero .wc-sub {
+      font-size: 1.2rem;
+      color: var(--color-text-muted);
+      font-weight: 500;
+      margin-bottom: 2rem;
+    }
+    .wc-hero .wc-body {
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--color-text);
+    }
+    .wc-hero .wc-free-note {
+      margin-top: 1.5rem;
+      font-size: 0.95rem;
+      color: var(--color-primary);
+      font-weight: 600;
+    }
+
+    .wc-section {
+      padding-block: 4.5rem;
+    }
+    .wc-section.alt-bg {
+      background: var(--color-bg-2);
+    }
+    .wc-section .section-label {
+      display: block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--color-primary);
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+    .wc-section h2 {
+      font-size: clamp(1.5rem, 4vw, 2.25rem);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    .wc-section p {
+      line-height: 1.75;
+      color: var(--color-text);
+    }
+
+    /* Steps */
+    .wc-steps {
+      list-style: none;
+      padding: 0;
+      margin: 2rem 0;
+      max-width: 560px;
+      counter-reset: step;
+    }
+    .wc-steps li {
+      counter-increment: step;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: var(--color-text);
+    }
+    .wc-steps li::before {
+      content: counter(step);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--gradient-primary);
+      color: #fff;
+      font-weight: 800;
+      font-size: 1rem;
+    }
+
+    .wc-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .wc-cta-group.center {
+      justify-content: center;
+    }
+
+    /* Inner Circle card */
+    .wc-ic-card {
+      max-width: 600px;
+      background: var(--color-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg, 20px);
+      padding: 2.5rem;
+      margin-top: 2rem;
+    }
+    .wc-ic-features {
+      list-style: none;
+      padding: 0;
+      margin: 1.5rem 0;
+    }
+    .wc-ic-features li {
+      padding: 0.6rem 0;
+      padding-left: 1.75rem;
+      position: relative;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--color-text);
+    }
+    .wc-ic-features li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--color-primary);
+      font-weight: 700;
+    }
+    .wc-ic-price {
+      margin: 1.75rem 0 0.25rem;
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--color-text);
+    }
+    .wc-ic-price span {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--color-text-muted);
+    }
+    .wc-ic-trust {
+      margin-top: 1.5rem;
+      font-size: 0.92rem;
+      color: var(--color-text-muted);
+      line-height: 1.65;
+    }
+
+    /* Bryce quote */
+    .wc-bryce-quote {
+      max-width: 580px;
+      border-left: 3px solid var(--color-primary);
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+      font-size: 1.1rem;
+      line-height: 1.75;
+      color: var(--color-text);
+      font-style: normal;
+    }
+    .wc-bryce-attr {
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      font-weight: 600;
+    }
+
+    /* No pressure text */
+    .wc-no-pressure {
+      max-width: 520px;
+      text-align: center;
+      margin: 0 auto;
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+    }
+
+    /* Footer CTA */
+    .wc-footer-cta {
+      text-align: center;
+      padding-block: 5rem;
+      background: linear-gradient(135deg, #0A0A0A 0%, #1a0a2e 50%, #0a1a2e 100%);
+      position: relative;
+    }
+    .wc-footer-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 50% at 50% 100%, rgba(32,178,170,0.10) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .wc-footer-cta h2 {
+      font-size: clamp(1.5rem, 4vw, 2.25rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    .wc-footer-cta p {
+      color: var(--color-text-muted);
+      max-width: 500px;
+      margin: 0 auto 2rem;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 600px) {
+      .wc-hero { padding: 3.5rem 0 2.5rem; }
+      .wc-section { padding-block: 3rem; }
+      .wc-ic-card { padding: 1.75rem; }
+      .wc-cta-group { flex-direction: column; align-items: stretch; }
+      .wc-cta-group .btn { text-align: center; }
+      .wc-footer-cta { padding-block: 3.5rem; }
+    }
+
+    /* Countdown timer */
+    .wc-countdown {
+      display: inline-flex;
+      gap: 0.6rem;
+      margin-top: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .wc-countdown-unit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 52px;
+      padding: 0.4rem 0.5rem;
+      background: rgba(32, 178, 170, 0.08);
+      border: 1px solid rgba(32, 178, 170, 0.2);
+      border-radius: var(--radius-sm, 6px);
+    }
+    .wc-countdown-unit .cd-val {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--color-text);
+      line-height: 1;
+    }
+    .wc-countdown-unit .cd-label {
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-text-muted);
+      margin-top: 0.2rem;
+    }
+    .wc-countdown-expired {
+      font-size: 0.9rem;
+      color: var(--color-accent);
+      font-weight: 700;
+      margin-top: 0.75rem;
+    }
+    .wc-deal-badge {
+      display: inline-block;
+      padding: 0.3rem 0.75rem;
+      background: linear-gradient(135deg, rgba(32,178,170,0.15), rgba(147,51,234,0.15));
+      border: 1px solid rgba(32,178,170,0.3);
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 1rem;
+    }
+
+    /* â”€â”€ Inner Circle Popup â”€â”€ */
+    .ic-popup-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(4px);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.35s ease, visibility 0.35s ease;
+    }
+    .ic-popup-overlay.is-visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    .ic-popup {
+      background: var(--color-bg-2, #1A1A1A);
+      border: 1px solid rgba(32,178,170,0.25);
+      border-radius: var(--radius-lg, 20px);
+      padding: 2.5rem;
+      max-width: 460px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      transform: translateY(20px) scale(0.97);
+      transition: transform 0.35s ease;
+    }
+    .ic-popup-overlay.is-visible .ic-popup {
+      transform: translateY(0) scale(1);
+    }
+    .ic-popup-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      color: var(--color-text-muted);
+      font-size: 1.5rem;
+      cursor: pointer;
+      line-height: 1;
+      padding: 0.25rem;
+      transition: color 0.2s ease;
+    }
+    .ic-popup-close:hover { color: var(--color-text); }
+    .ic-popup h3 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      color: var(--color-text);
+    }
+    .ic-popup p {
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: var(--color-text-muted);
+      margin-bottom: 0.75rem;
+    }
+    .ic-popup .ic-popup-price {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--color-text);
+      margin: 1rem 0 0.25rem;
+    }
+    .ic-popup .ic-popup-price span {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--color-text-muted);
+    }
+    .ic-popup .btn {
+      width: 100%;
+      margin-top: 1rem;
+    }
+    .ic-popup .ic-popup-trust {
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+      margin-top: 1rem;
+      line-height: 1.55;
+    }
+    .ic-popup .ic-popup-skip {
+      display: inline-block;
+      margin-top: 0.75rem;
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      text-decoration: underline;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: inherit;
+    }
+    .ic-popup .ic-popup-skip:hover { color: var(--color-text); }
+
+    @media (max-width: 600px) {
+      .ic-popup { padding: 1.75rem; }
+    }
+  </style>
+  <script src="/js/meta-pixel.js"></script>
+</head>
+<body>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=771485525759396&ev=PageView&noscript=1"
+  /></noscript>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a href="/" class="nav-logo" aria-label="Doing Life Today - Home">
+        <div class="nav-logo-mark" aria-hidden="true">DL</div>
+        <div class="nav-logo-text">Doing Life Today<span>Parkinson's Community</span></div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="/">Home</a></li>
+        <li><a href="/parkinsons-help-and-support">Support</a></li>
+        <li><a href="/parkinsons-community">Parkinson's Community</a></li>
+        <li><a href="/parkinsons-daily-check-in">Daily Check-In</a></li>
+        <li><a href="/parkinsons-symptom-tracker">Symptom Tracker</a></li>
+        <li><a href="/resources">Resources</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <a href="https://club.dolifetoday.com" class="btn btn-primary btn-sm nav-cta">Join The Club</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a href="/">Home</a>
+    <a href="/parkinsons-help-and-support">Support</a>
+    <a href="/parkinsons-community">Parkinson's Community</a>
+    <a href="/parkinsons-daily-check-in">Daily Check-In</a>
+    <a href="/parkinsons-symptom-tracker">Symptom Tracker</a>
+    <a href="/resources">Resources</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+    <div class="mobile-cta"><a href="https://club.dolifetoday.com" class="btn btn-primary">Join The Club</a></div>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+         SECTION 1 - INSTANT WIN
+         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <section class="wc-hero" aria-labelledby="wc-heading">
+      <div class="container">
+        <h1 id="wc-heading">You're In. Welcome to The Club &#127881;</h1>
+        <p class="wc-sub">You just joined a community of people who get it.</p>
+        <div class="wc-body">
+          <p>This isn't just another website.<br>This is a place where people living with Parkinson's connect, share, and support each other every day.</p>
+          <p>And now you're part of it.</p>
+        </div>
+        <p class="wc-free-note">And yes… it's completely free.</p>
+      </div>
+    </section>
+
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+         SECTION 2 - ORIENTATION
+         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <section class="wc-section" aria-labelledby="next-steps-heading">
+      <div class="container">
+        <span class="section-label">Getting Started</span>
+        <h2 id="next-steps-heading">Here's What to Do Next</h2>
+
+        <ol class="wc-steps">
+          <li>Head into the community feed</li>
+          <li>Introduce yourself (even just a sentence)</li>
+          <li>Check out today's Daily Check-In</li>
+        </ol>
+
+        <div class="wc-cta-group">
+          <a href="https://club.dolifetoday.com" class="btn btn-primary btn-lg">Go to The Club</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+         SECTION 3 - TRANSITION BRIDGE
+         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <section class="wc-section alt-bg" aria-labelledby="more-support-heading">
+      <div class="container">
+        <h2 id="more-support-heading">If You Want More Support…</h2>
+        <p style="max-width:600px;">Some people are happy just being part of the community.</p>
+        <p style="max-width:600px;">Others want something a little more personal…<br>more connection, more access, and more support.</p>
+        <p style="max-width:600px;">That's where the Inner Circle comes in.</p>
+      </div>
+    </section>
+
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+         SECTION 4 - INNER CIRCLE OFFER
+         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <section class="wc-section" aria-labelledby="inner-circle-heading">
+      <div class="container">
+        <span class="section-label">Go Deeper</span>
+        <h2 id="inner-circle-heading">The Inner Circle</h2>
+        <p style="color:var(--color-text-muted);font-size:1.05rem;">A smaller, more personal space inside The Club</p>
+
+        <div class="wc-ic-card">
+          <span class="wc-deal-badge">Limited-Time Offer</span>
+          <ul class="wc-ic-features">
+            <li>Monthly live Zoom calls with Bryce</li>
+            <li>Real conversations in a smaller group</li>
+            <li>Priority responses and support</li>
+            <li>A deeper level of connection</li>
+            <li>Direct access to Bryce and the community</li>
+          </ul>
+
+          <p class="wc-ic-price">$52/year <span>(about $1/week)</span></p>
+          <p style="font-size:0.9rem;color:var(--color-text-muted);margin-top:0.25rem;">Simple. Affordable. Optional.</p>
+          <p style="font-size:0.85rem;color:var(--color-text-muted);margin-top:0.15rem;"><span style="text-decoration:line-through;">$99/year</span> after this offer expires</p>
+          <div id="wc-countdown-card" class="wc-countdown" aria-live="polite"></div>
+
+          <!-- âœ  REPLACE href with your Stripe payment link -->
+          <div class="wc-cta-group">
+            <a href="#STRIPE_INNER_CIRCLE_LINK" class="btn btn-primary btn-lg" id="ic-checkout-btn">Join the Inner Circle</a>
+          </div>
+
+          <p class="wc-ic-trust">You don't need this to be part of The Club.<br>It's just there if you want more.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+         BRYCE QUOTE
+         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <section class="wc-section alt-bg">
+      <div class="container">
+        <blockquote class="wc-bryce-quote">
+          "I built this because I needed it myself."
+        </blockquote>
+        <p class="wc-bryce-attr">- Bryce Perry, Founder</p>
+      </div>
+    </section>
+
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+         SECTION 5 - PSYCHOLOGICAL CLOSE
+         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <section class="wc-section" aria-labelledby="comfortable-heading">
+      <div class="container">
+        <h2 id="comfortable-heading">Start Where You're Comfortable</h2>
+        <p style="max-width:580px;">There's no right way to do this.</p>
+        <p style="max-width:580px;">Some people stay in the free community and love it.<br>Others step into the Inner Circle for more support.</p>
+        <p style="max-width:580px;">Either way… you're not doing this alone anymore.</p>
+      </div>
+    </section>
+
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+         SECTION 6 - FINAL CTA
+         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <section class="wc-footer-cta" aria-labelledby="final-cta-heading">
+      <div class="container">
+        <h2 id="final-cta-heading">You're Part of This Now</h2>
+        <p>Start connecting. Start exploring. You belong here.</p>
+
+        <div class="wc-cta-group center">
+          <a href="https://club.dolifetoday.com" class="btn btn-primary btn-lg">Go to The Club</a>
+          <!-- âœ  REPLACE href with your Stripe payment link -->
+          <a href="#STRIPE_INNER_CIRCLE_LINK" class="btn btn-secondary btn-lg">Join the Inner Circle</a>
+        </div>
+
+        <p class="wc-no-pressure" style="margin-top:2rem;">You can stay in the free community as long as you want.<br>Upgrade anytime if it feels right.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Learn More</h4>
+          <ul class="footer-links">
+            <li><a href="/parkinsons-daily-check-in">Parkinson's Daily Check-In</a></li>
+            <li><a href="/parkinsons-community">Parkinson's Support Community</a></li>
+            <li><a href="/parkinsons-symptom-tracker">Parkinson's Symptom Tracker</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul class="footer-links">
+            <li><a href="/resources">Parkinson's Resources</a></li>
+            <li><a href="/parkinsons-help-and-support">Education &amp; Support</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>About</h4>
+          <ul class="footer-links">
+            <li><a href="/about">About Doing Life Today</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul class="footer-links">
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Doing Life Today. All rights reserved.</p>
+        <p class="footer-disclaimer">Peer support, not medical advice.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">&uarr;</button>
+
+  <!-- â”€â”€ Inner Circle Popup â”€â”€ -->
+  <div class="ic-popup-overlay" id="ic-popup-overlay">
+    <div class="ic-popup" role="dialog" aria-labelledby="ic-popup-title">
+      <button class="ic-popup-close" id="ic-popup-close" aria-label="Close">&times;</button>
+      <span class="wc-deal-badge">Limited-Time Offer</span>
+      <h3 id="ic-popup-title">Before You Go…</h3>
+      <p>Want deeper support? The Inner Circle is a smaller, more personal space inside The Club - live Zoom calls with Bryce, priority support, and a closer community.</p>
+      <p class="ic-popup-price">$52/year <span>(about $1/week)</span></p>
+      <p style="font-size:0.82rem;color:var(--color-text-muted);"><span style="text-decoration:line-through;">$99/year</span> after this offer expires</p>
+      <div id="wc-countdown-popup" class="wc-countdown" style="justify-content:center;" aria-live="polite"></div>
+      <!-- âœ  REPLACE href with your Stripe payment link -->
+      <a href="#STRIPE_INNER_CIRCLE_LINK" class="btn btn-primary btn-lg">Join the Inner Circle</a>
+      <p class="ic-popup-trust">No pressure. You don't need this to be part of The Club.</p>
+      <button class="ic-popup-skip" id="ic-popup-skip">I'm good for now - take me to The Club</button>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+  /* â”€â”€ Countdown Timer â”€â”€ */
+  (function () {
+    var DEADLINE = new Date('2026-04-21T00:00:00-04:00').getTime();
+    var targets = [
+      document.getElementById('wc-countdown-card'),
+      document.getElementById('wc-countdown-popup')
+    ].filter(Boolean);
+    if (!targets.length) return;
+
+    function pad(n) { return n < 10 ? '0' + n : n; }
+
+    function render() {
+      var now = Date.now();
+      var diff = DEADLINE - now;
+      if (diff <= 0) {
+        targets.forEach(function (el) {
+          el.innerHTML = '<p class="wc-countdown-expired">This offer has expired.</p>';
+        });
+        return;
+      }
+      var d = Math.floor(diff / 86400000);
+      var h = Math.floor((diff % 86400000) / 3600000);
+      var m = Math.floor((diff % 3600000) / 60000);
+      var s = Math.floor((diff % 60000) / 1000);
+      var html = '<div class="wc-countdown-unit"><span class="cd-val">' + pad(d) + '</span><span class="cd-label">Days</span></div>'
+        + '<div class="wc-countdown-unit"><span class="cd-val">' + pad(h) + '</span><span class="cd-label">Hours</span></div>'
+        + '<div class="wc-countdown-unit"><span class="cd-val">' + pad(m) + '</span><span class="cd-label">Min</span></div>'
+        + '<div class="wc-countdown-unit"><span class="cd-val">' + pad(s) + '</span><span class="cd-label">Sec</span></div>';
+      targets.forEach(function (el) { el.innerHTML = html; });
+      requestAnimationFrame(render);
+    }
+    render();
+  })();
+
+  /* â”€â”€ Inner Circle Popup (appears after 8s) â”€â”€ */
+  (function () {
+    var overlay = document.getElementById('ic-popup-overlay');
+    var closeBtn = document.getElementById('ic-popup-close');
+    var skipBtn = document.getElementById('ic-popup-skip');
+    if (!overlay) return;
+
+    function close() {
+      overlay.classList.remove('is-visible');
+      document.body.style.overflow = '';
+    }
+
+    setTimeout(function () {
+      overlay.classList.add('is-visible');
+      document.body.style.overflow = 'hidden';
+    }, 8000);
+
+    closeBtn.addEventListener('click', close);
+    skipBtn.addEventListener('click', function () {
+      close();
+      window.location.href = 'https://club.dolifetoday.com';
+    });
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay) close();
+    });
+  })();
+  </script>
+</body>
+</html>
+

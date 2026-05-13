@@ -6,6 +6,7 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="description" content="Doing Life Today Swag Store - wear your advocacy. Quality apparel and accessories for the Parkinson's community.">
   <title>Swag Store | Doing Life Today</title>
+  <link rel="canonical" href="https://dolifetoday.com/store">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -18,8 +19,13 @@
     gtag('js', new Date());
     gtag('config', 'G-K3LZZWBTWT');
   </script>
+  <script src="/js/analytics-events.js" defer></script>
+  <script src="/js/meta-pixel.js"></script>
 </head>
 <body>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=771485525759396&ev=PageView&noscript=1"
+  /></noscript>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <header class="site-header" role="banner">
@@ -33,8 +39,9 @@
         <li><a href="/podcasts">Podcasts</a></li>
         <li><a href="/youtube">YouTube</a></li>
         <li><a href="/theclub">The Club</a></li>
+        <li><a href="/exchange">The Exchange</a></li>
         <li><a href="/music">Music</a></li>
-        <li><a href="/community">Living With Parkinson's Guide</a></li>
+        <li><a href="/living-with-parkinsons-guide">Living With Parkinson's Guide</a></li>
         <li><a href="/resources">Resources</a></li>
         <li><a href="/events">Events</a></li>
         <li><a href="/contact">Contact</a></li>
@@ -51,8 +58,9 @@
     <a href="/podcasts">Podcasts</a>
     <a href="/youtube">YouTube</a>
     <a href="/theclub">The Club</a>
+    <a href="/exchange">The Exchange</a>
     <a href="/music">Music</a>
-    <a href="/community">Living With Parkinson's Guide</a>
+    <a href="/living-with-parkinsons-guide">Living With Parkinson's Guide</a>
     <a href="/resources">Resources</a>
     <a href="/events">Events</a>
     <a href="/contact">Contact</a>
@@ -63,9 +71,124 @@
 
     <section class="page-hero" aria-labelledby="store-hero-heading">
       <div class="container hero-content">
-        <span class="hero-badge">🛍️ Free Shipping on Orders Over $50</span>
+        <span class="hero-badge">&#128308; ? Free Shipping on Orders Over $50</span>
         <h1 id="store-hero-heading">Doing Life Today<br>Swag Store</h1>
         <p>Wear your advocacy. Support the community. Quality apparel and accessories that tell your story.</p>
+      </div>
+    </section>
+
+    <!-- MEMBERSHIPS -->
+    <section aria-labelledby="memberships-heading">
+      <div class="container">
+        <div class="section-header centered text-center">
+          <span class="section-label">The Club</span>
+          <h2 id="memberships-heading" class="section-title">Club Memberships</h2>
+          <p class="section-subtitle centered" style="max-width:580px;margin:0 auto 2rem;">Unlock smarter analytics, AI-powered insights, and exclusive community access &mdash; for Club members.</p>
+        </div>
+
+        <!-- Login prompt -->
+        <div id="store-auth-bar" style="max-width:860px;margin:0 auto 2rem;border-radius:0.75rem;background:var(--color-surface,#f8f9fa);border:1px solid var(--color-border,#e5e7eb);overflow:hidden;">
+          <div id="store-auth-loggedout">
+            <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;padding:1rem 1.25rem;">
+              <span style="font-size:0.875rem;color:var(--color-muted);">&#128274; Log in to link your purchase to your Club account instantly.</span>
+              <button id="store-signin-btn" onclick="storeShowForm()" style="font-size:0.8rem;font-weight:600;padding:0.4rem 1rem;border-radius:0.5rem;border:none;background:var(--color-primary,#6366f1);color:#fff;cursor:pointer;">Log in with Club account</button>
+            </div>
+            <div id="store-login-form" style="display:none;padding:1rem 1.25rem;border-top:1px solid var(--color-border,#e5e7eb);background:#fff;">
+              <div style="display:flex;flex-wrap:wrap;gap:0.5rem;align-items:flex-end;">
+                <div style="flex:1;min-width:180px;">
+                  <label style="font-size:0.75rem;font-weight:600;display:block;margin-bottom:0.25rem;">Email</label>
+                  <input id="store-email" type="email" placeholder="your@email.com" autocomplete="email" style="width:100%;padding:0.45rem 0.75rem;border-radius:0.5rem;border:1px solid var(--color-border,#e5e7eb);font-size:0.875rem;box-sizing:border-box;">
+                </div>
+                <div style="flex:1;min-width:160px;">
+                  <label style="font-size:0.75rem;font-weight:600;display:block;margin-bottom:0.25rem;">Password</label>
+                  <input id="store-password" type="password" placeholder="••••••••" autocomplete="current-password" style="width:100%;padding:0.45rem 0.75rem;border-radius:0.5rem;border:1px solid var(--color-border,#e5e7eb);font-size:0.875rem;box-sizing:border-box;">
+                </div>
+                <button onclick="storeSignIn()" style="padding:0.45rem 1.25rem;border-radius:0.5rem;border:none;background:var(--color-primary,#6366f1);color:#fff;font-size:0.875rem;font-weight:600;cursor:pointer;white-space:nowrap;">Sign In</button>
+              </div>
+              <p id="store-login-error" style="display:none;margin:0.5rem 0 0;font-size:0.8rem;color:#dc2626;"></p>
+              <p style="margin:0.5rem 0 0;font-size:0.75rem;color:var(--color-muted);">Use the same email &amp; password as your Club app account.</p>
+            </div>
+          </div>
+          <div id="store-auth-loggedin" style="display:none;padding:1rem 1.25rem;background:#dcfce7;border-radius:0.75rem;border:1.5px solid #16a34a;align-items:center;gap:0.75rem;flex-wrap:wrap;">
+            <span style="font-size:1.5rem;">&#9989;</span>
+            <div style="flex:1;">
+              <div style="font-size:0.95rem;font-weight:700;color:#15803d;">You're logged in!</div>
+              <div style="font-size:0.85rem;color:#166534;">Signed in as <strong id="store-user-email"></strong> &mdash; click any membership button below to purchase and your account will activate automatically.</div>
+            </div>
+            <button onclick="storeSignOut()" style="font-size:0.75rem;color:#15803d;background:none;border:1px solid #16a34a;border-radius:0.4rem;padding:0.25rem 0.6rem;cursor:pointer;">Log out</button>
+          </div>
+        </div>
+
+        <div class="grid-2" style="max-width:860px;margin:0 auto;">
+
+          <!-- TrendSense -->
+          <div class="card">
+            <div class="card-icon" style="margin-bottom:0.75rem;">&#128202;</div>
+            <h3 style="font-size:1.375rem;margin-bottom:0.25rem;">TrendSense</h3>
+            <div style="font-size:2rem;font-weight:800;margin:0.5rem 0 1.25rem;">$9.99<span style="font-size:1rem;font-weight:400;color:var(--color-muted)">/month</span></div>
+            <ul class="icon-list" style="margin-bottom:1.75rem;">
+              <li><span class="icon">&#10003;</span><span>Enhanced analytics &amp; trend insights</span></li>
+              <li><span class="icon">&#10003;</span><span>AI-powered pattern analysis</span></li>
+              <li><span class="icon">&#10003;</span><span>Medication &amp; symptom correlation tracking</span></li>
+              <li><span class="icon">&#10003;</span><span>Doctor discussion prompts with confidence scores</span></li>
+              <li><span class="icon">&#10003;</span><span>Action steps &amp; expanded explanations</span></li>
+            </ul>
+            <a id="btn-trendsense" href="https://buy.stripe.com/5kQ3cp2qwgScc3K88f6Na08" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width:100%;text-align:center;display:block;">Get TrendSense &#10145;&#65039;</a>
+          </div>
+
+          <!-- Inner Circle -->
+          <div class="card" style="position:relative;border:2px solid var(--color-primary,#6366f1);">
+            <div style="position:absolute;top:-0.9rem;left:50%;transform:translateX(-50%);background:var(--color-primary,#6366f1);color:#fff;font-size:0.7rem;font-weight:700;padding:0.25rem 1rem;border-radius:9999px;white-space:nowrap;letter-spacing:0.06em;text-transform:uppercase;">Most Popular</div>
+            <div class="card-icon" style="margin-bottom:0.75rem;">&#128081;</div>
+            <h3 style="font-size:1.375rem;margin-bottom:0.25rem;">Inner Circle</h3>
+            <div style="font-size:2rem;font-weight:800;margin:0.5rem 0 1.25rem;">$14.99<span style="font-size:1rem;font-weight:400;color:var(--color-muted)">/month</span></div>
+            <ul class="icon-list" style="margin-bottom:1.75rem;">
+              <li><span class="icon">&#10003;</span><span>Everything in TrendSense</span></li>
+              <li><span class="icon">&#10003;</span><span>Private Inner Circle community access</span></li>
+              <li><span class="icon">&#10003;</span><span>Bryce&#8217;s personal circle &amp; direct access to Bryce</span></li>
+              <li><span class="icon">&#10003;</span><span>Monthly live Zoom with Bryce</span></li>
+              <li><span class="icon">&#10003;</span><span>Ask Bryce anything, anytime</span></li>
+              <li><span class="icon">&#10003;</span><span>Early access to new features</span></li>
+            </ul>
+            <a id="btn-inner-circle" href="https://buy.stripe.com/14A9ANfdi59uebSbkr6Na09" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width:100%;text-align:center;display:block;">Join Inner Circle &#10145;&#65039;</a>
+          </div>
+
+        </div>
+
+        <!-- Support the Club tiers -->
+        <div style="max-width:860px;margin:2.5rem auto 0;">
+          <div class="section-header centered text-center" style="margin-bottom:1.5rem;">
+            <span class="section-label">Support the Club</span>
+            <h3 style="font-size:1.5rem;font-weight:700;margin:0.25rem 0 0.5rem;">Give Back</h3>
+            <p style="font-size:0.9rem;color:var(--color-muted);max-width:500px;margin:0 auto;">Help keep the community growing for everyone living with Parkinson&apos;s. No app account required.</p>
+          </div>
+          <div class="grid-3">
+            <div class="card text-center">
+              <div style="font-size:1.75rem;margin-bottom:0.5rem;">&#9733;</div>
+              <h4 style="font-size:1.1rem;margin-bottom:0.25rem;">Supporter</h4>
+              <div style="font-size:1.5rem;font-weight:800;margin:0.25rem 0 0.75rem;">$5<span style="font-size:0.875rem;font-weight:400;color:var(--color-muted)">/month</span></div>
+              <p style="font-size:0.8rem;color:var(--color-muted);margin-bottom:1.25rem;">Help keep the community steady, supported, and available.</p>
+              <a href="https://buy.stripe.com/9B66oB8OU45qebSewD6Na05" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="width:100%;text-align:center;display:block;font-size:0.875rem;">Become a Supporter</a>
+            </div>
+            <div class="card text-center" style="border:2px solid var(--color-primary,#6366f1);position:relative;">
+              <div style="position:absolute;top:-0.9rem;left:50%;transform:translateX(-50%);background:var(--color-primary,#6366f1);color:#fff;font-size:0.65rem;font-weight:700;padding:0.2rem 0.75rem;border-radius:9999px;white-space:nowrap;letter-spacing:0.05em;text-transform:uppercase;">Popular</div>
+              <div style="font-size:1.75rem;margin-bottom:0.5rem;">&#9733;&#9733;</div>
+              <h4 style="font-size:1.1rem;margin-bottom:0.25rem;">Builder</h4>
+              <div style="font-size:1.5rem;font-weight:800;margin:0.25rem 0 0.75rem;">$15<span style="font-size:0.875rem;font-weight:400;color:var(--color-muted)">/month</span></div>
+              <p style="font-size:0.8rem;color:var(--color-muted);margin-bottom:1.25rem;">Help us grow, improve the experience, and care for members well.</p>
+              <a href="https://buy.stripe.com/8x25kx0iocBW1p60FN6Na06" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width:100%;text-align:center;display:block;font-size:0.875rem;">Become a Builder</a>
+            </div>
+            <div class="card text-center">
+              <div style="font-size:1.75rem;margin-bottom:0.5rem;">&#9733;&#9733;&#9733;</div>
+              <h4 style="font-size:1.1rem;margin-bottom:0.25rem;">Champion</h4>
+              <div style="font-size:1.5rem;font-weight:800;margin:0.25rem 0 0.75rem;">$30<span style="font-size:0.875rem;font-weight:400;color:var(--color-muted)">/month</span></div>
+              <p style="font-size:0.8rem;color:var(--color-muted);margin-bottom:1.25rem;">Help expand support so more people can find connection here.</p>
+              <a href="https://buy.stripe.com/fZu7sF9SY0Tegk0gEL6Na07" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="width:100%;text-align:center;display:block;font-size:0.875rem;">Become a Champion</a>
+            </div>
+          </div>
+        </div>
+
+        <p style="text-align:center;margin-top:1.5rem;font-size:0.875rem;color:var(--color-muted);">After purchase, open <a href="https://club.dolifetoday.com" target="_blank" rel="noopener noreferrer">club.dolifetoday.com</a> and log in &mdash; your membership activates automatically.</p>
       </div>
     </section>
 
@@ -78,17 +201,17 @@
         </div>
         <div class="grid-3">
           <div class="card text-center">
-            <div class="card-icon" style="margin:0 auto 1.25rem;">📣</div>
+            <div class="card-icon" style="margin:0 auto 1.25rem;">&#128085;</div>
             <h3>Wear Your Story</h3>
             <p>Every piece in the DLT store is designed to start conversations, raise awareness, and let the world know you're doing life on your own terms.</p>
           </div>
           <div class="card text-center">
-            <div class="card-icon" style="margin:0 auto 1.25rem;">💙</div>
+            <div class="card-icon" style="margin:0 auto 1.25rem;">&#129309;</div>
             <h3>Support the Mission</h3>
             <p>A portion of every purchase supports DLT community programs, including free resources, events, and scholarships for bootcamp participants.</p>
           </div>
           <div class="card text-center">
-            <div class="card-icon" style="margin:0 auto 1.25rem;">⭐</div>
+            <div class="card-icon" style="margin:0 auto 1.25rem;">&#10024;</div>
             <h3>Quality You Can Trust</h3>
             <p>Premium materials, comfortable fits, and designs that actually look good. We use only quality blanks and ethical printing partners.</p>
           </div>
@@ -103,115 +226,52 @@
           <span class="section-label">Shop by Collection</span>
           <h2 id="collections-heading" class="section-title">Featured Collections</h2>
         </div>
-        <div class="category-nav" style="justify-content:center;" role="group" aria-label="Filter by collection">
-          <button class="cat-btn active">All Items</button>
-          <button class="cat-btn">Signature</button>
-          <button class="cat-btn">Inspirational</button>
-          <button class="cat-btn">Awareness</button>
-          <button class="cat-btn">Seasonal</button>
-          <button class="cat-btn">Accessories</button>
-        </div>
-
         <!-- PRODUCT GRID -->
         <div class="grid-4" role="list" aria-label="Products">
           <article class="product-card" role="listitem">
-            <div class="product-image" aria-hidden="true">👕</div>
+            <div class="product-image" aria-hidden="true">&#128085;</div>
             <div class="product-body">
-              <h3>DLT Signature Tee</h3>
-              <p class="product-desc">The classic. "Doing Life Today" in our signature gradient print. Premium cotton blend, unisex fit.</p>
+              <h3>Apparel</h3>
+              <p class="product-desc">Tees, hoodies, and hats that tell your story and start real conversations about Parkinson&#8217;s awareness.</p>
               <div class="product-footer">
-                <span class="product-price">$32</span>
-                <a href="https://dolifetoday.myspreadshop.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" aria-label="Shop DLT Signature Tee">Shop Now →</a>
+                <a href="https://shop.dolifetoday.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Shop Now &#10145;&#65039;</a>
               </div>
             </div>
           </article>
-
           <article class="product-card" role="listitem">
-            <div class="product-image" aria-hidden="true">🧢</div>
+            <div class="product-image" aria-hidden="true">&#9749;</div>
             <div class="product-body">
-              <h3>Advocacy Cap</h3>
-              <p class="product-desc">Structured cap with embroidered DLT logo. Adjustable strap, one size fits most.</p>
+              <h3>Drinkware</h3>
+              <p class="product-desc">Mugs, tumblers, and everyday carry you&#8217;ll actually use. Dishwasher safe, premium quality.</p>
               <div class="product-footer">
-                <span class="product-price">$28</span>
-                <a href="https://dolifetoday.myspreadshop.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" aria-label="Shop Advocacy Cap">Shop Now →</a>
+                <a href="https://shop.dolifetoday.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Shop Now &#10145;&#65039;</a>
               </div>
             </div>
           </article>
-
           <article class="product-card" role="listitem">
-            <div class="product-image" aria-hidden="true">☕</div>
+            <div class="product-image" aria-hidden="true">&#128092;</div>
             <div class="product-body">
-              <h3>"Real Talk" Mug</h3>
-              <p class="product-desc">15oz ceramic mug with "Real Talk. Real Life. Real Hope." wrap-around print. Dishwasher safe.</p>
+              <h3>Accessories</h3>
+              <p class="product-desc">Totes, bracelets, and accessories designed for the Parkinson&#8217;s community.</p>
               <div class="product-footer">
-                <span class="product-price">$22</span>
-                <span class="product-badge">Best Seller</span>
+                <a href="https://shop.dolifetoday.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Shop Now &#10145;&#65039;</a>
               </div>
-              <a href="https://dolifetoday.myspreadshop.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm mt-2" style="width:100%;" aria-label="Shop Real Talk Mug">Shop Now →</a>
             </div>
           </article>
-
           <article class="product-card" role="listitem">
-            <div class="product-image" aria-hidden="true">🧥</div>
+            <div class="product-image" aria-hidden="true">&#10024;</div>
             <div class="product-body">
-              <h3>Community Hoodie</h3>
-              <p class="product-desc">Premium pullover hoodie with "I Do Life Today" chest print. Super soft fleece interior.</p>
+              <h3>New Arrivals</h3>
+              <p class="product-desc">See what&#8217;s just landed in the DLT store &mdash; fresh designs and limited seasonal drops.</p>
               <div class="product-footer">
-                <span class="product-price">$58</span>
                 <span class="product-badge">New</span>
-              </div>
-              <a href="https://dolifetoday.myspreadshop.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm mt-2" style="width:100%;" aria-label="Shop Community Hoodie">Shop Now →</a>
-            </div>
-          </article>
-
-          <article class="product-card" role="listitem">
-            <div class="product-image" aria-hidden="true">🎽</div>
-            <div class="product-body">
-              <h3>Movement Tee</h3>
-              <p class="product-desc">Moisture-wicking athletic tee. Perfect for exercise therapy, walks, and Rock Steady Boxing sessions.</p>
-              <div class="product-footer">
-                <span class="product-price">$36</span>
-                <a href="https://dolifetoday.myspreadshop.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" aria-label="Shop Movement Tee">Shop Now →</a>
+                <a href="https://shop.dolifetoday.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Shop Now &#10145;&#65039;</a>
               </div>
             </div>
           </article>
-
-          <article class="product-card" role="listitem">
-            <div class="product-image" aria-hidden="true">🎒</div>
-            <div class="product-body">
-              <h3>Advocacy Tote</h3>
-              <p class="product-desc">Heavy canvas tote bag with "Fighting for a Cure" print. 100% cotton, reinforced handles.</p>
-              <div class="product-footer">
-                <span class="product-price">$24</span>
-                <a href="https://dolifetoday.myspreadshop.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" aria-label="Shop Advocacy Tote">Shop Now →</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="product-card" role="listitem">
-            <div class="product-image" aria-hidden="true">📔</div>
-            <div class="product-body">
-              <h3>Symptom Journal</h3>
-              <p class="product-desc">Guided journal for daily symptom tracking. 90 days of structured entries with reflection prompts.</p>
-              <div class="product-footer">
-                <span class="product-price">$18</span>
-                <span class="product-badge">Best Seller</span>
-              </div>
-              <a href="https://dolifetoday.myspreadshop.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" aria-label="Shop Symptom Journal">Shop Now →</a>
-            </div>
-          </article>
-
-          <article class="product-card" role="listitem">
-            <div class="product-image" aria-hidden="true">📿</div>
-            <div class="product-body">
-              <h3>Awareness Bracelet</h3>
-              <p class="product-desc">Silicone awareness bracelet with "Doing Life Today" text. Pack of 3. Grey + Teal + Purple.</p>
-              <div class="product-footer">
-                <span class="product-price">$12</span>
-                <a href="https://dolifetoday.myspreadshop.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" aria-label="Shop Awareness Bracelet">Shop Now →</a>
-              </div>
-            </div>
-          </article>
+        </div>
+        <div style="text-align:center;margin-top:2rem;">
+          <a href="https://shop.dolifetoday.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary">Browse Full Store &#10145;&#65039;</a>
         </div>
       </div>
     </section>
@@ -224,18 +284,18 @@
             <span class="section-label">Shipping Info</span>
             <h2 id="shipping-heading" class="section-title">Shipping &amp; Returns</h2>
             <ul class="icon-list" style="margin-top:1rem;">
-              <li><span class="icon">🚚</span><span>Free standard shipping on orders over $50</span></li>
-              <li><span class="icon">📦</span><span>Standard shipping: 5–7 business days (US)</span></li>
-              <li><span class="icon">⚡</span><span>Expedited shipping: 2–3 business days (US)</span></li>
-              <li><span class="icon">🌍</span><span>International shipping available to 40+ countries</span></li>
-              <li><span class="icon">🔄</span><span>Easy returns within 30 days of purchase</span></li>
-              <li><span class="icon">💬</span><span>Contact <a href="mailto:office@dolifetoday.com">office@dolifetoday.com</a> for help</span></li>
+              <li><span class="icon">&#128666;</span><span>Free standard shipping on orders over $50</span></li>
+              <li><span class="icon">&#128230;</span><span>Standard shipping: 5&ndash;7 business days (US)</span></li>
+              <li><span class="icon">&#9889;</span><span>Expedited shipping: 2&ndash;3 business days (US)</span></li>
+              <li><span class="icon">&#127757;</span><span>International shipping available to 40+ countries</span></li>
+              <li><span class="icon">&#8617;</span><span>Easy returns within 30 days of purchase</span></li>
+              <li><span class="icon">&#128172;</span><span>Contact <a href="mailto:office@dolifetoday.com">office@dolifetoday.com</a> for help</span></li>
             </ul>
           </div>
 
           <!-- NEWSLETTER -->
           <div class="card" style="background:var(--gradient-card);">
-            <div class="card-icon">📧</div>
+            <div class="card-icon">&#128231;</div>
             <h3>Get 10% Off Your First Order</h3>
             <p>Subscribe to our newsletter and receive a 10% discount code for your first purchase.</p>
             <form class="newsletter-form" style="flex-direction:column;gap:0.75rem;margin-top:1.25rem;" aria-label="Store newsletter signup">
@@ -255,12 +315,12 @@
         <h2 id="gallery-heading" class="section-title">Wear It. Share It. Inspire Others.</h2>
         <p class="section-subtitle centered">Tag us @dolifetoday and use #DoLifeToday to be featured in our community gallery.</p>
         <div class="grid-4" style="margin-top:2rem;">
-          <div style="aspect-ratio:1;background:var(--gradient-card);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;font-size:2.5rem;border:1px solid var(--color-border);">📸</div>
-          <div style="aspect-ratio:1;background:var(--gradient-card);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;font-size:2.5rem;border:1px solid var(--color-border);">📸</div>
-          <div style="aspect-ratio:1;background:var(--gradient-card);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;font-size:2.5rem;border:1px solid var(--color-border);">📸</div>
-          <div style="aspect-ratio:1;background:var(--gradient-card);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;font-size:2.5rem;border:1px solid var(--color-border);">📸</div>
+          <div style="aspect-ratio:1;background:var(--gradient-card);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;font-size:2.5rem;border:1px solid var(--color-border);">&#128248;</div>
+          <div style="aspect-ratio:1;background:var(--gradient-card);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;font-size:2.5rem;border:1px solid var(--color-border);">&#128248;</div>
+          <div style="aspect-ratio:1;background:var(--gradient-card);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;font-size:2.5rem;border:1px solid var(--color-border);">&#128248;</div>
+          <div style="aspect-ratio:1;background:var(--gradient-card);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;font-size:2.5rem;border:1px solid var(--color-border);">&#128248;</div>
         </div>
-        <a href="https://www.instagram.com/doinglifetoday" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary mt-4">Follow @doinglifetoday on Instagram ↗</a>
+        <a href="https://www.instagram.com/doinglifetoday" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary mt-4">Follow @doinglifetoday on Instagram &#10145;&#65039;</a>
       </div>
     </section>
 
@@ -275,7 +335,7 @@
             <div class="nav-logo-text">Doing Life Today<span>Parkinson's Community</span></div>
           </a>
           <p>Connecting people living with Parkinson's through podcasts, community, and real conversations - since 2018.</p>
-          <a href="https://bryceperry.org" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">Book Bryce for Speaking →</a>
+          <a href="https://bryceperry.org" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">Book Bryce for Speaking ?</a>
         </div>
         <div class="footer-col">
           <h4>Quick Links</h4>
@@ -294,18 +354,19 @@
           <ul class="footer-links">
             <li><a href="https://dolifetoday.com">Doing Life Today</a></li>
             <li><a href="/theclub">The Club</a></li>
-            <li><a href="https://podcast.dolifetoday.com" target="_blank" rel="noopener noreferrer">Podcast Network ↗</a></li>
-            <li><a href="https://bryceperry.org" target="_blank" rel="noopener noreferrer">Speaking &amp; Media ↗</a></li>
-            <li><a href="https://dolifetoday.myspreadshop.com" target="_blank" rel="noopener noreferrer">Merch Store ↗</a></li>
-            <li><a href="https://community.dolifetoday.com/pages/inner-circle" target="_blank" rel="noopener noreferrer">Inner Circle ↗</a></li>
+            <li><a href="https://podcast.dolifetoday.com" target="_blank" rel="noopener noreferrer">Podcast Network ?</a></li>
+            <li><a href="https://bryceperry.org" target="_blank" rel="noopener noreferrer">Speaking &amp; Media ?</a></li>
+            <li><a href="https://shop.dolifetoday.com" target="_blank" rel="noopener noreferrer">Merch Store ?</a></li>
+            <li><a href="/exchange">The Exchange</a></li>
+            <li><a href="/inner-circle">Inner Circle</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>Connect</h4>
           <div class="footer-social" role="list">
-            <a href="https://www.youtube.com/@doinglifetoday" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube" role="listitem">▶</a>
-            <a href="https://www.instagram.com/doinglifetoday" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Instagram" role="listitem">📷</a>
-            <a href="https://www.tiktok.com/@doinglifetoday" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="TikTok" role="listitem">♪</a>
+            <a href="https://www.youtube.com/@doinglifetoday" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube" role="listitem">?</a>
+            <a href="https://www.instagram.com/doinglifetoday" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Instagram" role="listitem">&#128247;</a>
+            <a href="https://www.tiktok.com/@doinglifetoday" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="TikTok" role="listitem">?</a>
             <a href="https://www.facebook.com/doinglifetoday" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Facebook" role="listitem">f</a>
           </div>
           <ul class="footer-links mt-3">
@@ -316,13 +377,104 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2025 Doing Life Today. All rights reserved. · <a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms of Use</a></p>
-        <p class="footer-disclaimer">⚕️ This site provides peer support, not medical advice. Always consult your healthcare provider.</p>
+        <p>&copy; 2025 Doing Life Today. All rights reserved. &middot; <a href="/privacy">Privacy Policy</a> &middot; <a href="/terms">Terms of Use</a></p>
+        <p class="footer-disclaimer">&#9888;&#65039; This site provides peer support, not medical advice. Always consult your healthcare provider.</p>
       </div>
     </div>
   </footer>
 
-  <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">↑</button>
+  <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">?</button>
   <script src="js/main.js"></script>
+
+  <!-- Firebase Auth for store membership purchase -->
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js'
+    import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js'
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAtmkJj6T3GBSvAzVXQDYseBZvhozpBz3s",
+      authDomain: "pcn---new.firebaseapp.com",
+      projectId: "pcn---new",
+      storageBucket: "pcn---new.firebasestorage.app",
+      messagingSenderId: "71645222492",
+      appId: "1:71645222492:web:9a99a977553bb42e837899"
+    }
+
+    // Stripe Payment Link base URLs
+    const PAYMENT_LINKS = {
+      trendsense:   'https://buy.stripe.com/5kQ3cp2qwgScc3K88f6Na08',
+      innerCircle:  'https://buy.stripe.com/14A9ANfdi59uebSbkr6Na09',
+    }
+
+    const app = initializeApp(firebaseConfig)
+    const auth = getAuth(app)
+
+    function updateButtons(uid) {
+      const btnTS = document.getElementById('btn-trendsense')
+      const btnIC = document.getElementById('btn-inner-circle')
+      if (!btnTS || !btnIC) return
+      if (uid) {
+        btnTS.href = PAYMENT_LINKS.trendsense + '?client_reference_id=' + encodeURIComponent(uid)
+        btnIC.href = PAYMENT_LINKS.innerCircle + '?client_reference_id=' + encodeURIComponent(uid)
+      } else {
+        btnTS.href = PAYMENT_LINKS.trendsense
+        btnIC.href = PAYMENT_LINKS.innerCircle
+      }
+    }
+
+    onAuthStateChanged(auth, (user) => {
+      const loggedOut = document.getElementById('store-auth-loggedout')
+      const loggedIn  = document.getElementById('store-auth-loggedin')
+      const emailEl   = document.getElementById('store-user-email')
+      if (user) {
+        loggedOut.style.display = 'none'
+        loggedIn.style.display  = 'flex'
+        if (emailEl) emailEl.textContent = user.email || 'your account'
+        updateButtons(user.uid)
+      } else {
+        loggedOut.style.display = 'block'
+        loggedIn.style.display  = 'none'
+        updateButtons(null)
+      }
+    })
+
+    window.storeShowForm = function() {
+      const form = document.getElementById('store-login-form')
+      if (form) { form.style.display = form.style.display === 'none' ? 'block' : 'none' }
+      const emailInput = document.getElementById('store-email')
+      if (emailInput) emailInput.focus()
+    }
+
+    window.storeSignIn = async function() {
+      const email = document.getElementById('store-email')?.value?.trim()
+      const password = document.getElementById('store-password')?.value
+      const errorEl = document.getElementById('store-login-error')
+      if (!email || !password) {
+        if (errorEl) { errorEl.textContent = 'Please enter your email and password.'; errorEl.style.display = 'block' }
+        return
+      }
+      try {
+        if (errorEl) errorEl.style.display = 'none'
+        await signInWithEmailAndPassword(auth, email, password)
+      } catch (err) {
+        const msg = err.code === 'auth/invalid-credential' || err.code === 'auth/wrong-password' || err.code === 'auth/user-not-found'
+          ? 'Incorrect email or password. Try again.' : 'Sign in failed. Please try again.'
+        if (errorEl) { errorEl.textContent = msg; errorEl.style.display = 'block' }
+      }
+    }
+
+    // Allow pressing Enter to submit
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && document.getElementById('store-login-form')?.style.display !== 'none') {
+        window.storeSignIn()
+      }
+    })
+
+    window.storeSignOut = async function() {
+      await signOut(auth)
+    }
+  </script>
+
 </body>
 </html>
+

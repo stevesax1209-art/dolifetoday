@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -12,8 +12,21 @@
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/exchange.css">
   <link rel="stylesheet" href="/css/provider-ecosystem.css">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3LZZWBTWT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K3LZZWBTWT');
+  </script>
+  <script src="/js/analytics-events.js" defer></script>
+  <script src="/js/meta-pixel.js"></script>
 </head>
 <body>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=771485525759396&ev=PageView&noscript=1"
+  /></noscript>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <header class="site-header" role="banner">
@@ -29,7 +42,7 @@
         <li><a href="/theclub">The Club</a></li>
         <li><a href="/exchange">The Exchange</a></li>
         <li><a href="/music">Music</a></li>
-        <li><a href="/community">Living With Parkinson's Guide</a></li>
+        <li><a href="/living-with-parkinsons-guide">Living With Parkinson's Guide</a></li>
         <li><a href="/resources">Resources</a></li>
         <li><a href="/events">Events</a></li>
         <li><a href="/contact">Contact</a></li>
@@ -48,7 +61,7 @@
     <a href="/theclub">The Club</a>
     <a href="/exchange">The Exchange</a>
     <a href="/music">Music</a>
-    <a href="/community">Living With Parkinson's Guide</a>
+    <a href="/living-with-parkinsons-guide">Living With Parkinson's Guide</a>
     <a href="/resources">Resources</a>
     <a href="/events">Events</a>
     <a href="/contact">Contact</a>
@@ -98,6 +111,36 @@
 
               <!-- Section 1: Listing Management -->
               <article class="pe-card" id="dash-edit-section">
+
+                <!-- Upgrade CTA — choices vary by current tier (set by JS) -->
+                <div id="dash-upgrade-banner" class="dash-upgrade-banner" hidden>
+                  <div style="padding:1.25rem 1.5rem;background:linear-gradient(135deg,#1a2332 0%,#1f3044 100%);border:1px solid #20b2aa44;border-radius:12px;margin-bottom:1.5rem;">
+                    <h3 id="dash-upgrade-title" style="margin:0 0 .35rem;font-size:1.15rem;color:#fff;">🔓 Unlock more</h3>
+                    <p id="dash-upgrade-subtitle" style="margin:0 0 1rem;font-size:.92rem;color:#9ca3af;max-width:54ch;">Pick the plan that fits where you are.</p>
+                    <div id="dash-upgrade-options" style="display:grid;gap:.75rem;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));">
+                      <!-- Verified tier card -->
+                      <div class="dash-upgrade-option" id="dash-upgrade-verified-card" style="padding:1rem;border:1px solid rgba(255,255,255,0.10);border-radius:10px;background:rgba(255,255,255,0.02);">
+                        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:.5rem;margin-bottom:.5rem;">
+                          <strong style="color:#fff;">Verified</strong>
+                          <span style="color:#20b2aa;font-weight:700;">$9<span style="font-size:.75rem;font-weight:400;">/mo</span></span>
+                        </div>
+                        <p style="margin:0 0 .75rem;font-size:.82rem;color:#9ca3af;">Edit your listing, add photos, contact info, and trust signals.</p>
+                        <button type="button" id="dash-upgrade-verified-btn" class="btn btn-outline-primary btn-sm" style="width:100%;">Get Verified</button>
+                      </div>
+                      <!-- Club Partner tier card -->
+                      <div class="dash-upgrade-option" id="dash-upgrade-community-card" style="padding:1rem;border:1px solid rgba(245,158,11,0.25);border-radius:10px;background:linear-gradient(135deg,rgba(245,158,11,0.08),rgba(245,158,11,0.02));">
+                        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:.5rem;margin-bottom:.5rem;">
+                          <strong style="color:#fff;">Club Partner</strong>
+                          <span style="color:#f59e0b;font-weight:700;">$49<span style="font-size:.75rem;font-weight:400;">/mo</span></span>
+                        </div>
+                        <p style="margin:0 0 .75rem;font-size:.82rem;color:#fbbf24cc;">Your own club inside The Club. Members follow you, your posts hit their daily feed.</p>
+                        <button type="button" id="dash-upgrade-community-btn" class="btn btn-primary btn-sm" style="width:100%;background:linear-gradient(135deg,#f59e0b,#d97706);border-color:#d97706;">Become a Club Partner</button>
+                      </div>
+                    </div>
+                    <p id="dash-upgrade-error" style="margin:.75rem 0 0;color:#ef4444;font-size:.85rem;display:none;"></p>
+                  </div>
+                </div>
+
                 <span class="section-label">Listing Management</span>
                 <h2 class="section-title" style="font-size:1.5rem;">Edit your listing</h2>
                 <form id="dash-edit-form" class="pe-form" novalidate>
@@ -106,9 +149,9 @@
                     <input id="dash-edit-name" type="text" required>
                   </div>
                   <div class="pe-form-row">
-                    <div class="pe-field">
-                      <label for="dash-edit-category">Category</label>
-                      <select id="dash-edit-category">
+                    <div class="pe-field dash-paid-field">
+                      <label for="dash-edit-category">Category <span class="pe-premium-badge">Premium</span></label>
+                      <select id="dash-edit-category" size="8">
                         <option value="exercise">Exercise &amp; Movement</option>
                         <option value="therapy">Therapy &amp; Rehabilitation</option>
                         <option value="neurology">Neurology &amp; Medical</option>
@@ -118,11 +161,19 @@
                         <option value="nutrition">Nutrition &amp; Wellness</option>
                         <option value="caregiving">Caregiving Support</option>
                         <option value="research">Research &amp; Clinical Trials</option>
+                        <optgroup label="Products">
+                          <option value="products">Products (General)</option>
+                          <option value="products-sleep-aids">Sleep Aids</option>
+                          <option value="products-mobility-aids">Mobility Aids</option>
+                          <option value="products-adaptive-clothing">Adaptive Clothing</option>
+                          <option value="products-assistive-devices">Assistive Devices</option>
+                          <option value="products-home-safety">Home Safety</option>
+                        </optgroup>
                         <option value="other">Other</option>
                       </select>
                     </div>
-                    <div class="pe-field">
-                      <label for="dash-edit-format">Service Mode</label>
+                    <div class="pe-field dash-service-field dash-paid-field">
+                      <label for="dash-edit-format">Service Mode <span class="pe-premium-badge">Premium</span></label>
                       <select id="dash-edit-format">
                         <option value="in-person">In-person</option>
                         <option value="virtual">Virtual</option>
@@ -134,32 +185,47 @@
                     <label for="dash-edit-description">Description</label>
                     <textarea id="dash-edit-description" rows="4"></textarea>
                   </div>
-                  <div class="pe-form-row">
-                    <div class="pe-field">
-                      <label for="dash-edit-city">City</label>
+                  <div class="pe-form-row dash-service-field">
+                    <div class="pe-field dash-paid-field">
+                      <label for="dash-edit-city">City <span class="pe-premium-badge">Premium</span></label>
                       <input id="dash-edit-city" type="text">
                     </div>
-                    <div class="pe-field">
-                      <label for="dash-edit-state">State / Province</label>
+                    <div class="pe-field dash-paid-field">
+                      <label for="dash-edit-state">State / Province <span class="pe-premium-badge">Premium</span></label>
                       <input id="dash-edit-state" type="text">
                     </div>
-                    <div class="pe-field">
-                      <label for="dash-edit-country">Country</label>
+                    <div class="pe-field dash-paid-field">
+                      <label for="dash-edit-country">Country <span class="pe-premium-badge">Premium</span></label>
                       <input id="dash-edit-country" type="text">
                     </div>
                   </div>
+                  <div class="pe-field dash-product-field" style="display:none;">
+                    <label>Ships To</label>
+                    <div style="display:flex;flex-wrap:wrap;gap:0.5rem 1rem;margin-top:0.35rem;">
+                      <label class="pe-checkbox"><input type="checkbox" value="Worldwide" data-ships="dash"> Worldwide</label>
+                      <label class="pe-checkbox"><input type="checkbox" value="US" data-ships="dash"> US</label>
+                      <label class="pe-checkbox"><input type="checkbox" value="Canada" data-ships="dash"> Canada</label>
+                      <label class="pe-checkbox"><input type="checkbox" value="UK" data-ships="dash"> UK</label>
+                      <label class="pe-checkbox"><input type="checkbox" value="Australia" data-ships="dash"> Australia</label>
+                      <label class="pe-checkbox"><input type="checkbox" value="Europe" data-ships="dash"> Europe</label>
+                    </div>
+                  </div>
                   <div class="pe-form-row">
-                    <div class="pe-field">
-                      <label for="dash-edit-website">Website</label>
+                    <div class="pe-field dash-paid-field">
+                      <label for="dash-edit-website">Website <span class="pe-premium-badge">Premium</span></label>
                       <input id="dash-edit-website" type="url">
                     </div>
-                    <div class="pe-field">
-                      <label for="dash-edit-phone">Phone</label>
+                    <div class="pe-field dash-paid-field">
+                      <label for="dash-edit-phone">Phone <span class="pe-premium-badge">Premium</span></label>
                       <input id="dash-edit-phone" type="tel">
                     </div>
                   </div>
-                  <div class="pe-field">
-                    <label for="dash-edit-tags">Tags (comma-separated)</label>
+                  <div class="pe-field dash-product-field dash-paid-field" style="display:none;">
+                    <label for="dash-edit-buylink">Buy Link <span class="pe-premium-badge">Premium</span></label>
+                    <input id="dash-edit-buylink" type="url" placeholder="https://...">
+                  </div>
+                  <div class="pe-field dash-paid-field">
+                    <label for="dash-edit-tags">Tags <span class="pe-premium-badge">Premium</span></label>
                     <input id="dash-edit-tags" type="text">
                   </div>
                   <p id="dash-edit-error" style="color:#ef4444;font-size:0.92rem;display:none;"></p>
@@ -193,6 +259,7 @@
                     <span class="dash-stat-label">Search appearances</span>
                   </div>
                 </div>
+                <p class="dash-activity-hint" style="font-size:0.85rem;color:var(--color-text-muted);margin-top:1rem;font-style:italic;">Activity is already building around providers in your category.</p>
               </article>
             </div>
 
@@ -217,6 +284,29 @@
                   </div>
                 </div>
 
+                <!-- Average Rating -->
+                <div id="dash-club-rating" class="dash-club-rating" hidden>
+                  <div style="display:flex;align-items:center;gap:0.5rem;margin-top:1rem;">
+                    <span id="dash-club-rating-stars" style="font-size:1.25rem;letter-spacing:2px;"></span>
+                    <span id="dash-club-rating-value" style="font-size:1.1rem;font-weight:700;color:var(--color-white);"></span>
+                    <span id="dash-club-rating-count" style="font-size:0.85rem;color:var(--color-text-muted);"></span>
+                  </div>
+                </div>
+
+                <!-- Recent Activity Feed -->
+                <div id="dash-club-activity-feed" class="dash-club-feed" hidden>
+                  <h3 style="font-size:0.92rem;font-weight:700;color:var(--color-text-muted);margin:1.25rem 0 0.6rem;text-transform:uppercase;letter-spacing:0.05em;">Recent Activity</h3>
+                  <ul id="dash-club-feed-list" style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.5rem;"></ul>
+                </div>
+
+                <!-- Engagement Trend -->
+                <div id="dash-club-trend" hidden style="margin-top:1rem;padding:0.75rem 1rem;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid var(--pe-line);">
+                  <div style="display:flex;align-items:center;gap:0.5rem;">
+                    <span id="dash-club-trend-icon" style="font-size:1.1rem;"></span>
+                    <span id="dash-club-trend-text" style="font-size:0.88rem;color:var(--color-text-muted);"></span>
+                  </div>
+                </div>
+
                 <!-- Locked block for non-$49 -->
                 <div class="dash-locked-block" id="dash-club-locked">
                   <div class="dash-locked-icon">🔒</div>
@@ -235,8 +325,11 @@
 
                 <!-- Unlocked block for $49 -->
                 <div id="dash-club-unlocked" hidden style="margin-top:1rem;">
-                  <p class="text-muted">Your provider presence is active inside The Club.</p>
-                  <a href="https://club.dolifetoday.com" class="btn btn-outline-primary" style="width:100%;margin-top:0.75rem;">View your presence in The Club</a>
+                  <p class="text-muted">Your provider presence is active in The Exchange.</p>
+                  <div style="display:flex;flex-direction:column;gap:0.5rem;margin-top:0.75rem;">
+                    <a href="/exchange" class="btn btn-outline-primary" style="width:100%;">View your listing in The Exchange</a>
+                    <a href="https://club.dolifetoday.com" class="btn btn-outline-primary" style="width:100%;">Go to The Club</a>
+                  </div>
                 </div>
               </article>
 
@@ -260,12 +353,12 @@
       <div id="dash-upgrade-success" class="container" style="padding:0 1.5rem 3rem;" hidden>
         <div class="pe-card pe-success-card">
           <div class="pe-success-icon">🎉</div>
-          <h2 class="section-title">You're now part of The Club</h2>
-          <p class="text-muted" style="max-width:48ch;margin:0 auto 1.25rem;">Your provider presence is now active inside The Club.</p>
+          <h2 class="section-title">You're now part of The Exchange</h2>
+          <p class="text-muted" style="max-width:48ch;margin:0 auto 1.25rem;">Your provider presence is now active in The Exchange.</p>
           <div id="dash-upgrade-pending-note" hidden>
-            <p class="text-muted" style="margin-bottom:1rem;">Your Club presence will activate once your listing is approved.</p>
+            <p class="text-muted" style="margin-bottom:1rem;">Your Exchange presence will activate once your listing is approved.</p>
           </div>
-          <a href="https://club.dolifetoday.com" class="btn btn-primary btn-lg">View your presence in The Club</a>
+          <a href="/exchange" class="btn btn-primary btn-lg">View your listing in The Exchange</a>
         </div>
       </div>
     </div>
@@ -277,3 +370,4 @@
   <script src="/js/provider-dashboard.js" defer></script>
 </body>
 </html>
+

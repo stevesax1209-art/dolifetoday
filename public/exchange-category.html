@@ -1,18 +1,84 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Browse Parkinson's providers and programs by category on The Exchange by Doing Life Today.">
+  <meta name="description" content="Browse Parkinson's providers, programs, and services by category on The Exchange directory by Doing Life Today. Find exercise, therapy, support groups, and more.">
   <title>Exchange Category | Doing Life Today</title>
-  <link rel="canonical" href="https://dolifetoday.com/exchange" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Parkinson's Providers by Category | The Exchange" />
+  <meta property="og:description" content="Browse Parkinson's service providers by category — exercise, therapy, support groups, and more." />
+  <meta property="og:url" content="" id="og-url" />
+  <meta property="og:site_name" content="Doing Life Today" />
+  <meta name="twitter:card" content="summary" />
+  <script type="application/ld+json" id="schema-json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Parkinson's Providers by Category",
+    "description": "Browse Parkinson's disease service providers filtered by specialty category.",
+    "url": "",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Doing Life Today",
+      "url": "https://dolifetoday.com"
+    }
+  }
+  </script>
+  <link rel="canonical" href="" id="canonical-link" />
+  <script>
+    (function() {
+      var url = 'https://dolifetoday.com' + window.location.pathname;
+      document.getElementById('canonical-link').href = url;
+      document.getElementById('og-url').content = url;
+      var schema = document.getElementById('schema-json');
+      var data = JSON.parse(schema.textContent);
+      data.url = url;
+      schema.textContent = JSON.stringify(data);
+
+      // Set category-specific title and description synchronously for SEO
+      var parts = window.location.pathname.split('/').filter(Boolean);
+      var ci = parts.indexOf('category');
+      var slug = (ci !== -1 && parts[ci + 1]) ? decodeURIComponent(parts[ci + 1]) : '';
+      if (slug) {
+        var labels = {
+          'exercise': 'Exercise', 'support-group': 'Support Groups', 'physical-therapy': 'Physical Therapy',
+          'speech-therapy': 'Speech Therapy', 'occupational-therapy': 'Occupational Therapy', 'boxing': 'Boxing',
+          'dance': 'Dance', 'yoga': 'Yoga', 'cycling': 'Cycling', 'lsvt-big': 'LSVT BIG',
+          'lsvt-loud': 'LSVT LOUD', 'rock-steady-boxing': 'Rock Steady Boxing', 'tai-chi': 'Tai Chi',
+          'nutrition': 'Nutrition', 'research': 'Research', 'clinical-trials': 'Clinical Trials',
+          'movement-disorder-specialist': 'Movement Disorder Specialists', 'caregiver-support': 'Caregiver Support',
+          'products': 'Products', 'products-sleep-aids': 'Sleep Aids', 'products-mobility-aids': 'Mobility Aids',
+          'products-adaptive-clothing': 'Adaptive Clothing', 'products-assistive-devices': 'Assistive Devices',
+          'products-home-safety': 'Home Safety'
+        };
+        var label = labels[slug] || slug.replace(/-/g, ' ').replace(/\b\w/g, function(c) { return c.toUpperCase(); });
+        document.title = label + ' | Parkinson\'s Providers | The Exchange | Doing Life Today';
+        var desc = document.querySelector('meta[name="description"]');
+        if (desc) desc.setAttribute('content', 'Browse Parkinson\'s ' + label.toLowerCase() + ' providers, programs, and services on The Exchange directory by Doing Life Today.');
+      }
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/exchange.css">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3LZZWBTWT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K3LZZWBTWT');
+  </script>
+  <script src="/js/analytics-events.js" defer></script>
+  <script src="/js/meta-pixel.js"></script>
 </head>
 <body>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=771485525759396&ev=PageView&noscript=1"
+  /></noscript>
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <header class="site-header" role="banner">
     <nav class="nav-inner" aria-label="Main navigation">
@@ -27,7 +93,7 @@
         <li><a href="/theclub">The Club</a></li>
         <li><a href="/exchange">The Exchange</a></li>
         <li><a href="/music">Music</a></li>
-        <li><a href="/community">Living With Parkinson's Guide</a></li>
+        <li><a href="/living-with-parkinsons-guide">Living With Parkinson's Guide</a></li>
         <li><a href="/resources">Resources</a></li>
         <li><a href="/events">Events</a></li>
         <li><a href="/contact">Contact</a></li>
@@ -45,7 +111,7 @@
     <a href="/theclub">The Club</a>
     <a href="/exchange">The Exchange</a>
     <a href="/music">Music</a>
-    <a href="/community">Living With Parkinson's Guide</a>
+    <a href="/living-with-parkinsons-guide">Living With Parkinson's Guide</a>
     <a href="/resources">Resources</a>
     <a href="/events">Events</a>
     <a href="/contact">Contact</a>
@@ -71,13 +137,12 @@
           <p>We could not build that category page from the current public Exchange listings.</p>
           <div class="exchange-provider-actions">
             <a href="/exchange" class="btn btn-primary">Back to The Exchange</a>
-            <a href="https://club.dolifetoday.com/?publicExchange=true" class="btn btn-outline-primary">View in The Club</a>
           </div>
         </div>
         <div id="exchange-category-content" hidden>
           <h1 id="exchange-category-heading" class="hero-title"></h1>
           <p id="exchange-category-subtitle" class="hero-subtitle"></p>
-          <p class="hero-support">These public listings are grouped from the canonical Exchange data inside The Club.</p>
+          <p class="hero-support">These listings are sourced from The Exchange directory.</p>
         </div>
       </div>
     </section>
@@ -109,10 +174,10 @@
           <article class="card">
             <span class="section-label">Next step</span>
             <h2 class="section-title">Need claim or profile access?</h2>
-            <p class="exchange-card-copy">The Exchange helps people discover Parkinson's providers and programs. The Club adds the insights, discussions, reviews, and claim tools that turn discovery into decisions.</p>
+            <p class="exchange-card-copy">The Exchange helps people discover Parkinson's providers and programs. Claim your listing to take control, respond to reviews, and unlock analytics.</p>
             <div class="exchange-stacked-actions">
-              <a href="https://club.dolifetoday.com/?exchange=add-listing" class="btn btn-outline-primary">Add Your Listing</a>
-              <a href="https://club.dolifetoday.com/?publicExchange=true" class="btn btn-primary">View in The Club</a>
+              <a href="/create-listing" class="btn btn-outline-primary">Add Your Listing</a>
+              <a href="/for-providers" class="btn btn-primary">For Providers</a>
               <a href="/exchange" class="btn btn-outline-primary">Back to Exchange Home</a>
             </div>
           </article>

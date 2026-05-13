@@ -1,0 +1,787 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Build your own personalized Parkinson's action plan inside The Club. Your trackers and daily check-ins power a one-page resource built just for you, in seconds.">
+  <title>Build Your Personalized Parkinson's Plan | The Club by Doing Life Today</title>
+
+  <meta property="og:title" content="Build Your Personalized Parkinson's Plan | The Club">
+  <meta property="og:description" content="Most tools track your symptoms. The Club turns your data into a personalized action plan you can actually use, built from your check-ins, trackers, and real life.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dolifetoday.com/your-resources">
+  <meta property="og:site_name" content="Doing Life Today">
+
+  <link rel="canonical" href="https://dolifetoday.com/your-resources">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Build Your Personalized Parkinson's Plan",
+    "description": "The Club turns your daily check-ins and tracker data into a personalized one-page action plan for managing Parkinson's symptoms like fatigue, sleep, anxiety, and more.",
+    "url": "https://dolifetoday.com/your-resources",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Doing Life Today",
+      "url": "https://dolifetoday.com"
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Doing Life Today",
+      "url": "https://dolifetoday.com"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a personalized Parkinson's plan in The Club?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It is a one-page action plan generated from your own tracker data and daily check-ins inside The Club. You pick a topic like fatigue, sleep, or anxiety, and the system builds a resource with insights, next steps, and practical guidance based on your real patterns."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does The Club personalize my plan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Club pulls from your symptom logs, medication tracking, exercise data, sleep entries, and daily check-ins. The more consistently you log, the more specific and useful each plan becomes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What topics can my personalized plan cover?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can choose from fatigue, sleep, anxiety, rough day resets, medication routines, wearing off, exercise, meal timing, doctor visit prep, travel with Parkinson's, newly diagnosed guidance, care partner conversations, and motivation slumps."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to be a member of The Club to use this?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Personalized plans are a free feature inside The Club, available to all members. You can join The Club at club.dolifetoday.com."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3LZZWBTWT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K3LZZWBTWT');
+  </script>
+
+  <style>
+    .yr-hero {
+      background: linear-gradient(135deg, #0A0A0A 0%, #0a1a2e 40%, #1a0a2e 100%);
+      padding: 7rem 0 5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .yr-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(32, 178, 170, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .yr-hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 900;
+      line-height: 1.15;
+      background: linear-gradient(135deg, #fff 30%, #20B2AA 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      max-width: 780px;
+      margin: 0 auto 1.25rem;
+    }
+    .yr-hero .hero-subtitle {
+      max-width: 620px;
+      margin: 0 auto 2rem;
+      color: var(--color-text-muted, #94A3B8);
+      font-size: 1.125rem;
+      line-height: 1.7;
+    }
+
+    .yr-problem {
+      padding: 5rem 0;
+      background: var(--color-bg, #0A0A0A);
+    }
+    .yr-problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    @media (max-width: 768px) {
+      .yr-problem-grid { grid-template-columns: 1fr; }
+    }
+    .yr-problem-text h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+      color: var(--color-text, #F0F0F0);
+    }
+    .yr-problem-text p {
+      color: var(--color-text-muted, #94A3B8);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+    .yr-checklist {
+      list-style: none;
+      padding: 0;
+      margin: 1.5rem 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .yr-checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      color: var(--color-text, #F0F0F0);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    .yr-checklist .check {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      background: rgba(32, 178, 170, 0.15);
+      border: 1px solid rgba(32, 178, 170, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #20B2AA;
+      font-size: 13px;
+      margin-top: 2px;
+    }
+    .yr-problem-visual {
+      background: linear-gradient(135deg, rgba(32, 178, 170, 0.06) 0%, rgba(147, 51, 234, 0.06) 100%);
+      border: 1px solid rgba(32, 178, 170, 0.15);
+      border-radius: 16px;
+      padding: 2.5rem;
+      text-align: center;
+    }
+    .yr-problem-visual .thought-bubble {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #F2D27A;
+      margin-bottom: 1.25rem;
+      line-height: 1.5;
+    }
+    .yr-problem-visual p {
+      color: var(--color-text-muted, #94A3B8);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .yr-how {
+      padding: 5rem 0;
+      background: #111111;
+    }
+    .yr-how .section-label {
+      text-align: center;
+    }
+    .yr-how .section-title {
+      text-align: center;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 800;
+      margin-bottom: 3rem;
+    }
+    .yr-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    @media (max-width: 768px) {
+      .yr-steps { grid-template-columns: 1fr; }
+    }
+    .yr-step {
+      background: var(--color-card, #1E1E1E);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .yr-step:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(32, 178, 170, 0.1);
+    }
+    .yr-step-num {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #20B2AA 0%, #9333EA 100%);
+      color: #fff;
+      font-weight: 800;
+      font-size: 1.1rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+    .yr-step h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--color-text, #F0F0F0);
+      margin-bottom: 0.5rem;
+    }
+    .yr-step p {
+      color: var(--color-text-muted, #94A3B8);
+      font-size: 0.9rem;
+      line-height: 1.65;
+    }
+
+    .yr-topics {
+      padding: 5rem 0;
+      background: var(--color-bg, #0A0A0A);
+    }
+    .yr-topics .section-label,
+    .yr-topics .section-title {
+      text-align: center;
+    }
+    .yr-topics .section-title {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 800;
+      margin-bottom: 2.5rem;
+    }
+    .yr-topic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .yr-topic-pill {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--color-card, #1E1E1E);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 0.85rem 1.1rem;
+      color: var(--color-text, #F0F0F0);
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: border-color 0.2s;
+    }
+    .yr-topic-pill:hover {
+      border-color: rgba(32, 178, 170, 0.3);
+    }
+    .yr-topic-pill .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .yr-includes {
+      padding: 5rem 0;
+      background: #111111;
+    }
+    .yr-includes .section-label,
+    .yr-includes .section-title {
+      text-align: center;
+    }
+    .yr-includes .section-title {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 800;
+      margin-bottom: 3rem;
+    }
+    .yr-include-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    @media (max-width: 640px) {
+      .yr-include-grid { grid-template-columns: 1fr; }
+    }
+    .yr-include-card {
+      background: var(--color-card, #1E1E1E);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 14px;
+      padding: 1.5rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .yr-include-icon {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(32, 178, 170, 0.12);
+      border: 1px solid rgba(32, 178, 170, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+    .yr-include-card h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--color-text, #F0F0F0);
+      margin-bottom: 0.25rem;
+    }
+    .yr-include-card p {
+      color: var(--color-text-muted, #94A3B8);
+      font-size: 0.85rem;
+      line-height: 1.6;
+    }
+
+    .yr-data {
+      padding: 5rem 0;
+      background: var(--color-bg, #0A0A0A);
+    }
+    .yr-data-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .yr-data-inner h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    .yr-data-inner p {
+      color: var(--color-text-muted, #94A3B8);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+    .yr-data-sources {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-top: 2rem;
+    }
+    .yr-source-tag {
+      background: rgba(32, 178, 170, 0.1);
+      border: 1px solid rgba(32, 178, 170, 0.2);
+      border-radius: 999px;
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #20B2AA;
+    }
+
+    .yr-cta-section {
+      padding: 5rem 0;
+      background: linear-gradient(135deg, #0a1a2e 0%, #1a0a2e 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .yr-cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 50% 80% at 50% 100%, rgba(32, 178, 170, 0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .yr-cta-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .yr-cta-inner h2 {
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    .yr-cta-inner p {
+      color: var(--color-text-muted, #94A3B8);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+    .yr-cta-inner .btn {
+      font-size: 1.05rem;
+      padding: 0.85rem 2rem;
+    }
+
+    .yr-faq {
+      padding: 5rem 0;
+      background: var(--color-bg, #0A0A0A);
+    }
+    .yr-faq .section-title {
+      text-align: center;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 800;
+      margin-bottom: 2.5rem;
+    }
+    .yr-faq-list {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .yr-faq-item {
+      background: var(--color-card, #1E1E1E);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .yr-faq-item summary {
+      padding: 1.25rem 1.5rem;
+      font-weight: 600;
+      color: var(--color-text, #F0F0F0);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.95rem;
+    }
+    .yr-faq-item summary::-webkit-details-marker { display: none; }
+    .yr-faq-item summary::after {
+      content: '+';
+      font-size: 1.3rem;
+      color: #20B2AA;
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+    .yr-faq-item[open] summary::after {
+      transform: rotate(45deg);
+    }
+    .yr-faq-item .faq-answer {
+      padding: 0 1.5rem 1.25rem;
+      color: var(--color-text-muted, #94A3B8);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      margin-top: 0;
+      padding-top: 1rem;
+    }
+  </style>
+  <script src="/js/analytics-events.js" defer></script>
+  <script src="/js/meta-pixel.js"></script>
+</head>
+<body>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=771485525759396&ev=PageView&noscript=1"
+  /></noscript>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a href="/" class="nav-logo" aria-label="Doing Life Today - Home">
+        <div class="nav-logo-mark" aria-hidden="true">DL</div>
+        <div class="nav-logo-text">Doing Life Today<span>Parkinson's Community</span></div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="/about">About</a></li>
+        <li><a href="/podcasts">Podcasts</a></li>
+        <li><a href="/youtube">YouTube</a></li>
+        <li><a href="/theclub" class="active">The Club</a></li>
+        <li><a href="/music">Music</a></li>
+        <li><a href="/living-with-parkinsons-guide">Living With Parkinson's Guide</a></li>
+        <li><a href="/resources">Resources</a></li>
+        <li><a href="/events">Events</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <a href="/theclub" class="btn btn-primary btn-sm nav-cta">Join The Club</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a href="/about">About</a>
+    <a href="/podcasts">Podcasts</a>
+    <a href="/youtube">YouTube</a>
+    <a href="/theclub" class="active">The Club</a>
+    <a href="/music">Music</a>
+    <a href="/living-with-parkinsons-guide">Living With Parkinson's Guide</a>
+    <a href="/resources">Resources</a>
+    <a href="/events">Events</a>
+    <a href="/contact">Contact</a>
+    <div class="mobile-cta"><a href="/theclub" class="btn btn-primary">Join The Club</a></div>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- Hero -->
+    <section class="yr-hero" aria-labelledby="yr-h1">
+      <div class="container">
+        <span class="hero-badge">✨ NEW IN THE CLUB</span>
+        <h1 id="yr-h1">Build Your Personalized Parkinson's Plan</h1>
+        <p class="hero-subtitle">Most tools stop at tracking. The Club turns your data into a one-page action plan you can actually use. Built from your check-ins, your trackers, and your real life.</p>
+        <div class="btn-group flex-center">
+          <a href="https://club.dolifetoday.com" class="btn btn-primary btn-lg">Try It Free Inside The Club</a>
+          <a href="#how-it-works" class="btn btn-secondary">See How It Works</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem -->
+    <section class="yr-problem" aria-labelledby="yr-problem-h">
+      <div class="container">
+        <div class="yr-problem-grid">
+          <div class="yr-problem-text">
+            <p class="section-label">The Problem</p>
+            <h2 id="yr-problem-h">Most Parkinson's Tools Stop Here</h2>
+            <p>You track your meds. You log your symptoms. You record your sleep and exercise. Then you have a pile of data and no idea what to do next.</p>
+            <ul class="yr-checklist">
+              <li><span class="check">✓</span> Meds tracked</li>
+              <li><span class="check">✓</span> Symptoms logged</li>
+              <li><span class="check">✓</span> Sleep recorded</li>
+              <li><span class="check">✓</span> Exercise tracked</li>
+            </ul>
+            <p style="margin-top:1.5rem;">Data is useful. But data without direction is just homework.</p>
+          </div>
+          <div class="yr-problem-visual">
+            <p class="thought-bubble">"Okay, but what do I actually DO with all of this?"</p>
+            <p>That is the question most apps never answer. The Club does.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="yr-how" id="how-it-works" aria-labelledby="yr-how-h">
+      <div class="container">
+        <p class="section-label">How It Works</p>
+        <h2 class="section-title" id="yr-how-h">We Turn Your Data Into Direction</h2>
+        <div class="yr-steps">
+          <div class="yr-step">
+            <div class="yr-step-num">1</div>
+            <h3>Pick Your Topic</h3>
+            <p>Choose what you need help with right now. Fatigue, sleep, anxiety, rough days, medication timing, and more.</p>
+          </div>
+          <div class="yr-step">
+            <div class="yr-step-num">2</div>
+            <h3>Add Context (Optional)</h3>
+            <p>Tell us anything specific. "Afternoon crashes," "hard to get going in the morning," or just skip this step entirely.</p>
+          </div>
+          <div class="yr-step">
+            <div class="yr-step-num">3</div>
+            <h3>Get Your Plan Instantly</h3>
+            <p>In seconds, you receive a personalized one-page action plan built from your own tracker data, check-ins, and patterns.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Topics -->
+    <section class="yr-topics" aria-labelledby="yr-topics-h">
+      <div class="container">
+        <p class="section-label">Choose What Matters Most</p>
+        <h2 class="section-title" id="yr-topics-h">13 Topics, All Personalized to You</h2>
+        <div class="yr-topic-grid">
+          <div class="yr-topic-pill"><span class="dot" style="background:#F97316;"></span> Fatigue</div>
+          <div class="yr-topic-pill"><span class="dot" style="background:#6366F1;"></span> Sleep</div>
+          <div class="yr-topic-pill"><span class="dot" style="background:#A855F7;"></span> Anxiety</div>
+          <div class="yr-topic-pill"><span class="dot" style="background:#EF4444;"></span> Rough Day Reset</div>
+          <div class="yr-topic-pill"><span class="dot" style="background:#F59E0B;"></span> Wearing Off</div>
+          <div class="yr-topic-pill"><span class="dot" style="background:#0EA5E9;"></span> Medication Routine</div>
+          <div class="yr-topic-pill"><span class="dot" style="background:#10B981;"></span> Exercise Restart</div>
+          <div class="yr-topic-pill"><span class="dot" style="background:#EAB308;"></span> Meal Timing</div>
+          <div class="yr-topic-pill"><span class="dot" style="background:#3B82F6;"></span> Doctor Visit Prep</div>
+          <div class="yr-topic-pill"><span class="dot" style="background:#14B8A6;"></span> Travel With Parkinson's</div>
+          <div class="yr-topic-pill"><span class="dot" style="background:#22C55E;"></span> Newly Diagnosed</div>
+          <div class="yr-topic-pill"><span class="dot" style="background:#EC4899;"></span> Care Partner Conversations</div>
+          <div class="yr-topic-pill"><span class="dot" style="background:#F43F5E;"></span> Motivation Slump</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What's Included -->
+    <section class="yr-includes" aria-labelledby="yr-includes-h">
+      <div class="container">
+        <p class="section-label">Your Personalized Plan Includes</p>
+        <h2 class="section-title" id="yr-includes-h">Everything You Need on One Page</h2>
+        <div class="yr-include-grid">
+          <div class="yr-include-card">
+            <div class="yr-include-icon">🔍</div>
+            <div>
+              <h3>What I'm Seeing</h3>
+              <p>Insights drawn from your actual data. Patterns you might not notice on your own.</p>
+            </div>
+          </div>
+          <div class="yr-include-card">
+            <div class="yr-include-icon">💡</div>
+            <div>
+              <h3>What This Might Mean</h3>
+              <p>Simple, real-life explanations. No jargon. No guesswork.</p>
+            </div>
+          </div>
+          <div class="yr-include-card">
+            <div class="yr-include-icon">✅</div>
+            <div>
+              <h3>What to Try Now</h3>
+              <p>Clear, doable next steps you can start today. Not theory. Practical actions.</p>
+            </div>
+          </div>
+          <div class="yr-include-card">
+            <div class="yr-include-icon">⚠️</div>
+            <div>
+              <h3>Watch Out For</h3>
+              <p>Signals to keep an eye on. Things worth mentioning to your care team.</p>
+            </div>
+          </div>
+          <div class="yr-include-card">
+            <div class="yr-include-icon">🗣️</div>
+            <div>
+              <h3>Bryce's Note</h3>
+              <p>Real talk from someone living it. Not clinical advice. Honest perspective from a fellow Parkinson's warrior.</p>
+            </div>
+          </div>
+          <div class="yr-include-card">
+            <div class="yr-include-icon">🔄</div>
+            <div>
+              <h3>Always Up to Date</h3>
+              <p>Build a new plan anytime. As your data grows, your plans get smarter and more specific.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Data Sources -->
+    <section class="yr-data" aria-labelledby="yr-data-h">
+      <div class="container">
+        <div class="yr-data-inner">
+          <p class="section-label">Powered by Your Trackers</p>
+          <h2 id="yr-data-h">The More You Log, the Smarter It Gets</h2>
+          <p>Your personalized plan pulls from everything you track inside The Club. The more consistent you are with your daily check-ins and trackers, the more accurate and useful each resource becomes.</p>
+          <p>Even with just a few days of data, you will get a useful plan. With weeks or months of tracking, it becomes something no generic guide could ever match.</p>
+          <div class="yr-data-sources">
+            <span class="yr-source-tag">Daily Check-Ins</span>
+            <span class="yr-source-tag">Symptom Tracker</span>
+            <span class="yr-source-tag">Medication Log</span>
+            <span class="yr-source-tag">Sleep Tracker</span>
+            <span class="yr-source-tag">Exercise Log</span>
+            <span class="yr-source-tag">Mood Tracker</span>
+            <span class="yr-source-tag">Well-being Score</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="yr-cta-section" aria-labelledby="yr-cta-h">
+      <div class="container">
+        <div class="yr-cta-inner">
+          <h2 id="yr-cta-h">Your Data Deserves a Plan</h2>
+          <p>Stop tracking into the void. Join The Club and start building personalized resources that actually help you manage your Parkinson's, one page at a time.</p>
+          <div class="btn-group flex-center">
+            <a href="https://club.dolifetoday.com" class="btn btn-primary btn-lg">Join The Club for Free</a>
+          </div>
+          <p style="margin-top:1rem;font-size:0.85rem;color:rgba(255,255,255,0.45);">Free to join. No credit card required. Your Resources is available to all members.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="yr-faq" aria-labelledby="yr-faq-h">
+      <div class="container">
+        <h2 class="section-title" id="yr-faq-h">Frequently Asked Questions</h2>
+        <div class="yr-faq-list">
+          <details class="yr-faq-item" open>
+            <summary>What is a personalized Parkinson's plan in The Club?</summary>
+            <div class="faq-answer">It is a one-page action plan generated from your own tracker data and daily check-ins inside The Club. You pick a topic like fatigue, sleep, or anxiety, and the system builds a resource with insights, next steps, and practical guidance based on your real patterns.</div>
+          </details>
+          <details class="yr-faq-item">
+            <summary>How does The Club personalize my plan?</summary>
+            <div class="faq-answer">The Club pulls from your symptom logs, medication tracking, exercise data, sleep entries, and daily check-ins. The more consistently you log, the more specific and useful each plan becomes.</div>
+          </details>
+          <details class="yr-faq-item">
+            <summary>What topics can my personalized plan cover?</summary>
+            <div class="faq-answer">You can choose from fatigue, sleep, anxiety, rough day resets, medication routines, wearing off, exercise, meal timing, doctor visit prep, travel with Parkinson's, newly diagnosed guidance, care partner conversations, and motivation slumps.</div>
+          </details>
+          <details class="yr-faq-item">
+            <summary>Do I need to pay for this feature?</summary>
+            <div class="faq-answer">No. Personalized plans are a free feature available to all members of The Club. You can join at club.dolifetoday.com.</div>
+          </details>
+
+          <details class="yr-faq-item">
+            <summary>How long does it take to generate a plan?</summary>
+            <div class="faq-answer">Seconds. You pick your topic, optionally add context, and your one-pager is ready almost instantly.</div>
+          </details>
+          <details class="yr-faq-item">
+            <summary>Can I build more than one plan?</summary>
+            <div class="faq-answer">Yes. You can build as many plans as you want, on any topic, anytime. Your saved plans live in your Resources tab so you can revisit them.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Learn More</h4>
+          <ul class="footer-links">
+            <li><a href="/parkinsons-daily-check-in">Parkinson's Daily Check-In</a></li>
+            <li><a href="/parkinsons-community">Parkinson's Support Community</a></li>
+            <li><a href="/parkinsons-symptom-tracker">Parkinson's Symptom Tracker</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul class="footer-links">
+            <li><a href="/resources">Parkinson's Resources</a></li>
+            <li><a href="/parkinsons-help-and-support">Education &amp; Support</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>About</h4>
+          <ul class="footer-links">
+            <li><a href="/about">About Doing Life Today</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul class="footer-links">
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Doing Life Today. All rights reserved.</p>
+        <p class="footer-disclaimer">Peer support, not medical advice.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">↑</button>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,17 +1,57 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Explore The Exchange, a Parkinson's directory for discovering Parkinson's services, Parkinson's support, Parkinson's programs, and Parkinson's providers, then step into The Club for insights, discussions, and reviews.">
-  <title>The Exchange | Parkinson's Directory for Providers, Programs &amp; Services</title>
+  <meta name="description" content="Explore The Exchange, a Parkinson's directory for discovering Parkinson's programs, services, products, support, and providers, then step into The Club for insights, discussions, and reviews.">
+  <title>The Exchange | Parkinson's Directory for Programs, Services &amp; Products</title>
   <link rel="canonical" href="https://dolifetoday.com/exchange" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="The Exchange | Parkinson's Programs, Services & Products Directory" />
+  <meta property="og:description" content="Find Parkinson's providers, programs, services, and products near you. Browse exercise classes, support groups, therapists, assistive products, and more by category or location." />
+  <meta property="og:url" content="https://dolifetoday.com/exchange" />
+  <meta property="og:site_name" content="Doing Life Today" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Exchange | Parkinson's Programs, Services & Products Directory" />
+  <meta name="twitter:description" content="Find Parkinson's providers, programs, services, and products near you. Browse by category or location." />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "The Exchange - Parkinson's Programs, Services & Products Directory",
+    "description": "A directory of Parkinson's disease programs, services, products, exercise classes, support groups, therapists, and community resources.",
+    "url": "https://dolifetoday.com/exchange",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Doing Life Today",
+      "url": "https://dolifetoday.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Doing Life Today",
+      "url": "https://dolifetoday.com"
+    }
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="/css/exchange.css">  <link rel="stylesheet" href="/css/provider-ecosystem.css"></head>
+  <link rel="stylesheet" href="/css/exchange.css">  <link rel="stylesheet" href="/css/provider-ecosystem.css">  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3LZZWBTWT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K3LZZWBTWT');
+  </script>
+  <script src="/js/analytics-events.js" defer></script>
+  <script src="/js/meta-pixel.js"></script>
+</head>
 <body>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=771485525759396&ev=PageView&noscript=1"
+  /></noscript>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <header class="site-header" role="banner">
@@ -27,7 +67,7 @@
         <li><a href="/theclub">The Club</a></li>
         <li><a href="/exchange">The Exchange</a></li>
         <li><a href="/music">Music</a></li>
-        <li><a href="/community">Living With Parkinson's Guide</a></li>
+        <li><a href="/living-with-parkinsons-guide">Living With Parkinson's Guide</a></li>
         <li><a href="/resources">Resources</a></li>
         <li><a href="/events">Events</a></li>
         <li><a href="/contact">Contact</a></li>
@@ -46,7 +86,7 @@
     <a href="/theclub">The Club</a>
     <a href="/exchange">The Exchange</a>
     <a href="/music">Music</a>
-    <a href="/community">Living With Parkinson's Guide</a>
+    <a href="/living-with-parkinsons-guide">Living With Parkinson's Guide</a>
     <a href="/resources">Resources</a>
     <a href="/events">Events</a>
     <a href="/contact">Contact</a>
@@ -59,34 +99,37 @@
         <div class="hero-content exchange-hero-content">
           <span class="section-label">The Exchange</span>
           <h1 id="exchange-hero-heading" class="hero-title">Find Parkinson's support that actually works</h1>
-          <p class="hero-subtitle">Search clinics, programs, and services - then see the insights, discussions, and reviews shaping real decisions inside The Club.</p>
-          <p class="hero-support">A public Parkinson's directory powered by real community insight.</p>
+          <p class="hero-subtitle">Search programs, services, and products — with real community reviews, ratings, and insights to help you choose with confidence.</p>
+          <p class="hero-support">The public Parkinson's directory powered by real community insight.</p>
           <div class="btn-group hero-actions">
             <a href="#exchange-directory" class="btn btn-lg hero-primary-btn">Browse Providers</a>
-            <a href="https://club.dolifetoday.com/?exchange=add-listing" class="btn btn-lg btn-outline-primary">Add Your Listing</a>
-            <a href="https://club.dolifetoday.com/?publicExchange=true" class="btn btn-lg hero-secondary-btn">View in The Club</a>
+            <a href="/for-providers" class="btn btn-lg hero-secondary-btn">For Providers</a>
           </div>
+          <p class="exchange-hero-provider-link">Have a Parkinson's program, service, or product? <a href="/create-listing" id="exchange-hero-provider-cta"><strong>Get listed free &rarr;</strong></a></p>
           <div class="exchange-hero-notes" aria-hidden="true">
             <span class="exchange-note">Public Parkinson's directory</span>
-            <span class="exchange-note">Connected to The Club</span>
+            <span class="exchange-note">Community-powered insights</span>
             <span class="exchange-note">Claim and manage your listing</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="exchange-story-section" aria-labelledby="exchange-story-heading">
+    <section class="exchange-seo-section" aria-labelledby="exchange-seo-heading-1">
       <div class="container">
-        <article class="card exchange-story-card">
-          <span class="section-label">More than a directory</span>
-          <h2 id="exchange-story-heading" class="section-title">More than a directory</h2>
-          <div class="exchange-story-copy">
-            <p>The Exchange helps you find Parkinson's services.</p>
-            <p>The Club helps you understand them.</p>
-            <p>Inside The Club, members share insights, ask questions, and leave reviews - turning listings into real-world decisions.</p>
-            <p class="exchange-story-closing">Real insights. Real discussions. Real reviews. Better decisions.</p>
-          </div>
-        </article>
+        <div class="exchange-seo-block">
+          <h2 id="exchange-seo-heading-1" class="section-title">Parkinson's programs, services, products, and support near you</h2>
+          <p>Find Parkinson's support programs, therapy services, fitness classes, assistive products, and care resources in your area and online.</p>
+          <p>Browse thousands of providers and products across multiple categories, compare options, and discover what's actually helping people living with Parkinson's.</p>
+        </div>
+        <div class="exchange-seo-block">
+          <h2 id="exchange-seo-heading-2" class="section-title">Search Parkinson's programs, services, and products by location, type, and language</h2>
+          <p>Use advanced filters to find Parkinson's programs and products near you or explore virtual options worldwide. Search by provider type, service format, and language to find the right fit for your needs.</p>
+        </div>
+        <div class="exchange-seo-block">
+          <h2 id="exchange-seo-heading-3" class="section-title">Real insights from the community</h2>
+          <p>Beyond listings, you get access to real discussions, experiences, and reviews from people navigating Parkinson's every day — helping you make more confident decisions.</p>
+        </div>
       </div>
     </section>
 
@@ -94,15 +137,15 @@
       <div class="container">
         <div class="section-header exchange-section-header">
           <span class="section-label">Directory</span>
-          <h2 id="exchange-directory-heading" class="section-title">Explore Parkinson's providers and programs</h2>
-          <p class="section-subtitle">Search by location, provider type, or service mode - then step into The Club to explore insights, discussions, and reviews for each provider across Parkinson's providers, programs, and services.</p>
+          <h2 id="exchange-directory-heading" class="section-title">Explore Parkinson's providers, programs, and products</h2>
+          <p class="section-subtitle">Search by location, provider type, or service mode to find Parkinson's programs, services, and products — with community ratings and reviews to guide your decisions.</p>
         </div>
 
         <article class="exchange-directory-band" aria-label="Directory intelligence">
           <div class="exchange-directory-band-copy">
             <span class="exchange-directory-band-label">Directory intelligence</span>
             <h3>The public search layer for Parkinson's decisions</h3>
-            <p>Discover providers here, then move into The Club for the context that actually changes decisions: member insight, discussion, and reviews.</p>
+            <p>Discover providers, read community reviews, compare options, and make confident decisions about your care.</p>
           </div>
           <div class="exchange-directory-band-stats" aria-hidden="true">
             <div class="exchange-directory-stat">
@@ -123,14 +166,14 @@
         <div class="card exchange-search-panel">
           <div class="exchange-search-copy">
             <p class="exchange-search-eyebrow">Search The Exchange</p>
-            <h3>Filter more like it works in The Club</h3>
+            <h3>Filter to find exactly what you need</h3>
             <p>Use provider name, type, service mode, language, and postal distance together. When distance search is on, nearby in-person and hybrid listings are ranked by proximity while matching virtual listings stay in the results.</p>
           </div>
 
           <div class="exchange-controls exchange-controls-primary">
             <div class="exchange-control exchange-control-search">
               <label for="exchange-search">Search</label>
-              <input id="exchange-search" type="search" placeholder="Search providers, cities, or languages">
+              <input id="exchange-search" type="search" placeholder="Search providers, products, cities, or languages">
             </div>
             <div class="exchange-control">
               <label for="exchange-postal">ZIP or postal code</label>
@@ -157,7 +200,7 @@
             <div class="exchange-control">
               <label for="exchange-type">Provider type</label>
               <select id="exchange-type">
-                <option value="all">All provider types</option>
+                <option value="all">All programs, services &amp; products</option>
               </select>
             </div>
             <div class="exchange-control">
@@ -198,16 +241,15 @@
             <p id="exchange-status-detail" class="exchange-status-detail"></p>
           </div>
           <div class="exchange-card-actions">
-            <a href="https://club.dolifetoday.com/?exchange=add-listing" class="btn btn-outline-primary">Add Your Listing</a>
-            <a href="https://club.dolifetoday.com/?publicExchange=true" class="btn btn-outline-primary">View in The Club</a>
+            <a href="/create-listing" class="btn btn-outline-primary">Get Listed Free</a>
           </div>
         </div>
 
         <div id="exchange-trending-banner" class="exchange-trending-banner" hidden>
           <div class="exchange-trending-header">
             <h2>Providers in your area are getting discovered right now</h2>
-            <p>Programs like these are being viewed, explored, and discussed across The Exchange and The Club.</p>
-            <a href="/create-listing" class="btn btn-primary btn-sm">Get your listing seen</a>
+            <p>Programs and products like these are being viewed, explored, and discussed across The Exchange community.</p>
+            <a href="/create-listing" class="btn btn-primary btn-sm">Get listed free</a>
           </div>
           <div id="exchange-trending-cards" class="exchange-trending-cards"></div>
         </div>
@@ -220,22 +262,23 @@
       <div class="container">
         <article class="card exchange-provider-card">
           <span class="section-label">For providers</span>
-          <h2 id="exchange-provider-conversion-heading" class="section-title">Are you a provider?</h2>
+          <h2 id="exchange-provider-conversion-heading" class="section-title">Do you offer a Parkinson's program, service, or product?</h2>
+          <p style="font-size:1.15rem;color:var(--color-text-muted);margin:0.5rem 0 1.5rem;max-width:60ch;"><strong style="color:var(--color-white);">Get listed free.</strong> Your program, service, or product belongs in front of the people actively searching for it.</p>
           <div class="exchange-provider-grid">
             <div class="exchange-provider-copy">
-              <p>Join The Exchange to be discovered by people actively searching for Parkinson's support - and build trust where it matters most.</p>
-              <p>Inside The Club, your listing becomes part of real insights, discussions, and reviews that help people choose with confidence.</p>
+              <p>Every day, people living with Parkinson's and care partners search The Exchange looking for boxing classes, dance programs, neurologists, support groups, products that make daily life easier &mdash; and the providers behind them.</p>
+              <p>If what you do helps people with Parkinson's, you should be in the directory. <strong>It costs nothing to get listed.</strong></p>
             </div>
             <ul class="exchange-provider-benefits">
-              <li>Get found through search</li>
-              <li>Build trust through visibility</li>
-              <li>Be part of real conversations</li>
-              <li>Turn discovery into decisions</li>
+              <li>Free listing &mdash; takes 2 minutes</li>
+              <li>Found through Google + on-site search</li>
+              <li>Real community discussions and reviews</li>
+              <li>Upgrade later for full control or your own Club presence</li>
             </ul>
           </div>
           <div class="exchange-provider-actions-row">
-            <a href="/pricing" class="btn btn-primary">See Provider Plans</a>
-            <a href="/claim-listing" class="btn btn-outline-primary">Claim or Add Your Listing</a>
+            <a href="/create-listing" class="btn btn-primary">Get Listed Free</a>
+            <a href="/claim-listing" class="btn btn-outline-primary">Already Listed? Claim It</a>
           </div>
         </article>
       </div>
@@ -243,8 +286,17 @@
 
     <section class="exchange-positioning-section" aria-label="Exchange ecosystem positioning">
       <div class="container">
-        <p class="exchange-positioning-line">The Exchange is where Parkinson's services are discovered and The Club is where they are understood.</p>
-        <p class="exchange-positioning-support">The Exchange ecosystem brings Parkinson's directory discovery, community insight, and provider conversion into one trusted path.</p>
+        <p class="exchange-positioning-line">The Exchange is where Parkinson's programs, services, and products are discovered — backed by real community insight.</p>
+        <p class="exchange-positioning-support">The Exchange ecosystem brings directory discovery, community reviews, and provider trust into one place.</p>
+      </div>
+    </section>
+
+    <section class="exchange-seo-section" aria-labelledby="exchange-seo-heading-4">
+      <div class="container">
+        <div class="exchange-seo-block">
+          <h2 id="exchange-seo-heading-4" class="section-title">Find Parkinson's programs, services, and products near you</h2>
+          <p>Looking for Parkinson's programs near me, Parkinson's support services, or Parkinson's therapy programs? The Exchange brings together thousands of providers - from exercise classes and speech therapy to care partner resources and assistive products - so you can compare Parkinson's care options in one place.</p>
+        </div>
       </div>
     </section>
   </main>
@@ -252,5 +304,15 @@
   <script src="js/main.js" defer></script>
   <script src="js/provider-track.js" defer></script>
   <script src="js/exchange.js" defer></script>
+  <script>
+    (function () {
+      var link = document.getElementById('exchange-hero-provider-cta');
+      if (link && window.ProviderTrack) {
+        link.addEventListener('click', function () {
+          ProviderTrack.track('provider_entry_clicked', { source: 'exchange_hero' });
+        });
+      }
+    })();
+  </script>
 </body>
 </html>

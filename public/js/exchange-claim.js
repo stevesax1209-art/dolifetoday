@@ -65,7 +65,7 @@
 
     const descriptionMeta = document.querySelector('meta[name="description"]');
     if (descriptionMeta) {
-      descriptionMeta.setAttribute('content', 'That Exchange claim page is no longer available. Browse the public directory or continue inside The Club.');
+      descriptionMeta.setAttribute('content', 'That Exchange claim page is no longer available. Browse the full directory to find your listing.');
     }
 
     const breadcrumbCurrent = document.getElementById('exchange-claim-breadcrumb-current');
@@ -81,7 +81,7 @@
     document.title = 'Claim ' + provider.name + ' | The Exchange | Doing Life Today';
     const descriptionMeta = document.querySelector('meta[name="description"]');
     if (descriptionMeta) {
-      descriptionMeta.setAttribute('content', 'Claim the listing for ' + provider.name + ' inside The Club and continue the verification process there.');
+      descriptionMeta.setAttribute('content', 'Claim the listing for ' + provider.name + ' on The Exchange and begin the verification process.');
     }
     updateCanonical('https://dolifetoday.com' + (provider.claimPagePath || window.location.pathname));
     ensureRobotsMeta().setAttribute('content', 'index, follow');
@@ -108,7 +108,7 @@
         : 'Part of The Exchange directory';
     }
     if (providerDescriptionNode) providerDescriptionNode.textContent = provider.excerpt || provider.description || '';
-    if (claimLinkNode) claimLinkNode.href = provider.claimAppUrl || provider.claimUrl || 'https://club.dolifetoday.com/?publicExchange=true';
+    if (claimLinkNode) claimLinkNode.href = '/claim-listing?provider=' + encodeURIComponent(provider.id || provider.slug || '');
     if (detailLinkNode) detailLinkNode.href = provider.detailPagePath || '/exchange';
 
     if (providerMarkNode) {

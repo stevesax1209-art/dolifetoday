@@ -1,0 +1,124 @@
+[
+  {
+    "sourceUrl": "https://www.pmdalliance.org/listings/",
+    "slug": "",
+    "name": "Directory Listings Archive - PMD Alliance",
+    "description": "",
+    "category": "",
+    "tags": [],
+    "phone": "4137394715",
+    "email": "",
+    "website": "",
+    "address": "",
+    "city": "",
+    "stateProvince": "",
+    "country": "US",
+    "latitude": null,
+    "longitude": null,
+    "formats": [
+      "virtual",
+      "in-person"
+    ],
+    "cost": "",
+    "extraFields": {},
+    "jsonLd": null
+  },
+  {
+    "sourceUrl": "https://www.pmdalliance.org/listings/care-partners-connect-group/",
+    "slug": "care-partners-connect-group",
+    "name": "Care Partners Connect - PMD Alliance",
+    "description": "Formerly “Real Talk”, this group is designed exclusively for those supporting someone on their journey with a movement disorder. Join [&hellip;]",
+    "category": "",
+    "tags": [],
+    "phone": "5209654395",
+    "email": "",
+    "website": "",
+    "address": "",
+    "city": "",
+    "stateProvince": "",
+    "country": "US",
+    "latitude": 33.3783806,
+    "longitude": -112.1033185,
+    "formats": [
+      "virtual",
+      "in-person"
+    ],
+    "cost": "",
+    "extraFields": {},
+    "jsonLd": null
+  },
+  {
+    "sourceUrl": "https://www.pmdalliance.org/listings/angels-on-call-llc/",
+    "slug": "angels-on-call-llc",
+    "name": "Angels on Call LLC - PMD Alliance",
+    "description": "Whether hourly or live-in, overnight or weekends, Angels on Call provides flexible and customized care services to meet your individual [&hellip;]",
+    "category": "",
+    "tags": [],
+    "phone": "8456282255",
+    "email": "",
+    "website": "",
+    "address": "",
+    "city": "",
+    "stateProvince": "",
+    "country": "US",
+    "latitude": 41.2886463,
+    "longitude": -73.9211104,
+    "formats": [
+      "virtual",
+      "in-person"
+    ],
+    "cost": "",
+    "extraFields": {
+      "business_hours": "9:00 am - 5:00 pm"
+    },
+    "jsonLd": null
+  },
+  {
+    "sourceUrl": "https://www.pmdalliance.org/listings/resilience-online/",
+    "slug": "resilience-online",
+    "name": "Resilience Online - PMD Alliance",
+    "description": "Join a live stream gathering of all perspectives of people impacted by movement disorders. Anyone impacted by a movement disorder [&hellip;]",
+    "category": "",
+    "tags": [],
+    "phone": "8002560966",
+    "email": "",
+    "website": "",
+    "address": "",
+    "city": "",
+    "stateProvince": "",
+    "country": "US",
+    "latitude": 33.3783806,
+    "longitude": -112.1033185,
+    "formats": [
+      "virtual",
+      "in-person"
+    ],
+    "cost": "",
+    "extraFields": {},
+    "jsonLd": null
+  },
+  {
+    "sourceUrl": "https://www.pmdalliance.org/listings/yopd-connections/",
+    "slug": "yopd-connections",
+    "name": "YOPD Connections - PMD Alliance",
+    "description": "“You’re too young to have Parkinson’s!” Loneliness, misunderstanding, and invisibility are all too common in the experience of living with [&hellip;]",
+    "category": "",
+    "tags": [],
+    "phone": "8002560966",
+    "email": "",
+    "website": "",
+    "address": "",
+    "city": "",
+    "stateProvince": "",
+    "country": "US",
+    "latitude": 33.3783806,
+    "longitude": -112.1033185,
+    "formats": [
+      "virtual",
+      "in-person"
+    ],
+    "cost": "",
+    "extraFields": {},
+    "jsonLd": null
+  }
+]

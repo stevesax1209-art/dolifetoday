@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -251,8 +251,21 @@
       }
     }
   </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3LZZWBTWT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K3LZZWBTWT');
+  </script>
+  <script src="/js/analytics-events.js" defer></script>
+  <script src="/js/meta-pixel.js"></script>
 </head>
 <body>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=771485525759396&ev=PageView&noscript=1"
+  /></noscript>
   <main class="shell">
     <section class="panel">
       <span class="kicker">Protected</span>
@@ -323,6 +336,32 @@
         <h2>Meta</h2>
         <div id="meta-list" class="stats-list"></div>
       </section>
+
+      <section class="panel" style="margin-top: 1.5rem;">
+        <h2>Check Your Wave</h2>
+        <div class="summary-grid" style="margin-bottom: 1rem;">
+          <article class="stat-card"><span class="stat-label">Total Lookups</span><span class="stat-value" id="cw-lookups">0</span></article>
+          <article class="stat-card"><span class="stat-label">Found</span><span class="stat-value" id="cw-found">0</span></article>
+          <article class="stat-card"><span class="stat-label">Not Found</span><span class="stat-value" id="cw-not-found">0</span></article>
+          <article class="stat-card"><span class="stat-label">Unconfirmed</span><span class="stat-value" id="cw-unconfirmed">0</span></article>
+        </div>
+        <div class="secondary-grid" style="margin-bottom: 1rem;">
+          <article class="stat-card"><span class="stat-label">Share: Copy</span><span class="stat-value" id="cw-share-copy">0</span></article>
+          <article class="stat-card"><span class="stat-label">Share: Email</span><span class="stat-value" id="cw-share-email">0</span></article>
+          <article class="stat-card"><span class="stat-label">Share: Text</span><span class="stat-value" id="cw-share-text">0</span></article>
+          <article class="stat-card"><span class="stat-label">Join Clicks</span><span class="stat-value" id="cw-join-click">0</span></article>
+        </div>
+        <div class="dashboard-grid">
+          <section class="panel list-card">
+            <h2>By Page</h2>
+            <div id="cw-page-list" class="stats-list"></div>
+          </section>
+          <section class="panel list-card">
+            <h2>By Wave</h2>
+            <div id="cw-wave-list" class="stats-list"></div>
+          </section>
+        </div>
+      </section>
     </section>
 
     <p class="helper">This dashboard tracks page events and button clicks. Share totals reflect click attempts, not whether an email was ultimately sent.</p>
@@ -349,6 +388,16 @@
       var dailyListEl = document.getElementById('daily-list');
       var sourceListEl = document.getElementById('source-list');
       var metaListEl = document.getElementById('meta-list');
+      var cwLookupsEl = document.getElementById('cw-lookups');
+      var cwFoundEl = document.getElementById('cw-found');
+      var cwNotFoundEl = document.getElementById('cw-not-found');
+      var cwUnconfirmedEl = document.getElementById('cw-unconfirmed');
+      var cwShareCopyEl = document.getElementById('cw-share-copy');
+      var cwShareEmailEl = document.getElementById('cw-share-email');
+      var cwShareTextEl = document.getElementById('cw-share-text');
+      var cwJoinClickEl = document.getElementById('cw-join-click');
+      var cwPageListEl = document.getElementById('cw-page-list');
+      var cwWaveListEl = document.getElementById('cw-wave-list');
 
       var ctaLabels = {
         nav: 'Header navigation',
@@ -450,6 +499,35 @@
           ['Shares tracked for', (share.pages && share.pages.theclub) || 0],
           ['Last updated', formatUpdatedAt(club.updatedAt || share.updatedAt)]
         ], 'No metadata yet');
+
+        /* Check Wave stats */
+        var cw = data.checkWave || {};
+        var cwTotals = cw.totals || {};
+        cwLookupsEl.textContent = String(cwTotals.lookup || 0);
+        cwFoundEl.textContent = String(cwTotals.found || 0);
+        cwNotFoundEl.textContent = String(cwTotals.not_found || 0);
+        cwUnconfirmedEl.textContent = String(cwTotals.unconfirmed || 0);
+        cwShareCopyEl.textContent = String(cwTotals.share_copy || 0);
+        cwShareEmailEl.textContent = String(cwTotals.share_email || 0);
+        cwShareTextEl.textContent = String(cwTotals.share_text || 0);
+        cwJoinClickEl.textContent = String(cwTotals.join_click || 0);
+
+        var waveLabels = {
+          wave_1: 'Wave 1 - Founders',
+          wave_2: 'Wave 2 - Early Adopters',
+          wave_3: 'Wave 3 - Priority Access',
+          wave_4: 'Wave 4 - Growth',
+          wave_5: 'Wave 5 - Community',
+          wave_6: 'Wave 6 - Final'
+        };
+
+        renderRows(cwPageListEl, toSortedEntries(cw.pages), 'No page data yet', function (label) {
+          return label === 'check-wave' ? 'Standalone page' : label === 'theclub' ? 'The Club page' : label;
+        });
+
+        renderRows(cwWaveListEl, toSortedEntries(cw.waveBreakdown), 'No wave data yet', function (label) {
+          return waveLabels[label] || label;
+        });
 
         dashboardEl.classList.add('is-visible');
       }

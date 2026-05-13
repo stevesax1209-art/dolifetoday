@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>The Club — Header A/B test (photo vs clean)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal:#16A7A3;--teal-deep:#0E7A77;
+    --gold:#D4AF37;--gold-soft:#E8C766;
+    --slate:#28333B;--charcoal:#0D1116;--ink:#070A0D;
+    --muted:#9AA8B2;--line:rgba(255,255,255,0.08);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--ink);color:#fff;font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%;height:auto}
+  a{color:inherit;text-decoration:none}
+
+  .preview-banner{
+    background:linear-gradient(90deg,var(--teal-deep),var(--slate));
+    color:#fff;font-size:13px;letter-spacing:.04em;
+    padding:.55rem 1.25rem;text-align:center;border-bottom:1px solid var(--line);
+  }
+  .preview-banner strong{color:var(--gold);letter-spacing:.12em;text-transform:uppercase;margin-right:.5rem}
+
+  .page-intro{max-width:920px;margin:3rem auto;padding:0 1.5rem;text-align:center}
+  .page-intro h1{font-weight:300;font-size:clamp(1.8rem,3.5vw,2.6rem);letter-spacing:.04em;margin:0 0 1rem}
+  .page-intro p{color:#cbd5e1;font-size:1rem;line-height:1.65;margin:0 auto;max-width:640px}
+
+  .ab-block{
+    max-width:1200px;margin:2.5rem auto 5rem;padding:0 1.5rem;
+  }
+  .ab-label{
+    display:flex;align-items:baseline;gap:1rem;
+    margin-bottom:1.25rem;
+  }
+  .ab-label .tag{
+    background:var(--gold);color:var(--charcoal);
+    padding:.3rem .7rem;border-radius:4px;
+    font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;
+  }
+  .ab-label .tag.alt{background:var(--teal);color:#fff}
+  .ab-label h2{margin:0;font-weight:400;font-size:1.4rem;letter-spacing:.02em}
+  .ab-label .verdict{margin-left:auto;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  .ab-label .verdict.bad{color:#E27676}
+  .ab-label .verdict.good{color:#7CCFA4}
+
+  .device-frame{
+    background:#000;border-radius:36px;padding:14px;
+    border:1px solid #1a1f24;
+    box-shadow:0 30px 80px rgba(0,0,0,.55);
+    max-width:420px;margin:0 auto;
+  }
+  .device-screen{
+    background:#0D1116;border-radius:24px;overflow:hidden;
+    height:760px;display:flex;flex-direction:column;
+  }
+
+  /* Phone status bar */
+  .status-bar{
+    height:32px;display:flex;align-items:center;justify-content:space-between;
+    padding:0 1.4rem;font-size:.72rem;font-weight:600;color:#fff;flex:0 0 auto;
+  }
+  .status-bar .right{display:flex;gap:.4rem;align-items:center}
+
+  /* ============ OPTION A: Photo header ============ */
+  .app-header-photo{
+    flex:0 0 auto;
+    height:130px;
+    background:url('images/the-club/logo-on-water.png') center/cover no-repeat;
+    background-position:center 38%;
+    position:relative;
+    border-bottom:1px solid rgba(212,175,55,.25);
+  }
+  .app-header-photo::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(7,10,13,.45) 0%,rgba(7,10,13,.15) 50%,rgba(7,10,13,.7) 100%);
+  }
+  .app-header-photo .header-row{
+    position:relative;z-index:1;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:.85rem 1rem;
+  }
+  .app-header-photo .brand{
+    display:flex;align-items:center;gap:.5rem;color:#fff;
+    font-weight:700;letter-spacing:.18em;font-size:.8rem;
+    text-shadow:0 2px 8px rgba(0,0,0,.6);
+  }
+  .app-header-photo .brand .gold{color:var(--gold)}
+  .app-header-photo .icons{display:flex;gap:.85rem;color:#fff}
+  .app-header-photo .icons svg{filter:drop-shadow(0 2px 4px rgba(0,0,0,.6))}
+
+  /* Tabs (shared) */
+  .tabs{
+    display:flex;gap:.25rem;padding:.6rem .5rem;
+    border-bottom:1px solid rgba(255,255,255,.06);
+    background:#0F1A20;flex:0 0 auto;
+    overflow-x:auto;scrollbar-width:none;
+  }
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{
+    display:flex;align-items:center;gap:.4rem;
+    padding:.55rem .8rem;border-radius:8px;
+    font-size:.72rem;color:#9AA8B2;font-weight:500;flex:0 0 auto;
+    letter-spacing:.02em;
+  }
+  .tab.active{background:rgba(22,167,163,.12);color:var(--teal)}
+
+  /* Photo header — tabs sit on photo (overlay variant) */
+  .app-header-photo.with-tabs{height:auto}
+  .app-header-photo .photo-tabs{
+    position:relative;z-index:1;
+    background:rgba(7,10,13,.55);
+    backdrop-filter:blur(8px);
+  }
+
+  /* App body content (shared) */
+  .app-body{flex:1;padding:1rem;overflow:hidden;background:#0D1116}
+  .quote-card{
+    background:rgba(22,167,163,.06);border-left:3px solid var(--teal);
+    padding:.85rem 1rem;border-radius:6px;margin-bottom:1rem;
+  }
+  .quote-card .who{font-size:.65rem;color:var(--teal);letter-spacing:.22em;text-transform:uppercase;font-weight:700;margin-bottom:.25rem}
+  .quote-card .quote{font-size:.85rem;font-style:italic;color:#e2e8f0;line-height:1.45}
+  .feed-card{
+    background:#111A22;border:1px solid rgba(255,255,255,.05);
+    border-radius:10px;padding:1rem;margin-bottom:.75rem;
+  }
+  .feed-card .meta{display:flex;align-items:center;gap:.5rem;margin-bottom:.55rem}
+  .feed-card .avatar{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--gold))}
+  .feed-card .meta strong{font-size:.78rem;color:#fff}
+  .feed-card .meta span{font-size:.65rem;color:var(--muted);margin-left:auto}
+  .feed-card h4{margin:0 0 .35rem;font-size:.85rem;color:#fff;font-weight:600}
+  .feed-card p{margin:0;font-size:.78rem;color:#cbd5e1;line-height:1.45}
+
+  /* ============ OPTION B: Clean header ============ */
+  .app-header-clean{
+    flex:0 0 auto;
+    background:#0A0E12;
+    border-bottom:1px solid rgba(22,167,163,.18);
+  }
+  .app-header-clean .header-row{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:.85rem 1rem;
+  }
+  .app-header-clean .brand{
+    display:flex;align-items:center;gap:.6rem;color:#fff;
+  }
+  .app-header-clean .brand .mark{
+    width:34px;height:34px;border-radius:50%;
+    background:#0D1116;
+    display:flex;align-items:center;justify-content:center;
+    overflow:hidden;
+    border:1px solid rgba(212,175,55,.35);
+    flex:0 0 auto;
+  }
+  .app-header-clean .brand .mark img{width:100%;height:100%;object-fit:cover}
+  .app-header-clean .brand .wordmark{
+    display:flex;flex-direction:column;line-height:1.05;
+  }
+  .app-header-clean .brand .wordmark .name{
+    font-weight:700;letter-spacing:.22em;font-size:.78rem;color:#fff;
+  }
+  .app-header-clean .brand .wordmark .gold{color:var(--gold)}
+  .app-header-clean .brand .wordmark .tag{
+    font-size:.52rem;letter-spacing:.32em;color:var(--teal);
+    margin-top:.25rem;font-weight:600;
+  }
+  .app-header-clean .icons{display:flex;gap:.85rem;color:#cbd5e1}
+
+  /* ============ OPTION C: Welcome screen with full photo ============ */
+  .welcome-screen{
+    flex:1;display:flex;flex-direction:column;
+    background:#070A0D;
+    position:relative;overflow:hidden;
+  }
+  .welcome-photo{
+    position:relative;height:48%;width:100%;
+    background:url('images/the-club/logo-on-water.png') center top/cover no-repeat;
+  }
+  .welcome-photo::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(7,10,13,0) 55%,rgba(14,122,119,.35) 80%,rgba(7,10,13,1) 100%);
+  }
+  .welcome-content{
+    position:relative;z-index:1;flex:1;
+    padding:1.4rem 1.5rem 2rem;text-align:center;
+    background:linear-gradient(180deg,rgba(7,10,13,1) 0%,rgba(10,18,22,1) 100%);
+  }
+  .welcome-content .brand-line{
+    display:inline-block;
+    font-size:.7rem;letter-spacing:.4em;color:var(--gold);font-weight:700;
+    margin:0 0 1.5rem;text-transform:uppercase;
+    padding:.4rem 1rem;border:1px solid rgba(22,167,163,.5);border-radius:999px;
+    background:rgba(22,167,163,.08);backdrop-filter:blur(6px);
+  }
+  .welcome-content .wordmark-stack{
+    margin:0 0 1.4rem;
+  }
+  .welcome-content .wordmark-stack .name{
+    font-weight:700;letter-spacing:.32em;font-size:1.5rem;color:#fff;
+    display:block;line-height:1;
+  }
+  .welcome-content .wordmark-stack .name .gold{color:var(--gold)}
+  .welcome-content .wordmark-stack .tag{
+    display:flex;align-items:center;justify-content:center;gap:.6rem;
+    font-size:.6rem;letter-spacing:.42em;color:var(--teal);
+    margin-top:.6rem;font-weight:600;text-transform:uppercase;
+  }
+  .welcome-content .wordmark-stack .tag::before,
+  .welcome-content .wordmark-stack .tag::after{
+    content:'';flex:0 0 24px;height:1px;background:linear-gradient(90deg,transparent,var(--teal));
+  }
+  .welcome-content .wordmark-stack .tag::after{background:linear-gradient(90deg,var(--teal),transparent)}
+  .welcome-content h2{
+    font-weight:300;font-size:1.5rem;line-height:1.2;margin:0 0 .6rem;
+    letter-spacing:.01em;color:#fff;
+  }
+  .welcome-content .sub{
+    color:#cbd5e1;font-size:.85rem;line-height:1.5;
+    margin:0 auto 1.8rem;max-width:280px;
+  }
+  .welcome-content .sub em{color:var(--teal);font-style:normal;font-weight:600}
+  .w-btn{
+    display:block;padding:.85rem 1.5rem;border-radius:8px;
+    font-weight:700;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;
+    margin-bottom:.6rem;
+  }
+  .w-btn-gold{background:var(--gold);color:var(--charcoal)}
+  .w-btn-ghost{border:1px solid rgba(22,167,163,.55);color:var(--teal);background:rgba(22,167,163,.08);backdrop-filter:blur(6px)}
+
+  /* takeaways */
+  .takeaways{
+    max-width:920px;margin:0 auto 5rem;padding:2rem 1.5rem;
+    background:#0F1A20;border:1px solid var(--line);border-radius:14px;
+  }
+  .takeaways h3{margin:0 0 1rem;font-size:.78rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:700}
+  .takeaways ul{margin:0;padding-left:1.2rem;color:#cbd5e1;line-height:1.7}
+  .takeaways ul li{margin-bottom:.5rem}
+  .takeaways ul li strong{color:#fff}
+</style>
+</head>
+<body>
+
+<div class="preview-banner">
+  <strong>A / B Test</strong> The Club — photo header vs clean header vs photo on welcome
+</div>
+
+<div class="page-intro">
+  <h1>Where should the lighthouse photo live?</h1>
+  <p>Three mockups of the same in-app screen so you can judge in context. All three show the dashboard at iPhone 14 size with the existing nav tabs.</p>
+</div>
+
+<!-- Reusable phone status bar -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-help" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7v.5"/><circle cx="12" cy="17" r=".7" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 8a6 6 0 0 1 12 0c0 7 3 7 3 9H3c0-2 3-2 3-9z"/><path d="M10 21h4"/>
+    </symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ============ OPTION A: PHOTO HEADER ============ -->
+<div class="ab-block">
+  <div class="ab-label">
+    <span class="tag alt">Option A</span>
+    <h2>Lighthouse photo across the in-app header</h2>
+    <span class="verdict bad">My recommendation: skip</span>
+  </div>
+
+  <div class="device-frame">
+    <div class="device-screen">
+      <div class="status-bar"><span>9:41</span><div class="right"><span>·il</span><span>100%</span></div></div>
+      <div class="app-header-photo">
+        <div class="header-row">
+          <div class="brand">T H E&nbsp;<span class="gold">C L U B</span></div>
+          <div class="icons">
+            <svg width="18" height="18"><use href="#i-bell"/></svg>
+            <svg width="18" height="18"><use href="#i-menu"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="tabs">
+        <div class="tab active">Dashboard</div>
+        <div class="tab">Track</div>
+        <div class="tab">Community</div>
+        <div class="tab">Feed</div>
+        <div class="tab">Support</div>
+      </div>
+      <div class="app-body">
+        <div class="quote-card">
+          <div class="who">Lil Bryceism</div>
+          <div class="quote">"Celebrate the micro-wins. They add up to mountains."</div>
+        </div>
+        <div class="feed-card">
+          <div class="meta"><div class="avatar"></div><strong>Maria K.</strong><span>2h ago</span></div>
+          <h4>Tremor was lighter today</h4>
+          <p>Tried the new breathing exercise before bed. Slept through the night for the first time in weeks.</p>
+        </div>
+        <div class="feed-card">
+          <div class="meta"><div class="avatar"></div><strong>James R.</strong><span>4h ago</span></div>
+          <h4>Walking group meets Saturday</h4>
+          <p>Anyone in Phoenix want to join us? We're starting slow — bring water.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ OPTION B: CLEAN HEADER ============ -->
+<div class="ab-block">
+  <div class="ab-label">
+    <span class="tag">Option B</span>
+    <h2>Clean charcoal header with the icon mark</h2>
+    <span class="verdict good">My recommendation: ship this</span>
+  </div>
+
+  <div class="device-frame">
+    <div class="device-screen">
+      <div class="status-bar"><span>9:41</span><div class="right"><span>·il</span><span>100%</span></div></div>
+      <div class="app-header-clean">
+        <div class="header-row">
+          <div class="brand">
+            <span class="mark"><img src="images/the-club/app-icon.png" alt=""></span>
+            <span class="wordmark">
+              <span class="name">T H E&nbsp;<span class="gold">C L U B</span></span>
+              <span class="tag">DOING LIFE TODAY</span>
+            </span>
+          </div>
+          <div class="icons">
+            <svg width="18" height="18"><use href="#i-bell"/></svg>
+            <svg width="18" height="18"><use href="#i-menu"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="tabs">
+        <div class="tab active">Dashboard</div>
+        <div class="tab">Track</div>
+        <div class="tab">Community</div>
+        <div class="tab">Feed</div>
+        <div class="tab">Support</div>
+      </div>
+      <div class="app-body">
+        <div class="quote-card">
+          <div class="who">Lil Bryceism</div>
+          <div class="quote">"Celebrate the micro-wins. They add up to mountains."</div>
+        </div>
+        <div class="feed-card">
+          <div class="meta"><div class="avatar"></div><strong>Maria K.</strong><span>2h ago</span></div>
+          <h4>Tremor was lighter today</h4>
+          <p>Tried the new breathing exercise before bed. Slept through the night for the first time in weeks.</p>
+        </div>
+        <div class="feed-card">
+          <div class="meta"><div class="avatar"></div><strong>James R.</strong><span>4h ago</span></div>
+          <h4>Walking group meets Saturday</h4>
+          <p>Anyone in Phoenix want to join us? We're starting slow — bring water.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ OPTION C: WELCOME / SPLASH ============ -->
+<div class="ab-block">
+  <div class="ab-label">
+    <span class="tag">Option C</span>
+    <h2>Photo as the full-screen welcome / splash</h2>
+    <span class="verdict good">Where the photo earns its keep</span>
+  </div>
+
+  <div class="device-frame">
+    <div class="device-screen">
+      <div class="status-bar"><span>9:41</span><div class="right"><span>·il</span><span>100%</span></div></div>
+      <div class="welcome-screen">
+        <div class="welcome-photo"></div>
+        <div class="welcome-content">
+          <span class="brand-line">A Private Community</span>
+          <div class="wordmark-stack">
+            <span class="name">T H E&nbsp;<span class="gold">C L U B</span></span>
+            <span class="tag">Doing Life Today</span>
+          </div>
+          <h2>Welcome to the club nobody wanted to join.</h2>
+          <p class="sub">Some of the <em>strongest people</em> you'll ever meet are already inside.</p>
+          <a href="#" class="w-btn w-btn-gold">Sign in</a>
+          <a href="#" class="w-btn w-btn-ghost">Create account</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ TAKEAWAYS ============ -->
+<div class="takeaways">
+  <h3>What this comparison shows</h3>
+  <ul>
+    <li><strong>Option A</strong> — Even at full resolution, the lighthouse collapses to noise at 130px tall. The header reads as a vague band of dark blue. White brand text and tab labels need extra shadows to stay legible. Every screen pays the photo's bandwidth cost.</li>
+    <li><strong>Option B</strong> — The icon mark on charcoal gives instant brand recognition without competing with content. Tabs stay sharp, navigation feels light, the page scrolls fast. This is what users will look at hundreds of times a day.</li>
+    <li><strong>Option C</strong> — The photo lands hard when it gets the whole stage. Welcome screen, login, onboarding, milestone celebrations, empty states, share cards — that's where it makes people feel something. Reserve it for those moments and it stays powerful.</li>
+  </ul>
+</div>
+
+</body>
+</html>

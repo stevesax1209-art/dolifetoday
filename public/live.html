@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Welcome to Doing Life Today - a global Parkinson's community built around real conversations, practical support, and lived experience. Join us.">
+  <title>Welcome | Doing Life Today</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Welcome to Doing Life Today">
+  <meta property="og:description" content="Real conversations. Real people. Real support. A Parkinson's community you can count on.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dolifetoday.com/live">
+  <meta property="og:site_name" content="Doing Life Today">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3LZZWBTWT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K3LZZWBTWT');
+  </script>
+  <script src="/js/analytics-events.js" defer></script>
+
+  <style>
+    /* â”€â”€ Live Page Overrides â”€â”€ */
+    .live-hero {
+      padding: 5rem 0 3.5rem;
+      background: var(--gradient-hero);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .live-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 55% at 50% 0%, rgba(32,178,170,0.14) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .live-eyebrow {
+      display: inline-block;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      margin-bottom: 1rem;
+      letter-spacing: 0.02em;
+    }
+    .live-hero h1 {
+      font-size: clamp(2rem, 5.5vw, 3.25rem);
+      font-weight: 800;
+      line-height: 1.15;
+      background: linear-gradient(135deg, #fff 30%, var(--color-primary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+    }
+    .live-hero .hero-sub {
+      font-size: 1.15rem;
+      color: var(--color-text-muted);
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+    }
+    .live-hero .hero-intro {
+      max-width: 640px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--color-text);
+    }
+
+    .live-section {
+      padding-block: 4.5rem;
+    }
+    .live-section.alt-bg {
+      background: var(--color-bg-2);
+    }
+    .live-section .section-label {
+      display: block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--color-primary);
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+    .live-section h2 {
+      font-size: clamp(1.5rem, 4vw, 2.25rem);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    .live-section p {
+      line-height: 1.75;
+      color: var(--color-text);
+    }
+    .live-section p.muted {
+      color: var(--color-text-muted);
+    }
+
+    .live-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.75rem;
+    }
+    .live-cta-group.center {
+      justify-content: center;
+    }
+
+    /* Event access optional message */
+    .live-event-access {
+      margin-top: 1.5rem;
+      padding: 1.25rem 1.5rem;
+      background: rgba(32, 178, 170, 0.06);
+      border: 1px solid rgba(32, 178, 170, 0.18);
+      border-radius: var(--radius-md, 12px);
+      font-size: 0.95rem;
+      color: var(--color-text);
+      line-height: 1.65;
+      max-width: 640px;
+    }
+    .live-event-access.hidden {
+      display: none;
+    }
+
+    /* Waitlist form */
+    .live-waitlist-form {
+      max-width: 480px;
+      margin-top: 2rem;
+    }
+    .live-waitlist-form label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.4rem;
+    }
+    .live-waitlist-form input,
+    .live-waitlist-form select {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      background: var(--color-bg-2, #1A1A1A);
+      border: 1px solid var(--color-border, rgba(255,255,255,0.08));
+      border-radius: var(--radius-md, 12px);
+      color: var(--color-text);
+      font-size: 1rem;
+      font-family: inherit;
+      margin-bottom: 1rem;
+      transition: border-color 0.25s ease;
+    }
+    .live-waitlist-form input:focus,
+    .live-waitlist-form select:focus {
+      outline: none;
+      border-color: var(--color-primary);
+    }
+    .live-waitlist-form input::placeholder {
+      color: var(--color-text-muted);
+      opacity: 0.6;
+    }
+    .live-waitlist-form option {
+      background: var(--color-bg-2, #1A1A1A);
+      color: var(--color-text);
+    }
+    .live-waitlist-form .btn {
+      width: 100%;
+      margin-top: 0.25rem;
+    }
+    .live-form-microcopy {
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+      margin-top: 0.75rem;
+      text-align: center;
+    }
+    .live-waitlist-status {
+      margin-top: 1rem;
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius-md, 12px);
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+    .live-waitlist-status.success {
+      background: rgba(32, 178, 170, 0.1);
+      border: 1px solid rgba(32, 178, 170, 0.25);
+      color: var(--color-primary);
+    }
+    .live-waitlist-status.error {
+      background: rgba(255, 107, 53, 0.1);
+      border: 1px solid rgba(255, 107, 53, 0.25);
+      color: var(--color-accent);
+    }
+    .live-waitlist-status:empty {
+      display: none;
+    }
+
+    /* Resource cards grid */
+    .live-resources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .live-resource-card {
+      background: var(--color-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg, 20px);
+      padding: 1.75rem;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      text-decoration: none;
+      display: block;
+    }
+    .live-resource-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--color-primary);
+      box-shadow: 0 8px 24px rgba(32, 178, 170, 0.1);
+    }
+    .live-resource-card .rc-icon {
+      font-size: 1.75rem;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+    .live-resource-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: 0.5rem;
+    }
+    .live-resource-card p {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      line-height: 1.55;
+    }
+
+    /* Bryce section */
+    .live-bryce-block {
+      max-width: 680px;
+    }
+    .live-bryce-block blockquote {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--color-text);
+      border-left: 3px solid var(--color-primary);
+      padding-left: 1.5rem;
+      margin: 0 0 1.5rem;
+      font-style: normal;
+    }
+    .live-signature {
+      font-weight: 700;
+      color: var(--color-text);
+    }
+    .live-signature span {
+      display: block;
+      font-weight: 400;
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      margin-top: 0.15rem;
+    }
+
+    /* Footer CTA banner */
+    .live-footer-cta {
+      text-align: center;
+      padding-block: 5rem;
+      background: linear-gradient(135deg, #0A0A0A 0%, #1a0a2e 50%, #0a1a2e 100%);
+      position: relative;
+    }
+    .live-footer-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 50% at 50% 100%, rgba(32,178,170,0.10) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .live-footer-cta h2 {
+      font-size: clamp(1.5rem, 4vw, 2.25rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    .live-footer-cta p {
+      color: var(--color-text-muted);
+      max-width: 540px;
+      margin: 0 auto 2rem;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 600px) {
+      .live-hero { padding: 3.5rem 0 2.5rem; }
+      .live-section { padding-block: 3rem; }
+      .live-cta-group { flex-direction: column; align-items: stretch; }
+      .live-cta-group .btn { text-align: center; }
+      .live-event-access { margin-left: auto; margin-right: auto; }
+      .live-footer-cta { padding-block: 3.5rem; }
+    }
+
+    /* Countdown timer */
+    .live-countdown {
+      display: inline-flex;
+      gap: 0.6rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .live-countdown-unit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 56px;
+      padding: 0.5rem 0.6rem;
+      background: rgba(32, 178, 170, 0.08);
+      border: 1px solid rgba(32, 178, 170, 0.2);
+      border-radius: var(--radius-sm, 6px);
+    }
+    .live-countdown-unit .cd-val {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--color-text);
+      line-height: 1;
+    }
+    .live-countdown-unit .cd-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-text-muted);
+      margin-top: 0.25rem;
+    }
+    .live-countdown-expired {
+      font-size: 0.95rem;
+      color: var(--color-accent);
+      font-weight: 700;
+      margin-top: 1rem;
+    }
+
+    /* Hero conversational sub-block */
+    .hero-sub-block {
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .hero-sub-block p {
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: var(--color-text-muted);
+      margin-bottom: 0.4rem;
+    }
+    .hero-sub-block .hero-intro {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      color: var(--color-text);
+      line-height: 1.8;
+    }
+
+    /* Highlight keyword */
+    .live-highlight {
+      color: var(--color-primary);
+      font-weight: 700;
+    }
+
+    /* Check list */
+    .live-check-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.25rem 0 0;
+      max-width: 640px;
+    }
+    .live-check-list li {
+      position: relative;
+      padding-left: 2rem;
+      margin-bottom: 0.85rem;
+      font-size: 1.05rem;
+      line-height: 1.65;
+      color: var(--color-text);
+    }
+    .live-check-list li::before {
+      content: '\2714';
+      position: absolute;
+      left: 0;
+      color: var(--color-primary);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    /* Price block */
+    .live-price-block {
+      margin-top: 2rem;
+      padding: 1.5rem 2rem;
+      background: rgba(32, 178, 170, 0.07);
+      border: 1px solid rgba(32, 178, 170, 0.2);
+      border-radius: var(--radius-md, 12px);
+      display: inline-block;
+    }
+    .live-price {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-text) !important;
+      margin-bottom: 0.25rem;
+    }
+    .live-price strong {
+      color: var(--color-primary);
+      font-size: 1.55rem;
+    }
+    .live-price-old {
+      text-decoration: line-through;
+      color: var(--color-text-muted);
+      font-weight: 400;
+      font-size: 1rem;
+      margin-left: 0.35rem;
+    }
+    .live-price-sub {
+      color: var(--color-text-muted) !important;
+      font-size: 0.95rem;
+    }
+
+    /* Urgency section */
+    .live-urgency-section {
+      background: linear-gradient(135deg, #0A0A0A 0%, #1a0a2e 50%, #0a1a2e 100%);
+      position: relative;
+    }
+    .live-urgency-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 60% at 50% 0%, rgba(147,51,234,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Pattern interrupt section */
+    .live-interrupt {
+      border-top: 2px solid rgba(32, 178, 170, 0.15);
+      border-bottom: 2px solid rgba(32, 178, 170, 0.15);
+    }
+
+    /* Feature icons grid */
+    .live-features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2rem;
+      max-width: 700px;
+    }
+    .live-feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+    }
+    .live-feature-icon {
+      font-size: 1.35rem;
+      flex-shrink: 0;
+      margin-top: 0.15rem;
+    }
+    .live-feature-item strong {
+      display: block;
+      font-size: 1rem;
+      color: var(--color-text);
+      margin-bottom: 0.15rem;
+    }
+    .live-feature-item span {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+    }
+
+    /* Bridge section pointer list */
+    .live-pointer-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.25rem 0 0;
+      max-width: 640px;
+    }
+    .live-pointer-list li {
+      position: relative;
+      padding-left: 2rem;
+      margin-bottom: 0.85rem;
+      font-size: 1.05rem;
+      line-height: 1.65;
+      color: var(--color-text);
+    }
+    .live-pointer-list li::before {
+      content: '&#128073;';
+      position: absolute;
+      left: 0;
+    }
+
+    /* QR code section */
+    .live-qr-section {
+      text-align: center;
+    }
+    .live-qr-section img {
+      max-width: 200px;
+      border-radius: var(--radius-md, 12px);
+      margin-bottom: 1rem;
+    }
+
+    /* Micro authority before/after */
+    .live-before-after {
+      max-width: 580px;
+      margin-top: 1.5rem;
+    }
+    .live-before-after p {
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius-md, 12px);
+      margin-bottom: 0.75rem;
+      font-size: 1rem;
+    }
+    .live-ba-before {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      color: var(--color-text-muted) !important;
+      font-style: italic;
+    }
+    .live-ba-after {
+      background: rgba(32, 178, 170, 0.08);
+      border: 1px solid rgba(32, 178, 170, 0.18);
+      color: var(--color-text) !important;
+      font-weight: 600;
+    }
+    .live-ba-label {
+      display: block;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+      font-style: normal;
+    }
+    .live-ba-before .live-ba-label { color: var(--color-text-muted); }
+    .live-ba-after .live-ba-label { color: var(--color-primary); }
+
+    /* Urgency tag under hero CTA */
+    .live-urgency-tag {
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--color-accent, #FF6B35);
+      letter-spacing: 0.04em;
+    }
+  </style>
+  <script src="/js/meta-pixel.js"></script>
+</head>
+<body>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=771485525759396&ev=PageView&noscript=1"
+  /></noscript>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a href="/" class="nav-logo" aria-label="Doing Life Today - Home">
+        <div class="nav-logo-mark" aria-hidden="true">DL</div>
+        <div class="nav-logo-text">Doing Life Today<span>Parkinson's Community</span></div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="/">Home</a></li>
+        <li><a href="/parkinsons-help-and-support">Support</a></li>
+        <li><a href="/parkinsons-community">Parkinson's Community</a></li>
+        <li><a href="/parkinsons-daily-check-in">Daily Check-In</a></li>
+        <li><a href="/parkinsons-symptom-tracker">Symptom Tracker</a></li>
+        <li><a href="/resources">Resources</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <a href="https://club.dolifetoday.com" class="btn btn-primary btn-sm nav-cta">Join The Club</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a href="/">Home</a>
+    <a href="/parkinsons-help-and-support">Support</a>
+    <a href="/parkinsons-community">Parkinson's Community</a>
+    <a href="/parkinsons-daily-check-in">Daily Check-In</a>
+    <a href="/parkinsons-symptom-tracker">Symptom Tracker</a>
+    <a href="/resources">Resources</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+    <div class="mobile-cta"><a href="https://club.dolifetoday.com" class="btn btn-primary">Join The Club</a></div>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+         &#128293; HERO - Above the fold
+         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <section class="live-hero" aria-labelledby="live-heading">
+      <div class="container hero-content">
+
+        <!-- âœ  EDIT THIS LINE before each event -->
+        <p class="live-eyebrow">Great to meet you in Cleveland, Ohio - April 18, 2026</p>
+
+        <h1 id="live-heading">Welcome to The Club<br>You Never Wanted…<br>But Might Be Glad You Found</h1>
+
+        <p class="hero-sub">You're not alone anymore. And this? This is just the beginning.</p>
+
+        <div class="hero-sub-block">
+          <p>You showed up today.<br>That already says something.</p>
+          <p class="hero-intro">Now imagine not having to wait for the next event, the next conversation, or the next appointment…<br><br>
+          &#128073; <strong>What if you had access to support, tools, and real people - every single day?</strong></p>
+        </div>
+
+        <div class="live-cta-group center" style="margin-top:2.25rem;">
+          <a href="#join" class="btn btn-primary btn-lg">&#128073; Get Early Access Now</a>
+        </div>
+        <p class="live-urgency-tag">Ohio Wave Access - Limited Spots This Week Only</p>
+      </div>
+    </section>
+
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+         &#9889; DIFFERENTIATION - "This Is The Club"
+         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <section class="live-section" aria-labelledby="diff-heading">
+      <div class="container">
+        <h2 id="diff-heading">This Isn't a Meeting.<br>This Is The Club.</h2>
+        <p style="max-width:640px;">This is where Parkinson's stops being something you just talk about…<br>
+        and becomes something you actually <strong>manage, understand, and navigate</strong> - every day.</p>
+        <p style="max-width:640px;margin-top:1rem;">Inside The Club, you're not just listening.</p>
+        <p style="max-width:640px;margin-top:0.5rem;">You're:</p>
+
+        <ul class="live-check-list">
+          <li>Tracking your symptoms, meds, sleep, and patterns</li>
+          <li>Using AI to actually understand what your body is telling you</li>
+          <li>Connecting with people around the world living it in real time</li>
+          <li>Getting insights that go beyond once-a-month conversations</li>
+        </ul>
+
+        <p style="max-width:640px;font-weight:700;margin-top:1.75rem;font-size:1.1rem;">This is real life with Parkinson's - in real time.</p>
+      </div>
+    </section>
+
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+         &#128101; PATTERN INTERRUPT
+         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <section class="live-section alt-bg live-interrupt" aria-labelledby="interrupt-heading">
+      <div class="container">
+        <h2 id="interrupt-heading">This Isn't Even The Same Thing</h2>
+        <p style="max-width:640px;">If what you're used to is sitting in a room once in a while, listening and sharing…</p>
+        <p style="max-width:640px;margin-top:0.75rem;"><strong>This will feel completely different.</strong></p>
+        <p style="max-width:640px;margin-top:0.75rem;">Because here, you're not just talking about Parkinson's.</p>
+        <p style="max-width:640px;font-weight:700;font-size:1.1rem;margin-top:1.25rem;">&#128073; You're actively doing something about it.</p>
+      </div>
+    </section>
+
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+         &#128293; BRYCE LINE
+         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <section class="live-section" aria-labelledby="bryce-line-heading">
+      <div class="container">
+        <div class="live-bryce-block">
+          <blockquote>
+            "I didn't build this so people could talk about Parkinson's once a month.<br><br>
+            I built it for the other 29 days… when real life is happening."
+          </blockquote>
+          <p class="live-signature">
+            Bryce
+            <span>Founder, Doing Life Today</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+         &#128640; FEATURES - What You Get Inside
+         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <section class="live-section alt-bg" aria-labelledby="features-heading">
+      <div class="container">
+        <h2 id="features-heading">What You Get Inside</h2>
+
+        <div class="live-features-grid">
+          <div class="live-feature-item">
+            <span class="live-feature-icon" aria-hidden="true">&#128202;</span>
+            <div><strong>Daily Check-Ins</strong><span>See how others are actually doing today</span></div>
+          </div>
+          <div class="live-feature-item">
+            <span class="live-feature-icon" aria-hidden="true">&#128138;</span>
+            <div><strong>Symptom + Med Tracking</strong><span>Stop guessing, start seeing patterns</span></div>
+          </div>
+          <div class="live-feature-item">
+            <span class="live-feature-icon" aria-hidden="true">&#129302;</span>
+            <div><strong>AI Insights</strong><span>Understand what's working and what's not</span></div>
+          </div>
+          <div class="live-feature-item">
+            <span class="live-feature-icon" aria-hidden="true">&#127757;</span>
+            <div><strong>Global Community</strong><span>People who actually get it</span></div>
+          </div>
+          <div class="live-feature-item">
+            <span class="live-feature-icon" aria-hidden="true">&#128142;</span>
+            <div><strong>The Inner Circle</strong><span>A deeper, more personal experience</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+         &#128257; BRIDGE - Take This Back With You
+         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <section class="live-section" aria-labelledby="bridge-heading">
+      <div class="container">
+        <h2 id="bridge-heading">Take This Back With You</h2>
+        <p style="max-width:640px;">What you do inside The Club doesn't stay inside The Club.</p>
+        <p style="max-width:640px;margin-top:0.5rem;">You bring it with you.</p>
+
+        <ul class="live-pointer-list">
+          <li>Bring your tracking insights to your next appointment</li>
+          <li>Bring real experiences and ideas to your next group</li>
+          <li>Bring better questions, better awareness, better understanding</li>
+        </ul>
+
+        <p style="max-width:640px;margin-top:1.5rem;">Because when you're doing this every day…</p>
+        <p style="max-width:640px;margin-top:0.5rem;">You show up differently.</p>
+        <p style="max-width:640px;margin-top:0.75rem;">More informed.<br>More confident.<br>More in control.</p>
+
+        <p style="max-width:640px;font-weight:700;margin-top:1.75rem;font-size:1.05rem;">The Club doesn't replace anything.<br>&#128073; It makes everything else work better.</p>
+      </div>
+    </section>
+
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+         &#129504; MICRO AUTHORITY
+         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <section class="live-section alt-bg" aria-labelledby="authority-heading">
+      <div class="container">
+        <h2 id="authority-heading">Walk Into Your Next Appointment Prepared</h2>
+
+        <div class="live-before-after">
+          <p class="live-ba-before">
+            <span class="live-ba-label">Instead of</span>
+            "I think I've been off lately…"
+          </p>
+          <p class="live-ba-after">
+            <span class="live-ba-label">You'll say</span>
+            "Here's exactly what's been happening - and when."
+          </p>
+        </div>
+
+        <p style="max-width:640px;font-weight:700;margin-top:1.75rem;font-size:1.05rem;">That's a completely different conversation.</p>
+      </div>
+    </section>
+
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+         &#128274; INNER CIRCLE
+         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <section class="live-section" aria-labelledby="inner-circle-heading">
+      <div class="container">
+        <h2 id="inner-circle-heading">And If You Want to Go Deeper…</h2>
+        <p style="max-width:640px;">Because you're here today, you get access to something we don't normally offer publicly.</p>
+        <p style="max-width:640px;">You can join Bryce inside <strong class="live-highlight">the Inner Circle.</strong></p>
+        <p style="max-width:640px;margin-top:1rem;">A smaller, more personal space with:</p>
+
+        <ul class="live-check-list">
+          <li>Monthly live calls with Bryce</li>
+          <li>Direct connection and priority support</li>
+          <li>Deeper conversations with people walking the same path</li>
+        </ul>
+
+        <div class="live-price-block">
+          <p class="live-price">Join today for <strong>$50/year</strong> <span class="live-price-old">$99/year</span></p>
+          <p class="live-price-sub">That's less than a dollar a week.</p>
+        </div>
+
+        <div class="live-cta-group" style="margin-top:1.75rem;">
+          <!-- âœ  REPLACE href with your Stripe payment link -->
+          <a href="#STRIPE_INNER_CIRCLE_LINK" class="btn btn-primary btn-lg">&#128073; Join the Inner Circle - $50/year</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+         â³ URGENCY / WAVE
+         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <section class="live-section live-urgency-section" aria-labelledby="urgency-heading">
+      <div class="container">
+        <h2 id="urgency-heading">This Isn't Open to Everyone Yet</h2>
+        <p style="max-width:640px;">Because you're here today, you're getting access through the <strong class="live-highlight">Ohio Wave.</strong></p>
+        <p style="max-width:640px;font-weight:700;font-size:1.1rem;margin-top:1rem;">&#128073; If you sign up now, you'll be invited in THIS WEEK.</p>
+        <p style="max-width:640px;margin-top:1rem;">Once this wave fills…</p>
+        <p style="max-width:640px;">You'll be waiting until the public launch.</p>
+        <div id="live-countdown-access" class="live-countdown" aria-live="polite"></div>
+        <div class="live-cta-group" style="margin-top:1.75rem;">
+          <a href="#join" class="btn btn-primary btn-lg">&#128073; Get Early Access Now</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+         &#128221; FORM SECTION
+         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <section class="live-section alt-bg" id="join" aria-labelledby="form-heading">
+      <div class="container">
+        <h2 id="form-heading">&#128073; Get Early Access Now</h2>
+        <p style="max-width:640px;">This takes 10 seconds.</p>
+        <p style="max-width:640px;">No spam. No pressure.</p>
+        <p style="max-width:640px;">Just your way into The Club - before everyone else.</p>
+
+        <form id="live-waitlist-form" class="live-waitlist-form" novalidate>
+          <label for="live-email">Email address</label>
+          <input id="live-email" name="email" type="email" placeholder="Enter your email address" autocomplete="email" required>
+
+          <label for="live-role">I'm joining as:</label>
+          <select id="live-role" name="audienceRole">
+            <option value="A person living with Parkinson's">A person living with Parkinson's</option>
+            <option value="A care partner / spouse / family caregiver">A care partner / spouse / family caregiver</option>
+          </select>
+
+          <button type="submit" class="btn btn-primary btn-lg">&#128073; Get Early Access</button>
+          <p class="live-form-microcopy">Takes 10 seconds. No spam. Ever.</p>
+          <div id="live-countdown-form" class="live-countdown" aria-live="polite"></div>
+          <div id="live-waitlist-status" class="live-waitlist-status" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+         &#128101; FINAL CTA
+         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <section class="live-footer-cta" aria-labelledby="final-cta-heading">
+      <div class="container">
+        <h2 id="final-cta-heading">Don't Just Leave Here Inspired…<br>Leave With Something That Actually Helps</h2>
+        <p>You came here for a reason.<br>Now take the next step.</p>
+        <p style="max-width:540px;margin:0 auto;">&#128073; Scan the code &nbsp; &#128073; Join the wave &nbsp; &#128073; Start Doing Life Today - not someday</p>
+        <div class="live-cta-group center" style="margin-top:2rem;">
+          <a href="#join" class="btn btn-primary btn-lg">&#128073; Get Early Access</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Learn More</h4>
+          <ul class="footer-links">
+            <li><a href="/parkinsons-daily-check-in">Parkinson's Daily Check-In</a></li>
+            <li><a href="/parkinsons-community">Parkinson's Support Community</a></li>
+            <li><a href="/parkinsons-symptom-tracker">Parkinson's Symptom Tracker</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul class="footer-links">
+            <li><a href="/resources">Parkinson's Resources</a></li>
+            <li><a href="/parkinsons-help-and-support">Education &amp; Support</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>About</h4>
+          <ul class="footer-links">
+            <li><a href="/about">About Doing Life Today</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul class="footer-links">
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Doing Life Today. All rights reserved.</p>
+        <p class="footer-disclaimer">Peer support, not medical advice.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">&uarr;</button>
+  <script src="js/main.js"></script>
+  <script>
+  (function () {
+    var form = document.getElementById('live-waitlist-form');
+    var emailInput = document.getElementById('live-email');
+    var roleInput = document.getElementById('live-role');
+    var statusEl = document.getElementById('live-waitlist-status');
+    if (!form || !emailInput || !statusEl) return;
+
+    function showStatus(type, message) {
+      statusEl.className = 'live-waitlist-status ' + type;
+      statusEl.textContent = message;
+    }
+
+    if (window.dltSpamProtection && typeof window.dltSpamProtection.prepareForm === 'function') {
+      window.dltSpamProtection.prepareForm(form).catch(function () {});
+    }
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      var email = emailInput.value.trim();
+      var audienceRole = roleInput ? roleInput.value : "A person living with Parkinson's";
+      var button = form.querySelector('button[type="submit"]');
+      var originalText = button ? button.textContent : '';
+
+      if (!email) {
+        showStatus('error', 'Please enter your email address.');
+        return;
+      }
+
+      if (button) { button.disabled = true; button.textContent = 'Joining...'; }
+      statusEl.textContent = '';
+      statusEl.className = 'live-waitlist-status';
+
+      try {
+        var protection = { recaptchaToken: '', honeypotValue: '' };
+        if (window.dltSpamProtection && typeof window.dltSpamProtection.collectSubmissionData === 'function') {
+          protection = await window.dltSpamProtection.collectSubmissionData(form);
+          if (protection.errorMessage) {
+            showStatus('error', protection.errorMessage);
+            return;
+          }
+        }
+
+        var res = await fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: email,
+            list: 'theclub_waitlist',
+            audienceRole: audienceRole,
+            source: 'ohio_wave',
+            waveOverride: 17,
+            recaptchaToken: protection.recaptchaToken,
+            company_name_hidden: protection.honeypotValue
+          })
+        });
+
+        var data = await res.json();
+
+        if (res.ok) {
+          if (!data.waitlistCounted) {
+            showStatus('success', "You're already signed up. We'll be in touch when the Ohio Wave opens on April 21.");
+          } else {
+            window.location.href = '/welcome';
+            return;
+          }
+          emailInput.value = '';
+          if (window.dltSpamProtection && typeof window.dltSpamProtection.resetForm === 'function') {
+            window.dltSpamProtection.resetForm(form);
+          }
+        } else {
+          showStatus('error', data.error || 'Something went wrong. Please try again.');
+        }
+      } catch (err) {
+        showStatus('error', 'Network error. Please try again in a moment.');
+      } finally {
+        if (button) { button.disabled = false; button.textContent = originalText; }
+      }
+    });
+  })();
+
+  /* â”€â”€ Countdown Timer â”€â”€ */
+  (function () {
+    var DEADLINE = new Date('2026-04-21T00:00:00-04:00').getTime(); // April 20 midnight ET
+    var targets = [
+      document.getElementById('live-countdown-form'),
+      document.getElementById('live-countdown-access')
+    ].filter(Boolean);
+    if (!targets.length) return;
+
+    function pad(n) { return n < 10 ? '0' + n : n; }
+
+    function render() {
+      var now = Date.now();
+      var diff = DEADLINE - now;
+      if (diff <= 0) {
+        targets.forEach(function (el) {
+          el.innerHTML = '<p class="live-countdown-expired">This offer has expired.</p>';
+        });
+        return;
+      }
+      var d = Math.floor(diff / 86400000);
+      var h = Math.floor((diff % 86400000) / 3600000);
+      var m = Math.floor((diff % 3600000) / 60000);
+      var s = Math.floor((diff % 60000) / 1000);
+      var html = '<div class="live-countdown-unit"><span class="cd-val">' + pad(d) + '</span><span class="cd-label">Days</span></div>'
+        + '<div class="live-countdown-unit"><span class="cd-val">' + pad(h) + '</span><span class="cd-label">Hours</span></div>'
+        + '<div class="live-countdown-unit"><span class="cd-val">' + pad(m) + '</span><span class="cd-label">Min</span></div>'
+        + '<div class="live-countdown-unit"><span class="cd-val">' + pad(s) + '</span><span class="cd-label">Sec</span></div>';
+      targets.forEach(function (el) { el.innerHTML = html; });
+      requestAnimationFrame(render);
+    }
+    render();
+  })();
+  </script>
+</body>
+</html>
+

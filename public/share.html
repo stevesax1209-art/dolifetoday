@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Free shareable videos, social graphics, and printable PDFs to help spread the word about Doing Life Today's free Parkinson's community.">
+  <title>Share Kit — Help Spread the Word | Doing Life Today</title>
+  <link rel="canonical" href="https://dolifetoday.com/share">
+
+  <meta property="og:title" content="Share Kit — Help Spread the Word About Doing Life Today">
+  <meta property="og:description" content="Videos, graphics, and printables you can share with friends, family, support groups, and clinicians.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dolifetoday.com/share">
+  <meta property="og:site_name" content="Doing Life Today">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* Share Kit page-specific styles */
+    .share-hero .hero-badge {
+      background: rgba(244, 63, 94, 0.18);
+      color: #fda4af;
+      border: 1px solid rgba(244, 63, 94, 0.35);
+    }
+    .share-quick-actions {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      margin-top: 2rem;
+    }
+    .share-quick-actions button {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1.1rem 1.25rem;
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 1rem;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #fff;
+      text-align: left;
+      transition: all 0.2s ease;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+    }
+    .share-quick-actions button:hover {
+      transform: translateY(-2px);
+      border-color: rgba(244, 63, 94, 0.7);
+      background: rgba(255, 255, 255, 0.10);
+      box-shadow: 0 8px 20px rgba(244, 63, 94, 0.25);
+    }
+    .share-quick-actions .icon {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 0.75rem;
+      background: rgba(244, 63, 94, 0.18);
+      color: #fda4af;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+    }
+    .share-quick-actions .label {
+      display: block;
+      font-size: 1rem;
+      color: #fff;
+    }
+    .share-quick-actions .sub {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.65);
+      margin-top: 0.15rem;
+    }
+
+    .share-section { padding-block: 4rem; border-top: 1px solid #f1f5f9; }
+    .share-section:first-of-type { border-top: 0; }
+    .share-section h2 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    .share-section .section-lede {
+      color: #4b5563;
+      max-width: 720px;
+      margin-bottom: 2rem;
+    }
+    .share-grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+    .share-card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 1rem;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      transition: all 0.2s ease;
+    }
+    .share-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+      border-color: #d1d5db;
+    }
+    .share-card-media {
+      aspect-ratio: 16 / 9;
+      background: #f3f4f6;
+      position: relative;
+      overflow: hidden;
+    }
+    .share-card-media img,
+    .share-card-media video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .share-card-media.placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #9ca3af;
+      font-size: 0.9rem;
+      background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+    }
+    .share-card-body {
+      padding: 1.1rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      flex: 1;
+    }
+    .share-card-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      line-height: 1.3;
+      color: #111827;
+    }
+    .share-card-desc {
+      font-size: 0.875rem;
+      color: #6b7280;
+      line-height: 1.5;
+      flex: 1;
+    }
+    .share-card-actions {
+      display: flex;
+      gap: 0.5rem;
+      padding: 0 1.25rem 1.25rem;
+    }
+    .share-card-actions .btn {
+      flex: 1;
+      font-size: 0.85rem;
+      padding: 0.55rem 0.9rem;
+    }
+    .empty-state {
+      grid-column: 1 / -1;
+      padding: 3rem 1.5rem;
+      text-align: center;
+      background: #f9fafb;
+      border: 2px dashed #e5e7eb;
+      border-radius: 1rem;
+      color: #6b7280;
+    }
+    .empty-state strong { color: #374151; display: block; margin-bottom: 0.35rem; }
+
+    .share-toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: #111827;
+      color: #fff;
+      padding: 0.75rem 1.25rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      opacity: 0;
+      transition: all 0.25s ease;
+      pointer-events: none;
+      z-index: 1000;
+    }
+    .share-toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a href="/" class="nav-logo" aria-label="Doing Life Today - Home">
+        <div class="nav-logo-mark" aria-hidden="true">DL</div>
+        <div class="nav-logo-text">Doing Life Today<span>Parkinson's Community</span></div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="/">Home</a></li>
+        <li><a href="/parkinsons-help-and-support">Support</a></li>
+        <li><a href="/parkinsons-community">Parkinson's Community</a></li>
+        <li><a href="/parkinsons-daily-check-in">Daily Check-In</a></li>
+        <li><a href="/parkinsons-symptom-tracker">Symptom Tracker</a></li>
+        <li><a href="/resources">Resources</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <a href="https://club.dolifetoday.com" class="btn btn-primary btn-sm nav-cta">Join The Club</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a href="/">Home</a>
+    <a href="/parkinsons-help-and-support">Support</a>
+    <a href="/parkinsons-community">Parkinson's Community</a>
+    <a href="/parkinsons-daily-check-in">Daily Check-In</a>
+    <a href="/parkinsons-symptom-tracker">Symptom Tracker</a>
+    <a href="/resources">Resources</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+    <div class="mobile-cta"><a href="https://club.dolifetoday.com" class="btn btn-primary">Join The Club</a></div>
+  </nav>
+
+  <main id="main-content">
+    <section class="page-hero share-hero" aria-labelledby="share-h1">
+      <div class="container hero-content">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span class="sep" aria-hidden="true">›</span>
+          <span class="current" aria-current="page">Share Kit</span>
+        </nav>
+
+        <span class="hero-badge">❤️ HELP SOMEONE WHO NEEDS THIS</span>
+        <h1 id="share-h1">Share Kit</h1>
+        <p class="hero-subtitle">
+          Most people with Parkinson's never hear about communities like ours. Your share — to a friend,
+          a support group, a clinician — can be the moment that changes someone's whole experience of this disease.
+        </p>
+
+        <div class="share-quick-actions" id="quick-actions-top">
+          <button type="button" data-action="native-share" hidden>
+            <span class="icon" aria-hidden="true">📱</span>
+            <span><span class="label">Invite from your phone</span><span class="sub">Texts, WhatsApp, email — anything</span></span>
+          </button>
+          <button type="button" data-action="email-friend">
+            <span class="icon" aria-hidden="true">✉️</span>
+            <span><span class="label">Email a friend</span><span class="sub">Pre-written friendly note</span></span>
+          </button>
+          <button type="button" data-action="copy-link">
+            <span class="icon" aria-hidden="true">🔗</span>
+            <span><span class="label">Copy invite link</span><span class="sub">Paste anywhere</span></span>
+          </button>
+          <button type="button" data-action="email-group">
+            <span class="icon" aria-hidden="true">👥</span>
+            <span><span class="label">Email a support group</span><span class="sub">Polished pitch for leaders</span></span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+
+      <!-- VIDEOS -->
+      <section class="share-section" id="videos" aria-labelledby="videos-h2">
+        <h2 id="videos-h2">🎬 Videos</h2>
+        <p class="section-lede">15-second commercials and short clips. Tap a video to watch, then download or share.</p>
+        <div class="share-grid" id="videos-grid"></div>
+      </section>
+
+      <!-- GRAPHICS -->
+      <section class="share-section" id="graphics" aria-labelledby="graphics-h2">
+        <h2 id="graphics-h2">🖼️ Social Graphics</h2>
+        <p class="section-lede">Posts and quote cards sized for Facebook, Instagram, and X. Right-click or long-press to save, or use the buttons below each.</p>
+        <div class="share-grid" id="graphics-grid"></div>
+      </section>
+
+      <!-- PDFs -->
+      <section class="share-section" id="pdfs" aria-labelledby="pdfs-h2">
+        <h2 id="pdfs-h2">📄 Printables &amp; PDFs</h2>
+        <p class="section-lede">One-pagers and flyers for support group leaders, neuros, PTs, and anyone you want to hand a piece of paper to.</p>
+        <div class="share-grid" id="pdfs-grid"></div>
+      </section>
+
+      <!-- WHY SHARE -->
+      <section class="share-section" aria-labelledby="why-h2">
+        <h2 id="why-h2">Why this matters</h2>
+        <p class="section-lede" style="max-width:780px;">
+          Every week we hear from people who say <em>"I wish I'd known about this years ago."</em>
+          Word-of-mouth from members like you is how this community grows — not ads, not algorithms.
+          If even one person you share with finds something helpful inside, it was worth the 30 seconds.
+        </p>
+        <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:1rem;">
+          <a href="https://club.dolifetoday.com" class="btn btn-primary btn-lg">Join The Club</a>
+          <a href="/parkinsons-community" class="btn btn-secondary btn-lg">Learn About the Community</a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Learn More</h4>
+          <ul class="footer-links">
+            <li><a href="/parkinsons-daily-check-in">Parkinson's Daily Check-In</a></li>
+            <li><a href="/parkinsons-community">Parkinson's Support Community</a></li>
+            <li><a href="/parkinsons-symptom-tracker">Parkinson's Symptom Tracker</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul class="footer-links">
+            <li><a href="/resources">Parkinson's Resources</a></li>
+            <li><a href="/parkinsons-help-and-support">Education &amp; Support</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>About</h4>
+          <ul class="footer-links">
+            <li><a href="/about">About Doing Life Today</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul class="footer-links">
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Doing Life Today. All rights reserved.</p>
+        <p class="footer-disclaimer">Peer support, not medical advice.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="share-toast" id="share-toast" role="status" aria-live="polite"></div>
+
+  <script src="js/main.js"></script>
+
+  <script>
+  (function () {
+    // ====================================================================
+    // ASSET LISTS — edit these as you drop files into /public/share-assets/
+    // ====================================================================
+    //
+    // Each asset is relative to /share-assets/
+    // For VIDEOS, optionally provide a poster image (a JPG/PNG thumbnail).
+    // For GRAPHICS, provide the image path; the page will let users open
+    // and download it.
+    // For PDFS, just the file path + title + description.
+    //
+    // After adding files to /public/share-assets/, deploy and you're done.
+
+    const VIDEOS = [
+      {
+        file: 'videos/app for that new verticle 15 sec.mp4',
+        title: 'The Club — 15-second intro (vertical)',
+        description: 'A quick "there\'s an app for that" video. Perfect for Instagram Stories, Reels, TikTok, or texting a friend.'
+      },
+    ];
+
+    const GRAPHICS = [
+      {
+        file: 'graphics/There is an app for that.png',
+        title: 'There\'s An App For That — share-ready post',
+        description: 'Drop straight into Facebook, Instagram, or a text. Pairs well with the 15-second video.'
+      },
+      {
+        file: 'graphics/qr code google play.png',
+        title: 'Scan to download The Club (framed)',
+        description: 'Branded QR code pointing to The Club on Google Play. Great for printing or showing at meetings.'
+      },
+      {
+        file: 'graphics/google_play_download_qr_only.png',
+        title: 'Google Play QR — for your own designs',
+        description: 'Just the QR code. Drop it into your own flyer, slide deck, or printable.'
+      },
+    ];
+
+    const PDFS = [
+      {
+        url: '/Images/support%20group%20club%20handout.png',
+        downloadName: 'TheClub-Support-Group-Handout.png',
+        title: 'Support Group One-Pager',
+        description: 'A printable handout for support group leaders. Print, project, or email at your next meeting.'
+      },
+      // EXAMPLE — uncomment and edit when you upload more PDFs:
+      // {
+      //   file: 'pdfs/clinician-handout.pdf',
+      //   title: 'Clinician One-Pager',
+      //   description: 'Hand-out for your neuro, PT, or speech therapist.'
+      // },
+    ];
+
+    // ====================================================================
+    // Below this line: rendering + share actions. No editing needed.
+    // ====================================================================
+
+    const ASSET_BASE = '/share-assets/';
+    const SITE_URL = 'https://club.dolifetoday.com';
+    const SHARE_URL = SITE_URL + '?utm_source=share-page&utm_medium=web&utm_campaign=share-kit';
+    const SHARE_PAGE_URL = 'https://dolifetoday.com/share?utm_source=share-page&utm_medium=web&utm_campaign=share-kit';
+
+    const friendIntro = "I wanted to share something that's been helping me.\n\nDo Life Today is a free private community for people living with Parkinson's — daily check-ins, peer support, expert content, and people who get it. Worth a look:\n\n" + SHARE_URL;
+
+    const groupSubject = "A free resource for your Parkinson's support group";
+    const groupBody = "Hi,\n\nI'd like to share a free private community for people living with Parkinson's called Do Life Today. It's been a real source of support and I thought it might be helpful for the members of your support group too.\n\nThere's no cost — just daily check-ins, peer mentors (we call them Journey Guides), live events, and a kind, active community.\n\nMembers can join here: " + SHARE_URL + "\n\nMore info, downloadable flyers, and a one-pager you can share with your group are here: " + SHARE_PAGE_URL + "\n\nHappy to answer any questions.\n\nThanks!";
+
+    const toast = document.getElementById('share-toast');
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add('show');
+      setTimeout(function () { toast.classList.remove('show'); }, 2200);
+    }
+
+    // ---- Quick actions (top of page) ----
+    const nativeBtn = document.querySelector('[data-action="native-share"]');
+    if (nativeBtn && navigator.share) {
+      nativeBtn.hidden = false;
+      nativeBtn.addEventListener('click', function () {
+        navigator.share({
+          title: 'Do Life Today — Free Parkinson\'s Community',
+          text: friendIntro,
+          url: SHARE_URL
+        }).then(function () {
+          showToast('Thanks for spreading the word ❤️');
+        }).catch(function (err) {
+          if (err && err.name !== 'AbortError') showToast("Couldn't open share sheet");
+        });
+      });
+    }
+
+    document.querySelectorAll('[data-action="email-friend"]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const subject = encodeURIComponent("Something that's been helping me — thought of you");
+        const body = encodeURIComponent(friendIntro);
+        window.location.href = 'mailto:?subject=' + subject + '&body=' + body;
+      });
+    });
+
+    document.querySelectorAll('[data-action="copy-link"]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        navigator.clipboard.writeText(SHARE_URL).then(function () {
+          showToast('Invite link copied');
+        }).catch(function () {
+          showToast("Couldn't copy — try long-pressing the link");
+        });
+      });
+    });
+
+    document.querySelectorAll('[data-action="email-group"]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        window.location.href = 'mailto:?subject=' + encodeURIComponent(groupSubject) + '&body=' + encodeURIComponent(groupBody);
+      });
+    });
+
+    // ---- Render asset cards ----
+    function renderEmpty(grid, kind) {
+      grid.innerHTML = '<div class="empty-state"><strong>No ' + kind + ' uploaded yet.</strong>Drop files into <code>/public/share-assets/</code> and add them to this page. See the README in that folder for details.</div>';
+    }
+
+    function downloadFile(url, filename) {
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename || '';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+
+    function shareItem(url, title) {
+      if (navigator.share) {
+        navigator.share({
+          title: title,
+          text: friendIntro,
+          url: url
+        }).catch(function (err) {
+          if (err && err.name !== 'AbortError') showToast("Couldn't open share sheet");
+        });
+      } else {
+        navigator.clipboard.writeText(url).then(function () {
+          showToast('Link copied');
+        });
+      }
+    }
+
+    function emailItem(url, title) {
+      const subject = encodeURIComponent('Thought of you — ' + title);
+      const body = encodeURIComponent(friendIntro + '\n\nThis one in particular: ' + url);
+      window.location.href = 'mailto:?subject=' + subject + '&body=' + body;
+    }
+
+    function assetUrl(item) {
+      return item.url ? item.url : ASSET_BASE + item.file;
+    }
+    function assetDownloadName(item) {
+      if (item.downloadName) return item.downloadName;
+      const path = item.file || item.url || '';
+      return path.split('/').pop();
+    }
+
+    // VIDEOS
+    const videosGrid = document.getElementById('videos-grid');
+    if (!VIDEOS.length) {
+      renderEmpty(videosGrid, 'videos');
+    } else {
+      VIDEOS.forEach(function (item) {
+        const url = assetUrl(item);
+        const card = document.createElement('div');
+        card.className = 'share-card';
+        const posterAttr = item.poster ? ' poster="' + ASSET_BASE + item.poster + '"' : '';
+        card.innerHTML =
+          '<div class="share-card-media">' +
+            '<video controls preload="metadata"' + posterAttr + ' playsinline>' +
+              '<source src="' + url + '" type="video/mp4">' +
+              'Your browser does not support video playback.' +
+            '</video>' +
+          '</div>' +
+          '<div class="share-card-body">' +
+            '<div class="share-card-title">' + item.title + '</div>' +
+            '<div class="share-card-desc">' + (item.description || '') + '</div>' +
+          '</div>' +
+          '<div class="share-card-actions">' +
+            '<button class="btn btn-primary btn-sm" data-share-url="' + url + '" data-share-title="' + item.title + '">Share</button>' +
+            '<button class="btn btn-secondary btn-sm" data-download-url="' + url + '" data-download-name="' + assetDownloadName(item) + '">Download</button>' +
+          '</div>';
+        videosGrid.appendChild(card);
+      });
+    }
+
+    // GRAPHICS
+    const graphicsGrid = document.getElementById('graphics-grid');
+    if (!GRAPHICS.length) {
+      renderEmpty(graphicsGrid, 'graphics');
+    } else {
+      GRAPHICS.forEach(function (item) {
+        const url = assetUrl(item);
+        const card = document.createElement('div');
+        card.className = 'share-card';
+        card.innerHTML =
+          '<a href="' + url + '" target="_blank" rel="noopener" class="share-card-media">' +
+            '<img src="' + url + '" alt="' + item.title + '" loading="lazy">' +
+          '</a>' +
+          '<div class="share-card-body">' +
+            '<div class="share-card-title">' + item.title + '</div>' +
+            '<div class="share-card-desc">' + (item.description || '') + '</div>' +
+          '</div>' +
+          '<div class="share-card-actions">' +
+            '<button class="btn btn-primary btn-sm" data-share-url="' + url + '" data-share-title="' + item.title + '">Share</button>' +
+            '<button class="btn btn-secondary btn-sm" data-download-url="' + url + '" data-download-name="' + assetDownloadName(item) + '">Download</button>' +
+          '</div>';
+        graphicsGrid.appendChild(card);
+      });
+    }
+
+    // PDFS
+    const pdfsGrid = document.getElementById('pdfs-grid');
+    if (!PDFS.length) {
+      renderEmpty(pdfsGrid, 'PDFs');
+    } else {
+      PDFS.forEach(function (item) {
+        const url = assetUrl(item);
+        const isImage = /\.(png|jpe?g|webp|gif)$/i.test(url);
+        const card = document.createElement('div');
+        card.className = 'share-card';
+        const mediaInner = isImage
+          ? '<img src="' + url + '" alt="' + item.title + '" loading="lazy">'
+          : '📄 Open PDF';
+        const mediaClass = isImage ? 'share-card-media' : 'share-card-media placeholder';
+        card.innerHTML =
+          '<a href="' + url + '" target="_blank" rel="noopener" class="' + mediaClass + '">' +
+            mediaInner +
+          '</a>' +
+          '<div class="share-card-body">' +
+            '<div class="share-card-title">' + item.title + '</div>' +
+            '<div class="share-card-desc">' + (item.description || '') + '</div>' +
+          '</div>' +
+          '<div class="share-card-actions">' +
+            '<button class="btn btn-primary btn-sm" data-email-url="' + url + '" data-email-title="' + item.title + '">Email</button>' +
+            '<button class="btn btn-secondary btn-sm" data-download-url="' + url + '" data-download-name="' + assetDownloadName(item) + '">Download</button>' +
+          '</div>';
+        pdfsGrid.appendChild(card);
+      });
+    }
+
+    // ---- Per-card action delegation ----
+    document.addEventListener('click', function (e) {
+      const target = e.target;
+      if (!(target instanceof HTMLElement)) return;
+
+      const shareUrl = target.getAttribute('data-share-url');
+      if (shareUrl) {
+        shareItem(shareUrl, target.getAttribute('data-share-title') || 'Do Life Today');
+        return;
+      }
+      const downloadUrl = target.getAttribute('data-download-url');
+      if (downloadUrl) {
+        downloadFile(downloadUrl, target.getAttribute('data-download-name') || '');
+        return;
+      }
+      const emailUrl = target.getAttribute('data-email-url');
+      if (emailUrl) {
+        emailItem(emailUrl, target.getAttribute('data-email-title') || 'Do Life Today');
+        return;
+      }
+    });
+  })();
+  </script>
+</body>
+</html>

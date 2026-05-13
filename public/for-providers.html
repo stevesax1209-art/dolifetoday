@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Grow your Parkinson's program with real visibility. Claim your listing, get verified, and connect with a community actively making care decisions.">
+  <title>For Providers | Grow Your Parkinson's Program, Service, or Product | Doing Life Today</title>
+  <link rel="canonical" href="https://dolifetoday.com/for-providers" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="For Providers - Grow Your Parkinson's Program" />
+  <meta property="og:description" content="Your service may already be listed. Claim your listing, control your presence, and connect with a Parkinson's community making real care decisions." />
+  <meta property="og:url" content="https://dolifetoday.com/for-providers" />
+  <meta property="og:site_name" content="Doing Life Today" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="For Providers - Grow Your Parkinson's Program" />
+  <meta name="twitter:description" content="Claim your listing, get verified, and connect with a Parkinson's community making real care decisions." />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "For Providers - Grow Your Parkinson's Program",
+    "description": "Claim your listing, get verified, and connect with a Parkinson's community making real care decisions.",
+    "url": "https://dolifetoday.com/for-providers",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Doing Life Today",
+      "url": "https://dolifetoday.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Doing Life Today",
+      "url": "https://dolifetoday.com"
+    }
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/css/provider-ecosystem.css">
+  <style>
+    /* â”€â”€ For-Providers Theme â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    .fp-page {
+      --fp-cream:   #FFF8F0;
+      --fp-orange:  #FF6B35;
+      --fp-orange-dark: #E85D2C;
+      --fp-warm:    #FFF1E6;
+      --fp-ink:     #2D2319;
+      --fp-muted:   #7A6B5D;
+      --fp-border:  #E8DDD2;
+      --fp-surface: #FFFFFF;
+      --fp-teal:    #20B2AA;
+      background: var(--color-bg, #0A0A0A);
+      color: var(--color-text, #F0F0F0);
+    }
+
+    .fp-page main {
+      background: var(--color-bg, #0A0A0A);
+    }
+
+    .fp-page .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* â”€â”€ Hero (dark - matches Exchange) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    .fp-hero {
+      position: relative;
+      background: var(--gradient-hero, linear-gradient(135deg, #0A0A0A 0%, #1a0a2e 50%, #0a1a2e 100%));
+      padding: clamp(5rem, 10vw, 8rem) 0 clamp(3rem, 6vw, 5rem);
+      text-align: center;
+      overflow: hidden;
+    }
+    .fp-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(32,178,170,0.15) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 50% at 80% 80%, rgba(147,51,234,0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .fp-hero .container { position: relative; z-index: 1; }
+    .fp-hero .container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding-inline: 1.5rem;
+    }
+    .fp-hero .section-label {
+      color: var(--fp-orange);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .fp-hero-title {
+      max-width: 760px;
+      margin-inline: auto;
+      background: linear-gradient(135deg, #ffffff 28%, #ffd7c4 58%, #ff8a5b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
+    .fp-hero-sub {
+      max-width: 620px;
+      margin: 1.1rem auto 2rem;
+    }
+    .fp-hero-lead {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.55rem 1rem;
+      margin-bottom: 1.2rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(255,107,53,0.12), rgba(255,107,53,0.04));
+      border: 1px solid rgba(255,107,53,0.22);
+      color: #ffb08b;
+      font-size: 0.84rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .fp-hero .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 0.35rem;
+    }
+    .fp-btn-primary {
+      background: linear-gradient(135deg, #FF8A5B 0%, var(--fp-orange) 100%);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 0.875rem 1.75rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      min-height: 48px;
+      box-shadow: 0 14px 32px rgba(255,107,53,0.24);
+      transition: background 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
+    }
+    .fp-btn-primary:hover {
+      background: linear-gradient(135deg, #FF9A71 0%, var(--fp-orange-dark) 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 18px 36px rgba(255,107,53,0.28);
+    }
+    .fp-btn-secondary {
+      background: rgba(255,255,255,0.04);
+      color: var(--color-white, #fff);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 10px;
+      padding: 0.875rem 1.75rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      min-height: 48px;
+      transition: background 0.25s ease, color 0.25s ease;
+    }
+    .fp-btn-secondary:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.28);
+      color: var(--color-white, #fff);
+    }
+
+    /* â”€â”€ Sections â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    .fp-section {
+      position: relative;
+      padding: clamp(4rem, 7vw, 6rem) 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .fp-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top center, rgba(255,107,53,0.06), transparent 55%);
+      pointer-events: none;
+      opacity: 0.7;
+    }
+    .fp-section-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 0;
+    }
+    .fp-section-title {
+      font-size: clamp(1.75rem, 4vw, 2.65rem);
+      font-weight: 800;
+      color: var(--color-white, #fff);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+    }
+    .fp-section-copy {
+      font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+      color: var(--color-text-muted, #A0A0A0);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .fp-section-copy + .fp-section-copy {
+      margin-top: -0.5rem;
+    }
+    .fp-section-cta {
+      margin-top: 1.5rem;
+    }
+
+    /* â”€â”€ Wave / Countdown â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    .fp-wave-block {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.015) 100%),
+        radial-gradient(circle at top center, rgba(255,107,53,0.18), transparent 48%),
+        #1b1714;
+      border: 1px solid rgba(255,107,53,0.22);
+      border-radius: 24px;
+      padding: clamp(2rem, 4vw, 3rem);
+      max-width: 620px;
+      margin: 2rem auto 0;
+      text-align: center;
+      box-shadow: 0 24px 70px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,107,53,0.08);
+    }
+    .fp-wave-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--fp-orange);
+      margin-bottom: 0.5rem;
+    }
+    .fp-wave-timer {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 900;
+      color: #fff;
+      font-variant-numeric: tabular-nums;
+      margin-bottom: 0.5rem;
+    }
+    .fp-wave-spots {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 1.2rem;
+    }
+    .fp-wave-spots strong {
+      color: var(--fp-orange);
+    }
+
+    /* â”€â”€ Final CTA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    .fp-final-cta {
+      background: transparent;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: clamp(3.5rem, 7vw, 5.5rem) 0;
+      text-align: center;
+    }
+    .fp-final-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(255,107,53,0.08), transparent 55%);
+      pointer-events: none;
+    }
+    .fp-final-cta .fp-section-title {
+      color: var(--color-white, #fff);
+      margin-bottom: 0.5rem;
+    }
+    .fp-final-cta .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    /* â”€â”€ Responsive â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    @media (max-width: 600px) {
+      .fp-hero .btn-group,
+      .fp-final-cta .btn-group {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    /* â”€â”€ Soft identity strip â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    .fp-identity-strip {
+      background: rgba(255,255,255,0.03);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 0.9rem 0;
+      text-align: center;
+      font-size: 0.95rem;
+      color: var(--color-text-muted, #A0A0A0);
+    }
+    .fp-identity-link {
+      color: var(--fp-orange);
+      font-weight: 700;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .fp-identity-link:hover { color: var(--fp-orange-dark); }
+
+    .fp-proof-rail {
+      padding: 1.2rem 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+    }
+    .fp-proof-rail-inner {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      align-items: center;
+      text-align: center;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+    .fp-proof-rail-inner > div {
+      padding: 0.35rem 1rem;
+    }
+    .fp-proof-rail strong {
+      display: block;
+      color: var(--color-white, #fff);
+      font-size: 1.15rem;
+      margin-bottom: 0.2rem;
+    }
+    .fp-proof-rail span {
+      color: var(--color-text-muted, #A0A0A0);
+      font-size: 0.88rem;
+    }
+
+    .fp-offers {
+      padding: clamp(3rem, 6vw, 4.5rem) 0 1rem;
+    }
+    .fp-offers .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding-inline: 1.5rem;
+    }
+    .fp-offers-intro {
+      max-width: 780px;
+      margin: 0 auto 2.5rem;
+      text-align: center;
+    }
+    .fp-offers-intro .section-label {
+      margin-bottom: 0.75rem;
+    }
+    .fp-offers-intro h2 {
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.85rem;
+      color: var(--color-white);
+    }
+    .fp-offers-intro p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: var(--color-text-muted);
+      font-size: 1.02rem;
+      line-height: 1.7;
+    }
+    .fp-offers .pricing-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.65rem;
+      align-items: stretch;
+    }
+    .fp-offers .pricing-card {
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .fp-offers .pricing-card-header {
+      min-height: 124px;
+    }
+    .fp-offers .pricing-card-cta {
+      margin-top: auto;
+    }
+    .fp-offers .pricing-card-featured {
+      border-color: rgba(245, 158, 11, 0.35);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%),
+        radial-gradient(circle at top left, rgba(245,158,11,0.16), transparent 40%),
+        radial-gradient(circle at bottom right, rgba(255,107,53,0.14), transparent 40%),
+        var(--pe-surface-raised);
+      box-shadow: 0 24px 80px rgba(245,158,11,0.12), var(--pe-shadow);
+    }
+    .fp-offers .pricing-card-featured::before {
+      background: linear-gradient(90deg, #f59e0b, #d97706);
+    }
+    .fp-offers .pricing-card-note {
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+      margin-top: 0.75rem;
+      text-align: center;
+      line-height: 1.5;
+    }
+    .fp-offers-inline-link {
+      color: var(--fp-orange);
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .fp-offers-inline-link:hover {
+      color: #ffb08b;
+    }
+
+    /* â”€â”€ Hero qualifier â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    .fp-hero-qualifier {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--fp-orange);
+      margin-bottom: 1.5rem;
+    }
+
+    /* â”€â”€ Wave scarcity â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    .fp-wave-scarcity {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 1.2rem;
+      line-height: 1.6;
+    }
+
+    /* â”€â”€ Micro proof + tension â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    .fp-micro-proof {
+      font-style: italic;
+      color: var(--fp-orange) !important;
+      font-weight: 600;
+    }
+    .fp-tension-line {
+      font-weight: 600;
+      color: var(--color-white, #fff) !important;
+    }
+    .fp-wave-urgency {
+      font-size: 0.85rem;
+      color: var(--fp-orange);
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+    }
+
+    /* â”€â”€ Blockquote-style highlights â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    .fp-highlight {
+      border-left: 3px solid var(--fp-orange);
+      padding-left: 1rem;
+      margin: 1.25rem auto;
+      max-width: 600px;
+      text-align: left;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--color-white, #fff);
+      font-weight: 500;
+    }
+
+    .fp-cta-cluster {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      justify-content: center;
+      margin-top: 1.75rem;
+    }
+
+    @media (max-width: 960px) {
+      .fp-offers .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+      .fp-offers .pricing-card-header {
+        min-height: 0;
+      }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3LZZWBTWT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K3LZZWBTWT');
+  </script>
+  <script src="/js/analytics-events.js" defer></script>
+  <script src="/js/meta-pixel.js"></script>
+</head>
+<body>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=771485525759396&ev=PageView&noscript=1"
+  /></noscript>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a href="/" class="nav-logo" aria-label="Doing Life Today - Home">
+        <div class="nav-logo-mark" aria-hidden="true">DL</div>
+        <div class="nav-logo-text">Doing Life Today<span>Parkinson's Community</span></div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="/">Home</a></li>
+        <li><a href="/parkinsons-help-and-support">Support</a></li>
+        <li><a href="/parkinsons-community">Parkinson's Community</a></li>
+        <li><a href="/parkinsons-daily-check-in">Daily Check-In</a></li>
+        <li><a href="/parkinsons-symptom-tracker">Symptom Tracker</a></li>
+        <li><a href="/resources">Resources</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <a href="/exchange" class="btn btn-primary btn-sm nav-cta">Browse The Exchange</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a href="/">Home</a>
+    <a href="/parkinsons-help-and-support">Support</a>
+    <a href="/parkinsons-community">Parkinson's Community</a>
+    <a href="/parkinsons-daily-check-in">Daily Check-In</a>
+    <a href="/parkinsons-symptom-tracker">Symptom Tracker</a>
+    <a href="/resources">Resources</a>
+    <a href="/contact">Contact</a>
+    <div class="mobile-cta"><a href="/exchange" class="btn btn-primary">Browse The Exchange</a></div>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- â•â•â• HERO â•â•â• -->
+    <section class="fp-hero" aria-labelledby="fp-hero-heading">
+      <div class="container">
+        <span class="section-label">For Providers</span>
+        <p class="fp-hero-lead">Where Parkinson's discovery actually happens</p>
+        <h1 id="fp-hero-heading" class="hero-title fp-hero-title">Get your Parkinson's program, service, or product in front of the people searching for it</h1>
+        <p class="hero-subtitle fp-hero-sub">Free to get listed. Free to claim if you're already there. Upgrade only when you're ready to take control or build a following inside The Club.</p>
+        <p class="fp-hero-qualifier">Have something that helps people with Parkinson's? You belong here.</p>
+        <div class="btn-group">
+          <a href="/create-listing" class="fp-btn-primary">Get Listed Free</a>
+          <a href="/claim-listing" class="fp-btn-secondary">Already Listed? Claim It</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- â•â•â• SOFT IDENTITY MATCH â•â•â• -->
+    <div class="fp-identity-strip">
+      <div class="container">
+        <p>Already seeing your program or product on Doing Life Today? <a href="/claim-listing" class="fp-identity-link">Check if your listing is live &rarr;</a></p>
+      </div>
+    </div>
+
+    <section class="fp-proof-rail" aria-label="Provider funnel proof points">
+      <div class="container fp-proof-rail-inner">
+        <div>
+          <strong>160+</strong>
+          <span>members already inside The Club</span>
+        </div>
+        <div>
+          <strong>500+</strong>
+          <span>providers, brands, and products in the directory</span>
+        </div>
+        <div>
+          <strong>70+</strong>
+          <span>countries represented in the directory</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="fp-offers" id="provider-options" aria-labelledby="fp-offers-heading">
+      <div class="container">
+        <div class="fp-offers-intro">
+          <span class="section-label">Three ways in</span>
+          <h2 id="fp-offers-heading">Start free. Grow when it's worth it.</h2>
+          <p>Get listed for free if you're not already in the directory. Claim your listing for free if you are. Upgrade only when you want full control of how you appear &mdash; or when you're ready to build a following inside The Club.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <span class="pricing-card-badge pricing-card-badge-free">Already Live?</span>
+            <div class="pricing-card-header">
+              <h2 class="pricing-card-name">Claim What's Already There</h2>
+              <p class="pricing-card-tagline">If your Parkinson's program, service, or product is already in the directory, take ownership before more people find it.</p>
+            </div>
+            <div class="pricing-card-price">
+              <span class="pricing-card-amount">Free</span>
+              <span class="pricing-card-period">/ to claim</span>
+            </div>
+            <div class="pricing-card-features">
+              <div class="pricing-feature pricing-feature-included">
+                <span class="pricing-feature-icon">✓</span>
+                <span>Take control of your live listing</span>
+              </div>
+              <div class="pricing-feature pricing-feature-included">
+                <span class="pricing-feature-icon">✓</span>
+                <span>Fix what people see first</span>
+              </div>
+              <div class="pricing-feature pricing-feature-included">
+                <span class="pricing-feature-icon">✓</span>
+                <span>Start from existing visibility</span>
+              </div>
+              <div class="pricing-feature pricing-feature-locked">
+                <span class="pricing-feature-icon">-</span>
+                <span>No advanced listing control yet</span>
+              </div>
+            </div>
+            <div class="pricing-card-cta">
+              <a href="/claim-listing" class="btn btn-outline-primary btn-lg">Claim Your Listing</a>
+              <p class="pricing-card-note">Not listed yet? <a href="/create-listing" class="fp-offers-inline-link">Submit one free</a>.</p>
+            </div>
+          </div>
+
+          <div class="pricing-card" id="fp-offer-verified">
+            <span class="pricing-card-badge pricing-card-badge-verified">Verified</span>
+            <div class="pricing-card-header">
+              <h2 class="pricing-card-name">Build Credibility Faster</h2>
+              <p class="pricing-card-tagline">Control your listing, sharpen trust signals, and make it easier for people to understand and contact you.</p>
+            </div>
+            <div class="pricing-card-price">
+              <span class="pricing-card-amount">$9</span>
+              <span class="pricing-card-period">/ month</span>
+            </div>
+            <div class="pricing-card-features">
+              <div class="pricing-feature pricing-feature-included">
+                <span class="pricing-feature-icon">✓</span>
+                <span>Edit and manage your listing</span>
+              </div>
+              <div class="pricing-feature pricing-feature-included">
+                <span class="pricing-feature-icon">✓</span>
+                <span>Add photos, details, and contact options</span>
+              </div>
+              <div class="pricing-feature pricing-feature-included">
+                <span class="pricing-feature-icon">✓</span>
+                <span>Track views and engagement</span>
+              </div>
+              <div class="pricing-feature pricing-feature-included">
+                <span class="pricing-feature-icon">✓</span>
+                <span>Show a stronger trust signal in search</span>
+              </div>
+            </div>
+            <div class="pricing-card-cta">
+              <a href="/claim-listing?upgrade=verified" class="btn btn-primary btn-lg">Get Verified</a>
+              <p class="pricing-card-note">Best for providers who want clean control without waiting.</p>
+            </div>
+          </div>
+
+          <div class="pricing-card pricing-card-featured" id="fp-offer-community">
+            <span class="pricing-card-badge pricing-card-badge-community" style="background:linear-gradient(135deg,rgba(245,158,11,0.18),rgba(245,158,11,0.10));border:1px solid rgba(245,158,11,0.30);color:#f59e0b;">Club Partner</span>
+            <div class="pricing-card-header">
+              <h2 class="pricing-card-name">Build Your Own Club Inside The Club</h2>
+              <p class="pricing-card-tagline">Members can follow your provider club, see your posts in their daily feed, ask questions, and leave reviews — turning visibility into a real community around you.</p>
+            </div>
+            <div class="pricing-card-price">
+              <span class="pricing-card-amount">$49</span>
+              <span class="pricing-card-period">/ month</span>
+            </div>
+            <div class="pricing-card-features">
+              <div class="pricing-feature pricing-feature-included">
+                <span class="pricing-feature-icon">✓</span>
+                <span>Everything in Verified</span>
+              </div>
+              <div class="pricing-feature pricing-feature-included">
+                <span class="pricing-feature-icon">✓</span>
+                <span>Your own provider club inside The Club</span>
+              </div>
+              <div class="pricing-feature pricing-feature-included">
+                <span class="pricing-feature-icon">✓</span>
+                <span>Members follow you — your posts appear in their daily feed</span>
+              </div>
+              <div class="pricing-feature pricing-feature-included">
+                <span class="pricing-feature-icon">✓</span>
+                <span>Member questions, reviews, and discussions in your club</span>
+              </div>
+              <div class="pricing-feature pricing-feature-included">
+                <span class="pricing-feature-icon">✓</span>
+                <span>Featured placement and trust signals in search</span>
+              </div>
+            </div>
+            <div class="pricing-card-cta">
+              <a href="/claim-listing?upgrade=community" class="btn btn-primary btn-lg" style="background:linear-gradient(135deg,#f59e0b,#d97706);border-color:#d97706;">Become a Club Partner</a>
+              <p class="pricing-card-note">Cancel anytime. Best for providers ready to build a following.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- â•â•â• SECTION 1 - What Is The Exchange? â•â•â• -->
+    <section class="fp-section" aria-labelledby="fp-exchange-heading">
+      <div class="container">
+        <div class="fp-section-inner">
+          <h2 id="fp-exchange-heading" class="fp-section-title">The public directory for Parkinson's programs, services, and products</h2>
+          <p class="fp-section-copy">The Exchange helps people find Parkinson's programs, services, products, and providers in one place through search, location filters, and category browsing - making it easier for the right people to discover and choose you.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- â•â•â• SECTION 2 - What Is The Club? â•â•â• -->
+    <section class="fp-section" aria-labelledby="fp-club-heading">
+      <div class="container">
+        <div class="fp-section-inner">
+          <h2 id="fp-club-heading" class="fp-section-title">Where Parkinson's decisions are actually made</h2>
+          <p class="fp-section-copy">Inside The Club, people living with Parkinson's - along with care partners - are having real conversations every day.</p>
+          <p class="fp-section-copy">They're asking questions, sharing what's worked, and talking openly about programs, services, and products before they decide what to trust.</p>
+          <div class="fp-highlight">
+            Where someone says, "I tried this - here's what happened."<br>
+            Where others respond, compare, and recommend.
+          </div>
+          <p class="fp-section-copy fp-micro-proof">Not just listings - real experiences, real discussions, and real influence.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- â•â•â• SECTION 3 - Already Listed? â•â•â• -->
+    <section class="fp-section" id="claim" aria-labelledby="fp-claimed-heading">
+      <div class="container">
+        <div class="fp-section-inner">
+          <h2 id="fp-claimed-heading" class="fp-section-title">You may already be listed</h2>
+          <p class="fp-section-copy">We've built a global directory of Parkinson's programs, services, and products to make discovery easier. Thousands of providers and products are already indexed across 70+ countries - and many are being discovered through search right now.</p>
+          <p class="fp-section-copy">If your listing is already live, claiming it gives you control over how you appear, what people see, and how they engage with you.</p>
+          <div class="fp-section-cta fp-cta-cluster">
+            <a href="/claim-listing" class="fp-btn-primary">Claim Your Listing</a>
+            <a href="/exchange" class="fp-btn-secondary">See the Directory</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- â•â•â• SECTION 4 - Not Listed? â•â•â• -->
+    <section class="fp-section" aria-labelledby="fp-submit-heading">
+      <div class="container">
+        <div class="fp-section-inner">
+          <h2 id="fp-submit-heading" class="fp-section-title">Add your Parkinson's program, service, or product for free</h2>
+          <p class="fp-section-copy">Submit your listing to appear in the public directory and start being discovered by people actively looking for Parkinson's programs, services, and products. This is the fastest way to get visible, establish credibility, and create a clean path into verified ownership.</p>
+          <div class="fp-section-cta fp-cta-cluster">
+            <a href="/create-listing" class="fp-btn-primary">Submit Free Listing</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- â•â•â• SECTION 5 - Verified Tier â•â•â• -->
+    <section class="fp-section" aria-labelledby="fp-verified-heading">
+      <div class="container">
+        <div class="fp-section-inner">
+          <h2 id="fp-verified-heading" class="fp-section-title">Take control of your listing</h2>
+          <p class="fp-section-copy">Update your details, add photos, include contact options, and track engagement - so people can find, understand, and reach you more easily. Verified providers look more credible and turn interest into action with less friction.</p>
+          <div class="fp-section-cta fp-cta-cluster">
+            <a href="/pricing" class="fp-btn-primary">Get Verified - $9.99/month</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- â•â•â• SECTION 8 - Final CTA â•â•â• -->
+    <section class="fp-final-cta" aria-labelledby="fp-final-heading">
+      <div class="container">
+        <div class="fp-section-inner">
+          <h2 id="fp-final-heading" class="fp-section-title">Start with your listing</h2>
+          <p class="fp-section-copy" style="color:var(--color-text-muted);margin-bottom:1.5rem;">Most providers begin by claiming or submitting their listing - then decide how far they want to go.</p>
+          <p class="fp-section-copy fp-tension-line" style="margin-bottom:1.5rem;">The sooner you're visible, the sooner people can find and choose you.</p>
+          <div class="btn-group">
+            <a href="/claim-listing" class="fp-btn-primary">Claim Listing</a>
+            <a href="/pricing" class="fp-btn-secondary">See Pricing</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/provider-track.js" defer></script>
+  <script>
+    /* Funnel tracking */
+    (function () {
+      function track(name, data) {
+        if (window.ProviderTrack) ProviderTrack.track(name, data);
+      }
+      /* Page view */
+      track('provider_funnel_viewed', { source: location.search || 'direct' });
+
+      /* CTA clicks */
+      document.addEventListener('click', function (e) {
+        var a = e.target.closest('a');
+        if (!a) return;
+        var href = a.getAttribute('href') || '';
+        if (href.indexOf('/claim-listing') !== -1) {
+          track('provider_claim_clicked', { source: 'for_providers', section: a.closest('section') ? a.closest('section').id || 'unknown' : 'unknown' });
+        }
+        if (href.indexOf('provider-waitlist') !== -1 || (href === '#waitlist' && false)) {
+          track('provider_waitlist_clicked', { source: 'for_providers', section: a.closest('section') ? a.closest('section').id || 'unknown' : 'unknown' });
+        }
+        if (href.indexOf('/create-listing') !== -1) {
+          track('provider_submit_clicked', { source: 'for_providers' });
+        }
+        if (href.indexOf('/pricing') !== -1) {
+          track('provider_verified_clicked', { source: 'for_providers' });
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
+

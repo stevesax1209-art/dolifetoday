@@ -1,5 +1,5 @@
 /* -------------------------------------------------------
-   THE EXCHANGE � PROVIDER PLANS
+   THE EXCHANGE � PROVIDER PLANS
    $10M premium dark theme
    ------------------------------------------------------- */
 
@@ -663,6 +663,187 @@
 
 .exchange-provider-plan-card-popular .price {
   text-shadow: 0 0 40px rgba(32, 178, 170, 0.2);
+}
+
+/* ─── WAVE ACCESS CARD ───────────────────────────── */
+
+.exchange-provider-wave-card {
+  border-color: rgba(245, 158, 11, 0.35);
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(245, 158, 11, 0.10), transparent 60%),
+    var(--ep-surface-raised);
+  box-shadow: 0 0 0 1px rgba(245, 158, 11, 0.18), var(--ep-shadow);
+}
+
+.exchange-provider-wave-card:hover {
+  box-shadow: 0 0 0 1px rgba(245, 158, 11, 0.35), var(--ep-shadow-lg);
+}
+
+.exchange-provider-wave-badge {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.4rem 1.2rem;
+  border-radius: 0 0 12px 12px;
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  z-index: 2;
+  white-space: nowrap;
+}
+
+.exchange-provider-wave-title {
+  font-family: var(--ep-heading);
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  color: var(--ep-ink);
+  margin: 0.4rem 0 0.3rem;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.exchange-provider-wave-subtitle {
+  color: var(--ep-teal);
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-top: 0.6rem;
+}
+
+/* Countdown timer */
+.exchange-provider-wave-countdown-section {
+  padding: 0 2rem 0.8rem;
+}
+
+.exchange-provider-wave-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--ep-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.6rem;
+}
+
+.exchange-provider-wave-timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.exchange-provider-wave-timer-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 3.2rem;
+  padding: 0.5rem 0.4rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--ep-line);
+}
+
+.exchange-provider-wave-timer-num {
+  font-family: var(--ep-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--ep-ink);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.exchange-provider-wave-timer-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--ep-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 0.2rem;
+}
+
+.exchange-provider-wave-timer-sep {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--ep-dim);
+  padding-bottom: 0.8rem;
+}
+
+/* Spots counter + progress bar */
+.exchange-provider-wave-spots-section {
+  padding: 0 2rem 1rem;
+}
+
+.exchange-provider-wave-spots-bar-wrap {
+  margin-top: 0.4rem;
+}
+
+.exchange-provider-wave-spots-bar {
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+
+.exchange-provider-wave-spots-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--ep-teal), #22d3ee);
+  transition: width 0.6s ease;
+}
+
+.exchange-provider-wave-spots-count {
+  font-size: 0.88rem;
+  color: var(--ep-muted);
+  margin-top: 0.5rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.exchange-provider-wave-urgency {
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #f59e0b;
+  margin-top: 0.4rem;
+  animation: wave-urgency-pulse 2s ease-in-out infinite;
+}
+
+@keyframes wave-urgency-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* CTA area */
+.exchange-provider-wave-btn {
+  background: linear-gradient(135deg, #f59e0b, #d97706) !important;
+  border-color: #d97706 !important;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.exchange-provider-wave-btn:hover {
+  background: linear-gradient(135deg, #d97706, #b45309) !important;
+  transform: translateY(-1px);
+}
+
+.exchange-provider-wave-microcopy {
+  font-size: 0.82rem;
+  color: var(--ep-dim);
+  text-align: center;
+  line-height: 1.5;
+  margin-top: 0.6rem;
+  padding: 0 0.5rem;
+}
+
+.exchange-provider-wave-social-proof {
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--ep-dim);
+  padding: 0.8rem 2rem 1.2rem;
+  font-style: italic;
+  opacity: 0.8;
 }
 
 .exchange-provider-enterprise {

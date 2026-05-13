@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>The Club — Horizon Beacon rebrand preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal:#16A7A3;
+    --teal-deep:#0E7A77;
+    --gold:#D4AF37;
+    --gold-soft:#E8C766;
+    --white:#FFFFFF;
+    --slate:#28333B;
+    --charcoal:#0D1116;
+    --ink:#070A0D;
+    --muted:#9AA8B2;
+    --line:rgba(255,255,255,0.08);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--ink);color:var(--white);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  img{display:block;max-width:100%;height:auto}
+
+  .preview-banner{
+    background:linear-gradient(90deg,var(--teal-deep),var(--slate));
+    color:#fff;font-size:13px;letter-spacing:.04em;
+    padding:.55rem 1.25rem;text-align:center;
+    border-bottom:1px solid var(--line);
+  }
+  .preview-banner strong{color:var(--gold);letter-spacing:.12em;text-transform:uppercase;margin-right:.5rem}
+
+  /* ============ HEADER (uses real horizontal lockup) ============ */
+  .site-header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(7,10,13,.92);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(22,167,163,.18);
+  }
+  .nav-inner{
+    max-width:1320px;margin:0 auto;
+    display:flex;align-items:center;gap:2rem;
+    padding:.85rem 1.5rem;
+  }
+  .nav-lockup{display:flex;align-items:center;text-decoration:none;flex:0 0 auto}
+  .nav-lockup img{height:54px;width:auto}
+  .nav-links{display:flex;gap:1.6rem;list-style:none;margin:0 auto;padding:0;font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;color:#cbd5e1}
+  .nav-links a{text-decoration:none;color:inherit;transition:color .2s}
+  .nav-links a:hover{color:var(--teal)}
+  .nav-cta{
+    border:1px solid var(--gold);color:var(--gold);
+    padding:.6rem 1.4rem;border-radius:6px;
+    font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;
+    text-decoration:none;font-weight:600;
+    transition:all .2s;
+  }
+  .nav-cta:hover{background:var(--gold);color:var(--charcoal)}
+
+  /* ============ HERO ============ */
+  .hero{
+    position:relative;overflow:hidden;
+    padding:6rem 1.5rem;
+    background:
+      radial-gradient(ellipse at 80% 50%,rgba(22,167,163,.18),transparent 55%),
+      radial-gradient(ellipse at 20% 90%,rgba(212,175,55,.10),transparent 50%),
+      linear-gradient(180deg,#0B1015 0%,#0F1A20 60%,#070A0D 100%);
+  }
+  .hero-inner{
+    max-width:1320px;margin:0 auto;width:100%;
+    display:grid;grid-template-columns:1.1fr 1fr;gap:3rem;align-items:center;
+  }
+  @media(max-width:880px){.hero-inner{grid-template-columns:1fr}}
+  .hero-copy{max-width:600px}
+  .hero h1{
+    font-weight:300;font-size:clamp(3rem,6vw,5rem);
+    line-height:1.05;letter-spacing:.02em;
+    margin:0 0 .35rem;
+  }
+  .hero h1 span{display:block}
+  .hero .accent-bar{width:80px;height:3px;background:var(--gold);margin:1.6rem 0 1.4rem;border-radius:2px}
+  .hero .lede{
+    color:var(--teal);letter-spacing:.32em;font-size:.95rem;font-weight:500;
+    text-transform:uppercase;margin:0 0 2.5rem;
+  }
+  .hero-art{
+    position:relative;
+    aspect-ratio:1/1;max-width:460px;margin:0 auto;width:100%;
+  }
+  .hero-art img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 30px 60px rgba(0,0,0,.5))}
+  @media(max-width:880px){.hero-art{max-width:280px}}
+  .hero-cta-row{display:flex;gap:1rem;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    padding:.95rem 2rem;border-radius:6px;
+    font-weight:600;font-size:.82rem;letter-spacing:.22em;text-transform:uppercase;
+    text-decoration:none;transition:all .25s;border:1px solid transparent;cursor:pointer;
+  }
+  .btn-gold{background:var(--gold);color:var(--charcoal)}
+  .btn-gold:hover{background:var(--gold-soft);transform:translateY(-1px);box-shadow:0 14px 32px rgba(212,175,55,.28)}
+  .btn-ghost{border-color:rgba(22,167,163,.55);color:var(--teal)}
+  .btn-ghost:hover{border-color:var(--teal);background:rgba(22,167,163,.08)}
+
+  /* ============ STACKED LOCKUP SHOWCASE ============ */
+  .lockup-showcase{
+    padding:6rem 1.5rem;
+    background:radial-gradient(ellipse at center,#0B1218,#070A0D 70%);
+    text-align:center;
+    border-top:1px solid var(--line);
+  }
+  .lockup-showcase img{margin:0 auto;max-width:540px;width:100%}
+  .lockup-showcase .caption{
+    margin-top:1.5rem;color:var(--muted);
+    font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;
+  }
+
+  /* ============ PILLARS ============ */
+  .pillars{padding:6rem 1.5rem;background:linear-gradient(180deg,#0A1216,#0D1116)}
+  .pillars-inner{max-width:1100px;margin:0 auto}
+  .section-eyebrow{
+    text-align:center;color:var(--teal);
+    font-size:.78rem;letter-spacing:.4em;text-transform:uppercase;font-weight:600;margin:0 0 .75rem;
+  }
+  .section-title{
+    text-align:center;font-weight:300;font-size:clamp(1.8rem,3.5vw,2.6rem);
+    letter-spacing:.06em;margin:0 0 3.5rem;
+  }
+  .pillar-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+  @media (max-width:880px){.pillar-grid{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:480px){.pillar-grid{grid-template-columns:1fr}}
+  .pillar{
+    background:rgba(22,167,163,.04);
+    border:1px solid rgba(22,167,163,.18);
+    border-radius:14px;padding:1.75rem 1.5rem;
+    transition:all .25s;
+  }
+  .pillar:hover{border-color:rgba(212,175,55,.35);transform:translateY(-3px)}
+  .pillar svg{width:32px;height:32px;color:var(--teal);margin-bottom:1rem}
+  .pillar h3{margin:0 0 .4rem;font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:600}
+  .pillar p{margin:0;color:#cbd5e1;font-size:.95rem;line-height:1.55}
+
+  /* ============ ICON SCALE TEST ============ */
+  .scale-test{padding:5rem 1.5rem;background:#0F1A20;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .scale-inner{max-width:1100px;margin:0 auto}
+  .scale-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:1.25rem;align-items:end;
+  }
+  .scale-card{
+    background:#0A1015;border:1px solid var(--line);
+    border-radius:12px;padding:1.5rem 1rem 1rem;text-align:center;
+  }
+  .scale-card .swatch-stage{
+    display:flex;align-items:center;justify-content:center;
+    min-height:140px;margin-bottom:.85rem;
+  }
+  .scale-card .label{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  .scale-card .label strong{display:block;color:#fff;letter-spacing:.04em;font-size:.85rem;margin-bottom:.2rem;text-transform:none}
+
+  .ios-tile{
+    width:120px;height:120px;border-radius:26px;overflow:hidden;
+    box-shadow:0 12px 32px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.06);
+  }
+  .ios-tile img{width:100%;height:100%;object-fit:cover}
+  .android-tile{
+    width:120px;height:120px;border-radius:50%;overflow:hidden;
+    box-shadow:0 12px 32px rgba(0,0,0,.55);
+  }
+  .android-tile img{width:100%;height:100%;object-fit:cover}
+  .favicon-tile{
+    width:32px;height:32px;display:flex;align-items:center;justify-content:center;
+    background:#0A1015;border:1px solid var(--line);border-radius:6px;overflow:hidden;
+  }
+  .favicon-tile img{width:100%;height:100%;object-fit:cover}
+  .browser-bar{
+    width:100%;max-width:300px;height:36px;
+    background:#1F2A33;border-radius:8px 8px 0 0;
+    display:flex;align-items:center;gap:.5rem;padding:0 .6rem;
+    border:1px solid var(--line);border-bottom:none;
+  }
+  .browser-bar .dot{width:9px;height:9px;border-radius:50%;background:#3B4751}
+  .browser-bar .tab{
+    margin-left:.4rem;background:#0F1A20;border-radius:6px 6px 0 0;
+    padding:.3rem .6rem .3rem .35rem;display:flex;align-items:center;gap:.4rem;
+    font-size:.7rem;color:#cbd5e1;
+  }
+  .browser-bar .tab img{width:16px;height:16px;border-radius:3px;object-fit:cover}
+  .avatar-img{width:64px;height:64px;border-radius:50%;object-fit:cover;box-shadow:0 8px 22px rgba(0,0,0,.45)}
+
+  .icon-only-stage img{width:140px;height:140px;object-fit:contain}
+
+  /* ============ PALETTE ============ */
+  .palette{padding:5rem 1.5rem;background:#0D1116}
+  .palette-inner{max-width:1100px;margin:0 auto}
+  .palette-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem}
+  @media(max-width:680px){.palette-grid{grid-template-columns:repeat(2,1fr)}}
+  .swatch{border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+  .swatch .chip{height:120px}
+  .swatch .meta{padding:.85rem 1rem;background:#0A1015;font-size:.78rem}
+  .swatch .meta strong{display:block;letter-spacing:.18em;text-transform:uppercase;color:#fff;margin-bottom:.2rem;font-size:.72rem}
+  .swatch .meta code{color:var(--muted);font-family:'SF Mono',Menlo,monospace;font-size:.72rem}
+
+  /* ============ LIGHT VARIANT ============ */
+  .light-variant{padding:5rem 1.5rem;background:#F5F1E8;color:var(--charcoal)}
+  .light-variant .section-eyebrow{color:var(--teal-deep)}
+  .light-variant .section-title{color:var(--charcoal)}
+  .light-card{
+    max-width:680px;margin:0 auto;background:#0D1116;
+    border-radius:18px;padding:3rem 2rem;text-align:center;
+    box-shadow:0 30px 60px -30px rgba(40,51,59,.45);
+  }
+  .light-card img{margin:0 auto;max-width:380px;width:100%}
+  .light-card .note{color:#cbd5e1;font-size:.95rem;line-height:1.6;margin:1.5rem auto 0;max-width:480px}
+  .light-callout{
+    max-width:680px;margin:1.5rem auto 0;
+    color:var(--slate);font-size:.85rem;line-height:1.6;text-align:center;
+  }
+  .light-callout strong{color:var(--teal-deep)}
+
+  .foot{padding:3rem 1.5rem;text-align:center;color:var(--muted);font-size:.8rem;border-top:1px solid var(--line)}
+  .foot code{color:#cbd5e1}
+</style>
+</head>
+<body>
+
+<div class="preview-banner">
+  <strong>Preview</strong> Horizon Beacon — visual mock for The Club, using the real logo assets in <code>/images/the-club/</code>.
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-guide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="9"/><polygon points="14,8 11,13 10,16 13,11"/>
+    </symbol>
+    <symbol id="i-connect" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="8" cy="9" r="3"/><circle cx="16" cy="9" r="3"/><path d="M3 20c0-3 3-5 5-5s5 2 5 5"/><path d="M11 20c0-3 3-5 5-5s5 2 5 5"/>
+    </symbol>
+    <symbol id="i-empower" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 19l5-7 4 4 5-7 4 5"/><path d="M3 21h18"/>
+    </symbol>
+    <symbol id="i-look" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="13" r="4"/><path d="M5 13a7 7 0 0 1 14 0"/><path d="M12 5V3"/><path d="M19 13h2"/><path d="M3 13h2"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="site-header">
+  <div class="nav-inner">
+    <a href="#" class="nav-lockup" aria-label="The Club — Doing Life Today">
+      <img src="images/the-club/lockup-horizontal.png" alt="The Club — Doing Life Today">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#">About</a></li>
+      <li><a href="#">Community</a></li>
+      <li><a href="#">Resources</a></li>
+      <li><a href="#">Events</a></li>
+    </ul>
+    <a href="#" class="nav-cta">Join</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <h1><span>Clarity.</span><span>Connection.</span><span>Courage.</span></h1>
+      <div class="accent-bar"></div>
+      <p class="lede">A community for doing life together.</p>
+      <div class="hero-cta-row">
+        <a href="#" class="btn btn-gold">Save My Spot</a>
+        <a href="#" class="btn btn-ghost">See What's Inside</a>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <img src="images/the-club/icon-circle.png" alt="">
+    </div>
+  </div>
+</section>
+
+<!-- Original full-mockup reference (image already contains its own header + headline) -->
+<section class="lockup-showcase" style="padding:4rem 1.5rem">
+  <p class="section-eyebrow" style="margin-bottom:.5rem">Original concept mockup</p>
+  <p class="caption" style="margin:0 auto 2rem;max-width:560px;color:#cbd5e1;letter-spacing:0;text-transform:none;font-size:.92rem;line-height:1.5">For reference — this is the full hero scene as delivered, with header + headline baked in.</p>
+  <img src="images/the-club/hero-scene.png" alt="Hero scene reference" style="max-width:880px;border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.6)">
+</section>
+
+<section class="lockup-showcase">
+  <img src="images/the-club/lockup-stacked.png" alt="The Club — primary stacked lockup">
+  <p class="caption">Primary lockup · centered application</p>
+</section>
+
+<section class="pillars">
+  <div class="pillars-inner">
+    <p class="section-eyebrow">What the Beacon stands for</p>
+    <h2 class="section-title">Four lights, one community</h2>
+    <div class="pillar-grid">
+      <article class="pillar">
+        <svg aria-hidden="true"><use href="#i-guide"/></svg>
+        <h3>We Guide</h3>
+        <p>With clarity and purpose — turning a confusing diagnosis into a path you can walk.</p>
+      </article>
+      <article class="pillar">
+        <svg aria-hidden="true"><use href="#i-connect"/></svg>
+        <h3>We Connect</h3>
+        <p>Building real relationships and community among people who actually understand.</p>
+      </article>
+      <article class="pillar">
+        <svg aria-hidden="true"><use href="#i-empower"/></svg>
+        <h3>We Empower</h3>
+        <p>Equipping you to live with courage and impact — every day, not just today.</p>
+      </article>
+      <article class="pillar">
+        <svg aria-hidden="true"><use href="#i-look"/></svg>
+        <h3>We Look Ahead</h3>
+        <p>Creating a better future, together — for ourselves and the people coming behind us.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="scale-test">
+  <div class="scale-inner">
+    <p class="section-eyebrow">The mark at every size</p>
+    <h2 class="section-title">Does the beacon survive small?</h2>
+    <div class="scale-grid">
+
+      <div class="scale-card">
+        <div class="swatch-stage icon-only-stage">
+          <img src="images/the-club/icon-circle.png" alt="Icon-only mark">
+        </div>
+        <span class="label"><strong>Icon-only mark</strong>display use · 140 px</span>
+      </div>
+
+      <div class="scale-card">
+        <div class="swatch-stage">
+          <div class="ios-tile"><img src="images/the-club/app-icon.png" alt="iOS app icon"></div>
+        </div>
+        <span class="label"><strong>iOS app icon</strong>120 × 120</span>
+      </div>
+
+      <div class="scale-card">
+        <div class="swatch-stage">
+          <div class="android-tile"><img src="images/the-club/app-icon.png" alt="Android round icon"></div>
+        </div>
+        <span class="label"><strong>Android round</strong>120 × 120</span>
+      </div>
+
+      <div class="scale-card">
+        <div class="swatch-stage">
+          <div class="browser-bar">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="tab">
+              <img src="images/the-club/app-icon.png" alt="">
+              The Club
+            </span>
+          </div>
+        </div>
+        <span class="label"><strong>Browser tab</strong>16 × 16 favicon</span>
+      </div>
+
+      <div class="scale-card">
+        <div class="swatch-stage">
+          <div class="favicon-tile"><img src="images/the-club/app-icon.png" alt="Favicon 32px"></div>
+        </div>
+        <span class="label"><strong>Bookmark bar</strong>32 × 32</span>
+      </div>
+
+      <div class="scale-card">
+        <div class="swatch-stage">
+          <img class="avatar-img" src="images/the-club/app-icon.png" alt="Avatar test">
+        </div>
+        <span class="label"><strong>Avatar size</strong>64 × 64</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="palette">
+  <div class="palette-inner">
+    <p class="section-eyebrow">Color system</p>
+    <h2 class="section-title">Horizon Beacon palette</h2>
+    <div class="palette-grid">
+      <div class="swatch"><div class="chip" style="background:#16A7A3"></div><div class="meta"><strong>Teal</strong><code>#16A7A3</code></div></div>
+      <div class="swatch"><div class="chip" style="background:#D4AF37"></div><div class="meta"><strong>Gold</strong><code>#D4AF37</code></div></div>
+      <div class="swatch"><div class="chip" style="background:#FFFFFF"></div><div class="meta"><strong>White</strong><code>#FFFFFF</code></div></div>
+      <div class="swatch"><div class="chip" style="background:#28333B"></div><div class="meta"><strong>Slate</strong><code>#28333B</code></div></div>
+      <div class="swatch"><div class="chip" style="background:#0D1116"></div><div class="meta"><strong>Charcoal</strong><code>#0D1116</code></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LIGHT MODE FULL PREVIEW ============ -->
+<section style="padding:5rem 1.5rem 1rem;background:#0D1116;text-align:center;border-top:1px solid var(--line)">
+  <p class="section-eyebrow">Light mode</p>
+  <h2 class="section-title" style="margin-bottom:0">What it looks like on a cream canvas</h2>
+</section>
+
+<style>
+  .lm{background:#F5F1E8;color:#1F2A33;font-family:'Inter',system-ui,sans-serif}
+  .lm-header{
+    position:sticky;top:0;z-index:5;
+    background:rgba(255,253,247,.94);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid #E5DCC7;
+  }
+  .lm-nav{
+    max-width:1320px;margin:0 auto;display:flex;align-items:center;gap:2rem;
+    padding:.85rem 1.5rem;
+  }
+  .lm-lockup{display:flex;align-items:center;gap:.75rem;text-decoration:none;color:#1F2A33;flex:0 0 auto}
+  .lm-lockup .lm-mark{
+    width:42px;height:42px;border-radius:50%;
+    background:#0D1116;display:flex;align-items:center;justify-content:center;
+    overflow:hidden;
+  }
+  .lm-lockup .lm-mark img{width:100%;height:100%;object-fit:cover}
+  .lm-lockup .lm-text{font-weight:700;font-size:.92rem;letter-spacing:.32em;color:#1F2A33}
+  .lm-lockup .lm-text .gold{color:#A8862C}
+  .lm-lockup .lm-text small{display:block;font-size:.6rem;letter-spacing:.32em;color:#6B7780;margin-top:.15rem;font-weight:500}
+  .lm-links{display:flex;gap:1.6rem;list-style:none;margin:0 auto;padding:0;font-size:.82rem;letter-spacing:.18em;text-transform:uppercase;color:#3A4750;font-weight:500}
+  .lm-links a{text-decoration:none;color:inherit;transition:color .2s}
+  .lm-links a:hover{color:#0E7A77}
+  .lm-cta{
+    border:1px solid #A8862C;color:#A8862C;background:transparent;
+    padding:.6rem 1.4rem;border-radius:6px;
+    font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;
+    text-decoration:none;font-weight:700;transition:all .2s;
+  }
+  .lm-cta:hover{background:#A8862C;color:#fff}
+
+  .lm-hero{
+    padding:6rem 1.5rem;
+    background:
+      radial-gradient(ellipse at 80% 50%,rgba(14,122,119,.08),transparent 55%),
+      radial-gradient(ellipse at 20% 90%,rgba(168,134,44,.08),transparent 50%),
+      #F5F1E8;
+  }
+  .lm-hero-inner{
+    max-width:1320px;margin:0 auto;
+    display:grid;grid-template-columns:1.1fr 1fr;gap:3rem;align-items:center;
+  }
+  @media(max-width:880px){.lm-hero-inner{grid-template-columns:1fr}}
+  .lm-hero h1{
+    font-weight:300;font-size:clamp(3rem,6vw,5rem);
+    line-height:1.05;letter-spacing:.02em;margin:0 0 .35rem;color:#1F2A33;
+  }
+  .lm-hero h1 span{display:block}
+  .lm-hero .accent-bar{width:80px;height:3px;background:#A8862C;margin:1.6rem 0 1.4rem;border-radius:2px}
+  .lm-hero .lede{
+    color:#0E7A77;letter-spacing:.32em;font-size:.95rem;font-weight:600;
+    text-transform:uppercase;margin:0 0 2.5rem;
+  }
+  .lm-hero-art{aspect-ratio:1/1;max-width:460px;margin:0 auto;width:100%;
+    background:#0D1116;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 30px 70px -20px rgba(40,51,59,.35);overflow:hidden;
+  }
+  .lm-hero-art img{width:100%;height:100%;object-fit:cover}
+  @media(max-width:880px){.lm-hero-art{max-width:280px}}
+  .lm-btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    padding:.95rem 2rem;border-radius:6px;font-weight:700;font-size:.82rem;
+    letter-spacing:.22em;text-transform:uppercase;text-decoration:none;
+    transition:all .25s;border:1px solid transparent;
+  }
+  .lm-btn-gold{background:#A8862C;color:#fff}
+  .lm-btn-gold:hover{background:#8E7124;transform:translateY(-1px);box-shadow:0 14px 28px rgba(168,134,44,.3)}
+  .lm-btn-ghost{border-color:#0E7A77;color:#0E7A77;background:transparent}
+  .lm-btn-ghost:hover{background:rgba(14,122,119,.08)}
+  .lm-btn-row{display:flex;gap:1rem;flex-wrap:wrap}
+
+  .lm-pillars{padding:6rem 1.5rem;background:#FFFDF7;border-top:1px solid #E5DCC7;border-bottom:1px solid #E5DCC7}
+  .lm-pillars-inner{max-width:1100px;margin:0 auto}
+  .lm-eyebrow{
+    text-align:center;color:#0E7A77;font-size:.78rem;letter-spacing:.4em;
+    text-transform:uppercase;font-weight:700;margin:0 0 .75rem;
+  }
+  .lm-title{
+    text-align:center;font-weight:300;font-size:clamp(1.8rem,3.5vw,2.6rem);
+    letter-spacing:.06em;margin:0 0 3.5rem;color:#1F2A33;
+  }
+  .lm-pillar-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+  @media (max-width:880px){.lm-pillar-grid{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:480px){.lm-pillar-grid{grid-template-columns:1fr}}
+  .lm-pillar{
+    background:#fff;border:1px solid #E5DCC7;border-radius:14px;padding:1.75rem 1.5rem;
+    transition:all .25s;box-shadow:0 1px 0 rgba(40,51,59,.03);
+  }
+  .lm-pillar:hover{border-color:#A8862C;transform:translateY(-3px);box-shadow:0 18px 40px -20px rgba(40,51,59,.2)}
+  .lm-pillar svg{width:32px;height:32px;color:#0E7A77;margin-bottom:1rem}
+  .lm-pillar h3{margin:0 0 .4rem;font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;color:#A8862C;font-weight:700}
+  .lm-pillar p{margin:0;color:#3A4750;font-size:.95rem;line-height:1.55}
+</style>
+
+<div class="lm">
+  <header class="lm-header">
+    <div class="lm-nav">
+      <a href="#" class="lm-lockup" aria-label="The Club">
+        <span class="lm-mark"><img src="images/the-club/app-icon.png" alt=""></span>
+        <span class="lm-text">
+          T H E&nbsp;&nbsp;<span class="gold">C L U B</span>
+          <small>DOING LIFE TODAY</small>
+        </span>
+      </a>
+      <ul class="lm-links">
+        <li><a href="#">About</a></li>
+        <li><a href="#">Community</a></li>
+        <li><a href="#">Resources</a></li>
+        <li><a href="#">Events</a></li>
+      </ul>
+      <a href="#" class="lm-cta">Join</a>
+    </div>
+  </header>
+
+  <section class="lm-hero">
+    <div class="lm-hero-inner">
+      <div>
+        <h1><span>Clarity.</span><span>Connection.</span><span>Courage.</span></h1>
+        <div class="accent-bar"></div>
+        <p class="lede">A community for doing life together.</p>
+        <div class="lm-btn-row">
+          <a href="#" class="lm-btn lm-btn-gold">Save My Spot</a>
+          <a href="#" class="lm-btn lm-btn-ghost">See What's Inside</a>
+        </div>
+      </div>
+      <div class="lm-hero-art" aria-hidden="true">
+        <img src="images/the-club/icon-circle.png" alt="">
+      </div>
+    </div>
+  </section>
+
+  <section class="lm-pillars">
+    <div class="lm-pillars-inner">
+      <p class="lm-eyebrow">What the Beacon stands for</p>
+      <h2 class="lm-title">Four lights, one community</h2>
+      <div class="lm-pillar-grid">
+        <article class="lm-pillar">
+          <svg aria-hidden="true"><use href="#i-guide"/></svg>
+          <h3>We Guide</h3>
+          <p>With clarity and purpose — turning a confusing diagnosis into a path you can walk.</p>
+        </article>
+        <article class="lm-pillar">
+          <svg aria-hidden="true"><use href="#i-connect"/></svg>
+          <h3>We Connect</h3>
+          <p>Building real relationships and community among people who actually understand.</p>
+        </article>
+        <article class="lm-pillar">
+          <svg aria-hidden="true"><use href="#i-empower"/></svg>
+          <h3>We Empower</h3>
+          <p>Equipping you to live with courage and impact — every day, not just today.</p>
+        </article>
+        <article class="lm-pillar">
+          <svg aria-hidden="true"><use href="#i-look"/></svg>
+          <h3>We Look Ahead</h3>
+          <p>Creating a better future, together — for ourselves and the people coming behind us.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+</div>
+
+<section class="light-variant">
+  <p class="section-eyebrow">Note on the mark itself</p>
+  <h2 class="section-title">The current lockup needs a light variant</h2>
+  <div class="light-card">
+    <img src="images/the-club/lockup-stacked.png" alt="The Club lockup on its native dark background">
+    <p class="note">The supplied lockup is built on charcoal — silver and gold against deep navy. To use it on cream/white surfaces above, we'd recolor the silver pillar to charcoal and the bright teal to deep teal #0E7A77.</p>
+  </div>
+  <p class="light-callout">
+    <strong>Recommendation:</strong> Export a light-background variant of the stacked + horizontal lockups before launch — for print, email signatures, partner co-branding, and any non-dark surface.
+  </p>
+</section>
+
+<div class="foot">
+  Preview only · saved as <code>public/theclub-rebrand-preview.html</code> · uses real assets from <code>public/images/the-club/</code> · not linked from site nav
+</div>
+
+</body>
+</html>

@@ -1,19 +1,52 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Explore a Parkinson's provider listing in The Exchange, a Parkinson's directory connected to The Club for insights, discussions, and reviews around Parkinson's services, programs, and support.">
+  <meta name="description" content="Explore a Parkinson's provider or product listing in The Exchange, a Parkinson's directory connected to The Club for insights, discussions, and reviews around Parkinson's programs, services, and products.">
   <title>Exchange Provider | Doing Life Today</title>
   <link rel="canonical" href="https://dolifetoday.com/exchange" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Parkinson's Provider | The Exchange" />
+  <meta property="og:description" content="View this Parkinson's provider or product on The Exchange — programs, services, products, reviews, discussions, and community insights." />
+  <meta property="og:url" content="https://dolifetoday.com/exchange" />
+  <meta property="og:site_name" content="Doing Life Today" />
+  <meta name="twitter:card" content="summary" />
+  <script type="application/ld+json" id="provider-jsonld">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Parkinson's Service Provider",
+    "description": "A Parkinson's disease service provider listed on The Exchange by Doing Life Today.",
+    "url": "https://dolifetoday.com/exchange",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Doing Life Today",
+      "url": "https://dolifetoday.com"
+    }
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/exchange.css">
   <link rel="stylesheet" href="/css/provider-ecosystem.css">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3LZZWBTWT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K3LZZWBTWT');
+  </script>
+  <script src="/js/analytics-events.js" defer></script>
+  <script src="/js/meta-pixel.js"></script>
 </head>
 <body>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=771485525759396&ev=PageView&noscript=1"
+  /></noscript>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <header class="site-header" role="banner">
@@ -29,7 +62,7 @@
         <li><a href="/theclub">The Club</a></li>
         <li><a href="/exchange">The Exchange</a></li>
         <li><a href="/music">Music</a></li>
-        <li><a href="/community">Living With Parkinson's Guide</a></li>
+        <li><a href="/living-with-parkinsons-guide">Living With Parkinson's Guide</a></li>
         <li><a href="/resources">Resources</a></li>
         <li><a href="/events">Events</a></li>
         <li><a href="/contact">Contact</a></li>
@@ -48,7 +81,7 @@
     <a href="/theclub">The Club</a>
     <a href="/exchange">The Exchange</a>
     <a href="/music">Music</a>
-    <a href="/community">Living With Parkinson's Guide</a>
+    <a href="/living-with-parkinsons-guide">Living With Parkinson's Guide</a>
     <a href="/resources">Resources</a>
     <a href="/events">Events</a>
     <a href="/contact">Contact</a>
@@ -68,14 +101,13 @@
         <span class="section-label">The Exchange</span>
         <div class="card exchange-loading-card" id="exchange-provider-loading">
           <h1 id="exchange-provider-loading-title" class="hero-title">Loading provider...</h1>
-          <p>Pulling the public provider profile from the canonical Exchange data.</p>
+          <p>Pulling the listing details from The Exchange directory.</p>
         </div>
         <div class="card exchange-error-card" id="exchange-provider-error" hidden>
           <h1 class="hero-title">Provider not found</h1>
-          <p>That Exchange listing could not be loaded from the public directory right now.</p>
+          <p>That Exchange listing could not be found in the directory right now.</p>
           <div class="exchange-provider-actions">
             <a href="/exchange" class="btn btn-primary">Back to The Exchange</a>
-            <a href="https://club.dolifetoday.com/?publicExchange=true" class="btn btn-outline-primary">View in The Club</a>
           </div>
         </div>
         <div id="exchange-provider-content" hidden>
@@ -84,7 +116,7 @@
             <div>
               <h1 id="exchange-provider-title" class="hero-title"></h1>
               <p id="exchange-provider-subtitle" class="hero-subtitle"></p>
-              <p id="exchange-provider-club-note" class="hero-support">Part of The Exchange - connected to The Club community</p>
+              <p id="exchange-provider-club-note" class="hero-support">Listed on The Exchange — the Parkinson's provider directory by Doing Life Today</p>
               <p id="exchange-provider-rating" class="hero-support"></p>
             </div>
           </div>
@@ -98,7 +130,7 @@
           <div class="exchange-provider-actions">
             <a id="exchange-provider-claim-link" class="btn btn-primary" href="/claim-listing" onclick="if(window.ProviderTrack){ProviderTrack.track('claim_listing_clicked',{source:'provider_page'})}">Claim This Listing</a>
             <a class="btn btn-outline-primary" href="/create-listing">Add Your Listing</a>
-            <a id="exchange-provider-club-link" class="btn btn-outline-primary" href="https://club.dolifetoday.com/?publicExchange=true">View in The Club</a>
+            <a id="exchange-provider-club-link" class="btn btn-outline-primary" href="/exchange">Browse The Exchange</a>
             <a id="exchange-provider-website-link" class="btn btn-outline-primary" href="/exchange" target="_blank" rel="noopener noreferrer" hidden>Visit Website</a>
           </div>
         </div>
@@ -131,6 +163,8 @@
             <h2 class="section-title">Browse more providers like this</h2>
             <div class="exchange-discovery-links" id="exchange-provider-discovery-links"></div>
           </article>
+
+
         </div>
 
         <aside class="exchange-detail-sidebar">
@@ -147,11 +181,11 @@
           </article>
 
           <article class="card">
-            <span class="section-label">The Club</span>
-            <h2 class="section-title">See insights, discussions, and reviews in The Club</h2>
-            <p class="exchange-card-copy">Explore how members are talking about this provider, sharing insights, asking questions, and leaving reviews that help others make confident decisions.</p>
+            <span class="section-label">The Exchange</span>
+            <h2 class="section-title">Explore more providers and listings</h2>
+            <p class="exchange-card-copy">Browse the directory, claim your listing, or add a new one to get discovered by the Parkinson's community.</p>
             <div class="exchange-stacked-actions">
-              <a id="exchange-provider-sidebar-club" class="btn btn-outline-primary" href="https://club.dolifetoday.com/?publicExchange=true">View in The Club</a>
+              <a id="exchange-provider-sidebar-club" class="btn btn-outline-primary" href="/exchange">Browse The Exchange</a>
               <a id="exchange-provider-sidebar-claim" class="btn btn-primary" href="/claim-listing">Claim This Listing</a>
               <a class="btn btn-outline-primary" href="/create-listing">Add Your Listing</a>
             </div>
@@ -171,7 +205,7 @@
             <div class="pe-teaser-stat"><span id="ep-club-reviews">0</span><small>Reviews</small></div>
             <div class="pe-teaser-stat"><span id="ep-club-views">0</span><small>Club Views</small></div>
           </div>
-          <p id="ep-club-activity-line" class="pe-activity-line" hidden>Activity is happening around services like this inside The Club.</p>
+          <p id="ep-club-activity-line" class="pe-activity-line" hidden>Activity is happening around programs, services, and products like this inside The Club.</p>
           <div class="exchange-provider-actions">
             <a href="/theclub" class="btn btn-primary">Explore The Club</a>
             <a href="/pricing" class="btn btn-outline-primary">See Provider Plans</a>

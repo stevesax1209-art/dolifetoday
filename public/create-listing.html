@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Add your Parkinson's service, program, or provider listing to The Exchange directory and reach people searching for support.">
+  <meta name="description" content="Add your Parkinson's program, service, product, or provider listing to The Exchange directory and reach people searching for support.">
   <title>Add Your Listing | The Exchange</title>
   <link rel="canonical" href="https://dolifetoday.com/create-listing" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,8 +12,21 @@
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/exchange.css">
   <link rel="stylesheet" href="/css/provider-ecosystem.css">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3LZZWBTWT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K3LZZWBTWT');
+  </script>
+  <script src="/js/analytics-events.js" defer></script>
+  <script src="/js/meta-pixel.js"></script>
 </head>
 <body>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=771485525759396&ev=PageView&noscript=1"
+  /></noscript>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <header class="site-header" role="banner">
@@ -29,7 +42,7 @@
         <li><a href="/theclub">The Club</a></li>
         <li><a href="/exchange">The Exchange</a></li>
         <li><a href="/music">Music</a></li>
-        <li><a href="/community">Living With Parkinson's Guide</a></li>
+        <li><a href="/living-with-parkinsons-guide">Living With Parkinson's Guide</a></li>
         <li><a href="/resources">Resources</a></li>
         <li><a href="/events">Events</a></li>
         <li><a href="/contact">Contact</a></li>
@@ -48,7 +61,7 @@
     <a href="/theclub">The Club</a>
     <a href="/exchange">The Exchange</a>
     <a href="/music">Music</a>
-    <a href="/community">Living With Parkinson's Guide</a>
+    <a href="/living-with-parkinsons-guide">Living With Parkinson's Guide</a>
     <a href="/resources">Resources</a>
     <a href="/events">Events</a>
     <a href="/contact">Contact</a>
@@ -116,12 +129,12 @@
           <!-- Step 1: Basic info -->
           <div id="create-step-1" class="pe-card">
             <span class="section-label" id="create-heading">Add Your Listing</span>
-            <h2 class="section-title">Tell us about your organization</h2>
+            <h2 class="section-title">Tell us about your program, service, or product</h2>
             <form id="create-basic-form" class="pe-form" novalidate>
               <div class="pe-field">
-                <label for="create-name">Organization Name *</label>
-                <input id="create-name" type="text" placeholder="Your organization or practice name" required>
-                <span class="pe-field-error">Organization name is required</span>
+                <label for="create-name">Program, Service, or Product Name *</label>
+                <input id="create-name" type="text" placeholder="Your program, service, or product name" required>
+                <span class="pe-field-error">Name is required</span>
               </div>
               <div class="pe-form-row">
                 <div class="pe-field">
@@ -137,11 +150,19 @@
                     <option value="nutrition">Nutrition &amp; Wellness</option>
                     <option value="caregiving">Caregiving Support</option>
                     <option value="research">Research &amp; Clinical Trials</option>
+                    <optgroup label="Products">
+                      <option value="products">Products (General)</option>
+                      <option value="products-sleep-aids">Sleep Aids</option>
+                      <option value="products-mobility-aids">Mobility Aids</option>
+                      <option value="products-adaptive-clothing">Adaptive Clothing</option>
+                      <option value="products-assistive-devices">Assistive Devices</option>
+                      <option value="products-home-safety">Home Safety</option>
+                    </optgroup>
                     <option value="other">Other</option>
                   </select>
                   <span class="pe-field-error">Please select a category</span>
                 </div>
-                <div class="pe-field">
+                <div class="pe-field create-service-field">
                   <label for="create-format">Service Mode *</label>
                   <select id="create-format" required>
                     <option value="">Select service mode</option>
@@ -152,7 +173,7 @@
                   <span class="pe-field-error">Please select a service mode</span>
                 </div>
               </div>
-              <div class="pe-form-row">
+              <div class="pe-form-row create-service-field">
                 <div class="pe-field">
                   <label for="create-city">City *</label>
                   <input id="create-city" type="text" placeholder="City" required>
@@ -168,6 +189,17 @@
                   <span class="pe-field-error">Country is required</span>
                 </div>
               </div>
+              <div class="pe-field create-product-field" style="display:none;">
+                <label>Ships To</label>
+                <div style="display:flex;flex-wrap:wrap;gap:0.5rem 1rem;margin-top:0.35rem;">
+                  <label class="pe-checkbox"><input type="checkbox" value="Worldwide" data-ships="create"> Worldwide</label>
+                  <label class="pe-checkbox"><input type="checkbox" value="US" data-ships="create"> US</label>
+                  <label class="pe-checkbox"><input type="checkbox" value="Canada" data-ships="create"> Canada</label>
+                  <label class="pe-checkbox"><input type="checkbox" value="UK" data-ships="create"> UK</label>
+                  <label class="pe-checkbox"><input type="checkbox" value="Australia" data-ships="create"> Australia</label>
+                  <label class="pe-checkbox"><input type="checkbox" value="Europe" data-ships="create"> Europe</label>
+                </div>
+              </div>
               <div class="pe-form-actions">
                 <button type="submit" class="btn btn-primary">Continue</button>
               </div>
@@ -181,7 +213,7 @@
             <form id="create-details-form" class="pe-form" novalidate>
               <div class="pe-field">
                 <label for="create-description">Description</label>
-                <textarea id="create-description" placeholder="Describe your organization and the services you offer for people with Parkinson's..."></textarea>
+                <textarea id="create-description" placeholder="Describe what you offer for people with Parkinson's — whether it's a program, service, or product..."></textarea>
               </div>
               <div class="pe-form-row">
                 <div class="pe-field">
@@ -274,3 +306,4 @@
   <script src="/js/create-listing.js" defer></script>
 </body>
 </html>
+

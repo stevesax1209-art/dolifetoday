@@ -22,3 +22,16 @@ Thumbs.db
 live-*.html
 data/*/checkpoint.json
 data/*/modal-debug.png
+
+# Outreach lists (contain provider PII)
+data/_outreach/
+
+# Prerendered provider pages (regenerated on deploy)
+public/exchange/provider/
+
+# Large media that must NOT be committed (keep in cloud storage instead)
+public/Images/*.MOV
+public/Images/*.mov
+public/Images/*.mp4
+public/Images/videos/
+

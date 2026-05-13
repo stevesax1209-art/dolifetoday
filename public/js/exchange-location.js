@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  const API_URL = 'https://club.dolifetoday.com/api/exchange/providers?limit=10000&v=20260327-1';
+  const API_URL = 'https://club.dolifetoday.com/api/exchange/providers?limit=25000&v=20260406';
   const loadingNode = document.getElementById('exchange-location-loading');
   const errorNode = document.getElementById('exchange-location-error');
   const contentNode = document.getElementById('exchange-location-content');
@@ -86,8 +86,7 @@
       tags ? '  <div class="exchange-card-tags">' + tags + '</div>' : '',
       '  <div class="exchange-card-actions">',
       '    <a class="btn btn-outline-primary" href="' + escapeHtml(provider.detailPagePath || '/exchange') + '">View Details</a>',
-      '    <a class="btn btn-outline-primary" href="' + escapeHtml(provider.detailAppUrl || provider.joinClubUrl || 'https://club.dolifetoday.com/?publicExchange=true') + '">View in The Club</a>',
-      '    <a class="btn btn-primary" href="' + escapeHtml(provider.claimPagePath || provider.claimUrl || 'https://club.dolifetoday.com/?publicExchange=true') + '">Claim This Listing</a>',
+      '    <a class="btn btn-primary" href="' + escapeHtml(provider.claimPagePath || provider.claimUrl || '/claim-listing') + '">Claim Listing</a>',
       '  </div>',
       '</article>'
     ].join('');
@@ -123,9 +122,28 @@
       document.title = locationLabel + ' | The Exchange | Doing Life Today';
       const descriptionMeta = document.querySelector('meta[name="description"]');
       if (descriptionMeta) {
-        descriptionMeta.setAttribute('content', 'Browse Parkinson\'s providers, programs, and services in ' + locationLabel + ' on The Exchange, then move into The Club for insights, discussions, and reviews.');
+        descriptionMeta.setAttribute('content', 'Browse Parkinson\'s providers, programs, and services in ' + locationLabel + ' on The Exchange directory.');
       }
       updateCanonical('https://dolifetoday.com/exchange/location/' + encodeURIComponent(slug));
+
+      // Update JSON-LD and OG tags for SEO
+      var jsonLd = document.querySelector('script[type="application/ld+json"]');
+      if (jsonLd) {
+        jsonLd.textContent = JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'CollectionPage',
+          'name': 'Parkinson\'s Providers in ' + locationLabel,
+          'description': 'Browse ' + matches.length + ' Parkinson\'s providers in ' + locationLabel + ' on The Exchange.',
+          'url': 'https://dolifetoday.com/exchange/location/' + encodeURIComponent(slug),
+          'isPartOf': { '@type': 'WebSite', 'name': 'Doing Life Today', 'url': 'https://dolifetoday.com' }
+        });
+      }
+      var ogTitle = document.querySelector('meta[property="og:title"]');
+      var ogDesc = document.querySelector('meta[property="og:description"]');
+      var ogUrl = document.querySelector('meta[property="og:url"]');
+      if (ogTitle) ogTitle.setAttribute('content', 'Parkinson\'s Providers in ' + locationLabel + ' | The Exchange');
+      if (ogDesc) ogDesc.setAttribute('content', 'Find ' + matches.length + ' Parkinson\'s providers in ' + locationLabel + ' on The Exchange.');
+      if (ogUrl) ogUrl.setAttribute('content', 'https://dolifetoday.com/exchange/location/' + encodeURIComponent(slug));
 
       const headingNode = document.getElementById('exchange-location-heading');
       const subtitleNode = document.getElementById('exchange-location-subtitle');
@@ -136,7 +154,7 @@
       const emptyNode = document.getElementById('exchange-location-empty');
 
       if (headingNode) headingNode.textContent = 'Parkinson\'s providers in ' + locationLabel;
-      if (subtitleNode) subtitleNode.textContent = 'Parkinson\'s providers, programs, and services connected to ' + locationLabel + ', with deeper insight available in The Club.';
+      if (subtitleNode) subtitleNode.textContent = 'Parkinson\'s providers, programs, and services connected to ' + locationLabel + '.';
       if (breadcrumbNode) breadcrumbNode.textContent = locationLabel;
       if (countNode) countNode.textContent = matches.length === 1 ? '1 listing' : matches.length + ' listings';
 

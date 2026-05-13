@@ -106,12 +106,12 @@
 
   function injectFooterResourceLinks() {
     const priorityLinks = [
-      { file: 'first-90-days-parkinsons.html', label: 'First 90 Days' },
-      { file: 'mental-health.html', label: 'Mental Health' },
-      { file: 'parkinsons-tremor.html', label: "Parkinson's Tremor" },
-      { file: 'best-exercises-for-parkinsons.html', label: 'Best Exercises' },
-      { file: 'clinical-trials.html', label: 'Clinical Trials' },
-      { file: 'parkinsons-sleep.html', label: "Sleep and Parkinson's" },
+      { slug: 'first-90-days-parkinsons', label: 'First 90 Days' },
+      { slug: 'mental-health', label: 'Mental Health' },
+      { slug: 'parkinsons-tremor', label: "Parkinson's Tremor" },
+      { slug: 'best-exercises-for-parkinsons', label: 'Best Exercises' },
+      { slug: 'clinical-trials', label: 'Clinical Trials' },
+      { slug: 'parkinsons-sleep', label: "Sleep and Parkinson's" },
     ];
 
     document.querySelectorAll('footer .footer-col').forEach((column) => {
@@ -122,12 +122,17 @@
 
       const links = Array.from(list.querySelectorAll('a'));
       const referenceLink = links[0];
-      const prefix = referenceLink && (referenceLink.getAttribute('href') || '').startsWith('../') ? '../' : '';
+      const refHref = referenceLink && referenceLink.getAttribute('href') || '';
+      const prefix = refHref.startsWith('../') ? '../' : refHref.startsWith('/') ? '/' : '/';
       const firstItem = list.querySelector('li');
 
       priorityLinks.slice().reverse().forEach((link) => {
-        const href = prefix + link.file;
-        if (list.querySelector(`a[href="${href}"]`)) return;
+        const href = prefix + link.slug;
+        const exists = links.some((a) => {
+          const h = a.getAttribute('href') || '';
+          return h.endsWith(link.slug) || h.endsWith(link.slug + '.html');
+        });
+        if (exists) return;
 
         const item = document.createElement('li');
         const anchor = document.createElement('a');
@@ -630,7 +635,7 @@
   window.dltSpamProtection = spamProtection;
 
   const emailCaptureForms = Array.from(document.querySelectorAll('form')).filter((form) => {
-    if (form.id === 'contact-form' || form.id === 'waitlist-form' || form.id === 'stats-form') {
+    if (form.id === 'contact-form' || form.id === 'waitlist-form' || form.id === 'stats-form' || form.id === 'check-wave-form') {
       return false;
     }
 

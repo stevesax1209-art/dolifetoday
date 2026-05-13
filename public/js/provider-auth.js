@@ -132,11 +132,27 @@
           '<span class="pe-auth-bar-user">👤 ' + this.escapeHtml(user.name || user.email) + '</span>' +
           '<div class="pe-auth-bar-actions">' +
             '<a href="/provider-dashboard" class="btn btn-outline-primary btn-sm">Dashboard</a>' +
+            '<span id="pe-admin-links"></span>' +
             '<button id="pe-signout-btn" class="btn btn-outline-primary btn-sm">Sign Out</button>' +
           '</div>' +
         '</div>';
       const btn = document.getElementById('pe-signout-btn');
       if (btn) btn.addEventListener('click', () => this.signOut());
+
+      // Check admin status and show admin links if verified
+      this.apiCall('/admin/verify', { method: 'GET' })
+        .then(function (data) {
+          if (data && data.isAdmin) {
+            var el = document.getElementById('pe-admin-links');
+            if (el) {
+              el.innerHTML =
+                '<a href="/admin/owner-dashboard" class="btn btn-outline-primary btn-sm" style="border-color:#0d6b5e;color:#0d6b5e;">Mission Control</a>' +
+                '<a href="/admin-providers" class="btn btn-outline-primary btn-sm" style="border-color:#0d6b5e;color:#0d6b5e;">Admin Panel</a>' +
+                '<a href="/admin-analytics" class="btn btn-outline-primary btn-sm" style="border-color:#0d6b5e;color:#0d6b5e;">Analytics</a>';
+            }
+          }
+        })
+        .catch(function () { /* not admin — no links shown */ });
     },
 
     escapeHtml(str) {

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Join the provider and product waitlist for The Exchange Community Tier. Whether you offer a Parkinson's program, service, or product, access is opening in waves - secure your founding spot.">
+  <title>Provider Waitlist | The Exchange | Doing Life Today</title>
+  <link rel="canonical" href="https://dolifetoday.com/provider-waitlist" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/exchange.css">
+  <link rel="stylesheet" href="/css/exchange-providers.css">
+  <link rel="stylesheet" href="/css/provider-ecosystem.css">
+  <style>
+    .pw-hero { text-align: center; padding: 5rem 0 3rem; }
+    .pw-hero .section-label { margin-bottom: 0.75rem; }
+    .pw-hero h1 { font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 1rem; color: var(--color-white, #fff); }
+    .pw-hero p { max-width: 640px; margin: 0 auto; font-size: 1.05rem; color: var(--color-text-muted, #94a3b8); line-height: 1.7; }
+    .pw-badge { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.4rem 1rem; border-radius: 999px; background: linear-gradient(135deg, rgba(245,158,11,0.15), rgba(245,158,11,0.08)); border: 1px solid rgba(245,158,11,0.25); color: #f59e0b; font-size: 0.82rem; font-weight: 700; margin-bottom: 1.25rem; }
+    .pw-wave-band { max-width: 620px; margin: 2rem auto 0; padding: 1.5rem 1.75rem; border-radius: 20px; background: linear-gradient(180deg, rgba(255,255,255,0.045) 0%, rgba(255,255,255,0.02) 100%), radial-gradient(circle at top center, rgba(245,158,11,0.18), transparent 52%), rgba(255,255,255,0.03); border: 1px solid rgba(245,158,11,0.22); box-shadow: 0 20px 60px rgba(0,0,0,0.32); }
+    .pw-wave-band-label { font-size: 0.82rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #f59e0b; margin-bottom: 0.5rem; }
+    .pw-wave-band-time { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 900; color: var(--color-white, #fff); letter-spacing: -0.03em; margin-bottom: 0.55rem; }
+    .pw-wave-band-note { font-size: 0.92rem; color: var(--color-text-muted, #94a3b8); }
+    .pw-wave-band-note strong { color: #f59e0b; }
+
+    .pw-form-section { padding: 0 0 5rem; }
+    .pw-form-shell { max-width: 760px; margin: 0 auto; }
+    .pw-card { max-width: none; margin: 0 auto; }
+    .pw-card.pricing-card,
+    .pw-card.pricing-card-featured {
+      gap: 1.25rem;
+      padding: clamp(2rem, 4vw, 2.75rem);
+      border-color: rgba(245,158,11,0.25);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%),
+        radial-gradient(circle at top left, rgba(245,158,11,0.14), transparent 40%),
+        radial-gradient(circle at bottom right, rgba(217,119,6,0.14), transparent 42%),
+        rgba(21, 24, 39, 0.96);
+      box-shadow: 0 24px 80px rgba(245,158,11,0.12), var(--pe-shadow);
+    }
+    .pw-card.pricing-card-featured::before {
+      background: linear-gradient(90deg, #f59e0b, #d97706);
+    }
+    .pw-card-header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .pw-card-subtitle {
+      color: var(--color-text-muted, #94a3b8);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      max-width: 54ch;
+    }
+    .pw-card-quickpoints {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+    .pw-card-quickpoint {
+      padding: 0.85rem 0.95rem;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      text-align: left;
+    }
+    .pw-card-quickpoint strong {
+      display: block;
+      color: var(--color-white, #fff);
+      font-size: 0.95rem;
+      margin-bottom: 0.2rem;
+    }
+    .pw-card-quickpoint span {
+      color: var(--color-text-muted, #94a3b8);
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
+    .pw-field { margin-bottom: 1.25rem; }
+    .pw-field label { display: block; font-size: 0.88rem; font-weight: 600; color: var(--color-text, #e2e8f0); margin-bottom: 0.4rem; }
+    .pw-field input, .pw-field select { width: 100%; padding: 0.75rem 1rem; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); color: var(--color-white, #fff); font-size: 0.95rem; font-family: inherit; transition: border-color 0.2s; }
+    .pw-field input:focus, .pw-field select:focus { outline: none; border-color: rgba(32,178,170,0.5); }
+    .pw-field input::placeholder { color: rgba(255,255,255,0.3); }
+    .pw-field select option { background: #1e293b; color: #fff; }
+    .pw-field .pw-field-hint { font-size: 0.78rem; color: var(--color-text-muted, #64748b); margin-top: 0.3rem; }
+    .pw-field-error { font-size: 0.82rem; color: #ef4444; display: none; margin-top: 0.3rem; }
+
+    .pw-submit-btn { width: 100%; padding: 0.95rem; font-size: 1rem; font-weight: 700; border-radius: 999px; background: linear-gradient(135deg, #f59e0b, #d97706); color: #fff; border: none; cursor: pointer; transition: all 0.2s; letter-spacing: 0.02em; box-shadow: 0 18px 36px rgba(217,119,6,0.22); }
+    .pw-submit-btn:hover { background: linear-gradient(135deg, #d97706, #b45309); transform: translateY(-1px); }
+    .pw-submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+    .pw-form-footer { text-align: center; margin-top: 1rem; font-size: 0.82rem; color: var(--color-text-muted, #64748b); line-height: 1.6; }
+    .pw-form-error { padding: 0.75rem 1rem; border-radius: 10px; background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.2); color: #ef4444; font-size: 0.9rem; margin-bottom: 1rem; display: none; }
+
+    .pw-success { text-align: center; padding: 2rem 0; }
+    .pw-success-icon { font-size: 3rem; margin-bottom: 1rem; }
+    .pw-success h2 { font-size: 1.6rem; font-weight: 800; margin-bottom: 0.75rem; color: var(--color-white, #fff); }
+    .pw-success p { color: var(--color-text-muted, #94a3b8); font-size: 0.95rem; line-height: 1.7; margin-bottom: 0.5rem; }
+    .pw-success-benefits { display: flex; flex-direction: column; gap: 0.5rem; margin: 1.5rem 0; text-align: left; }
+    .pw-success-benefit { display: flex; align-items: center; gap: 0.5rem; font-size: 0.92rem; color: var(--color-text, #e2e8f0); }
+    .pw-success-benefit-icon { color: #22d3ee; font-weight: 700; }
+
+    .pw-perks { margin-top: 2.5rem; }
+    .pw-perks h3 { font-size: 1.1rem; font-weight: 700; color: var(--color-white, #fff); margin-bottom: 1rem; text-align: center; }
+    .pw-perks-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 1rem; }
+    .pw-perk { padding: 1.25rem; border-radius: 14px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); text-align: center; }
+    .pw-perk-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .pw-perk-label { font-size: 0.88rem; font-weight: 600; color: var(--color-text, #e2e8f0); }
+    .pw-perk-desc { font-size: 0.78rem; color: var(--color-text-muted, #64748b); margin-top: 0.3rem; }
+
+    @media (max-width: 720px) {
+      .pw-card-quickpoints {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3LZZWBTWT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K3LZZWBTWT');
+  </script>
+  <script src="/js/analytics-events.js" defer></script>
+  <script src="/js/meta-pixel.js"></script>
+</head>
+<body>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=771485525759396&ev=PageView&noscript=1"
+  /></noscript>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="exchange-provider-topbar" role="banner">
+    <div class="exchange-provider-topbar-inner">
+      <a href="/exchange" class="exchange-provider-brand" aria-label="The Exchange">
+        <div class="exchange-provider-brand-mark" aria-hidden="true">DL</div>
+        <div class="exchange-provider-brand-copy">
+          <strong>THE EXCHANGE</strong>
+          <span>Provider Waitlist</span>
+        </div>
+      </a>
+      <nav class="exchange-provider-topbar-actions" aria-label="Navigation">
+        <a href="/exchange" class="exchange-provider-inline-link">Browse Directory</a>
+        <a href="/exchange/providers#pricing" class="btn btn-primary exchange-provider-topbar-cta">See Plans</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="pw-hero">
+      <div class="container">
+        <span class="pw-badge">&#127969; Limited Access - Wave Onboarding</span>
+        <span class="section-label">Founding Provider Access</span>
+        <h1>Join the Provider Waitlist</h1>
+        <p>We're onboarding Community Providers and product makers in small waves to ensure every listing gets real visibility and engagement. Secure your spot - early providers and products receive founding positioning and priority access.</p>
+        <div class="pw-wave-band" aria-live="polite">
+          <p class="pw-wave-band-label">Next provider wave opens in</p>
+          <p id="pw-wave-timer" class="pw-wave-band-time">--d --h --m --s</p>
+          <p class="pw-wave-band-note"><strong>10 founding spots</strong> in this release. Once they fill, access closes until the next wave.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="pw-form-section">
+      <div class="container">
+        <div class="pw-form-shell">
+        <div class="pw-card pricing-card pricing-card-featured">
+          <span class="pricing-card-badge" style="background:linear-gradient(135deg, rgba(245,158,11,0.15), rgba(245,158,11,0.08)); border:1px solid rgba(245,158,11,0.25); color:#f59e0b;">Founding Provider</span>
+          <div class="pw-card-header pricing-card-header">
+            <h2 class="pricing-card-name">Reserve your place in the next wave</h2>
+            <p class="pw-card-subtitle">Join the providers and product makers getting early visibility, tighter onboarding, and a stronger position before public launch traffic ramps up.</p>
+          </div>
+          <div class="pw-card-quickpoints">
+            <div class="pw-card-quickpoint">
+              <strong>High intent traffic</strong>
+              <span>Show up while providers in your category are still scarce.</span>
+            </div>
+            <div class="pw-card-quickpoint">
+              <strong>Better positioning</strong>
+              <span>Secure stronger visibility before the directory gets crowded.</span>
+            </div>
+            <div class="pw-card-quickpoint">
+              <strong>White-glove onboarding</strong>
+              <span>Get hands-on support instead of joining a generic queue.</span>
+            </div>
+          </div>
+          <!-- Form -->
+          <form id="pw-form" novalidate>
+            <div id="pw-form-error" class="pw-form-error"></div>
+
+            <div class="pw-field">
+              <label for="pw-name">Your Full Name *</label>
+              <input id="pw-name" type="text" placeholder="Jane Smith" autocomplete="name" required>
+              <p class="pw-field-error" id="pw-name-error">Please enter your name</p>
+            </div>
+
+            <div class="pw-field">
+              <label for="pw-email">Email Address *</label>
+              <input id="pw-email" type="email" placeholder="jane@yourpractice.com" autocomplete="email" required>
+              <p class="pw-field-error" id="pw-email-error">Please enter a valid email</p>
+            </div>
+
+            <div class="pw-field">
+              <label for="pw-provider-name">Provider, Organization, or Product Name *</label>
+              <input id="pw-provider-name" type="text" placeholder="Pacific Parkinson's Therapy" required>
+              <p class="pw-field-error" id="pw-provider-name-error">Please enter a provider or product name</p>
+            </div>
+
+            <div class="pw-field">
+              <label for="pw-location">Location *</label>
+              <input id="pw-location" type="text" placeholder="City, State or Country" required>
+              <p class="pw-field-error" id="pw-location-error">Please enter your location</p>
+            </div>
+
+            <div class="pw-field">
+              <label for="pw-website">Website <span style="color:var(--color-text-muted,#64748b)">(optional)</span></label>
+              <input id="pw-website" type="url" placeholder="https://yourpractice.com" autocomplete="url">
+            </div>
+
+            <div class="pw-field">
+              <label for="pw-category">Provider Category *</label>
+              <select id="pw-category" required>
+                <option value="">Select your category</option>
+                <option value="exercise">Exercise & Movement</option>
+                <option value="therapy">Physical / Occupational Therapy</option>
+                <option value="speech">Speech Therapy</option>
+                <option value="neurology">Neurology / Medical</option>
+                <option value="mental-health">Mental Health / Counseling</option>
+                <option value="support-group">Support Group</option>
+                <option value="wellness">Wellness / Holistic</option>
+                <option value="technology">Technology / Apps</option>
+                <optgroup label="Products">
+                  <option value="products">Products (General)</option>
+                  <option value="products-sleep-aids">Sleep Aids</option>
+                  <option value="products-mobility-aids">Mobility Aids</option>
+                  <option value="products-adaptive-clothing">Adaptive Clothing</option>
+                  <option value="products-assistive-devices">Assistive Devices</option>
+                  <option value="products-home-safety">Home Safety</option>
+                </optgroup>
+                <option value="other">Other</option>
+              </select>
+              <p class="pw-field-error" id="pw-category-error">Please select a category</p>
+            </div>
+
+            <button type="submit" class="pw-submit-btn" id="pw-submit">Join Provider Waitlist</button>
+
+            <p class="pw-form-footer">Early providers and product makers receive priority visibility, founding provider positioning, and early access to community insights.</p>
+          </form>
+
+          <!-- Success state (hidden by default) -->
+          <div id="pw-success" class="pw-success" hidden>
+            <div class="pw-success-icon">&#127881;</div>
+            <h2>You're on the list.</h2>
+            <p>We're onboarding providers in small waves so each one gets real visibility and engagement.</p>
+            <p>We'll reach out as your wave opens.</p>
+            <div class="pw-success-benefits">
+              <div class="pw-success-benefit"><span class="pw-success-benefit-icon">✦</span> Priority visibility when your wave opens</div>
+              <div class="pw-success-benefit"><span class="pw-success-benefit-icon">✦</span> Founding provider positioning</div>
+              <div class="pw-success-benefit"><span class="pw-success-benefit-icon">✦</span> Early access to community insights</div>
+              <div class="pw-success-benefit"><span class="pw-success-benefit-icon">✦</span> Personal onboarding support</div>
+            </div>
+            <p style="font-style:italic;opacity:0.85;">&#128064; In the meantime, your listing may already be live.</p>
+            <div style="margin-top:1.5rem;display:flex;flex-direction:column;gap:0.75rem;align-items:center;">
+              <a href="/claim-listing" class="btn btn-primary">Check Your Listing</a>
+              <a href="/exchange" class="btn btn-outline-primary">Browse The Exchange</a>
+            </div>
+          </div>
+        </div>
+        </div>
+
+        <!-- Founding perks -->
+        <div class="pw-perks">
+          <h3>What Founding Providers Get</h3>
+          <div class="pw-perks-grid">
+            <div class="pw-perk">
+              <div class="pw-perk-icon">&#128274;</div>
+              <div class="pw-perk-label">Locked Pricing</div>
+              <div class="pw-perk-desc">Founding rate locked in before public launch</div>
+            </div>
+            <div class="pw-perk">
+              <div class="pw-perk-icon">&#128065;</div>
+              <div class="pw-perk-label">Early Visibility</div>
+              <div class="pw-perk-desc">Listed before the marketplace fills up</div>
+            </div>
+            <div class="pw-perk">
+              <div class="pw-perk-icon">&#128205;</div>
+              <div class="pw-perk-label">Priority Placement</div>
+              <div class="pw-perk-desc">Top positioning in search and directory</div>
+            </div>
+            <div class="pw-perk">
+              <div class="pw-perk-icon">&#129309;</div>
+              <div class="pw-perk-label">White-Glove Onboarding</div>
+              <div class="pw-perk-desc">Personal setup and support for your listing</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="exchange-provider-footer">
+    <div class="container exchange-provider-footer-grid">
+      <div>
+        <p class="exchange-provider-footer-brand">The Exchange</p>
+        <p>The premium Parkinson's provider and product directory.</p>
+      </div>
+      <div>
+        <p class="exchange-provider-footer-heading">Product</p>
+        <a href="/exchange/providers#pricing">Pricing</a>
+        <a href="/exchange">Directory</a>
+      </div>
+      <div>
+        <p class="exchange-provider-footer-heading">Resources</p>
+        <a href="/contact">Help Center</a>
+        <a href="/resources">Resources</a>
+      </div>
+      <div>
+        <p class="exchange-provider-footer-heading">Company</p>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js" defer></script>
+  <script>
+    (function () {
+      var timer = document.getElementById('pw-wave-timer');
+      if (!timer) return;
+      var target = Date.parse('2026-04-12T23:59:59Z');
+      function pad(n) { return n < 10 ? '0' + n : String(n); }
+      function tick() {
+        var diff = Math.max(0, target - Date.now());
+        var d = Math.floor(diff / 86400000);
+        var h = Math.floor((diff % 86400000) / 3600000);
+        var m = Math.floor((diff % 3600000) / 60000);
+        var s = Math.floor((diff % 60000) / 1000);
+        timer.textContent = d + 'd ' + pad(h) + 'h ' + pad(m) + 'm ' + pad(s) + 's';
+        setTimeout(tick, 1000);
+      }
+      tick();
+    })();
+  </script>
+  <script src="/js/provider-waitlist.js" defer></script>
+</body>
+</html>
+
