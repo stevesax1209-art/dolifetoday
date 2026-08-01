@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Private page — do NOT index or follow -->
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <meta name="googlebot" content="noindex, nofollow, noarchive">
+  <meta name="referrer" content="no-referrer">
+  <title>Inner Circle Lounge · Members Only</title>
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ic-teal:        #20B2AA;
+      --ic-teal-deep:   #178782;
+      --ic-teal-glow:   rgba(32,178,170,0.28);
+      --ic-gold:        #E8B84B;
+      --ic-gold-bright: #F3CC66;
+      --ic-gold-soft:   rgba(232,184,75,0.14);
+      --bg:             #0B1218;
+      --bg-2:           #101A22;
+      --card:           #14202B;
+      --card-hover:     #182833;
+      --border:         rgba(255,255,255,0.09);
+      --border-strong:  rgba(255,255,255,0.16);
+      --text:           #E8ECEF;
+      --text-muted:     #9BA7B0;
+      --text-dim:       #6E7A83;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Ambient background glow */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 45% at 20% 15%, rgba(32,178,170,0.18) 0%, transparent 60%),
+        radial-gradient(ellipse 55% 40% at 85% 85%, rgba(232,184,75,0.10) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 30% at 50% 55%, rgba(32,178,170,0.06) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wrap { position: relative; z-index: 1; max-width: 1080px; margin: 0 auto; padding: 2rem 1.25rem 5rem; }
+
+    /* ── GATE ─────────────────────────────────────────────── */
+    .gate {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.25rem;
+      position: relative;
+      z-index: 1;
+    }
+    .gate-card {
+      width: 100%;
+      max-width: 460px;
+      background: linear-gradient(180deg, #14202B 0%, #0F1A23 100%);
+      border: 1px solid var(--border-strong);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      box-shadow:
+        0 32px 60px rgba(0,0,0,0.5),
+        0 0 0 1px rgba(232,184,75,0.14),
+        inset 0 1px 0 rgba(255,255,255,0.05);
+      position: relative;
+    }
+    .gate-card::before {
+      content: '';
+      position: absolute;
+      top: -1px; left: 24px; right: 24px; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--ic-gold), transparent);
+      border-radius: 2px;
+    }
+    .gate-crest {
+      width: 68px; height: 68px;
+      margin: 0 auto 1.25rem;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 25%, var(--ic-gold-bright) 0%, var(--ic-gold) 55%, var(--ic-teal-deep) 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; font-weight: 900; color: #0B1218;
+      box-shadow: 0 12px 30px rgba(232,184,75,0.35), inset 0 -6px 12px rgba(0,0,0,0.25);
+    }
+    .gate-label {
+      font-size: 0.72rem; font-weight: 800; letter-spacing: 0.22em;
+      color: var(--ic-gold-bright); text-transform: uppercase; margin-bottom: 0.5rem;
+    }
+    .gate-card h1 {
+      margin: 0 0 0.5rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem; font-weight: 900; color: #fff; letter-spacing: -0.01em;
+    }
+    .gate-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.55; margin: 0 0 1.75rem; }
+    .gate-form { display: flex; flex-direction: column; gap: 0.75rem; }
+    .gate-input {
+      width: 100%;
+      padding: 0.95rem 1rem;
+      background: rgba(0,0,0,0.35);
+      border: 1px solid var(--border-strong);
+      border-radius: 12px;
+      color: #fff;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      text-align: center;
+      letter-spacing: 0.05em;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .gate-input::placeholder { color: var(--text-dim); font-weight: 500; letter-spacing: 0; }
+    .gate-input:focus {
+      outline: none;
+      border-color: var(--ic-teal);
+      box-shadow: 0 0 0 3px rgba(32,178,170,0.18);
+    }
+    .gate-btn {
+      padding: 0.95rem 1.25rem;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(180deg, var(--ic-teal) 0%, var(--ic-teal-deep) 100%);
+      color: #fff;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 8px 20px rgba(23,135,130,0.35);
+    }
+    .gate-btn:hover { transform: translateY(-1px); box-shadow: 0 12px 26px rgba(23,135,130,0.5); }
+    .gate-btn:active { transform: translateY(0); }
+    .gate-error {
+      min-height: 1.25rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #ff9d9d;
+      margin-top: 0.5rem;
+    }
+    .gate-hint { margin-top: 1.25rem; font-size: 0.78rem; color: var(--text-dim); }
+
+    /* ── HERO / LOUNGE ────────────────────────────────────── */
+    .hidden { display: none !important; }
+
+    .lounge-hero {
+      text-align: center;
+      padding: 3rem 0 2rem;
+      position: relative;
+    }
+    .lounge-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 0.9rem;
+      border: 1px solid rgba(232,184,75,0.35);
+      background: var(--ic-gold-soft);
+      color: var(--ic-gold-bright);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      border-radius: 999px;
+    }
+    .lounge-eyebrow::before {
+      content: '';
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--ic-gold-bright);
+      box-shadow: 0 0 8px var(--ic-gold-bright);
+    }
+    .lounge-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 900;
+      line-height: 1.02;
+      letter-spacing: -0.02em;
+      margin: 1.25rem 0 1rem;
+      color: #fff;
+      background: linear-gradient(180deg, #fff 0%, #d5dfe8 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .lounge-hero p {
+      max-width: 620px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      line-height: 1.65;
+      color: var(--text-muted);
+    }
+
+    .welcome-name {
+      color: var(--ic-gold-bright);
+      font-style: italic;
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* Divider ornament */
+    .ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2.5rem auto;
+      color: var(--ic-gold);
+    }
+    .ornament::before, .ornament::after {
+      content: '';
+      display: block;
+      width: 80px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--ic-gold), transparent);
+    }
+    .ornament-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--ic-gold);
+      box-shadow: 0 0 12px var(--ic-gold-bright);
+    }
+
+    /* ── MEETING CARDS ────────────────────────────────────── */
+    .section-title {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #fff;
+      margin: 0 0 0.5rem;
+    }
+    .section-sub {
+      text-align: center;
+      color: var(--text-muted);
+      margin: 0 auto 2.5rem;
+      max-width: 520px;
+      font-size: 0.95rem;
+    }
+
+    .meetings {
+      display: grid;
+      gap: 1.75rem;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    }
+    .meeting {
+      position: relative;
+      background: linear-gradient(180deg, var(--card) 0%, #0F1922 100%);
+      border: 1px solid var(--border-strong);
+      border-radius: 20px;
+      padding: 2rem 1.75rem;
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+      overflow: hidden;
+    }
+    .meeting::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--ic-teal) 0%, var(--ic-gold) 100%);
+    }
+    .meeting:hover {
+      transform: translateY(-3px);
+      border-color: rgba(32,178,170,0.35);
+      box-shadow: 0 24px 42px rgba(0,0,0,0.45), 0 0 0 1px rgba(32,178,170,0.2);
+    }
+    .meeting-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ic-teal);
+      margin-bottom: 0.75rem;
+    }
+    .meeting-badge::before {
+      content: '';
+      display: inline-block;
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--ic-teal);
+      box-shadow: 0 0 8px var(--ic-teal-glow);
+    }
+    .meeting h3 {
+      margin: 0 0 0.5rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.55rem;
+      line-height: 1.15;
+      color: #fff;
+      font-weight: 800;
+    }
+    .meeting-when {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+      padding: 1rem 0 1.25rem;
+      margin-bottom: 1.25rem;
+      border-bottom: 1px dashed var(--border);
+    }
+    .meeting-when .next-line {
+      color: var(--ic-gold-bright);
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 0.01em;
+    }
+    .meeting-when .cadence-line {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .meeting-when .countdown {
+      color: var(--text-dim);
+      font-size: 0.82rem;
+      margin-top: 0.35rem;
+      font-weight: 600;
+    }
+    .meeting-detail {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.45rem 0.85rem;
+      font-size: 0.88rem;
+      margin-bottom: 1.5rem;
+    }
+    .meeting-detail dt {
+      color: var(--text-dim);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      align-self: center;
+    }
+    .meeting-detail dd {
+      margin: 0;
+      color: var(--text);
+      font-weight: 600;
+      font-family: 'Inter', monospace;
+      word-break: break-all;
+    }
+    .meeting-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.95rem 1.25rem;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 800;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.2s, background 0.2s, border-color 0.2s;
+    }
+    .btn-primary {
+      background: linear-gradient(180deg, var(--ic-teal) 0%, var(--ic-teal-deep) 100%);
+      color: #fff;
+      box-shadow: 0 12px 24px rgba(23,135,130,0.4);
+    }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 16px 30px rgba(23,135,130,0.55); }
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border-color: var(--border-strong);
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.04); border-color: var(--ic-gold); color: var(--ic-gold-bright); }
+    .btn-icon { font-size: 1.1rem; line-height: 1; }
+
+    /* ── HOST NOTE ────────────────────────────────────────── */
+    .host-note {
+      margin-top: 3.5rem;
+      background: linear-gradient(180deg, rgba(232,184,75,0.06) 0%, transparent 100%);
+      border: 1px solid rgba(232,184,75,0.24);
+      border-radius: 20px;
+      padding: 2rem;
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+    .host-avatar {
+      flex: 0 0 auto;
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--ic-gold) 0%, var(--ic-teal-deep) 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem; font-weight: 900; color: #0B1218;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.35);
+    }
+    .host-note h4 {
+      margin: 0 0 0.35rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: #fff;
+      font-weight: 800;
+    }
+    .host-note p {
+      margin: 0;
+      color: var(--text-muted);
+      line-height: 1.65;
+      font-size: 0.95rem;
+    }
+    .host-signature {
+      display: block;
+      margin-top: 0.75rem;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: var(--ic-gold-bright);
+      font-size: 1.05rem;
+    }
+
+    /* ── QUICK LINKS ──────────────────────────────────────── */
+    .quick-links {
+      margin-top: 2.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    .quick {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      padding: 1.25rem 1.25rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      color: var(--text);
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s, transform 0.15s;
+    }
+    .quick:hover {
+      background: var(--card-hover);
+      border-color: var(--ic-teal);
+      transform: translateY(-2px);
+    }
+    .quick-title {
+      font-weight: 800;
+      font-size: 0.98rem;
+      color: #fff;
+    }
+    .quick-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    /* ── FOOTER ───────────────────────────────────────────── */
+    footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.82rem;
+    }
+    footer a { color: var(--text-muted); text-decoration: none; }
+    footer a:hover { color: var(--ic-teal); }
+    .signout {
+      display: inline-block;
+      margin-top: 0.75rem;
+      padding: 0.45rem 0.9rem;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .signout:hover { color: var(--ic-gold-bright); border-color: var(--ic-gold); }
+
+    /* ── Gate on-ramp (for folks who don't have the phrase) ── */
+    .gate-onramp {
+      max-width: 460px;
+      margin: 1.25rem auto 0;
+      padding: 1rem 1.25rem;
+      text-align: center;
+      background: rgba(32,178,170,0.06);
+      border: 1px solid rgba(32,178,170,0.22);
+      border-radius: 14px;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+    .gate-onramp strong { color: #fff; font-weight: 800; }
+    .gate-onramp a {
+      display: inline-block;
+      margin-top: 0.5rem;
+      color: var(--ic-teal);
+      font-weight: 800;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(32,178,170,0.4);
+      padding-bottom: 1px;
+    }
+    .gate-onramp a:hover { color: var(--ic-gold-bright); border-bottom-color: var(--ic-gold); }
+
+    /* ── YouTube-claim onramp ─────────────────────────────── */
+    /* For folks who joined the Inner Circle on YouTube and don't yet have
+       Club app access (YouTube doesn't share member emails, so this is the
+       only way for them to self-onboard). Styled with YouTube red accents so
+       it visually reads as "for YouTube members". */
+    .yt-onramp {
+      max-width: 460px;
+      margin: 1rem auto 0;
+      padding: 1rem 1.25rem;
+      text-align: center;
+      background: rgba(255, 0, 0, 0.05);
+      border: 1px solid rgba(255, 0, 0, 0.22);
+      border-radius: 14px;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+    .yt-onramp strong { color: #fff; font-weight: 800; }
+    .yt-onramp .yt-reveal-btn {
+      display: inline-block;
+      margin-top: 0.6rem;
+      padding: 0.5rem 1.1rem;
+      background: #FF0000;
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.85rem;
+      text-decoration: none;
+      border: 0;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      font-family: inherit;
+    }
+    .yt-onramp .yt-reveal-btn:hover { background: #cc0000; transform: translateY(-1px); }
+
+    /* ── YouTube claim form (revealed by button) ─────────── */
+    .yt-form-card {
+      max-width: 460px;
+      margin: 1rem auto 0;
+      padding: 1.4rem 1.4rem 1.25rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 14px;
+      text-align: left;
+    }
+    .yt-form-card h3 {
+      margin: 0 0 0.35rem;
+      color: #fff;
+      font-size: 1.05rem;
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+    .yt-form-card .yt-form-sub {
+      margin: 0 0 1rem;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
+    .yt-form-card label {
+      display: block;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin: 0.7rem 0 0.3rem;
+    }
+    .yt-form-card input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0.7rem 0.9rem;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 10px;
+      color: #fff;
+      font-size: 0.95rem;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .yt-form-card input:focus {
+      border-color: var(--ic-teal);
+      background: rgba(32,178,170,0.08);
+    }
+    .yt-form-card .yt-hint {
+      color: var(--text-muted);
+      font-size: 0.72rem;
+      margin-top: 0.3rem;
+      line-height: 1.4;
+    }
+    .yt-form-card .yt-hint a { color: var(--ic-teal); text-decoration: none; border-bottom: 1px dashed rgba(32,178,170,0.4); }
+    .yt-form-card .yt-submit {
+      width: 100%;
+      margin-top: 1.1rem;
+      padding: 0.85rem 1rem;
+      background: linear-gradient(180deg, #20B2AA, #178782);
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.95rem;
+      border: 0;
+      border-radius: 10px;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .yt-form-card .yt-submit:hover { filter: brightness(1.05); }
+    .yt-form-card .yt-submit[disabled] { opacity: 0.6; cursor: wait; }
+    .yt-form-card .yt-feedback {
+      margin-top: 0.9rem;
+      padding: 0.7rem 0.85rem;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      line-height: 1.45;
+    }
+    .yt-form-card .yt-feedback.ok {
+      background: rgba(32,178,170,0.12);
+      border: 1px solid rgba(32,178,170,0.4);
+      color: #d1fbf5;
+    }
+    .yt-form-card .yt-feedback.err {
+      background: rgba(255,80,80,0.1);
+      border: 1px solid rgba(255,80,80,0.35);
+      color: #ffd7d7;
+    }
+
+    /* ── Billing & Receipts form ─────────────────────────── */
+    .receipt-form {
+      background: linear-gradient(180deg, #14202B 0%, #101A22 100%);
+      border: 1px solid var(--border-strong);
+      border-radius: 16px;
+      padding: 1.4rem 1.4rem 1.2rem;
+      margin: 0.75rem 0 0;
+    }
+    .receipt-label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .receipt-row {
+      display: flex;
+      gap: 0.55rem;
+      flex-wrap: wrap;
+    }
+    .receipt-input {
+      flex: 1 1 220px;
+      min-width: 0;
+      padding: 0.75rem 0.85rem;
+      border-radius: 10px;
+      border: 1px solid var(--border-strong);
+      background: rgba(11,18,24,0.6);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .receipt-input:focus {
+      border-color: var(--ic-teal);
+      box-shadow: 0 0 0 3px var(--ic-teal-glow);
+    }
+    .receipt-btn {
+      flex: 0 0 auto;
+      padding: 0.75rem 1.15rem;
+      border-radius: 10px;
+      border: none;
+      background: linear-gradient(135deg, var(--ic-teal) 0%, var(--ic-teal-deep) 100%);
+      color: #0B1218;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: filter 0.15s;
+    }
+    .receipt-btn:hover { filter: brightness(1.06); }
+    .receipt-btn[disabled] { opacity: 0.6; cursor: wait; }
+    .receipt-feedback {
+      margin-top: 0.85rem;
+      padding: 0.7rem 0.85rem;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      line-height: 1.45;
+    }
+    .receipt-feedback.ok {
+      background: rgba(32,178,170,0.12);
+      border: 1px solid rgba(32,178,170,0.4);
+      color: #d1fbf5;
+    }
+    .receipt-feedback.err {
+      background: rgba(255,80,80,0.1);
+      border: 1px solid rgba(255,80,80,0.35);
+      color: #ffd7d7;
+    }
+    .receipt-fine {
+      margin: 0.75rem 0 0;
+      font-size: 0.78rem;
+      color: var(--text-dim);
+    }
+    .receipt-fine a { color: var(--ic-teal); text-decoration: none; border-bottom: 1px dashed rgba(32,178,170,0.4); }
+
+    /* ── Care-partner corner ─────────────────────────────── */
+    .cp-corner {
+      margin-top: 1.5rem;
+      background: linear-gradient(180deg, rgba(32,178,170,0.08) 0%, transparent 100%);
+      border: 1px solid rgba(32,178,170,0.28);
+      border-left-width: 4px;
+      border-radius: 14px;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      color: var(--text);
+    }
+    .cp-corner .cp-heart {
+      flex: 0 0 auto;
+      font-size: 1.4rem;
+      line-height: 1.2;
+      color: var(--ic-teal);
+      filter: drop-shadow(0 0 8px rgba(32,178,170,0.4));
+    }
+    .cp-corner h4 {
+      margin: 0 0 0.25rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #fff;
+    }
+    .cp-corner p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 720px) {
+      .lounge-hero { padding: 2rem 0 1rem; }
+      .host-note { flex-direction: column; gap: 1rem; text-align: left; }
+      .cp-corner { flex-direction: column; gap: 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Password Gate ────────────────────────────────── -->
+  <section class="gate" id="gate">
+    <div class="gate-card">
+      <div class="gate-crest">IC</div>
+      <div class="gate-label">The Inner Circle</div>
+      <h1>Members Lounge</h1>
+      <p>Enter your access phrase to reveal this month's Zoom room, times, and quick links.</p>
+      <form class="gate-form" id="gate-form" autocomplete="off">
+        <input
+          class="gate-input"
+          type="password"
+          id="gate-input"
+          placeholder="access phrase"
+          autofocus
+          autocapitalize="off"
+          autocorrect="off"
+          spellcheck="false"
+          aria-label="Access phrase"
+        >
+        <button type="submit" class="gate-btn">Enter the Lounge</button>
+        <div class="gate-error" id="gate-error" aria-live="polite"></div>
+      </form>
+      <div class="gate-hint">If you've forgotten your phrase, message Bryce or the Club team.</div>
+    </div>
+
+    <div class="gate-onramp">
+      <strong>Not in The Club yet?</strong><br>
+      The Club itself is free — join anytime and meet the community.<br>
+      <a href="https://club.dolifetoday.com" target="_blank" rel="noopener">Join The Club free →</a>
+    </div>
+
+    <!-- YouTube-member self-claim onramp. -->
+    <div class="yt-onramp">
+      <strong>Just joined the Inner Circle on YouTube?</strong><br>
+      YouTube doesn't share member emails, so we can't invite you automatically.<br>
+      <button type="button" class="yt-reveal-btn" id="yt-reveal-btn">Claim your Club access →</button>
+    </div>
+
+    <!-- Hidden until the user clicks the button above. -->
+    <form class="yt-form-card hidden" id="yt-claim-form" novalidate>
+      <h3>Link your YouTube Inner Circle to The Club</h3>
+      <p class="yt-form-sub">Three quick fields. We verify against our YouTube membership list, then email you a link to set your Club password.</p>
+
+      <label for="yt-name">Your name</label>
+      <input id="yt-name" name="name" type="text" autocomplete="name" required maxlength="120">
+
+      <label for="yt-email">Email for The Club</label>
+      <input id="yt-email" name="email" type="email" autocomplete="email" required maxlength="200" placeholder="you@example.com">
+
+      <label for="yt-channel">Your YouTube channel URL</label>
+      <input id="yt-channel" name="youtubeChannelUrl" type="url" required maxlength="300" placeholder="https://www.youtube.com/channel/UC...">
+      <div class="yt-hint">Open YouTube, tap your profile picture → <em>Your channel</em> → <em>Share channel</em> → <em>Copy link</em>. It should look like <code style="color:#ccc">youtube.com/channel/UC...</code></div>
+
+      <button type="submit" class="yt-submit" id="yt-submit-btn">Send my Club invite</button>
+      <div class="yt-feedback hidden" id="yt-feedback" role="status" aria-live="polite"></div>
+    </form>
+  </section>
+
+  <!-- ── Lounge (revealed after unlock) ───────────────── -->
+  <main class="wrap hidden" id="lounge">
+
+    <section class="lounge-hero">
+      <span class="lounge-eyebrow">Inner Circle · Members Lounge</span>
+      <h1>Welcome back, <span class="welcome-name">friend</span>.</h1>
+      <p>Everything you need for this month's Live Calls with Bryce, in one place. Just click and join — no meeting IDs to hunt down.</p>
+    </section>
+
+    <div class="ornament"><span class="ornament-dot"></span></div>
+
+    <h2 class="section-title">Your Live Calls with Bryce</h2>
+    <p class="section-sub">Both calls happen on the same day each month. Pick the one that fits your schedule — or come to both.</p>
+
+    <div class="meetings">
+
+      <!-- ── Morning Call ────────────────────────────── -->
+      <article class="meeting" data-meeting-id="83895680988" data-hour="10" data-minute="30" data-duration="90">
+        <div class="meeting-badge">Morning · Monthly</div>
+        <h3>Inner Circle Monthly Live Call with Bryce</h3>
+        <div class="meeting-when">
+          <span class="next-line" data-next-line>Loading next date…</span>
+          <span class="cadence-line">10:30 AM – 12:00 PM Central · repeats monthly</span>
+          <span class="countdown" data-countdown></span>
+        </div>
+        <dl class="meeting-detail">
+          <dt>Meeting ID</dt><dd>838 9568 0988</dd>
+          <dt>Passcode</dt><dd>Open (no passcode)</dd>
+        </dl>
+        <div class="meeting-actions">
+          <a class="btn btn-primary"
+             href="https://us06web.zoom.us/j/83895680988"
+             target="_blank" rel="noopener">
+            <span class="btn-icon">▶</span> Join Zoom Now
+          </a>
+          <button class="btn btn-secondary" type="button" data-ics
+            data-title="Inner Circle Monthly Live Call with Bryce"
+            data-description="Monthly Live Call with Bryce. Join Zoom: https://us06web.zoom.us/j/83895680988"
+            data-url="https://us06web.zoom.us/j/83895680988">
+            <span class="btn-icon">📅</span> Add to Calendar
+          </button>
+        </div>
+      </article>
+
+      <!-- ── Evening Call ────────────────────────────── -->
+      <article class="meeting" data-meeting-id="86837368354" data-hour="18" data-minute="0" data-duration="90">
+        <div class="meeting-badge">Evening · Monthly</div>
+        <h3>Inner Circle Evening Call with Bryce</h3>
+        <div class="meeting-when">
+          <span class="next-line" data-next-line>Loading next date…</span>
+          <span class="cadence-line">6:00 PM – 7:30 PM Central · repeats monthly</span>
+          <span class="countdown" data-countdown></span>
+        </div>
+        <dl class="meeting-detail">
+          <dt>Meeting ID</dt><dd>868 3736 8354</dd>
+          <dt>Passcode</dt><dd>Open (no passcode)</dd>
+        </dl>
+        <div class="meeting-actions">
+          <a class="btn btn-primary"
+             href="https://us06web.zoom.us/j/86837368354"
+             target="_blank" rel="noopener">
+            <span class="btn-icon">▶</span> Join Zoom Now
+          </a>
+          <button class="btn btn-secondary" type="button" data-ics
+            data-title="Inner Circle Evening Call with Bryce"
+            data-description="Evening Live Call with Bryce. Join Zoom: https://us06web.zoom.us/j/86837368354"
+            data-url="https://us06web.zoom.us/j/86837368354">
+            <span class="btn-icon">📅</span> Add to Calendar
+          </button>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- ── A note from Bryce ───────────────────────────── -->
+    <aside class="host-note">
+      <div class="host-avatar">B</div>
+      <div>
+        <h4>A quick note from Bryce</h4>
+        <p>You don't have to talk. You don't have to be on camera. Come as you are, listen if that's what you need, and jump in when you're ready. This room exists because you belong in it.</p>
+        <span class="host-signature">— Bryce</span>
+      </div>
+    </aside>
+
+    <!-- ── Care partner corner ─────────────────────────── -->
+    <aside class="cp-corner">
+      <div class="cp-heart" aria-hidden="true">♥</div>
+      <div>
+        <h4>Care partners — you're welcome here too</h4>
+        <p>If you're supporting someone with Parkinson's, please come. Sit beside them or join on your own device. These calls are for both of you.</p>
+      </div>
+    </aside>
+
+    <!-- ── Billing & Receipts ──────────────────────────── -->
+    <div class="ornament"><span class="ornament-dot"></span></div>
+    <h2 class="section-title">Billing & Receipts</h2>
+    <p class="section-sub">Need a receipt for your accountant, or want to swap cards, switch to yearly, or cancel? Enter your email and we'll send you a secure link to the Stripe billing portal.</p>
+
+    <form id="receipt-form" class="receipt-form" novalidate>
+      <label class="receipt-label" for="receipt-email">Email on your Inner Circle account</label>
+      <div class="receipt-row">
+        <input
+          id="receipt-email"
+          type="email"
+          autocomplete="email"
+          inputmode="email"
+          required
+          placeholder="you@example.com"
+          class="receipt-input"
+        />
+        <button type="submit" class="receipt-btn" id="receipt-submit">Email me my portal link</button>
+      </div>
+      <div id="receipt-feedback" class="receipt-feedback hidden" role="status" aria-live="polite"></div>
+      <p class="receipt-fine">
+        Link arrives in about a minute and expires in ~1 hour. Not seeing it? Check spam, then email
+        <a href="mailto:help@dolifetoday.com">help@dolifetoday.com</a>.
+      </p>
+    </form>
+
+    <!-- ── Quick links ─────────────────────────────────── -->
+    <div class="ornament"><span class="ornament-dot"></span></div>
+    <h2 class="section-title">Members' Quick Links</h2>
+    <p class="section-sub">Handy shortcuts back into The Club and the community.</p>
+
+    <div class="quick-links">
+      <a class="quick" href="https://club.dolifetoday.com" target="_blank" rel="noopener">
+        <span class="quick-title">Open The Club App →</span>
+        <span class="quick-desc">Your community feed, events, and Lil Bryce coach.</span>
+      </a>
+      <a class="quick" href="https://club.dolifetoday.com/events" target="_blank" rel="noopener">
+        <span class="quick-title">All Upcoming Events →</span>
+        <span class="quick-desc">Every Club and Circle meeting on one page.</span>
+      </a>
+      <a class="quick" href="/inner-circle" target="_blank">
+        <span class="quick-title">Inner Circle Page →</span>
+        <span class="quick-desc">Share the public overview with a friend.</span>
+      </a>
+      <a class="quick" href="mailto:office@dolifetoday.com?subject=Question%20for%20Bryce%20on%20the%20next%20Inner%20Circle%20call&body=Hi%20Bryce%2C%0A%0AI%27d%20love%20you%20to%20cover%20this%20on%20our%20next%20call%3A%0A%0A%0A%0AThanks%2C%0A">
+        <span class="quick-title">Submit a Question for Bryce →</span>
+        <span class="quick-desc">Send it ahead of the next call and he'll try to work it in.</span>
+      </a>
+      <a class="quick" href="mailto:office@dolifetoday.com?subject=Thank%20you%20from%20an%20Inner%20Circle%20member&body=Hi%20Bryce%2C%0A%0AAfter%20today%27s%20call%20I%20just%20wanted%20to%20say%E2%80%A6%0A%0A%0A">
+        <span class="quick-title">Send Bryce a Thank-You →</span>
+        <span class="quick-desc">A quick note after a call means more than you know.</span>
+      </a>
+      <a class="quick" href="mailto:office@dolifetoday.com?subject=Inner%20Circle%20Question">
+        <span class="quick-title">Message the Team →</span>
+        <span class="quick-desc">Reach out anytime — we're a small crew and we read everything.</span>
+      </a>
+    </div>
+
+    <footer>
+      <div>Inner Circle · Members Only · A <a href="https://dolifetoday.com">Doing Life Today</a> space</div>
+      <button class="signout" id="signout" type="button">Sign out of this device</button>
+    </footer>
+
+  </main>
+
+  <script>
+    (function () {
+      // ── Access phrase (client-side gate; obfuscated in source) ──
+      // The phrase is "InnerCircle2026" (case-insensitive).
+      // This is a friendly gate, not a security boundary — do not use for
+      // anything actually sensitive.
+      const EXPECTED = atob('aW5uZXJjaXJjbGUyMDI2'); // "innercircle2026"
+      const STORAGE_KEY = 'ic-lounge-unlocked-v1';
+
+      // ── Server-side event tracking (fed to the stats page) ──
+      // Fires and forgets; never blocks the UI. Errors are swallowed.
+      function trackLounge(eventType, extras) {
+        try {
+          var body = Object.assign({ eventType: eventType }, extras || {});
+          fetch('/api/track-inner-circle-lounge', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(body),
+            keepalive: true,
+          }).catch(function () { /* ignore */ });
+        } catch (_) { /* ignore */ }
+      }
+
+      function loungeTrafficSource() {
+        try {
+          var ref = document.referrer || '';
+          if (!ref) return 'direct';
+          var refHost = new URL(ref).hostname;
+          if (refHost === location.hostname) return 'internal';
+          return refHost || 'direct';
+        } catch (_) { return 'direct'; }
+      }
+
+      // Fire page_view exactly once per session per tab.
+      var PAGE_VIEW_KEY = 'ic-lounge-pv-v1';
+      try {
+        if (!sessionStorage.getItem(PAGE_VIEW_KEY)) {
+          sessionStorage.setItem(PAGE_VIEW_KEY, '1');
+          trackLounge('page_view', { source: loungeTrafficSource() });
+        }
+      } catch (_) {
+        trackLounge('page_view', { source: loungeTrafficSource() });
+      }
+
+      const gate = document.getElementById('gate');
+      const lounge = document.getElementById('lounge');
+      const form = document.getElementById('gate-form');
+      const input = document.getElementById('gate-input');
+      const error = document.getElementById('gate-error');
+      const signoutBtn = document.getElementById('signout');
+
+      function unlock() {
+        gate.classList.add('hidden');
+        lounge.classList.remove('hidden');
+        renderNextOccurrences();
+      }
+
+      function isUnlocked() {
+        try { return sessionStorage.getItem(STORAGE_KEY) === '1'
+          || localStorage.getItem(STORAGE_KEY) === '1'; } catch (e) { return false; }
+      }
+
+      if (isUnlocked()) {
+        unlock();
+      } else {
+        setTimeout(() => input.focus(), 100);
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const val = (input.value || '').trim().toLowerCase().replace(/\s+/g, '');
+        if (val === EXPECTED) {
+          try {
+            sessionStorage.setItem(STORAGE_KEY, '1');
+            localStorage.setItem(STORAGE_KEY, '1'); // remember on this device
+          } catch (e) { /* ignore */ }
+          error.textContent = '';
+          trackLounge('unlock_success');
+          unlock();
+        } else {
+          error.textContent = 'That phrase didn\'t match. Please try again.';
+          input.value = '';
+          input.focus();
+          trackLounge('unlock_failure');
+        }
+      });
+
+      signoutBtn && signoutBtn.addEventListener('click', function () {
+        try {
+          sessionStorage.removeItem(STORAGE_KEY);
+          localStorage.removeItem(STORAGE_KEY);
+        } catch (e) { /* ignore */ }
+        location.reload();
+      });
+
+      // ── YouTube-member claim flow ──
+      // Reveals the claim form when the user clicks the onramp button, then
+      // POSTs to the parkinsons-community cloud function which either
+      // auto-provisions their Club account (if their channel URL matches our
+      // YouTube export) or queues the request for Bryce to review.
+      const YT_CLAIM_ENDPOINT = 'https://club.dolifetoday.com/api/claim-youtube-membership';
+      const ytRevealBtn = document.getElementById('yt-reveal-btn');
+      const ytForm = document.getElementById('yt-claim-form');
+      const ytSubmitBtn = document.getElementById('yt-submit-btn');
+      const ytFeedback = document.getElementById('yt-feedback');
+      const ytName = document.getElementById('yt-name');
+      const ytEmail = document.getElementById('yt-email');
+      const ytChannel = document.getElementById('yt-channel');
+
+      function showYtFeedback(kind, message) {
+        if (!ytFeedback) return;
+        ytFeedback.classList.remove('hidden', 'ok', 'err');
+        ytFeedback.classList.add(kind === 'ok' ? 'ok' : 'err');
+        ytFeedback.textContent = message;
+      }
+
+      ytRevealBtn && ytRevealBtn.addEventListener('click', function () {
+        if (!ytForm) return;
+        ytForm.classList.remove('hidden');
+        ytForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        setTimeout(function () { ytName && ytName.focus(); }, 250);
+        trackLounge('yt_claim_form_opened');
+      });
+
+      ytForm && ytForm.addEventListener('submit', async function (ev) {
+        ev.preventDefault();
+        if (!ytSubmitBtn) return;
+        const name = (ytName && ytName.value || '').trim();
+        const email = (ytEmail && ytEmail.value || '').trim();
+        const youtubeChannelUrl = (ytChannel && ytChannel.value || '').trim();
+
+        // Client-side sanity checks (server re-validates).
+        if (!name || name.length < 2) { showYtFeedback('err', 'Please tell us your name.'); return; }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showYtFeedback('err', 'That email doesn\'t look right. Please double-check.'); return; }
+        if (!/UC[0-9A-Za-z_-]{22}/.test(youtubeChannelUrl)) {
+          showYtFeedback('err', 'Please paste the URL that looks like youtube.com/channel/UC... (see the tip above).');
+          return;
+        }
+
+        ytSubmitBtn.disabled = true;
+        const originalLabel = ytSubmitBtn.textContent;
+        ytSubmitBtn.textContent = 'Sending…';
+        ytFeedback && ytFeedback.classList.add('hidden');
+        trackLounge('yt_claim_submitted');
+
+        try {
+          const r = await fetch(YT_CLAIM_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name: name, email: email, youtubeChannelUrl: youtubeChannelUrl }),
+          });
+          const data = await r.json().catch(function () { return {}; });
+          if (r.ok) {
+            showYtFeedback('ok', data.message || 'Got it! Check your email.');
+            ytSubmitBtn.textContent = 'Sent ✓';
+            trackLounge('yt_claim_' + (data.status || 'ok'));
+          } else {
+            showYtFeedback('err', data.error || 'Something went wrong. Please try again or email office@dolifetoday.com.');
+            ytSubmitBtn.disabled = false;
+            ytSubmitBtn.textContent = originalLabel;
+            trackLounge('yt_claim_error');
+          }
+        } catch (e) {
+          showYtFeedback('err', 'Network error. Please check your connection and try again.');
+          ytSubmitBtn.disabled = false;
+          ytSubmitBtn.textContent = originalLabel;
+          trackLounge('yt_claim_network_error');
+        }
+      });
+
+      // ── Billing & Receipts: email me my portal link ──
+      const RECEIPT_ENDPOINT = 'https://club.dolifetoday.com/api/send-inner-circle-receipt-link';
+      const receiptForm = document.getElementById('receipt-form');
+      const receiptEmail = document.getElementById('receipt-email');
+      const receiptBtn = document.getElementById('receipt-submit');
+      const receiptFeedback = document.getElementById('receipt-feedback');
+
+      function showReceiptFeedback(kind, msg) {
+        receiptFeedback.classList.remove('hidden', 'ok', 'err');
+        receiptFeedback.classList.add(kind);
+        receiptFeedback.textContent = msg;
+      }
+
+      if (receiptForm) {
+        receiptForm.addEventListener('submit', async function (e) {
+          e.preventDefault();
+          const email = (receiptEmail.value || '').trim();
+          if (!email || email.indexOf('@') < 1) {
+            showReceiptFeedback('err', 'Please enter the email address on your Inner Circle account.');
+            return;
+          }
+          const originalLabel = receiptBtn.textContent;
+          receiptBtn.disabled = true;
+          receiptBtn.textContent = 'Sending…';
+          receiptFeedback.classList.add('hidden');
+          trackLounge('receipt_link_submitted');
+          try {
+            const r = await fetch(RECEIPT_ENDPOINT, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ email }),
+            });
+            let data = {};
+            try { data = await r.json(); } catch (_) { /* no-op */ }
+            if (r.ok) {
+              showReceiptFeedback('ok', data.message || 'Check your inbox in the next minute — the link comes straight from us.');
+              receiptEmail.value = '';
+              trackLounge('receipt_link_ok');
+            } else {
+              showReceiptFeedback('err', (data && data.error) || 'Something went wrong. Please email help@dolifetoday.com and we\'ll sort it out.');
+              trackLounge('receipt_link_error');
+            }
+          } catch (err) {
+            showReceiptFeedback('err', 'Network error. Please check your connection and try again.');
+            trackLounge('receipt_link_network_error');
+          } finally {
+            receiptBtn.disabled = false;
+            receiptBtn.textContent = originalLabel;
+          }
+        });
+      }
+
+      // ── Compute next monthly occurrence (13th of the month) in CT ──
+      // Both meetings recur monthly on the 13th at their respective local
+      // times in America/Chicago. We render the next date + a friendly
+      // countdown per card.
+      function nextOccurrenceCT(hour, minute) {
+        // Build "13th of this month at HH:MM CT" and if that's already past,
+        // roll forward to the 13th of the next month.
+        const now = new Date();
+        for (let addMonths = 0; addMonths < 3; addMonths++) {
+          const y = now.getUTCFullYear();
+          // Work in UTC using a synthesized "wall clock time in Chicago",
+          // resolving DST via Intl.
+          const probe = new Date(Date.UTC(y, now.getUTCMonth() + addMonths, 13, hour, minute, 0));
+          // Compute the offset of America/Chicago at `probe` and shift accordingly.
+          const partsInCT = new Intl.DateTimeFormat('en-US', {
+            timeZone: 'America/Chicago', hour12: false,
+            year: 'numeric', month: '2-digit', day: '2-digit',
+            hour: '2-digit', minute: '2-digit', second: '2-digit',
+          }).formatToParts(probe).reduce((o, p) => (p.type !== 'literal' && (o[p.type] = p.value), o), {});
+          const asIfLocal = Date.UTC(+partsInCT.year, +partsInCT.month - 1, +partsInCT.day,
+                                     +partsInCT.hour, +partsInCT.minute, +partsInCT.second);
+          const offsetMs = asIfLocal - probe.getTime();
+          const targetUtcMs = Date.UTC(y, now.getUTCMonth() + addMonths, 13, hour, minute, 0) - offsetMs;
+          if (targetUtcMs > now.getTime()) return new Date(targetUtcMs);
+        }
+        return null;
+      }
+
+      function fmtDate(d) {
+        return d.toLocaleDateString(undefined, {
+          weekday: 'long', month: 'long', day: 'numeric', year: 'numeric',
+          timeZone: 'America/Chicago',
+        });
+      }
+
+      function fmtCountdown(d) {
+        const diff = d.getTime() - Date.now();
+        if (diff <= 0) return 'happening now';
+        const days = Math.floor(diff / 86400000);
+        const hours = Math.floor((diff % 86400000) / 3600000);
+        const mins = Math.floor((diff % 3600000) / 60000);
+        if (days > 0) return `in ${days} day${days === 1 ? '' : 's'}, ${hours} hour${hours === 1 ? '' : 's'}`;
+        if (hours > 0) return `in ${hours} hour${hours === 1 ? '' : 's'}, ${mins} minute${mins === 1 ? '' : 's'}`;
+        return `in ${mins} minute${mins === 1 ? '' : 's'}`;
+      }
+
+      function renderNextOccurrences() {
+        document.querySelectorAll('.meeting').forEach(el => {
+          const hour = parseInt(el.dataset.hour, 10);
+          const minute = parseInt(el.dataset.minute, 10);
+          const d = nextOccurrenceCT(hour, minute);
+          const nextEl = el.querySelector('[data-next-line]');
+          const cdEl = el.querySelector('[data-countdown]');
+          if (!d) { nextEl.textContent = 'Next date coming soon'; return; }
+          nextEl.textContent = 'Next: ' + fmtDate(d);
+          cdEl.textContent = fmtCountdown(d);
+        });
+      }
+
+      // ── ICS download ─────────────────────────────────
+      function pad(n) { return String(n).padStart(2, '0'); }
+      function toIcsUtc(d) {
+        return d.getUTCFullYear() + pad(d.getUTCMonth() + 1) + pad(d.getUTCDate()) + 'T'
+             + pad(d.getUTCHours()) + pad(d.getUTCMinutes()) + '00Z';
+      }
+      function icsFor(title, description, url, start, durationMin) {
+        const end = new Date(start.getTime() + durationMin * 60000);
+        const uid = 'ic-' + start.getTime() + '-' + Math.random().toString(36).slice(2, 8) + '@dolifetoday.com';
+        const escape = s => String(s || '').replace(/([,;\\])/g, '\\$1').replace(/\n/g, '\\n');
+        return [
+          'BEGIN:VCALENDAR',
+          'VERSION:2.0',
+          'PRODID:-//Doing Life Today//Inner Circle//EN',
+          'CALSCALE:GREGORIAN',
+          'METHOD:PUBLISH',
+          'BEGIN:VEVENT',
+          'UID:' + uid,
+          'DTSTAMP:' + toIcsUtc(new Date()),
+          'DTSTART:' + toIcsUtc(start),
+          'DTEND:' + toIcsUtc(end),
+          'RRULE:FREQ=MONTHLY;BYMONTHDAY=13;COUNT=12',
+          'SUMMARY:' + escape(title),
+          'DESCRIPTION:' + escape(description),
+          'URL:' + escape(url),
+          'LOCATION:' + escape(url),
+          'END:VEVENT',
+          'END:VCALENDAR',
+        ].join('\r\n');
+      }
+
+      document.addEventListener('click', function (e) {
+        // Track Zoom "Join Now" clicks (data-meeting-id lives on the card).
+        var joinLink = e.target.closest('a[href*="zoom.us/j/"]');
+        if (joinLink) {
+          var card = joinLink.closest('.meeting');
+          var hour = card ? parseInt(card.dataset.hour, 10) : null;
+          // Morning card starts before noon; evening after.
+          if (hour !== null) {
+            trackLounge(hour < 12 ? 'zoom_join_morning' : 'zoom_join_evening');
+          }
+          // Don't return — allow multiple handlers.
+        }
+
+        const btn = e.target.closest('[data-ics]');
+        if (!btn) return;
+        const card2 = btn.closest('.meeting');
+        const hour2 = parseInt(card2.dataset.hour, 10);
+        const minute = parseInt(card2.dataset.minute, 10);
+        const durationMin = parseInt(card2.dataset.duration, 10) || 60;
+        const start = nextOccurrenceCT(hour2, minute);
+        if (!start) return;
+        const ics = icsFor(btn.dataset.title, btn.dataset.description, btn.dataset.url, start, durationMin);
+        const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+        const link = document.createElement('a');
+        const safeTitle = (btn.dataset.title || 'inner-circle').replace(/[^a-z0-9]+/gi, '-').toLowerCase();
+        link.href = URL.createObjectURL(blob);
+        link.download = safeTitle + '.ics';
+        document.body.appendChild(link);
+        link.click();
+        setTimeout(() => { URL.revokeObjectURL(link.href); link.remove(); }, 100);
+        trackLounge('ics_download');
+      });
+    })();
+  </script>
+</body>
+</html>
