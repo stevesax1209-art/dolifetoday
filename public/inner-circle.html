@@ -3,14 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Join the Inner Circle &middot; monthly live Zoom calls with Bryce, real conversations in a smaller group, priority support, and a deeper level of connection inside The Club.">
+  <meta name="description" content="Inner Circle is the private monthly Zoom room with Bryce for people living with Parkinson's who want more than content: real conversation, replays, and a smaller circle that gets it. $14.99/month or $149.99/year.">
   <title>The Inner Circle | Doing Life Today</title>
 
   <meta property="og:title" content="The Inner Circle | Doing Life Today">
-  <meta property="og:description" content="Monthly live calls with Bryce, real conversations in a smaller group, priority support, and deeper connection inside The Club.">
+  <meta property="og:description" content="Private monthly Zoom with Bryce, member-only recordings, and a smaller circle for real Parkinson's conversation. $14.99/month or $149.99/year.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://dolifetoday.com/inner-circle">
   <meta property="og:site_name" content="Doing Life Today">
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Who is Inner Circle for?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "People with Parkinson's and care partners who want closer access to Bryce, a smaller monthly conversation, and a more personal layer of support inside The Club."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I have to talk on the Zoom calls?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. You can join quietly, listen, use the chat, or participate when you feel ready. There is no pressure to be on camera."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is The Club still free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The Club remains free. Inner Circle is an optional monthly live call and deeper-access layer for members who want it."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I cancel?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Monthly access is handled through Stripe and can be cancelled from your billing portal. Annual access is available for members who prefer one payment for the year."
+        }
+      }
+    ]
+  }
+  </script>
 
   <link rel="canonical" href="https://dolifetoday.com/inner-circle">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -29,166 +71,477 @@
   </script>
 
   <style>
+    :root {
+      --ic-teal: #20B2AA;
+      --ic-teal-deep: #178782;
+      --ic-gold: #E8B84B;
+      --ic-gold-bright: #F3CC66;
+    }
+
+    /* ── Hero ─────────────────────────────────────────────── */
     .ic-hero {
-      padding: 5rem 0 3.5rem;
-      text-align: center;
-      background: var(--gradient-hero);
       position: relative;
       overflow: hidden;
+      background: var(--gradient-hero);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding-block: 4rem 3.5rem;
     }
     .ic-hero::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse 70% 55% at 50% 0%, rgba(32,178,170,0.14) 0%, transparent 70%);
+      background: radial-gradient(ellipse 65% 55% at 18% 45%, rgba(32,178,170,0.18) 0%, transparent 65%);
       pointer-events: none;
     }
-    .ic-hero h1 {
-      font-size: clamp(2rem, 5.5vw, 3.25rem);
-      font-weight: 800;
-      line-height: 1.15;
-      background: linear-gradient(135deg, #fff 30%, var(--color-primary) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 1rem;
-    }
-    .ic-hero .ic-sub {
-      font-size: 1.2rem;
-      color: var(--color-text-muted);
-      font-weight: 500;
-      max-width: 600px;
-      margin: 0 auto 2rem;
-    }
-
-    .ic-section {
-      padding-block: 4.5rem;
-    }
-    .ic-section.alt-bg {
-      background: var(--color-bg-2);
-    }
-    .ic-section .section-label {
-      display: block;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--color-primary);
-      font-weight: 700;
-      margin-bottom: 0.75rem;
-    }
-    .ic-section h2 {
-      font-size: clamp(1.5rem, 4vw, 2.25rem);
-      font-weight: 800;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-      margin-bottom: 1rem;
-    }
-    .ic-section p {
-      line-height: 1.75;
-      color: var(--color-text);
-    }
-
-    .ic-benefits {
+    .ic-hero .container { position: relative; }
+    .ic-hero-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: 1.05fr .95fr;
+      align-items: center;
+      gap: 2.5rem;
+    }
+    .ic-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.9rem;
+      border: 1px solid rgba(232,184,75,0.4);
+      background: rgba(232,184,75,0.12);
+      color: var(--ic-gold-bright);
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      border-radius: 999px;
+      margin-bottom: 1.25rem;
+    }
+    .ic-hero h1 {
+      font-size: clamp(2.25rem, 5.5vw, 3.75rem);
+      font-weight: 900;
+      line-height: 1.02;
+      letter-spacing: -0.02em;
+      max-width: 640px;
+      margin: 0;
+      color: var(--color-white);
+    }
+    .ic-hero .ic-lead {
+      max-width: 580px;
+      margin: 1.25rem 0 0;
+      font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+      line-height: 1.65;
+      color: var(--color-text-muted);
+    }
+    .ic-hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.75rem;
+    }
+    /* Subtle "returning member" shortcut. Sits below the primary
+       hero CTA so it doesn't compete visually with "Join the Inner
+       Circle" — but is right there for people who already paid and
+       just want to enter the Lounge. */
+    .ic-member-shortcut {
+      margin-top: 1rem;
+      font-size: 0.92rem;
+      color: var(--color-text-muted);
+    }
+    .ic-member-shortcut a {
+      color: var(--ic-teal);
+      font-weight: 700;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(32,178,170,0.4);
+      padding-bottom: 1px;
+      transition: color 0.15s ease, border-color 0.15s ease;
+    }
+    .ic-member-shortcut a:hover,
+    .ic-member-shortcut a:focus-visible {
+      color: var(--color-white);
+      border-bottom-color: var(--color-white);
+    }
+    .ic-price-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+    .ic-price-row span { display: inline-flex; align-items: center; gap: 0.5rem; }
+    .ic-price-row span::before {
+      content: '•';
+      color: var(--ic-teal);
+      font-weight: 900;
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+    .ic-price-row span:first-child::before { display: none; }
+
+    .ic-bryce {
+      position: relative;
+      min-height: 480px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    .ic-bryce::before {
+      content: '';
+      position: absolute;
+      bottom: 1.5rem;
+      width: 78%;
+      max-width: 380px;
+      height: 68%;
+      border-radius: 999px 999px 0 0;
+      border: 1px solid rgba(32,178,170,0.28);
+      background: rgba(32,178,170,0.14);
+    }
+    .ic-bryce img {
+      position: relative;
+      z-index: 1;
+      width: min(460px, 100%);
+      max-height: 560px;
+      object-fit: contain;
+      filter: drop-shadow(0 24px 42px rgba(0,0,0,0.55));
+    }
+    .ic-caption {
+      position: absolute;
+      z-index: 2;
+      left: 0;
+      bottom: 1.5rem;
+      max-width: 300px;
+      padding: 1rem 1.1rem;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(20,26,32,0.7);
+      color: var(--color-text);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 24px 48px rgba(0,0,0,0.4);
+      font-weight: 600;
+      line-height: 1.5;
+      border-radius: 12px;
+      font-size: 0.95rem;
+    }
+
+    /* ── Sections ─────────────────────────────────────────── */
+    .ic-section { padding-block: 4.5rem; position: relative; }
+    .ic-section.alt-bg { background: var(--color-bg-2); }
+    .ic-section h2 {
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      line-height: 1.1;
+      margin-bottom: 0;
+    }
+
+    /* ── Benefits grid ────────────────────────────────────── */
+    .ic-benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
       gap: 2rem;
       margin-top: 2.5rem;
     }
     .ic-benefit {
-      background: var(--color-bg-2, #141414);
-      border: 1px solid var(--color-border, #222);
-      border-radius: 1rem;
-      padding: 2rem;
-      text-align: center;
+      border-left: 2px solid var(--ic-gold);
+      padding-left: 1.25rem;
     }
-    .ic-benefit-icon {
-      font-size: 2.25rem;
-      margin-bottom: 1rem;
+    .ic-check-icon {
+      color: var(--ic-teal);
+      font-size: 1.6rem;
+      font-weight: 900;
+      line-height: 1;
     }
     .ic-benefit h3 {
+      margin: 0.85rem 0 0.5rem;
       font-size: 1.15rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--color-white);
     }
     .ic-benefit p {
-      font-size: 0.95rem;
       color: var(--color-text-muted);
       line-height: 1.6;
+      font-size: 0.95rem;
+      margin: 0;
     }
 
-    .ic-quote {
-      max-width: 580px;
-      border-left: 3px solid var(--color-primary);
-      padding-left: 1.5rem;
-      margin: 2rem auto;
-      font-size: 1.1rem;
-      line-height: 1.75;
+    /* ── Two-col (outcomes / pricing) ─────────────────────── */
+    .ic-two-col {
+      display: grid;
+      grid-template-columns: 0.85fr 1fr;
+      gap: 2.75rem;
+      align-items: start;
+    }
+    .ic-outcomes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+    .ic-outcome {
+      min-height: 140px;
+      border: 1px solid var(--color-border);
+      background: var(--color-card);
+      padding: 1.25rem;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+      font-weight: 700;
+      line-height: 1.55;
       color: var(--color-text);
+      border-radius: 12px;
+    }
+
+    /* ── Quote ────────────────────────────────────────────── */
+    .ic-quote-section {
+      padding-block: 3.5rem;
+      background: var(--color-bg-2);
+      border-block: 1px solid var(--color-border);
+    }
+    .ic-quote {
+      max-width: 680px;
+      margin: 0 auto;
+      padding-left: 1.5rem;
+      border-left: 3px solid var(--ic-teal);
+      font-size: 1.15rem;
+      line-height: 1.7;
+      color: var(--color-text);
+      font-style: italic;
     }
     .ic-quote-attr {
       margin-top: 0.75rem;
       font-size: 0.9rem;
       color: var(--color-text-muted);
-      font-weight: 600;
-    }
-
-    .ic-pricing {
+      font-weight: 700;
+      letter-spacing: 0.04em;
       text-align: center;
-      max-width: 480px;
-      margin: 0 auto;
-      padding: 2.5rem;
-      background: var(--color-bg-2, #141414);
-      border: 1px solid var(--color-border, #222);
-      border-radius: 1.25rem;
-    }
-    .ic-pricing .ic-price {
-      font-size: 3rem;
-      font-weight: 800;
-      line-height: 1;
-      margin-bottom: 0.25rem;
-    }
-    .ic-pricing .ic-price-note {
-      font-size: 0.95rem;
-      color: var(--color-text-muted);
-      margin-bottom: 1.5rem;
-    }
-    .ic-pricing .ic-price-orig {
-      text-decoration: line-through;
-      color: var(--color-text-muted);
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
     }
 
-    .ic-footer-cta {
+    /* ── Pricing ──────────────────────────────────────────── */
+    .ic-pricing-section {
+      background: var(--color-bg-2);
+      border-block: 1px solid var(--color-border);
+    }
+    .ic-check-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem 1rem;
+      margin-top: 1.75rem;
+      font-weight: 700;
+      color: var(--color-text);
+    }
+    .ic-check-grid > div {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .ic-check-grid > div::before {
+      content: '✓';
+      color: var(--ic-teal);
+      font-weight: 900;
+      font-size: 1.05rem;
+    }
+    .ic-price-card {
+      border: 1px solid var(--color-border);
+      background: var(--color-card);
+      padding: 1.5rem;
+      box-shadow: 0 24px 54px rgba(0,0,0,0.4);
+      border-radius: 16px;
+    }
+    .ic-toggle {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+      padding: 4px;
+      background: var(--color-bg-3);
+      border-radius: 10px;
+      border: 1px solid var(--color-border);
+    }
+    .ic-toggle button {
+      height: 44px;
+      border: 0;
+      border-radius: 8px;
+      background: transparent;
+      color: var(--color-text-muted);
+      font-weight: 800;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: color 0.2s, background 0.2s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+    }
+    .ic-toggle button.active {
+      background: var(--color-bg);
+      color: var(--color-white);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+    }
+    .ic-toggle button .save {
+      color: var(--ic-gold-bright);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+    .ic-price-display {
+      padding: 1.75rem 0 1.25rem;
+    }
+    .ic-price-display strong {
+      font-size: clamp(3rem, 6vw, 4rem);
+      line-height: 1;
+      font-weight: 800;
+      color: var(--color-white);
+      font-family: var(--font-sans);
+    }
+    .ic-price-display .per {
+      color: var(--color-text-muted);
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-left: 0.35rem;
+    }
+    .ic-price-note {
+      margin-top: 0.75rem;
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+    .ic-price-note strong { color: var(--color-white); font-weight: 700; font-family: var(--font-sans); font-size: 0.95rem; }
+    .ic-price-card .btn { width: 100%; margin-top: 0.5rem; }
+    .ic-checkout-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 0.25rem;
+    }
+    .ic-email-label {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--color-text);
+      letter-spacing: 0.02em;
+    }
+    .ic-email-input {
+      width: 100%;
+      min-height: 48px;
+      padding: 0.65rem 0.9rem;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      color: var(--color-text);
+      font: inherit;
+      font-size: 1rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .ic-email-input:focus {
+      outline: none;
+      border-color: var(--ic-teal);
+      box-shadow: 0 0 0 3px rgba(32,178,170,0.22);
+    }
+    .ic-email-help {
+      margin: 0.15rem 0 0;
+      font-size: 0.78rem;
+      color: var(--color-text-muted);
+      line-height: 1.45;
+    }
+    .ic-submit[disabled] { opacity: 0.65; cursor: wait; }
+    .ic-form-error {
+      margin: 0.35rem 0 0;
+      padding: 0.6rem 0.75rem;
+      background: rgba(255,107,53,0.12);
+      border: 1px solid rgba(255,107,53,0.4);
+      color: #ffb691;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      line-height: 1.45;
+    }
+    .ic-success-banner {
+      background: linear-gradient(135deg, rgba(32,178,170,0.18) 0%, rgba(32,178,170,0.08) 100%);
+      border-bottom: 1px solid rgba(32,178,170,0.35);
+      padding: 1rem 1.5rem;
+      text-align: center;
+      color: var(--color-white);
+      font-weight: 700;
+    }
+    .ic-success-banner a { color: var(--ic-teal); text-decoration: underline; }
+    .ic-fineprint {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      margin-top: 0.9rem;
+      line-height: 1.5;
+    }
+
+    /* ── FAQ ──────────────────────────────────────────────── */
+    .ic-faq {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .ic-faq details {
+      border-top: 1px solid var(--color-border);
+      padding: 1.1rem 0;
+    }
+    .ic-faq details:last-child { border-bottom: 1px solid var(--color-border); }
+    .ic-faq summary {
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--color-white);
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .ic-faq summary::-webkit-details-marker { display: none; }
+    .ic-faq summary::after {
+      content: '+';
+      color: var(--ic-teal);
+      font-size: 1.75rem;
+      font-weight: 400;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .ic-faq details[open] summary::after { content: '−'; }
+    .ic-faq details p {
+      margin: 0.75rem 0 0;
+      color: var(--color-text-muted);
+      line-height: 1.65;
+      max-width: 720px;
+    }
+
+    /* ── Final CTA ────────────────────────────────────────── */
+    .ic-final {
+      background: linear-gradient(135deg, #0A0A0A 0%, #1a0a2e 50%, #0a1a2e 100%);
       text-align: center;
       padding-block: 5rem;
-      background: linear-gradient(135deg, #0A0A0A 0%, #1a0a2e 50%, #0a1a2e 100%);
       position: relative;
+      overflow: hidden;
     }
-    .ic-footer-cta::before {
+    .ic-final::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse 60% 50% at 50% 100%, rgba(32,178,170,0.10) 0%, transparent 70%);
+      background: radial-gradient(ellipse 60% 50% at 50% 100%, rgba(32,178,170,0.12) 0%, transparent 70%);
       pointer-events: none;
     }
-    .ic-footer-cta h2 {
-      font-size: clamp(1.5rem, 4vw, 2.25rem);
-      font-weight: 800;
-      margin-bottom: 1rem;
-    }
-    .ic-footer-cta p {
+    .ic-final .container { position: relative; }
+    .ic-final h2 { margin-bottom: 1rem; }
+    .ic-final p {
       color: var(--color-text-muted);
-      max-width: 500px;
+      max-width: 560px;
       margin: 0 auto 2rem;
       font-size: 1.05rem;
       line-height: 1.7;
     }
 
+    /* ── Responsive ───────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .ic-hero-grid, .ic-two-col { grid-template-columns: 1fr; }
+      .ic-bryce { min-height: 420px; margin-top: 1.5rem; }
+      .ic-benefit-grid, .ic-outcomes { grid-template-columns: 1fr 1fr; }
+    }
     @media (max-width: 600px) {
-      .ic-hero { padding: 3.5rem 0 2.5rem; }
+      .ic-hero { padding-block: 2.5rem 2rem; }
       .ic-section { padding-block: 3rem; }
-      .ic-footer-cta { padding-block: 3.5rem; }
+      .ic-final { padding-block: 3.5rem; }
+      .ic-benefit-grid, .ic-outcomes, .ic-check-grid { grid-template-columns: 1fr; }
+      .ic-caption { position: static; margin-top: 1rem; max-width: none; }
+      .ic-bryce { min-height: 360px; }
+      .ic-bryce img { width: min(340px, 100%); }
     }
   </style>
   <script src="/js/meta-pixel.js"></script>
@@ -199,23 +552,90 @@
   /></noscript>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <header class="site-header" role="banner">
+  <header class="site-header" role="banner" data-canonical-nav="v4">
     <nav class="nav-inner" aria-label="Main navigation">
       <a href="/" class="nav-logo" aria-label="Doing Life Today - Home">
         <div class="nav-logo-mark" aria-hidden="true">DL</div>
         <div class="nav-logo-text">Doing Life Today<span>Parkinson's Community</span></div>
       </a>
       <ul class="nav-links" role="list">
-        <li><a href="/about">About</a></li>
-        <li><a href="/podcasts">Podcasts</a></li>
-        <li><a href="/youtube">YouTube</a></li>
-        <li><a href="/theclub">The Club</a></li>
-        <li><a href="/exchange">The Exchange</a></li>
-        <li><a href="/music">Music</a></li>
-        <li><a href="/living-with-parkinsons-guide">Living With Parkinson's Guide</a></li>
-        <li><a href="/resources">Resources</a></li>
-        <li><a href="/events">Events</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li class="nav-dropdown">
+          <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">About</button>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li role="none"><a href="/about" role="menuitem">About Doing Life Today<small>Our story &amp; mission</small></a></li>
+            <li role="none"><a href="/about#awards" role="menuitem">Awards &amp; Recognition<small>Communicator Awards &amp; Parkinson's advocacy</small></a></li>
+            <li role="none"><a href="https://bryceperry.org" target="_blank" rel="noopener noreferrer" role="menuitem">Bryce Perry &middot; Speaking &amp; Media<small>Book Bryce &middot; press</small></a></li>
+            <li role="none"><a href="/contact" role="menuitem">Contact<small>Get in touch</small></a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown nav-dropdown--highlight">
+          <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">The Club</button>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li role="none"><a href="/theclub" role="menuitem">The Club<small>Learn about the community</small></a></li>
+            <li role="none"><a href="/theclub#download" role="menuitem">Join The Club<small>Download &amp; sign up free</small></a></li>
+            <li role="none"><a href="/parkinsons-daily-check-in" role="menuitem">Daily Check-In<small>Track how you're doing</small></a></li>
+            <li role="none"><a href="/parkinsons-symptom-tracker" role="menuitem">Symptom Tracker<small>Log symptoms over time</small></a></li>
+            <li role="none"><a href="/clinical-trial-match" role="menuitem">Clinical Trial Match<small>Find trials near you</small></a></li>
+            <li role="none"><a href="/inner-circle" role="menuitem">Inner Circle<small>Deeper community experiences</small></a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Watch &amp; Listen</button>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li role="none"><a href="/podcasts" role="menuitem">Podcasts Hub<small>All DLT podcasts</small></a></li>
+            <li role="none"><a href="/living-with-parkinsons-podcast" role="menuitem">Living With Parkinson's Podcast<small>Weekly episodes</small></a></li>
+            <li role="none"><a href="/life-in-motion" role="menuitem">Life in Motion<small>Movement &amp; Parkinson's</small></a></li>
+            <li role="none"><a href="/youtube" role="menuitem">YouTube<small>Videos &amp; interviews</small></a></li>
+            <li role="none"><a href="/music" role="menuitem">Music<small>Music &amp; therapy</small></a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Care Partners</button>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li role="none"><a href="/carmens-care-partner-corner" role="menuitem">Carmen's Care Partner Corner<small>Dashboard, Circle, daily check-ins</small></a></li>
+            <li role="none"><a href="/care-partners" role="menuitem">Care Partners Guide<small>Supporting someone with Parkinson's</small></a></li>
+            <li role="none"><a href="/caregiver-burnout" role="menuitem">Caregiver Burnout<small>Spot it and recover</small></a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Living With Parkinson's</button>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li role="none"><a href="/living-with-parkinsons-guide" role="menuitem">Living With Parkinson's Guide<small>The full guide</small></a></li>
+            <li role="none"><a href="/newly-diagnosed" role="menuitem">Newly Diagnosed<small>Start here</small></a></li>
+            <li role="none"><a href="/first-90-days-parkinsons" role="menuitem">First 90 Days<small>What to do first</small></a></li>
+            <li role="none"><a href="/early-signs-of-parkinsons" role="menuitem">Early Signs<small>Recognize the signs</small></a></li>
+            <li role="none"><a href="/symptoms" role="menuitem">Symptoms Directory<small>Tremor, sleep, DBS &amp; more</small></a></li>
+            <li role="none"><a href="/parkinsons-medication-timing" role="menuitem">Medication Timing<small>Get the most from your meds</small></a></li>
+            <li role="none"><a href="/dbs-surgery" role="menuitem">DBS Surgery<small>Deep brain stimulation</small></a></li>
+            <li role="none"><a href="/best-exercises-for-parkinsons" role="menuitem">Best Exercises<small>Move your best</small></a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">The Exchange</button>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li role="none"><a href="/exchange" role="menuitem">Search The Exchange<small>12,000+ Parkinson's programs, services &amp; products near you</small></a></li>
+            <li role="none"><a href="/for-providers" role="menuitem">For Providers &middot; Get Listed<small>Grow your Parkinson's program, service, or product</small></a></li>
+            <li role="none"><a href="/claim-listing" role="menuitem">Claim Your Listing<small>Take ownership of an existing entry</small></a></li>
+            <li role="none"><a href="/create-listing" role="menuitem">Add Your Business<small>List a new provider or product</small></a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community</button>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li role="none"><a href="/events" role="menuitem">Events<small>Live meetups &amp; groups</small></a></li>
+            <li role="none"><a href="/share" role="menuitem">Spread the Word<small>Share DLT with your community</small></a></li>
+            <li role="none"><a href="/free-parkinsons-community" role="menuitem">Support Groups &amp; Free Community<small>Free ways to connect</small></a></li>
+            <li role="none"><a href="/parkinsons-community" role="menuitem">Parkinson's Community<small>What community looks like</small></a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Resources</button>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li role="none"><a href="/resources" role="menuitem">All Resources<small>Every resource, one page</small></a></li>
+            <li role="none"><a href="/parkinsons-clinician-handouts" role="menuitem">Clinician Handouts<small>Print-friendly one-pagers</small></a></li>
+            <li role="none"><a href="/store" role="menuitem">Store<small>DLT merch</small></a></li>
+          </ul>
+        </li>
       </ul>
       <a href="/theclub" class="btn btn-primary btn-sm nav-cta">Join The Club</a>
       <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
@@ -224,111 +644,249 @@
     </nav>
   </header>
 
-  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
-    <a href="/about">About</a>
-    <a href="/podcasts">Podcasts</a>
-    <a href="/youtube">YouTube</a>
-    <a href="/theclub">The Club</a>
-    <a href="/exchange">The Exchange</a>
-    <a href="/music">Music</a>
-    <a href="/living-with-parkinsons-guide">Living With Parkinson's Guide</a>
-    <a href="/resources">Resources</a>
-    <a href="/events">Events</a>
-    <a href="/contact">Contact</a>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" data-canonical-nav="v4">
+    <details class="mobile-nav-group">
+      <summary>About</summary>
+      <a href="/about">About Doing Life Today</a>
+      <a href="/about#awards">Awards &amp; Recognition</a>
+      <a href="https://bryceperry.org" target="_blank" rel="noopener noreferrer">Bryce Perry &middot; Speaking &amp; Media</a>
+      <a href="/contact">Contact</a>
+    </details>
+    <details class="mobile-nav-group mobile-nav-group--highlight">
+      <summary>The Club</summary>
+      <a href="/theclub">The Club</a>
+      <a href="/theclub#download">Join The Club</a>
+      <a href="/parkinsons-daily-check-in">Daily Check-In</a>
+      <a href="/parkinsons-symptom-tracker">Symptom Tracker</a>
+      <a href="/clinical-trial-match">Clinical Trial Match</a>
+      <a href="/inner-circle">Inner Circle</a>
+    </details>
+    <details class="mobile-nav-group">
+      <summary>Watch &amp; Listen</summary>
+      <a href="/podcasts">Podcasts Hub</a>
+      <a href="/living-with-parkinsons-podcast">Living With Parkinson's Podcast</a>
+      <a href="/life-in-motion">Life in Motion</a>
+      <a href="/youtube">YouTube</a>
+      <a href="/music">Music</a>
+    </details>
+    <details class="mobile-nav-group">
+      <summary>Care Partners</summary>
+      <a href="/carmens-care-partner-corner">Carmen's Care Partner Corner</a>
+      <a href="/care-partners">Care Partners Guide</a>
+      <a href="/caregiver-burnout">Caregiver Burnout</a>
+    </details>
+    <details class="mobile-nav-group">
+      <summary>Living With Parkinson's</summary>
+      <a href="/living-with-parkinsons-guide">Living With Parkinson's Guide</a>
+      <a href="/newly-diagnosed">Newly Diagnosed</a>
+      <a href="/first-90-days-parkinsons">First 90 Days</a>
+      <a href="/early-signs-of-parkinsons">Early Signs</a>
+      <a href="/symptoms">Symptoms Directory</a>
+      <a href="/parkinsons-medication-timing">Medication Timing</a>
+      <a href="/dbs-surgery">DBS Surgery</a>
+      <a href="/best-exercises-for-parkinsons">Best Exercises</a>
+    </details>
+    <details class="mobile-nav-group">
+      <summary>The Exchange</summary>
+      <a href="/exchange">Search The Exchange</a>
+      <a href="/for-providers">For Providers &middot; Get Listed</a>
+      <a href="/claim-listing">Claim Your Listing</a>
+      <a href="/create-listing">Add Your Business</a>
+    </details>
+    <details class="mobile-nav-group">
+      <summary>Community</summary>
+      <a href="/events">Events</a>
+      <a href="/share">Spread the Word</a>
+      <a href="/free-parkinsons-community">Support Groups &amp; Free Community</a>
+      <a href="/parkinsons-community">Parkinson's Community</a>
+    </details>
+    <details class="mobile-nav-group">
+      <summary>Resources</summary>
+      <a href="/resources">All Resources</a>
+      <a href="/parkinsons-clinician-handouts">Clinician Handouts</a>
+      <a href="/store">Store</a>
+    </details>
     <div class="mobile-cta"><a href="/theclub" class="btn btn-primary">Join The Club</a></div>
   </nav>
 
   <main id="main-content">
 
+    <div class="ic-success-banner" id="ic-success-banner" hidden>
+      <strong>You're in.</strong> Your payment was received &mdash; check your email for a link to set your Club password. If you don't see it in 5 minutes, check spam or <a href="/contact">contact us</a>.<br>
+      Once you're signed in, <a href="/inner-circle-lounge">jump straight into the Live Lounge &rarr;</a>
+    </div>
+
     <!-- HERO -->
     <section class="ic-hero" aria-labelledby="ic-heading">
       <div class="container">
-        <h1 id="ic-heading">The Inner Circle</h1>
-        <p class="ic-sub">Some conversations need a smaller room. This is that room.</p>
-        <a href="https://community.dolifetoday.com/pages/inner-circle" class="btn btn-primary btn-lg">Join the Inner Circle</a>
+        <div class="ic-hero-grid">
+          <div>
+            <div class="ic-pill">♛ Private monthly Zoom group</div>
+            <h1 id="ic-heading">Get closer support for life with Parkinson's.</h1>
+            <p class="ic-lead">Inner Circle is the private monthly Zoom room with Bryce for people who want more than content: real conversation, practical help, and a smaller circle that gets it.</p>
+            <div class="ic-hero-actions">
+              <a href="#pricing" class="btn btn-primary btn-lg">Join the Inner Circle &rarr;</a>
+              <a href="#included" class="btn btn-secondary btn-lg">See what's included</a>
+            </div>
+            <p class="ic-member-shortcut">
+              Already an Inner Circle member?
+              <a href="/inner-circle-lounge">Enter the Live Lounge &rarr;</a>
+            </p>
+          </div>
+          <div class="ic-bryce">
+            <img src="/Images/bryce-perry-speaker-cutout-clean.png" alt="Bryce Perry, founder of Doing Life Today" width="460" height="560" loading="eager" decoding="async" />
+            <div class="ic-caption">A smaller monthly room for the conversations that do not fit in a comment section.</div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- WHAT IS IT -->
-    <section class="ic-section" aria-labelledby="ic-what-heading">
+    <!-- WHAT'S INCLUDED -->
+    <section id="included" class="ic-section" aria-labelledby="ic-included-heading">
       <div class="container">
-        <span class="section-label">About</span>
-        <h2 id="ic-what-heading">What Is the Inner Circle?</h2>
-        <p style="max-width:650px;">The Inner Circle is a premium experience inside <a href="/theclub">The Club</a> &mdash; Doing Life Today's private Parkinson's community. It's built for people who want more than surface-level conversation. More real talk, more direct access, more connection with others who truly get it.</p>
+        <span class="section-label">What's included</span>
+        <h2 id="ic-included-heading">More than content. A place to bring the real stuff.</h2>
+        <div class="ic-benefit-grid">
+          <article class="ic-benefit">
+            <div class="ic-check-icon">&#10003;</div>
+            <h3>Monthly live Zoom with Bryce</h3>
+            <p>A smaller room for practical conversation, honest questions, and real-life Parkinson's problem solving.</p>
+          </article>
+          <article class="ic-benefit">
+            <div class="ic-check-icon">&#10003;</div>
+            <h3>A quieter group that remembers your name</h3>
+            <p>Come to listen, share, ask, or simply be around people who understand the day-to-day reality.</p>
+          </article>
+          <article class="ic-benefit">
+            <div class="ic-check-icon">&#10003;</div>
+            <h3>Member-only call recordings</h3>
+            <p>Miss the live call and still catch the conversation when your schedule, energy, or body allows.</p>
+          </article>
+          <article class="ic-benefit">
+            <div class="ic-check-icon">&#10003;</div>
+            <h3>Ask Bryce &mdash; he answers</h3>
+            <p>Post questions in the private Inner Circle circle inside The Club any time. Bryce answers directly, so you're not waiting for the next Zoom to get help.</p>
+          </article>
+        </div>
       </div>
     </section>
 
-    <!-- BENEFITS -->
-    <section class="ic-section alt-bg" aria-labelledby="ic-benefits-heading">
+    <!-- WHY MEMBERS JOIN -->
+    <section class="ic-section alt-bg" aria-labelledby="ic-why-heading">
       <div class="container">
-        <span class="section-label">Membership</span>
-        <h2 id="ic-benefits-heading">What You Get</h2>
-        <div class="ic-benefits">
-          <div class="ic-benefit">
-            <div class="ic-benefit-icon">&#127909;</div>
-            <h3>Monthly Live Zoom Calls</h3>
-            <p>Join Bryce for honest, unscripted conversations about living with Parkinson's &middot; ask questions, share your story, and hear from others in real time.</p>
+        <div class="ic-two-col">
+          <div>
+            <span class="section-label">Why members join</span>
+            <h2 id="ic-why-heading">Because people do not just need information. They need a place to bring the real stuff.</h2>
           </div>
-          <div class="ic-benefit">
-            <div class="ic-benefit-icon">&#128101;</div>
-            <h3>A Smaller, Closer Group</h3>
-            <p>Not a crowd &middot; a circle. This is a tight-knit group of people who show up for each other, where every voice matters.</p>
-          </div>
-          <div class="ic-benefit">
-            <div class="ic-benefit-icon">&#11088;</div>
-            <h3>Priority Responses &amp; Support</h3>
-            <p>Get faster responses from Bryce and the team. Your questions and posts get priority attention inside The Club.</p>
-          </div>
-          <div class="ic-benefit">
-            <div class="ic-benefit-icon">&#128172;</div>
-            <h3>Deeper Conversations</h3>
-            <p>Go beyond the basics. Talk about the stuff that's hard to say out loud &middot; fears, frustrations, wins, and everything in between.</p>
-          </div>
-          <div class="ic-benefit">
-            <div class="ic-benefit-icon">&#128222;</div>
-            <h3>Direct Access to Bryce</h3>
-            <p>Bryce Perry, diagnosed at 40, shares what he's learned firsthand. Inner Circle members get direct access to his experience and perspective.</p>
-          </div>
-          <div class="ic-benefit">
-            <div class="ic-benefit-icon">&#128274;</div>
-            <h3>Exclusive Inner Circle Space</h3>
-            <p>A dedicated area inside The Club just for members &middot; your space for the conversations that matter most.</p>
+          <div class="ic-outcomes">
+            <div class="ic-outcome">Stop trying to explain Parkinson's to people who do not live close to it.</div>
+            <div class="ic-outcome">Bring better questions into doctor visits and daily routines.</div>
+            <div class="ic-outcome">Get steadier support between appointments, support groups, and hard days.</div>
+            <div class="ic-outcome">Feel connected without needing to perform, post, or be polished.</div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- BRYCE QUOTE -->
-    <section class="ic-section" aria-labelledby="ic-quote-heading">
-      <div class="container" style="text-align:center;">
-        <blockquote class="ic-quote" style="text-align:left;">
-          "The Inner Circle exists because some conversations need a smaller room. Thank you for choosing to be in it."
+    <section class="ic-quote-section" aria-labelledby="ic-quote-heading">
+      <div class="container">
+        <blockquote class="ic-quote" id="ic-quote-heading">
+          &ldquo;Inner Circle exists because some conversations need a smaller room. Thank you for choosing to be in it.&rdquo;
         </blockquote>
         <p class="ic-quote-attr">&mdash; Bryce Perry, Founder of Doing Life Today</p>
       </div>
     </section>
 
     <!-- PRICING -->
-    <section class="ic-section alt-bg" aria-labelledby="ic-pricing-heading">
-      <div class="container" style="text-align:center;">
-        <span class="section-label">Pricing</span>
-        <h2 id="ic-pricing-heading">Simple, Affordable, Worth It</h2>
-        <p style="max-width:500px;margin:0 auto 2.5rem;color:var(--color-text-muted);">Less than a dollar a week to be part of something that actually matters.</p>
-        <div class="ic-pricing">
-          <p class="ic-price-orig">$99/year</p>
-          <p class="ic-price">$50<span style="font-size:1.1rem;font-weight:500;color:var(--color-text-muted);">/year</span></p>
-          <p class="ic-price-note">Launch price &middot; limited time</p>
-          <a href="https://community.dolifetoday.com/pages/inner-circle" class="btn btn-primary btn-lg" style="width:100%;margin-top:1rem;">Join Now</a>
+    <section id="pricing" class="ic-section ic-pricing-section" aria-labelledby="ic-pricing-heading">
+      <div class="container">
+        <div class="ic-two-col">
+          <div>
+            <span class="section-label">Founding offer</span>
+            <h2 id="ic-pricing-heading">Join for less than the cost of one takeout lunch a month.</h2>
+            <p style="color:var(--color-text-muted);max-width:520px;margin-top:1rem;">The free Club remains open. Inner Circle is for members who want the personal monthly room, replays, and a more direct way to stay connected with Bryce.</p>
+            <div class="ic-check-grid">
+              <div>Monthly live Zoom</div>
+              <div>Member recordings</div>
+              <div>Direct access to Bryce</div>
+              <div>Smaller private group</div>
+            </div>
+          </div>
+          <div class="ic-price-card">
+            <div class="ic-toggle" role="tablist" aria-label="Choose billing period">
+              <button type="button" class="active" data-plan="monthly" role="tab" aria-selected="true">Monthly</button>
+              <button type="button" data-plan="yearly" role="tab" aria-selected="false">Yearly <span class="save">2 MONTHS FREE</span></button>
+            </div>
+            <div class="ic-price-display" data-price="monthly">
+              <strong>$14.99</strong><span class="per">/month</span>
+              <p class="ic-price-note">Prefer one payment? <strong>$149.99/year</strong> &mdash; that's <strong>2 months free</strong>.</p>
+            </div>
+            <div class="ic-price-display" data-price="yearly" hidden>
+              <strong>$149.99</strong><span class="per">/year</span>
+              <p class="ic-price-note">That's <strong>2 months free</strong> compared with monthly ($14.99 &times; 12 = $179.88).</p>
+            </div>
+            <form id="ic-checkout-form" class="ic-checkout-form" novalidate>
+              <label class="ic-email-label" for="ic-email">Your email</label>
+              <input
+                id="ic-email"
+                name="email"
+                type="email"
+                required
+                autocomplete="email"
+                inputmode="email"
+                placeholder="you@example.com"
+                class="ic-email-input"
+              />
+              <p class="ic-email-help">Use the email tied to your Club account. If you don't have one yet, we'll create it after payment and email you a link to set your password.</p>
+              <button type="submit" class="btn btn-primary btn-lg ic-submit" data-cta-label-monthly="Start monthly &rarr;" data-cta-label-yearly="Start yearly &rarr;">Start monthly &rarr;</button>
+              <p class="ic-form-error" role="alert" hidden></p>
+            </form>
+            <p class="ic-fineprint">Secure payment through Stripe. The Club's free community remains available whether you join Inner Circle or not.</p>
+            <p class="ic-member-shortcut" style="margin-top:1.25rem;text-align:center;">
+              Already a member?
+              <a href="/inner-circle-lounge">Enter the Live Lounge &rarr;</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="ic-section" aria-labelledby="ic-faq-heading">
+      <div class="container">
+        <div style="text-align:center;margin-bottom:2.25rem;">
+          <span class="section-label">Questions</span>
+          <h2 id="ic-faq-heading">What people ask before joining</h2>
+        </div>
+        <div class="ic-faq">
+          <details open>
+            <summary>Who is Inner Circle for?</summary>
+            <p>People with Parkinson's and care partners who want closer access to Bryce, a smaller monthly conversation, and a more personal layer of support inside The Club.</p>
+          </details>
+          <details>
+            <summary>Do I have to talk on the Zoom calls?</summary>
+            <p>No. You can join quietly, listen, use the chat, or participate when you feel ready. There is no pressure to be on camera.</p>
+          </details>
+          <details>
+            <summary>Is The Club still free?</summary>
+            <p>Yes. The Club remains free. Inner Circle is an optional monthly live call and deeper-access layer for members who want it.</p>
+          </details>
+          <details>
+            <summary>Can I cancel?</summary>
+            <p>Yes. Monthly access is handled through Stripe and can be cancelled from your billing portal. Annual access is available for members who prefer one payment for the year.</p>
+          </details>
         </div>
       </div>
     </section>
 
     <!-- FINAL CTA -->
-    <section class="ic-footer-cta" aria-labelledby="ic-final-heading">
+    <section class="ic-final" aria-labelledby="ic-final-heading">
       <div class="container">
-        <h2 id="ic-final-heading">Ready to Go Deeper?</h2>
-        <p>Join Bryce and a small group of people who are choosing connection over isolation. The Inner Circle is waiting.</p>
-        <a href="https://community.dolifetoday.com/pages/inner-circle" class="btn btn-primary btn-lg">Join the Inner Circle</a>
+        <h2 id="ic-final-heading">Come closer. Bring the real day with you.</h2>
+        <p>You do not need to have perfect words, a good day, or a polished question. Inner Circle is built for real life.</p>
+        <a href="#pricing" class="btn btn-primary btn-lg">Join the Inner Circle &rarr;</a>
       </div>
     </section>
 
@@ -343,7 +901,7 @@
             <div class="nav-logo-text">Doing Life Today<span>Parkinson's Community</span></div>
           </a>
           <p>Connecting people living with Parkinson's through podcasts, community, and real conversations - since 2018.</p>
-          <a href="https://bryceperry.org" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">Book Bryce for Speaking ?</a>
+          <a href="https://bryceperry.org" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">Book Bryce for Speaking &#8599;</a>
         </div>
         <div class="footer-col">
           <h4>Quick Links</h4>
@@ -362,9 +920,9 @@
           <ul class="footer-links">
             <li><a href="https://dolifetoday.com">Doing Life Today</a></li>
             <li><a href="/theclub">The Club</a></li>
-            <li><a href="https://podcast.dolifetoday.com" target="_blank" rel="noopener noreferrer">Podcast Network ?</a></li>
-            <li><a href="https://bryceperry.org" target="_blank" rel="noopener noreferrer">Speaking &amp; Media ?</a></li>
-            <li><a href="https://shop.dolifetoday.com" target="_blank" rel="noopener noreferrer">Merch Store ?</a></li>
+            <li><a href="https://podcast.dolifetoday.com" target="_blank" rel="noopener noreferrer">Podcast Network &#8599;</a></li>
+            <li><a href="https://bryceperry.org" target="_blank" rel="noopener noreferrer">Speaking &amp; Media &#8599;</a></li>
+            <li><a href="https://shop.dolifetoday.com" target="_blank" rel="noopener noreferrer">Merch Store &#8599;</a></li>
             <li><a href="/exchange">The Exchange</a></li>
             <li><a href="/inner-circle">Inner Circle</a></li>
           </ul>
@@ -387,8 +945,135 @@
     </div>
   </footer>
 
-  <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">?</button>
+  <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">&#8593;</button>
   <script src="js/main.js"></script>
+  <script>
+    // Inner Circle: pricing toggle + Stripe checkout redirect
+    (function () {
+      // Endpoint that creates the Stripe Checkout Session.
+      //
+      // TEMPORARY (2026-07-07): pointing directly at the Cloud Function URL
+      // while parkinsons-community hosting is NOT being redeployed (that repo
+      // has uncommitted WIP src/ changes that shouldn't ship to the iOS app
+      // bundle yet). Once those app changes are reviewed and hosting is
+      // deployed with the `/api/inner-circle/checkout` rewrite, swap to the
+      // pretty URL commented below.
+      var CHECKOUT_ENDPOINT = 'https://us-central1-pcn---new.cloudfunctions.net/createInnerCircleCheckout';
+      // var CHECKOUT_ENDPOINT = 'https://club.dolifetoday.com/api/inner-circle/checkout';
+      // var CHECKOUT_ENDPOINT = 'https://community.dolifetoday.com/api/inner-circle/checkout';
+
+      var currentPlan = 'monthly';
+      var toggle = document.querySelector('.ic-toggle');
+      var buttons = toggle ? toggle.querySelectorAll('button[data-plan]') : [];
+      var priceCards = document.querySelectorAll('.ic-price-display[data-price]');
+      var form = document.getElementById('ic-checkout-form');
+      var emailInput = document.getElementById('ic-email');
+      var submitBtn = form ? form.querySelector('.ic-submit') : null;
+      var errorEl = form ? form.querySelector('.ic-form-error') : null;
+
+      function setPlan(plan) {
+        currentPlan = plan;
+        buttons.forEach(function (b) {
+          var active = b.getAttribute('data-plan') === plan;
+          b.classList.toggle('active', active);
+          b.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        priceCards.forEach(function (p) {
+          p.hidden = p.getAttribute('data-price') !== plan;
+        });
+        if (submitBtn) {
+          var label = submitBtn.getAttribute('data-cta-label-' + plan);
+          if (label) submitBtn.innerHTML = label;
+        }
+      }
+
+      buttons.forEach(function (b) {
+        b.addEventListener('click', function () {
+          setPlan(b.getAttribute('data-plan'));
+        });
+      });
+
+      function showError(msg) {
+        if (!errorEl) return;
+        errorEl.textContent = msg;
+        errorEl.hidden = false;
+      }
+      function clearError() {
+        if (!errorEl) return;
+        errorEl.textContent = '';
+        errorEl.hidden = true;
+      }
+
+      if (form) {
+        form.addEventListener('submit', async function (ev) {
+          ev.preventDefault();
+          clearError();
+          var email = (emailInput && emailInput.value ? emailInput.value : '').trim();
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            showError('Please enter a valid email address.');
+            if (emailInput) emailInput.focus();
+            return;
+          }
+
+          submitBtn.disabled = true;
+          var originalLabel = submitBtn.innerHTML;
+          submitBtn.innerHTML = 'Redirecting to Stripe…';
+
+          try {
+            var res = await fetch(CHECKOUT_ENDPOINT, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+              body: JSON.stringify({ email: email, plan: currentPlan }),
+            });
+            var data = null;
+            try { data = await res.json(); } catch (_) { /* ignore parse err */ }
+            if (!res.ok || !data || !data.url) {
+              var msg = (data && data.error) ? data.error : 'Could not start checkout. Please try again.';
+              showError(msg);
+              submitBtn.disabled = false;
+              submitBtn.innerHTML = originalLabel;
+              return;
+            }
+            // Fire a GA event before navigating away
+            try {
+              if (typeof window.gtag === 'function') {
+                window.gtag('event', 'begin_checkout', {
+                  event_category: 'inner-circle',
+                  event_label: currentPlan,
+                });
+              }
+            } catch (_) {}
+            window.location.href = data.url;
+          } catch (err) {
+            console.error('Inner Circle checkout error:', err);
+            showError('Network error. Please check your connection and try again.');
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalLabel;
+          }
+        });
+      }
+
+      // Success / cancel banner based on ?checkout=... query
+      try {
+        var params = new URLSearchParams(window.location.search);
+        var status = params.get('checkout');
+        if (status === 'success') {
+          var banner = document.getElementById('ic-success-banner');
+          if (banner) banner.hidden = false;
+          try {
+            if (typeof window.gtag === 'function') {
+              window.gtag('event', 'purchase', {
+                event_category: 'inner-circle',
+                event_label: 'landing-page',
+              });
+            }
+          } catch (_) {}
+        } else if (status === 'cancelled') {
+          showError('Checkout was cancelled. You can try again whenever you\u2019re ready.');
+        }
+      } catch (_) {}
+    })();
+  </script>
 </body>
 </html>
 
