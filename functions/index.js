@@ -4169,7 +4169,11 @@ exports.analyticsEvents = onRequest(async (req, res) => {
     }));
 
     // Top CTAs — requires custom dimensions to be registered in GA4
+    // (Admin → Custom definitions → Custom dimensions → parameter=cta_text,
+    // scope=Event; same for page_path). Until then the Data API returns a
+    // "field ... not found" error which we surface as ctaStatus.
     let ctas = [];
+    let ctaStatus = 'ok';
     try {
       const [ctaRes] = await client.runReport({
         property,
@@ -4190,11 +4194,20 @@ exports.analyticsEvents = onRequest(async (req, res) => {
         page: r.dimensionValues[1]?.value || '',
         clicks: r.metricValues[0]?.value || '0',
       }));
+      if (ctas.length === 0) ctaStatus = 'empty';
     } catch (ctaErr) {
-      console.warn('CTA report skipped (custom dimensions not yet registered):', ctaErr.message);
+      const msg = String(ctaErr?.message || '');
+      // GA4 Data API responds with "Field customEvent:cta_text is not a valid
+      // dimension" (or similar) when the dimension isn't registered.
+      if (/dimension|customEvent|not.*(found|valid|exist)/i.test(msg)) {
+        ctaStatus = 'not_registered';
+      } else {
+        ctaStatus = 'error';
+      }
+      console.warn('[analyticsEvents] CTA report failed (status=' + ctaStatus + '):', msg);
     }
 
-    res.status(200).json({ events, ctas });
+    res.status(200).json({ events, ctas, ctaStatus });
   } catch (err) {
     console.error('Analytics Events API error:', err);
     res.status(500).json({ error: 'Failed to fetch event data.', detail: err.message });

@@ -77,8 +77,12 @@
 
     // CTA buttons
     if (/\bbtn\b|card-cta|nav-cta/.test(classes)) {
+      // Prefer stable data-cta attribute over button text so analytics stay
+      // consistent across copy tweaks / A-B tests. Example:
+      //   <a class="btn" href="/join" data-cta="header-join-club">Join The Club</a>
+      var ctaId = el.dataset && el.dataset.cta ? el.dataset.cta : text;
       gtag('event', 'cta_click', {
-        cta_text: text,
+        cta_text: ctaId,
         cta_url: href || null,
         cta_class: classes.substring(0, 100),
         page_path: location.pathname

@@ -478,7 +478,22 @@
       }
 
       if (!ctas.length) {
-        document.getElementById('cta-table').innerHTML = '<div class="an-empty">No CTA click data yet.</div>';
+        var ctaStatus = eventsData.ctaStatus || 'empty';
+        var emptyMsg;
+        if (ctaStatus === 'not_registered') {
+          emptyMsg = '<div class="an-empty">' +
+            '<strong>Setup required.</strong> The <code>cta_text</code> and <code>page_path</code> parameters ' +
+            'aren\'t registered as GA4 custom dimensions yet, so per-CTA breakdowns can\'t be reported.<br><br>' +
+            'Fix: GA4 → Admin → Custom definitions → Custom dimensions → <em>Create</em>. ' +
+            'Add two event-scoped dimensions: parameter=<code>cta_text</code> and parameter=<code>page_path</code>. ' +
+            'Data appears here 24–48 hours after registration (not retroactive).' +
+            '</div>';
+        } else if (ctaStatus === 'error') {
+          emptyMsg = '<div class="an-empty">CTA report failed. Check function logs.</div>';
+        } else {
+          emptyMsg = '<div class="an-empty">No CTA click data yet.</div>';
+        }
+        document.getElementById('cta-table').innerHTML = emptyMsg;
       } else {
         var ctaHtml = '<table class="an-table"><thead><tr><th>CTA</th><th>Page</th><th class="num">Clicks</th></tr></thead><tbody>';
         ctas.forEach(function (c) {
