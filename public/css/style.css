@@ -994,20 +994,45 @@ section { padding-block: 5rem; }
 @media (min-width: 1201px) and (max-width: 1440px) {
   .nav-links {
     gap: 0;
+    min-width: 0;
+    flex-shrink: 1;
   }
   .nav-links a,
   .nav-links .nav-dropdown-toggle {
-    padding: 0 0.32rem;
-    font-size: 0.76rem;
+    padding: 0 0.28rem;
+    font-size: 0.74rem;
   }
   .nav-cta {
     margin-left: 0.5rem;
     padding-inline: 0.85rem;
     font-size: 0.78rem;
+    flex-shrink: 0;
   }
 }
 
-.nav-cta { margin-left: 0.75rem; }
+/* Extra-tight mode for 1201–1320px (common 1366×768 laptops with the
+   Windows taskbar / browser chrome eating ~30-50px). Without this,
+   the 8-item nav-links row spills to the right and the pill-shaped
+   Join-The-Club CTA visually overlaps the last menu item ("Resources").
+   Verified 2026-09-17 fix. */
+@media (min-width: 1201px) and (max-width: 1320px) {
+  .nav-links a,
+  .nav-links .nav-dropdown-toggle {
+    padding: 0 0.18rem;
+    font-size: 0.7rem;
+    letter-spacing: -0.005em;
+  }
+  .nav-cta {
+    margin-left: 0.35rem;
+    padding-inline: 0.7rem;
+    font-size: 0.72rem;
+  }
+}
+
+/* Never let the CTA be visually overlapped by an oversized nav-links.
+   flex-shrink:0 on the CTA + min-width:0 on the links reserves the
+   pill's width; the links wrap/clip inside their own area instead. */
+.nav-cta { margin-left: 0.75rem; flex-shrink: 0; }
 
 .hamburger {
   display: none;
