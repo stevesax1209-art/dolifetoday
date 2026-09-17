@@ -17,6 +17,10 @@
       ],
       "redirects": [
         { "source": "/speaking-the-invisible", "destination": "https://invisible.dolifetoday.com", "type": 301 },
+        { "source": "/connectors", "destination": "https://connectors.dolifetoday.com", "type": 301 },
+        { "source": "/connectors.html", "destination": "https://connectors.dolifetoday.com", "type": 301 },
+        { "source": "/community-connectors", "destination": "https://connectors.dolifetoday.com", "type": 301 },
+        { "source": "/connector-hq", "destination": "https://club.dolifetoday.com/connectors", "type": 301 },
         { "source": "/pcn-app", "destination": "/theclub", "type": 301 },
         { "source": "/pcn-app.html", "destination": "/theclub", "type": 301 },
         { "source": "/theclub-DLT", "destination": "/theclub", "type": 301 },

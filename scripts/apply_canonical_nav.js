@@ -12,7 +12,7 @@ const path = require('path');
 const PUBLIC_DIR = path.resolve(__dirname, '..', 'public');
 
 // -------- canonical header --------
-const CANONICAL_HEADER = `<header class="site-header" role="banner" data-canonical-nav="v4">
+const CANONICAL_HEADER = `<header class="site-header" role="banner" data-canonical-nav="v5">
     <nav class="nav-inner" aria-label="Main navigation">
       <a href="/" class="nav-logo" aria-label="Doing Life Today - Home">
         <div class="nav-logo-mark" aria-hidden="true">DL</div>
@@ -84,6 +84,7 @@ const CANONICAL_HEADER = `<header class="site-header" role="banner" data-canonic
           <ul class="nav-dropdown-menu" role="menu">
             <li role="none"><a href="/events" role="menuitem">Events<small>Live meetups &amp; groups</small></a></li>
             <li role="none"><a href="/share" role="menuitem">Spread the Word<small>Share DLT with your community</small></a></li>
+            <li role="none"><a href="https://connectors.dolifetoday.com" target="_blank" rel="noopener noreferrer" role="menuitem">Community Connectors<small>Turn lived experience into impact</small></a></li>
             <li role="none"><a href="/free-parkinsons-community" role="menuitem">Support Groups &amp; Free Community<small>Free ways to connect</small></a></li>
             <li role="none"><a href="/parkinsons-community" role="menuitem">Parkinson's Community<small>What community looks like</small></a></li>
           </ul>
@@ -157,6 +158,7 @@ const CANONICAL_MOBILE_NAV = `<nav class="mobile-nav" id="mobile-nav" aria-label
       <summary>Community</summary>
       <a href="/events">Events</a>
       <a href="/share">Spread the Word</a>
+      <a href="https://connectors.dolifetoday.com" target="_blank" rel="noopener noreferrer">Community Connectors</a>
       <a href="/free-parkinsons-community">Support Groups &amp; Free Community</a>
       <a href="/parkinsons-community">Parkinson's Community</a>
     </details>
@@ -229,7 +231,7 @@ for (const file of files) {
   // If already at the current canonical version, skip. Bump the version
   // string in CANONICAL_HEADER (data-canonical-nav="vN") whenever the
   // shape of the nav changes so all pages get re-written.
-  if (before.includes('data-canonical-nav="v4"')) {
+  if (before.includes('data-canonical-nav="v5"')) {
     alreadyCanonical++;
     continue;
   }

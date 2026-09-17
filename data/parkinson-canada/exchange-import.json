@@ -36,7 +36,7 @@
     "stateProvince": "ON",
     "postcode": "L8K 5W2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/gold-cross-caregiver-solutions/",
-    "scrapedAt": "2026-09-17T05:10:12.277Z",
+    "scrapedAt": "2026-09-17T05:33:21.092Z",
     "latitude": -79.793831,
     "longitude": 43.212977
   },
@@ -82,7 +82,7 @@
     "stateProvince": "ON",
     "postcode": "M4P 1E4",
     "sourceUrl": "https://www.parkinson.ca/care-finder/thekey-home-care/",
-    "scrapedAt": "2026-09-17T05:10:12.277Z",
+    "scrapedAt": "2026-09-17T05:33:21.092Z",
     "latitude": -79.398521,
     "longitude": 43.7077151
   },
@@ -123,7 +123,7 @@
     "stateProvince": "Ontario",
     "postcode": "M4G 2L2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/toc-toc-art-studio/",
-    "scrapedAt": "2026-09-17T05:10:12.277Z",
+    "scrapedAt": "2026-09-17T05:33:21.092Z",
     "latitude": -79.36251,
     "longitude": 43.714084
   },
@@ -166,7 +166,7 @@
     "stateProvince": "BC",
     "postcode": "V5N 4G2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/fable-speech-language-pathology/",
-    "scrapedAt": "2026-09-17T05:10:12.277Z",
+    "scrapedAt": "2026-09-17T05:33:21.092Z",
     "latitude": 49.251226,
     "longitude": -123.067963
   },
@@ -209,7 +209,7 @@
     "stateProvince": "BC",
     "postcode": "V5Y 0C3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/harmony-speech-therapy/",
-    "scrapedAt": "2026-09-17T05:10:12.277Z",
+    "scrapedAt": "2026-09-17T05:33:21.093Z",
     "latitude": 49.2457415,
     "longitude": -123.1092431
   },
@@ -252,7 +252,7 @@
     "stateProvince": "BC",
     "postcode": "V1Y 1H3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/neurothrive-education-consultancy/",
-    "scrapedAt": "2026-09-17T05:10:12.278Z",
+    "scrapedAt": "2026-09-17T05:33:21.093Z",
     "latitude": 49.882419,
     "longitude": -119.497994
   },
@@ -293,7 +293,7 @@
     "stateProvince": "QC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/diagnostic-imaginings/",
-    "scrapedAt": "2026-09-17T05:10:12.278Z",
+    "scrapedAt": "2026-09-17T05:33:21.093Z",
     "latitude": -73.576755,
     "longitude": 45.526913
   },
@@ -332,7 +332,7 @@
     "stateProvince": "ON",
     "postcode": "L2J 1A2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/niagara-falls-on-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.278Z",
+    "scrapedAt": "2026-09-17T05:33:21.093Z",
     "latitude": 43.1135037944422,
     "longitude": -79.08017378465617
   },
@@ -371,7 +371,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/north-toronto-on-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.278Z",
+    "scrapedAt": "2026-09-17T05:33:21.093Z",
     "latitude": 43.653226,
     "longitude": -79.3831843
   },
@@ -410,7 +410,7 @@
     "stateProvince": "ON",
     "postcode": "M5V 3L9",
     "sourceUrl": "https://www.parkinson.ca/care-finder/toronto-on-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.278Z"
+    "scrapedAt": "2026-09-17T05:33:21.093Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -449,7 +449,7 @@
     "stateProvince": "ON",
     "postcode": "P3B 1M4",
     "sourceUrl": "https://www.parkinson.ca/care-finder/sudbury-on-care-partner-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.278Z",
+    "scrapedAt": "2026-09-17T05:33:21.093Z",
     "latitude": 46.4915781,
     "longitude": -80.9807815
   },
@@ -488,7 +488,7 @@
     "stateProvince": "ON",
     "postcode": "P0R 1B0",
     "sourceUrl": "https://www.parkinson.ca/care-finder/blind-river-on-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.278Z",
+    "scrapedAt": "2026-09-17T05:33:21.093Z",
     "latitude": 46.18833602008929,
     "longitude": -82.92316322246202
   },
@@ -527,7 +527,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/vaughan-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.278Z"
+    "scrapedAt": "2026-09-17T05:33:21.093Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -568,7 +568,7 @@
     "stateProvince": "BC",
     "postcode": "V1C 5W5",
     "sourceUrl": "https://www.parkinson.ca/care-finder/cascade-therapy/",
-    "scrapedAt": "2026-09-17T05:10:12.279Z",
+    "scrapedAt": "2026-09-17T05:33:21.094Z",
     "latitude": 49.50728434095996,
     "longitude": -115.73806435161143
   },
@@ -611,7 +611,7 @@
     "stateProvince": "ON",
     "postcode": "N9G 0E4",
     "sourceUrl": "https://www.parkinson.ca/care-finder/cortex-physio-and-rehab/",
-    "scrapedAt": "2026-09-17T05:10:12.279Z"
+    "scrapedAt": "2026-09-17T05:33:21.094Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -646,7 +646,7 @@
     "stateProvince": "Manitoba",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/winnipeg-west-mb-care-partners-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.279Z"
+    "scrapedAt": "2026-09-17T05:33:21.094Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -681,7 +681,7 @@
     "stateProvince": "Manitoba",
     "postcode": "R2G 0ZB",
     "sourceUrl": "https://www.parkinson.ca/care-finder/winnipeg-west-mb-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.279Z"
+    "scrapedAt": "2026-09-17T05:33:21.094Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -716,7 +716,7 @@
     "stateProvince": "Saskatchewan",
     "postcode": "S0M 0E0",
     "sourceUrl": "https://www.parkinson.ca/care-finder/the-battlefords-sk-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.279Z"
+    "scrapedAt": "2026-09-17T05:33:21.094Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -751,7 +751,7 @@
     "stateProvince": "",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/saskatchewan-care-partners-support/",
-    "scrapedAt": "2026-09-17T05:10:12.279Z"
+    "scrapedAt": "2026-09-17T05:33:21.094Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -789,7 +789,7 @@
     "stateProvince": "ON",
     "postcode": "N6G 1H1",
     "sourceUrl": "https://www.parkinson.ca/care-finder/h-a-leeper-speech-and-hearing-clinic/",
-    "scrapedAt": "2026-09-17T05:10:12.279Z",
+    "scrapedAt": "2026-09-17T05:33:21.094Z",
     "latitude": 43.00307042599579,
     "longitude": -81.27801005846543
   },
@@ -831,7 +831,7 @@
     "stateProvince": "Ontario",
     "postcode": "L9C 7N4",
     "sourceUrl": "https://www.parkinson.ca/care-finder/heart-and-health-clinic/",
-    "scrapedAt": "2026-09-17T05:10:12.279Z",
+    "scrapedAt": "2026-09-17T05:33:21.094Z",
     "latitude": -79.915004,
     "longitude": 43.23966
   },
@@ -874,7 +874,7 @@
     "stateProvince": "BC",
     "postcode": "V2A 7K9",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dancing-with-parkinsons-penticton/",
-    "scrapedAt": "2026-09-17T05:10:12.279Z",
+    "scrapedAt": "2026-09-17T05:33:21.094Z",
     "latitude": 49.4962141902277,
     "longitude": -119.60441300387598
   },
@@ -917,7 +917,7 @@
     "stateProvince": "ON",
     "postcode": "K1C 1G3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/rockland-rural-rehab-services/",
-    "scrapedAt": "2026-09-17T05:10:12.279Z"
+    "scrapedAt": "2026-09-17T05:33:21.094Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -953,7 +953,7 @@
     "stateProvince": "ON",
     "postcode": "M3C 2G3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/elder-care-transitions/",
-    "scrapedAt": "2026-09-17T05:10:12.279Z",
+    "scrapedAt": "2026-09-17T05:33:21.094Z",
     "latitude": 43.7355908151201,
     "longitude": -79.3480480890697
   },
@@ -994,7 +994,7 @@
     "stateProvince": "ON",
     "postcode": "K9A 2L9",
     "sourceUrl": "https://www.parkinson.ca/care-finder/senior-helpers-northumberland/",
-    "scrapedAt": "2026-09-17T05:10:12.279Z"
+    "scrapedAt": "2026-09-17T05:33:21.095Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -1034,7 +1034,7 @@
     "stateProvince": "ON",
     "postcode": "L9C 3A3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/flutter-speech-and-literacy-services/",
-    "scrapedAt": "2026-09-17T05:10:12.279Z"
+    "scrapedAt": "2026-09-17T05:33:21.095Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -1074,7 +1074,7 @@
     "stateProvince": "BC",
     "postcode": "V5Z 1K5",
     "sourceUrl": "https://www.parkinson.ca/care-finder/blue-sky-counselling-wellness-clinic/",
-    "scrapedAt": "2026-09-17T05:10:12.279Z",
+    "scrapedAt": "2026-09-17T05:33:21.095Z",
     "latitude": 49.264561898183,
     "longitude": -123.12597439256938
   },
@@ -1114,7 +1114,7 @@
     "stateProvince": "ON",
     "postcode": "M8Z 5G3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/nerva-movement-association/",
-    "scrapedAt": "2026-09-17T05:10:12.279Z",
+    "scrapedAt": "2026-09-17T05:33:21.095Z",
     "latitude": 43.6250391784162,
     "longitude": -79.52891517297242
   },
@@ -1158,7 +1158,7 @@
     "stateProvince": "ON",
     "postcode": "L3B 3X3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/mywish-homecare-solutions/",
-    "scrapedAt": "2026-09-17T05:10:12.280Z",
+    "scrapedAt": "2026-09-17T05:33:21.095Z",
     "latitude": 42.99375127216357,
     "longitude": -79.23914649659827
   },
@@ -1197,7 +1197,7 @@
     "stateProvince": "ON",
     "postcode": "L5A 4E4",
     "sourceUrl": "https://www.parkinson.ca/care-finder/ananta-yoga/",
-    "scrapedAt": "2026-09-17T05:10:12.280Z",
+    "scrapedAt": "2026-09-17T05:33:21.095Z",
     "latitude": 43.582810167487246,
     "longitude": -79.6187398729598
   },
@@ -1241,7 +1241,7 @@
     "stateProvince": "Ontario",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/zumba-on-zoom/",
-    "scrapedAt": "2026-09-17T05:10:12.280Z"
+    "scrapedAt": "2026-09-17T05:33:21.095Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -1278,7 +1278,7 @@
     "stateProvince": "ON",
     "postcode": "L4M 1H4",
     "sourceUrl": "https://www.parkinson.ca/care-finder/vault-mental-health/",
-    "scrapedAt": "2026-09-17T05:10:12.280Z",
+    "scrapedAt": "2026-09-17T05:33:21.095Z",
     "latitude": 44.391393834181734,
     "longitude": -79.68187785711801
   },
@@ -1317,7 +1317,7 @@
     "stateProvince": "Ontario",
     "postcode": "N1R 3G5",
     "sourceUrl": "https://www.parkinson.ca/care-finder/the-cambridge-physiotherapy/",
-    "scrapedAt": "2026-09-17T05:10:12.280Z",
+    "scrapedAt": "2026-09-17T05:33:21.095Z",
     "latitude": 43.381491712983056,
     "longitude": -80.32919366603565
   },
@@ -1362,7 +1362,7 @@
     "stateProvince": "Québec",
     "postcode": "H2L 0B6",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-montreal-laval/",
-    "scrapedAt": "2026-09-17T05:10:12.280Z"
+    "scrapedAt": "2026-09-17T05:33:21.095Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -1402,7 +1402,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/ays-online-community/",
-    "scrapedAt": "2026-09-17T05:10:12.280Z"
+    "scrapedAt": "2026-09-17T05:33:21.095Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -1437,7 +1437,7 @@
     "stateProvince": "AB",
     "postcode": "T2N2A1",
     "sourceUrl": "https://www.parkinson.ca/care-finder/always-best-care-senior-sevices/",
-    "scrapedAt": "2026-09-17T05:10:12.280Z",
+    "scrapedAt": "2026-09-17T05:33:21.095Z",
     "latitude": 51.05567038042585,
     "longitude": -114.0950129220193
   },
@@ -1483,7 +1483,7 @@
     "stateProvince": "QC",
     "postcode": "H3W 3E8",
     "sourceUrl": "https://www.parkinson.ca/care-finder/cummings-centre/",
-    "scrapedAt": "2026-09-17T05:10:12.280Z",
+    "scrapedAt": "2026-09-17T05:33:21.095Z",
     "latitude": 45.48977541740773,
     "longitude": -73.63715565642809
   },
@@ -1522,7 +1522,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/barbra-kubilius-speech-language-pathology/",
-    "scrapedAt": "2026-09-17T05:10:12.280Z"
+    "scrapedAt": "2026-09-17T05:33:21.095Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -1562,7 +1562,7 @@
     "stateProvince": "ON",
     "postcode": "L9Y 2L6",
     "sourceUrl": "https://www.parkinson.ca/care-finder/living-better-with-parkinsons-mindfulness-meditation/",
-    "scrapedAt": "2026-09-17T05:10:12.280Z",
+    "scrapedAt": "2026-09-17T05:33:21.095Z",
     "latitude": 44.50108295912973,
     "longitude": -80.21739161799123
   },
@@ -1604,7 +1604,7 @@
     "stateProvince": "",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dwp-standing-class/",
-    "scrapedAt": "2026-09-17T05:10:12.280Z",
+    "scrapedAt": "2026-09-17T05:33:21.095Z",
     "latitude": 43.8204923,
     "longitude": -79.3984661
   },
@@ -1646,7 +1646,7 @@
     "stateProvince": "",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dwp-broadway/",
-    "scrapedAt": "2026-09-17T05:10:12.280Z",
+    "scrapedAt": "2026-09-17T05:33:21.095Z",
     "latitude": 43.8204923,
     "longitude": -79.3984661
   },
@@ -1687,7 +1687,7 @@
     "stateProvince": "ON",
     "postcode": "M1H 2V8",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dwp-scarborough/",
-    "scrapedAt": "2026-09-17T05:10:12.280Z",
+    "scrapedAt": "2026-09-17T05:33:21.095Z",
     "latitude": 43.77605180630083,
     "longitude": -79.23972967372582
   },
@@ -1728,7 +1728,7 @@
     "stateProvince": "ON",
     "postcode": "M4M 2P1",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dwp-toronto-east/",
-    "scrapedAt": "2026-09-17T05:10:12.280Z",
+    "scrapedAt": "2026-09-17T05:33:21.095Z",
     "latitude": 43.665378911209956,
     "longitude": -79.3448386743213
   },
@@ -1770,7 +1770,7 @@
     "stateProvince": "SK",
     "postcode": "S4V 2P9",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dwp-regina/",
-    "scrapedAt": "2026-09-17T05:10:12.280Z",
+    "scrapedAt": "2026-09-17T05:33:21.095Z",
     "latitude": 50.429665965806926,
     "longitude": -104.53548051644303
   },
@@ -1812,7 +1812,7 @@
     "stateProvince": "ON",
     "postcode": "K9J 0B1",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dwp-peterborough/",
-    "scrapedAt": "2026-09-17T05:10:12.280Z",
+    "scrapedAt": "2026-09-17T05:33:21.095Z",
     "latitude": 44.29317071906681,
     "longitude": -78.36047857370465
   },
@@ -1854,7 +1854,7 @@
     "stateProvince": "ON",
     "postcode": "NK 0C6",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dwp-owen-sound/",
-    "scrapedAt": "2026-09-17T05:10:12.280Z",
+    "scrapedAt": "2026-09-17T05:33:21.095Z",
     "latitude": 44.5698133761715,
     "longitude": -80.93164854356029
   },
@@ -1894,7 +1894,7 @@
     "stateProvince": "ON",
     "postcode": "N4L 1W7",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dwp-meaford/",
-    "scrapedAt": "2026-09-17T05:10:12.280Z",
+    "scrapedAt": "2026-09-17T05:33:21.095Z",
     "latitude": 44.59244935036218,
     "longitude": -80.58217706764275
   },
@@ -1934,7 +1934,7 @@
     "stateProvince": "Ontario",
     "postcode": "K2P 0L2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/hummingbird-speech-therapy/",
-    "scrapedAt": "2026-09-17T05:10:12.280Z"
+    "scrapedAt": "2026-09-17T05:33:21.095Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -1979,7 +1979,7 @@
     "stateProvince": "ON",
     "postcode": "L1V 1B5",
     "sourceUrl": "https://www.parkinson.ca/care-finder/propel-physiotherapy-pickering/",
-    "scrapedAt": "2026-09-17T05:10:12.280Z"
+    "scrapedAt": "2026-09-17T05:33:21.095Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -2018,7 +2018,7 @@
     "stateProvince": "Ontario",
     "postcode": "K9J 7C7",
     "sourceUrl": "https://www.parkinson.ca/care-finder/propel-physiotherapy-peterborough/",
-    "scrapedAt": "2026-09-17T05:10:12.280Z"
+    "scrapedAt": "2026-09-17T05:33:21.095Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -2055,7 +2055,7 @@
     "stateProvince": "ON",
     "postcode": "M4K 1E8",
     "sourceUrl": "https://www.parkinson.ca/care-finder/from-the-ground-up-2/",
-    "scrapedAt": "2026-09-17T05:10:12.280Z",
+    "scrapedAt": "2026-09-17T05:33:21.095Z",
     "latitude": 43.4695484,
     "longitude": -80.4459695
   },
@@ -2095,7 +2095,7 @@
     "stateProvince": "ON",
     "postcode": "L9H 1X4",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dance-for-parkinsons/",
-    "scrapedAt": "2026-09-17T05:10:12.280Z",
+    "scrapedAt": "2026-09-17T05:33:21.095Z",
     "latitude": 43.4695484,
     "longitude": -80.4459695
   },
@@ -2132,7 +2132,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/gta-on-newly-diagnosed-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.281Z",
+    "scrapedAt": "2026-09-17T05:33:21.095Z",
     "latitude": 56.130366,
     "longitude": -106.346771
   },
@@ -2180,7 +2180,7 @@
     "stateProvince": "ON",
     "postcode": "N2J 1P2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/carespace-health-and-wellness-clinics-uptown-waterloo/",
-    "scrapedAt": "2026-09-17T05:10:12.281Z",
+    "scrapedAt": "2026-09-17T05:33:21.095Z",
     "latitude": 43.46381460012182,
     "longitude": -80.52337646024522
   },
@@ -2228,7 +2228,7 @@
     "stateProvince": "ON",
     "postcode": "N2M 5N8",
     "sourceUrl": "https://www.parkinson.ca/care-finder/carespace-health-and-wellness-clinics-fischer-hallman/",
-    "scrapedAt": "2026-09-17T05:10:12.281Z",
+    "scrapedAt": "2026-09-17T05:33:21.095Z",
     "latitude": 43.49532319791067,
     "longitude": -80.54788208723068
   },
@@ -2276,7 +2276,7 @@
     "stateProvince": "ON",
     "postcode": "N2E 2M6",
     "sourceUrl": "https://www.parkinson.ca/care-finder/carespace-health-and-wellness-clinics-westmount-east-kitchener/",
-    "scrapedAt": "2026-09-17T05:10:12.281Z",
+    "scrapedAt": "2026-09-17T05:33:21.095Z",
     "latitude": 43.4695484,
     "longitude": -80.4459695
   },
@@ -2324,7 +2324,7 @@
     "stateProvince": "ON",
     "postcode": "N2L 5C6",
     "sourceUrl": "https://www.parkinson.ca/care-finder/carespace-health-and-wellness-clinics-weber-north-waterloo/",
-    "scrapedAt": "2026-09-17T05:10:12.281Z",
+    "scrapedAt": "2026-09-17T05:33:21.095Z",
     "latitude": 43.4695484,
     "longitude": -80.4459695
   },
@@ -2366,7 +2366,7 @@
     "stateProvince": "ON",
     "postcode": "L3Y 8J4",
     "sourceUrl": "https://www.parkinson.ca/care-finder/walk-it-off-neuro-recovery-and-wellness-centre/",
-    "scrapedAt": "2026-09-17T05:10:12.281Z"
+    "scrapedAt": "2026-09-17T05:33:21.095Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -2404,7 +2404,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/patricia-else-consulting/",
-    "scrapedAt": "2026-09-17T05:10:12.281Z"
+    "scrapedAt": "2026-09-17T05:33:21.095Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -2441,7 +2441,7 @@
     "stateProvince": "Manitoba",
     "postcode": "R3T 1Y6",
     "sourceUrl": "https://www.parkinson.ca/care-finder/just-like-family-home-care-winnipeg/",
-    "scrapedAt": "2026-09-17T05:10:12.281Z"
+    "scrapedAt": "2026-09-17T05:33:21.095Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -2479,7 +2479,7 @@
     "stateProvince": "NS",
     "postcode": "B3K 4N3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/phin-performing-arts-dance-to-move/",
-    "scrapedAt": "2026-09-17T05:10:12.281Z"
+    "scrapedAt": "2026-09-17T05:33:21.095Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -2516,7 +2516,7 @@
     "stateProvince": "British Columbia",
     "postcode": "V9M 1R9",
     "sourceUrl": "https://www.parkinson.ca/care-finder/comox-community-centre/",
-    "scrapedAt": "2026-09-17T05:10:12.281Z"
+    "scrapedAt": "2026-09-17T05:33:21.095Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -2553,7 +2553,7 @@
     "stateProvince": "BC",
     "postcode": "V6Z 1N9",
     "sourceUrl": "https://www.parkinson.ca/care-finder/the-alexander-technique-centre/",
-    "scrapedAt": "2026-09-17T05:10:12.281Z"
+    "scrapedAt": "2026-09-17T05:33:21.095Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -2592,7 +2592,7 @@
     "stateProvince": "ON",
     "postcode": "L4K 1L6",
     "sourceUrl": "https://www.parkinson.ca/care-finder/rock-steady-boxing-york-region/",
-    "scrapedAt": "2026-09-17T05:10:12.282Z",
+    "scrapedAt": "2026-09-17T05:33:21.095Z",
     "latitude": 43.821378850468086,
     "longitude": -79.48957787028219
   },
@@ -2631,7 +2631,7 @@
     "stateProvince": "NS",
     "postcode": "B4A 3Z2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/private-clinic-for-veterans-dr-kathleen-singh/",
-    "scrapedAt": "2026-09-17T05:10:12.282Z"
+    "scrapedAt": "2026-09-17T05:33:21.095Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -2669,7 +2669,7 @@
     "stateProvince": "ON",
     "postcode": " L7N 3N1",
     "sourceUrl": "https://www.parkinson.ca/care-finder/jillian-williamson/",
-    "scrapedAt": "2026-09-17T05:10:12.282Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -2707,7 +2707,7 @@
     "stateProvince": "NS",
     "postcode": "B3M 2C9",
     "sourceUrl": "https://www.parkinson.ca/care-finder/phin-performing-arts/",
-    "scrapedAt": "2026-09-17T05:10:12.282Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -2745,7 +2745,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/hamilton-city-ballet/",
-    "scrapedAt": "2026-09-17T05:10:12.282Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -2782,7 +2782,7 @@
     "stateProvince": "ON",
     "postcode": "L0G1A0",
     "sourceUrl": "https://www.parkinson.ca/care-finder/beeton-von-adult-day-program/",
-    "scrapedAt": "2026-09-17T05:10:12.282Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -2822,7 +2822,7 @@
     "stateProvince": "ON",
     "postcode": "L8P 2B6 ",
     "sourceUrl": "https://www.parkinson.ca/care-finder/gaitway-neurophysio/",
-    "scrapedAt": "2026-09-17T05:10:12.282Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -2859,7 +2859,7 @@
     "stateProvince": "ON",
     "postcode": "L5N5V3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/just-like-family-home-care-peel-region/",
-    "scrapedAt": "2026-09-17T05:10:12.282Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -2897,7 +2897,7 @@
     "stateProvince": "British Columbia ",
     "postcode": "V6J 5B8  ",
     "sourceUrl": "https://www.parkinson.ca/care-finder/rock-steady-boxing-vancouver/",
-    "scrapedAt": "2026-09-17T05:10:12.282Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -2938,7 +2938,7 @@
     "stateProvince": "Ontario",
     "postcode": "L4J 8J2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/get-loud-stay-loud/",
-    "scrapedAt": "2026-09-17T05:10:12.282Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -2976,7 +2976,7 @@
     "stateProvince": "ON",
     "postcode": "M1C3W7",
     "sourceUrl": "https://www.parkinson.ca/care-finder/painting-with-parkinson/",
-    "scrapedAt": "2026-09-17T05:10:12.282Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -3015,7 +3015,7 @@
     "stateProvince": "BC",
     "postcode": "V6C 2E8",
     "sourceUrl": "https://www.parkinson.ca/care-finder/ywca-metro-vancouver/",
-    "scrapedAt": "2026-09-17T05:10:12.282Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -3052,7 +3052,7 @@
     "stateProvince": "ON",
     "postcode": "L8J3W2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/north-star-strong/",
-    "scrapedAt": "2026-09-17T05:10:12.282Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -3092,7 +3092,7 @@
     "stateProvince": "ON",
     "postcode": "L1N 4V6",
     "sourceUrl": "https://www.parkinson.ca/care-finder/neurology-rehab/",
-    "scrapedAt": "2026-09-17T05:10:12.282Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -3127,7 +3127,7 @@
     "stateProvince": "QC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/cours-en-ligne-de-parkinson-quebec/",
-    "scrapedAt": "2026-09-17T05:10:12.282Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -3162,7 +3162,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-society-british-columbia-young-onset-parkinsons-disease-online-support-group-2/",
-    "scrapedAt": "2026-09-17T05:10:12.282Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -3197,7 +3197,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-society-british-columbia-women-living-with-pd-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.282Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -3232,7 +3232,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-society-british-columbia-vernon-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.282Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -3267,7 +3267,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-society-british-columbia-vancouver-downtown-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.282Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -3302,7 +3302,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-society-british-columbia-vancouver-caregivers-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.282Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -3337,7 +3337,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-society-british-columbia-trail-castlegar-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.282Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -3372,7 +3372,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-society-british-columbia-surrey-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.282Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -3407,7 +3407,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-society-british-columbia-sunshine-coast-sechelt-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.283Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -3442,7 +3442,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-society-british-columbia-south-okanagan-parkinson-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.283Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -3477,7 +3477,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-society-british-columbia-south-delta-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.283Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -3512,7 +3512,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-society-british-columbia-solo-pd-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.283Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -3547,7 +3547,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-society-british-columbia-quesnel-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.283Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -3582,7 +3582,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-society-british-columbia-prince-george-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.283Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -3617,7 +3617,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-society-british-columbia-powell-river-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.283Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -3652,7 +3652,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-society-british-columbia-parksville-qualicum-caregivers-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.283Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -3687,7 +3687,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-society-british-columbia-parksville-qualicum-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.283Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -3722,7 +3722,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-society-british-columbia-north-shore-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.284Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -3757,7 +3757,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-society-british-columbia-newly-diagnosed-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.284Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -3792,7 +3792,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-society-british-columbia-new-westminster-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.284Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -3827,7 +3827,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-society-british-columbia-nanaimo-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.284Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -3862,7 +3862,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-society-british-columbia-langley-yopd-young-at-heart-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.284Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -3897,7 +3897,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-society-british-columbia-langley-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.284Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -3932,7 +3932,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-society-british-columbia-kelowna-caregivers-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.284Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -3967,7 +3967,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-society-british-columbia-kelowna-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.284Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -4002,7 +4002,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-society-british-columbia-kamloops-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.284Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -4037,7 +4037,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-society-british-columbia-gabriola-island-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.284Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -4072,7 +4072,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-society-british-columbia-early-to-mid-stage-parkinsons-carepartner-online-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.284Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -4107,7 +4107,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-society-british-columbia-duncan-cowichan-valley-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.284Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -4142,7 +4142,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-society-british-columbia-deep-brain-stimulation-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.285Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -4177,7 +4177,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-society-british-columbia-cranbrook-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.285Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -4212,7 +4212,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-society-british-columbia-comox-valley-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.285Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -4247,7 +4247,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-society-british-columbia-chilliwack-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.285Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -4282,7 +4282,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-society-british-columbia-campbell-river-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.285Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -4317,7 +4317,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-society-british-columbia-burnaby-chinese-speaking-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.285Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -4352,7 +4352,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-society-british-columbia-burnaby-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.285Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -4387,7 +4387,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-society-british-columbia-advanced-parkinsons-carepartner-online-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.285Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -4422,7 +4422,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-society-british-columbia-abbotsford-parkinsons-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.285Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -4457,7 +4457,7 @@
     "stateProvince": "",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-society-british-columbia-100-mile-house-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.285Z"
+    "scrapedAt": "2026-09-17T05:33:21.096Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -4496,7 +4496,7 @@
     "stateProvince": "ON",
     "postcode": "L3Y 8V7",
     "sourceUrl": "https://www.parkinson.ca/care-finder/aging-well-clinic-southlake-regional-health-center/",
-    "scrapedAt": "2026-09-17T05:10:12.285Z",
+    "scrapedAt": "2026-09-17T05:33:21.096Z",
     "latitude": 44.0594812,
     "longitude": -79.4510066
   },
@@ -4535,7 +4535,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/orleans-on-care-partners-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.285Z",
+    "scrapedAt": "2026-09-17T05:33:21.096Z",
     "latitude": 45.4558019,
     "longitude": -75.5047333
   },
@@ -4572,7 +4572,7 @@
     "stateProvince": "ON",
     "postcode": "L3Y 9C1",
     "sourceUrl": "https://www.parkinson.ca/care-finder/newmarket-on-care-partners-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.285Z",
+    "scrapedAt": "2026-09-17T05:33:21.096Z",
     "latitude": 44.043813,
     "longitude": -79.4387425
   },
@@ -4611,7 +4611,7 @@
     "stateProvince": "QC",
     "postcode": "H9A 2K2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/montreal-qc-english-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.286Z",
+    "scrapedAt": "2026-09-17T05:33:21.096Z",
     "latitude": 45.4917927,
     "longitude": -73.8203046
   },
@@ -4650,7 +4650,7 @@
     "stateProvince": "QC",
     "postcode": "H9A 2K2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/montreal-care-partners-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.286Z",
+    "scrapedAt": "2026-09-17T05:33:21.096Z",
     "latitude": 45.4917927,
     "longitude": -73.8203046
   },
@@ -4689,7 +4689,7 @@
     "stateProvince": "QC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/montreal-virtual-care-partners-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.286Z",
+    "scrapedAt": "2026-09-17T05:33:21.096Z",
     "latitude": 45.5018869,
     "longitude": -73.5673919
   },
@@ -4728,7 +4728,7 @@
     "stateProvince": "QC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/montreal-qc-english-support-group-virtual/",
-    "scrapedAt": "2026-09-17T05:10:12.286Z",
+    "scrapedAt": "2026-09-17T05:33:21.096Z",
     "latitude": 45.5018869,
     "longitude": -73.5673919
   },
@@ -4767,7 +4767,7 @@
     "stateProvince": "NB",
     "postcode": "E1B 5R6",
     "sourceUrl": "https://www.parkinson.ca/care-finder/moncton-nb-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.286Z",
+    "scrapedAt": "2026-09-17T05:33:21.096Z",
     "latitude": 46.0510712,
     "longitude": -64.7894301
   },
@@ -4806,7 +4806,7 @@
     "stateProvince": "NB",
     "postcode": "E3A 4E4",
     "sourceUrl": "https://www.parkinson.ca/care-finder/fredericton-nb-care-partners-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.286Z",
+    "scrapedAt": "2026-09-17T05:33:21.096Z",
     "latitude": 45.9631581,
     "longitude": -66.6206728
   },
@@ -4845,7 +4845,7 @@
     "stateProvince": "Ontario",
     "postcode": "M3C 1W3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/just-like-me-mid-town-east-toronto/",
-    "scrapedAt": "2026-09-17T05:10:12.286Z",
+    "scrapedAt": "2026-09-17T05:33:21.096Z",
     "latitude": 43.7278015,
     "longitude": -79.3393776
   },
@@ -4884,7 +4884,7 @@
     "stateProvince": "BC",
     "postcode": "V1M3G1",
     "sourceUrl": "https://www.parkinson.ca/care-finder/in-balance-rehabilitation/",
-    "scrapedAt": "2026-09-17T05:10:12.286Z",
+    "scrapedAt": "2026-09-17T05:33:21.096Z",
     "latitude": 49.1810687,
     "longitude": -122.6611414
   },
@@ -4923,7 +4923,7 @@
     "stateProvince": "Ontario",
     "postcode": "L8S 1E6",
     "sourceUrl": "https://www.parkinson.ca/care-finder/hamilton-music-therapy/",
-    "scrapedAt": "2026-09-17T05:10:12.286Z",
+    "scrapedAt": "2026-09-17T05:33:21.096Z",
     "latitude": 43.2568791,
     "longitude": -79.9295436
   },
@@ -4964,7 +4964,7 @@
     "stateProvince": "Ontario",
     "postcode": "N1S2K9",
     "sourceUrl": "https://www.parkinson.ca/care-finder/helios-physiotherapy-and-rehab/",
-    "scrapedAt": "2026-09-17T05:10:12.286Z",
+    "scrapedAt": "2026-09-17T05:33:21.096Z",
     "latitude": 43.3611254,
     "longitude": -80.3179594
   },
@@ -5003,7 +5003,7 @@
     "stateProvince": "ON",
     "postcode": "L4P 3E9",
     "sourceUrl": "https://www.parkinson.ca/care-finder/georgina-on-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.286Z",
+    "scrapedAt": "2026-09-17T05:33:21.097Z",
     "latitude": 44.2339716,
     "longitude": -79.4310052
   },
@@ -5042,7 +5042,7 @@
     "stateProvince": "Saskatchewan",
     "postcode": "S4P 1Y1",
     "sourceUrl": "https://www.parkinson.ca/care-finder/just-like-family-home-care-regina/",
-    "scrapedAt": "2026-09-17T05:10:12.286Z",
+    "scrapedAt": "2026-09-17T05:33:21.097Z",
     "latitude": 50.4476166,
     "longitude": -104.6062458
   },
@@ -5082,7 +5082,7 @@
     "stateProvince": "ON",
     "postcode": "M5C 1T4",
     "sourceUrl": "https://www.parkinson.ca/care-finder/rebalance-sports-medicine/",
-    "scrapedAt": "2026-09-17T05:10:12.286Z",
+    "scrapedAt": "2026-09-17T05:33:21.097Z",
     "latitude": 43.6501121,
     "longitude": -79.3787607
   },
@@ -5121,7 +5121,7 @@
     "stateProvince": "ON",
     "postcode": "M8X 2X9",
     "sourceUrl": "https://www.parkinson.ca/care-finder/just-like-family-home-care-etobicoke/",
-    "scrapedAt": "2026-09-17T05:10:12.286Z",
+    "scrapedAt": "2026-09-17T05:33:21.097Z",
     "latitude": 43.6454979,
     "longitude": -79.5209412
   },
@@ -5160,7 +5160,7 @@
     "stateProvince": "ON",
     "postcode": "L9W 1H8",
     "sourceUrl": "https://www.parkinson.ca/care-finder/just-like-family-home-care-orangeville/",
-    "scrapedAt": "2026-09-17T05:10:12.286Z",
+    "scrapedAt": "2026-09-17T05:33:21.097Z",
     "latitude": 43.9203128,
     "longitude": -80.0964232
   },
@@ -5199,7 +5199,7 @@
     "stateProvince": "ON",
     "postcode": "L7G 3H7",
     "sourceUrl": "https://www.parkinson.ca/care-finder/just-like-family-home-care-halton-hills/",
-    "scrapedAt": "2026-09-17T05:10:12.286Z",
+    "scrapedAt": "2026-09-17T05:33:21.097Z",
     "latitude": 43.6507069,
     "longitude": -79.9252553
   },
@@ -5238,7 +5238,7 @@
     "stateProvince": "Manitoba",
     "postcode": "R3H 0C5",
     "sourceUrl": "https://www.parkinson.ca/care-finder/flex-fitness-personal-training-inc/",
-    "scrapedAt": "2026-09-17T05:10:12.286Z",
+    "scrapedAt": "2026-09-17T05:33:21.097Z",
     "latitude": 49.8973735,
     "longitude": -97.2041459
   },
@@ -5279,7 +5279,7 @@
     "stateProvince": "Manitoba",
     "postcode": "R3C 4K2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/canadas-royal-winnipeg-ballet/",
-    "scrapedAt": "2026-09-17T05:10:12.286Z",
+    "scrapedAt": "2026-09-17T05:33:21.097Z",
     "latitude": 49.8910516,
     "longitude": -97.1462457
   },
@@ -5319,7 +5319,7 @@
     "stateProvince": "ON",
     "postcode": "K0A1L0",
     "sourceUrl": "https://www.parkinson.ca/care-finder/mind-and-body-wellness-for-you/",
-    "scrapedAt": "2026-09-17T05:10:12.286Z",
+    "scrapedAt": "2026-09-17T05:33:21.097Z",
     "latitude": 45.29967,
     "longitude": -76.06402
   },
@@ -5358,7 +5358,7 @@
     "stateProvince": "ON",
     "postcode": "L2M 4T9",
     "sourceUrl": "https://www.parkinson.ca/care-finder/just-like-family-home-care-niagara/",
-    "scrapedAt": "2026-09-17T05:10:12.286Z",
+    "scrapedAt": "2026-09-17T05:33:21.097Z",
     "latitude": 43.1856172,
     "longitude": -79.2314138
   },
@@ -5397,7 +5397,7 @@
     "stateProvince": "ON",
     "postcode": "L8R 1J5",
     "sourceUrl": "https://www.parkinson.ca/care-finder/just-like-family-home-care-hamilton/",
-    "scrapedAt": "2026-09-17T05:10:12.287Z",
+    "scrapedAt": "2026-09-17T05:33:21.097Z",
     "latitude": 43.2589659,
     "longitude": -79.8631522
   },
@@ -5436,7 +5436,7 @@
     "stateProvince": "ON",
     "postcode": "L7L 5H6",
     "sourceUrl": "https://www.parkinson.ca/care-finder/just-like-family-home-care-burlington/",
-    "scrapedAt": "2026-09-17T05:10:12.287Z",
+    "scrapedAt": "2026-09-17T05:33:21.097Z",
     "latitude": 43.384657,
     "longitude": -79.7700075
   },
@@ -5475,7 +5475,7 @@
     "stateProvince": "ON",
     "postcode": "L6M 2G2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/just-like-family-home-care-oakville/",
-    "scrapedAt": "2026-09-17T05:10:12.287Z",
+    "scrapedAt": "2026-09-17T05:33:21.097Z",
     "latitude": 43.4372437,
     "longitude": -79.7122925
   },
@@ -5514,7 +5514,7 @@
     "stateProvince": "MB",
     "postcode": "R3L2T9",
     "sourceUrl": "https://www.parkinson.ca/care-finder/hello-speechworks/",
-    "scrapedAt": "2026-09-17T05:10:12.287Z",
+    "scrapedAt": "2026-09-17T05:33:21.097Z",
     "latitude": 49.8810253,
     "longitude": -97.1485024
   },
@@ -5554,7 +5554,7 @@
     "stateProvince": "",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/mime-over-mind/",
-    "scrapedAt": "2026-09-17T05:10:12.287Z"
+    "scrapedAt": "2026-09-17T05:33:21.097Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -5592,7 +5592,7 @@
     "stateProvince": "BC",
     "postcode": "B8T 3X7",
     "sourceUrl": "https://www.parkinson.ca/care-finder/just-like-family-home-care/",
-    "scrapedAt": "2026-09-17T05:10:12.287Z",
+    "scrapedAt": "2026-09-17T05:33:21.097Z",
     "latitude": 48.4160253,
     "longitude": -123.3566245
   },
@@ -5631,7 +5631,7 @@
     "stateProvince": "ON",
     "postcode": "M5C1C4",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-sara-pishdadian/",
-    "scrapedAt": "2026-09-17T05:10:12.287Z",
+    "scrapedAt": "2026-09-17T05:33:21.097Z",
     "latitude": 43.65039329133253,
     "longitude": -79.37704672688716
   },
@@ -5670,7 +5670,7 @@
     "stateProvince": "",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/sunhan-anderson/",
-    "scrapedAt": "2026-09-17T05:10:12.287Z",
+    "scrapedAt": "2026-09-17T05:33:21.097Z",
     "latitude": 43.653226,
     "longitude": -79.3831843
   },
@@ -5711,7 +5711,7 @@
     "stateProvince": "ON",
     "postcode": "L4N 6M4",
     "sourceUrl": "https://www.parkinson.ca/care-finder/bergin-motion/",
-    "scrapedAt": "2026-09-17T05:10:12.287Z",
+    "scrapedAt": "2026-09-17T05:33:21.097Z",
     "latitude": 44.3310879,
     "longitude": -79.6779008
   },
@@ -5751,7 +5751,7 @@
     "stateProvince": "Ontario",
     "postcode": "M1P 2T7",
     "sourceUrl": "https://www.parkinson.ca/care-finder/scarborough-neurology-clinic/",
-    "scrapedAt": "2026-09-17T05:10:12.287Z",
+    "scrapedAt": "2026-09-17T05:33:21.097Z",
     "latitude": 43.756124,
     "longitude": -79.2471633
   },
@@ -5790,7 +5790,7 @@
     "stateProvince": "ON",
     "postcode": "N7M 6G9",
     "sourceUrl": "https://www.parkinson.ca/care-finder/von-smart-program-fall-prevention-exercise-class-for-individuals-with-parkinsons-disease/",
-    "scrapedAt": "2026-09-17T05:10:12.287Z",
+    "scrapedAt": "2026-09-17T05:33:21.097Z",
     "latitude": 42.3987527,
     "longitude": -82.2062229
   },
@@ -5829,7 +5829,7 @@
     "stateProvince": "MB",
     "postcode": "R7A 7L8",
     "sourceUrl": "https://www.parkinson.ca/care-finder/brandon-mb-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.287Z",
+    "scrapedAt": "2026-09-17T05:33:21.097Z",
     "latitude": 49.860786,
     "longitude": -99.9562802
   },
@@ -5868,7 +5868,7 @@
     "stateProvince": "AB",
     "postcode": "T5B 3H7",
     "sourceUrl": "https://www.parkinson.ca/care-finder/sit-n-stand/",
-    "scrapedAt": "2026-09-17T05:10:12.287Z",
+    "scrapedAt": "2026-09-17T05:33:21.097Z",
     "latitude": 53.561491,
     "longitude": -113.4729122
   },
@@ -5907,7 +5907,7 @@
     "stateProvince": "AB",
     "postcode": "T5B 3H7",
     "sourceUrl": "https://www.parkinson.ca/care-finder/power-balance-and-reach-exercise-program/",
-    "scrapedAt": "2026-09-17T05:10:12.287Z",
+    "scrapedAt": "2026-09-17T05:33:21.097Z",
     "latitude": 53.561491,
     "longitude": -113.4729122
   },
@@ -5946,7 +5946,7 @@
     "stateProvince": "AB",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/circuit-2/",
-    "scrapedAt": "2026-09-17T05:10:12.287Z",
+    "scrapedAt": "2026-09-17T05:33:21.097Z",
     "latitude": 53.9332706,
     "longitude": -116.5765035
   },
@@ -5985,7 +5985,7 @@
     "stateProvince": "AB",
     "postcode": "T5B 3H7",
     "sourceUrl": "https://www.parkinson.ca/care-finder/circuit/",
-    "scrapedAt": "2026-09-17T05:10:12.287Z",
+    "scrapedAt": "2026-09-17T05:33:21.097Z",
     "latitude": 53.561491,
     "longitude": -113.4729122
   },
@@ -6024,7 +6024,7 @@
     "stateProvince": "Ontario",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-51/",
-    "scrapedAt": "2026-09-17T05:10:12.287Z",
+    "scrapedAt": "2026-09-17T05:33:21.097Z",
     "latitude": 43.2557206,
     "longitude": -79.8711024
   },
@@ -6064,7 +6064,7 @@
     "stateProvince": "AB",
     "postcode": "T5B 0T4",
     "sourceUrl": "https://www.parkinson.ca/care-finder/boxing-edmonton/",
-    "scrapedAt": "2026-09-17T05:10:12.287Z",
+    "scrapedAt": "2026-09-17T05:33:21.097Z",
     "latitude": 53.5706172,
     "longitude": -113.4769485
   },
@@ -6104,7 +6104,7 @@
     "stateProvince": "AB",
     "postcode": "T2H 0T3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/undisputed-boxing/",
-    "scrapedAt": "2026-09-17T05:10:12.287Z",
+    "scrapedAt": "2026-09-17T05:33:21.097Z",
     "latitude": 50.9917235,
     "longitude": -114.0591089
   },
@@ -6143,7 +6143,7 @@
     "stateProvince": "AB",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/booster-fridays/",
-    "scrapedAt": "2026-09-17T05:10:12.287Z",
+    "scrapedAt": "2026-09-17T05:33:21.097Z",
     "latitude": 53.9332706,
     "longitude": -116.5765035
   },
@@ -6182,7 +6182,7 @@
     "stateProvince": "AB",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/11-personal-training/",
-    "scrapedAt": "2026-09-17T05:10:12.287Z",
+    "scrapedAt": "2026-09-17T05:33:21.097Z",
     "latitude": 53.9332706,
     "longitude": -116.5765035
   },
@@ -6221,7 +6221,7 @@
     "stateProvince": "AB",
     "postcode": "T2H 2V6",
     "sourceUrl": "https://www.parkinson.ca/care-finder/11-physiotherapy-2/",
-    "scrapedAt": "2026-09-17T05:10:12.287Z",
+    "scrapedAt": "2026-09-17T05:33:21.097Z",
     "latitude": 50.9915192,
     "longitude": -114.0428001
   },
@@ -6260,7 +6260,7 @@
     "stateProvince": "AB",
     "postcode": "T5B 3H7",
     "sourceUrl": "https://www.parkinson.ca/care-finder/11-physiotherapy/",
-    "scrapedAt": "2026-09-17T05:10:12.287Z",
+    "scrapedAt": "2026-09-17T05:33:21.097Z",
     "latitude": 53.561491,
     "longitude": -113.4729122
   },
@@ -6299,7 +6299,7 @@
     "stateProvince": "AB",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/social-sing-program/",
-    "scrapedAt": "2026-09-17T05:10:12.287Z",
+    "scrapedAt": "2026-09-17T05:33:21.097Z",
     "latitude": 53.9332706,
     "longitude": -116.5765035
   },
@@ -6338,7 +6338,7 @@
     "stateProvince": "AB",
     "postcode": "T2H 2V6",
     "sourceUrl": "https://www.parkinson.ca/care-finder/pd-and-singing/",
-    "scrapedAt": "2026-09-17T05:10:12.287Z",
+    "scrapedAt": "2026-09-17T05:33:21.097Z",
     "latitude": 50.9915192,
     "longitude": -114.0428001
   },
@@ -6377,7 +6377,7 @@
     "stateProvince": "AB",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/pwp-people-with-perseverance-exercise-social-chat-group/",
-    "scrapedAt": "2026-09-17T05:10:12.287Z",
+    "scrapedAt": "2026-09-17T05:33:21.097Z",
     "latitude": 53.9332706,
     "longitude": -116.5765035
   },
@@ -6416,7 +6416,7 @@
     "stateProvince": "AB",
     "postcode": "T3E6M5",
     "sourceUrl": "https://www.parkinson.ca/care-finder/critical-movement-yyc/",
-    "scrapedAt": "2026-09-17T05:10:12.287Z",
+    "scrapedAt": "2026-09-17T05:33:21.097Z",
     "latitude": 50.9956953,
     "longitude": -114.1307665
   },
@@ -6455,7 +6455,7 @@
     "stateProvince": "Ontario",
     "postcode": "L6B1A1",
     "sourceUrl": "https://www.parkinson.ca/care-finder/jr-chai-neurology/",
-    "scrapedAt": "2026-09-17T05:10:12.287Z",
+    "scrapedAt": "2026-09-17T05:33:21.097Z",
     "latitude": 43.884426,
     "longitude": -79.2324815
   },
@@ -6494,7 +6494,7 @@
     "stateProvince": "",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-association-of-alberta-care-partner-101-an-introduction-to-the-pd-and-pd-from-a-care-partner-perspective/",
-    "scrapedAt": "2026-09-17T05:10:12.287Z"
+    "scrapedAt": "2026-09-17T05:33:21.099Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -6533,7 +6533,7 @@
     "stateProvince": "Ontario",
     "postcode": "N2B 1L3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/just-like-family-home-care-kitchener/",
-    "scrapedAt": "2026-09-17T05:10:12.287Z",
+    "scrapedAt": "2026-09-17T05:33:21.099Z",
     "latitude": 43.4564334,
     "longitude": -80.4606815
   },
@@ -6572,7 +6572,7 @@
     "stateProvince": "SK",
     "postcode": "S4P 0J3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/all-ways-of-caring-homecare-servi/",
-    "scrapedAt": "2026-09-17T05:10:12.287Z",
+    "scrapedAt": "2026-09-17T05:33:21.099Z",
     "latitude": 50.446941,
     "longitude": -104.5891967
   },
@@ -6611,7 +6611,7 @@
     "stateProvince": "NB",
     "postcode": "E3B1K7",
     "sourceUrl": "https://www.parkinson.ca/care-finder/holly-grasse-slp/",
-    "scrapedAt": "2026-09-17T05:10:12.292Z",
+    "scrapedAt": "2026-09-17T05:33:21.099Z",
     "latitude": 45.9555669,
     "longitude": -66.6351873
   },
@@ -6651,7 +6651,7 @@
     "stateProvince": "BC",
     "postcode": "V3B 0C3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/nexus-rehab/",
-    "scrapedAt": "2026-09-17T05:10:12.293Z",
+    "scrapedAt": "2026-09-17T05:33:21.099Z",
     "latitude": 49.2827042,
     "longitude": -122.795846
   },
@@ -6691,7 +6691,7 @@
     "stateProvince": "",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/inhometrainer/",
-    "scrapedAt": "2026-09-17T05:10:12.294Z",
+    "scrapedAt": "2026-09-17T05:33:21.099Z",
     "latitude": 56.130366,
     "longitude": -106.346771
   },
@@ -6731,7 +6731,7 @@
     "stateProvince": "ON",
     "postcode": "L0E 1R0",
     "sourceUrl": "https://www.parkinson.ca/care-finder/hospice-georgina/",
-    "scrapedAt": "2026-09-17T05:10:12.294Z",
+    "scrapedAt": "2026-09-17T05:33:21.099Z",
     "latitude": 44.3059623,
     "longitude": -79.3628433
   },
@@ -6770,7 +6770,7 @@
     "stateProvince": "ON",
     "postcode": "M3B 3J5",
     "sourceUrl": "https://www.parkinson.ca/care-finder/staff-relief-healthcare-services-inc/",
-    "scrapedAt": "2026-09-17T05:10:12.294Z",
+    "scrapedAt": "2026-09-17T05:33:21.099Z",
     "latitude": 43.7621721,
     "longitude": -79.3528111
   },
@@ -6810,7 +6810,7 @@
     "stateProvince": "ON",
     "postcode": "K7A 2E7",
     "sourceUrl": "https://www.parkinson.ca/care-finder/boxing-ties/",
-    "scrapedAt": "2026-09-17T05:10:12.294Z",
+    "scrapedAt": "2026-09-17T05:33:21.099Z",
     "latitude": 44.9016657,
     "longitude": -76.0193811
   },
@@ -6851,7 +6851,7 @@
     "stateProvince": "Ontario",
     "postcode": "K1M 1W2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/the-school-of-dance/",
-    "scrapedAt": "2026-09-17T05:10:12.294Z",
+    "scrapedAt": "2026-09-17T05:33:21.099Z",
     "latitude": 45.4400703,
     "longitude": -75.6836241
   },
@@ -6890,7 +6890,7 @@
     "stateProvince": "ON",
     "postcode": "N5X 3H9",
     "sourceUrl": "https://www.parkinson.ca/care-finder/debra-medzon-private-practice-speech-language-pathologist/",
-    "scrapedAt": "2026-09-17T05:10:12.294Z",
+    "scrapedAt": "2026-09-17T05:33:21.100Z",
     "latitude": 43.0214047,
     "longitude": -81.2610034
   },
@@ -6931,7 +6931,7 @@
     "stateProvince": "",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dancing-with-parkinsons-daily-dance-connect/",
-    "scrapedAt": "2026-09-17T05:10:12.294Z"
+    "scrapedAt": "2026-09-17T05:33:21.100Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -6969,7 +6969,7 @@
     "stateProvince": "Ontario",
     "postcode": "L1K 2A8",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dwp-ottawa/",
-    "scrapedAt": "2026-09-17T05:10:12.294Z",
+    "scrapedAt": "2026-09-17T05:33:21.100Z",
     "latitude": 45.4215296,
     "longitude": -75.6971931
   },
@@ -7009,7 +7009,7 @@
     "stateProvince": "PE",
     "postcode": "C1E 0E4",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dwp-prince-edward-island/",
-    "scrapedAt": "2026-09-17T05:10:12.295Z",
+    "scrapedAt": "2026-09-17T05:33:21.100Z",
     "latitude": 46.2380206,
     "longitude": -63.1253338
   },
@@ -7049,7 +7049,7 @@
     "stateProvince": "On",
     "postcode": "M2J 4W8",
     "sourceUrl": "https://www.parkinson.ca/care-finder/fanny-bernstein-living-well-with-parkinsons-education-and-exercise-program-at-north-york-general-hospital/",
-    "scrapedAt": "2026-09-17T05:10:12.295Z",
+    "scrapedAt": "2026-09-17T05:33:21.100Z",
     "latitude": 43.769726,
     "longitude": -79.3319705
   },
@@ -7088,7 +7088,7 @@
     "stateProvince": "ON",
     "postcode": "M2J 48W",
     "sourceUrl": "https://www.parkinson.ca/care-finder/north-york-general-hospital-geriatric-clinic-for-parkinsons/",
-    "scrapedAt": "2026-09-17T05:10:12.295Z",
+    "scrapedAt": "2026-09-17T05:33:21.100Z",
     "latitude": 43.769726,
     "longitude": -79.3319705
   },
@@ -7128,7 +7128,7 @@
     "stateProvince": "ON",
     "postcode": "K1G 4K3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/lifemark-neurologic-physiotherapy-st-laurent/",
-    "scrapedAt": "2026-09-17T05:10:12.295Z",
+    "scrapedAt": "2026-09-17T05:33:21.100Z",
     "latitude": 45.387812,
     "longitude": -75.6157229
   },
@@ -7168,7 +7168,7 @@
     "stateProvince": "ON",
     "postcode": "K2H 8S1",
     "sourceUrl": "https://www.parkinson.ca/care-finder/neurologic-physiotherapy/",
-    "scrapedAt": "2026-09-17T05:10:12.296Z",
+    "scrapedAt": "2026-09-17T05:33:21.100Z",
     "latitude": 45.329338,
     "longitude": -75.815613
   },
@@ -7207,7 +7207,7 @@
     "stateProvince": "",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/nouvelle-ecosse-groupe-de-soutien/",
-    "scrapedAt": "2026-09-17T05:10:12.306Z"
+    "scrapedAt": "2026-09-17T05:33:21.100Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -7245,7 +7245,7 @@
     "stateProvince": "MB",
     "postcode": "R3P 0N5",
     "sourceUrl": "https://www.parkinson.ca/care-finder/tuxedo-physiotherapy/",
-    "scrapedAt": "2026-09-17T05:10:12.306Z",
+    "scrapedAt": "2026-09-17T05:33:21.100Z",
     "latitude": 49.8676757,
     "longitude": -97.212387
   },
@@ -7284,7 +7284,7 @@
     "stateProvince": "ON",
     "postcode": "M4S 3E6",
     "sourceUrl": "https://www.parkinson.ca/care-finder/senior-helpers-toronto/",
-    "scrapedAt": "2026-09-17T05:10:12.306Z",
+    "scrapedAt": "2026-09-17T05:33:21.100Z",
     "latitude": 43.6987974,
     "longitude": -79.3972629
   },
@@ -7325,7 +7325,7 @@
     "stateProvince": "NS",
     "postcode": "B3S 0B9",
     "sourceUrl": "https://www.parkinson.ca/care-finder/zoomers-physiotherapy-health-solutions/",
-    "scrapedAt": "2026-09-17T05:10:12.306Z",
+    "scrapedAt": "2026-09-17T05:33:21.100Z",
     "latitude": 44.6383357,
     "longitude": -63.6706784
   },
@@ -7366,7 +7366,7 @@
     "stateProvince": "MB",
     "postcode": "R2G 1T7",
     "sourceUrl": "https://www.parkinson.ca/care-finder/river-east-physiotherapy-sports-fitness-clinics/",
-    "scrapedAt": "2026-09-17T05:10:12.306Z",
+    "scrapedAt": "2026-09-17T05:33:21.100Z",
     "latitude": 49.9376671,
     "longitude": -97.0802277
   },
@@ -7405,7 +7405,7 @@
     "stateProvince": "ON",
     "postcode": "K2G 7A5",
     "sourceUrl": "https://www.parkinson.ca/care-finder/macbryte/",
-    "scrapedAt": "2026-09-17T05:10:12.306Z",
+    "scrapedAt": "2026-09-17T05:33:21.100Z",
     "latitude": 45.2678628,
     "longitude": -75.7125923
   },
@@ -7446,7 +7446,7 @@
     "stateProvince": "ON",
     "postcode": "M2K 3Z2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/jennifer-hicks-speech-therapy/",
-    "scrapedAt": "2026-09-17T05:10:12.306Z"
+    "scrapedAt": "2026-09-17T05:33:21.100Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -7485,7 +7485,7 @@
     "stateProvince": "Quebec",
     "postcode": "H1N 1H6",
     "sourceUrl": "https://www.parkinson.ca/care-finder/neuromotrix/",
-    "scrapedAt": "2026-09-17T05:10:12.306Z",
+    "scrapedAt": "2026-09-17T05:33:21.100Z",
     "latitude": 45.5751264,
     "longitude": -73.5440245
   },
@@ -7522,7 +7522,7 @@
     "stateProvince": "ON",
     "postcode": "L9Y 0W6",
     "sourceUrl": "https://www.parkinson.ca/care-finder/collingwood-and-south-georgian-bay-care-partners-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.306Z",
+    "scrapedAt": "2026-09-17T05:33:21.100Z",
     "latitude": 44.5017075,
     "longitude": -80.2152799
   },
@@ -7562,7 +7562,7 @@
     "stateProvince": "ON",
     "postcode": "L4E 3M8",
     "sourceUrl": "https://www.parkinson.ca/care-finder/heart-home-home-support-services-inc/",
-    "scrapedAt": "2026-09-17T05:10:12.307Z",
+    "scrapedAt": "2026-09-17T05:33:21.100Z",
     "latitude": 43.9240525,
     "longitude": -79.4153966
   },
@@ -7601,7 +7601,7 @@
     "stateProvince": "NB",
     "postcode": "E2L 4L2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-payam-khomand/",
-    "scrapedAt": "2026-09-17T05:10:12.307Z",
+    "scrapedAt": "2026-09-17T05:33:21.100Z",
     "latitude": 45.302386,
     "longitude": -66.0855669
   },
@@ -7640,7 +7640,7 @@
     "stateProvince": "SK",
     "postcode": "S7N 2W4",
     "sourceUrl": "https://www.parkinson.ca/care-finder/saskatoon-field-house/",
-    "scrapedAt": "2026-09-17T05:10:12.307Z",
+    "scrapedAt": "2026-09-17T05:33:21.100Z",
     "latitude": 52.1274212,
     "longitude": -106.6269774
   },
@@ -7680,7 +7680,7 @@
     "stateProvince": "ON",
     "postcode": "N1P 1A1",
     "sourceUrl": "https://www.parkinson.ca/care-finder/rhythmic-rehab-inc/",
-    "scrapedAt": "2026-09-17T05:10:12.307Z",
+    "scrapedAt": "2026-09-17T05:33:21.100Z",
     "latitude": 43.6729415,
     "longitude": -79.386777
   },
@@ -7719,7 +7719,7 @@
     "stateProvince": "BC",
     "postcode": "V1Y 4P9",
     "sourceUrl": "https://www.parkinson.ca/care-finder/city-of-kelowna-parkinsons-exercise-class/",
-    "scrapedAt": "2026-09-17T05:10:12.307Z",
+    "scrapedAt": "2026-09-17T05:33:21.100Z",
     "latitude": 49.8833095,
     "longitude": -119.4580493
   },
@@ -7760,7 +7760,7 @@
     "stateProvince": "ON",
     "postcode": "L3T 5W4",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dwp-thornhill/",
-    "scrapedAt": "2026-09-17T05:10:12.307Z",
+    "scrapedAt": "2026-09-17T05:33:21.100Z",
     "latitude": 43.8204923,
     "longitude": -79.3984661
   },
@@ -7799,7 +7799,7 @@
     "stateProvince": "BC",
     "postcode": "V6H 4G8",
     "sourceUrl": "https://www.parkinson.ca/care-finder/mycarebase/",
-    "scrapedAt": "2026-09-17T05:10:12.307Z",
+    "scrapedAt": "2026-09-17T05:33:21.100Z",
     "latitude": 49.2613889,
     "longitude": -123.1343809
   },
@@ -7839,7 +7839,7 @@
     "stateProvince": "ON",
     "postcode": "L8J 1P8",
     "sourceUrl": "https://www.parkinson.ca/care-finder/hnhb-spine-and-neuro-rehab/",
-    "scrapedAt": "2026-09-17T05:10:12.307Z",
+    "scrapedAt": "2026-09-17T05:33:21.100Z",
     "latitude": 43.1992414,
     "longitude": -79.7938371
   },
@@ -7876,7 +7876,7 @@
     "stateProvince": "ON",
     "postcode": "K8V 5R6",
     "sourceUrl": "https://www.parkinson.ca/care-finder/quinte-west-and-area-yopd-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.307Z",
+    "scrapedAt": "2026-09-17T05:33:21.100Z",
     "latitude": 44.1028155,
     "longitude": -77.577524
   },
@@ -7915,7 +7915,7 @@
     "stateProvince": "BC",
     "postcode": "V3Z 0Z5",
     "sourceUrl": "https://www.parkinson.ca/care-finder/snapback-rehab/",
-    "scrapedAt": "2026-09-17T05:10:12.307Z",
+    "scrapedAt": "2026-09-17T05:33:21.100Z",
     "latitude": 49.0595632,
     "longitude": -122.7992881
   },
@@ -7957,7 +7957,7 @@
     "stateProvince": "Ontario",
     "postcode": "K2H 8K7",
     "sourceUrl": "https://www.parkinson.ca/care-finder/neurogym-rehabilitation/",
-    "scrapedAt": "2026-09-17T05:10:12.308Z",
+    "scrapedAt": "2026-09-17T05:33:21.100Z",
     "latitude": 45.3466833,
     "longitude": -75.7917565
   },
@@ -7992,7 +7992,7 @@
     "stateProvince": "Alberta",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/concept-neuro-rehab/",
-    "scrapedAt": "2026-09-17T05:10:12.308Z",
+    "scrapedAt": "2026-09-17T05:33:21.100Z",
     "latitude": 51.0982759,
     "longitude": -114.1334143
   },
@@ -8031,7 +8031,7 @@
     "stateProvince": "ON",
     "postcode": "M1N 1N5",
     "sourceUrl": "https://www.parkinson.ca/care-finder/heart-and-mind-therapy/",
-    "scrapedAt": "2026-09-17T05:10:12.308Z",
+    "scrapedAt": "2026-09-17T05:33:21.100Z",
     "latitude": 43.6814185,
     "longitude": -79.28308
   },
@@ -8070,7 +8070,7 @@
     "stateProvince": "Ontario",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/always-best-care-6/",
-    "scrapedAt": "2026-09-17T05:10:12.308Z",
+    "scrapedAt": "2026-09-17T05:33:21.100Z",
     "latitude": 43.2557206,
     "longitude": -79.8711024
   },
@@ -8109,7 +8109,7 @@
     "stateProvince": "Ontario",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/always-best-care-5/",
-    "scrapedAt": "2026-09-17T05:10:12.308Z",
+    "scrapedAt": "2026-09-17T05:33:21.100Z",
     "latitude": 43.5182991,
     "longitude": -79.8774042
   },
@@ -8148,7 +8148,7 @@
     "stateProvince": "Ontario",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/always-best-care-4/",
-    "scrapedAt": "2026-09-17T05:10:12.308Z",
+    "scrapedAt": "2026-09-17T05:33:21.100Z",
     "latitude": 43.3255196,
     "longitude": -79.7990319
   },
@@ -8187,7 +8187,7 @@
     "stateProvince": "Ontario",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/always-best-care-3/",
-    "scrapedAt": "2026-09-17T05:10:12.309Z",
+    "scrapedAt": "2026-09-17T05:33:21.100Z",
     "latitude": 43.5890452,
     "longitude": -79.6441198
   },
@@ -8226,7 +8226,7 @@
     "stateProvince": "Ontario",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/always-best-care-2/",
-    "scrapedAt": "2026-09-17T05:10:12.309Z",
+    "scrapedAt": "2026-09-17T05:33:21.100Z",
     "latitude": 43.5890452,
     "longitude": -79.6441198
   },
@@ -8265,7 +8265,7 @@
     "stateProvince": "Ontario",
     "postcode": "M4S 1E7",
     "sourceUrl": "https://www.parkinson.ca/care-finder/ada-extended-home-care/",
-    "scrapedAt": "2026-09-17T05:10:12.309Z",
+    "scrapedAt": "2026-09-17T05:33:21.100Z",
     "latitude": 43.7018288,
     "longitude": -79.3756246
   },
@@ -8304,7 +8304,7 @@
     "stateProvince": "ON",
     "postcode": "N5X 1H2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/truly-therapeutic-recreation-inc/",
-    "scrapedAt": "2026-09-17T05:10:12.309Z",
+    "scrapedAt": "2026-09-17T05:33:21.100Z",
     "latitude": 43.0332224,
     "longitude": -81.2576694
   },
@@ -8343,7 +8343,7 @@
     "stateProvince": "ON",
     "postcode": "M5B 1W8",
     "sourceUrl": "https://www.parkinson.ca/care-finder/st-michaels-hospital-voice-and-swallowing-clinic/",
-    "scrapedAt": "2026-09-17T05:10:12.309Z",
+    "scrapedAt": "2026-09-17T05:33:21.100Z",
     "latitude": 43.6539547,
     "longitude": -79.3775241
   },
@@ -8381,7 +8381,7 @@
     "stateProvince": "New Brunswick",
     "postcode": "E1B 5R6",
     "sourceUrl": "https://www.parkinson.ca/care-finder/just-fit-fitness-centre/",
-    "scrapedAt": "2026-09-17T05:10:12.309Z",
+    "scrapedAt": "2026-09-17T05:33:21.100Z",
     "latitude": 46.0517464,
     "longitude": -64.7899686
   },
@@ -8421,7 +8421,7 @@
     "stateProvince": "SK",
     "postcode": "S4S 2R3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/agar-exercise-therapy-massage/",
-    "scrapedAt": "2026-09-17T05:10:12.309Z",
+    "scrapedAt": "2026-09-17T05:33:21.100Z",
     "latitude": 50.4099983,
     "longitude": -104.6204597
   },
@@ -8461,7 +8461,7 @@
     "stateProvince": "ON",
     "postcode": "K2J 2T2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/ottawa-voice-swallowing-clinic/",
-    "scrapedAt": "2026-09-17T05:10:12.309Z",
+    "scrapedAt": "2026-09-17T05:33:21.100Z",
     "latitude": 45.2858441,
     "longitude": -75.7573122
   },
@@ -8500,7 +8500,7 @@
     "stateProvince": "Alberta",
     "postcode": "T2M 0H6",
     "sourceUrl": "https://www.parkinson.ca/care-finder/longevity-care/",
-    "scrapedAt": "2026-09-17T05:10:12.309Z",
+    "scrapedAt": "2026-09-17T05:33:21.100Z",
     "latitude": 51.0672657,
     "longitude": -114.0684132
   },
@@ -8539,7 +8539,7 @@
     "stateProvince": "Ontario",
     "postcode": "N3T 5L5",
     "sourceUrl": "https://www.parkinson.ca/care-finder/living-well-with-elisabeth-2/",
-    "scrapedAt": "2026-09-17T05:10:12.309Z",
+    "scrapedAt": "2026-09-17T05:33:21.100Z",
     "latitude": 43.0519572,
     "longitude": -80.3152609
   },
@@ -8578,7 +8578,7 @@
     "stateProvince": "Ontario",
     "postcode": "L6K 3V3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/always-best-care/",
-    "scrapedAt": "2026-09-17T05:10:12.309Z",
+    "scrapedAt": "2026-09-17T05:33:21.100Z",
     "latitude": 43.4435112,
     "longitude": -79.696776
   },
@@ -8617,7 +8617,7 @@
     "stateProvince": "Nova Scotia",
     "postcode": "B3H 1Y6",
     "sourceUrl": "https://www.parkinson.ca/care-finder/home-instead/",
-    "scrapedAt": "2026-09-17T05:10:12.309Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 44.6410772,
     "longitude": -63.5867547
   },
@@ -8656,7 +8656,7 @@
     "stateProvince": "Ontario",
     "postcode": "N1G5E4",
     "sourceUrl": "https://www.parkinson.ca/care-finder/andrews-in-home-physiotherapy/",
-    "scrapedAt": "2026-09-17T05:10:12.309Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 43.5002524,
     "longitude": -80.1955268
   },
@@ -8694,7 +8694,7 @@
     "stateProvince": "Ontario",
     "postcode": "K1V 1A3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/nurse-on-board/",
-    "scrapedAt": "2026-09-17T05:10:12.309Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 45.3714004,
     "longitude": -75.6640156
   },
@@ -8735,7 +8735,7 @@
     "stateProvince": "Nova Scotia",
     "postcode": "B2W 0H3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/atlantic-balance-and-dizziness-centre/",
-    "scrapedAt": "2026-09-17T05:10:12.309Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 44.6681583,
     "longitude": -63.5309349
   },
@@ -8774,7 +8774,7 @@
     "stateProvince": "NB",
     "postcode": "E4S 4K2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/bouctouche-southeast-nb-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.309Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 46.4926013,
     "longitude": -64.7257777
   },
@@ -8813,7 +8813,7 @@
     "stateProvince": "",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dbs-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.309Z"
+    "scrapedAt": "2026-09-17T05:33:21.101Z"
   },
   {
     "sourceSystem": "parkinson-canada",
@@ -8848,7 +8848,7 @@
     "stateProvince": "NS",
     "postcode": "B2Y 2X7",
     "sourceUrl": "https://www.parkinson.ca/care-finder/halifax-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.309Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 44.6715033,
     "longitude": -63.5608863
   },
@@ -8887,7 +8887,7 @@
     "stateProvince": "NS",
     "postcode": "B1S 1E4",
     "sourceUrl": "https://www.parkinson.ca/care-finder/cape-breton-east-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.309Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 46.1036338,
     "longitude": -60.2273947
   },
@@ -8926,7 +8926,7 @@
     "stateProvince": "NS",
     "postcode": "B4N 3G3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/annapolis-valley-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.309Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 45.0748054,
     "longitude": -64.4326038
   },
@@ -8966,7 +8966,7 @@
     "stateProvince": "NB",
     "postcode": "E1B 5R6",
     "sourceUrl": "https://www.parkinson.ca/care-finder/boxing-4-health-4/",
-    "scrapedAt": "2026-09-17T05:10:12.310Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 46.0612537,
     "longitude": -64.8052183
   },
@@ -9005,7 +9005,7 @@
     "stateProvince": "BC",
     "postcode": "V2R 3E4",
     "sourceUrl": "https://www.parkinson.ca/care-finder/vitality-collective/",
-    "scrapedAt": "2026-09-17T05:10:12.310Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 49.1355732,
     "longitude": -121.9629605
   },
@@ -9044,7 +9044,7 @@
     "stateProvince": "British Columbia",
     "postcode": "V3Z 0Z5",
     "sourceUrl": "https://www.parkinson.ca/care-finder/hope-in-connection/",
-    "scrapedAt": "2026-09-17T05:10:12.310Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 49.1913466,
     "longitude": -122.8490125
   },
@@ -9083,7 +9083,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/2308/",
-    "scrapedAt": "2026-09-17T05:10:12.310Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 49.3193375,
     "longitude": -124.3136412
   },
@@ -9122,7 +9122,7 @@
     "stateProvince": "BC",
     "postcode": "V6B 2W9",
     "sourceUrl": "https://www.parkinson.ca/care-finder/integrated-neuro-inc/",
-    "scrapedAt": "2026-09-17T05:10:12.310Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 49.2768143,
     "longitude": -123.1205898
   },
@@ -9161,7 +9161,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/boundless-heart/",
-    "scrapedAt": "2026-09-17T05:10:12.310Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 49.2827291,
     "longitude": -123.1207375
   },
@@ -9200,7 +9200,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/2302/",
-    "scrapedAt": "2026-09-17T05:10:12.310Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 49.2827291,
     "longitude": -123.1207375
   },
@@ -9239,7 +9239,7 @@
     "stateProvince": "NS",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-50/",
-    "scrapedAt": "2026-09-17T05:10:12.310Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 44.3769777,
     "longitude": -64.3110901
   },
@@ -9278,7 +9278,7 @@
     "stateProvince": "NS",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-49/",
-    "scrapedAt": "2026-09-17T05:10:12.310Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 44.8857087,
     "longitude": -63.1005273
   },
@@ -9317,7 +9317,7 @@
     "stateProvince": "NS",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-48/",
-    "scrapedAt": "2026-09-17T05:10:12.310Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 44.6660885,
     "longitude": -63.5675632
   },
@@ -9356,7 +9356,7 @@
     "stateProvince": "NS",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-47/",
-    "scrapedAt": "2026-09-17T05:10:12.310Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 44.3795966,
     "longitude": -64.5213299
   },
@@ -9395,7 +9395,7 @@
     "stateProvince": "NB",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-46/",
-    "scrapedAt": "2026-09-17T05:10:12.310Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 45.9635895,
     "longitude": -66.6431151
   },
@@ -9434,7 +9434,7 @@
     "stateProvince": "MB",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-45/",
-    "scrapedAt": "2026-09-17T05:10:12.310Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 49.8954221,
     "longitude": -97.1385145
   },
@@ -9473,7 +9473,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-44/",
-    "scrapedAt": "2026-09-17T05:10:12.310Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 48.4284207,
     "longitude": -123.3656444
   },
@@ -9512,7 +9512,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-43/",
-    "scrapedAt": "2026-09-17T05:10:12.310Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 49.2827291,
     "longitude": -123.1207375
   },
@@ -9551,7 +9551,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-42/",
-    "scrapedAt": "2026-09-17T05:10:12.310Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 49.3764104,
     "longitude": -121.8159307
   },
@@ -9590,7 +9590,7 @@
     "stateProvince": "AB",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-41/",
-    "scrapedAt": "2026-09-17T05:10:12.310Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 53.5460983,
     "longitude": -113.4937266
   },
@@ -9629,7 +9629,7 @@
     "stateProvince": "AB",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-40/",
-    "scrapedAt": "2026-09-17T05:10:12.310Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 51.0447331,
     "longitude": -114.0718831
   },
@@ -9668,7 +9668,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-39/",
-    "scrapedAt": "2026-09-17T05:10:12.310Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 43.8563158,
     "longitude": -79.5085383
   },
@@ -9707,7 +9707,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-38/",
-    "scrapedAt": "2026-09-17T05:10:12.310Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 42.3149367,
     "longitude": -83.0363633
   },
@@ -9746,7 +9746,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-37/",
-    "scrapedAt": "2026-09-17T05:10:12.310Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 43.1314966,
     "longitude": -80.7471651
   },
@@ -9786,7 +9786,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-36/",
-    "scrapedAt": "2026-09-17T05:10:12.310Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 43.653226,
     "longitude": -79.3831843
   },
@@ -9825,7 +9825,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-35/",
-    "scrapedAt": "2026-09-17T05:10:12.310Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 43.1593745,
     "longitude": -79.2468626
   },
@@ -9864,7 +9864,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-34/",
-    "scrapedAt": "2026-09-17T05:10:12.310Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 46.4917317,
     "longitude": -80.993029
   },
@@ -9903,7 +9903,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-33/",
-    "scrapedAt": "2026-09-17T05:10:12.310Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 43.3700007,
     "longitude": -80.9822286
   },
@@ -9942,7 +9942,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-scarborough/",
-    "scrapedAt": "2026-09-17T05:10:12.310Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 43.7764258,
     "longitude": -79.2317521
   },
@@ -9981,7 +9981,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-31/",
-    "scrapedAt": "2026-09-17T05:10:12.311Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 42.974536,
     "longitude": -82.4065901
   },
@@ -10020,7 +10020,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-30/",
-    "scrapedAt": "2026-09-17T05:10:12.311Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 43.8828401,
     "longitude": -79.4402808
   },
@@ -10059,7 +10059,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-29/",
-    "scrapedAt": "2026-09-17T05:10:12.311Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 44.3047061,
     "longitude": -78.3199606
   },
@@ -10098,7 +10098,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-28/",
-    "scrapedAt": "2026-09-17T05:10:12.311Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 45.4215296,
     "longitude": -75.6971931
   },
@@ -10137,7 +10137,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-27/",
-    "scrapedAt": "2026-09-17T05:10:12.311Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 43.467517,
     "longitude": -79.6876659
   },
@@ -10176,7 +10176,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-26/",
-    "scrapedAt": "2026-09-17T05:10:12.311Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 44.059187,
     "longitude": -79.461256
   },
@@ -10215,7 +10215,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-25/",
-    "scrapedAt": "2026-09-17T05:10:12.311Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 45.3349046,
     "longitude": -75.7241006
   },
@@ -10254,7 +10254,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-24/",
-    "scrapedAt": "2026-09-17T05:10:12.311Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 43.5890452,
     "longitude": -79.6441198
   },
@@ -10293,7 +10293,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-23/",
-    "scrapedAt": "2026-09-17T05:10:12.311Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 43.5890452,
     "longitude": -79.6441198
   },
@@ -10332,7 +10332,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-22/",
-    "scrapedAt": "2026-09-17T05:10:12.311Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 43.5182991,
     "longitude": -79.8774042
   },
@@ -10371,7 +10371,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-markham/",
-    "scrapedAt": "2026-09-17T05:10:12.311Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 43.8561002,
     "longitude": -79.3370188
   },
@@ -10410,7 +10410,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-20/",
-    "scrapedAt": "2026-09-17T05:10:12.311Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 42.9849233,
     "longitude": -81.2452768
   },
@@ -10449,7 +10449,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-19/",
-    "scrapedAt": "2026-09-17T05:10:12.311Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 43.4534718,
     "longitude": -80.5001242
   },
@@ -10488,7 +10488,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-18/",
-    "scrapedAt": "2026-09-17T05:10:12.311Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 44.231345,
     "longitude": -76.4809694
   },
@@ -10527,7 +10527,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-17/",
-    "scrapedAt": "2026-09-17T05:10:12.311Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 45.3088185,
     "longitude": -75.8986835
   },
@@ -10566,7 +10566,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-16/",
-    "scrapedAt": "2026-09-17T05:10:12.311Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 43.2557206,
     "longitude": -79.8711024
   },
@@ -10605,7 +10605,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-15/",
-    "scrapedAt": "2026-09-17T05:10:12.312Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 42.9478943,
     "longitude": -79.8690857
   },
@@ -10644,7 +10644,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-14/",
-    "scrapedAt": "2026-09-17T05:10:12.312Z",
+    "scrapedAt": "2026-09-17T05:33:21.101Z",
     "latitude": 43.5448048,
     "longitude": -80.2481666
   },
@@ -10683,7 +10683,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-13/",
-    "scrapedAt": "2026-09-17T05:10:12.312Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 43.6204946,
     "longitude": -79.5131983
   },
@@ -10722,7 +10722,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-12/",
-    "scrapedAt": "2026-09-17T05:10:12.312Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 44.5895244,
     "longitude": -75.6842858
   },
@@ -10761,7 +10761,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-11/",
-    "scrapedAt": "2026-09-17T05:10:12.312Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 45.0212762,
     "longitude": -74.730345
   },
@@ -10800,7 +10800,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-10/",
-    "scrapedAt": "2026-09-17T05:10:12.312Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 44.5007687,
     "longitude": -80.2169047
   },
@@ -10839,7 +10839,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-9/",
-    "scrapedAt": "2026-09-17T05:10:12.312Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 42.4078419,
     "longitude": -82.1910374
   },
@@ -10878,7 +10878,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-8/",
-    "scrapedAt": "2026-09-17T05:10:12.312Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 43.3616211,
     "longitude": -80.3144276
   },
@@ -10917,7 +10917,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-7/",
-    "scrapedAt": "2026-09-17T05:10:12.312Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 43.8701204,
     "longitude": -79.8670882
   },
@@ -10956,7 +10956,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-6/",
-    "scrapedAt": "2026-09-17T05:10:12.312Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 43.3255196,
     "longitude": -79.7990319
   },
@@ -10995,7 +10995,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-5/",
-    "scrapedAt": "2026-09-17T05:10:12.312Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 43.7315479,
     "longitude": -79.7624177
   },
@@ -11034,7 +11034,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-4/",
-    "scrapedAt": "2026-09-17T05:10:12.312Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 43.1393867,
     "longitude": -80.2644254
   },
@@ -11073,7 +11073,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-3/",
-    "scrapedAt": "2026-09-17T05:10:12.312Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 44.3893556,
     "longitude": -79.6903316
   },
@@ -11112,7 +11112,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance-2/",
-    "scrapedAt": "2026-09-17T05:10:12.312Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 44.00648,
     "longitude": -79.450396
   },
@@ -11151,7 +11151,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/right-at-home-in-home-care-assistance/",
-    "scrapedAt": "2026-09-17T05:10:12.312Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 43.8508553,
     "longitude": -79.0203732
   },
@@ -11191,7 +11191,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/nicole-shuckett/",
-    "scrapedAt": "2026-09-17T05:10:12.312Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 43.653226,
     "longitude": -79.3831843
   },
@@ -11230,7 +11230,7 @@
     "stateProvince": "ON",
     "postcode": "M5S 2R4",
     "sourceUrl": "https://www.parkinson.ca/care-finder/prc-nutrition-and-cooking/",
-    "scrapedAt": "2026-09-17T05:10:12.312Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 43.6632532,
     "longitude": -79.4107795
   },
@@ -11269,7 +11269,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/home-care-assistance/",
-    "scrapedAt": "2026-09-17T05:10:12.312Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 43.6204946,
     "longitude": -79.5131983
   },
@@ -11309,7 +11309,7 @@
     "stateProvince": "QC",
     "postcode": "G6W 0M5",
     "sourceUrl": "https://www.parkinson.ca/care-finder/clinique-neuro-levis/",
-    "scrapedAt": "2026-09-17T05:10:12.312Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 46.730135,
     "longitude": -71.2709289
   },
@@ -11349,7 +11349,7 @@
     "stateProvince": "QC",
     "postcode": "J1J 3H5",
     "sourceUrl": "https://www.parkinson.ca/care-finder/centre-universitaire-de-sante-de-lestrie/",
-    "scrapedAt": "2026-09-17T05:10:12.312Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 45.4044545,
     "longitude": -71.9138376
   },
@@ -11389,7 +11389,7 @@
     "stateProvince": "QC",
     "postcode": "H3T 1E2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/jewish-general-hospital/",
-    "scrapedAt": "2026-09-17T05:10:12.312Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 45.4976084,
     "longitude": -73.6292768
   },
@@ -11429,7 +11429,7 @@
     "stateProvince": "QC",
     "postcode": "H2L 4M1",
     "sourceUrl": "https://www.parkinson.ca/care-finder/hopital-notre-dame-c-h-u-m/",
-    "scrapedAt": "2026-09-17T05:10:12.312Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 45.5256557,
     "longitude": -73.5639928
   },
@@ -11469,7 +11469,7 @@
     "stateProvince": "QC",
     "postcode": "H3G 1A4",
     "sourceUrl": "https://www.parkinson.ca/care-finder/montreal-general-hospital-mcgill-university-movement-disorder-clinic/",
-    "scrapedAt": "2026-09-17T05:10:12.312Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 45.4971818,
     "longitude": -73.589366
   },
@@ -11509,7 +11509,7 @@
     "stateProvince": "QC",
     "postcode": "J4V 2J2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/neuro-rive-sud-private-clinic/",
-    "scrapedAt": "2026-09-17T05:10:12.312Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 45.4808565,
     "longitude": -73.4666522
   },
@@ -11548,7 +11548,7 @@
     "stateProvince": "NS",
     "postcode": "B3S 1N2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/private-clinic-nova-neurology/",
-    "scrapedAt": "2026-09-17T05:10:12.312Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 44.6551883,
     "longitude": -63.6694656
   },
@@ -11587,7 +11587,7 @@
     "stateProvince": "NS",
     "postcode": "B3H 2Y9",
     "sourceUrl": "https://www.parkinson.ca/care-finder/queen-elizabeth-ii-health-science-centre/",
-    "scrapedAt": "2026-09-17T05:10:12.312Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 44.6379261,
     "longitude": -63.5804617
   },
@@ -11626,7 +11626,7 @@
     "stateProvince": "NB",
     "postcode": "E2L 4L2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/saint-john-regional-hospital/",
-    "scrapedAt": "2026-09-17T05:10:12.312Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 45.2878008,
     "longitude": -66.0478147
   },
@@ -11665,7 +11665,7 @@
     "stateProvince": "NL",
     "postcode": "A1N 3J5",
     "sourceUrl": "https://www.parkinson.ca/care-finder/general-hospital-the-health-science-centre-department-of-neurology/",
-    "scrapedAt": "2026-09-17T05:10:12.312Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 47.524272,
     "longitude": -52.7792141
   },
@@ -11704,7 +11704,7 @@
     "stateProvince": "AB",
     "postcode": "T3M 1M4",
     "sourceUrl": "https://www.parkinson.ca/care-finder/south-health-campus-movement-disorders-program-outpatient-clinic/",
-    "scrapedAt": "2026-09-17T05:10:12.312Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 50.8825193,
     "longitude": -113.9520761
   },
@@ -11743,7 +11743,7 @@
     "stateProvince": "AB",
     "postcode": "T2N 1N4",
     "sourceUrl": "https://www.parkinson.ca/care-finder/university-of-calgary-movement-disorders-clinic/",
-    "scrapedAt": "2026-09-17T05:10:12.313Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 51.0749085,
     "longitude": -114.1287025
   },
@@ -11782,7 +11782,7 @@
     "stateProvince": "AB",
     "postcode": "T6G 1Z1",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-and-movement-disorders-program-kaye-edmonton-clinic/",
-    "scrapedAt": "2026-09-17T05:10:12.313Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 53.5190085,
     "longitude": -113.5284389
   },
@@ -11821,7 +11821,7 @@
     "stateProvince": "BC",
     "postcode": "V9S 2B7",
     "sourceUrl": "https://www.parkinson.ca/care-finder/nanaimo-regional-hospital/",
-    "scrapedAt": "2026-09-17T05:10:12.313Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 49.1845595,
     "longitude": -123.9704562
   },
@@ -11860,7 +11860,7 @@
     "stateProvince": "BC",
     "postcode": "V8R 1J8",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinsons-and-movement-disorders-clinic-royal-jubilee-hospital/",
-    "scrapedAt": "2026-09-17T05:10:12.313Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 48.4314591,
     "longitude": -123.3274789
   },
@@ -11899,7 +11899,7 @@
     "stateProvince": "BC",
     "postcode": "V5T 1Z3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/vch-movement-disorders-clinic/",
-    "scrapedAt": "2026-09-17T05:10:12.313Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 49.2621409,
     "longitude": -123.1021771
   },
@@ -11938,7 +11938,7 @@
     "stateProvince": "BC",
     "postcode": "V3T 0G9",
     "sourceUrl": "https://www.parkinson.ca/care-finder/surrey-movement-disorder-clinic-jim-pattison-outpatient-care-surgery-centre/",
-    "scrapedAt": "2026-09-17T05:10:12.313Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 49.180662,
     "longitude": -122.8342709
   },
@@ -11978,7 +11978,7 @@
     "stateProvince": "BC",
     "postcode": "V1Y 1T2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/humphreys-family-movement-disorder-clinic/",
-    "scrapedAt": "2026-09-17T05:10:12.313Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 49.8741244,
     "longitude": -119.4910928
   },
@@ -12017,7 +12017,7 @@
     "stateProvince": "SK",
     "postcode": "S7N 0W8",
     "sourceUrl": "https://www.parkinson.ca/care-finder/saskatchewan-movement-disorder-clinic-royal-university-hospital/",
-    "scrapedAt": "2026-09-17T05:10:12.313Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 52.1293572,
     "longitude": -106.6455187
   },
@@ -12056,7 +12056,7 @@
     "stateProvince": "MB",
     "postcode": "R3J 2H7",
     "sourceUrl": "https://www.parkinson.ca/care-finder/movement-disorder-clinic-deer-lodge-centre/",
-    "scrapedAt": "2026-09-17T05:10:12.313Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 49.8775182,
     "longitude": -97.2346854
   },
@@ -12095,7 +12095,7 @@
     "stateProvince": "MB",
     "postcode": "R2H 2A5",
     "sourceUrl": "https://www.parkinson.ca/care-finder/clinique-st-boniface-clinic/",
-    "scrapedAt": "2026-09-17T05:10:12.313Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 49.8830923,
     "longitude": -97.1241508
   },
@@ -12134,7 +12134,7 @@
     "stateProvince": "ON",
     "postcode": "M5B 1W8",
     "sourceUrl": "https://www.parkinson.ca/care-finder/st-michaels/",
-    "scrapedAt": "2026-09-17T05:10:12.313Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 43.6538007,
     "longitude": -79.3778814
   },
@@ -12173,7 +12173,7 @@
     "stateProvince": "ON",
     "postcode": "M6A 2E1",
     "sourceUrl": "https://www.parkinson.ca/care-finder/baycrest-movement-disorder-clinic/",
-    "scrapedAt": "2026-09-17T05:10:12.313Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 43.7299878,
     "longitude": -79.433643
   },
@@ -12212,7 +12212,7 @@
     "stateProvince": "ON",
     "postcode": "M3B 3J5",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-ragini-srinivasan/",
-    "scrapedAt": "2026-09-17T05:10:12.313Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 43.76303438626851,
     "longitude": -79.3528291728496
   },
@@ -12251,7 +12251,7 @@
     "stateProvince": "ON",
     "postcode": "M5T 2S8",
     "sourceUrl": "https://www.parkinson.ca/care-finder/morton-and-gloria-shulman-centre-for-movement-disorders/",
-    "scrapedAt": "2026-09-17T05:10:12.313Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 43.6534023,
     "longitude": -79.4053266
   },
@@ -12290,7 +12290,7 @@
     "stateProvince": "ON",
     "postcode": "K1R 7K1",
     "sourceUrl": "https://www.parkinson.ca/care-finder/private-clinic-booth-neurology/",
-    "scrapedAt": "2026-09-17T05:10:12.313Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 45.4079289,
     "longitude": -75.7092137
   },
@@ -12329,7 +12329,7 @@
     "stateProvince": "ON",
     "postcode": "K1Y 4E9",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-clinic-ottawa-hospital-civic-campus/",
-    "scrapedAt": "2026-09-17T05:10:12.313Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 45.3927054,
     "longitude": -75.7216453
   },
@@ -12368,7 +12368,7 @@
     "stateProvince": "ON",
     "postcode": "L5M 2N1",
     "sourceUrl": "https://www.parkinson.ca/care-finder/credit-valley-hospital-trillium-health-partners/",
-    "scrapedAt": "2026-09-17T05:10:12.313Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 43.5596019,
     "longitude": -79.7024745
   },
@@ -12407,7 +12407,7 @@
     "stateProvince": "ON",
     "postcode": "N6A 5A5",
     "sourceUrl": "https://www.parkinson.ca/care-finder/london-health-sciences-centre-movement-disorders-program/",
-    "scrapedAt": "2026-09-17T05:10:12.313Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 42.9873445,
     "longitude": -81.2508077
   },
@@ -12446,7 +12446,7 @@
     "stateProvince": "ON",
     "postcode": "K7L 2V7",
     "sourceUrl": "https://www.parkinson.ca/care-finder/movement-disorder-clinic-kingston-general-hospital/",
-    "scrapedAt": "2026-09-17T05:10:12.313Z",
+    "scrapedAt": "2026-09-17T05:33:21.102Z",
     "latitude": 44.2242069,
     "longitude": -76.4925303
   },
@@ -12485,7 +12485,7 @@
     "stateProvince": "ON",
     "postcode": "L8N 3Z5",
     "sourceUrl": "https://www.parkinson.ca/care-finder/hamilton-health-sciences/",
-    "scrapedAt": "2026-09-17T05:10:12.313Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 43.2573546,
     "longitude": -79.892506
   },
@@ -12524,7 +12524,7 @@
     "stateProvince": "ON",
     "postcode": "N1S 1M3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/private-movement-disorder-clinic/",
-    "scrapedAt": "2026-09-17T05:10:12.313Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 43.3569369,
     "longitude": -80.3183511
   },
@@ -12563,7 +12563,7 @@
     "stateProvince": "NS",
     "postcode": "B3H 2E1",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-alison-dixon/",
-    "scrapedAt": "2026-09-17T05:10:12.313Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 44.6441503,
     "longitude": -63.5872742
   },
@@ -12600,7 +12600,7 @@
     "stateProvince": "",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/womens-young-onset-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.313Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 56.130366,
     "longitude": -106.346771
   },
@@ -12639,7 +12639,7 @@
     "stateProvince": "",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/yopd-1-national-early-onset-group/",
-    "scrapedAt": "2026-09-17T05:10:12.313Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 56.130366,
     "longitude": -106.346771
   },
@@ -12678,7 +12678,7 @@
     "stateProvince": "",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/newly-diagnosed-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.313Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 56.130366,
     "longitude": -106.346771
   },
@@ -12717,7 +12717,7 @@
     "stateProvince": "",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/living-solo-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.313Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 56.130366,
     "longitude": -106.346771
   },
@@ -12756,7 +12756,7 @@
     "stateProvince": "",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/mid-stages-care-partners-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.313Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 56.130366,
     "longitude": -106.346771
   },
@@ -12795,7 +12795,7 @@
     "stateProvince": "",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/advances-stages-care-partners-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.313Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 56.130366,
     "longitude": -106.346771
   },
@@ -12834,7 +12834,7 @@
     "stateProvince": "",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/early-stages-care-partners-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.313Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 56.130366,
     "longitude": -106.346771
   },
@@ -12873,7 +12873,7 @@
     "stateProvince": "",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/adult-children-care-partners-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.313Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 56.130366,
     "longitude": -106.346771
   },
@@ -12912,7 +12912,7 @@
     "stateProvince": "",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/atypical-care-partners-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.313Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 56.130366,
     "longitude": -106.346771
   },
@@ -12951,7 +12951,7 @@
     "stateProvince": "",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/mandarin-group-national/",
-    "scrapedAt": "2026-09-17T05:10:12.313Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 56.130366,
     "longitude": -106.346771
   },
@@ -12990,7 +12990,7 @@
     "stateProvince": "",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/francophone-group-national/",
-    "scrapedAt": "2026-09-17T05:10:12.313Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 56.130366,
     "longitude": -106.346771
   },
@@ -13029,7 +13029,7 @@
     "stateProvince": "ON",
     "postcode": "L6K 1J5",
     "sourceUrl": "https://www.parkinson.ca/care-finder/oakville-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.314Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 43.4395076,
     "longitude": -79.6773109
   },
@@ -13066,7 +13066,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/mississauga-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.314Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 51.253775,
     "longitude": -85.3232139
   },
@@ -13105,7 +13105,7 @@
     "stateProvince": "ON",
     "postcode": "L8P 2B6",
     "sourceUrl": "https://www.parkinson.ca/care-finder/hamilton-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.314Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 43.2572636,
     "longitude": -79.8965299
   },
@@ -13144,7 +13144,7 @@
     "stateProvince": "ON",
     "postcode": "L7J 2L8",
     "sourceUrl": "https://www.parkinson.ca/care-finder/halton-hills-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.314Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 43.6339088,
     "longitude": -80.041322
   },
@@ -13183,7 +13183,7 @@
     "stateProvince": "ON",
     "postcode": "M9C 3S9",
     "sourceUrl": "https://www.parkinson.ca/care-finder/etobicoke-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.314Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 43.6520912,
     "longitude": -79.5752694
   },
@@ -13222,7 +13222,7 @@
     "stateProvince": "ON",
     "postcode": "L7L 5Z6",
     "sourceUrl": "https://www.parkinson.ca/care-finder/burlington-care-partner-group/",
-    "scrapedAt": "2026-09-17T05:10:12.314Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 43.368226,
     "longitude": -79.7555841
   },
@@ -13261,7 +13261,7 @@
     "stateProvince": "ON",
     "postcode": "L6V 2N2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/brampton-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.314Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 43.7090756,
     "longitude": -79.7523423
   },
@@ -13300,7 +13300,7 @@
     "stateProvince": "ON",
     "postcode": "M5S 1X7",
     "sourceUrl": "https://www.parkinson.ca/care-finder/newly-diganosed-toronto-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.314Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 43.653226,
     "longitude": -79.3831843
   },
@@ -13339,7 +13339,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/toronto-north-york-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.314Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 43.653226,
     "longitude": -79.3831843
   },
@@ -13376,7 +13376,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/toronto-central-leaside-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.314Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 43.653226,
     "longitude": -79.3831843
   },
@@ -13415,7 +13415,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/north-york-thornhill-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.314Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 43.8142552,
     "longitude": -79.424025
   },
@@ -13454,7 +13454,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/downtown-toronto-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.314Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 43.653226,
     "longitude": -79.3831843
   },
@@ -13493,7 +13493,7 @@
     "stateProvince": "ON",
     "postcode": "P7A 3S6",
     "sourceUrl": "https://www.parkinson.ca/care-finder/thunder-bay-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.314Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 48.4496577,
     "longitude": -89.236746
   },
@@ -13533,7 +13533,7 @@
     "stateProvince": "ON",
     "postcode": "P3B 1M4",
     "sourceUrl": "https://www.parkinson.ca/care-finder/sudbury-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.314Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 46.4915781,
     "longitude": -80.9807815
   },
@@ -13572,7 +13572,7 @@
     "stateProvince": "ON",
     "postcode": "K7A 5K9",
     "sourceUrl": "https://www.parkinson.ca/care-finder/smith-falls-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.314Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 44.9075872,
     "longitude": -76.0297579
   },
@@ -13611,7 +13611,7 @@
     "stateProvince": "ON",
     "postcode": "K7V 1N2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/renfrew-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.314Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 45.4706932,
     "longitude": -76.6805518
   },
@@ -13650,7 +13650,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/pembroke-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.314Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 51.253775,
     "longitude": -85.3232139
   },
@@ -13689,7 +13689,7 @@
     "stateProvince": "ON",
     "postcode": "K2A 1C2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/ottawa-west-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.314Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 45.3748026,
     "longitude": -75.761634
   },
@@ -13728,7 +13728,7 @@
     "stateProvince": "ON",
     "postcode": "K2G 3R8",
     "sourceUrl": "https://www.parkinson.ca/care-finder/ottawa-south-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.314Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 45.3105759,
     "longitude": -75.7592243
   },
@@ -13767,7 +13767,7 @@
     "stateProvince": "ON",
     "postcode": "K2G 3R8",
     "sourceUrl": "https://www.parkinson.ca/care-finder/ottawa-care-partners/",
-    "scrapedAt": "2026-09-17T05:10:12.314Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 45.3105759,
     "longitude": -75.7592243
   },
@@ -13806,7 +13806,7 @@
     "stateProvince": "ON",
     "postcode": "K1C",
     "sourceUrl": "https://www.parkinson.ca/care-finder/orleans-english-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.314Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 45.4270854,
     "longitude": -75.5455483
   },
@@ -13845,7 +13845,7 @@
     "stateProvince": "ON",
     "postcode": "K4A 3T9",
     "sourceUrl": "https://www.parkinson.ca/care-finder/orleans-french-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.315Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 45.4480262,
     "longitude": -75.4984652
   },
@@ -13884,7 +13884,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/orleans-north-care-partners/",
-    "scrapedAt": "2026-09-17T05:10:12.315Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 45.4215296,
     "longitude": -75.6971931
   },
@@ -13923,7 +13923,7 @@
     "stateProvince": "ON",
     "postcode": "K0E 1K0",
     "sourceUrl": "https://www.parkinson.ca/care-finder/iroquois-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.315Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 44.8486971,
     "longitude": -75.3161985
   },
@@ -13962,7 +13962,7 @@
     "stateProvince": "ON",
     "postcode": "K6H 7M8",
     "sourceUrl": "https://www.parkinson.ca/care-finder/cornwall-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.315Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 45.0258245,
     "longitude": -74.7146686
   },
@@ -14001,7 +14001,7 @@
     "stateProvince": "ON",
     "postcode": "K0A 1A0",
     "sourceUrl": "https://www.parkinson.ca/care-finder/almonte-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.315Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 45.2255655,
     "longitude": -76.1940598
   },
@@ -14040,7 +14040,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/eastern-ontario-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.315Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 51.253775,
     "longitude": -85.3232139
   },
@@ -14079,7 +14079,7 @@
     "stateProvince": "ON",
     "postcode": "L9Z 2K5",
     "sourceUrl": "https://www.parkinson.ca/care-finder/wasaga-beach-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.315Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 44.5196183,
     "longitude": -80.0182092
   },
@@ -14118,7 +14118,7 @@
     "stateProvince": "ON",
     "postcode": "L4H 3G7",
     "sourceUrl": "https://www.parkinson.ca/care-finder/vaughan-woodbridge-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.315Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 43.8219842,
     "longitude": -79.6045863
   },
@@ -14157,7 +14157,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/richmond-hill-markham-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.315Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 43.8257439,
     "longitude": -79.4027954
   },
@@ -14197,7 +14197,7 @@
     "stateProvince": "ON",
     "postcode": "K91 0B1",
     "sourceUrl": "https://www.parkinson.ca/care-finder/peterborough-kwartha-lakes-care-partners-group/",
-    "scrapedAt": "2026-09-17T05:10:12.315Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 44.3047061,
     "longitude": -78.3199606
   },
@@ -14236,7 +14236,7 @@
     "stateProvince": "ON",
     "postcode": "K9J 0B1",
     "sourceUrl": "https://www.parkinson.ca/care-finder/peterborough-kawartha-lakes-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.315Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 44.2925547,
     "longitude": -78.3611116
   },
@@ -14276,7 +14276,7 @@
     "stateProvince": "ON",
     "postcode": "L3V 6X5",
     "sourceUrl": "https://www.parkinson.ca/care-finder/orillia-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.315Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 44.6100605,
     "longitude": -79.4375285
   },
@@ -14315,7 +14315,7 @@
     "stateProvince": "ON",
     "postcode": "K9A 5P4",
     "sourceUrl": "https://www.parkinson.ca/care-finder/northumberland-chapter-cobourg-port-hope/",
-    "scrapedAt": "2026-09-17T05:10:12.315Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 43.9587148,
     "longitude": -78.1751469
   },
@@ -14355,7 +14355,7 @@
     "stateProvince": "ON",
     "postcode": "L3Y 1V9",
     "sourceUrl": "https://www.parkinson.ca/care-finder/newmarket-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.315Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 44.0537861,
     "longitude": -79.458962
   },
@@ -14394,7 +14394,7 @@
     "stateProvince": "ON",
     "postcode": "K7M 8A6",
     "sourceUrl": "https://www.parkinson.ca/care-finder/kingston-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.315Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 44.2278205,
     "longitude": -76.5238787
   },
@@ -14433,7 +14433,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/durham-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.315Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 51.253775,
     "longitude": -85.3232139
   },
@@ -14473,7 +14473,7 @@
     "stateProvince": "ON",
     "postcode": "L9Y 0W6",
     "sourceUrl": "https://www.parkinson.ca/care-finder/collingwood-south-georgian-bay-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.315Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 44.5017075,
     "longitude": -80.2152799
   },
@@ -14512,7 +14512,7 @@
     "stateProvince": "ON",
     "postcode": "K0K 1H0",
     "sourceUrl": "https://www.parkinson.ca/care-finder/brighton-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.315Z",
+    "scrapedAt": "2026-09-17T05:33:21.103Z",
     "latitude": 44.0616872,
     "longitude": -77.7680952
   },
@@ -14551,7 +14551,7 @@
     "stateProvince": "ON",
     "postcode": "K8N 4V8",
     "sourceUrl": "https://www.parkinson.ca/care-finder/belleville-quinte/",
-    "scrapedAt": "2026-09-17T05:10:12.315Z",
+    "scrapedAt": "2026-09-17T05:33:21.104Z",
     "latitude": 44.1882556,
     "longitude": -77.381967
   },
@@ -14588,7 +14588,7 @@
     "stateProvince": "ON",
     "postcode": "L4N 9A6",
     "sourceUrl": "https://www.parkinson.ca/care-finder/barrie-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.315Z",
+    "scrapedAt": "2026-09-17T05:33:21.104Z",
     "latitude": 44.3287365,
     "longitude": -79.677574
   },
@@ -14628,7 +14628,7 @@
     "stateProvince": "ON",
     "postcode": "L9R 1G7",
     "sourceUrl": "https://www.parkinson.ca/care-finder/alliston-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.315Z",
+    "scrapedAt": "2026-09-17T05:33:21.104Z",
     "latitude": 44.1541015,
     "longitude": -79.8643335
   },
@@ -14667,7 +14667,7 @@
     "stateProvince": "MB",
     "postcode": "R5G 2E6",
     "sourceUrl": "https://www.parkinson.ca/care-finder/steinbach-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.315Z",
+    "scrapedAt": "2026-09-17T05:33:21.104Z",
     "latitude": 49.5123406,
     "longitude": -96.6892053
   },
@@ -14706,7 +14706,7 @@
     "stateProvince": "MB",
     "postcode": "R0L 1P0",
     "sourceUrl": "https://www.parkinson.ca/care-finder/roblin-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.315Z",
+    "scrapedAt": "2026-09-17T05:33:21.104Z",
     "latitude": 51.2281843,
     "longitude": -101.3523249
   },
@@ -14745,7 +14745,7 @@
     "stateProvince": "MB",
     "postcode": "R6W 1H8",
     "sourceUrl": "https://www.parkinson.ca/care-finder/pembina-valley-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.315Z",
+    "scrapedAt": "2026-09-17T05:33:21.104Z",
     "latitude": 49.1818839,
     "longitude": -97.9409407
   },
@@ -14782,7 +14782,7 @@
     "stateProvince": "MB",
     "postcode": "R3M 3C3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/winipeg-care-partners/",
-    "scrapedAt": "2026-09-17T05:10:12.315Z",
+    "scrapedAt": "2026-09-17T05:33:21.104Z",
     "latitude": 49.8679589,
     "longitude": -97.1699444
   },
@@ -14819,7 +14819,7 @@
     "stateProvince": "MB",
     "postcode": "R2V 1P3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/river-ridge-retirement-residence/",
-    "scrapedAt": "2026-09-17T05:10:12.315Z",
+    "scrapedAt": "2026-09-17T05:33:21.104Z",
     "latitude": 49.9523077,
     "longitude": -97.089897
   },
@@ -14856,7 +14856,7 @@
     "stateProvince": "MB",
     "postcode": "R3N 2B9",
     "sourceUrl": "https://www.parkinson.ca/care-finder/winnipeg-west-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.315Z",
+    "scrapedAt": "2026-09-17T05:33:21.104Z",
     "latitude": 49.8671611,
     "longitude": -97.1983211
   },
@@ -14893,7 +14893,7 @@
     "stateProvince": "MB",
     "postcode": "R2G 0Z8",
     "sourceUrl": "https://www.parkinson.ca/care-finder/movers-shakers-winnipeg/",
-    "scrapedAt": "2026-09-17T05:10:12.315Z",
+    "scrapedAt": "2026-09-17T05:33:21.104Z",
     "latitude": 49.9525392,
     "longitude": -97.0729546
   },
@@ -14932,7 +14932,7 @@
     "stateProvince": "MB",
     "postcode": "R0C",
     "sourceUrl": "https://www.parkinson.ca/care-finder/interlake-eastern-region-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.315Z",
+    "scrapedAt": "2026-09-17T05:33:21.104Z",
     "latitude": 50.7725397,
     "longitude": -97.4818872
   },
@@ -14969,7 +14969,7 @@
     "stateProvince": "MB, ON, SK",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/mb-n-on-sk-zoom-group/",
-    "scrapedAt": "2026-09-17T05:10:12.315Z",
+    "scrapedAt": "2026-09-17T05:33:21.104Z",
     "latitude": 52.157902,
     "longitude": -106.6701577
   },
@@ -15008,7 +15008,7 @@
     "stateProvince": "PEI",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/prince-edward-island-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.315Z",
+    "scrapedAt": "2026-09-17T05:33:21.104Z",
     "latitude": 46.3188025,
     "longitude": -63.146101
   },
@@ -15045,7 +15045,7 @@
     "stateProvince": "NS",
     "postcode": "B2Y 2X7",
     "sourceUrl": "https://www.parkinson.ca/care-finder/general-support-group-17/",
-    "scrapedAt": "2026-09-17T05:10:12.315Z",
+    "scrapedAt": "2026-09-17T05:33:21.104Z",
     "latitude": 44.6715033,
     "longitude": -63.5608863
   },
@@ -15082,7 +15082,7 @@
     "stateProvince": "NS",
     "postcode": "B1S 1E4",
     "sourceUrl": "https://www.parkinson.ca/care-finder/general-support-group-16/",
-    "scrapedAt": "2026-09-17T05:10:12.315Z",
+    "scrapedAt": "2026-09-17T05:33:21.104Z",
     "latitude": 46.1036338,
     "longitude": -60.2273947
   },
@@ -15121,7 +15121,7 @@
     "stateProvince": "NS",
     "postcode": "B0R 1G0",
     "sourceUrl": "https://www.parkinson.ca/care-finder/bridgewater-nova-scotia-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.315Z",
+    "scrapedAt": "2026-09-17T05:33:21.104Z",
     "latitude": 44.3795966,
     "longitude": -64.5213299
   },
@@ -15158,7 +15158,7 @@
     "stateProvince": "NS",
     "postcode": "B4N 3G3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/general-support-group-14/",
-    "scrapedAt": "2026-09-17T05:10:12.315Z",
+    "scrapedAt": "2026-09-17T05:33:21.104Z",
     "latitude": 45.0748054,
     "longitude": -64.4326038
   },
@@ -15197,7 +15197,7 @@
     "stateProvince": "NS",
     "postcode": "B4H 3G5",
     "sourceUrl": "https://www.parkinson.ca/care-finder/amherst-nova-scotia-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.315Z",
+    "scrapedAt": "2026-09-17T05:33:21.104Z",
     "latitude": 45.8330029,
     "longitude": -64.2145827
   },
@@ -15236,7 +15236,7 @@
     "stateProvince": "NB",
     "postcode": "E2N 1C8",
     "sourceUrl": "https://www.parkinson.ca/care-finder/saint-john-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.315Z",
+    "scrapedAt": "2026-09-17T05:33:21.104Z",
     "latitude": 45.3344264,
     "longitude": -65.8842244
   },
@@ -15273,7 +15273,7 @@
     "stateProvince": "NB",
     "postcode": "E1B 5R6",
     "sourceUrl": "https://www.parkinson.ca/care-finder/support-group-moncton-riverview/",
-    "scrapedAt": "2026-09-17T05:10:12.315Z",
+    "scrapedAt": "2026-09-17T05:33:21.104Z",
     "latitude": 46.0510712,
     "longitude": -64.7894301
   },
@@ -15312,7 +15312,7 @@
     "stateProvince": "NB",
     "postcode": "E3A 4E4",
     "sourceUrl": "https://www.parkinson.ca/care-finder/fredericton-nb-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.315Z",
+    "scrapedAt": "2026-09-17T05:33:21.104Z",
     "latitude": 45.9631581,
     "longitude": -66.6206728
   },
@@ -15349,7 +15349,7 @@
     "stateProvince": "NB",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/care-partner-support-group-4/",
-    "scrapedAt": "2026-09-17T05:10:12.315Z",
+    "scrapedAt": "2026-09-17T05:33:21.104Z",
     "latitude": 45.9635895,
     "longitude": -66.6431151
   },
@@ -15388,7 +15388,7 @@
     "stateProvince": "NB, NS, PEI",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/maritimes-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.315Z",
+    "scrapedAt": "2026-09-17T05:33:21.104Z",
     "latitude": 46.383333,
     "longitude": -63.116667
   },
@@ -15425,7 +15425,7 @@
     "stateProvince": "QC",
     "postcode": "H9A 2K2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/general-support-group-9/",
-    "scrapedAt": "2026-09-17T05:10:12.315Z",
+    "scrapedAt": "2026-09-17T05:33:21.104Z",
     "latitude": 45.4917927,
     "longitude": -73.8203046
   },
@@ -15462,7 +15462,7 @@
     "stateProvince": "QC",
     "postcode": "H9A 2K2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/care-partner-support-group-3/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.104Z",
     "latitude": 45.4917927,
     "longitude": -73.8203046
   },
@@ -15501,7 +15501,7 @@
     "stateProvince": "QC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/hudson-qc-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.104Z",
     "latitude": 52.9399159,
     "longitude": -73.5491361
   },
@@ -15538,7 +15538,7 @@
     "stateProvince": "QC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/french-general-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.104Z",
     "latitude": 52.9399159,
     "longitude": -73.5491361
   },
@@ -15575,7 +15575,7 @@
     "stateProvince": "QC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/care-partner-support-group-2/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.104Z",
     "latitude": 52.9399159,
     "longitude": -73.5491361
   },
@@ -15614,7 +15614,7 @@
     "stateProvince": "SK",
     "postcode": "S9H 5M6",
     "sourceUrl": "https://www.parkinson.ca/care-finder/swift-current-sk-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.104Z",
     "latitude": 50.2653206,
     "longitude": -107.8023922
   },
@@ -15654,7 +15654,7 @@
     "stateProvince": "SK",
     "postcode": "S4V 2P9",
     "sourceUrl": "https://www.parkinson.ca/care-finder/regina-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.104Z",
     "latitude": 50.4297415,
     "longitude": -104.5359263
   },
@@ -15693,7 +15693,7 @@
     "stateProvince": "SK",
     "postcode": "S6J 1L3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/moose-jaw-sk-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.104Z",
     "latitude": 50.4095121,
     "longitude": -105.535563
   },
@@ -15730,7 +15730,7 @@
     "stateProvince": "SK",
     "postcode": "S0E 1A0",
     "sourceUrl": "https://www.parkinson.ca/care-finder/general-support-group-4/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.104Z",
     "latitude": 52.8608387,
     "longitude": -104.6142973
   },
@@ -15769,7 +15769,7 @@
     "stateProvince": "SK",
     "postcode": "S7H 2E7",
     "sourceUrl": "https://www.parkinson.ca/care-finder/saskatoon-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.104Z",
     "latitude": 52.1233659,
     "longitude": -106.5973928
   },
@@ -15806,7 +15806,7 @@
     "stateProvince": "Sk",
     "postcode": "S0M 0E0",
     "sourceUrl": "https://www.parkinson.ca/care-finder/general-support-group-2/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.104Z",
     "latitude": 52.7362682,
     "longitude": -108.3052431
   },
@@ -15843,7 +15843,7 @@
     "stateProvince": "SK",
     "postcode": "S0L 1S2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/kindersley-sk-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.104Z",
     "latitude": 51.4709822,
     "longitude": -109.1645955
   },
@@ -15880,7 +15880,7 @@
     "stateProvince": "SK",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/care-partner-support-group/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.104Z",
     "latitude": 52.9399159,
     "longitude": -106.4508639
   },
@@ -15919,7 +15919,7 @@
     "stateProvince": "ON",
     "postcode": "M4S 1Y2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-marek-gawel/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.104Z",
     "latitude": 43.6969333,
     "longitude": -79.3960911
   },
@@ -15958,7 +15958,7 @@
     "stateProvince": "ON",
     "postcode": "P1L 1R1",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-melanie-rose-marie-ursell/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.104Z",
     "latitude": 45.0165304,
     "longitude": -79.3216558
   },
@@ -15997,7 +15997,7 @@
     "stateProvince": "ON",
     "postcode": "L1V 1B5",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-ronald-harold-wilson/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.104Z",
     "latitude": 43.8297892,
     "longitude": -79.0962782
   },
@@ -16036,7 +16036,7 @@
     "stateProvince": "ON",
     "postcode": "N2M 5N6",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-miljan-tripic/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.104Z",
     "latitude": 43.4503169,
     "longitude": -80.5155397
   },
@@ -16075,7 +16075,7 @@
     "stateProvince": "ON",
     "postcode": "L1H 1B9",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-karen-elaine-rollins/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.105Z",
     "latitude": 43.8980964,
     "longitude": -78.8590546
   },
@@ -16114,7 +16114,7 @@
     "stateProvince": "ON",
     "postcode": "L6A 3Z2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-hossein-khaksar/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.105Z",
     "latitude": 43.8531806,
     "longitude": -79.5164315
   },
@@ -16153,7 +16153,7 @@
     "stateProvince": "ON",
     "postcode": "M6M 3Z5",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-jeremy-samuel-spevick/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.105Z",
     "latitude": 43.698592,
     "longitude": -79.4751345
   },
@@ -16192,7 +16192,7 @@
     "stateProvince": "ON",
     "postcode": "M9V 4E4",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-harneey-singh/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.105Z",
     "latitude": 43.7311969,
     "longitude": -79.6005492
   },
@@ -16231,7 +16231,7 @@
     "stateProvince": "ON",
     "postcode": "N7T 6S3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/blue-water-health/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.105Z",
     "latitude": 42.9766159,
     "longitude": -82.3902726
   },
@@ -16270,7 +16270,7 @@
     "stateProvince": "ON",
     "postcode": "L1G 4T3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-pragma-laboni-roy/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.105Z",
     "latitude": 43.9043452,
     "longitude": -78.8663964
   },
@@ -16309,7 +16309,7 @@
     "stateProvince": "ON",
     "postcode": "N5X 3W2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-george-peter-arthur-rice/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.105Z",
     "latitude": 43.018592,
     "longitude": -81.257734
   },
@@ -16348,7 +16348,7 @@
     "stateProvince": "ON",
     "postcode": "M2J 2Z1",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-joyce-tang/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.105Z",
     "latitude": 43.7783209,
     "longitude": -79.3476118
   },
@@ -16387,7 +16387,7 @@
     "stateProvince": "ON",
     "postcode": "L6V 1C2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-russell-joseph-rasquinha-2/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.105Z",
     "latitude": 43.7000588,
     "longitude": -79.7452451
   },
@@ -16426,7 +16426,7 @@
     "stateProvince": "ON",
     "postcode": "M2M 4J5",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-laura-jean-schiffer/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.105Z",
     "latitude": 43.7898324,
     "longitude": -79.3934962
   },
@@ -16465,7 +16465,7 @@
     "stateProvince": "ON",
     "postcode": "L8N 3Z5",
     "sourceUrl": "https://www.parkinson.ca/care-finder/mcmaster-university/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.105Z",
     "latitude": 43.2573546,
     "longitude": -79.892506
   },
@@ -16504,7 +16504,7 @@
     "stateProvince": "ON",
     "postcode": "L4C 4Z3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-ping-fu/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.105Z",
     "latitude": 43.8700911,
     "longitude": -79.4503473
   },
@@ -16543,7 +16543,7 @@
     "stateProvince": "ON",
     "postcode": "L4C 4Z3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/tia-stroke-neurology-3/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.105Z",
     "latitude": 43.8700911,
     "longitude": -79.4503473
   },
@@ -16582,7 +16582,7 @@
     "stateProvince": "ON",
     "postcode": "L4C 4Z3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/tia-stroke-neurology-2/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.105Z",
     "latitude": 43.8700911,
     "longitude": -79.4503473
   },
@@ -16621,7 +16621,7 @@
     "stateProvince": "ON",
     "postcode": "L4C 4Z3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/tia-stroke-neurology/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.105Z",
     "latitude": 43.8700911,
     "longitude": -79.4503473
   },
@@ -16660,7 +16660,7 @@
     "stateProvince": "ON",
     "postcode": "L8H 0A9",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-maria-eliza-thomaz-de-freitas/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.105Z",
     "latitude": 43.2528662,
     "longitude": -79.7904475
   },
@@ -16699,7 +16699,7 @@
     "stateProvince": "ON",
     "postcode": "M3N 2V6",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-alec-mark-bryer/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.105Z",
     "latitude": 43.753598,
     "longitude": -79.5269724
   },
@@ -16738,7 +16738,7 @@
     "stateProvince": "ON",
     "postcode": "L8H 0A9",
     "sourceUrl": "https://www.parkinson.ca/care-finder/st-josephs-healthcare-hamilton-west/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.105Z",
     "latitude": 43.2528662,
     "longitude": -79.7904475
   },
@@ -16777,7 +16777,7 @@
     "stateProvince": "ON",
     "postcode": "N2T 0C2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-elnas-mazidi/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.105Z",
     "latitude": 43.4542343,
     "longitude": -80.5716199
   },
@@ -16816,7 +16816,7 @@
     "stateProvince": "ON",
     "postcode": "L6A 3Y8",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-lisa-ann-markson/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.105Z",
     "latitude": 43.8570908,
     "longitude": -79.5123905
   },
@@ -16855,7 +16855,7 @@
     "stateProvince": "ON",
     "postcode": "M2J 1V1",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-moises-simoes-maria/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.105Z",
     "latitude": 43.7715243,
     "longitude": -79.3618679
   },
@@ -16894,7 +16894,7 @@
     "stateProvince": "ON",
     "postcode": "P3E 6C3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-cizy-mathew/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.105Z",
     "latitude": 46.4514486,
     "longitude": -81.0048199
   },
@@ -16933,7 +16933,7 @@
     "stateProvince": "ON",
     "postcode": "N6K 3T6",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-michelle-heather-maloney/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.105Z",
     "latitude": 42.9398035,
     "longitude": -81.2845729
   },
@@ -16972,7 +16972,7 @@
     "stateProvince": "ON",
     "postcode": "L8N 1T8",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-raymond-ching-tat-lo/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.105Z",
     "latitude": 43.2512995,
     "longitude": -79.8707212
   },
@@ -17011,7 +17011,7 @@
     "stateProvince": "ON",
     "postcode": "M3H 3S3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-maurice-david-levitan/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.105Z",
     "latitude": 43.7569441,
     "longitude": -79.439358
   },
@@ -17050,7 +17050,7 @@
     "stateProvince": "ON",
     "postcode": "L0R 2H6",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-tara-lynne-lad/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.105Z",
     "latitude": 43.3344046,
     "longitude": -79.9019094
   },
@@ -17089,7 +17089,7 @@
     "stateProvince": "ON",
     "postcode": "L5R 3V2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-nagib-yahya-ramadan-yahmad/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.105Z",
     "latitude": 43.593105,
     "longitude": -79.667226
   },
@@ -17128,7 +17128,7 @@
     "stateProvince": "ON",
     "postcode": "M4K",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-sharmi-tangia-shafi/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.105Z",
     "latitude": 43.6795571,
     "longitude": -79.352188
   },
@@ -17167,7 +17167,7 @@
     "stateProvince": "ON",
     "postcode": "L5B 2P7",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-yael-perez/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.105Z",
     "latitude": 43.5721974,
     "longitude": -79.6107294
   },
@@ -17206,7 +17206,7 @@
     "stateProvince": "ON",
     "postcode": "L5B 2P7",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-verity-jayne-john/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.105Z",
     "latitude": 43.5721974,
     "longitude": -79.6107294
   },
@@ -17245,7 +17245,7 @@
     "stateProvince": "ON",
     "postcode": "M2K 2W2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/neurocare-2/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.105Z",
     "latitude": 43.7713297,
     "longitude": -79.3684672
   },
@@ -17284,7 +17284,7 @@
     "stateProvince": "ON",
     "postcode": "M2K 2W2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-dragos-alexandru-nita/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.105Z",
     "latitude": 43.7713297,
     "longitude": -79.3684672
   },
@@ -17323,7 +17323,7 @@
     "stateProvince": "ON",
     "postcode": "M2K 2W2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/neurocare/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.105Z",
     "latitude": 43.7713297,
     "longitude": -79.3684672
   },
@@ -17362,7 +17362,7 @@
     "stateProvince": "ON",
     "postcode": "P7B 7C7",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-ayman-emam-hassanien-hassan/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.105Z",
     "latitude": 48.4223409,
     "longitude": -89.266093
   },
@@ -17401,7 +17401,7 @@
     "stateProvince": "ON",
     "postcode": "P3E 6C3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-salil-kumar-gupta/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.105Z",
     "latitude": 46.4514768,
     "longitude": -81.0048267
   },
@@ -17440,7 +17440,7 @@
     "stateProvince": "ON",
     "postcode": "K2G 6E2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-roberto-giaccone/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.105Z",
     "latitude": 45.3490158,
     "longitude": -75.7673137
   },
@@ -17479,7 +17479,7 @@
     "stateProvince": "ON",
     "postcode": "M9R 2R5",
     "sourceUrl": "https://www.parkinson.ca/care-finder/rpo-richview/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.105Z",
     "latitude": 43.679563,
     "longitude": -79.5466456
   },
@@ -17518,7 +17518,7 @@
     "stateProvince": "ON",
     "postcode": "K2G 6E2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-michelle-dominique-laneuville/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.105Z",
     "latitude": 45.3490158,
     "longitude": -75.7673137
   },
@@ -17557,7 +17557,7 @@
     "stateProvince": "ON",
     "postcode": "K2J 1S8",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-zahir-abdusultan-kassam-dhalla/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.105Z",
     "latitude": 45.2849013,
     "longitude": -75.7560732
   },
@@ -17596,7 +17596,7 @@
     "stateProvince": "ON",
     "postcode": "L2R 2P4",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-katherine-janet-stoltz/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.105Z",
     "latitude": 43.1672444,
     "longitude": -79.2369209
   },
@@ -17635,7 +17635,7 @@
     "stateProvince": "ON",
     "postcode": "N9E 1S8",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-alexandros-tsiaprailis/",
-    "scrapedAt": "2026-09-17T05:10:12.316Z",
+    "scrapedAt": "2026-09-17T05:33:21.105Z",
     "latitude": 42.2675055,
     "longitude": -83.0107913
   },
@@ -17674,7 +17674,7 @@
     "stateProvince": "ON",
     "postcode": "P7B 7C7",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-margaret-elizabeth-sweet/",
-    "scrapedAt": "2026-09-17T05:10:12.317Z",
+    "scrapedAt": "2026-09-17T05:33:21.108Z",
     "latitude": 48.4223409,
     "longitude": -89.266093
   },
@@ -17713,7 +17713,7 @@
     "stateProvince": "ON",
     "postcode": "L6H 3P1",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-denise-susan-stirling/",
-    "scrapedAt": "2026-09-17T05:10:12.317Z",
+    "scrapedAt": "2026-09-17T05:33:21.108Z",
     "latitude": 43.4672877,
     "longitude": -79.6903758
   },
@@ -17752,7 +17752,7 @@
     "stateProvince": "ON",
     "postcode": "P6A 1Y4",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-jacob-harry-schneiderman/",
-    "scrapedAt": "2026-09-17T05:10:12.317Z",
+    "scrapedAt": "2026-09-17T05:33:21.108Z",
     "latitude": 43.653226,
     "longitude": -79.3831843
   },
@@ -17792,7 +17792,7 @@
     "stateProvince": "ON",
     "postcode": "M1P 4Y4",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-abdule-qayyum-rana/",
-    "scrapedAt": "2026-09-17T05:10:12.317Z",
+    "scrapedAt": "2026-09-17T05:33:21.108Z",
     "latitude": 43.7764788,
     "longitude": -79.2341894
   },
@@ -17831,7 +17831,7 @@
     "stateProvince": "ON",
     "postcode": "M6M 3Z5",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-david-richard-morgenthau/",
-    "scrapedAt": "2026-09-17T05:10:12.317Z",
+    "scrapedAt": "2026-09-17T05:33:21.108Z",
     "latitude": 43.698592,
     "longitude": -79.4751345
   },
@@ -17870,7 +17870,7 @@
     "stateProvince": "ON",
     "postcode": "L6M 4J2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-yahia-zakaria-abd-elhamid-mohammad/",
-    "scrapedAt": "2026-09-17T05:10:12.317Z",
+    "scrapedAt": "2026-09-17T05:33:21.108Z",
     "latitude": 43.4347997,
     "longitude": -79.7743314
   },
@@ -17909,7 +17909,7 @@
     "stateProvince": "ON",
     "postcode": "L7E 3H5",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-daniel-anil-mendonca/",
-    "scrapedAt": "2026-09-17T05:10:12.317Z",
+    "scrapedAt": "2026-09-17T05:33:21.108Z",
     "latitude": 42.9849233,
     "longitude": -81.2452768
   },
@@ -17948,7 +17948,7 @@
     "stateProvince": "ON",
     "postcode": "L5B 2V2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-philippe-n-rizek/",
-    "scrapedAt": "2026-09-17T05:10:12.317Z",
+    "scrapedAt": "2026-09-17T05:33:21.108Z",
     "latitude": 43.5727918,
     "longitude": -79.6107294
   },
@@ -17987,7 +17987,7 @@
     "stateProvince": "ON",
     "postcode": "L6M 4J2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/west-oak-medical/",
-    "scrapedAt": "2026-09-17T05:10:12.317Z",
+    "scrapedAt": "2026-09-17T05:33:21.108Z",
     "latitude": 43.4347997,
     "longitude": -79.7743314
   },
@@ -18026,7 +18026,7 @@
     "stateProvince": "ON",
     "postcode": "P1H 1Y3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-robert-blaine-taylor-foell/",
-    "scrapedAt": "2026-09-17T05:10:12.317Z",
+    "scrapedAt": "2026-09-17T05:33:21.108Z",
     "latitude": 45.309009,
     "longitude": -79.2376908
   },
@@ -18065,7 +18065,7 @@
     "stateProvince": "ON",
     "postcode": "L7M 4Y1",
     "sourceUrl": "https://www.parkinson.ca/care-finder/halton-family-health-centre/",
-    "scrapedAt": "2026-09-17T05:10:12.317Z",
+    "scrapedAt": "2026-09-17T05:33:21.108Z",
     "latitude": 43.3920874,
     "longitude": -79.8217953
   },
@@ -18104,7 +18104,7 @@
     "stateProvince": "ON",
     "postcode": "M2N 3B3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/neurodiagnostic-clinic/",
-    "scrapedAt": "2026-09-17T05:10:12.317Z",
+    "scrapedAt": "2026-09-17T05:33:21.108Z",
     "latitude": 43.7658778,
     "longitude": -79.3900216
   },
@@ -18143,7 +18143,7 @@
     "stateProvince": "ON",
     "postcode": "L5L 4L9",
     "sourceUrl": "https://www.parkinson.ca/care-finder/minds/",
-    "scrapedAt": "2026-09-17T05:10:12.317Z",
+    "scrapedAt": "2026-09-17T05:33:21.108Z",
     "latitude": 43.5345935,
     "longitude": -79.6710847
   },
@@ -18182,7 +18182,7 @@
     "stateProvince": "ON",
     "postcode": "K2G 6E2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-kate-natalie-briscoe/",
-    "scrapedAt": "2026-09-17T05:10:12.317Z",
+    "scrapedAt": "2026-09-17T05:33:21.108Z",
     "latitude": 45.3490158,
     "longitude": -75.7673137
   },
@@ -18221,7 +18221,7 @@
     "stateProvince": "ON",
     "postcode": "K2G 6E2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-suzanne-nadine-christie/",
-    "scrapedAt": "2026-09-17T05:10:12.317Z",
+    "scrapedAt": "2026-09-17T05:33:21.108Z",
     "latitude": 45.3490158,
     "longitude": -75.7673137
   },
@@ -18260,7 +18260,7 @@
     "stateProvince": "ON",
     "postcode": "L5B 2V2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-bryan-kerry-temple/",
-    "scrapedAt": "2026-09-17T05:10:12.317Z",
+    "scrapedAt": "2026-09-17T05:33:21.108Z",
     "latitude": 43.5727918,
     "longitude": -79.6107294
   },
@@ -18299,7 +18299,7 @@
     "stateProvince": "ON",
     "postcode": "N1S 1M3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-dwight-jame-stewart/",
-    "scrapedAt": "2026-09-17T05:10:12.318Z",
+    "scrapedAt": "2026-09-17T05:33:21.108Z",
     "latitude": 43.3569369,
     "longitude": -80.3183511
   },
@@ -18338,7 +18338,7 @@
     "stateProvince": "ON",
     "postcode": "N2J 1Y9",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-awad-abdul-hadi-mortada/",
-    "scrapedAt": "2026-09-17T05:10:12.320Z",
+    "scrapedAt": "2026-09-17T05:33:21.108Z",
     "latitude": 42.4078419,
     "longitude": -82.1910374
   },
@@ -18377,7 +18377,7 @@
     "stateProvince": "ON",
     "postcode": "M4T 2J4",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-andrew-gomez-varga/",
-    "scrapedAt": "2026-09-17T05:10:12.320Z",
+    "scrapedAt": "2026-09-17T05:33:21.108Z",
     "latitude": 43.6926034,
     "longitude": -79.3799048
   },
@@ -18416,7 +18416,7 @@
     "stateProvince": "ON",
     "postcode": "L4B 3M6",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-paulette-moreen-licorish/",
-    "scrapedAt": "2026-09-17T05:10:12.320Z",
+    "scrapedAt": "2026-09-17T05:33:21.108Z",
     "latitude": 43.851711,
     "longitude": -79.4094029
   },
@@ -18455,7 +18455,7 @@
     "stateProvince": "ON",
     "postcode": "N2A 0J9",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-manpreet-kaur/",
-    "scrapedAt": "2026-09-17T05:10:12.320Z",
+    "scrapedAt": "2026-09-17T05:33:21.108Z",
     "latitude": 43.653226,
     "longitude": -79.3831843
   },
@@ -18494,7 +18494,7 @@
     "stateProvince": "ON",
     "postcode": "M2J 1V1",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-neema-kasravi/",
-    "scrapedAt": "2026-09-17T05:10:12.320Z",
+    "scrapedAt": "2026-09-17T05:33:21.108Z",
     "latitude": 43.7715243,
     "longitude": -79.3618679
   },
@@ -18533,7 +18533,7 @@
     "stateProvince": "ON",
     "postcode": "N8X 5A6",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-pankaj-vimal-kapoor/",
-    "scrapedAt": "2026-09-17T05:10:12.320Z",
+    "scrapedAt": "2026-09-17T05:33:21.108Z",
     "latitude": 42.2987832,
     "longitude": -83.0172547
   },
@@ -18572,7 +18572,7 @@
     "stateProvince": "ON",
     "postcode": "N6G 2K1",
     "sourceUrl": "https://www.parkinson.ca/care-finder/london-health-sciences-centre-2/",
-    "scrapedAt": "2026-09-17T05:10:12.320Z",
+    "scrapedAt": "2026-09-17T05:33:21.108Z",
     "latitude": 43.0153304,
     "longitude": -81.2761437
   },
@@ -18611,7 +18611,7 @@
     "stateProvince": "ON",
     "postcode": "N1H 4J4",
     "sourceUrl": "https://www.parkinson.ca/care-finder/norfolk-medical-centre/",
-    "scrapedAt": "2026-09-17T05:10:12.320Z",
+    "scrapedAt": "2026-09-17T05:33:21.108Z",
     "latitude": 43.5450305,
     "longitude": -80.2512118
   },
@@ -18650,7 +18650,7 @@
     "stateProvince": "ON",
     "postcode": "M5N 1A8",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-yue-jiang/",
-    "scrapedAt": "2026-09-17T05:10:12.320Z",
+    "scrapedAt": "2026-09-17T05:33:21.108Z",
     "latitude": 43.7035196,
     "longitude": -79.4128682
   },
@@ -18689,7 +18689,7 @@
     "stateProvince": "ON",
     "postcode": "M1P 2T7",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-usha-ramanathan/",
-    "scrapedAt": "2026-09-17T05:10:12.320Z",
+    "scrapedAt": "2026-09-17T05:33:21.108Z",
     "latitude": 43.7558292,
     "longitude": -79.2488152
   },
@@ -18728,7 +18728,7 @@
     "stateProvince": "ON",
     "postcode": "M1V 4P2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-valerie-shaoming-cheung/",
-    "scrapedAt": "2026-09-17T05:10:12.320Z",
+    "scrapedAt": "2026-09-17T05:33:21.108Z",
     "latitude": 43.8262417,
     "longitude": -79.2773554
   },
@@ -18767,7 +18767,7 @@
     "stateProvince": "ON",
     "postcode": "M6A 2E1",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-philip-saleh/",
-    "scrapedAt": "2026-09-17T05:10:12.320Z",
+    "scrapedAt": "2026-09-17T05:33:21.108Z",
     "latitude": 43.7299878,
     "longitude": -79.433643
   },
@@ -18806,7 +18806,7 @@
     "stateProvince": "ON",
     "postcode": "M4K 3Y3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-taresa-luba-stefurak/",
-    "scrapedAt": "2026-09-17T05:10:12.320Z",
+    "scrapedAt": "2026-09-17T05:33:21.108Z",
     "latitude": 43.6757488,
     "longitude": -79.3580951
   },
@@ -18845,7 +18845,7 @@
     "stateProvince": "ON",
     "postcode": "K1R 7K1",
     "sourceUrl": "https://www.parkinson.ca/care-finder/booth-neurology-2/",
-    "scrapedAt": "2026-09-17T05:10:12.320Z",
+    "scrapedAt": "2026-09-17T05:33:21.108Z",
     "latitude": 45.4079289,
     "longitude": -75.7092137
   },
@@ -18884,7 +18884,7 @@
     "stateProvince": "ON",
     "postcode": "L4T 3V7",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-bhavpreet-singh-dham/",
-    "scrapedAt": "2026-09-17T05:10:12.320Z",
+    "scrapedAt": "2026-09-17T05:33:21.108Z",
     "latitude": 43.7149687,
     "longitude": -79.6288051
   },
@@ -18923,7 +18923,7 @@
     "stateProvince": "ON",
     "postcode": "L8L 1B5",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-jennifer-shruti-sharma/",
-    "scrapedAt": "2026-09-17T05:10:12.320Z",
+    "scrapedAt": "2026-09-17T05:33:21.108Z",
     "latitude": 44.231345,
     "longitude": -76.4809694
   },
@@ -18962,7 +18962,7 @@
     "stateProvince": "ON",
     "postcode": "M4N 3M5",
     "sourceUrl": "https://www.parkinson.ca/care-finder/sunnybrook-health-sciences-centre-3/",
-    "scrapedAt": "2026-09-17T05:10:12.320Z",
+    "scrapedAt": "2026-09-17T05:33:21.108Z",
     "latitude": 43.7215696,
     "longitude": -79.3768256
   },
@@ -19002,7 +19002,7 @@
     "stateProvince": "ON",
     "postcode": "M4N 3M5",
     "sourceUrl": "https://www.parkinson.ca/care-finder/sunnybrook-health-sciences-centre-2/",
-    "scrapedAt": "2026-09-17T05:10:12.320Z",
+    "scrapedAt": "2026-09-17T05:33:21.108Z",
     "latitude": 43.7215696,
     "longitude": -79.3768256
   },
@@ -19041,7 +19041,7 @@
     "stateProvince": "ON",
     "postcode": "K2G 6E2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dr-sarah-kathleen-walsh/",
-    "scrapedAt": "2026-09-17T05:10:12.320Z",
+    "scrapedAt": "2026-09-17T05:33:21.108Z",
     "latitude": 45.3490158,
     "longitude": -75.7673137
   },
@@ -19080,7 +19080,7 @@
     "stateProvince": "ON",
     "postcode": "M4N 3M5",
     "sourceUrl": "https://www.parkinson.ca/care-finder/sunnybrook-health-sciences-centre/",
-    "scrapedAt": "2026-09-17T05:10:12.320Z",
+    "scrapedAt": "2026-09-17T05:33:21.108Z",
     "latitude": 43.7215696,
     "longitude": -79.3768256
   },
@@ -19119,7 +19119,7 @@
     "stateProvince": "ON",
     "postcode": "N6G 2K1",
     "sourceUrl": "https://www.parkinson.ca/care-finder/london-health-sciences-centre/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.108Z",
     "latitude": 43.0153304,
     "longitude": -81.2761437
   },
@@ -19158,7 +19158,7 @@
     "stateProvince": "ON",
     "postcode": "K1R 7K1",
     "sourceUrl": "https://www.parkinson.ca/care-finder/booth-neurology/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.108Z",
     "latitude": 45.4079289,
     "longitude": -75.7092137
   },
@@ -19197,7 +19197,7 @@
     "stateProvince": "ON",
     "postcode": "M6A 2E1",
     "sourceUrl": "https://www.parkinson.ca/care-finder/baycrest-centre/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.108Z",
     "latitude": 43.7299878,
     "longitude": -79.433643
   },
@@ -19245,7 +19245,7 @@
     "stateProvince": "ON",
     "postcode": "N2B 3R6",
     "sourceUrl": "https://www.parkinson.ca/care-finder/carespace-2/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.108Z",
     "latitude": 43.4695484,
     "longitude": -80.4459695
   },
@@ -19285,7 +19285,7 @@
     "stateProvince": "NL",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/music-therapy/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 53.494363918003,
     "longitude": -60.220525742941
   },
@@ -19326,7 +19326,7 @@
     "stateProvince": "NB",
     "postcode": "E1G 1H3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/alto-music-therapy/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 46.1295171,
     "longitude": -64.8664377
   },
@@ -19366,7 +19366,7 @@
     "stateProvince": "MB",
     "postcode": "R3L 1J4",
     "sourceUrl": "https://www.parkinson.ca/care-finder/u-turn-parkinsons-u-tunes/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 49.860604,
     "longitude": -97.134842
   },
@@ -19405,7 +19405,7 @@
     "stateProvince": "",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-wellness-projects/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 56.130366,
     "longitude": -106.346771
   },
@@ -19444,7 +19444,7 @@
     "stateProvince": "BC",
     "postcode": "V8T 5E1",
     "sourceUrl": "https://www.parkinson.ca/care-finder/speakstrong/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 48.4380406,
     "longitude": -123.3636737
   },
@@ -19483,7 +19483,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/sue-decker-speech-language/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 48.4284207,
     "longitude": -123.3656444
   },
@@ -19523,7 +19523,7 @@
     "stateProvince": "QC",
     "postcode": "H2V 4S2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/speech-express/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 45.5213916,
     "longitude": -73.6138824
   },
@@ -19563,7 +19563,7 @@
     "stateProvince": "ON",
     "postcode": "N2L 4V1",
     "sourceUrl": "https://www.parkinson.ca/care-finder/signature-therapy-and-rehabilitation/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 43.4907702,
     "longitude": -80.5499216
   },
@@ -19602,7 +19602,7 @@
     "stateProvince": "ON",
     "postcode": "M6A 2E1",
     "sourceUrl": "https://www.parkinson.ca/care-finder/voice-treatment-for-parkinsons-lsvt-loud-clinic/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 43.7299878,
     "longitude": -79.433643
   },
@@ -19642,7 +19642,7 @@
     "stateProvince": "ON",
     "postcode": "L7G 5H8",
     "sourceUrl": "https://www.parkinson.ca/care-finder/branching-out-therapy/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 43.63521355572177,
     "longitude": -79.87794093027934
   },
@@ -19681,7 +19681,7 @@
     "stateProvince": "ON",
     "postcode": "L4M 5L3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/henninger-speech-and-language-centre/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 44.4085212,
     "longitude": -79.6819584
   },
@@ -19720,7 +19720,7 @@
     "stateProvince": "ON",
     "postcode": "L4G 0A5",
     "sourceUrl": "https://www.parkinson.ca/care-finder/aurora-speech-clinic/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 44.0152312,
     "longitude": -79.4494682
   },
@@ -19759,7 +19759,7 @@
     "stateProvince": "AB",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/action-potential-physiotherapy/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 51.0447331,
     "longitude": -114.0718831
   },
@@ -19798,7 +19798,7 @@
     "stateProvince": "AB",
     "postcode": "T2T 0E3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/alberta-neurologic-centre/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 51.0380833,
     "longitude": -114.097629
   },
@@ -19838,7 +19838,7 @@
     "stateProvince": "BC",
     "postcode": "V7P 3S1",
     "sourceUrl": "https://www.parkinson.ca/care-finder/vancouver-neurophysio/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 49.3137341,
     "longitude": -123.0978773
   },
@@ -19877,7 +19877,7 @@
     "stateProvince": "BC",
     "postcode": "V5Y2C5",
     "sourceUrl": "https://www.parkinson.ca/care-finder/chipperfield-physiotherapy/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 49.2531228,
     "longitude": -123.1111389
   },
@@ -19917,7 +19917,7 @@
     "stateProvince": "BC",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/neuro-zone-physiotherapy/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 48.4284207,
     "longitude": -123.3656444
   },
@@ -19956,7 +19956,7 @@
     "stateProvince": "ON",
     "postcode": "K2E 7J6",
     "sourceUrl": "https://www.parkinson.ca/care-finder/maple-care-physiotherapy-2/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 45.345089802486925,
     "longitude": -75.71618059461413
   },
@@ -19996,7 +19996,7 @@
     "stateProvince": "ON",
     "postcode": "L2S 0B6",
     "sourceUrl": "https://www.parkinson.ca/care-finder/lv-physiotherapy-2/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 43.1547889,
     "longitude": -79.2698745
   },
@@ -20038,7 +20038,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/gta-movement-disorders-team/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 43.653226,
     "longitude": -79.3831843
   },
@@ -20077,7 +20077,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/aviva-lichtenstein/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 43.653226,
     "longitude": -79.3831843
   },
@@ -20116,7 +20116,7 @@
     "stateProvince": "QC",
     "postcode": "G2K 0N8",
     "sourceUrl": "https://www.parkinson.ca/care-finder/synapse-clinic/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 46.8296358,
     "longitude": -71.3075773
   },
@@ -20156,7 +20156,7 @@
     "stateProvince": "QC",
     "postcode": "H4A 2X1",
     "sourceUrl": "https://www.parkinson.ca/care-finder/boom-boxing/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 45.4752586,
     "longitude": -73.6257922
   },
@@ -20196,7 +20196,7 @@
     "stateProvince": "NS",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dance-nova-scotia-11/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 44.78727,
     "longitude": -63.1481356
   },
@@ -20236,7 +20236,7 @@
     "stateProvince": "NS",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dance-nova-scotia-10/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 44.8857087,
     "longitude": -63.1005273
   },
@@ -20276,7 +20276,7 @@
     "stateProvince": "NS",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dance-nova-scotia-9/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 44.6660885,
     "longitude": -63.5675632
   },
@@ -20316,7 +20316,7 @@
     "stateProvince": "NS",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dance-nova-scotia-8/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 44.4492264,
     "longitude": -64.3822793
   },
@@ -20356,7 +20356,7 @@
     "stateProvince": "NS",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dance-nova-scotia-7/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 45.5871993,
     "longitude": -62.6451868
   },
@@ -20396,7 +20396,7 @@
     "stateProvince": "NS",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dance-nova-scotia-6/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 45.6224852,
     "longitude": -61.9914382
   },
@@ -20435,7 +20435,7 @@
     "stateProvince": "NS",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dance-nova-scotia-5/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 45.9613587,
     "longitude": -60.2763436
   },
@@ -20475,7 +20475,7 @@
     "stateProvince": "NS",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dance-nova-scotia-4/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 46.1367899,
     "longitude": -60.194224
   },
@@ -20515,7 +20515,7 @@
     "stateProvince": "NS",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dance-nova-scotia-3/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 45.0723417,
     "longitude": -64.4457453
   },
@@ -20555,7 +20555,7 @@
     "stateProvince": "NS",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dance-nova-scotia-2/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 45.102319,
     "longitude": -64.305423
   },
@@ -20595,7 +20595,7 @@
     "stateProvince": "NS",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dance-nova-scotia/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 45.0917657,
     "longitude": -64.3597572
   },
@@ -20634,7 +20634,7 @@
     "stateProvince": "NL",
     "postcode": "A1E 1C4",
     "sourceUrl": "https://www.parkinson.ca/care-finder/pony-pilates/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 47.5480185,
     "longitude": -52.7203011
   },
@@ -20673,7 +20673,7 @@
     "stateProvince": "AB",
     "postcode": "T8V 2E8",
     "sourceUrl": "https://www.parkinson.ca/care-finder/alberta-health-services/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 55.1754898,
     "longitude": -118.7862175
   },
@@ -20713,7 +20713,7 @@
     "stateProvince": "AB",
     "postcode": "T2G 0Z9",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dancing-parkinsons-yyc-decidedly-jazz-danceworks/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 51.0410937,
     "longitude": -114.0618956
   },
@@ -20753,7 +20753,7 @@
     "stateProvince": "AB",
     "postcode": "T2E 6L1",
     "sourceUrl": "https://www.parkinson.ca/care-finder/grizzly-boxing-club/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 51.0889951,
     "longitude": -114.0312993
   },
@@ -20793,7 +20793,7 @@
     "stateProvince": "MB",
     "postcode": "R3L 1J4",
     "sourceUrl": "https://www.parkinson.ca/care-finder/u-turn-parkinsons/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 49.860604,
     "longitude": -97.134842
   },
@@ -20833,7 +20833,7 @@
     "stateProvince": "SK",
     "postcode": "S7H 4J2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/vangool-wellness/",
-    "scrapedAt": "2026-09-17T05:10:12.321Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 52.1051176,
     "longitude": -106.6116487
   },
@@ -20874,7 +20874,7 @@
     "stateProvince": "BC",
     "postcode": "V8T 5E1",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkinson-wellness-projects-2/",
-    "scrapedAt": "2026-09-17T05:10:12.322Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 48.4380406,
     "longitude": -123.3636737
   },
@@ -20914,7 +20914,7 @@
     "stateProvince": "BC",
     "postcode": "V8T 5E1",
     "sourceUrl": "https://www.parkinson.ca/care-finder/neuro-fit-bc-2/",
-    "scrapedAt": "2026-09-17T05:10:12.322Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 48.4380406,
     "longitude": -123.3636737
   },
@@ -20955,7 +20955,7 @@
     "stateProvince": "BC",
     "postcode": "V3S 5N4",
     "sourceUrl": "https://www.parkinson.ca/care-finder/neurofunction-rehab/",
-    "scrapedAt": "2026-09-17T05:10:12.322Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 49.1207344,
     "longitude": -122.7329225
   },
@@ -20996,7 +20996,7 @@
     "stateProvince": "British Columbia",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/improv-for-parkinsons/",
-    "scrapedAt": "2026-09-17T05:10:12.322Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 56.130366,
     "longitude": -106.346771
   },
@@ -21036,7 +21036,7 @@
     "stateProvince": "BC",
     "postcode": "V5X 3H2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/neuro-fit-bc/",
-    "scrapedAt": "2026-09-17T05:10:12.322Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 49.2242144,
     "longitude": -123.1013889
   },
@@ -21076,7 +21076,7 @@
     "stateProvince": "BC",
     "postcode": "V6J 1G5",
     "sourceUrl": "https://www.parkinson.ca/care-finder/rock-steady-boxing/",
-    "scrapedAt": "2026-09-17T05:10:12.322Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 49.2704692,
     "longitude": -123.1465827
   },
@@ -21117,7 +21117,7 @@
     "stateProvince": "BC",
     "postcode": "V4P 3G4",
     "sourceUrl": "https://www.parkinson.ca/care-finder/activate-neurological-physiotherapy/",
-    "scrapedAt": "2026-09-17T05:10:12.322Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 49.0547077,
     "longitude": -122.8029451
   },
@@ -21156,7 +21156,7 @@
     "stateProvince": "BC",
     "postcode": "V1Y 4P9",
     "sourceUrl": "https://www.parkinson.ca/care-finder/sean-dance/",
-    "scrapedAt": "2026-09-17T05:10:12.322Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 49.884666,
     "longitude": -119.4593733
   },
@@ -21196,7 +21196,7 @@
     "stateProvince": "BC",
     "postcode": "V5E 4N3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/nikkei-place/",
-    "scrapedAt": "2026-09-17T05:10:12.322Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 49.2173583,
     "longitude": -122.9651993
   },
@@ -21236,7 +21236,7 @@
     "stateProvince": "ON",
     "postcode": "M6A 2V2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/budo-canada-rock-steady-boxing/",
-    "scrapedAt": "2026-09-17T05:10:12.322Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 43.716416,
     "longitude": -79.458083
   },
@@ -21275,7 +21275,7 @@
     "stateProvince": "ON",
     "postcode": "M5S 2J2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/miles-nadal-jewish-community-centre/",
-    "scrapedAt": "2026-09-17T05:10:12.322Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 43.6661872,
     "longitude": -79.4040953
   },
@@ -21315,7 +21315,7 @@
     "stateProvince": "ON",
     "postcode": "M5A 3E9",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dwp-toronto-regentpark/",
-    "scrapedAt": "2026-09-17T05:10:12.322Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 43.6604137,
     "longitude": -79.3634077
   },
@@ -21355,7 +21355,7 @@
     "stateProvince": "ON",
     "postcode": "M5S 1X6",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dwp-toronto-centre/",
-    "scrapedAt": "2026-09-17T05:10:12.322Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 43.6659564,
     "longitude": -79.4047989
   },
@@ -21395,7 +21395,7 @@
     "stateProvince": "ON",
     "postcode": "M6B 3A5",
     "sourceUrl": "https://www.parkinson.ca/care-finder/one-step-ahead-mobility/",
-    "scrapedAt": "2026-09-17T05:10:12.322Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 43.7125347,
     "longitude": -79.4285212
   },
@@ -21435,7 +21435,7 @@
     "stateProvince": "MB",
     "postcode": "R3L 1J4",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dwp-winnipeg/",
-    "scrapedAt": "2026-09-17T05:10:12.322Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 49.860604,
     "longitude": -97.134842
   },
@@ -21475,7 +21475,7 @@
     "stateProvince": "ON",
     "postcode": "K2G 1G9",
     "sourceUrl": "https://www.parkinson.ca/care-finder/action-potential-rehabilitation/",
-    "scrapedAt": "2026-09-17T05:10:12.322Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 45.3183287,
     "longitude": -75.7136328
   },
@@ -21515,7 +21515,7 @@
     "stateProvince": "ON",
     "postcode": "K1J 9L3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/boxing-4-health-3/",
-    "scrapedAt": "2026-09-17T05:10:12.322Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 45.4316114,
     "longitude": -75.6108173
   },
@@ -21555,7 +21555,7 @@
     "stateProvince": "ON",
     "postcode": "K2K 1L1",
     "sourceUrl": "https://www.parkinson.ca/care-finder/boxing-4-health-2/",
-    "scrapedAt": "2026-09-17T05:10:12.322Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 45.3289966,
     "longitude": -75.9008171
   },
@@ -21595,7 +21595,7 @@
     "stateProvince": "ON",
     "postcode": "K2C 0P7",
     "sourceUrl": "https://www.parkinson.ca/care-finder/boxing-4-health/",
-    "scrapedAt": "2026-09-17T05:10:12.322Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 45.3686069,
     "longitude": -75.7517647
   },
@@ -21635,7 +21635,7 @@
     "stateProvince": "ON",
     "postcode": "L4X 2Z3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/dwp-mississauga/",
-    "scrapedAt": "2026-09-17T05:10:12.322Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 43.6140956,
     "longitude": -79.5768496
   },
@@ -21675,7 +21675,7 @@
     "stateProvince": "ON",
     "postcode": "N2G 3C5",
     "sourceUrl": "https://www.parkinson.ca/care-finder/rock-steady-boxing-a-r-kaufman-family-ymca/",
-    "scrapedAt": "2026-09-17T05:10:12.322Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 43.4323764,
     "longitude": -80.4705439
   },
@@ -21714,7 +21714,7 @@
     "stateProvince": "ON",
     "postcode": "N2G 3C5",
     "sourceUrl": "https://www.parkinson.ca/care-finder/a-r-kaufman-family-ymca/",
-    "scrapedAt": "2026-09-17T05:10:12.322Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 43.4323764,
     "longitude": -80.4705439
   },
@@ -21753,7 +21753,7 @@
     "stateProvince": "ON",
     "postcode": "",
     "sourceUrl": "https://www.parkinson.ca/care-finder/wise-moves-kingston/",
-    "scrapedAt": "2026-09-17T05:10:12.322Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 44.231345,
     "longitude": -76.4809694
   },
@@ -21793,7 +21793,7 @@
     "stateProvince": "ON",
     "postcode": "N0M 2A0",
     "sourceUrl": "https://www.parkinson.ca/care-finder/rhythm-n-box/",
-    "scrapedAt": "2026-09-17T05:10:12.322Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 43.0792014,
     "longitude": -81.3817835
   },
@@ -21833,7 +21833,7 @@
     "stateProvince": "ON",
     "postcode": "N1G 1L3",
     "sourceUrl": "https://www.parkinson.ca/care-finder/parkn-dance/",
-    "scrapedAt": "2026-09-17T05:10:12.322Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 43.5301162,
     "longitude": -80.2431096
   },
@@ -21872,7 +21872,7 @@
     "stateProvince": "ON",
     "postcode": "N3P 1J5",
     "sourceUrl": "https://www.parkinson.ca/care-finder/artc/",
-    "scrapedAt": "2026-09-17T05:10:12.322Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 43.1776391,
     "longitude": -80.2401474
   },
@@ -21911,7 +21911,7 @@
     "stateProvince": "ON",
     "postcode": "K8P 4E1",
     "sourceUrl": "https://www.parkinson.ca/care-finder/quinte-ballet-school-of-canada/",
-    "scrapedAt": "2026-09-17T05:10:12.322Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 44.1582656,
     "longitude": -77.4063625
   },
@@ -21950,7 +21950,7 @@
     "stateProvince": "ON",
     "postcode": "N1R 1P2",
     "sourceUrl": "https://www.parkinson.ca/care-finder/atlas-studio/",
-    "scrapedAt": "2026-09-17T05:10:12.322Z",
+    "scrapedAt": "2026-09-17T05:33:21.109Z",
     "latitude": 43.4009269,
     "longitude": -80.3244441
   }
