@@ -1,98 +1,126 @@
 {
-  "hosting": {
-    "site": "doing-life-today",
-    "public": "public",
-    "cleanUrls": true,
-    "trailingSlash": false,
-    "predeploy": [
-      "node scripts/normalize-extra-sources.mjs",
-      "node scripts/prerender-providers.mjs",
-      "node scripts/generate-provider-sitemap.mjs"
-    ],
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "redirects": [
-      { "source": "/pcn-app", "destination": "/theclub", "type": 301 },
-      { "source": "/pcn-app.html", "destination": "/theclub", "type": 301 },
-      { "source": "/podcast", "destination": "/living-with-parkinsons-podcast", "type": 301 },
-      { "source": "/podcast/**", "destination": "/living-with-parkinsons-podcast", "type": 301 },
-      { "source": "/community", "destination": "/living-with-parkinsons-guide", "type": 301 },
-      { "source": "/club", "destination": "/theclub", "type": 301 },
-      { "source": "/meet-bryce", "destination": "/about", "type": 301 },
-      { "source": "/contacts", "destination": "/contact", "type": 301 },
-      { "source": "/contacts/**", "destination": "/contact", "type": 301 },
-      { "source": "/living-with-parkinsonrs-podcast", "destination": "/living-with-parkinsons-podcast", "type": 301 },
-      { "source": "/doing-life-today-communicator-awards-2026", "destination": "/bryce-perry-communicator-awards-2026", "type": 301 },
-      { "source": "/communicator-awards-2026", "destination": "/bryce-perry-communicator-awards-2026", "type": 301 },
-      { "source": "/communicator-awards", "destination": "/bryce-perry-communicator-awards-2026", "type": 301 }
-    ],
-    "rewrites": [
-      { "source": "/exchange/provider/**/claim", "destination": "/exchange-claim.html" },
-      { "source": "/exchange/provider/**", "destination": "/exchange-provider.html" },
-      { "source": "/exchange/location/**", "destination": "/exchange-location.html" },
-      { "source": "/exchange/category/**", "destination": "/exchange-category.html" },
-      { "source": "/api/provider/signup", "function": "providerSignup" },
-      { "source": "/api/provider/signin", "function": "providerSignin" },
-      { "source": "/api/provider/create", "function": "providerCreate" },
-      { "source": "/api/provider/claim", "function": "providerClaim" },
-      { "source": "/api/provider/dashboard", "function": "providerDashboard" },
-      { "source": "/api/provider/update", "function": "providerUpdate" },
-      { "source": "/api/provider/suggest-edit", "function": "suggestProviderEdit" },
-      { "source": "/api/provider/club-sync", "function": "providerClubSync" },
-      { "source": "/api/provider/club-link", "function": "providerClubLink" },
-      { "source": "/api/admin/verify", "function": "adminVerify" },
-      { "source": "/api/admin/providers", "function": "adminProviders" },
-      { "source": "/api/admin/provider/approve", "function": "adminProviderApprove" },
-      { "source": "/api/admin/provider/reject", "function": "adminProviderReject" },
-      { "source": "/api/admin/provider/flag", "function": "adminProviderFlag" },
-      { "source": "/api/admin/provider/add", "function": "adminProviderAdd" },
-      { "source": "/api/admin/provider/edit", "function": "adminProviderEdit" },
-      { "source": "/api/admin/provider/delete", "function": "adminProviderDelete" },
-      { "source": "/api/admin/provider/set-tier", "function": "adminProviderSetTier" },
-      { "source": "/api/provider/checkout-session", "function": "providerCheckoutSession" },
-      { "source": "/api/provider/billing-portal", "function": "providerBillingPortal" },
-      { "source": "/api/stripe/webhook", "function": "stripeWebhook" },
-      { "source": "/api/admin/high-intent", "function": "adminHighIntent" },
-      { "source": "/api/admin/send-reminder", "function": "adminSendReminder" },
-      { "source": "/api/admin/conversion-metrics", "function": "adminConversionMetrics" },
-      { "source": "/api/admin/owner-dashboard", "function": "adminOwnerDashboard" },
-      { "source": "/api/admin/analytics", "function": "analyticsReport" },
-      { "source": "/api/admin/analytics-events", "function": "analyticsEvents" },
-      { "source": "/api/track-provider-event", "function": "trackEvent" },
-      { "source": "/api/youtube/latest", "function": "youtubeLatest" },
-      { "source": "/api/podcast-feed", "function": "podcastFeed" },
-      { "source": "/api/public-config", "function": "publicConfig" },
-      { "source": "/api/mailerlite-webhook", "function": "mailerLiteWebhook" },
-      { "source": "/api/share-stats", "function": "shareStats" },
-      { "source": "/api/track-club-analytics", "function": "trackClubAnalytics" },
-      { "source": "/api/check-wave", "function": "checkWave" },
-      { "source": "/api/track-check-wave", "function": "trackCheckWave" },
-      { "source": "/api/track-share", "function": "trackShare" },
-      { "source": "/api/waitlist-count", "function": "waitlistCount" },
-      { "source": "/api/subscribe", "function": "subscribe" },
-      { "source": "/api/contact", "function": "contact" }
-    ],
-    "headers": [
-      {
-        "source": "**",
-        "headers": [
-          { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
-        ]
-      },
-      {
-        "source": "**",
-        "headers": [
-          { "key": "X-Frame-Options", "value": "DENY" },
-          { "key": "X-Content-Type-Options", "value": "nosniff" },
-          { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-          { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
-        ]
-      }
-    ]
-  },
+  "hosting": [
+    {
+      "target": "main",
+      "public": "public",
+      "cleanUrls": true,
+      "trailingSlash": false,
+      "predeploy": [
+        "node scripts/normalize-extra-sources.mjs",
+        "node scripts/prerender-providers.mjs",
+        "node scripts/generate-provider-sitemap.mjs"
+      ],
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "redirects": [
+        { "source": "/speaking-the-invisible", "destination": "https://invisible.dolifetoday.com", "type": 301 },
+        { "source": "/pcn-app", "destination": "/theclub", "type": 301 },
+        { "source": "/pcn-app.html", "destination": "/theclub", "type": 301 },
+        { "source": "/theclub-DLT", "destination": "/theclub", "type": 301 },
+        { "source": "/theclub-DLT.html", "destination": "/theclub", "type": 301 },
+        { "source": "/contact-DLT", "destination": "/contact", "type": 301 },
+        { "source": "/contact-DLT.html", "destination": "/contact", "type": 301 },
+        { "source": "/music-DLT", "destination": "/music", "type": 301 },
+        { "source": "/music-DLT.html", "destination": "/music", "type": 301 },
+        { "source": "/live-wpc", "destination": "/events", "type": 301 },
+        { "source": "/live-wpc.html", "destination": "/events", "type": 301 },
+        { "source": "/check-wave", "destination": "/theclub", "type": 301 },
+        { "source": "/check-wave.html", "destination": "/theclub", "type": 301 },
+        { "source": "/podcast", "destination": "/living-with-parkinsons-podcast", "type": 301 },
+        { "source": "/podcast/**", "destination": "/living-with-parkinsons-podcast", "type": 301 },
+        { "source": "/community", "destination": "/living-with-parkinsons-guide", "type": 301 },
+        { "source": "/club", "destination": "/theclub", "type": 301 },
+        { "source": "/meet-bryce", "destination": "/about", "type": 301 },
+        { "source": "/contacts", "destination": "/contact", "type": 301 },
+        { "source": "/contacts/**", "destination": "/contact", "type": 301 },
+        { "source": "/living-with-parkinsonrs-podcast", "destination": "/living-with-parkinsons-podcast", "type": 301 },
+        { "source": "/doing-life-today-communicator-awards-2026", "destination": "/bryce-perry-communicator-awards-2026", "type": 301 },
+        { "source": "/communicator-awards-2026", "destination": "/bryce-perry-communicator-awards-2026", "type": 301 },
+        { "source": "/communicator-awards", "destination": "/bryce-perry-communicator-awards-2026", "type": 301 }
+      ],
+      "rewrites": [
+        { "source": "/exchange/provider/**/claim", "destination": "/exchange-claim.html" },
+        { "source": "/exchange/provider/**", "destination": "/exchange-provider.html" },
+        { "source": "/exchange/location/**", "destination": "/exchange-location.html" },
+        { "source": "/exchange/category/**", "destination": "/exchange-category.html" },
+        { "source": "/api/provider/signup", "function": "providerSignup" },
+        { "source": "/api/provider/signin", "function": "providerSignin" },
+        { "source": "/api/provider/create", "function": "providerCreate" },
+        { "source": "/api/provider/claim", "function": "providerClaim" },
+        { "source": "/api/provider/dashboard", "function": "providerDashboard" },
+        { "source": "/api/provider/update", "function": "providerUpdate" },
+        { "source": "/api/provider/suggest-edit", "function": "suggestProviderEdit" },
+        { "source": "/api/provider/club-sync", "function": "providerClubSync" },
+        { "source": "/api/provider/club-link", "function": "providerClubLink" },
+        { "source": "/api/admin/verify", "function": "adminVerify" },
+        { "source": "/api/admin/providers", "function": "adminProviders" },
+        { "source": "/api/admin/provider/approve", "function": "adminProviderApprove" },
+        { "source": "/api/admin/provider/reject", "function": "adminProviderReject" },
+        { "source": "/api/admin/provider/flag", "function": "adminProviderFlag" },
+        { "source": "/api/admin/provider/add", "function": "adminProviderAdd" },
+        { "source": "/api/admin/provider/edit", "function": "adminProviderEdit" },
+        { "source": "/api/admin/provider/delete", "function": "adminProviderDelete" },
+        { "source": "/api/admin/provider/set-tier", "function": "adminProviderSetTier" },
+        { "source": "/api/provider/checkout-session", "function": "providerCheckoutSession" },
+        { "source": "/api/provider/billing-portal", "function": "providerBillingPortal" },
+        { "source": "/api/stripe/webhook", "function": "stripeWebhook" },
+        { "source": "/api/admin/high-intent", "function": "adminHighIntent" },
+        { "source": "/api/admin/send-reminder", "function": "adminSendReminder" },
+        { "source": "/api/admin/conversion-metrics", "function": "adminConversionMetrics" },
+        { "source": "/api/admin/owner-dashboard", "function": "adminOwnerDashboard" },
+        { "source": "/api/admin/analytics", "function": "analyticsReport" },
+        { "source": "/api/admin/analytics-events", "function": "analyticsEvents" },
+        { "source": "/api/track-provider-event", "function": "trackEvent" },
+        { "source": "/api/youtube/latest", "function": "youtubeLatest" },
+        { "source": "/api/podcast-feed", "function": "podcastFeed" },
+        { "source": "/api/public-config", "function": "publicConfig" },
+        { "source": "/api/mailerlite-webhook", "function": "mailerLiteWebhook" },
+        { "source": "/api/share-stats", "function": "shareStats" },
+        { "source": "/api/track-club-analytics", "function": "trackClubAnalytics" },
+        { "source": "/api/track-inner-circle-lounge", "function": "trackInnerCircleLounge" },
+        { "source": "/api/check-wave", "function": "checkWave" },
+        { "source": "/api/track-check-wave", "function": "trackCheckWave" },
+        { "source": "/api/track-share", "function": "trackShare" },
+        { "source": "/api/waitlist-count", "function": "waitlistCount" },
+        { "source": "/api/subscribe", "function": "subscribe" },
+        { "source": "/api/contact", "function": "contact" }
+      ],
+      "headers": [
+        {
+          "source": "**",
+          "headers": [
+            { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+          ]
+        },
+        {
+          "source": "**",
+          "headers": [
+            { "key": "X-Frame-Options", "value": "DENY" },
+            { "key": "X-Content-Type-Options", "value": "nosniff" },
+            { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+            { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
+          ]
+        }
+      ]
+    },
+    {
+      "target": "community-redirect",
+      "public": "redirect-community/public",
+      "cleanUrls": false,
+      "trailingSlash": false,
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "redirects": [
+        { "source": "**", "destination": "https://dolifetoday.com/inner-circle", "type": 301 }
+      ]
+    }
+  ],
   "functions": {
     "source": "functions",
     "runtime": "nodejs22"

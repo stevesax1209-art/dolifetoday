@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Private page — do NOT index or follow -->
+  <!-- Private page - do NOT index or follow -->
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
   <meta name="googlebot" content="noindex, nofollow, noarchive">
   <meta name="referrer" content="no-referrer">
@@ -782,7 +782,7 @@
 
     <div class="gate-onramp">
       <strong>Not in The Club yet?</strong><br>
-      The Club itself is free — join anytime and meet the community.<br>
+      The Club itself is free - join anytime and meet the community.<br>
       <a href="https://club.dolifetoday.com" target="_blank" rel="noopener">Join The Club free →</a>
     </div>
 
@@ -819,13 +819,13 @@
     <section class="lounge-hero">
       <span class="lounge-eyebrow">Inner Circle · Members Lounge</span>
       <h1>Welcome back, <span class="welcome-name">friend</span>.</h1>
-      <p>Everything you need for this month's Live Calls with Bryce, in one place. Just click and join — no meeting IDs to hunt down.</p>
+      <p>Everything you need for this month's Live Calls with Bryce, in one place. Just click and join - no meeting IDs to hunt down.</p>
     </section>
 
     <div class="ornament"><span class="ornament-dot"></span></div>
 
     <h2 class="section-title">Your Live Calls with Bryce</h2>
-    <p class="section-sub">Both calls happen on the same day each month. Pick the one that fits your schedule — or come to both.</p>
+    <p class="section-sub">Both calls happen on the same day each month. Pick the one that fits your schedule - or come to both.</p>
 
     <div class="meetings">
 
@@ -835,7 +835,7 @@
         <h3>Inner Circle Monthly Live Call with Bryce</h3>
         <div class="meeting-when">
           <span class="next-line" data-next-line>Loading next date…</span>
-          <span class="cadence-line">10:30 AM – 12:00 PM Central · repeats monthly</span>
+          <span class="cadence-line">10:30 AM-12:00 PM Central · repeats monthly</span>
           <span class="countdown" data-countdown></span>
         </div>
         <dl class="meeting-detail">
@@ -863,7 +863,7 @@
         <h3>Inner Circle Evening Call with Bryce</h3>
         <div class="meeting-when">
           <span class="next-line" data-next-line>Loading next date…</span>
-          <span class="cadence-line">6:00 PM – 7:30 PM Central · repeats monthly</span>
+          <span class="cadence-line">6:00 PM-7:30 PM Central · repeats monthly</span>
           <span class="countdown" data-countdown></span>
         </div>
         <dl class="meeting-detail">
@@ -893,7 +893,7 @@
       <div>
         <h4>A quick note from Bryce</h4>
         <p>You don't have to talk. You don't have to be on camera. Come as you are, listen if that's what you need, and jump in when you're ready. This room exists because you belong in it.</p>
-        <span class="host-signature">— Bryce</span>
+        <span class="host-signature"> - Bryce</span>
       </div>
     </aside>
 
@@ -901,7 +901,7 @@
     <aside class="cp-corner">
       <div class="cp-heart" aria-hidden="true">♥</div>
       <div>
-        <h4>Care partners — you're welcome here too</h4>
+        <h4>Care partners - you're welcome here too</h4>
         <p>If you're supporting someone with Parkinson's, please come. Sit beside them or join on your own device. These calls are for both of you.</p>
       </div>
     </aside>
@@ -960,7 +960,7 @@
       </a>
       <a class="quick" href="mailto:office@dolifetoday.com?subject=Inner%20Circle%20Question">
         <span class="quick-title">Message the Team →</span>
-        <span class="quick-desc">Reach out anytime — we're a small crew and we read everything.</span>
+        <span class="quick-desc">Reach out anytime - we're a small crew and we read everything.</span>
       </a>
     </div>
 
@@ -975,7 +975,7 @@
     (function () {
       // ── Access phrase (client-side gate; obfuscated in source) ──
       // The phrase is "InnerCircle2026" (case-insensitive).
-      // This is a friendly gate, not a security boundary — do not use for
+      // This is a friendly gate, not a security boundary - do not use for
       // anything actually sensitive.
       const EXPECTED = atob('aW5uZXJjaXJjbGUyMDI2'); // "innercircle2026"
       const STORAGE_KEY = 'ic-lounge-unlocked-v1';
@@ -1176,7 +1176,7 @@
             let data = {};
             try { data = await r.json(); } catch (_) { /* no-op */ }
             if (r.ok) {
-              showReceiptFeedback('ok', data.message || 'Check your inbox in the next minute — the link comes straight from us.');
+              showReceiptFeedback('ok', data.message || 'Check your inbox in the next minute - the link comes straight from us.');
               receiptEmail.value = '';
               trackLounge('receipt_link_ok');
             } else {
@@ -1293,7 +1293,7 @@
           if (hour !== null) {
             trackLounge(hour < 12 ? 'zoom_join_morning' : 'zoom_join_evening');
           }
-          // Don't return — allow multiple handlers.
+          // Don't return - allow multiple handlers.
         }
 
         const btn = e.target.closest('[data-ics]');

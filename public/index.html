@@ -10,6 +10,91 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+
+  <!-- Structured data: Organization, WebSite, ItemList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://dolifetoday.com/#organization",
+        "name": "Doing Life Today",
+        "alternateName": ["DLT", "Doing Life Today Parkinson's Community"],
+        "url": "https://dolifetoday.com/",
+        "description": "A global Parkinson's community founded by Bryce Perry, connecting people living with Parkinson's, care partners, and families through award-winning podcasts, a private member community (The Club), and practical lived-experience resources.",
+        "founder": {
+          "@type": "Person",
+          "name": "Bryce Perry",
+          "url": "https://dolifetoday.com/about"
+        },
+        "sameAs": [
+          "https://www.youtube.com/@doinglifetoday",
+          "https://club.dolifetoday.com"
+        ],
+        "award": [
+          "2026 Communicator Awards \u2014 Award of Excellence, Healthcare & Pharma Podcast Series",
+          "Most Inspiring Parkinson's Awareness Advocate 2026 (Bryce Perry)"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "email": "office@dolifetoday.com",
+          "availableLanguage": ["English"]
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://dolifetoday.com/#website",
+        "name": "Doing Life Today",
+        "url": "https://dolifetoday.com/",
+        "description": "Parkinson's community, podcasts, and resources.",
+        "publisher": { "@id": "https://dolifetoday.com/#organization" },
+        "inLanguage": "en",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://dolifetoday.com/search?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://dolifetoday.com/#webpage",
+        "url": "https://dolifetoday.com/",
+        "name": "Doing Life Today | Parkinson's Community, Podcasts & Resources",
+        "description": "Doing Life Today \u2014 connecting people living with Parkinson's through podcasts, community, and real conversations. Real Life \u00b7 Real Talk \u00b7 Real Community.",
+        "isPartOf": { "@id": "https://dolifetoday.com/#website" },
+        "about": { "@id": "https://dolifetoday.com/#organization" },
+        "inLanguage": "en",
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://dolifetoday.com/Images/the-club/lockup-horizontal.png"
+        }
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://dolifetoday.com/#key-pages",
+        "name": "Key Doing Life Today resources",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "The Club (private Parkinson's community)", "url": "https://dolifetoday.com/theclub" },
+          { "@type": "ListItem", "position": 2, "name": "About Doing Life Today",                 "url": "https://dolifetoday.com/about" },
+          { "@type": "ListItem", "position": 3, "name": "Podcasts hub",                            "url": "https://dolifetoday.com/podcasts" },
+          { "@type": "ListItem", "position": 4, "name": "Living With Parkinson's Guide",            "url": "https://dolifetoday.com/living-with-parkinsons-guide" },
+          { "@type": "ListItem", "position": 5, "name": "Care Partners Guide",                     "url": "https://dolifetoday.com/care-partners" },
+          { "@type": "ListItem", "position": 6, "name": "Carmen's Care Partner Corner",            "url": "https://dolifetoday.com/carmens-care-partner-corner" },
+          { "@type": "ListItem", "position": 7, "name": "Caregiver Burnout",                       "url": "https://dolifetoday.com/caregiver-burnout" },
+          { "@type": "ListItem", "position": 8, "name": "Best Exercises for Parkinson's",          "url": "https://dolifetoday.com/best-exercises-for-parkinsons" },
+          { "@type": "ListItem", "position": 9, "name": "Clinical Trial Match",                    "url": "https://dolifetoday.com/clinical-trial-match" },
+          { "@type": "ListItem", "position": 10, "name": "The Exchange (movement specialist directory)", "url": "https://dolifetoday.com/exchange" }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3LZZWBTWT"></script>
   <script>
@@ -28,24 +113,91 @@
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- HEADER -->
-  <header class="site-header" role="banner">
+  <header class="site-header" role="banner" data-canonical-nav="v4">
     <nav class="nav-inner" aria-label="Main navigation">
       <a href="/" class="nav-logo" aria-label="Doing Life Today - Home">
         <div class="nav-logo-mark" aria-hidden="true">DL</div>
         <div class="nav-logo-text">Doing Life Today<span>Parkinson's Community</span></div>
       </a>
       <ul class="nav-links" role="list">
-        <li><a href="/about">About</a></li>
-        <li><a href="/podcasts">Podcasts</a></li>
-        <li><a href="/youtube">YouTube</a></li>
-        <li><a href="/theclub">The Club</a></li>
-        <li><a href="/exchange">The Exchange</a></li>
-        <li><a href="/music">Music</a></li>
-        <li><a href="/living-with-parkinsons-guide">Living With Parkinson's Guide</a></li>
-        <li><a href="/resources">Resources</a></li>
-        <li><a href="/share">Spread the Word</a></li>
-        <li><a href="/events">Events</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li class="nav-dropdown">
+          <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">About</button>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li role="none"><a href="/about" role="menuitem">About Doing Life Today<small>Our story &amp; mission</small></a></li>
+            <li role="none"><a href="/about#awards" role="menuitem">Awards &amp; Recognition<small>Communicator Awards &amp; Parkinson's advocacy</small></a></li>
+            <li role="none"><a href="https://bryceperry.org" target="_blank" rel="noopener noreferrer" role="menuitem">Bryce Perry &middot; Speaking &amp; Media<small>Book Bryce &middot; press</small></a></li>
+            <li role="none"><a href="/contact" role="menuitem">Contact<small>Get in touch</small></a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown nav-dropdown--highlight">
+          <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">The Club</button>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li role="none"><a href="/theclub" role="menuitem">The Club<small>Learn about the community</small></a></li>
+            <li role="none"><a href="/theclub#download" role="menuitem">Join The Club<small>Download &amp; sign up free</small></a></li>
+            <li role="none"><a href="/parkinsons-daily-check-in" role="menuitem">Daily Check-In<small>Track how you're doing</small></a></li>
+            <li role="none"><a href="/parkinsons-symptom-tracker" role="menuitem">Symptom Tracker<small>Log symptoms over time</small></a></li>
+            <li role="none"><a href="/clinical-trial-match" role="menuitem">Clinical Trial Match<small>Find trials near you</small></a></li>
+            <li role="none"><a href="/speaking-the-invisible" role="menuitem">Speaking The Invisible<small>Put symptoms into words</small></a></li>
+            <li role="none"><a href="/inner-circle" role="menuitem">Inner Circle<small>Deeper community experiences</small></a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Watch &amp; Listen</button>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li role="none"><a href="/podcasts" role="menuitem">Podcasts Hub<small>All DLT podcasts</small></a></li>
+            <li role="none"><a href="/living-with-parkinsons-podcast" role="menuitem">Living With Parkinson's Podcast<small>Weekly episodes</small></a></li>
+            <li role="none"><a href="/life-in-motion" role="menuitem">Life in Motion<small>Movement &amp; Parkinson's</small></a></li>
+            <li role="none"><a href="/youtube" role="menuitem">YouTube<small>Videos &amp; interviews</small></a></li>
+            <li role="none"><a href="/music" role="menuitem">Music<small>Music &amp; therapy</small></a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Care Partners</button>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li role="none"><a href="/carmens-care-partner-corner" role="menuitem">Carmen's Care Partner Corner<small>Dashboard, Circle, daily check-ins</small></a></li>
+            <li role="none"><a href="/care-partners" role="menuitem">Care Partners Guide<small>Supporting someone with Parkinson's</small></a></li>
+            <li role="none"><a href="/caregiver-burnout" role="menuitem">Caregiver Burnout<small>Spot it and recover</small></a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Living With Parkinson's</button>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li role="none"><a href="/living-with-parkinsons-guide" role="menuitem">Living With Parkinson's Guide<small>The full guide</small></a></li>
+            <li role="none"><a href="/newly-diagnosed" role="menuitem">Newly Diagnosed<small>Start here</small></a></li>
+            <li role="none"><a href="/first-90-days-parkinsons" role="menuitem">First 90 Days<small>What to do first</small></a></li>
+            <li role="none"><a href="/early-signs-of-parkinsons" role="menuitem">Early Signs<small>Recognize the signs</small></a></li>
+            <li role="none"><a href="/symptoms" role="menuitem">Symptoms Directory<small>Tremor, sleep, DBS &amp; more</small></a></li>
+            <li role="none"><a href="/parkinsons-medication-timing" role="menuitem">Medication Timing<small>Get the most from your meds</small></a></li>
+            <li role="none"><a href="/dbs-surgery" role="menuitem">DBS Surgery<small>Deep brain stimulation</small></a></li>
+            <li role="none"><a href="/best-exercises-for-parkinsons" role="menuitem">Best Exercises<small>Move your best</small></a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">The Exchange</button>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li role="none"><a href="/exchange" role="menuitem">Search The Exchange<small>12,000+ Parkinson's programs, services &amp; products near you</small></a></li>
+            <li role="none"><a href="/for-providers" role="menuitem">For Providers &middot; Get Listed<small>Grow your Parkinson's program, service, or product</small></a></li>
+            <li role="none"><a href="/claim-listing" role="menuitem">Claim Your Listing<small>Take ownership of an existing entry</small></a></li>
+            <li role="none"><a href="/create-listing" role="menuitem">Add Your Business<small>List a new provider or product</small></a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community</button>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li role="none"><a href="/events" role="menuitem">Events<small>Live meetups &amp; groups</small></a></li>
+            <li role="none"><a href="/share" role="menuitem">Spread the Word<small>Share DLT with your community</small></a></li>
+            <li role="none"><a href="/free-parkinsons-community" role="menuitem">Support Groups &amp; Free Community<small>Free ways to connect</small></a></li>
+            <li role="none"><a href="/parkinsons-community" role="menuitem">Parkinson's Community<small>What community looks like</small></a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Resources</button>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li role="none"><a href="/resources" role="menuitem">All Resources<small>Every resource, one page</small></a></li>
+            <li role="none"><a href="/parkinsons-clinician-handouts" role="menuitem">Clinician Handouts<small>Print-friendly one-pagers</small></a></li>
+            <li role="none"><a href="/store" role="menuitem">Store<small>DLT merch</small></a></li>
+          </ul>
+        </li>
       </ul>
       <a href="/theclub" class="btn btn-primary btn-sm nav-cta">Join The Club</a>
       <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
@@ -55,18 +207,69 @@
   </header>
 
   <!-- MOBILE NAV -->
-  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
-    <a href="/about">About</a>
-    <a href="/podcasts">Podcasts</a>
-    <a href="/youtube">YouTube</a>
-    <a href="/theclub">The Club</a>
-    <a href="/exchange">The Exchange</a>
-    <a href="/music">Music</a>
-    <a href="/living-with-parkinsons-guide">Living With Parkinson's Guide</a>
-    <a href="/resources">Resources</a>
-    <a href="/share">Spread the Word</a>
-    <a href="/events">Events</a>
-    <a href="/contact">Contact</a>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" data-canonical-nav="v4">
+    <details class="mobile-nav-group">
+      <summary>About</summary>
+      <a href="/about">About Doing Life Today</a>
+      <a href="/about#awards">Awards &amp; Recognition</a>
+      <a href="https://bryceperry.org" target="_blank" rel="noopener noreferrer">Bryce Perry &middot; Speaking &amp; Media</a>
+      <a href="/contact">Contact</a>
+    </details>
+    <details class="mobile-nav-group mobile-nav-group--highlight">
+      <summary>The Club</summary>
+      <a href="/theclub">The Club</a>
+      <a href="/theclub#download">Join The Club</a>
+      <a href="/parkinsons-daily-check-in">Daily Check-In</a>
+      <a href="/parkinsons-symptom-tracker">Symptom Tracker</a>
+      <a href="/clinical-trial-match">Clinical Trial Match</a>
+      <a href="/speaking-the-invisible">Speaking The Invisible</a>
+      <a href="/inner-circle">Inner Circle</a>
+    </details>
+    <details class="mobile-nav-group">
+      <summary>Watch &amp; Listen</summary>
+      <a href="/podcasts">Podcasts Hub</a>
+      <a href="/living-with-parkinsons-podcast">Living With Parkinson's Podcast</a>
+      <a href="/life-in-motion">Life in Motion</a>
+      <a href="/youtube">YouTube</a>
+      <a href="/music">Music</a>
+    </details>
+    <details class="mobile-nav-group">
+      <summary>Care Partners</summary>
+      <a href="/carmens-care-partner-corner">Carmen's Care Partner Corner</a>
+      <a href="/care-partners">Care Partners Guide</a>
+      <a href="/caregiver-burnout">Caregiver Burnout</a>
+    </details>
+    <details class="mobile-nav-group">
+      <summary>Living With Parkinson's</summary>
+      <a href="/living-with-parkinsons-guide">Living With Parkinson's Guide</a>
+      <a href="/newly-diagnosed">Newly Diagnosed</a>
+      <a href="/first-90-days-parkinsons">First 90 Days</a>
+      <a href="/early-signs-of-parkinsons">Early Signs</a>
+      <a href="/symptoms">Symptoms Directory</a>
+      <a href="/parkinsons-medication-timing">Medication Timing</a>
+      <a href="/dbs-surgery">DBS Surgery</a>
+      <a href="/best-exercises-for-parkinsons">Best Exercises</a>
+    </details>
+    <details class="mobile-nav-group">
+      <summary>The Exchange</summary>
+      <a href="/exchange">Search The Exchange</a>
+      <a href="/for-providers">For Providers &middot; Get Listed</a>
+      <a href="/claim-listing">Claim Your Listing</a>
+      <a href="/create-listing">Add Your Business</a>
+    </details>
+    <details class="mobile-nav-group">
+      <summary>Community</summary>
+      <a href="/events">Events</a>
+      <a href="/share">Spread the Word</a>
+      <a href="/free-parkinsons-community">Support Groups &amp; Free Community</a>
+      <a href="/parkinsons-community">Parkinson's Community</a>
+    </details>
+    <details class="mobile-nav-group">
+      <summary>Resources</summary>
+      <a href="/resources">All Resources</a>
+      <a href="/parkinsons-clinician-handouts">Clinician Handouts</a>
+      <a href="/store">Store</a>
+    </details>
     <div class="mobile-cta"><a href="/theclub" class="btn btn-primary">Join The Club</a></div>
   </nav>
 
@@ -96,17 +299,36 @@
           <a href="/theclub" class="btn btn-lg hero-primary-btn">Join The Club</a>
           <a href="/living-with-parkinsons-guide" class="btn btn-lg hero-secondary-btn">Explore The Community</a>
         </div>
-        <div class="hero-app-store" style="margin-top:1.25rem;display:flex;flex-direction:column;align-items:center;gap:0.5rem;">
-          <span style="font-size:0.8125rem;color:var(--color-text-muted);letter-spacing:0.04em;text-transform:uppercase;font-weight:600;">Now on iPhone &amp; iPad</span>
-          <a href="https://apps.apple.com/app/id6763160814" target="_blank" rel="noopener noreferrer" aria-label="Download The Club on the App Store" style="display:inline-block;transition:transform var(--transition);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
-            <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" width="160" height="54" style="display:block;" loading="lazy" />
-          </a>
+        <div class="hero-app-store" style="margin-top:1.25rem;display:flex;flex-direction:column;align-items:center;gap:0.6rem;">
+          <span style="font-size:0.8125rem;color:var(--color-text-muted);letter-spacing:0.08em;text-transform:uppercase;font-weight:700;">Now on Apple &middot; Google &middot; Microsoft &middot; Web</span>
+          <div style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:0.65rem;">
+            <a href="https://apps.apple.com/app/id6763160814" target="_blank" rel="noopener noreferrer" aria-label="Download The Club on the App Store" style="display:inline-block;transition:transform var(--transition);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+              <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" width="160" height="54" style="display:block;" loading="lazy" />
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.dolifetoday.club" target="_blank" rel="noopener noreferrer" aria-label="Get The Club on Google Play" style="display:inline-block;transition:transform var(--transition);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+              <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" width="180" height="54" style="display:block;" loading="lazy" />
+            </a>
+            <a href="https://apps.microsoft.com/detail/9MX0NC9N6RN4" target="_blank" rel="noopener noreferrer" aria-label="Download The Club from the Microsoft Store" style="display:inline-flex;align-items:center;gap:0.55rem;background:#000;border:1px solid #000;border-radius:8px;padding:0.5rem 0.85rem;height:54px;box-sizing:border-box;text-decoration:none;color:#fff;font-family:'Segoe UI',Inter,system-ui,sans-serif;line-height:1.1;transition:transform var(--transition);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+              <svg width="26" height="26" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#F25022" d="M3 3h8.5v8.5H3z"/><path fill="#7FBA00" d="M12.5 3H21v8.5h-8.5z"/><path fill="#00A4EF" d="M3 12.5h8.5V21H3z"/><path fill="#FFB900" d="M12.5 12.5H21V21h-8.5z"/></svg>
+              <span style="display:flex;flex-direction:column;text-align:left;">
+                <span style="font-size:0.62rem;font-weight:500;letter-spacing:0.02em;opacity:0.85;">Get it from</span>
+                <span style="font-size:0.98rem;font-weight:600;letter-spacing:0.005em;">Microsoft</span>
+              </span>
+            </a>
+            <a href="https://club.dolifetoday.com" target="_blank" rel="noopener noreferrer" aria-label="Open The Club in your web browser at club.dolifetoday.com" style="display:inline-flex;align-items:center;gap:0.55rem;background:linear-gradient(135deg,#D4AF37 0%,#F3D678 60%,#D4AF37 100%);border:1px solid rgba(212,175,55,0.7);border-radius:8px;padding:0.5rem 0.85rem;height:54px;box-sizing:border-box;text-decoration:none;color:#101828;font-family:Inter,system-ui,sans-serif;line-height:1.1;transition:transform var(--transition),filter var(--transition);" onmouseover="this.style.transform='translateY(-2px)';this.style.filter='brightness(1.04)'" onmouseout="this.style.transform='none';this.style.filter='none'">
+              <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+              <span style="display:flex;flex-direction:column;text-align:left;">
+                <span style="font-size:0.62rem;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;opacity:0.85;">Open in browser</span>
+                <span style="font-size:0.92rem;font-weight:700;letter-spacing:0.005em;">club.dolifetoday.com</span>
+              </span>
+            </a>
+          </div>
         </div>
         <div class="hero-stats">
-          <div class="hero-stat"><div class="num" id="hero-youtube-metric-value">1.6M+</div><div class="label" id="hero-youtube-metric-label">YouTube Channel Views</div></div>
+          <div class="hero-stat"><div class="num" id="hero-youtube-metric-value">3M+</div><div class="label" id="hero-youtube-metric-label">YouTube Channel Views</div></div>
           <div class="hero-stat"><div class="num">120+</div><div class="label">Countries Listening</div></div>
           <div class="hero-stat"><div class="num">2</div><div class="label">Weekly Parkinson's Podcasts</div></div>
-          <div class="hero-stat"><div class="num">127+</div><div class="label">Episodes &amp; Growing</div></div>
+          <div class="hero-stat"><div class="num">130+</div><div class="label">Episodes &amp; Growing</div></div>
         </div>
       </div>
     </section>
@@ -118,7 +340,7 @@
           <span style="font-size:1.85rem;" aria-hidden="true">&#127942;</span>
           <span>
             <strong style="color:#D4AF37;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:0.15rem;">2026 Communicator Awards Winner</strong>
-            <span style="color:var(--color-text);font-size:1rem;font-weight:600;">Doing Life Today wins 3 Communicator Awards &mdash; including the Award of Excellence for Healthcare &amp; Pharma Podcast Series</span>
+            <span style="color:var(--color-text);font-size:1rem;font-weight:600;">Doing Life Today wins 3 Communicator Awards - including the Award of Excellence for Healthcare &amp; Pharma Podcast Series</span>
           </span>
           <span style="color:#D4AF37;font-weight:700;font-size:0.9rem;white-space:nowrap;">See the Wins &#10145;&#65039;</span>
         </a>
@@ -186,6 +408,54 @@
               <a href="https://dolifetoday.com/parkinsons-symptom-tracker" class="btn btn-primary">Learn More &#10145;&#65039;</a>
             </div>
             <p class="seo-entry-micro-cta">Or start using these tools inside <a href="https://club.dolifetoday.com">The Club</a></p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="seo-entry-section" aria-labelledby="clinical-trial-match-entry-heading">
+      <div class="container">
+        <article class="card seo-entry-card">
+          <div class="seo-entry-content">
+            <span class="section-label">Clinical Trial Match</span>
+            <h2 id="clinical-trial-match-entry-heading">Find Parkinson's Clinical Trials That Actually Fit You</h2>
+            <p>There are thousands of Parkinson's studies on ClinicalTrials.gov. Most of them have nothing to do with you.</p>
+            <p><a href="/clinical-trial-match">Clinical Trial Match</a> is the Parkinson's trial finder built into The Club. It pulls live studies from ClinicalTrials.gov and ranks them against your diagnosis, location, age, and what you actually want to participate in - with one-click tools for the conversation with your doctor.</p>
+            <div class="btn-group seo-entry-actions">
+              <a href="/clinical-trial-match" class="btn btn-primary">Learn More &#10145;&#65039;</a>
+            </div>
+            <p class="seo-entry-micro-cta">Or get matched right now inside <a href="https://club.dolifetoday.com">The Club</a></p>
+          </div>
+          <div class="seo-entry-visual" aria-hidden="true">
+            <div class="seo-entry-icon">&#128300;</div>
+            <div class="seo-entry-visual-copy">
+              <span>Personalized matches</span>
+              <span>Discussion sheet built-in</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="seo-entry-section" aria-labelledby="carmens-corner-entry-heading">
+      <div class="container">
+        <article class="card seo-entry-card reverse">
+          <div class="seo-entry-visual" aria-hidden="true">
+            <div class="seo-entry-icon">&#128150;</div>
+            <div class="seo-entry-visual-copy">
+              <span>Hosted by Carmen Perry</span>
+              <span>For the ones who walk beside us</span>
+            </div>
+          </div>
+          <div class="seo-entry-content">
+            <span class="section-label">Carmen's Care Partner Corner</span>
+            <h2 id="carmens-corner-entry-heading">A Whole Corner of The Club Built for Care Partners</h2>
+            <p>Caregiving for someone with Parkinson's can feel invisible. Most of the apps and resources are written for the person with the diagnosis.</p>
+            <p><a href="/carmens-care-partner-corner">Carmen's Care Partner Corner</a> flips that. A private circle hosted by Carmen Perry, a care partner dashboard, daily check-ins, mini wellbeing trackers, an AI coach trained on caregiver scenarios, and a care partner voice on every podcast episode.</p>
+            <div class="btn-group seo-entry-actions">
+              <a href="/carmens-care-partner-corner" class="btn btn-primary">Learn More &#10145;&#65039;</a>
+            </div>
+            <p class="seo-entry-micro-cta">Or join the Corner directly inside <a href="https://club.dolifetoday.com">The Club</a></p>
           </div>
         </article>
       </div>
@@ -273,6 +543,11 @@
             <h3>Restless Ridge Motel</h3>
             <p>A late-night corner of the Doing Life Today world where the sleepless side of Parkinson's gets real. Stories, humor, and survival tips for those 3 AM nights.</p>
             <a href="https://motel.dolifetoday.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary mt-3" style="width:100%;">Visit The Motel &#10145;&#65039;</a>
+          </article>
+          <article class="card platform-card text-center">            <div class="card-icon">&#128064;</div>
+            <h3>Speaking The Invisible</h3>
+            <p>A free tool that helps people living with Parkinson's put hard-to-describe symptoms into words for family, care partners, and healthcare teams. No account required.</p>
+            <a href="https://invisible.dolifetoday.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary mt-3" style="width:100%;">Open The Tool &#10145;&#65039;</a>
           </article>
         </div>
       </div>
@@ -528,10 +803,22 @@
             <div class="nav-logo-text">Doing Life Today<span>Parkinson's Community</span></div>
           </a>
           <p>Connecting people living with Parkinson's through podcasts, community, and real conversations - since 2018.</p>
-          <a href="https://apps.apple.com/app/id6763160814" target="_blank" rel="noopener noreferrer" aria-label="Download The Club on the App Store" style="display:inline-block;margin:0.5rem 0 0.75rem;">
-            <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download The Club on the App Store" width="140" height="47" style="display:block;" loading="lazy" />
-          </a>
-          <a href="https://bryceperry.org" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">Book Bryce for Speaking ?</a>
+          <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.5rem;margin:0.5rem 0 0.75rem;">
+            <a href="https://apps.apple.com/app/id6763160814" target="_blank" rel="noopener noreferrer" aria-label="Download The Club on the App Store" style="display:inline-block;">
+              <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download The Club on the App Store" width="140" height="47" style="display:block;" loading="lazy" />
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.dolifetoday.club" target="_blank" rel="noopener noreferrer" aria-label="Get The Club on Google Play" style="display:inline-block;">
+              <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get The Club on Google Play" width="158" height="47" style="display:block;" loading="lazy" />
+            </a>
+            <a href="https://apps.microsoft.com/detail/9MX0NC9N6RN4" target="_blank" rel="noopener noreferrer" aria-label="Download The Club from the Microsoft Store" style="display:inline-flex;align-items:center;gap:0.5rem;background:#000;border:1px solid #000;border-radius:7px;padding:0.4rem 0.7rem;height:47px;box-sizing:border-box;text-decoration:none;color:#fff;font-family:'Segoe UI',Inter,system-ui,sans-serif;line-height:1.05;">
+              <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#F25022" d="M3 3h8.5v8.5H3z"/><path fill="#7FBA00" d="M12.5 3H21v8.5h-8.5z"/><path fill="#00A4EF" d="M3 12.5h8.5V21H3z"/><path fill="#FFB900" d="M12.5 12.5H21V21h-8.5z"/></svg>
+              <span style="display:flex;flex-direction:column;text-align:left;">
+                <span style="font-size:0.55rem;font-weight:500;letter-spacing:0.02em;opacity:0.85;">Get it from</span>
+                <span style="font-size:0.85rem;font-weight:600;letter-spacing:0.005em;">Microsoft</span>
+              </span>
+            </a>
+          </div>
+          <a href="https://bryceperry.org" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">Book Bryce for Speaking &#8599;</a>
         </div>
         <div class="footer-col">
           <h4>Quick Links</h4>
@@ -550,11 +837,12 @@
           <ul class="footer-links">
             <li><a href="https://dolifetoday.com">Doing Life Today</a></li>
             <li><a href="/theclub">The Club</a></li>
-            <li><a href="https://podcast.dolifetoday.com" target="_blank" rel="noopener noreferrer">Podcast Network ?</a></li>
-            <li><a href="https://bryceperry.org" target="_blank" rel="noopener noreferrer">Speaking &amp; Media ?</a></li>
-            <li><a href="https://shop.dolifetoday.com" target="_blank" rel="noopener noreferrer">Merch Store ?</a></li>
+            <li><a href="https://podcast.dolifetoday.com" target="_blank" rel="noopener noreferrer">Podcast Network &#8599;</a></li>
+            <li><a href="https://bryceperry.org" target="_blank" rel="noopener noreferrer">Speaking &amp; Media &#8599;</a></li>
+            <li><a href="https://shop.dolifetoday.com" target="_blank" rel="noopener noreferrer">Merch Store &#8599;</a></li>
             <li><a href="/exchange">The Exchange</a></li>
-            <li><a href="/inner-circle">Inner Circle</a></li>
+            <li><a href="/speaking-the-invisible">Speaking The Invisible</a>
+      <a href="/inner-circle">Inner Circle</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -571,9 +859,9 @@
       <div class="footer-social-row" style="display:flex;align-items:center;gap:1rem;padding:1.5rem 0;border-top:1px solid var(--color-border);border-bottom:1px solid var(--color-border);margin:1.5rem 0;">
         <span style="color:var(--color-text-muted);font-size:0.875rem;">Follow us:</span>
         <div class="footer-social" role="list">
-          <a href="https://www.youtube.com/@doinglifetoday" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube" role="listitem">?</a>
+          <a href="https://www.youtube.com/@doinglifetoday" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube" role="listitem">&#9654;</a>
           <a href="https://www.instagram.com/doinglifetoday" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Instagram" role="listitem">&#128247;</a>
-          <a href="https://www.tiktok.com/@doinglifetoday" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="TikTok" role="listitem">?</a>
+          <a href="https://www.tiktok.com/@doinglifetoday" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="TikTok" role="listitem">&#9835;</a>
           <a href="https://www.facebook.com/doinglifetoday" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Facebook" role="listitem">f</a>
         </div>
         <a href="mailto:office@dolifetoday.com" style="margin-left:auto;font-size:0.875rem;color:var(--color-text-muted);">office@dolifetoday.com</a>
@@ -585,7 +873,7 @@
     </div>
   </footer>
 
-  <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">?</button>
+  <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">&#8593;</button>
   <script src="js/main.js"></script>
   <script>
   (function(){

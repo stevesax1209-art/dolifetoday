@@ -110,6 +110,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://dolifetoday.com/parkinsons-clinician-handouts</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://dolifetoday.com/exchange/providers</loc>
     <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
@@ -371,6 +377,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dolifetoday.com/invisible-symptoms-of-parkinsons</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://dolifetoday.com/dyskinesia</loc>
     <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>
@@ -401,10 +413,22 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dolifetoday.com/clinical-trial-match</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://dolifetoday.com/caregiver-burnout</loc>
     <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dolifetoday.com/carmens-care-partner-corner</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://dolifetoday.com/bryce-perry-parkinsons-award-2026</loc>

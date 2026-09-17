@@ -2,6 +2,17 @@
   "projects": {
     "default": "doing-life-today"
   },
-  "targets": {},
+  "targets": {
+    "doing-life-today": {
+      "hosting": {
+        "main": [
+          "doing-life-today"
+        ],
+        "community-redirect": [
+          "dlt-community-redirect"
+        ]
+      }
+    }
+  },
   "etags": {}
 }

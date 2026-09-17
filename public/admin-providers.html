@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Admin panel for managing provider listings in The Exchange.">
-  <title>Admin — Provider Management | The Exchange</title>
+  <title>Admin - Provider Management | The Exchange</title>
   <meta name="robots" content="noindex, nofollow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,6 +40,14 @@
         <li><a href="/podcasts">Podcasts</a></li>
         <li><a href="/youtube">YouTube</a></li>
         <li><a href="/theclub">The Club</a></li>
+        <li class="nav-dropdown">
+          <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Care Partners</button>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li role="none"><a href="/carmens-care-partner-corner" role="menuitem">Carmen's Care Partner Corner<small>Dashboard, Circle, daily check-ins</small></a></li>
+            <li role="none"><a href="/care-partners" role="menuitem">Care Partners Guide<small>Supporting someone with Parkinson's</small></a></li>
+            <li role="none"><a href="/caregiver-burnout" role="menuitem">Caregiver Burnout<small>Spot it and recover</small></a></li>
+          </ul>
+        </li>
         <li><a href="/exchange">The Exchange</a></li>
         <li><a href="/music">Music</a></li>
         <li><a href="/living-with-parkinsons-guide">Living With Parkinson's Guide</a></li>
@@ -59,6 +67,8 @@
     <a href="/podcasts">Podcasts</a>
     <a href="/youtube">YouTube</a>
     <a href="/theclub">The Club</a>
+    <a href="/carmens-care-partner-corner">Carmen's Care Partner Corner</a>
+    <a href="/clinical-trial-match">Clinical Trial Match</a>
     <a href="/exchange">The Exchange</a>
     <a href="/music">Music</a>
     <a href="/living-with-parkinsons-guide">Living With Parkinson's Guide</a>
@@ -149,11 +159,11 @@
                 <option value="caregiving">Caregiving</option>
                 <option value="research">Research</option>
                 <option value="products">Products</option>
-                <option value="products-sleep-aids">Products — Sleep Aids</option>
-                <option value="products-mobility-aids">Products — Mobility Aids</option>
-                <option value="products-adaptive-clothing">Products — Adaptive Clothing</option>
-                <option value="products-assistive-devices">Products — Assistive Devices</option>
-                <option value="products-home-safety">Products — Home Safety</option>
+                <option value="products-sleep-aids">Products - Sleep Aids</option>
+                <option value="products-mobility-aids">Products - Mobility Aids</option>
+                <option value="products-adaptive-clothing">Products - Adaptive Clothing</option>
+                <option value="products-assistive-devices">Products - Assistive Devices</option>
+                <option value="products-home-safety">Products - Home Safety</option>
                 <option value="other">Other</option>
               </select>
             </div>
@@ -162,7 +172,7 @@
                 <option value="newest">Newest first</option>
                 <option value="most-active">Most active</option>
                 <option value="high-intent">High intent</option>
-                <option value="name">Name A–Z</option>
+                <option value="name">Name A-Z</option>
               </select>
             </div>
             <div class="admin-toolbar-action">
@@ -200,23 +210,23 @@
           <h2 class="section-title" style="font-size:1.5rem;">Conversion Metrics</h2>
           <div class="admin-stats-row" id="admin-conversion-stats">
             <div class="admin-stat">
-              <span class="admin-stat-value" id="admin-metric-total">—</span>
+              <span class="admin-stat-value" id="admin-metric-total"> - </span>
               <span class="admin-stat-label">Total Providers</span>
             </div>
             <div class="admin-stat">
-              <span class="admin-stat-value" id="admin-metric-free">—</span>
+              <span class="admin-stat-value" id="admin-metric-free"> - </span>
               <span class="admin-stat-label">Free</span>
             </div>
             <div class="admin-stat">
-              <span class="admin-stat-value" id="admin-metric-verified">—</span>
+              <span class="admin-stat-value" id="admin-metric-verified"> - </span>
               <span class="admin-stat-label">Verified</span>
             </div>
             <div class="admin-stat">
-              <span class="admin-stat-value" id="admin-metric-community">—</span>
+              <span class="admin-stat-value" id="admin-metric-community"> - </span>
               <span class="admin-stat-label">Community</span>
             </div>
             <div class="admin-stat">
-              <span class="admin-stat-value" id="admin-metric-rate">—</span>
+              <span class="admin-stat-value" id="admin-metric-rate"> - </span>
               <span class="admin-stat-label">Upgrade Rate</span>
             </div>
           </div>

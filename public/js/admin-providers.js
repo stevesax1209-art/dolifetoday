@@ -162,18 +162,79 @@
       let claimRow = '';
       if (p.claimedBy) {
         const claimEmail = ProviderAuth.escapeHtml(p.claimEmail || '—');
+        const claimEmailRaw = p.claimEmail || '';
         const claimRole = ProviderAuth.escapeHtml(p.claimRole || '—');
         const claimPhone = ProviderAuth.escapeHtml(p.claimPhone || '—');
         const extId = ProviderAuth.escapeHtml(p.externalProviderId || '');
+        const extWebsite = p.externalWebsite || '';
+        const extPhone = p.externalPhone || '';
+        const extLocation = p.externalLocation || '';
+        const extType = p.externalType || '';
         const exchangeLink = extId ? '<a href="https://dolifetoday.com/exchange/provider?id=' + encodeURIComponent(p.externalProviderId) + '" target="_blank" rel="noopener" style="color:#1f7a8c;">View Exchange Listing ↗</a>' : '—';
+
+        // Prefer server-computed signals (from submission time); fall back
+        // to client re-computation for legacy claims created before the
+        // vetting fields were added.
+        const serverV = p.claimVetting || null;
+        const signals = serverV ? {
+          domain: serverV.domainMatch,
+          personalEmail: !!serverV.isPersonalEmail,
+          nameMatch: false,
+          autoVerified: !!serverV.autoVerified,
+          pdRelevanceLikely: !!serverV.pdRelevanceLikely,
+        } : computeVettingSignals(claimEmailRaw, extWebsite, p.name || '');
+        if (!serverV) {
+          signals.autoVerified = signals.domain === 'match' && !signals.personalEmail;
+          signals.pdRelevanceLikely = looksParkinsonsRelevant((p.name || '') + ' ' + extType);
+        }
+
+        const verdictBanner = signals.autoVerified
+          ? '<div style="margin-bottom:.5rem;padding:.5rem .75rem;background:#d1fae5;border:1px solid #6ee7b7;border-radius:6px;color:#065f46;font-weight:600;font-size:.85rem;">✅ Auto-verified — claimant\'s email domain matches the listed website. Safe to approve.</div>'
+          : '<div style="margin-bottom:.5rem;padding:.5rem .75rem;background:#fef3c7;border:1px solid #fcd34d;border-radius:6px;color:#78350f;font-weight:600;font-size:.85rem;">🔍 Manual review needed — could not automatically verify this claim. Read the claimant statement below.</div>';
+
+        const signalPills = renderSignalPills(signals);
+
+        // Claimant relevance statement (present when not auto-verified)
+        const statement = (p.claimRelevanceStatement || '').trim();
+        const statementBlock = statement ? (
+          '<div style="margin-top:.5rem;padding:.5rem .75rem;background:#fff;border-left:3px solid #b8711a;border-radius:0 4px 4px 0;font-size:.88rem;color:#333;">' +
+            '<strong style="color:#78350f;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;">Claimant\'s Parkinson\'s relevance statement</strong>' +
+            '<div style="margin-top:.25rem;font-style:italic;white-space:pre-wrap;">' + ProviderAuth.escapeHtml(statement) + '</div>' +
+          '</div>'
+        ) : '';
+
+        const listedRow = (extWebsite || extPhone || extLocation) ? (
+          '<div style="margin-top:.5rem;padding-top:.5rem;border-top:1px dashed #f0d4a8;display:flex;flex-wrap:wrap;gap:.5rem 2rem;font-size:.85rem;line-height:1.7;color:#555;">' +
+            '<span><strong>Listed website:</strong> ' + (extWebsite ? '<a href="' + ProviderAuth.escapeHtml(normalizeUrl(extWebsite)) + '" target="_blank" rel="noopener" style="color:#1f7a8c;">' + ProviderAuth.escapeHtml(extWebsite) + ' ↗</a>' : '<em>—</em>') + '</span>' +
+            '<span><strong>Listed phone:</strong> ' + ProviderAuth.escapeHtml(extPhone || '—') + '</span>' +
+            '<span><strong>Listed location:</strong> ' + ProviderAuth.escapeHtml(extLocation || '—') + '</span>' +
+            (extType ? '<span><strong>Type:</strong> ' + ProviderAuth.escapeHtml(extType) + '</span>' : '') +
+          '</div>'
+        ) : '';
+
+        const dueDiligence = (
+          '<div style="margin-top:.5rem;display:flex;flex-wrap:wrap;gap:.4rem;font-size:.8rem;">' +
+            '<a href="https://www.google.com/search?q=' + encodeURIComponent('"' + (p.name || '') + '" parkinson') + '" target="_blank" rel="noopener" style="background:#fff;border:1px solid #d1c4a8;color:#78350f;padding:2px 8px;border-radius:3px;text-decoration:none;">🔍 Google name</a>' +
+            (claimEmailRaw ? '<a href="https://www.google.com/search?q=' + encodeURIComponent('"' + claimEmailRaw + '"') + '" target="_blank" rel="noopener" style="background:#fff;border:1px solid #d1c4a8;color:#78350f;padding:2px 8px;border-radius:3px;text-decoration:none;">🔍 Search email</a>' : '') +
+            (extWebsite ? '<a href="' + ProviderAuth.escapeHtml(normalizeUrl(extWebsite)) + '" target="_blank" rel="noopener" style="background:#fff;border:1px solid #d1c4a8;color:#78350f;padding:2px 8px;border-radius:3px;text-decoration:none;">🌐 Open website</a>' : '') +
+            (claimEmailRaw ? '<a href="mailto:' + encodeURIComponent(claimEmailRaw) + '" style="background:#fff;border:1px solid #d1c4a8;color:#78350f;padding:2px 8px;border-radius:3px;text-decoration:none;">✉️ Email claimant</a>' : '') +
+          '</div>'
+        );
+
         claimRow = '<tr class="admin-claim-row"><td colspan="6" style="padding:.75rem 1rem;background:#fef9e7;color:#333;border-bottom:2px solid #f0d4a8;">' +
-          '<div style="display:flex;flex-wrap:wrap;gap:.5rem 2rem;font-size:.9rem;line-height:1.7;">' +
+          verdictBanner +
+          '<div style="display:flex;flex-wrap:wrap;gap:.5rem 2rem;font-size:.9rem;line-height:1.7;align-items:center;">' +
           '<span><strong style="color:#b8711a;">📋 Claim Request</strong></span>' +
+          signalPills +
           '<span><strong>Email:</strong> ' + claimEmail + '</span>' +
           '<span><strong>Role:</strong> ' + claimRole + '</span>' +
           '<span><strong>Phone:</strong> ' + claimPhone + '</span>' +
           '<span>' + exchangeLink + '</span>' +
-          '</div></td></tr>';
+          '</div>' +
+          statementBlock +
+          listedRow +
+          dueDiligence +
+          '</td></tr>';
       }
 
       return '<tr>' +
@@ -568,5 +629,137 @@
       btn.disabled = false;
       alert('Send failed: ' + err.message);
     }
+  }
+
+  /* ── Claim vetting signals ────────────────────────────────── */
+
+  // Free/personal email providers — claims from these need extra scrutiny
+  // because they don't tie the claimant to the organization's domain.
+  const PERSONAL_EMAIL_DOMAINS = new Set([
+    'gmail.com', 'googlemail.com', 'yahoo.com', 'ymail.com', 'rocketmail.com',
+    'hotmail.com', 'outlook.com', 'live.com', 'msn.com', 'icloud.com',
+    'me.com', 'mac.com', 'aol.com', 'protonmail.com', 'proton.me',
+    'mail.com', 'gmx.com', 'zoho.com', 'yandex.com', 'fastmail.com',
+    'hey.com', 'tutanota.com', 'pm.me',
+  ]);
+
+  function extractDomain(input) {
+    if (!input) return '';
+    let s = String(input).trim().toLowerCase();
+    if (s.includes('@')) s = s.split('@').pop();
+    s = s.replace(/^https?:\/\//, '').replace(/^www\./, '');
+    s = s.split('/')[0].split('?')[0].split('#')[0].split(':')[0];
+    return s;
+  }
+
+  function normalizeUrl(input) {
+    if (!input) return '';
+    const s = String(input).trim();
+    if (/^https?:\/\//i.test(s)) return s;
+    return 'https://' + s;
+  }
+
+  // Match the "root" part of a domain (drop TLD + common second-level TLDs).
+  // e.g. corteizrtw.com → "corteizrtw"; example.co.uk → "example"
+  function domainRoot(domain) {
+    if (!domain) return '';
+    const parts = domain.split('.');
+    if (parts.length < 2) return domain;
+    // crude second-level TLD list — good enough for signal comparison
+    const secondLevelTlds = new Set(['co', 'com', 'org', 'net', 'gov', 'ac', 'edu']);
+    if (parts.length >= 3 && secondLevelTlds.has(parts[parts.length - 2])) {
+      return parts[parts.length - 3];
+    }
+    return parts[parts.length - 2];
+  }
+
+  function nameTokens(name) {
+    if (!name) return [];
+    return String(name).toLowerCase()
+      .replace(/[^a-z0-9\s]/g, ' ')
+      .split(/\s+/)
+      .filter(t => t.length >= 4 && !['the', 'and', 'for', 'with', 'inc', 'llc', 'ltd', 'corp', 'group', 'center', 'clinic', 'health', 'care'].includes(t));
+  }
+
+  function computeVettingSignals(claimEmail, listedWebsite, providerName) {
+    const out = { domain: null, personalEmail: false, nameMatch: false };
+    const emailDomain = extractDomain(claimEmail);
+    const siteDomain = extractDomain(listedWebsite);
+
+    if (emailDomain) {
+      out.personalEmail = PERSONAL_EMAIL_DOMAINS.has(emailDomain);
+    }
+
+    if (emailDomain && siteDomain) {
+      if (emailDomain === siteDomain) {
+        out.domain = 'match';
+      } else if (domainRoot(emailDomain) && domainRoot(emailDomain) === domainRoot(siteDomain)) {
+        out.domain = 'match';
+      } else {
+        out.domain = 'mismatch';
+      }
+    } else if (emailDomain && !siteDomain && !out.personalEmail) {
+      // No website to compare; noted separately by "no website" state
+      out.domain = 'nowebsite';
+    }
+
+    // Name-in-email heuristic: any 4+ char token from provider name appears
+    // in the email address (local part OR domain). Weak but useful signal
+    // when domain match is unavailable (e.g. gmail claimant using
+    // "corteizspains@gmail.com" for a business named "Corteiz").
+    if (claimEmail && providerName) {
+      const email = String(claimEmail).toLowerCase();
+      const tokens = nameTokens(providerName);
+      out.nameMatch = tokens.some(t => email.includes(t));
+    }
+
+    return out;
+  }
+
+  function pill(bg, border, color, icon, text) {
+    return '<span style="display:inline-flex;align-items:center;gap:4px;background:' + bg +
+      ';border:1px solid ' + border + ';color:' + color +
+      ';padding:2px 8px;border-radius:12px;font-size:.75rem;font-weight:600;line-height:1.4;">' +
+      icon + ' ' + text + '</span>';
+  }
+
+  function renderSignalPills(signals) {
+    const pills = [];
+    if (signals.domain === 'match') {
+      pills.push(pill('#d1fae5', '#6ee7b7', '#065f46', '✅', 'Email domain matches website'));
+    } else if (signals.domain === 'mismatch') {
+      pills.push(pill('#fee2e2', '#fca5a5', '#991b1b', '⚠️', 'Email domain ≠ website'));
+    } else if (signals.domain === 'nowebsite') {
+      pills.push(pill('#e5e7eb', '#9ca3af', '#374151', 'ℹ️', 'No listed website to compare'));
+    }
+    if (signals.personalEmail) {
+      pills.push(pill('#fef3c7', '#fcd34d', '#78350f', '🟡', 'Personal email'));
+    }
+    if (signals.nameMatch) {
+      pills.push(pill('#dbeafe', '#93c5fd', '#1e3a8a', '✦', 'Name in email'));
+    }
+    if (signals.pdRelevanceLikely === true) {
+      pills.push(pill('#dcfce7', '#86efac', '#166534', '🧠', "PD-relevant keywords"));
+    } else if (signals.pdRelevanceLikely === false) {
+      pills.push(pill('#fee2e2', '#fca5a5', '#991b1b', '❔', "No PD keywords in listing"));
+    }
+    return pills.join(' ');
+  }
+
+  // Same keyword list used server-side in assessProviderClaim — keep in sync.
+  const PD_RELEVANCE_KEYWORDS = [
+    'parkinson', "parkinson\u2019s", ' pd ', 'movement disorder', 'neurology',
+    'neurologist', 'physical therapy', 'occupational therapy', 'speech therapy',
+    'lsvt', 'pwr', 'rock steady', 'boxing for parkinson', 'dbs', 'deep brain',
+    'levodopa', 'carbidopa', 'sinemet', 'tremor', 'dyskinesia', 'dystonia',
+    'freezing of gait', 'caregiver', 'care partner', 'support group',
+    'brain health', 'geriatric', 'wellness', 'rehab', 'physiotherapy',
+    'balance', 'gait', 'apda', 'michael j fox', 'davis phinney',
+    'pmd alliance', 'dance for pd', 'tai chi', 'mindful',
+  ];
+
+  function looksParkinsonsRelevant(text) {
+    const s = (' ' + String(text || '').toLowerCase() + ' ');
+    return PD_RELEVANCE_KEYWORDS.some(k => s.includes(k));
   }
 })();

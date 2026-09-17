@@ -36,11 +36,52 @@ const pcnApp = admin.apps.find(a => a.name === 'pcn') ||
   admin.initializeApp({ projectId: 'pcn---new' }, 'pcn');
 const pcnDb = admin.firestore(pcnApp);
 
+// Cross-project Firestore for The Club (lives in parkinsons-community-821-a4c27)
+// Used to write launch-allowlist entries so QR-scan signups from /live
+// are auto-approved when they create a Club account.
+const clubApp = admin.apps.find(a => a.name === 'club') ||
+  admin.initializeApp({ projectId: 'parkinsons-community-821-a4c27' }, 'club');
+const clubDb = admin.firestore(clubApp);
+const CLUB_LAUNCH_ALLOWLIST_COLLECTION = 'launch-allowlist';
+
+/**
+ * Add an email to The Club's launch-allowlist so the user is auto-approved
+ * when they create their account at club.dolifetoday.com.
+ * Wrapped in try/catch — failure must NOT break the MailerLite signup flow.
+ */
+async function addToClubLaunchAllowlist({ email, wave, source, addedByUserId }) {
+  const normalizedEmail = (email || '').trim().toLowerCase();
+  if (!normalizedEmail || !EMAIL_REGEX.test(normalizedEmail)) return false;
+  try {
+    await clubDb.collection(CLUB_LAUNCH_ALLOWLIST_COLLECTION).doc(normalizedEmail).set({
+      approved: true,
+      email: normalizedEmail,
+      normalizedEmail,
+      wave: wave || 'wpc-2026-phoenix',
+      source: source || 'wpc-2026-phoenix',
+      updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+      importedAt: admin.firestore.FieldValue.serverTimestamp(),
+      addedByUserId: addedByUserId || 'dolifetoday-subscribe-fn',
+      addedByEmail: 'system@dolifetoday.com',
+    }, { merge: true });
+    functions.logger.info('Club launch-allowlist entry written', { email: normalizedEmail, source });
+    return true;
+  } catch (err) {
+    functions.logger.error('Failed to write Club launch-allowlist entry', {
+      email: normalizedEmail,
+      source,
+      error: err?.message || String(err),
+    });
+    return false;
+  }
+}
+
 const WAITLIST_STATS_COLLECTION = 'site_stats';
 const WAITLIST_STATS_DOC_ID = 'club_waitlist';
 const SHARE_STATS_DOC_ID = 'club_share_stats';
 const CLUB_PAGE_STATS_DOC_ID = 'club_page_stats';
 const CHECK_WAVE_STATS_DOC_ID = 'check_wave_stats';
+const INNER_CIRCLE_LOUNGE_STATS_DOC_ID = 'inner_circle_lounge_stats';
 const LEGACY_WAITLIST_MIGRATION_COUNT = 68;
 const WAITLIST_MANUAL_COUNT_ADJUSTMENT = 19;
 const RATE_LIMIT_COLLECTION = 'submission_rate_limits';
@@ -67,6 +108,102 @@ const COMMON_FREE_EMAIL_DOMAINS = new Set([
   'proton.me',
   'protonmail.com',
 ]);
+
+// Disposable/burner email domains — reject provider claims outright to
+// cut down on the throwaway-account spam claims (e.g. random @mailinator
+// signups on unrelated brand names). Keep this list conservative;
+// legitimate providers do not use throwaway inboxes for outreach.
+const DISPOSABLE_EMAIL_DOMAINS = new Set([
+  'mailinator.com', 'trashmail.com', 'trashmail.net', 'guerrillamail.com',
+  'guerrillamail.info', 'guerrillamail.biz', 'sharklasers.com',
+  '10minutemail.com', '10minutemail.net', 'tempmail.com', 'temp-mail.org',
+  'temp-mail.io', 'yopmail.com', 'yopmail.fr', 'discard.email',
+  'throwawaymail.com', 'maildrop.cc', 'mintemail.com', 'getnada.com',
+  'nada.email', 'mohmal.com', 'dispostable.com', 'spamgourmet.com',
+  'fakeinbox.com', 'anonaddy.me', 'burnermail.io', 'mvrht.net',
+  'inboxbear.com', 'emailondeck.com', 'moakt.com', 'einrot.com',
+  'jetable.org', 'yopmail.net', 'byom.de', 'mytemp.email',
+]);
+
+// Loose Parkinson's-relevance keyword set for auto-flagging claims where
+// the listed business name gives no signal of PD relevance (e.g. a
+// clothing brand claiming a listing that snuck into the index). Not a
+// definitive check — only used to surface an "unclear relevance" pill.
+const PD_RELEVANCE_KEYWORDS = [
+  'parkinson', "parkinsons", 'parkinson\u2019s', 'pd ',
+  'movement disorder', 'neurology', 'neurologist', 'neuro ',
+  'physical therapy', 'occupational therapy', 'speech therapy',
+  'lsvt', 'pwr', 'rock steady', 'boxing for parkinson',
+  'dbs', 'deep brain', 'levodopa', 'carbidopa', 'sinemet',
+  'tremor', 'dyskinesia', 'dystonia', 'freezing of gait',
+  'caregiver', 'care partner', 'support group', 'brain health',
+  'aging', 'senior', 'geriatric', 'wellness', 'rehab',
+  'physiotherapy', 'balance', 'gait', 'apda', 'michael j fox',
+  'davis phinney', 'pmd alliance', 'brian grant', 'yoga',
+  'dance for pd', 'tai chi', 'mindful', 'nutrition',
+];
+
+function extractEmailDomain(email) {
+  if (!email) return '';
+  const parts = String(email).trim().toLowerCase().split('@');
+  return parts.length === 2 ? parts[1] : '';
+}
+
+function extractWebsiteDomain(url) {
+  if (!url) return '';
+  return String(url).trim().toLowerCase()
+    .replace(/^https?:\/\//, '')
+    .replace(/^www\./, '')
+    .split('/')[0]
+    .split('?')[0]
+    .split('#')[0]
+    .split(':')[0];
+}
+
+function domainRootPart(domain) {
+  if (!domain) return '';
+  const parts = domain.split('.');
+  if (parts.length < 2) return domain;
+  const secondLevelTlds = new Set(['co', 'com', 'org', 'net', 'gov', 'ac', 'edu']);
+  if (parts.length >= 3 && secondLevelTlds.has(parts[parts.length - 2])) {
+    return parts[parts.length - 3];
+  }
+  return parts[parts.length - 2];
+}
+
+function assessProviderClaim({ email, listedWebsite, providerName, listedType }) {
+  const emailDomain = extractEmailDomain(email);
+  const siteDomain = extractWebsiteDomain(listedWebsite);
+  const isPersonal = emailDomain ? COMMON_FREE_EMAIL_DOMAINS.has(emailDomain) : false;
+  const isDisposable = emailDomain ? DISPOSABLE_EMAIL_DOMAINS.has(emailDomain) : false;
+
+  let domainMatch = null;
+  if (emailDomain && siteDomain) {
+    if (emailDomain === siteDomain ||
+        (domainRootPart(emailDomain) && domainRootPart(emailDomain) === domainRootPart(siteDomain))) {
+      domainMatch = 'match';
+    } else {
+      domainMatch = 'mismatch';
+    }
+  }
+
+  // Auto-verifiable when the claimant's email is on the same domain as the
+  // organization's public website AND is not a personal free-mail domain.
+  const autoVerified = domainMatch === 'match' && !isPersonal && !isDisposable;
+
+  const haystack = ((providerName || '') + ' ' + (listedType || '')).toLowerCase();
+  const pdRelevanceLikely = PD_RELEVANCE_KEYWORDS.some(k => haystack.includes(k));
+
+  return {
+    emailDomain,
+    siteDomain,
+    isPersonalEmail: isPersonal,
+    isDisposableEmail: isDisposable,
+    domainMatch,
+    autoVerified,
+    pdRelevanceLikely,
+  };
+}
 
 const CLUB_ANALYTICS_EVENTS = Object.freeze({
   page_view: 'pageViews',
@@ -629,6 +766,78 @@ async function getClubPageStats() {
     trafficSources: getMergedStatMap(data, 'trafficSources'),
     updatedAt,
   };
+}
+
+/* ── Inner Circle Lounge stats ────────────────────────────────
+   Tracks visits + unlock success/fail + zoom join clicks + ics
+   downloads on the private members lounge at /inner-circle-lounge.
+   Fed by /api/track-inner-circle-lounge; read by /api/share-stats. */
+
+const DEFAULT_INNER_CIRCLE_LOUNGE_TOTALS = Object.freeze({
+  pageViews: 0,
+  unlockSuccess: 0,
+  unlockFailure: 0,
+  zoomJoinMorning: 0,
+  zoomJoinEvening: 0,
+  icsDownloads: 0,
+});
+
+const INNER_CIRCLE_LOUNGE_EVENTS = Object.freeze({
+  page_view: 'pageViews',
+  unlock_success: 'unlockSuccess',
+  unlock_failure: 'unlockFailure',
+  zoom_join_morning: 'zoomJoinMorning',
+  zoom_join_evening: 'zoomJoinEvening',
+  ics_download: 'icsDownloads',
+});
+
+function getInnerCircleLoungeStatsRef() {
+  return db.collection(WAITLIST_STATS_COLLECTION).doc(INNER_CIRCLE_LOUNGE_STATS_DOC_ID);
+}
+
+async function getInnerCircleLoungeStats() {
+  const snapshot = await getInnerCircleLoungeStatsRef().get();
+  if (!snapshot.exists) {
+    return {
+      totals: { ...DEFAULT_INNER_CIRCLE_LOUNGE_TOTALS },
+      dailyPageViews: {},
+      trafficSources: {},
+      updatedAt: null,
+    };
+  }
+  const data = snapshot.data() || {};
+  const updatedAt = data.updatedAt && typeof data.updatedAt.toDate === 'function'
+    ? data.updatedAt.toDate().toISOString()
+    : null;
+  return {
+    totals: {
+      ...DEFAULT_INNER_CIRCLE_LOUNGE_TOTALS,
+      ...getMergedStatMap(data, 'totals'),
+    },
+    dailyPageViews: getMergedStatMap(data, 'dailyPageViews'),
+    trafficSources: getMergedStatMap(data, 'trafficSources'),
+    updatedAt,
+  };
+}
+
+async function recordInnerCircleLoungeEvent(eventType, details = {}) {
+  const statKey = INNER_CIRCLE_LOUNGE_EVENTS[eventType];
+  if (!statKey) throw new Error(`Unsupported inner circle lounge event: ${eventType}`);
+
+  const updates = {
+    totals: { [statKey]: admin.firestore.FieldValue.increment(1) },
+    updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+  };
+
+  if (eventType === 'page_view') {
+    const dateKey = getCurrentDateKey();
+    updates.dailyPageViews = { [dateKey]: admin.firestore.FieldValue.increment(1) };
+    const source = typeof details.source === 'string' && details.source.trim()
+      ? details.source.trim().slice(0, 80) : 'direct';
+    updates.trafficSources = { [source]: admin.firestore.FieldValue.increment(1) };
+  }
+
+  await getInnerCircleLoungeStatsRef().set(updates, { merge: true });
 }
 
 async function recordShareClick(channel, page) {
@@ -1308,6 +1517,39 @@ exports.subscribe = onRequest(
           responsePayload.alreadyReserved = !waitlistCounted;
         }
         if (count !== null) { responsePayload.count = count; responsePayload.wave = wave; }
+
+        // WPC 2026 Phoenix: auto-approve QR-scan signups on the Club's
+        // launch-allowlist so they can create an account immediately.
+        // Only PwPs and care partners are eligible for The Club.
+        // Best-effort: failure here must not break the response.
+        const normalizedSource = normalizeText(source).toLowerCase();
+        const normalizedRole = normalizeText(audienceRole).toLowerCase();
+        const isClubEligibleRole = normalizedRole.includes('parkinson')
+          || normalizedRole.includes('care partner')
+          || normalizedRole.includes('caregiver')
+          || normalizedRole.includes('spouse')
+          || normalizedRole.includes('family');
+        if ((normalizedSource === 'wpc_2026_phoenix' || normalizedSource.startsWith('wpc_')) && isClubEligibleRole) {
+          const approved = await addToClubLaunchAllowlist({
+            email,
+            wave: 'wpc-2026-phoenix',
+            source: 'wpc-2026-phoenix',
+          });
+          responsePayload.clubAllowlistApproved = approved;
+          responsePayload.clubSignupUrl = 'https://club.dolifetoday.com/?auth=signup&email=' + encodeURIComponent(email.trim().toLowerCase());
+        } else if ((normalizedSource === 'psgb_2026_collingwood' || normalizedSource.startsWith('psgb_')) && isClubEligibleRole) {
+          // Parkinson's South Georgian Bay June Festival 2026 (Collingwood, ON):
+          // QR-scan signups are auto-approved into "The One Hell of a Ride Wave"
+          // — a special event wave that bypasses the regular waitlist.
+          const approved = await addToClubLaunchAllowlist({
+            email,
+            wave: 'one-hell-of-a-ride',
+            source: 'psgb-2026-collingwood',
+          });
+          responsePayload.clubAllowlistApproved = approved;
+          responsePayload.clubSignupUrl = 'https://club.dolifetoday.com/?auth=signup&email=' + encodeURIComponent(email.trim().toLowerCase());
+        }
+
         res.status(200).json(responsePayload);
         return;
       }
@@ -1611,6 +1853,38 @@ exports.trackClubAnalytics = onRequest(async (req, res) => {
   }
 });
 
+/* ── trackInnerCircleLounge ────────────────────────────────
+   POST /api/track-inner-circle-lounge  { eventType, source? }
+   eventType ∈ page_view | unlock_success | unlock_failure |
+              zoom_join_morning | zoom_join_evening | ics_download
+   Silently succeeds on unknown eventType so we never break the
+   client experience just because tracking failed. */
+
+exports.trackInnerCircleLounge = onRequest(async (req, res) => {
+  setCorsHeaders(res);
+  if (req.method === 'OPTIONS') { res.status(204).send(''); return; }
+  if (req.method !== 'POST') {
+    res.set('Allow', 'POST');
+    res.status(405).json({ error: 'Method Not Allowed' });
+    return;
+  }
+
+  const { eventType, source } = parseBody(req);
+  if (!INNER_CIRCLE_LOUNGE_EVENTS[eventType]) {
+    // Unknown event type — silently ignore, no analytics = no problem.
+    res.status(200).json({ ok: true, ignored: true });
+    return;
+  }
+
+  try {
+    await recordInnerCircleLoungeEvent(eventType, { source });
+    res.status(200).json({ ok: true });
+  } catch (error) {
+    functions.logger.error('Unable to record inner circle lounge event:', error);
+    res.status(400).json({ error: 'Unable to record inner circle lounge event.' });
+  }
+});
+
 /* ── shareStats ────────────────────────────────────────────── */
 
 exports.shareStats = onRequest(async (req, res) => {
@@ -1642,9 +1916,10 @@ exports.shareStats = onRequest(async (req, res) => {
   }
 
   try {
-    const [shareStats, clubStats] = await Promise.all([
+    const [shareStats, clubStats, innerCircleLoungeStats] = await Promise.all([
       getShareStats(),
       getClubPageStats(),
+      getInnerCircleLoungeStats(),
     ]);
 
     const pageViews = Number(clubStats.totals.pageViews) || 0;
@@ -1656,6 +1931,7 @@ exports.shareStats = onRequest(async (req, res) => {
         ...clubStats,
         conversionRate: pageViews > 0 ? Number(((signups / pageViews) * 100).toFixed(1)) : 0,
       },
+      innerCircleLounge: innerCircleLoungeStats,
     });
   } catch (error) {
     functions.logger.error('Unable to retrieve share stats:', error);
@@ -2469,6 +2745,7 @@ exports.providerClaim = onRequest({ secrets: ['MAILERSEND_API_KEY'] }, async (re
   const providerId = normalizeText(body.providerId);
   const providerName = normalizeText(body.providerName);
   const role = normalizeText(body.role);
+  const relevanceStatement = normalizeText(body.relevanceStatement).slice(0, 2000);
 
   if (!providerName) {
     res.status(400).json({ error: 'Provider information is required.' }); return;
@@ -2493,6 +2770,65 @@ exports.providerClaim = onRequest({ secrets: ['MAILERSEND_API_KEY'] }, async (re
     }
   }
 
+  // Fetch the ORIGINAL Exchange listing so we can compute vetting signals
+  // (domain match, PD relevance) at submission time — used both to reject
+  // obvious spam and to gate the required-statement field client-side.
+  let listedWebsite = '';
+  let listedType = '';
+  let listedPhone = '';
+  let listedLocation = '';
+  if (providerId) {
+    try {
+      const extDoc = await pcnDb.collection('pathway-providers').doc(providerId).get();
+      if (extDoc.exists) {
+        const ed = extDoc.data() || {};
+        listedWebsite = ed.website || '';
+        listedType = ed.type || '';
+        listedPhone = ed.phone || '';
+        listedLocation = ed.location || '';
+      }
+    } catch (extErr) {
+      functions.logger.warn('Claim: could not fetch listing for vetting', {
+        providerId, error: extErr.message,
+      });
+    }
+  }
+
+  const signals = assessProviderClaim({
+    email: decoded.email || '',
+    listedWebsite,
+    providerName,
+    listedType,
+  });
+
+  // Hard reject: disposable/burner emails have no legitimate use case for
+  // claiming a provider listing.
+  if (signals.isDisposableEmail) {
+    res.status(400).json({
+      error: 'DISPOSABLE_EMAIL',
+      message: 'Please use a real business email address to submit a claim.',
+    });
+    return;
+  }
+
+  // Require a relevance statement whenever we can't auto-verify the claim
+  // via domain match. This adds friction that deters spam and gives the
+  // reviewer real context to judge the claim on.
+  if (!signals.autoVerified) {
+    if (!relevanceStatement || relevanceStatement.length < 30) {
+      res.status(400).json({
+        error: 'RELEVANCE_STATEMENT_REQUIRED',
+        message: 'Please briefly describe your organization\'s Parkinson\'s relevance and your role (at least 30 characters).',
+        signals: {
+          domainMatch: signals.domainMatch,
+          isPersonalEmail: signals.isPersonalEmail,
+          hasListedWebsite: Boolean(listedWebsite),
+        },
+      });
+      return;
+    }
+  }
+
   const slug = slugify(providerName) + '-' + Date.now().toString(36);
 
   const claimDoc = {
@@ -2501,6 +2837,20 @@ exports.providerClaim = onRequest({ secrets: ['MAILERSEND_API_KEY'] }, async (re
     externalProviderId: providerId,
     claimRole: role,
     claimPhone: (body.phone || '').trim().slice(0, 50),
+    claimRelevanceStatement: relevanceStatement,
+    claimVetting: {
+      emailDomain: signals.emailDomain,
+      siteDomain: signals.siteDomain,
+      domainMatch: signals.domainMatch,
+      isPersonalEmail: signals.isPersonalEmail,
+      autoVerified: signals.autoVerified,
+      pdRelevanceLikely: signals.pdRelevanceLikely,
+      listedWebsite,
+      listedPhone,
+      listedLocation,
+      listedType,
+      assessedAt: Date.now(),
+    },
     status: 'PENDING',
     tier: 'FREE',
     claimedBy: decoded.uid,
@@ -2543,17 +2893,43 @@ exports.providerClaim = onRequest({ secrets: ['MAILERSEND_API_KEY'] }, async (re
 
   // Notify admin so they can review quickly (don't block the response).
   try {
-    const adminNotifyEmail = process.env.ADMIN_NOTIFY_EMAIL;
+    // Fallback to office@dolifetoday.com if the env var isn't set — this
+    // notification broke silently for months in early 2026 because
+    // ADMIN_NOTIFY_EMAIL wasn't loaded in the deployed function, and again
+    // in mid-2026 when it was set to an inbox nobody was watching. The
+    // hardcoded fallback ensures Bryce always gets the alert.
+    const adminNotifyEmail = process.env.ADMIN_NOTIFY_EMAIL || 'office@dolifetoday.com';
     if (adminNotifyEmail) {
       const where = [body.city, body.stateProvince].filter(Boolean).join(', ');
-      const adminSubject = `🔔 New claim: ${providerName}`;
-      const adminText = `New provider claim awaiting review.\n\nProvider: ${providerName}\nLocation: ${where || '(not provided)'}\nClaimed by: ${decoded.email || decoded.uid}\nRole: ${role || '(not provided)'}\nDoc ID: ${docRef.id}\n\nReview: https://dolifetoday.com/admin-providers`;
+      const verdict = signals.autoVerified
+        ? '✅ Auto-verified (email domain matches listed website)'
+        : (signals.domainMatch === 'mismatch' ? '⚠️ Email domain does NOT match listed website — manual review needed'
+            : (signals.isPersonalEmail ? '🟡 Personal email — manual review needed'
+                : '🔍 Manual review needed'));
+      const relevanceLine = signals.pdRelevanceLikely
+        ? '✦ Provider name/type suggests Parkinson\'s relevance'
+        : '❔ No Parkinson\'s relevance keywords in provider name/type';
+      const statementBlock = relevanceStatement
+        ? `\n\nClaimant statement:\n"${relevanceStatement}"\n`
+        : '';
+      const adminSubject = signals.autoVerified
+        ? `✅ New claim (auto-verified): ${providerName}`
+        : `🔔 New claim (manual review): ${providerName}`;
+      const adminText = `New provider claim awaiting review.\n\n${verdict}\n${relevanceLine}\n\nProvider: ${providerName}\nListed website: ${listedWebsite || '(none)'}\nListed type: ${listedType || '(none)'}\nLocation: ${where || listedLocation || '(not provided)'}\nClaimed by: ${decoded.email || decoded.uid}\nRole: ${role || '(not provided)'}\nDoc ID: ${docRef.id}${statementBlock}\nReview: https://dolifetoday.com/admin-providers`;
+      const statementHtml = relevanceStatement
+        ? `<blockquote style="margin:12px 0;padding:8px 12px;border-left:3px solid #b8711a;background:#fef9e7;color:#333;font-style:italic;">${normalizeText(relevanceStatement).replace(/</g, '&lt;').slice(0, 1000)}</blockquote>`
+        : '';
       const adminHtml = buildProviderEmailHtml('🔔 New provider claim awaiting review', [
+        `<strong>${verdict}</strong>`,
+        relevanceLine,
         `<strong>Provider:</strong> ${providerName}`,
-        `<strong>Location:</strong> ${where || '(not provided)'}`,
+        `<strong>Listed website:</strong> ${listedWebsite ? `<a href="${listedWebsite.startsWith('http') ? listedWebsite : 'https://' + listedWebsite}">${listedWebsite}</a>` : '(none)'}`,
+        `<strong>Listed type:</strong> ${listedType || '(none)'}`,
+        `<strong>Location:</strong> ${where || listedLocation || '(not provided)'}`,
         `<strong>Claimed by:</strong> ${decoded.email || decoded.uid}`,
         `<strong>Role:</strong> ${role || '(not provided)'}`,
         `<strong>Doc ID:</strong> ${docRef.id}`,
+        statementHtml || '<em>No claimant statement provided (auto-verified).</em>',
       ], { url: 'https://dolifetoday.com/admin-providers', label: 'Review in Admin' });
       sendProviderEmail(adminNotifyEmail, adminSubject, adminText, adminHtml).catch((err) => {
         console.error('Admin claim notification failed:', err.message);
@@ -2791,12 +3167,48 @@ exports.adminProviders = onRequest(async (req, res) => {
     } catch { uidToEmail[uid] = ''; }
   }
 
+  // Batch hydrate claim rows with the ORIGINAL Exchange listing so admins can
+  // compare claimant info against the actual listing at review time.
+  // Without this, reviewers had no way to tell "Corteiz claimed by
+  // corteizspains@gmail.com" was a spam claim on an unrelated listing.
+  const externalIds = new Set();
+  snapshot.forEach(doc => {
+    const d = doc.data();
+    if (d.claimedBy && d.externalProviderId) externalIds.add(d.externalProviderId);
+  });
+  const extIdToListing = {};
+  if (externalIds.size > 0) {
+    const idList = Array.from(externalIds);
+    // Firestore has no whereIn on doc IDs across arbitrary collections, so
+    // fetch individually with Promise.all. Cap concurrency implicitly by the
+    // number of pending claims — usually a handful.
+    await Promise.all(idList.map(async (extId) => {
+      try {
+        const extDoc = await pcnDb.collection('pathway-providers').doc(extId).get();
+        if (extDoc.exists) {
+          const ed = extDoc.data() || {};
+          extIdToListing[extId] = {
+            website: ed.website || '',
+            phone: ed.phone || '',
+            location: ed.location || '',
+            type: ed.type || '',
+            businessName: ed.businessName || ed.name || '',
+            verifiedByListing: ed.verified === true,
+          };
+        }
+      } catch (err) {
+        functions.logger.warn('Claim listing hydrate failed', { extId, error: err.message });
+      }
+    }));
+  }
+
   snapshot.forEach(doc => {
     const data = doc.data();
     const views = data.views || 0;
     const disc = (data.clubData || {}).discussion_count || 0;
     const revs = (data.clubData || {}).review_count || 0;
     const uScore = (views * 0.2) + (disc * 5) + (revs * 5);
+    const ext = data.externalProviderId ? extIdToListing[data.externalProviderId] : null;
     providers.push({
       id: doc.id,
       name: data.name || '',
@@ -2816,7 +3228,15 @@ exports.adminProviders = onRequest(async (req, res) => {
       claimEmail: data.claimedBy ? (uidToEmail[data.claimedBy] || '') : '',
       claimRole: data.claimRole || '',
       claimPhone: data.claimPhone || '',
+      claimRelevanceStatement: data.claimRelevanceStatement || '',
+      claimVetting: data.claimVetting || null,
       externalProviderId: data.externalProviderId || '',
+      // Original Exchange listing snapshot for admin vetting
+      externalWebsite: ext ? ext.website : '',
+      externalPhone: ext ? ext.phone : '',
+      externalLocation: ext ? ext.location : '',
+      externalType: ext ? ext.type : '',
+      externalBusinessName: ext ? ext.businessName : '',
     });
   });
 
@@ -3362,6 +3782,74 @@ exports.stripeWebhook = onRequest({ cors: false }, async (req, res) => {
   }
 });
 
+/**
+ * COMMUNITY-tier provisioning handoff to The Club (pcn---new).
+ *
+ * Writes a `partner-club-provisioning/{providerId}` doc that the pcn
+ * side's `provisionCommunityPartnerClub` Firestore trigger picks up to:
+ *   1. create or lookup the partner's Firebase Auth account,
+ *   2. create the Partner Club (community-groups doc, isPartnerClub: true),
+ *   3. mint a 60-day welcome token + email the partner,
+ *   4. write back `partnerClubId` + status here for observability.
+ *
+ * Idempotent: the pcn trigger no-ops if `status !== 'pending'`. We always
+ * overwrite the pending payload so a repeat Stripe webhook (e.g. after a
+ * failed run) still delivers fresh data.
+ */
+async function enqueuePartnerClubProvisioning({ providerId, session, subscription }) {
+  const providerRef = db.collection(PROVIDERS_COLLECTION).doc(providerId);
+  const providerDoc = await providerRef.get();
+  if (!providerDoc.exists) {
+    functions.logger.warn('enqueuePartnerClubProvisioning: provider missing', { providerId });
+    return;
+  }
+  const pData = providerDoc.data() || {};
+  const slug = pData.slug || providerId;
+  const partnerEmail = (
+    (session.customer_details && session.customer_details.email)
+    || pData.contactEmail
+    || pData.email
+    || ''
+  ).trim().toLowerCase();
+  const partnerName = (
+    (session.customer_details && session.customer_details.name)
+    || pData.contactName
+    || pData.name
+    || ''
+  ).trim();
+
+  if (!partnerEmail) {
+    functions.logger.error('enqueuePartnerClubProvisioning: no email available', {
+      providerId, sessionId: session.id,
+    });
+    return;
+  }
+
+  await pcnDb.collection('partner-club-provisioning').doc(providerId).set({
+    providerId,
+    providerSlug: slug,
+    providerName: pData.name || partnerName || 'Community Partner',
+    providerDescription: pData.description || '',
+    providerCategory: pData.category || null,
+    providerCity: pData.city || null,
+    providerState: pData.state || null,
+    providerCountry: pData.country || null,
+    providerWebsite: pData.website || null,
+    providerLogo: pData.logo || pData.image || null,
+    partnerEmail,
+    partnerName: partnerName || pData.name || 'Community Partner',
+    stripeCustomerId: session.customer || null,
+    stripeSubscriptionId: session.subscription || null,
+    stripeSessionId: session.id || null,
+    stripePriceId: (subscription && subscription.items.data[0] ? subscription.items.data[0].price.id : null),
+    status: 'pending',
+    attempts: admin.firestore.FieldValue.increment(1),
+    lastEnqueuedAt: admin.firestore.FieldValue.serverTimestamp(),
+    createdAt: admin.firestore.FieldValue.serverTimestamp(),
+  }, { merge: true });
+  functions.logger.info('Partner Club provisioning enqueued', { providerId, partnerEmail });
+}
+
 async function handleCheckoutCompleted(stripe, session) {
   const providerId = session.client_reference_id || (session.metadata && session.metadata.providerId);
   if (!providerId) {
@@ -3406,6 +3894,21 @@ async function handleCheckoutCompleted(stripe, session) {
     }
   } catch (err) {
     functions.logger.warn('Cross-project sync after Stripe upgrade failed:', err.message);
+  }
+
+  // COMMUNITY tier: enqueue Partner Club provisioning in The Club so the
+  // paying business gets a walled Club, a partner account, and a welcome
+  // email. The pcn side runs `provisionCommunityPartnerClub` on this doc.
+  if (tier === 'COMMUNITY') {
+    try {
+      await enqueuePartnerClubProvisioning({
+        providerId,
+        session,
+        subscription,
+      });
+    } catch (err) {
+      functions.logger.error('Failed to enqueue Partner Club provisioning:', err.message);
+    }
   }
 
   // Notify admin

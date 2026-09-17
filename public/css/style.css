@@ -53,6 +53,10 @@ body {
   font-family: var(--font-sans);
   line-height: 1.7;
   min-height: 100vh;
+  /* Prevent any oversized child (e.g. a long nav row) from giving the
+     whole page a horizontal scrollbar. Per-section overflow can still
+     be allowed where needed. */
+  overflow-x: hidden;
 }
 
 img, video { max-width: 100%; display: block; }
@@ -792,7 +796,12 @@ section { padding-block: 5rem; }
   border-bottom: 1px solid var(--color-border);
   display: flex;
   align-items: center;
-  overflow: hidden;
+  /* MUST be `visible` (not split into overflow-x/y) so the Care Partners
+     dropdown panel can escape downward. Per CSS spec, mixing
+     `overflow-x:hidden` with `overflow-y:visible` silently promotes the
+     visible axis to `auto`, which would clip the dropdown. Page-level
+     horizontal scroll is prevented on <body> instead. */
+  overflow: visible;
 }
 
 .nav-inner {
@@ -851,15 +860,16 @@ section { padding-block: 5rem; }
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.1rem;
   list-style: none;
+  min-width: 0;
 }
 .nav-links a {
   display: flex;
   align-items: center;
   min-height: var(--touch-target);
-  padding: 0 0.5rem;
-  font-size: 0.84rem;
+  padding: 0 0.45rem;
+  font-size: 0.82rem;
   font-weight: 600;
   color: var(--color-text-muted);
   text-decoration: none;
@@ -873,6 +883,129 @@ section { padding-block: 5rem; }
   background: rgba(255,255,255,0.06);
 }
 .nav-links a.active { color: var(--color-primary); }
+
+/* ── Care Partners dropdown ─────────────────────────────
+   Hover + keyboard accessible (:focus-within). On mobile,
+   the dropdown items are flattened into the mobile-nav so
+   this only needs to work for the desktop horizontal nav. */
+.nav-links .nav-dropdown { position: relative; }
+.nav-links .nav-dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  cursor: pointer;
+  background: none;
+  border: 0;
+  font: inherit;
+  color: var(--color-text-muted);
+  font-weight: 600;
+  font-size: 0.82rem;
+  min-height: var(--touch-target);
+  padding: 0 0.45rem;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+.nav-links .nav-dropdown-toggle::after {
+  content: '';
+  display: inline-block;
+  width: 0; height: 0;
+  margin-left: 2px;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid currentColor;
+  opacity: 0.7;
+  transition: transform var(--transition);
+}
+.nav-links .nav-dropdown:hover .nav-dropdown-toggle,
+.nav-links .nav-dropdown:focus-within .nav-dropdown-toggle {
+  color: var(--color-white);
+  background: rgba(255,255,255,0.06);
+}
+.nav-links .nav-dropdown:hover .nav-dropdown-toggle::after,
+.nav-links .nav-dropdown:focus-within .nav-dropdown-toggle::after {
+  transform: rotate(180deg);
+}
+.nav-links .nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 260px;
+  margin: 0;
+  padding: 0.5rem;
+  list-style: none;
+  background: var(--color-bg-2, #1a1a1a);
+  border: 1px solid var(--color-border, rgba(255,255,255,0.08));
+  border-radius: var(--radius-md, 10px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.55);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+  z-index: 100;
+}
+.nav-links .nav-dropdown:hover .nav-dropdown-menu,
+.nav-links .nav-dropdown:focus-within .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.nav-links .nav-dropdown-menu a {
+  display: block;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.25;
+  border-radius: var(--radius-sm);
+  white-space: normal;
+}
+.nav-links .nav-dropdown-menu a small {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+/* ── Highlighted "The Club" dropdown ─────────────────────────
+   Uses the brand teal as the toggle color so The Club sits
+   visually forward without a full pill. Paired with the
+   Join-The-Club CTA button on the right. */
+.nav-links .nav-dropdown--highlight .nav-dropdown-toggle {
+  color: var(--color-primary);
+}
+.nav-links .nav-dropdown--highlight:hover .nav-dropdown-toggle,
+.nav-links .nav-dropdown--highlight:focus-within .nav-dropdown-toggle {
+  color: var(--color-primary);
+  background: rgba(32,178,170,0.12);
+}
+
+/* No longer slim the desktop row: the canonical nav has 8 grouped
+   dropdown items which fit horizontally at 1200px+ (the breakpoint
+   below), with a compact-mode override for 1201-1440px so standard
+   1366/1440 laptop widths keep the desktop nav visible instead of
+   collapsing to the hamburger. If the item count ever grows again,
+   prefer moving items into an existing dropdown rather than hiding
+   them here. */
+
+/* Compact-mode nav for laptop widths (1201–1440px). Shrinks font +
+   inline padding so 8 top-level dropdown items fit alongside the
+   logo and Join-The-Club CTA on typical 1366px laptop screens. */
+@media (min-width: 1201px) and (max-width: 1440px) {
+  .nav-links {
+    gap: 0;
+  }
+  .nav-links a,
+  .nav-links .nav-dropdown-toggle {
+    padding: 0 0.32rem;
+    font-size: 0.76rem;
+  }
+  .nav-cta {
+    margin-left: 0.5rem;
+    padding-inline: 0.85rem;
+    font-size: 0.78rem;
+  }
+}
 
 .nav-cta { margin-left: 0.75rem; }
 
@@ -938,6 +1071,53 @@ section { padding-block: 5rem; }
 }
 .mobile-nav .mobile-cta { margin-top: 1rem; }
 .mobile-nav .mobile-cta .btn { width: 100%; justify-content: center; }
+
+/* ── Collapsible mobile-nav groups (native <details>) ────────
+   Each top-level dropdown from the desktop nav becomes a
+   collapsible section in the mobile drawer. No JS required. */
+.mobile-nav-group {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid var(--color-border);
+}
+.mobile-nav-group:last-of-type { border-bottom: none; }
+.mobile-nav-group > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: var(--touch-target);
+  padding: 0.5rem 1rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-text);
+  cursor: pointer;
+  list-style: none;
+  border-radius: var(--radius-md);
+  transition: color var(--transition);
+}
+.mobile-nav-group > summary::-webkit-details-marker { display: none; }
+.mobile-nav-group > summary::after {
+  content: "+";
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  margin-left: 0.75rem;
+  line-height: 1;
+}
+.mobile-nav-group[open] > summary { color: var(--color-primary); }
+.mobile-nav-group[open] > summary::after { content: "\2212"; }
+.mobile-nav-group > a {
+  padding-left: 2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+.mobile-nav-group > a:hover,
+.mobile-nav-group > a.active {
+  color: var(--color-primary);
+  background: rgba(32,178,170,0.12);
+}
+.mobile-nav-group--highlight > summary { color: var(--color-primary); }
 
 /* ── Hero Sections ──────────────────────────────────────────── */
 .hero {
@@ -2201,7 +2381,11 @@ select.form-control option { background: var(--color-bg-2); color: var(--color-t
   .footer-grid { grid-template-columns: 1fr 1fr; }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1200px) {
+  /* Canonical nav has 7 grouped dropdown items + CTA and fits at
+     1200px+ on all pages (including /theclub which caps nav-inner
+     at max-width: 1320px). Below 1200px we collapse to the mobile
+     <details>-based drawer. */
   .nav-links, .nav-cta { display: none; }
   .hamburger { display: flex; }
   .nav-logo-svg { width: clamp(136px, 34vw, 188px); }

@@ -14,6 +14,8 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { isThinListing } from './lib/thin-listing.mjs';
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const PUBLIC_DIR = join(ROOT, 'public');
@@ -25,6 +27,7 @@ const SOURCES = ['rock-steady', 'lsvt', 'apda', 'parkinsons-uk', 'mds', 'parkins
 function loadProviders() {
   const all = [];
   const seen = new Set();
+  let thinTotal = 0;
   for (const src of SOURCES) {
     const path = join(DATA_DIR, src, 'exchange-import.json');
     if (!existsSync(path)) continue;
@@ -37,18 +40,29 @@ function loadProviders() {
     }
     if (!Array.isArray(rows)) continue;
     let added = 0;
+    let thin = 0;
     for (const row of rows) {
       const slug = row?.slug?.trim();
       if (!slug || seen.has(slug)) continue;
       seen.add(slug);
+      // Thin listings are prerendered with `noindex, follow` (see
+      // scripts/prerender-providers.mjs) so we must also omit them from
+      // the sitemap. Otherwise Google keeps rediscovering, crawling, and
+      // re-flagging them as Soft 404 (GSC 2026-07-09 report).
+      if (isThinListing(row)) {
+        thin++;
+        thinTotal++;
+        continue;
+      }
       all.push({
         slug,
         lastmod: (row.scrapedAt || '').slice(0, 10) || undefined,
       });
       added++;
     }
-    console.log(`  + ${src}: ${added} providers`);
+    console.log(`  + ${src}: ${added} providers (skipped ${thin} thin)`);
   }
+  console.log(`  = ${all.length} indexable providers (${thinTotal} thin listings omitted from sitemap)`);
   return all;
 }
 
@@ -84,6 +98,8 @@ function buildSitemapIndex() {
 function buildRobots() {
   return `User-agent: *
 Allow: /
+Disallow: /inner-circle-lounge
+Disallow: /inner-circle-lounge.html
 
 Sitemap: ${SITE_URL}/sitemap-index.xml
 `;

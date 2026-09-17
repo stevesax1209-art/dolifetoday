@@ -362,6 +362,32 @@
           </section>
         </div>
       </section>
+
+      <section class="panel" style="margin-top: 1.5rem;">
+        <h2>Inner Circle Lounge</h2>
+        <p style="margin-top:-0.5rem;color:var(--muted);font-size:0.92rem">Private members-only page at <code>/inner-circle-lounge</code>. Password-gated with <em>InnerCircle2026</em>.</p>
+        <div class="summary-grid" style="margin-bottom: 1rem;">
+          <article class="stat-card"><span class="stat-label">Page Views</span><span class="stat-value" id="icl-page-views">0</span></article>
+          <article class="stat-card"><span class="stat-label">Unlock Success</span><span class="stat-value" id="icl-unlock-success">0</span></article>
+          <article class="stat-card"><span class="stat-label">Unlock Failure</span><span class="stat-value" id="icl-unlock-failure">0</span></article>
+          <article class="stat-card"><span class="stat-label">Unlock Rate</span><span class="stat-value" id="icl-unlock-rate">0%</span></article>
+        </div>
+        <div class="secondary-grid" style="margin-bottom: 1rem;">
+          <article class="stat-card"><span class="stat-label">Zoom Join: Morning</span><span class="stat-value" id="icl-zoom-morning">0</span></article>
+          <article class="stat-card"><span class="stat-label">Zoom Join: Evening</span><span class="stat-value" id="icl-zoom-evening">0</span></article>
+          <article class="stat-card"><span class="stat-label">Calendar Downloads</span><span class="stat-value" id="icl-ics">0</span></article>
+        </div>
+        <div class="dashboard-grid">
+          <section class="panel list-card">
+            <h2>Daily Page Views</h2>
+            <div id="icl-daily-list" class="stats-list"></div>
+          </section>
+          <section class="panel list-card">
+            <h2>Traffic Sources</h2>
+            <div id="icl-source-list" class="stats-list"></div>
+          </section>
+        </div>
+      </section>
     </section>
 
     <p class="helper">This dashboard tracks page events and button clicks. Share totals reflect click attempts, not whether an email was ultimately sent.</p>
@@ -398,6 +424,17 @@
       var cwJoinClickEl = document.getElementById('cw-join-click');
       var cwPageListEl = document.getElementById('cw-page-list');
       var cwWaveListEl = document.getElementById('cw-wave-list');
+
+      // ── Inner Circle Lounge elements ───────────────────────
+      var iclPageViewsEl = document.getElementById('icl-page-views');
+      var iclUnlockSuccessEl = document.getElementById('icl-unlock-success');
+      var iclUnlockFailureEl = document.getElementById('icl-unlock-failure');
+      var iclUnlockRateEl = document.getElementById('icl-unlock-rate');
+      var iclZoomMorningEl = document.getElementById('icl-zoom-morning');
+      var iclZoomEveningEl = document.getElementById('icl-zoom-evening');
+      var iclIcsEl = document.getElementById('icl-ics');
+      var iclDailyListEl = document.getElementById('icl-daily-list');
+      var iclSourceListEl = document.getElementById('icl-source-list');
 
       var ctaLabels = {
         nav: 'Header navigation',
@@ -528,6 +565,27 @@
         renderRows(cwWaveListEl, toSortedEntries(cw.waveBreakdown), 'No wave data yet', function (label) {
           return waveLabels[label] || label;
         });
+
+        /* Inner Circle Lounge stats */
+        var icl = data.innerCircleLounge || {};
+        var iclTotals = icl.totals || {};
+        var pv = Number(iclTotals.pageViews) || 0;
+        var ok = Number(iclTotals.unlockSuccess) || 0;
+        var bad = Number(iclTotals.unlockFailure) || 0;
+        var attempts = ok + bad;
+        iclPageViewsEl.textContent = String(pv);
+        iclUnlockSuccessEl.textContent = String(ok);
+        iclUnlockFailureEl.textContent = String(bad);
+        iclUnlockRateEl.textContent = attempts > 0
+          ? (Math.round((ok / attempts) * 1000) / 10) + '%'
+          : '0%';
+        iclZoomMorningEl.textContent = String(iclTotals.zoomJoinMorning || 0);
+        iclZoomEveningEl.textContent = String(iclTotals.zoomJoinEvening || 0);
+        iclIcsEl.textContent = String(iclTotals.icsDownloads || 0);
+        renderRows(iclDailyListEl, Object.entries(icl.dailyPageViews || {}).sort(function (a, b) {
+          return a[0] < b[0] ? 1 : -1;
+        }), 'No page views yet');
+        renderRows(iclSourceListEl, toSortedEntries(icl.trafficSources), 'No traffic sources yet');
 
         dashboardEl.classList.add('is-visible');
       }

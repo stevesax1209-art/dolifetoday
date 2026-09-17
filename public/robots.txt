@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /inner-circle-lounge
+Disallow: /inner-circle-lounge.html
 
 Sitemap: https://dolifetoday.com/sitemap-index.xml

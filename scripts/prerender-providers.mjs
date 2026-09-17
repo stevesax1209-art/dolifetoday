@@ -20,6 +20,8 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync, rmSync } from 'node
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { isThinListing } from './lib/thin-listing.mjs';
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const PUBLIC_DIR = join(ROOT, 'public');
@@ -62,6 +64,159 @@ function escJson(obj) {
   return JSON.stringify(obj).replace(/</g, '\\u003c');
 }
 
+// ISO 3166-1 alpha-2 codes for the countries present in our provider data.
+// Google Rich Results / Schema.org prefer ISO codes over long-form country
+// names; long forms still validate but degrade the LocalBusiness rating in
+// Search Console (2026-06-30 SEO audit).
+const COUNTRY_ISO = {
+  'united states': 'US',
+  'united states of america': 'US',
+  'usa': 'US',
+  'us': 'US',
+  'canada': 'CA',
+  'united kingdom': 'GB',
+  'united kingdom of great britain and northern ireland': 'GB',
+  'england': 'GB',
+  'scotland': 'GB',
+  'wales': 'GB',
+  'northern ireland': 'GB',
+  'ireland': 'IE',
+  'netherlands': 'NL',
+  'germany': 'DE',
+  'france': 'FR',
+  'italy': 'IT',
+  'spain': 'ES',
+  'portugal': 'PT',
+  'switzerland': 'CH',
+  'austria': 'AT',
+  'belgium': 'BE',
+  'luxembourg': 'LU',
+  'sweden': 'SE',
+  'norway': 'NO',
+  'denmark': 'DK',
+  'finland': 'FI',
+  'iceland': 'IS',
+  'poland': 'PL',
+  'czech republic': 'CZ',
+  'czechia': 'CZ',
+  'slovakia': 'SK',
+  'hungary': 'HU',
+  'romania': 'RO',
+  'bulgaria': 'BG',
+  'greece': 'GR',
+  'ukraine': 'UA',
+  'russia': 'RU',
+  'russian federation': 'RU',
+  'serbia': 'RS',
+  'croatia': 'HR',
+  'slovenia': 'SI',
+  'armenia': 'AM',
+  'turkey': 'TR',
+  'israel': 'IL',
+  'united arab emirates': 'AE',
+  'qatar': 'QA',
+  'saudi arabia': 'SA',
+  'egypt': 'EG',
+  'tunisia': 'TN',
+  'south africa': 'ZA',
+  'nigeria': 'NG',
+  'ethiopia': 'ET',
+  'zimbabwe': 'ZW',
+  'india': 'IN',
+  'pakistan': 'PK',
+  'bangladesh': 'BD',
+  'sri lanka': 'LK',
+  'japan': 'JP',
+  'south korea': 'KR',
+  'republic of korea': 'KR',
+  'china': 'CN',
+  'republic of china': 'TW', // MDS data uses "Republic of China" for Taiwan
+  'taiwan': 'TW',
+  'hong kong': 'HK',
+  'singapore': 'SG',
+  'malaysia': 'MY',
+  'indonesia': 'ID',
+  'philippines': 'PH',
+  'thailand': 'TH',
+  'vietnam': 'VN',
+  'viet nam': 'VN',
+  'australia': 'AU',
+  'new zealand': 'NZ',
+  'mexico': 'MX',
+  'guatemala': 'GT',
+  'dominican republic': 'DO',
+  'puerto rico': 'PR',
+  'brazil': 'BR',
+  'argentina': 'AR',
+  'chile': 'CL',
+  'colombia': 'CO',
+  'peru': 'PE',
+  'ecuador': 'EC',
+  'bolivia': 'BO',
+  'uruguay': 'UY',
+  'iran, islamic republic of': 'IR',
+  'iran': 'IR',
+};
+
+function toIsoCountry(raw) {
+  if (!raw) return null;
+  const trimmed = String(raw).trim();
+  // Already an ISO code (2 uppercase letters)?
+  if (/^[A-Z]{2}$/.test(trimmed)) return trimmed;
+  const key = trimmed.toLowerCase();
+  return COUNTRY_ISO[key] || null;
+}
+
+// Map provider typeLabel / source to the most specific Schema.org type
+// Google recognizes for that vertical. Falls back to LocalBusiness.
+// A `medicalSpecialty` field is emitted for MedicalBusiness variants so
+// Google understands the clinician's focus area.
+function resolveSchemaType(p) {
+  const t = String(p.typeLabel || p.shortTypeLabel || '').toLowerCase();
+  const src = String(p._sourceLabel || '').toLowerCase();
+
+  if (src.includes('rock steady') || t.includes('boxing')) {
+    return { type: 'ExerciseGym' };
+  }
+  if (src.includes('products')) {
+    return { type: 'Store' };
+  }
+  if (t.includes('support group') || t.includes('care partner support') || t.includes('community program') || t.includes('community partners')) {
+    return { type: 'Organization' };
+  }
+  if (t.includes('speech') || t.includes('slp') || t.includes('language pathologist')) {
+    return { type: 'MedicalBusiness', medicalSpecialty: 'SpeechPathology' };
+  }
+  if (t.includes('physical therapy') || t.includes('physiotherap') || t === 'pt' || t.includes('rehab professional') || t.includes('parkinson\u2019s rehabilitation') || t.includes("parkinson's rehabilitation")) {
+    return { type: 'Physiotherapy' };
+  }
+  if (t.includes('occupational therapy') || t === 'ot') {
+    return { type: 'MedicalBusiness', medicalSpecialty: 'OccupationalTherapy' };
+  }
+  if (t.includes('neurologist') || t.includes('movement disorder') || t.includes('center of excellence')) {
+    return { type: 'MedicalClinic', medicalSpecialty: 'Neurologic' };
+  }
+  if (t.includes('genetic counsel')) {
+    return { type: 'MedicalBusiness', medicalSpecialty: 'MedicalGenetic' };
+  }
+  if (t.includes('counsel') || t.includes('psycholog')) {
+    return { type: 'MedicalBusiness', medicalSpecialty: 'Psychiatric' };
+  }
+  if (t.includes('in-home care') || t.includes('home care') || t.includes('daily living')) {
+    return { type: 'MedicalBusiness', medicalSpecialty: 'Nursing' };
+  }
+  if (t.includes('healthcare location') || t.includes('referral center')) {
+    return { type: 'MedicalClinic' };
+  }
+  if (t.includes('exercise') || t.includes('dance') || t.includes('fitness') || t.includes('gym')) {
+    return { type: 'ExerciseGym' };
+  }
+  if (t.includes('parkinson canada resource')) {
+    return { type: 'Organization' };
+  }
+  return { type: 'LocalBusiness' };
+}
+
 function loadProviders() {
   const map = new Map();
   for (const src of SOURCES) {
@@ -85,24 +240,43 @@ function loadProviders() {
 }
 
 function buildJsonLd(p, listingUrl) {
+  const schema = resolveSchemaType(p);
   const ld = {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
+    '@type': schema.type,
     name: p.name || p.organizationName || 'Parkinson\'s Provider',
     description: p.description || p.excerpt || `${p.typeLabel || 'Parkinson\'s provider'} listed on The Exchange by Doing Life Today.`,
     url: listingUrl,
     isPartOf: { '@type': 'WebSite', name: 'Doing Life Today', url: SITE_URL },
   };
+  if (schema.medicalSpecialty) ld.medicalSpecialty = schema.medicalSpecialty;
   if (p.website) ld.sameAs = [p.website];
   if (p.phone) ld.telephone = p.phone;
   if (p.email) ld.email = p.email;
+
+  // Address handling — LSVT data (see 2026-06-30 SEO audit) stores the
+  // SEARCH-ORIGIN city (e.g. "Chicago, IL") in `sourceLocation`, NOT the
+  // clinician's actual address. Using it as streetAddress causes systemic
+  // schema mismatches (H1 says Menomonee Falls, JSON-LD says Chicago) and
+  // hurts local ranking. So only trust `sourceLocation` as a street when
+  // it isn't LSVT. For every source, fall back to `locationLabel`/`location`
+  // as `addressLocality` when `city` is missing.
+  const isLsvt = String(p._sourceLabel || '') === 'LSVT Global';
   const addr = {};
-  if (p.sourceLocation) addr.streetAddress = p.sourceLocation;
-  if (p.city) addr.addressLocality = p.city;
+  if (p.sourceLocation && !isLsvt) addr.streetAddress = p.sourceLocation;
+  if (p.city) {
+    addr.addressLocality = p.city;
+  } else if (p.locationLabel || p.location) {
+    // Strip a trailing ", <country>" if it's redundant with addressCountry.
+    const raw = String(p.locationLabel || p.location);
+    const cleaned = raw.replace(/,\s*(united states|canada|united kingdom|australia)\s*$/i, '').trim();
+    if (cleaned) addr.addressLocality = cleaned;
+  }
   if (p.stateProvince) addr.addressRegion = p.stateProvince;
   if (p.postcode) addr.postalCode = p.postcode;
-  if (p.country) addr.addressCountry = p.country;
+  if (p.country) addr.addressCountry = toIsoCountry(p.country) || p.country;
   if (Object.keys(addr).length) ld.address = { '@type': 'PostalAddress', ...addr };
+
   if (typeof p.latitude === 'number' && typeof p.longitude === 'number') {
     ld.geo = { '@type': 'GeoCoordinates', latitude: p.latitude, longitude: p.longitude };
   }
@@ -125,7 +299,14 @@ function buildPrerenderedHero(p) {
   if (p.website) contactBits.push(`<li><strong>Website:</strong> <a href="${escHtml(p.website)}" rel="noopener nofollow" target="_blank">${escHtml(p.website)}</a></li>`);
   if (p.phone) contactBits.push(`<li><strong>Phone:</strong> ${escHtml(p.phone)}</li>`);
   if (p.email) contactBits.push(`<li><strong>Email:</strong> ${escHtml(p.email)}</li>`);
-  if (p.sourceLocation) contactBits.push(`<li><strong>Address:</strong> ${escHtml(p.sourceLocation)}</li>`);
+  // LSVT `sourceLocation` is the search-origin city, not the clinician's
+  // address — surfacing it in the prerendered contact block would mislead
+  // both members and Google. Prefer the real location label instead.
+  const isLsvt = String(p._sourceLabel || '') === 'LSVT Global';
+  const addressLine = isLsvt
+    ? (p.locationLabel || p.location || '')
+    : (p.sourceLocation || p.locationLabel || p.location || '');
+  if (addressLine) contactBits.push(`<li><strong>Address:</strong> ${escHtml(addressLine)}</li>`);
 
   // Pre-fill the slug into the claim URL so users skip re-searching.
   const claimUrl = `/claim-listing?provider=${encodeURIComponent(p.slug)}`;
@@ -163,7 +344,7 @@ function buildPrerenderedHero(p) {
 </section>`;
 }
 
-function renderProvider(template, p) {
+function renderProvider(template, p, { thin = false } = {}) {
   const listingUrl = `${SITE_URL}/exchange/provider/${encodeURIComponent(p.slug)}`;
   const where = [p.city, p.stateProvince].filter(Boolean).join(', ') || p.location || '';
   const titleBase = p.name || p.organizationName || 'Parkinson\'s Provider';
@@ -177,6 +358,19 @@ function renderProvider(template, p) {
 
   // <title>
   html = html.replace(/<title>[^<]*<\/title>/, `<title>${escHtml(title)}</title>`);
+
+  // Robots meta — thin (unclaimed, no website, no reviews, no substantive
+  // description) listings get `noindex, follow` so Google stops flagging
+  // them as Soft 404 while still crawling internal links to richer pages.
+  // Substantive / claimed listings inherit the default (indexable).
+  if (thin) {
+    const robotsTag = '<meta name="robots" content="noindex, follow">';
+    if (/<meta name="robots"[^>]*>/i.test(html)) {
+      html = html.replace(/<meta name="robots"[^>]*>/i, robotsTag);
+    } else {
+      html = html.replace(/<\/title>/i, `</title>\n  ${robotsTag}`);
+    }
+  }
 
   // description
   html = html.replace(
@@ -234,6 +428,7 @@ function main() {
 
   let written = 0;
   let skipped = 0;
+  let thinCount = 0;
   const summary = [];
   const MAX_SLUG_LEN = 180; // keep filename well under MAX_PATH on Windows
   for (const p of providers) {
@@ -241,21 +436,25 @@ function main() {
       skipped++;
       continue;
     }
-    const html = renderProvider(template, p);
+    const thin = isThinListing(p);
+    if (thin) thinCount++;
+    const html = renderProvider(template, p, { thin });
     const file = join(OUT_DIR, `${p.slug}.html`);
     writeFileSync(file, html, 'utf8');
-    summary.push({ slug: p.slug, name: p.name, source: p._sourceLabel });
+    summary.push({ slug: p.slug, name: p.name, source: p._sourceLabel, thin });
     written++;
     if (written % 1000 === 0) console.log(`  ${written}/${providers.length}`);
   }
 
   writeFileSync(
     join(OUT_DIR, '_INDEX.json'),
-    JSON.stringify({ count: written, skipped, generatedAt: new Date().toISOString(), providers: summary }, null, 2),
+    JSON.stringify({ count: written, skipped, thin: thinCount, generatedAt: new Date().toISOString(), providers: summary }, null, 2),
     'utf8',
   );
 
   console.log(`\nDone. Wrote ${written} files to public/exchange/provider/`);
+  console.log(`  • ${thinCount} rendered with noindex,follow (thin listings)`);
+  console.log(`  • ${written - thinCount} indexable`);
   if (skipped) console.log(`Skipped ${skipped} providers with slugs > ${MAX_SLUG_LEN} chars (served dynamically by /exchange-provider.html rewrite).`);
 }
 

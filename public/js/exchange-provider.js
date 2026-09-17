@@ -98,8 +98,22 @@
       breadcrumbCurrent.textContent = 'Provider not found';
     }
 
-    updateCanonical('https://dolifetoday.com/exchange');
-    ensureRobotsMeta().setAttribute('content', 'noindex, nofollow');
+    // Only override canonical + inject `noindex` when we're serving the empty
+    // fallback template (Firebase rewrite `/exchange/provider/**` →
+    // `/exchange-provider.html`, canonical = "/exchange"). Prerendered static
+    // provider pages already contain valid indexable content (specific title,
+    // description, self-referencing canonical, and LocalBusiness JSON-LD), so
+    // a transient JS fetch failure should NOT flip them to noindex — that
+    // costs long-tail SEO on real, claimable listings (5,154 pages flagged
+    // by Google Search Console 2026-06-30 exactly because of this).
+    const canonicalLink = document.querySelector('link[rel="canonical"]');
+    const canonicalHref = canonicalLink ? canonicalLink.getAttribute('href') || '' : '';
+    const isPrerenderedPage = canonicalHref.indexOf('/exchange/provider/') !== -1;
+
+    if (!isPrerenderedPage) {
+      updateCanonical('https://dolifetoday.com/exchange');
+      ensureRobotsMeta().setAttribute('content', 'noindex, nofollow');
+    }
   }
 
   function slugify(value) {

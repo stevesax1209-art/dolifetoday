@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -8,7 +8,7 @@
   <link rel="canonical" href="https://dolifetoday.com/exchange" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Parkinson's Provider | The Exchange" />
-  <meta property="og:description" content="View this Parkinson's provider or product on The Exchange — programs, services, products, reviews, discussions, and community insights." />
+  <meta property="og:description" content="View this Parkinson's provider or product on The Exchange - programs, services, products, reviews, discussions, and community insights." />
   <meta property="og:url" content="https://dolifetoday.com/exchange" />
   <meta property="og:site_name" content="Doing Life Today" />
   <meta name="twitter:card" content="summary" />
@@ -60,6 +60,14 @@
         <li><a href="/podcasts">Podcasts</a></li>
         <li><a href="/youtube">YouTube</a></li>
         <li><a href="/theclub">The Club</a></li>
+        <li class="nav-dropdown">
+          <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Care Partners</button>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li role="none"><a href="/carmens-care-partner-corner" role="menuitem">Carmen's Care Partner Corner<small>Dashboard, Circle, daily check-ins</small></a></li>
+            <li role="none"><a href="/care-partners" role="menuitem">Care Partners Guide<small>Supporting someone with Parkinson's</small></a></li>
+            <li role="none"><a href="/caregiver-burnout" role="menuitem">Caregiver Burnout<small>Spot it and recover</small></a></li>
+          </ul>
+        </li>
         <li><a href="/exchange">The Exchange</a></li>
         <li><a href="/music">Music</a></li>
         <li><a href="/living-with-parkinsons-guide">Living With Parkinson's Guide</a></li>
@@ -79,6 +87,8 @@
     <a href="/podcasts">Podcasts</a>
     <a href="/youtube">YouTube</a>
     <a href="/theclub">The Club</a>
+    <a href="/carmens-care-partner-corner">Carmen's Care Partner Corner</a>
+    <a href="/clinical-trial-match">Clinical Trial Match</a>
     <a href="/exchange">The Exchange</a>
     <a href="/music">Music</a>
     <a href="/living-with-parkinsons-guide">Living With Parkinson's Guide</a>
@@ -99,9 +109,19 @@
           <span id="exchange-provider-breadcrumb-current">Provider</span>
         </nav>
         <span class="section-label">The Exchange</span>
-        <div class="card exchange-loading-card" id="exchange-provider-loading">
-          <h1 id="exchange-provider-loading-title" class="hero-title">Loading provider...</h1>
-          <p>Pulling the listing details from The Exchange directory.</p>
+        <!--
+          Loading state is initially hidden so it does not appear in the
+          rendered HTML that Googlebot sees. If the JS fetch runs, it
+          calls setVisible(loadingNode, true) via showLoading() which
+          removes `hidden`. The heading is a <p> (not <h1>) so it never
+          competes with the prerendered SEO hero <h1>. The wording was
+          also changed from "Loading provider..." because that phrase is
+          a well-known Soft 404 heuristic trigger in Google's rendered-
+          content classifier (GSC 2026-07-09 report: 398 URLs flagged).
+        -->
+        <div class="card exchange-loading-card" id="exchange-provider-loading" hidden aria-live="polite" aria-busy="true">
+          <p id="exchange-provider-loading-title" class="hero-title">Fetching the latest details from The Exchange&hellip;</p>
+          <p>One moment while we sync this listing.</p>
         </div>
         <div class="card exchange-error-card" id="exchange-provider-error" hidden>
           <h1 class="hero-title">Provider not found</h1>
@@ -116,7 +136,7 @@
             <div>
               <h1 id="exchange-provider-title" class="hero-title"></h1>
               <p id="exchange-provider-subtitle" class="hero-subtitle"></p>
-              <p id="exchange-provider-club-note" class="hero-support">Listed on The Exchange — the Parkinson's provider directory by Doing Life Today</p>
+              <p id="exchange-provider-club-note" class="hero-support">Listed on The Exchange - the Parkinson's provider directory by Doing Life Today</p>
               <p id="exchange-provider-rating" class="hero-support"></p>
             </div>
           </div>
@@ -199,7 +219,7 @@
         <div class="card pe-teaser-card">
           <span class="section-label">Inside The Club</span>
           <h2 class="section-title">See how providers show up inside The Club</h2>
-          <p>When a provider joins The Club at the Community tier, members can leave reviews, start discussions, and share experiences — building a trusted reputation that helps you make confident decisions.</p>
+          <p>When a provider joins The Club at the Community tier, members can leave reviews, start discussions, and share experiences - building a trusted reputation that helps you make confident decisions.</p>
           <div class="pe-teaser-stats" id="exchange-provider-club-stats" hidden>
             <div class="pe-teaser-stat"><span id="ep-club-discussions">0</span><small>Discussions</small></div>
             <div class="pe-teaser-stat"><span id="ep-club-reviews">0</span><small>Reviews</small></div>

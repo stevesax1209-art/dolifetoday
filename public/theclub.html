@@ -3,8 +3,98 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Join the first wave of The Club, a private Parkinson's community built by people living with Parkinson's for people living with Parkinson's and their care partners.">
-  <title>The Club | Private Parkinson's Community Launching April 15</title>
+  <meta name="description" content="The Club is open and free to join. Download The Club on the Apple App Store, Google Play, Microsoft Store, or open it in your browser at club.dolifetoday.com - a private Parkinson's community built by people living with Parkinson's, for people living with Parkinson's and their care partners.">
+  <title>The Club | Download The Club - Apple, Google Play, Microsoft Store &amp; Web</title>
+  <link rel="canonical" href="https://dolifetoday.com/theclub" />
+
+  <meta property="og:title" content="The Club | Download The Club - Apple, Google Play, Microsoft Store &amp; Web">
+  <meta property="og:description" content="The Club is open and free to join. Download The Club on Apple, Google Play, Microsoft Store, or open it in your browser at club.dolifetoday.com.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dolifetoday.com/theclub">
+  <meta property="og:site_name" content="Doing Life Today">
+
+  <!-- Structured data: SoftwareApplication, FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://dolifetoday.com/theclub#app",
+        "name": "The Club by Doing Life Today",
+        "alternateName": "The Club",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "iOS, Android, Windows, Web",
+        "description": "The Club is a free private community app for people living with Parkinson's and their care partners. Members connect through topic-based clubs covering sleep, medication, movement, daily challenges, and more.",
+        "url": "https://dolifetoday.com/theclub",
+        "installUrl": [
+          "https://apps.apple.com/app/id6763160814",
+          "https://play.google.com/store/apps/details?id=com.dolifetoday.club",
+          "https://apps.microsoft.com/detail/9MX0NC9N6RN4",
+          "https://club.dolifetoday.com"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Doing Life Today",
+          "url": "https://dolifetoday.com/"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://dolifetoday.com/theclub#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is The Club free to join?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The Club is completely free to join on any device."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Who is The Club for?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The Club is for people living with Parkinson's and their care partners. Some members come on their own. Others come with someone beside them. Both belong here."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "When does The Club open to the public?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The Club is open now and free to join. Download the app from the Apple App Store, Google Play, or Microsoft Store, or open it in your browser at club.dolifetoday.com, and sign up in seconds."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which device should I use for The Club?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Whichever you prefer. The Club is available on iPhone and iPad (Apple App Store), Android (Google Play), Windows (Microsoft Store), and in any modern web browser at club.dolifetoday.com. Your one membership works everywhere you sign in."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "I was on the waitlist \u2014 how do I get in?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Every waitlist wave has now been invited. Sign in with the same email address you used when you joined the waitlist and your access is already active. Use any of the four download options on the page."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -543,6 +633,7 @@
     .waitlist-form {
       display: grid;
       gap: 1rem;
+      scroll-margin-top: 96px;
     }
 
     .waitlist-form .btn {
@@ -1346,7 +1437,7 @@
       aspect-ratio: 1;
       right: clamp(-4rem, -2vw, -1rem);
       bottom: clamp(-6rem, -5vw, -2rem);
-      background: url('Images/app%20icon.png') center/contain no-repeat;
+      background: url('Images/the-club/app-icon.png') center/contain no-repeat;
       opacity: 0.08;
       pointer-events: none;
       filter: saturate(0.9);
@@ -1695,7 +1786,8 @@
       gap: 0.1rem;
     }
 
-    body.theclub-page .nav-links a {
+    body.theclub-page .nav-links a,
+    body.theclub-page .nav-links .nav-dropdown-toggle {
       padding-inline: clamp(0.3rem, 0.55vw, 0.55rem);
       font-size: clamp(0.76rem, 0.7rem + 0.15vw, 0.84rem);
     }
@@ -1711,7 +1803,7 @@
       max-width: 200px;
     }
 
-    @media (max-width: 1180px) {
+    @media (max-width: 1200px) {
       body.theclub-page .nav-links,
       body.theclub-page .nav-cta {
         display: none;
@@ -1921,6 +2013,172 @@
     body { top: 0 !important; }
     .skiptranslate { display: none !important; }
     #google_translate_element .skiptranslate { display: block !important; }
+
+    /* ============================================================
+       PUBLIC LAUNCH - Download panel (Apple / Google / Microsoft / Web)
+       ============================================================ */
+    body.theclub-page .launch-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+    }
+    body.theclub-page .launch-panel-kicker {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: #D4AF37;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    body.theclub-page .launch-panel-kicker::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #F3D678;
+      box-shadow: 0 0 0 4px rgba(243, 214, 120, 0.18);
+      animation: pulseDot 2.2s ease-in-out infinite;
+    }
+    @keyframes pulseDot {
+      0%, 100% { box-shadow: 0 0 0 4px rgba(243, 214, 120, 0.18); }
+      50% { box-shadow: 0 0 0 8px rgba(243, 214, 120, 0.05); }
+    }
+    body.theclub-page .launch-panel-title {
+      font-size: clamp(1.4rem, 2.4vw, 1.8rem);
+      font-weight: 800;
+      margin: 0;
+      color: #F8FAFC;
+      letter-spacing: -0.01em;
+      line-height: 1.15;
+    }
+    body.theclub-page .launch-panel-sub {
+      color: #CBD5E1;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin: 0;
+    }
+    body.theclub-page .download-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      margin-top: 0.4rem;
+    }
+    body.theclub-page .download-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      width: 100%;
+      min-height: 66px;
+      padding: 0.85rem 1.1rem;
+      border-radius: 14px;
+      text-decoration: none;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    body.theclub-page .download-btn:hover {
+      transform: translateY(-2px);
+    }
+    body.theclub-page .download-btn--store {
+      background: linear-gradient(135deg, #0A0F16 0%, #131923 100%);
+      border: 1px solid rgba(212, 175, 55, 0.18);
+      color: #F8FAFC;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.32);
+    }
+    body.theclub-page .download-btn--store:hover {
+      border-color: rgba(212, 175, 55, 0.55);
+      box-shadow: 0 20px 44px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(212, 175, 55, 0.25) inset;
+      color: #F8FAFC;
+    }
+    body.theclub-page .download-btn--web {
+      background: linear-gradient(135deg, #D4AF37 0%, #F3D678 60%, #D4AF37 100%);
+      color: #101828;
+      border: 1px solid rgba(212, 175, 55, 0.7);
+      box-shadow: 0 18px 40px rgba(212, 175, 55, 0.28);
+    }
+    body.theclub-page .download-btn--web:hover {
+      color: #101828;
+      box-shadow: 0 24px 52px rgba(212, 175, 55, 0.42);
+      filter: brightness(1.04);
+    }
+    body.theclub-page .download-btn-icon {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    body.theclub-page .download-btn-icon svg {
+      width: 38px;
+      height: 38px;
+      display: block;
+    }
+    body.theclub-page .download-btn-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+      line-height: 1.15;
+      text-align: left;
+      flex: 1;
+      min-width: 0;
+    }
+    body.theclub-page .download-btn-eyebrow {
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      opacity: 0.72;
+    }
+    body.theclub-page .download-btn-label {
+      font-size: 1.08rem;
+      font-weight: 700;
+      letter-spacing: 0.005em;
+    }
+    body.theclub-page .download-btn-arrow {
+      flex-shrink: 0;
+      font-size: 1.4rem;
+      opacity: 0.55;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+    body.theclub-page .download-btn:hover .download-btn-arrow {
+      transform: translateX(4px);
+      opacity: 1;
+    }
+    body.theclub-page .launch-panel-helper {
+      font-size: 0.82rem;
+      color: #94A3B8;
+      margin: 0.4rem 0 0;
+      text-align: center;
+      line-height: 1.5;
+    }
+    body.theclub-page .launch-panel-helper a {
+      color: #D4AF37;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    body.theclub-page .launch-panel-helper a:hover { text-decoration: underline; }
+    body.theclub-page .launch-panel-divider {
+      border: none;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(212,175,55,0.32), transparent);
+      margin: 0.4rem 0 0;
+    }
+    body.theclub-page .download-row-final {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin: 1.75rem auto 0;
+      max-width: 980px;
+    }
+    @media (max-width: 480px) {
+      body.theclub-page .download-btn { min-height: 60px; padding: 0.75rem 0.9rem; }
+      body.theclub-page .download-btn-label { font-size: 0.98rem; }
+      body.theclub-page .download-btn-icon { width: 34px; height: 34px; }
+      body.theclub-page .download-btn-icon svg { width: 32px; height: 32px; }
+    }
   </style>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3LZZWBTWT"></script>
@@ -1933,51 +2191,170 @@
   <script src="/js/analytics-events.js" defer></script>
   <script src="/js/meta-pixel.js"></script>
 </head>
-<body>
+<body class="theclub-page">
   <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=771485525759396&ev=PageView&noscript=1"
   /></noscript>
   <div id="google_translate_element"></div>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <header class="site-header" role="banner">
+  <header class="site-header" role="banner" data-canonical-nav="v4">
     <nav class="nav-inner" aria-label="Main navigation">
       <a href="/" class="nav-logo" aria-label="Doing Life Today - Home">
         <div class="nav-logo-mark" aria-hidden="true">DL</div>
         <div class="nav-logo-text">Doing Life Today<span>Parkinson's Community</span></div>
       </a>
       <ul class="nav-links" role="list">
-        <li><a href="/about">About</a></li>
-        <li><a href="/podcasts">Podcasts</a></li>
-        <li><a href="/youtube">YouTube</a></li>
-        <li><a href="/theclub">The Club</a></li>
-        <li><a href="/exchange">The Exchange</a></li>
-        <li><a href="/music">Music</a></li>
-        <li><a href="/living-with-parkinsons-guide">Living With Parkinson's Guide</a></li>
-        <li><a href="/resources">Resources</a></li>
-        <li><a href="/share">Spread the Word</a></li>
-        <li><a href="/events">Events</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li class="nav-dropdown">
+          <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">About</button>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li role="none"><a href="/about" role="menuitem">About Doing Life Today<small>Our story &amp; mission</small></a></li>
+            <li role="none"><a href="/about#awards" role="menuitem">Awards &amp; Recognition<small>Communicator Awards &amp; Parkinson's advocacy</small></a></li>
+            <li role="none"><a href="https://bryceperry.org" target="_blank" rel="noopener noreferrer" role="menuitem">Bryce Perry &middot; Speaking &amp; Media<small>Book Bryce &middot; press</small></a></li>
+            <li role="none"><a href="/contact" role="menuitem">Contact<small>Get in touch</small></a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown nav-dropdown--highlight">
+          <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">The Club</button>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li role="none"><a href="/theclub" role="menuitem">The Club<small>Learn about the community</small></a></li>
+            <li role="none"><a href="/theclub#download" role="menuitem">Join The Club<small>Download &amp; sign up free</small></a></li>
+            <li role="none"><a href="/parkinsons-daily-check-in" role="menuitem">Daily Check-In<small>Track how you're doing</small></a></li>
+            <li role="none"><a href="/parkinsons-symptom-tracker" role="menuitem">Symptom Tracker<small>Log symptoms over time</small></a></li>
+            <li role="none"><a href="/clinical-trial-match" role="menuitem">Clinical Trial Match<small>Find trials near you</small></a></li>
+            <li role="none"><a href="/speaking-the-invisible" role="menuitem">Speaking The Invisible<small>Put symptoms into words</small></a></li>
+            <li role="none"><a href="/inner-circle" role="menuitem">Inner Circle<small>Deeper community experiences</small></a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Watch &amp; Listen</button>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li role="none"><a href="/podcasts" role="menuitem">Podcasts Hub<small>All DLT podcasts</small></a></li>
+            <li role="none"><a href="/living-with-parkinsons-podcast" role="menuitem">Living With Parkinson's Podcast<small>Weekly episodes</small></a></li>
+            <li role="none"><a href="/life-in-motion" role="menuitem">Life in Motion<small>Movement &amp; Parkinson's</small></a></li>
+            <li role="none"><a href="/youtube" role="menuitem">YouTube<small>Videos &amp; interviews</small></a></li>
+            <li role="none"><a href="/music" role="menuitem">Music<small>Music &amp; therapy</small></a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Care Partners</button>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li role="none"><a href="/carmens-care-partner-corner" role="menuitem">Carmen's Care Partner Corner<small>Dashboard, Circle, daily check-ins</small></a></li>
+            <li role="none"><a href="/care-partners" role="menuitem">Care Partners Guide<small>Supporting someone with Parkinson's</small></a></li>
+            <li role="none"><a href="/caregiver-burnout" role="menuitem">Caregiver Burnout<small>Spot it and recover</small></a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Living With Parkinson's</button>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li role="none"><a href="/living-with-parkinsons-guide" role="menuitem">Living With Parkinson's Guide<small>The full guide</small></a></li>
+            <li role="none"><a href="/newly-diagnosed" role="menuitem">Newly Diagnosed<small>Start here</small></a></li>
+            <li role="none"><a href="/first-90-days-parkinsons" role="menuitem">First 90 Days<small>What to do first</small></a></li>
+            <li role="none"><a href="/early-signs-of-parkinsons" role="menuitem">Early Signs<small>Recognize the signs</small></a></li>
+            <li role="none"><a href="/symptoms" role="menuitem">Symptoms Directory<small>Tremor, sleep, DBS &amp; more</small></a></li>
+            <li role="none"><a href="/parkinsons-medication-timing" role="menuitem">Medication Timing<small>Get the most from your meds</small></a></li>
+            <li role="none"><a href="/dbs-surgery" role="menuitem">DBS Surgery<small>Deep brain stimulation</small></a></li>
+            <li role="none"><a href="/best-exercises-for-parkinsons" role="menuitem">Best Exercises<small>Move your best</small></a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">The Exchange</button>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li role="none"><a href="/exchange" role="menuitem">Search The Exchange<small>12,000+ Parkinson's programs, services &amp; products near you</small></a></li>
+            <li role="none"><a href="/for-providers" role="menuitem">For Providers &middot; Get Listed<small>Grow your Parkinson's program, service, or product</small></a></li>
+            <li role="none"><a href="/claim-listing" role="menuitem">Claim Your Listing<small>Take ownership of an existing entry</small></a></li>
+            <li role="none"><a href="/create-listing" role="menuitem">Add Your Business<small>List a new provider or product</small></a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community</button>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li role="none"><a href="/events" role="menuitem">Events<small>Live meetups &amp; groups</small></a></li>
+            <li role="none"><a href="/share" role="menuitem">Spread the Word<small>Share DLT with your community</small></a></li>
+            <li role="none"><a href="/free-parkinsons-community" role="menuitem">Support Groups &amp; Free Community<small>Free ways to connect</small></a></li>
+            <li role="none"><a href="/parkinsons-community" role="menuitem">Parkinson's Community<small>What community looks like</small></a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Resources</button>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li role="none"><a href="/resources" role="menuitem">All Resources<small>Every resource, one page</small></a></li>
+            <li role="none"><a href="/parkinsons-clinician-handouts" role="menuitem">Clinician Handouts<small>Print-friendly one-pagers</small></a></li>
+            <li role="none"><a href="/store" role="menuitem">Store<small>DLT merch</small></a></li>
+          </ul>
+        </li>
       </ul>
-      <a href="#waitlist-form" class="btn btn-primary btn-sm nav-cta">Save My Spot</a>
+      <a href="/theclub" class="btn btn-primary btn-sm nav-cta">Join The Club</a>
       <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
         <span></span><span></span><span></span>
       </button>
     </nav>
   </header>
 
-  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
-    <a href="/about">About</a>
-    <a href="/podcasts">Podcasts</a>
-    <a href="/theclub">The Club</a>
-    <a href="/exchange">The Exchange</a>
-    <a href="/music">Music</a>
-    <a href="/living-with-parkinsons-guide">Living With Parkinson's Guide</a>
-    <a href="/resources">Resources</a>
-    <a href="/share">Spread the Word</a>
-    <a href="/events">Events</a>
-    <a href="/contact">Contact</a>
-    <div class="mobile-cta"><a href="#waitlist-form" class="btn btn-primary">Save My Spot</a></div>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" data-canonical-nav="v4">
+    <details class="mobile-nav-group">
+      <summary>About</summary>
+      <a href="/about">About Doing Life Today</a>
+      <a href="/about#awards">Awards &amp; Recognition</a>
+      <a href="https://bryceperry.org" target="_blank" rel="noopener noreferrer">Bryce Perry &middot; Speaking &amp; Media</a>
+      <a href="/contact">Contact</a>
+    </details>
+    <details class="mobile-nav-group mobile-nav-group--highlight">
+      <summary>The Club</summary>
+      <a href="/theclub">The Club</a>
+      <a href="/theclub#download">Join The Club</a>
+      <a href="/parkinsons-daily-check-in">Daily Check-In</a>
+      <a href="/parkinsons-symptom-tracker">Symptom Tracker</a>
+      <a href="/clinical-trial-match">Clinical Trial Match</a>
+      <a href="/speaking-the-invisible">Speaking The Invisible</a>
+      <a href="/inner-circle">Inner Circle</a>
+    </details>
+    <details class="mobile-nav-group">
+      <summary>Watch &amp; Listen</summary>
+      <a href="/podcasts">Podcasts Hub</a>
+      <a href="/living-with-parkinsons-podcast">Living With Parkinson's Podcast</a>
+      <a href="/life-in-motion">Life in Motion</a>
+      <a href="/youtube">YouTube</a>
+      <a href="/music">Music</a>
+    </details>
+    <details class="mobile-nav-group">
+      <summary>Care Partners</summary>
+      <a href="/carmens-care-partner-corner">Carmen's Care Partner Corner</a>
+      <a href="/care-partners">Care Partners Guide</a>
+      <a href="/caregiver-burnout">Caregiver Burnout</a>
+    </details>
+    <details class="mobile-nav-group">
+      <summary>Living With Parkinson's</summary>
+      <a href="/living-with-parkinsons-guide">Living With Parkinson's Guide</a>
+      <a href="/newly-diagnosed">Newly Diagnosed</a>
+      <a href="/first-90-days-parkinsons">First 90 Days</a>
+      <a href="/early-signs-of-parkinsons">Early Signs</a>
+      <a href="/symptoms">Symptoms Directory</a>
+      <a href="/parkinsons-medication-timing">Medication Timing</a>
+      <a href="/dbs-surgery">DBS Surgery</a>
+      <a href="/best-exercises-for-parkinsons">Best Exercises</a>
+    </details>
+    <details class="mobile-nav-group">
+      <summary>The Exchange</summary>
+      <a href="/exchange">Search The Exchange</a>
+      <a href="/for-providers">For Providers &middot; Get Listed</a>
+      <a href="/claim-listing">Claim Your Listing</a>
+      <a href="/create-listing">Add Your Business</a>
+    </details>
+    <details class="mobile-nav-group">
+      <summary>Community</summary>
+      <a href="/events">Events</a>
+      <a href="/share">Spread the Word</a>
+      <a href="/free-parkinsons-community">Support Groups &amp; Free Community</a>
+      <a href="/parkinsons-community">Parkinson's Community</a>
+    </details>
+    <details class="mobile-nav-group">
+      <summary>Resources</summary>
+      <a href="/resources">All Resources</a>
+      <a href="/parkinsons-clinician-handouts">Clinician Handouts</a>
+      <a href="/store">Store</a>
+    </details>
+    <div class="mobile-cta"><a href="/theclub" class="btn btn-primary">Join The Club</a></div>
   </nav>
 
   <main id="main-content" class="club-launch-page">
@@ -1988,212 +2365,65 @@
             <img src="Images/the-club/lockup-stacked.png" alt="The Club" class="club-wordmark" width="720" height="720">
             <div class="club-tagline" aria-hidden="true">Doing Life Today</div>
           </div>
-          <div class="founding-badge">Founding Members: First Wave</div>
+          <div class="founding-badge">The Club is Open &middot; Free to Join</div>
           <h1 id="club-launch-heading">Welcome to The Club</h1>
           <hr class="hero-divider" aria-hidden="true">
           <p class="hero-signature">Welcome to the club nobody wanted to join&hellip;<br>but the members are some of the strongest people you'll ever meet.</p>
-          <p class="hero-subheadline">A private community built by people living with Parkinson&rsquo;s, for people who truly understand it.</p>
+          <p class="hero-subheadline">A private community built by people living with Parkinson&rsquo;s - <strong>made for people with Parkinson&rsquo;s and their care partners.</strong></p>
           <div class="badge-row">
-            <span class="pill-badge pill-badge-primary">&#128274; Private Community</span>
+            <span class="pill-badge pill-badge-primary">&#128104;&#8205;&#9877;&#65039; For PwP &amp; Care Partners</span>
+            <span class="pill-badge">&#128274; Private Community</span>
             <span class="pill-badge">&#9989; Completely Free to Join</span>
-            <span class="pill-badge">&#128170; Built by People Living with Parkinson's</span>
             <span class="pill-badge pill-badge-primary">&#127757; Available in 30 Languages</span>
           </div>
-          <p class="hero-supporting">Exclusive to people living with Parkinson's and their care partners.</p>
+          <p class="hero-supporting">Each member gets a personal dashboard. Care partners get their own dashboard too - with trackers, tips, and a private Care Partner Club.</p>
 
           <div class="btn-group mt-3">
-            <a href="#inside-club-heading" class="btn btn-primary btn-lg">See What's Inside</a>
-            <a href="#access-works-heading" class="btn btn-secondary btn-lg">How Access Works</a>
+            <a href="#download" class="btn btn-primary btn-lg">Get The Club App</a>
+            <a href="#inside-club-heading" class="btn btn-secondary btn-lg">See What's Inside</a>
           </div>
 
-          <section class="access-works-panel" aria-labelledby="access-works-heading">
-            <h2 id="access-works-heading">How Access Works</h2>
-            <p>We&rsquo;re opening The Club in small waves, not to limit access, but to protect the experience inside.</p>
-            <div class="access-wave-grid" aria-label="Wave access details">
-              <article class="access-wave-card" id="wave-card-1" data-wave="1" data-capacity="200">
-                <span class="wave-badge wave-badge--reserved">&check; Fully Reserved</span>
-                <span class="access-wave-title">Founding Members</span>
-                <div class="access-wave-copy">
-                  <span>Opens April 15</span>
-                  <span>200 spots</span>
-                  <span class="access-wave-note">First group shaping the community</span>
-                </div>
-                <div class="wave-countdown-stack">
-                  <div class="wave-countdown" data-countdown-target="2026-04-15T00:00:00" data-countdown-expired-label="Wave 1 is now open">
-                    <span class="wave-countdown-heading">Wave 1 countdown</span>
-                    <div class="wave-countdown-grid" aria-live="polite">
-                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="days">00</span><span class="wave-countdown-unit">Days</span></div>
-                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="hours">00</span><span class="wave-countdown-unit">Hours</span></div>
-                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="minutes">00</span><span class="wave-countdown-unit">Minutes</span></div>
-                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="seconds">00</span><span class="wave-countdown-unit">Seconds</span></div>
-                    </div>
-                    <span class="wave-countdown-status" data-countdown-status></span>
-                  </div>
-                </div>
-                <div class="wave-spots" aria-live="polite">
-                  <div class="wave-progress-bar"><div class="wave-progress-fill" id="wave-fill-1"></div></div>
-                  <span class="wave-spots-text" id="wave-spots-1">Loading...</span>
-                </div>
+          <!-- Waitlist access-works panel removed: The Club is now open to everyone.
+               Download CTAs live in the right-hand .hero-card panel (id="download"). -->
+          <article class="access-wave-card" id="wave-card-1" data-wave="1" data-capacity="200" hidden aria-hidden="true">
+            <span class="wave-badge wave-badge--reserved">&check; Fully Reserved</span>
+            <span class="access-wave-title">Founding Members</span>
+            <span class="wave-spots-text" id="wave-spots-1"></span>
+            <div class="wave-progress-fill" id="wave-fill-1"></div>
+          </article>
+              <article class="access-wave-card" id="wave-card-2" data-wave="2" data-capacity="200" hidden aria-hidden="true">
+                <span class="wave-spots-text" id="wave-spots-2"></span>
+                <div class="wave-progress-fill" id="wave-fill-2"></div>
               </article>
-              <article class="access-wave-card" id="wave-card-2" data-wave="2" data-capacity="200">
-                <span class="wave-badge wave-badge--active">Now Accepting Members</span>
-                <span class="access-wave-title">Early Community</span>
-                <div class="access-wave-copy">
-                  <span>Opens April 29</span>
-                  <span>200 spots</span>
-                  <span class="access-wave-note">A smaller group joining before wider access opens</span>
-                </div>
-                <div class="wave-countdown-stack">
-                  <div class="wave-countdown" data-countdown-target="2026-04-29T00:00:00" data-countdown-expired-label="Wave 2 is now open">
-                    <span class="wave-countdown-heading">Wave 2 countdown</span>
-                    <div class="wave-countdown-grid" aria-live="polite">
-                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="days">00</span><span class="wave-countdown-unit">Days</span></div>
-                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="hours">00</span><span class="wave-countdown-unit">Hours</span></div>
-                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="minutes">00</span><span class="wave-countdown-unit">Minutes</span></div>
-                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="seconds">00</span><span class="wave-countdown-unit">Seconds</span></div>
-                    </div>
-                    <span class="wave-countdown-status" data-countdown-status></span>
-                  </div>
-                </div>
-                <div class="wave-spots" aria-live="polite">
-                  <div class="wave-progress-bar"><div class="wave-progress-fill" id="wave-fill-2"></div></div>
-                  <span class="wave-spots-text" id="wave-spots-2">Loading...</span>
-                </div>
+              <article class="access-wave-card" id="wave-card-3" data-wave="3" data-capacity="200" hidden aria-hidden="true">
+                <span class="wave-spots-text" id="wave-spots-3"></span>
+                <div class="wave-progress-fill" id="wave-fill-3"></div>
               </article>
-              <article class="access-wave-card" id="wave-card-3" data-wave="3" data-capacity="200">
-                <span class="wave-badge wave-badge--upcoming" data-live-badge="true">Upcoming</span>
-                <span class="access-wave-title">Priority Access</span>
-                <div class="access-wave-copy">
-                  <span>Opens May 13</span>
-                  <span>200 spots</span>
-                  <span class="access-wave-note">Early entry before the broader waves begin</span>
-                </div>
-                <div class="wave-countdown-stack">
-                  <div class="wave-countdown" data-countdown-target="2026-05-13T00:00:00" data-countdown-expired-label="Priority Access is now open" data-primary-countdown="true">
-                    <span class="wave-countdown-heading">Priority Access countdown</span>
-                    <div class="wave-countdown-grid" aria-live="polite">
-                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="days">00</span><span class="wave-countdown-unit">Days</span></div>
-                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="hours">00</span><span class="wave-countdown-unit">Hours</span></div>
-                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="minutes">00</span><span class="wave-countdown-unit">Minutes</span></div>
-                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="seconds">00</span><span class="wave-countdown-unit">Seconds</span></div>
-                    </div>
-                    <span class="wave-countdown-status" data-countdown-status></span>
-                  </div>
-                </div>
-                <div class="wave-spots" aria-live="polite">
-                  <div class="wave-progress-bar"><div class="wave-progress-fill" id="wave-fill-3"></div></div>
-                  <span class="wave-spots-text" id="wave-spots-3">Loading...</span>
-                </div>
+              <article class="access-wave-card" id="wave-card-4" data-wave="4" data-capacity="200" hidden aria-hidden="true">
+                <span class="wave-spots-text" id="wave-spots-4"></span>
+                <div class="wave-progress-fill" id="wave-fill-4"></div>
               </article>
-              <article class="access-wave-card" id="wave-card-4" data-wave="4" data-capacity="200">
-                <span class="wave-badge wave-badge--upcoming" data-live-badge="true">Upcoming</span>
-                <span class="access-wave-title">Growth Wave</span>
-                <div class="access-wave-copy">
-                  <span>Opens May 27</span>
-                  <span>200 spots</span>
-                  <span class="access-wave-note">Building momentum toward Public Launch</span>
-                </div>
-                <div class="wave-countdown-stack">
-                  <div class="wave-countdown" data-countdown-target="2026-05-27T00:00:00" data-countdown-expired-label="Growth Wave is now open" data-primary-countdown="true">
-                    <span class="wave-countdown-heading">Growth Wave countdown</span>
-                    <div class="wave-countdown-grid" aria-live="polite">
-                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="days">00</span><span class="wave-countdown-unit">Days</span></div>
-                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="hours">00</span><span class="wave-countdown-unit">Hours</span></div>
-                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="minutes">00</span><span class="wave-countdown-unit">Minutes</span></div>
-                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="seconds">00</span><span class="wave-countdown-unit">Seconds</span></div>
-                    </div>
-                    <span class="wave-countdown-status" data-countdown-status></span>
-                  </div>
-                </div>
-                <div class="wave-spots" aria-live="polite">
-                  <div class="wave-progress-bar"><div class="wave-progress-fill" id="wave-fill-4"></div></div>
-                  <span class="wave-spots-text" id="wave-spots-4">Loading...</span>
-                </div>
+              <article class="access-wave-card" id="wave-card-5" data-wave="5" data-capacity="200" hidden aria-hidden="true">
+                <span class="wave-spots-text" id="wave-spots-5"></span>
+                <div class="wave-progress-fill" id="wave-fill-5"></div>
               </article>
-              <article class="access-wave-card" id="wave-card-5" data-wave="5" data-capacity="200">
-                <span class="wave-badge wave-badge--upcoming" data-live-badge="true">Upcoming</span>
-                <span class="access-wave-title">Community Wave</span>
-                <div class="access-wave-copy">
-                  <span>Opens June 10</span>
-                  <span>200 spots</span>
-                  <span class="access-wave-note">Expanding the community ahead of Public Launch</span>
-                </div>
-                <div class="wave-countdown-stack">
-                  <div class="wave-countdown" data-countdown-target="2026-06-10T00:00:00" data-countdown-expired-label="Community Wave is now open" data-primary-countdown="true">
-                    <span class="wave-countdown-heading">Community Wave countdown</span>
-                    <div class="wave-countdown-grid" aria-live="polite">
-                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="days">00</span><span class="wave-countdown-unit">Days</span></div>
-                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="hours">00</span><span class="wave-countdown-unit">Hours</span></div>
-                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="minutes">00</span><span class="wave-countdown-unit">Minutes</span></div>
-                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="seconds">00</span><span class="wave-countdown-unit">Seconds</span></div>
-                    </div>
-                    <span class="wave-countdown-status" data-countdown-status></span>
-                  </div>
-                </div>
-                <div class="wave-spots" aria-live="polite">
-                  <div class="wave-progress-bar"><div class="wave-progress-fill" id="wave-fill-5"></div></div>
-                  <span class="wave-spots-text" id="wave-spots-5">Loading...</span>
-                </div>
+              <article class="access-wave-card" id="wave-card-6" data-wave="6" data-capacity="200" hidden aria-hidden="true">
+                <span class="wave-spots-text" id="wave-spots-6"></span>
+                <div class="wave-progress-fill" id="wave-fill-6"></div>
               </article>
-              <article class="access-wave-card" id="wave-card-6" data-wave="6" data-capacity="200">
-                <span class="wave-badge wave-badge--upcoming" data-live-badge="true">Upcoming</span>
-                <span class="access-wave-title">Final Wave</span>
-                <div class="access-wave-copy">
-                  <span>Opens June 24</span>
-                  <span>200 spots</span>
-                  <span class="access-wave-note">Last waitlist wave before Public Launch on July 1</span>
-                </div>
-                <div class="wave-countdown-stack">
-                  <div class="wave-countdown" data-countdown-target="2026-06-24T00:00:00" data-countdown-expired-label="Final Wave is now open" data-primary-countdown="true">
-                    <span class="wave-countdown-heading">Final Wave countdown</span>
-                    <div class="wave-countdown-grid" aria-live="polite">
-                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="days">00</span><span class="wave-countdown-unit">Days</span></div>
-                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="hours">00</span><span class="wave-countdown-unit">Hours</span></div>
-                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="minutes">00</span><span class="wave-countdown-unit">Minutes</span></div>
-                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="seconds">00</span><span class="wave-countdown-unit">Seconds</span></div>
-                    </div>
-                    <span class="wave-countdown-status" data-countdown-status></span>
-                  </div>
-                  <div class="wave-countdown wave-countdown--grand" data-countdown-target="2026-07-01T00:00:00" data-countdown-expired-label="Public Launch is now live">
-                    <span class="wave-countdown-heading">Public Launch countdown</span>
-                    <div class="wave-countdown-grid" aria-live="polite">
-                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="days">00</span><span class="wave-countdown-unit">Days</span></div>
-                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="hours">00</span><span class="wave-countdown-unit">Hours</span></div>
-                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="minutes">00</span><span class="wave-countdown-unit">Minutes</span></div>
-                      <div class="wave-countdown-box"><span class="wave-countdown-value" data-countdown-part="seconds">00</span><span class="wave-countdown-unit">Seconds</span></div>
-                    </div>
-                    <span class="wave-countdown-status" data-countdown-status></span>
-                  </div>
-                </div>
-                <div class="wave-spots" aria-live="polite">
-                  <div class="wave-progress-bar"><div class="wave-progress-fill" id="wave-fill-6"></div></div>
-                  <span class="wave-spots-text" id="wave-spots-6">Loading...</span>
-                </div>
-              </article>
-            </div>
-            <p>As each wave fills, new members are automatically moved into the next available opening.</p>
-            <p class="access-works-footer">Early members help shape the community experience for everyone who follows.</p>
-
-            <div class="check-wave-box">
-              <h3>Already on the waitlist?</h3>
-              <p>Enter your email to see which wave you're in.</p>
-              <form class="check-wave-form" id="check-wave-form" autocomplete="off">
-                <input type="email" id="check-wave-email" placeholder="Your email address" required>
-                <button type="submit" id="check-wave-btn">Check My Wave</button>
-              </form>
-              <div class="check-wave-result" id="check-wave-result" aria-live="polite"></div>
-            </div>
-          </section>
 
           <p class="hero-helper">Come on your own or bring your person. You belong here.</p>
           <p class="cta-trust-line">Always open. Always free.</p>
           <p class="hero-quote">&ldquo;For the first time, I don&rsquo;t feel like I have to explain everything.&rdquo;</p>
         </div>
 
-        <aside class="hero-card" aria-label="Waitlist signup and countdown">
+        <aside class="hero-card" id="download" aria-label="Download The Club">
           <div class="hero-card-inner">
-          <p class="countdown-kicker">First Wave Access Begins In</p>
-          <div class="countdown-grid" aria-live="polite">
+          <!-- Public launch countdown removed: The Club is open to everyone.
+               Hidden countdown nodes are kept below so the legacy hero
+               countdown script continues to no-op cleanly. -->
+          <p class="countdown-kicker" hidden aria-hidden="true">The Club Is Open</p>
+          <div class="countdown-grid" aria-live="polite" hidden aria-hidden="true">
             <div class="countdown-box">
               <span class="countdown-value" id="countdown-days">00</span>
               <span class="countdown-label">Days</span>
@@ -2211,48 +2441,89 @@
               <span class="countdown-label">Seconds</span>
             </div>
           </div>
-          <div class="hero-secondary-timer" aria-live="polite">
-            <span class="hero-secondary-timer-label">Public Launch July 1</span>
-            <span class="hero-secondary-timer-value" id="hero-public-launch-countdown">00d 00h 00m 00s</span>
+          <div class="hero-secondary-timer" aria-live="polite" hidden>
+            <span class="hero-secondary-timer-label">The Club Is Open</span>
+            <span class="hero-secondary-timer-value" id="hero-public-launch-countdown">Now live</span>
           </div>
 
-          <h2 class="waitlist-title">Secure your spot in the first wave</h2>
-          <p class="waitlist-copy">Be among the people who receive the first invitation when access begins on April 15.</p>
+          <!-- Hidden legacy nodes kept so existing waitlist scripts continue to no-op cleanly -->
+          <span class="waitlist-title" hidden aria-hidden="true">The Club</span>
+          <span class="waitlist-copy" hidden aria-hidden="true"></span>
 
-          <form id="waitlist-form" class="waitlist-form" novalidate>
-            <label for="waitlist-email">Email address</label>
-            <input id="waitlist-email" name="email" type="email" placeholder="Enter your email address" autocomplete="email" required>
-            <p class="field-guidance">You&rsquo;ll get your invitation when your wave opens.</p>
-            <p class="form-microcopy">We&rsquo;ll only email you about your access. No spam. Ever.</p>
+          <div class="launch-panel" aria-label="Download The Club">
+            <span class="launch-panel-kicker">The Club Is Open &middot; Free to Join</span>
+            <h2 class="launch-panel-title">Download The Club</h2>
+            <p class="launch-panel-sub"><strong>Built for people living with Parkinson&rsquo;s and their care partners.</strong> Personal &amp; care partner dashboards, symptom &amp; medication trackers, and a private community - one free membership across every device you sign in on.</p>
 
-            <p class="card-community-note">This community is reserved for people living with Parkinson's and the care partners who walk beside them.</p>
+            <div class="download-stack">
+              <a href="https://apps.apple.com/app/id6763160814"
+                 target="_blank" rel="noopener noreferrer"
+                 class="download-btn download-btn--store"
+                 aria-label="Download The Club on the Apple App Store"
+                 data-download-store="apple">
+                <span class="download-btn-icon" aria-hidden="true">
+                  <svg width="38" height="38" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M17.564 12.713c-.02-2.244 1.832-3.32 1.916-3.372-1.044-1.527-2.668-1.736-3.244-1.76-1.382-.14-2.7.815-3.402.815-.715 0-1.79-.795-2.946-.772-1.516.023-2.913.882-3.696 2.232-1.575 2.732-.402 6.77 1.13 8.987.75 1.084 1.643 2.302 2.815 2.258 1.13-.046 1.557-.73 2.924-.73 1.36 0 1.756.73 2.95.706 1.218-.022 1.987-1.105 2.73-2.192.86-1.255 1.214-2.47 1.235-2.532-.027-.012-2.37-.91-2.412-3.64zM15.32 6.054c.616-.75 1.034-1.79.92-2.83-.89.037-1.97.595-2.61 1.335-.57.655-1.073 1.715-.94 2.735.994.077 2.013-.504 2.63-1.24z"/></svg>
+                </span>
+                <span class="download-btn-copy">
+                  <span class="download-btn-eyebrow">Download on the</span>
+                  <span class="download-btn-label">App Store</span>
+                </span>
+                <span class="download-btn-arrow" aria-hidden="true">&rsaquo;</span>
+              </a>
 
-            <label for="waitlist-role">I'm joining as:</label>
-            <select id="waitlist-role" name="audienceRole" required>
-              <option value="A person living with Parkinson's">A person living with Parkinson's</option>
-              <option value="A care partner / spouse / family caregiver">A care partner / spouse / family caregiver</option>
-            </select>
+              <a href="https://play.google.com/store/apps/details?id=com.dolifetoday.club"
+                 target="_blank" rel="noopener noreferrer"
+                 class="download-btn download-btn--store"
+                 aria-label="Get The Club on Google Play"
+                 data-download-store="google">
+                <span class="download-btn-icon" aria-hidden="true">
+                  <svg width="38" height="38" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path fill="#00D4FF" d="M325.3 234.3 104.6 13l280.8 161.2-60.1 60.1z"/><path fill="#34A853" d="M104.6 13l220.7 221.3-220.7 220.7c-9.4-3.5-15.2-12.5-15.2-23.2V36.2c0-10.8 5.8-19.7 15.2-23.2z"/><path fill="#FFCE00" d="M385.4 174.2 444 208c19.1 11 19.1 39 0 50L385.4 292l-60.1-58.9 60.1-58.9z"/><path fill="#FF3B30" d="M104.6 455L325.3 234.3l60.1 58.9L104.6 455z"/></svg>
+                </span>
+                <span class="download-btn-copy">
+                  <span class="download-btn-eyebrow">Get it on</span>
+                  <span class="download-btn-label">Google Play</span>
+                </span>
+                <span class="download-btn-arrow" aria-hidden="true">&rsaquo;</span>
+              </a>
 
-            <button type="submit" class="btn btn-primary btn-lg" data-wave-cta="true">Save My Spot in the First Wave</button>
-            <p class="cta-helper">Takes 10 seconds. No spam. You can leave anytime.</p>
-            <p class="form-trust-note">Built with people living with Parkinson&rsquo;s</p>
-            <p class="waitlist-count" id="waitlist-count" data-fallback-count="104" aria-live="polite"><span class="waitlist-count-value" id="waitlist-count-value">104</span> people have already reserved their spot</p>
-            <p class="waitlist-count-meta" id="waitlist-count-meta">Live waitlist count. Updates automatically.</p>
-            <p class="launch-note">You&rsquo;ll be notified when your wave opens.</p>
-            <div id="waitlist-status" class="waitlist-status" aria-live="polite"></div>
-            <div id="waitlist-share-panel" class="waitlist-share-panel" aria-live="polite">
-              <p class="waitlist-share-copy">Know someone who should see this? Share The Club with a friend or care partner.</p>
-              <div class="waitlist-share-actions">
-                <button type="button" class="btn btn-secondary" id="waitlist-share-email">Email a Friend</button>
-                <button type="button" class="btn btn-secondary" id="waitlist-share-copy">Copy Link</button>
-              </div>
-              <div class="waitlist-share-qr">
-                <img src="/Images/the_club_qr.png" alt="QR code &middot; scan to visit The Club" loading="lazy">
-                <span>Or scan to share</span>
-              </div>
-              <p id="waitlist-share-feedback" class="waitlist-share-feedback"></p>
+              <a href="https://apps.microsoft.com/detail/9MX0NC9N6RN4"
+                 target="_blank" rel="noopener noreferrer"
+                 class="download-btn download-btn--store"
+                 aria-label="Download The Club from the Microsoft Store"
+                 data-download-store="microsoft">
+                <span class="download-btn-icon" aria-hidden="true">
+                  <svg width="38" height="38" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#F25022" d="M3 3h8.5v8.5H3z"/><path fill="#7FBA00" d="M12.5 3H21v8.5h-8.5z"/><path fill="#00A4EF" d="M3 12.5h8.5V21H3z"/><path fill="#FFB900" d="M12.5 12.5H21V21h-8.5z"/></svg>
+                </span>
+                <span class="download-btn-copy">
+                  <span class="download-btn-eyebrow">Get it from</span>
+                  <span class="download-btn-label">Microsoft Store</span>
+                </span>
+                <span class="download-btn-arrow" aria-hidden="true">&rsaquo;</span>
+              </a>
+
+              <hr class="launch-panel-divider" aria-hidden="true">
+
+              <a href="https://club.dolifetoday.com"
+                 target="_blank" rel="noopener noreferrer"
+                 class="download-btn download-btn--web"
+                 aria-label="Open The Club in your web browser at club.dolifetoday.com"
+                 data-download-store="web">
+                <span class="download-btn-icon" aria-hidden="true">
+                  <svg width="38" height="38" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+                </span>
+                <span class="download-btn-copy">
+                  <span class="download-btn-eyebrow">Open in browser</span>
+                  <span class="download-btn-label">club.dolifetoday.com</span>
+                </span>
+                <span class="download-btn-arrow" aria-hidden="true">&rsaquo;</span>
+              </a>
             </div>
-          </form>
+
+            <p class="launch-panel-helper">
+              Already invited from the waitlist? <a href="https://club.dolifetoday.com">Sign in with your same email</a> - your access may already be active.
+            </p>
+            <p class="form-trust-note">Free &middot; Private &middot; Built with people living with Parkinson&rsquo;s</p>
+          </div>
           </div>
         </aside>
       </div>
@@ -2276,7 +2547,7 @@
         <p class="relatable-closing" style="font-weight:400;color:var(--color-text-muted);font-size:1rem;">Inside the Club, you'll meet people who understand these moments, because they're living them too.</p>
 
         <div class="cta-row">
-          <a href="#waitlist-form" class="btn btn-primary btn-lg" data-wave-cta="true">Save My Spot in the First Wave</a>
+          <a href="#download" class="btn btn-primary btn-lg" data-wave-cta="true">Get The Club App</a>
         </div>
       </div>
     </section>
@@ -2293,7 +2564,7 @@
         <p class="section-copy">And it will always be free to join.</p>
 
         <div class="cta-row">
-          <a href="#waitlist-form" class="btn btn-primary btn-lg" data-wave-cta="true">Save My Spot in the First Wave</a>
+          <a href="#download" class="btn btn-primary btn-lg" data-wave-cta="true">Get The Club App</a>
         </div>
       </div>
     </section>
@@ -2348,7 +2619,7 @@
         <p class="section-copy">The Club is completely free to join.</p>
 
         <div class="cta-row">
-          <a href="#waitlist-form" class="btn btn-primary btn-lg" data-wave-cta="true">Save My Spot in the First Wave</a>
+          <a href="#download" class="btn btn-primary btn-lg" data-wave-cta="true">Get The Club App</a>
         </div>
       </div>
     </section>
@@ -2363,6 +2634,11 @@
             <div class="feature-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0B0E12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
             <h3>Personal Parkinson's Dashboard</h3>
             <p>Your own personalized home base for tracking what matters and following the conversations you care about most.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0B0E12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-3-3.87"/><path d="M4 21v-2a4 4 0 0 1 3-3.87"/><circle cx="9" cy="7" r="4"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><path d="M12 14v7"/><path d="M9 17l3-3 3 3"/></svg></div>
+            <h3>Care Partner Dashboard</h3>
+            <p>A dedicated dashboard for care partners - symptom &amp; medication trackers, shared notes with the person you support, burnout check-ins, and a private Care Partner Club.</p>
           </article>
           <article class="feature-card">
             <div class="feature-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0B0E12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg></div>
@@ -2392,7 +2668,7 @@
         </div>
 
         <div class="cta-row">
-          <a href="#waitlist-form" class="btn btn-primary btn-lg" data-wave-cta="true">Save My Spot in the First Wave</a>
+          <a href="#download" class="btn btn-primary btn-lg" data-wave-cta="true">Get The Club App</a>
         </div>
       </div>
     </section>
@@ -2502,41 +2778,41 @@
       </div>
     </section>
 
-    <section class="dark-block" aria-labelledby="first-wave-heading">
+    <section class="dark-block" aria-labelledby="programs-heading">
       <div class="container launch-shell">
-        <img src="Images/app%20icon.png" alt="The Club app icon" class="section-badge" width="280" height="280" loading="lazy">
-        <span class="section-kicker">First Wave Access</span>
-        <h2 id="first-wave-heading" class="section-heading">We're Not Opening the Doors to Everyone at Once</h2>
-        <p class="section-copy">The Club opens April 15.<br>The first invitations will go to people already on the early-access list.</p>
+        <img src="Images/the-club/app-icon.png" alt="The Club app icon" class="section-badge" width="280" height="280" loading="lazy">
+        <span class="section-kicker">Programs Inside The Club</span>
+        <h2 id="programs-heading" class="section-heading">More Than a Community - Programs Built for This Journey</h2>
+        <p class="section-copy">The Club is open now, free to join, and available worldwide in 30 languages. Beyond the private community and dashboards, members get access to programs designed for real life with Parkinson's.</p>
 
         <div class="wave-grid">
           <article class="wave-card">
-            <div class="wave-icon" aria-hidden="true">EA</div>
+            <div class="wave-icon" aria-hidden="true">JG</div>
             <div>
-              <h3>EARLY ACCESS</h3>
-              <p>Enter before the wider rollout begins.</p>
+              <h3>JOURNEY GUIDES</h3>
+              <p>Get matched with someone further along the Parkinson's journey who can walk beside you.</p>
             </div>
           </article>
           <article class="wave-card">
-            <div class="wave-icon" aria-hidden="true">SC</div>
+            <div class="wave-icon" aria-hidden="true">CC</div>
             <div>
-              <h3>HELP SHAPE THE COMMUNITY</h3>
-              <p>Be part of how the Club feels from the beginning.</p>
+              <h3>COMMUNITY CIRCLES</h3>
+              <p>Topic-based and role-based circles hosted by members, meeting virtually and in person.</p>
             </div>
           </article>
           <article class="wave-card">
-            <div class="wave-icon" aria-hidden="true">EP</div>
+            <div class="wave-icon" aria-hidden="true">IC</div>
             <div>
-              <h3>EXPLORE BEFORE PUBLIC LAUNCH</h3>
-              <p>Experience the platform before the public rollout.</p>
+              <h3>INNER CIRCLE</h3>
+              <p>Optional deeper experiences - live events, expert sessions, and small-group programs.</p>
             </div>
           </article>
         </div>
 
         <div class="cta-row">
-          <a href="#waitlist-form" class="btn btn-primary btn-lg" data-wave-cta="true">Save My Spot in the First Wave</a>
+          <a href="#download" class="btn btn-primary btn-lg" data-wave-cta="true">Get The Club App</a>
         </div>
-        <p class="subtle-line">Joining the waitlist takes less than 10 seconds.</p>
+        <p class="subtle-line">Free to join &middot; Available worldwide.</p>
       </div>
     </section>
 
@@ -2611,15 +2887,73 @@
 
     <section class="final-cta" aria-labelledby="final-cta-heading">
       <div class="container launch-shell">
-        <span class="section-kicker">Final Invitation</span>
-        <h2 id="final-cta-heading" class="section-heading">Be Part of the First Wave</h2>
-        <p class="section-copy">Imagine a place where everyone understands Parkinson's without you needing to explain it.</p>
+        <span class="section-kicker">The Club Is Open &middot; Free to Join</span>
+        <h2 id="final-cta-heading" class="section-heading">Download The Club</h2>
+        <p class="section-copy"><strong>For people living with Parkinson&rsquo;s and their care partners.</strong> Personal dashboard, care partner dashboard, trackers, and a private community - pick your device or open it in your browser. One free membership works everywhere you sign in.</p>
 
-        <div class="cta-row" style="justify-content:center;">
-          <a href="#waitlist-form" class="btn btn-primary btn-lg" data-wave-cta="true">Save My Spot in the First Wave</a>
+        <div class="download-row-final">
+          <a href="https://apps.apple.com/app/id6763160814"
+             target="_blank" rel="noopener noreferrer"
+             class="download-btn download-btn--store"
+             aria-label="Download The Club on the Apple App Store"
+             data-download-store="apple-final">
+            <span class="download-btn-icon" aria-hidden="true">
+              <svg width="38" height="38" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M17.564 12.713c-.02-2.244 1.832-3.32 1.916-3.372-1.044-1.527-2.668-1.736-3.244-1.76-1.382-.14-2.7.815-3.402.815-.715 0-1.79-.795-2.946-.772-1.516.023-2.913.882-3.696 2.232-1.575 2.732-.402 6.77 1.13 8.987.75 1.084 1.643 2.302 2.815 2.258 1.13-.046 1.557-.73 2.924-.73 1.36 0 1.756.73 2.95.706 1.218-.022 1.987-1.105 2.73-2.192.86-1.255 1.214-2.47 1.235-2.532-.027-.012-2.37-.91-2.412-3.64zM15.32 6.054c.616-.75 1.034-1.79.92-2.83-.89.037-1.97.595-2.61 1.335-.57.655-1.073 1.715-.94 2.735.994.077 2.013-.504 2.63-1.24z"/></svg>
+            </span>
+            <span class="download-btn-copy">
+              <span class="download-btn-eyebrow">Download on the</span>
+              <span class="download-btn-label">App Store</span>
+            </span>
+            <span class="download-btn-arrow" aria-hidden="true">&rsaquo;</span>
+          </a>
+
+          <a href="https://play.google.com/store/apps/details?id=com.dolifetoday.club"
+             target="_blank" rel="noopener noreferrer"
+             class="download-btn download-btn--store"
+             aria-label="Get The Club on Google Play"
+             data-download-store="google-final">
+            <span class="download-btn-icon" aria-hidden="true">
+              <svg width="38" height="38" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path fill="#00D4FF" d="M325.3 234.3 104.6 13l280.8 161.2-60.1 60.1z"/><path fill="#34A853" d="M104.6 13l220.7 221.3-220.7 220.7c-9.4-3.5-15.2-12.5-15.2-23.2V36.2c0-10.8 5.8-19.7 15.2-23.2z"/><path fill="#FFCE00" d="M385.4 174.2 444 208c19.1 11 19.1 39 0 50L385.4 292l-60.1-58.9 60.1-58.9z"/><path fill="#FF3B30" d="M104.6 455L325.3 234.3l60.1 58.9L104.6 455z"/></svg>
+            </span>
+            <span class="download-btn-copy">
+              <span class="download-btn-eyebrow">Get it on</span>
+              <span class="download-btn-label">Google Play</span>
+            </span>
+            <span class="download-btn-arrow" aria-hidden="true">&rsaquo;</span>
+          </a>
+
+          <a href="https://apps.microsoft.com/detail/9MX0NC9N6RN4"
+             target="_blank" rel="noopener noreferrer"
+             class="download-btn download-btn--store"
+             aria-label="Download The Club from the Microsoft Store"
+             data-download-store="microsoft-final">
+            <span class="download-btn-icon" aria-hidden="true">
+              <svg width="38" height="38" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#F25022" d="M3 3h8.5v8.5H3z"/><path fill="#7FBA00" d="M12.5 3H21v8.5h-8.5z"/><path fill="#00A4EF" d="M3 12.5h8.5V21H3z"/><path fill="#FFB900" d="M12.5 12.5H21V21h-8.5z"/></svg>
+            </span>
+            <span class="download-btn-copy">
+              <span class="download-btn-eyebrow">Get it from</span>
+              <span class="download-btn-label">Microsoft Store</span>
+            </span>
+            <span class="download-btn-arrow" aria-hidden="true">&rsaquo;</span>
+          </a>
+
+          <a href="https://club.dolifetoday.com"
+             target="_blank" rel="noopener noreferrer"
+             class="download-btn download-btn--web"
+             aria-label="Open The Club in your web browser at club.dolifetoday.com"
+             data-download-store="web-final">
+            <span class="download-btn-icon" aria-hidden="true">
+              <svg width="38" height="38" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+            </span>
+            <span class="download-btn-copy">
+              <span class="download-btn-eyebrow">Open in browser</span>
+              <span class="download-btn-label">club.dolifetoday.com</span>
+            </span>
+            <span class="download-btn-arrow" aria-hidden="true">&rsaquo;</span>
+          </a>
         </div>
 
-        <p class="cta-trust-line">Always open. Always free.</p>
+        <p class="cta-trust-line" style="margin-top:1.75rem;">Free &middot; Private &middot; Always free</p>
         <p class="brand-tagline">Our club.<br>Our journey.<br>Our voices.</p>
       </div>
     </section>
@@ -2627,24 +2961,28 @@
     <section aria-labelledby="faq-heading">
       <div class="container launch-shell">
         <span class="section-kicker">FAQ</span>
-        <h2 id="faq-heading" class="section-heading">Questions before launch?</h2>
+        <h2 id="faq-heading" class="section-heading">A few quick questions</h2>
 
         <div class="faq-shell">
           <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">Is the club free to join? <span class="faq-icon" aria-hidden="true">+</span></button>
-            <div class="faq-answer">Yes. The Club itself will be free to join.</div>
+            <button class="faq-question" aria-expanded="false">Is The Club free to join? <span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-answer">Yes. The Club is completely free to join - on any device.</div>
           </div>
           <div class="faq-item">
             <button class="faq-question" aria-expanded="false">Who is it for? <span class="faq-icon" aria-hidden="true">+</span></button>
             <div class="faq-answer">The Club is for people living with Parkinson's and their care partners. Some members come on their own. Others come with someone beside them. Both belong here.</div>
           </div>
           <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">When does access begin? <span class="faq-icon" aria-hidden="true">+</span></button>
-            <div class="faq-answer">First wave access begins April 15.</div>
+            <button class="faq-question" aria-expanded="false">Is The Club open to the public? <span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-answer">Yes. The Club is open now and free to join. Download the app from the App Store, Google Play, or Microsoft Store - or open it in your browser at club.dolifetoday.com - and sign up in seconds.</div>
           </div>
           <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">What does first wave access mean? <span class="faq-icon" aria-hidden="true">+</span></button>
-            <div class="faq-answer">People on the waitlist will receive the first invitations into the community before the broader rollout.</div>
+            <button class="faq-question" aria-expanded="false">Which device should I use? <span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-answer">Whichever you prefer. The Club is available on iPhone &amp; iPad (Apple App Store), Android (Google Play), Windows (Microsoft Store), and in any modern web browser at club.dolifetoday.com. Your one membership works everywhere you sign in.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">I was on the waitlist - how do I get in? <span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-answer">Every waitlist wave has now been invited. Sign in with the same email address you used when you joined the waitlist - your access is already active. Use any of the four download options above.</div>
           </div>
         </div>
       </div>
@@ -2662,7 +3000,7 @@
             <p class="sg-handout-desc">Download this one-page handout and share it at your next support group meeting. It explains what The Club is, how it helps between meetings, and how members can join. Print it out, email it, or share it however works best for your group.</p>
             <div class="sg-handout-actions">
               <a href="/Images/support%20group%20club%20handout.png" download="TheClub-Support-Group-Handout.png" class="sg-handout-btn sg-handout-btn--primary">? Download Handout</a>
-              <a href="mailto:?subject=The%20Club%20%E2%80%93%20for%20our%20support%20group&body=Hey%2C%20I%20found%20this%20community%20called%20The%20Club%20for%20people%20living%20with%20Parkinson%E2%80%99s.%20It%E2%80%99s%20free%2C%20private%2C%20and%20built%20by%20people%20who%20actually%20live%20it.%20Check%20it%20out%3A%20https%3A%2F%2Fdolifetoday.com%2Ftheclub" class="sg-handout-btn sg-handout-btn--secondary">? Email to Someone</a>
+              <a href="mailto:?subject=The%20Club%20%E2%80%93%20for%20our%20support%20group&body=Hey%2C%20I%20found%20this%20community%20called%20The%20Club%20for%20people%20living%20with%20Parkinson%E2%80%99s.%20It%E2%80%99s%20free%2C%20private%2C%20and%20built%20by%20people%20who%20actually%20live%20it.%20Check%20it%20out%3A%20https%3A%2F%2Fdolifetoday.com%2Ftheclub" class="sg-handout-btn sg-handout-btn--secondary">&#9993;&#65039; Email to Someone</a>
             </div>
             <div class="sg-handout-qr">
               <img src="/Images/the_club_qr.png" alt="QR code linking to The Club page" loading="lazy">
@@ -2683,7 +3021,7 @@
             <div class="nav-logo-text">Doing Life Today<span>Parkinson's Community</span></div>
           </a>
           <p>Connecting people living with Parkinson's through podcasts, community, and real conversations.</p>
-          <a href="#waitlist-form" class="btn btn-primary btn-sm">Save My Spot</a>
+          <a href="#download" class="btn btn-primary btn-sm">Get The Club App</a>
         </div>
         <div class="footer-col">
           <h4>Quick Links</h4>
@@ -2700,9 +3038,9 @@
         <div class="footer-col">
           <h4>The Club</h4>
           <ul class="footer-links">
-            <li><a href="#waitlist-form">Save My Spot</a></li>
+            <li><a href="#download">Get The Club App</a></li>
             <li><a href="#inside-club-heading">What You'll Find Inside</a></li>
-            <li><a href="#first-wave-heading">First Wave Access</a></li>
+            <li><a href="/inner-circle">The Inner Circle</a></li>
             <li><a href="#founder-story-heading">Why Bryce Built The Club</a></li>
           </ul>
         </div>
@@ -2722,55 +3060,21 @@
     </div>
   </footer>
 
-  <a href="#waitlist-form" class="btn btn-primary floating-cta">Save My Spot</a>
-  <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">?</button>
+  <a href="#download" class="btn btn-primary floating-cta">Get The Club App</a>
+  <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">&#8593;</button>
 
   <script src="js/main.js"></script>
   <script>
     (function () {
       var waveContent = {
-        1: {
-          cta: 'Save My Spot in the First Wave',
-          badge: 'Founding Members: First Wave',
-          kicker: 'First Wave Access Begins In',
-          title: 'Secure your spot in the first wave',
-          copy: 'Be among the people who receive the first invitation when access begins on April 15.',
-        },
-        2: {
-          cta: 'Save My Spot for Early Community Access',
-          badge: 'Now Accepting: Early Community',
-          kicker: 'Early Community Access Begins In',
-          title: 'Secure your spot in Early Community',
-          copy: 'Founding Members is full. Join Early Community when access opens on April 29.',
-        },
-        3: {
-          cta: 'Save My Spot for Priority Access',
-          badge: 'Now Accepting: Priority Access',
-          kicker: 'Priority Access Begins In',
-          title: 'Secure your spot for Priority Access',
-          copy: 'Join Priority Access for early entry on May 13, ahead of the broader waves.',
-        },
-        4: {
-          cta: 'Save My Spot in the Growth Wave',
-          badge: 'Now Accepting: Growth Wave',
-          kicker: 'Growth Wave Access Begins In',
-          title: 'Secure your spot in the Growth Wave',
-          copy: 'Join the Growth Wave on May 27. Public Launch begins July 1.',
-        },
-        5: {
-          cta: 'Save My Spot in the Community Wave',
-          badge: 'Now Accepting: Community Wave',
-          kicker: 'Community Wave Access Begins In',
-          title: 'Secure your spot in the Community Wave',
-          copy: 'Join the Community Wave on June 10. Public Launch begins July 1.',
-        },
-        6: {
-          cta: 'Save My Spot in the Final Wave',
-          badge: 'Now Accepting: Final Wave',
-          kicker: 'Final Wave Access Begins In',
-          title: 'Secure your spot in the Final Wave',
-          copy: 'Join the Final Wave on June 24. Public Launch begins July 1.',
-        },
+        // Legacy wave content - kept only so the WAITLIST_CLOSED=true guard
+        // has a shape to reference. Nothing here is rendered anymore.
+        1: { cta: 'Get The Club App', badge: 'The Club Is Open', kicker: '', title: 'The Club Is Open', copy: 'The Club is open now and free to join.' },
+        2: { cta: 'Get The Club App', badge: 'The Club Is Open', kicker: '', title: 'The Club Is Open', copy: 'The Club is open now and free to join.' },
+        3: { cta: 'Get The Club App', badge: 'The Club Is Open', kicker: '', title: 'The Club Is Open', copy: 'The Club is open now and free to join.' },
+        4: { cta: 'Get The Club App', badge: 'The Club Is Open', kicker: '', title: 'The Club Is Open', copy: 'The Club is open now and free to join.' },
+        5: { cta: 'Get The Club App', badge: 'The Club Is Open', kicker: '', title: 'The Club Is Open', copy: 'The Club is open now and free to join.' },
+        6: { cta: 'Get The Club App', badge: 'The Club Is Open', kicker: '', title: 'The Club Is Open', copy: 'The Club is open now and free to join.' },
       };
       var waveLabels = {
         1: 'Founding Members',
@@ -2781,7 +3085,14 @@
         6: 'Final Wave',
       };
 
+      // Wave invitations are complete - hero copy and wave-card states are now static.
+      // The dynamic waitlist-count handlers run on signup events that no longer happen,
+      // but they also fire once on page load with the cached count. Force them to treat
+      // every wave as Fully Reserved instead of trying to rewrite hero kicker/title/copy.
+      var WAITLIST_CLOSED = true;
+
       function computeWave(count) {
+        if (WAITLIST_CLOSED) return 6;
         if (count <= 200) return 1;
         if (count <= 400) return 2;
         if (count <= 600) return 3;
@@ -2798,7 +3109,9 @@
         5: new Date('2026-06-10T00:00:00'),
         6: new Date('2026-06-24T00:00:00')
       };
-      var launchDate = countdownTargets[1];
+      // Public launch is the only relevant countdown now - wave invitations are complete.
+      var publicLaunchDate = new Date('2026-07-01T08:00:00-04:00');
+      var launchDate = publicLaunchDate;
       var heroSection = document.querySelector('.hero-launch');
       var daysEl = document.getElementById('countdown-days');
       var hoursEl = document.getElementById('countdown-hours');
@@ -2818,11 +3131,10 @@
       var waitlistCountMetaEl = document.getElementById('waitlist-count-meta');
       var floatingCtaEl = document.querySelector('.floating-cta');
       var heroPublicLaunchCountdownEl = document.getElementById('hero-public-launch-countdown');
-      var trackedCtaEls = Array.prototype.slice.call(document.querySelectorAll('a[href="#waitlist-form"], button[data-wave-cta="true"]'));
+      var trackedCtaEls = Array.prototype.slice.call(document.querySelectorAll('a[href="#download"], a[href="#waitlist-form"], button[data-wave-cta="true"]'));
       var shareUrl = 'https://dolifetoday.com/theclub';
-      var shareEmailSubject = 'Thought you might want to join The Club';
-      var shareEmailBody = "I just joined the waitlist for The Club from Doing Life Today. It looks like a thoughtful Parkinson's support space. Here is the link if you want to take a look: " + shareUrl;
-      var publicLaunchDate = new Date('2026-07-01T00:00:00');
+      var shareEmailSubject = 'The Club is open - free to join';
+      var shareEmailBody = "The Club from Doing Life Today is open now and free to join - a private Parkinson's community for people living with Parkinson's and their care partners. Here is the link if you want to take a look: " + shareUrl;
       var formStartTracked = false;
 
       function pad(value) {
@@ -3033,6 +3345,10 @@
 
       /* -- Update all wave-dependent messaging -- */
       function updateWaveMessaging(count) {
+        if (WAITLIST_CLOSED) {
+          updateCountdown();
+          return;
+        }
         /* Hero shows the wave that is currently OPEN for the next signup,
            not the wave the most recent signup landed in. When a wave is
            exactly full, advance to the next one. */
@@ -3071,9 +3387,11 @@
       ];
 
       function updateWaveSpots(totalSignups) {
-        var count = typeof totalSignups === 'number'
-          ? totalSignups
-          : getDisplayedWaitlistCount();
+        var count = WAITLIST_CLOSED
+          ? 1200 /* every wave appears fully reserved */
+          : (typeof totalSignups === 'number'
+            ? totalSignups
+            : getDisplayedWaitlistCount());
 
         var remaining = count;
         var previousWaveFull = false;
@@ -3126,19 +3444,9 @@
             }
             previousWaveFull = false;
           } else {
-            /* Future wave (not yet filling) */
+            /* Future wave (not yet filling) - no longer rendered; kept for legacy guards. */
             textEl.classList.remove('is-full');
-            if (w.wave === 3) {
-              textEl.textContent = 'Priority Access opens May 13, join the waitlist to be included';
-            } else if (w.wave === 4) {
-              textEl.textContent = 'Growth Wave opens May 27, join the waitlist to be included';
-            } else if (w.wave === 5) {
-              textEl.textContent = 'Community Wave opens June 10, join the waitlist to be included';
-            } else if (w.wave === 6) {
-              textEl.textContent = 'Final Wave opens June 24, Public Launch follows on July 1';
-            } else {
-              textEl.textContent = spotsLeft + ' of ' + w.capacity + ' spots available';
-            }
+            textEl.textContent = 'The Club is open now and free to join';
             previousWaveFull = false;
           }
         });
