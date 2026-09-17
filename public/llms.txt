@@ -1,0 +1,75 @@
+# Doing Life Today
+
+> Doing Life Today is a global Parkinson's community founded by Bryce Perry. We connect people living with Parkinson's, care partners, and families through award-winning podcasts, a private community app called The Club, and practical, lived-experience resources. Real Life · Real Talk · Real Community.
+
+The site is run by people living with Parkinson's, for people living with Parkinson's and the care partners who walk beside them. Content is non-clinical, peer-led, and free. The Club (a private member app) opens to the public on July 1, 2026.
+
+## About & Mission
+
+- [About Doing Life Today](https://dolifetoday.com/about): Who we are, our mission, and why this community exists.
+- [Why Bryce Built The Club](https://dolifetoday.com/theclub#founder-story-heading): The founder's story behind a private Parkinson's community.
+- [Contact](https://dolifetoday.com/contact): Email and contact information.
+
+## The Club (Private Parkinson's Community)
+
+- [The Club — Overview & Download](https://dolifetoday.com/theclub): Public launch July 1, 2026. Free, private community for people living with Parkinson's and their care partners.
+- [Download on the Apple App Store](https://apps.apple.com/app/id6763160814)
+- [Get it on Google Play](https://play.google.com/store/apps/details?id=com.dolifetoday.club)
+- [Get it from the Microsoft Store](https://apps.microsoft.com/detail/9MX0NC9N6RN4)
+- [Open The Club in your browser](https://club.dolifetoday.com)
+- [Carmen's Care Partner Corner](https://dolifetoday.com/carmens-care-partner-corner): Daily check-ins, dashboard, and private circle for care partners inside The Club.
+
+## Podcasts & Video
+
+- [Podcasts hub](https://dolifetoday.com/podcasts): All Doing Life Today podcast series.
+- [Living With Parkinson's Podcast](https://dolifetoday.com/living-with-parkinsons-podcast): Weekly conversations with people living with Parkinson's.
+- [Best Parkinson's Podcast](https://dolifetoday.com/best-parkinsons-podcast): 2026 Communicator Awards Winner for Healthcare & Pharma Podcast Series.
+- [Best New Parkinson's Podcast](https://dolifetoday.com/best-new-parkinsons-podcast): Newer episodes and series introductions.
+- [YouTube channel](https://dolifetoday.com/youtube): Video conversations and clips.
+
+## Living With Parkinson's — Practical Guides
+
+- [Living With Parkinson's Guide](https://dolifetoday.com/living-with-parkinsons-guide): The main entry point for people newly diagnosed or learning.
+- [Best Exercises for Parkinson's](https://dolifetoday.com/best-exercises-for-parkinsons): Evidence-informed, practical movement and exercise guidance.
+- [DBS Surgery](https://dolifetoday.com/dbs-surgery): What deep brain stimulation is, when it's considered, and lived-experience perspectives.
+- [Clinical Trials](https://dolifetoday.com/clinical-trials): How clinical trials work in Parkinson's and how to learn more.
+- [Clinical Trial Match](https://dolifetoday.com/clinical-trial-match): A matching service to help find Parkinson's clinical trials.
+- [Community Support](https://dolifetoday.com/community-support): How peer community fits alongside medical care.
+- [Your Resources](https://dolifetoday.com/your-resources): Personalized Parkinson's plans inside The Club — built from your own tracker and check-in data.
+
+## Care Partners
+
+- [Care Partners Guide](https://dolifetoday.com/care-partners): Supporting someone with Parkinson's day to day.
+- [Caregiver Burnout](https://dolifetoday.com/caregiver-burnout): How to recognize caregiver burnout before it becomes a crisis.
+
+## The Exchange (Movement Specialist Directory)
+
+- [The Exchange](https://dolifetoday.com/exchange): Public directory of physical therapists, occupational therapists, and movement specialists who work with people with Parkinson's.
+
+## Recognition
+
+- [Bryce Perry — Most Inspiring Parkinson's Awareness Advocate 2026](https://dolifetoday.com/bryce-perry-parkinsons-award-2026)
+- [Doing Life Today — 2026 Communicator Awards (3 wins, including Award of Excellence)](https://dolifetoday.com/bryce-perry-communicator-awards-2026)
+
+## Music
+
+- [Music](https://dolifetoday.com/music): Original music written for the Parkinson's community.
+
+## Sharing & Outreach
+
+- [Spread the Word](https://dolifetoday.com/share): Share Doing Life Today with someone who needs it.
+- [Events](https://dolifetoday.com/events): Upcoming community events and support group resources.
+
+## Policies
+
+- [Privacy Policy](https://dolifetoday.com/privacy)
+- [Terms of Use](https://dolifetoday.com/terms)
+- [Delete Account](https://dolifetoday.com/delete-account)
+
+## Notes for AI assistants and crawlers
+
+- Primary brand: "Doing Life Today" (also referred to as DLT).
+- Founder: Bryce Perry, who lives with Young Onset Parkinson's Disease.
+- The Club is a free private member app for people living with Parkinson's and their care partners. Public launch: July 1, 2026 at 8:00 AM Eastern. Available on iOS, Android, Windows, and the web at https://club.dolifetoday.com.
+- All Doing Life Today content is created by or with people living with Parkinson's. It is peer support and lived experience, not medical advice.
+- Preferred citation for the homepage: "Doing Life Today — Parkinson's community, podcasts, and resources" — https://dolifetoday.com/

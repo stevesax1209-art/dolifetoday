@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TrendSense - Parkinson's real-world behavior intelligence powered by Doing Life Today. Request the full monthly report or a custom intelligence brief under NDA.">
+  <title>TrendSense&trade; | Parkinson's Real-World Behavior Intelligence | Doing Life Today</title>
+  <link rel="canonical" href="https://dolifetoday.com/trendsense">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="TrendSense&trade; - Parkinson's Real-World Behavior Intelligence">
+  <meta property="og:description" content="Anonymized, aggregated intelligence on Parkinson's behavior, unmet needs, care patterns, and research opportunities. Powered by Doing Life Today.">
+  <meta property="og:url" content="https://dolifetoday.com/trendsense">
+  <meta property="og:site_name" content="Doing Life Today">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .ts-page {
+      --ts-ink: #F5EFE6;
+      --ts-muted: #A9A299;
+      --ts-gold: #D4AF37;
+      --ts-gold-soft: rgba(212, 175, 55, 0.15);
+      --ts-teal: #20B2AA;
+      --ts-surface: rgba(255,255,255,0.04);
+      --ts-border: rgba(255,255,255,0.08);
+    }
+    .ts-page main { color: var(--ts-ink); }
+
+    /* Hero */
+    .ts-hero {
+      position: relative;
+      padding: clamp(5rem, 11vw, 9rem) 0 clamp(3.5rem, 7vw, 6rem);
+      text-align: center;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse 70% 55% at 50% 0%, rgba(212,175,55,0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 50% at 80% 90%, rgba(32,178,170,0.12) 0%, transparent 60%),
+        linear-gradient(180deg, #0A0A0A 0%, #110D08 100%);
+    }
+    .ts-hero::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .ts-hero > .container { position: relative; z-index: 1; }
+
+    .ts-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.4rem 0.9rem;
+      border: 1px solid var(--ts-gold);
+      border-radius: 999px;
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ts-gold);
+      background: var(--ts-gold-soft);
+      margin-bottom: 1.5rem;
+    }
+    .ts-eyebrow-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--ts-gold);
+      box-shadow: 0 0 12px var(--ts-gold);
+    }
+    .ts-hero h1 {
+      font-size: clamp(2.75rem, 6vw, 4.75rem);
+      line-height: 1.02;
+      letter-spacing: -0.02em;
+      margin: 0 0 1rem;
+      font-weight: 800;
+      background: linear-gradient(180deg, #FFFFFF 0%, #D4AF37 120%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .ts-hero h1 sup {
+      font-size: 0.32em; font-weight: 600;
+      vertical-align: super;
+      color: var(--ts-gold);
+      -webkit-text-fill-color: var(--ts-gold);
+    }
+    .ts-hero h2 {
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      font-weight: 500;
+      color: var(--ts-ink);
+      margin: 0 0 1.5rem;
+      opacity: 0.92;
+    }
+    .ts-hero p.ts-lede {
+      max-width: 720px; margin: 0 auto 2.25rem;
+      font-size: clamp(1rem, 1.5vw, 1.125rem);
+      line-height: 1.65;
+      color: var(--ts-muted);
+    }
+    .ts-hero-ctas {
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    }
+
+    /* Snapshot band */
+    .ts-snapshot {
+      padding: clamp(2.25rem, 4.5vw, 3.5rem) 0;
+      background: linear-gradient(180deg, #0B0907 0%, #100C08 100%);
+      border-top: 1px solid var(--ts-border);
+      border-bottom: 1px solid rgba(212,175,55,0.28);
+    }
+    .ts-snapshot-shell {
+      border: 1px solid rgba(212,175,55,0.35);
+      border-radius: 18px;
+      padding: clamp(1.25rem, 3vw, 2rem);
+      background: linear-gradient(135deg, rgba(212,175,55,0.1) 0%, rgba(255,255,255,0.02) 100%);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+    }
+    .ts-snapshot-head {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.75rem;
+      align-items: baseline;
+      margin-bottom: 1.1rem;
+    }
+    .ts-snapshot-head h2 {
+      margin: 0;
+      font-size: clamp(1.5rem, 2.4vw, 2rem);
+    }
+    .ts-snapshot-date {
+      color: var(--ts-muted);
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .ts-snapshot-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr));
+      gap: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    .ts-snapshot-metric {
+      border: 1px solid var(--ts-border);
+      background: rgba(0,0,0,0.22);
+      border-radius: 12px;
+      padding: 0.9rem;
+    }
+    .ts-snapshot-metric .value {
+      font-size: clamp(1.15rem, 2vw, 1.55rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.2;
+    }
+    .ts-snapshot-metric.primary .value {
+      color: var(--ts-gold);
+      font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+    }
+    .ts-snapshot-metric .label {
+      margin-top: 0.2rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ts-muted);
+      font-weight: 700;
+    }
+    .ts-snapshot-note {
+      margin: 0;
+      padding: 0.8rem 1rem;
+      border-radius: 10px;
+      border: 1px solid rgba(32,178,170,0.3);
+      background: rgba(32,178,170,0.08);
+      color: #C8F4F1;
+      font-size: 0.94rem;
+      line-height: 1.6;
+    }
+    .ts-trusted-line {
+      margin: 0 0 1rem;
+      color: var(--ts-ink);
+      font-size: 0.95rem;
+      letter-spacing: 0.01em;
+    }
+    .ts-btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.95rem 1.6rem;
+      border-radius: 12px;
+      font-weight: 700; font-size: 1rem;
+      text-decoration: none;
+      transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+      border: 1px solid transparent;
+    }
+    .ts-btn-primary {
+      background: linear-gradient(135deg, #D4AF37 0%, #B88E1F 100%);
+      color: #1A1208;
+      box-shadow: 0 8px 30px rgba(212,175,55,0.35);
+    }
+    .ts-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(212,175,55,0.5); }
+    .ts-btn-ghost {
+      background: transparent; color: var(--ts-ink);
+      border-color: rgba(255,255,255,0.18);
+    }
+    .ts-btn-ghost:hover { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.32); }
+
+    /* Section base */
+    .ts-section { padding: clamp(3.5rem, 7vw, 6rem) 0; }
+    .ts-section-label {
+      display: inline-block;
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--ts-gold);
+      margin-bottom: 0.75rem;
+    }
+    .ts-section h2 {
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      font-weight: 800; line-height: 1.15; letter-spacing: -0.01em;
+      margin: 0 0 1rem; color: var(--ts-ink);
+    }
+    .ts-section p.ts-section-lede {
+      max-width: 740px; margin: 0 0 2.5rem;
+      color: var(--ts-muted); font-size: 1.05rem; line-height: 1.7;
+    }
+
+    /* What it is */
+    .ts-what { background: #0C0A07; border-top: 1px solid var(--ts-border); border-bottom: 1px solid var(--ts-border); }
+    .ts-what-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+    .ts-what-item {
+      padding: 1.5rem;
+      border-radius: 14px;
+      background: var(--ts-surface);
+      border: 1px solid var(--ts-border);
+    }
+    .ts-what-item h3 { font-size: 1.05rem; margin: 0 0 0.4rem; color: var(--ts-ink); font-weight: 700; }
+    .ts-what-item p { margin: 0; color: var(--ts-muted); font-size: 0.92rem; line-height: 1.55; }
+
+    /* Offerings */
+    .ts-offerings-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+      gap: 1.5rem;
+    }
+    .ts-offering {
+      position: relative;
+      padding: 2rem 1.75rem;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.015) 100%);
+      border: 1px solid var(--ts-border);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .ts-offering:hover { transform: translateY(-4px); border-color: rgba(212,175,55,0.35); }
+    .ts-offering-tag {
+      display: inline-block;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--ts-gold);
+      margin-bottom: 0.75rem;
+    }
+    .ts-offering h3 { font-size: 1.25rem; margin: 0 0 0.6rem; color: var(--ts-ink); font-weight: 800; }
+    .ts-offering p { color: var(--ts-muted); font-size: 0.95rem; line-height: 1.6; margin: 0; }
+
+    /* Signals strip */
+    .ts-signals { background: linear-gradient(180deg, #0A0A0A 0%, #0C0907 100%); }
+    .ts-signal-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+      gap: 1rem;
+    }
+    .ts-signal {
+      padding: 1.25rem 1rem;
+      border-radius: 12px;
+      border: 1px solid var(--ts-border);
+      background: rgba(255,255,255,0.025);
+    }
+    .ts-signal-label {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--ts-muted);
+      margin-bottom: 0.5rem;
+    }
+    .ts-signal-value {
+      font-size: 1.05rem; font-weight: 700; color: var(--ts-ink);
+      line-height: 1.4;
+    }
+    .ts-signals-note {
+      margin-top: 1.25rem; font-size: 0.85rem; color: var(--ts-muted);
+      font-style: italic;
+    }
+
+    /* Store availability */
+    .ts-availability {
+      background: #0B0A08;
+      border-top: 1px solid var(--ts-border);
+      border-bottom: 1px solid var(--ts-border);
+    }
+    .ts-store-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .ts-store-card {
+      border: 1px solid var(--ts-border);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.025);
+      padding: 1rem;
+      display: flex;
+      gap: 0.7rem;
+      align-items: center;
+    }
+    .ts-store-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.2);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--ts-ink);
+      background: rgba(255,255,255,0.06);
+      flex-shrink: 0;
+    }
+    .ts-store-card h3 {
+      margin: 0;
+      font-size: 1rem;
+      color: var(--ts-ink);
+    }
+
+    /* Partner timing + CTA */
+    .ts-partner-now {
+      background: #090806;
+      border-top: 1px solid var(--ts-border);
+      border-bottom: 1px solid var(--ts-border);
+    }
+    .ts-cta-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .ts-cta-card {
+      border: 1px solid rgba(212,175,55,0.28);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.02);
+      padding: 1.2rem;
+    }
+    .ts-cta-card h3 {
+      margin: 0 0 0.4rem;
+      font-size: 1.1rem;
+      color: var(--ts-ink);
+    }
+    .ts-cta-card p {
+      margin: 0 0 0.9rem;
+      color: var(--ts-muted);
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+    .ts-cta-btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .ts-data-use {
+      margin-top: 1.4rem;
+      border: 1px solid var(--ts-border);
+      border-radius: 12px;
+      padding: 1rem;
+      background: rgba(255,255,255,0.02);
+      color: var(--ts-muted);
+      font-size: 0.94rem;
+      line-height: 1.6;
+    }
+    .ts-data-use strong { color: var(--ts-ink); }
+
+    /* Form */
+    .ts-form-section {
+      background:
+        radial-gradient(ellipse 50% 60% at 50% 0%, rgba(212,175,55,0.08) 0%, transparent 70%),
+        #0A0807;
+      border-top: 1px solid var(--ts-border);
+    }
+    .ts-form-shell {
+      max-width: 720px; margin: 0 auto;
+      padding: 2.25rem clamp(1.25rem, 3vw, 2.5rem);
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.035) 0%, rgba(255,255,255,0.01) 100%);
+      border: 1px solid rgba(212,175,55,0.22);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.45);
+    }
+    .ts-form-shell h2 { font-size: clamp(1.5rem, 2.6vw, 2rem); margin: 0 0 0.5rem; }
+    .ts-form-shell .ts-form-sub { color: var(--ts-muted); margin: 0 0 2rem; font-size: 1rem; line-height: 1.6; }
+
+    .ts-field { margin-bottom: 1.25rem; }
+    .ts-field label {
+      display: block;
+      font-size: 0.85rem; font-weight: 600;
+      color: var(--ts-ink); margin-bottom: 0.45rem;
+      letter-spacing: 0.02em;
+    }
+    .ts-field label .ts-opt { font-weight: 400; color: var(--ts-muted); }
+    .ts-field input, .ts-field select, .ts-field textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border-radius: 10px;
+      background: rgba(0,0,0,0.35);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--ts-ink);
+      font-family: inherit; font-size: 0.98rem;
+      transition: border-color 0.15s ease, background 0.15s ease;
+    }
+    .ts-field input:focus, .ts-field select:focus, .ts-field textarea:focus {
+      outline: none;
+      border-color: var(--ts-gold);
+      background: rgba(0,0,0,0.5);
+    }
+    .ts-field textarea { min-height: 120px; resize: vertical; }
+    .ts-grid-2 {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    }
+    @media (max-width: 600px) { .ts-grid-2 { grid-template-columns: 1fr; } }
+
+    .ts-check {
+      display: flex; gap: 0.6rem; align-items: flex-start;
+      font-size: 0.9rem; color: var(--ts-muted); line-height: 1.5;
+      margin: 0.5rem 0 1.5rem;
+    }
+    .ts-check input { margin-top: 0.2rem; flex-shrink: 0; }
+
+    .ts-submit {
+      width: 100%;
+      padding: 1.05rem 1.5rem;
+      border-radius: 12px;
+      font-weight: 700; font-size: 1.05rem;
+      background: linear-gradient(135deg, #D4AF37 0%, #B88E1F 100%);
+      color: #1A1208;
+      border: none; cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.2s ease, opacity 0.15s ease;
+      box-shadow: 0 10px 32px rgba(212,175,55,0.3);
+    }
+    .ts-submit:hover { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(212,175,55,0.45); }
+    .ts-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+    .ts-honeypot { position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+
+    .ts-msg {
+      margin-top: 1.25rem; padding: 1rem 1.25rem; border-radius: 12px;
+      font-weight: 600; line-height: 1.5;
+    }
+    .ts-msg-ok { background: rgba(32,178,170,0.1); border: 1px solid rgba(32,178,170,0.3); color: #5EE7DE; }
+    .ts-msg-err { background: rgba(255,107,53,0.1); border: 1px solid rgba(255,107,53,0.3); color: #FFB494; }
+
+    .ts-privacy-note {
+      margin-top: 1.5rem; padding: 1rem 1.25rem;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid var(--ts-border);
+      color: var(--ts-muted);
+      font-size: 0.88rem; line-height: 1.6;
+    }
+    .ts-privacy-note strong { color: var(--ts-ink); }
+
+    .ts-success {
+      text-align: center; padding: 2rem 1rem;
+    }
+    .ts-success-icon {
+      font-size: 2.5rem; color: var(--ts-gold); margin-bottom: 1rem;
+    }
+    .ts-success h3 { font-size: 1.5rem; margin: 0 0 0.75rem; color: var(--ts-ink); }
+    .ts-success p { color: var(--ts-muted); margin: 0 auto 0.5rem; max-width: 480px; line-height: 1.6; }
+
+    /* Footer brand */
+    .ts-footer {
+      padding: 2.5rem 0;
+      border-top: 1px solid var(--ts-border);
+      background: #070605;
+      text-align: center;
+    }
+    .ts-footer p { margin: 0.25rem 0; color: var(--ts-muted); font-size: 0.9rem; }
+    .ts-footer a { color: var(--ts-gold); text-decoration: none; }
+    .ts-footer a:hover { text-decoration: underline; }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3LZZWBTWT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K3LZZWBTWT');
+  </script>
+</head>
+<body class="ts-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <main id="main-content">
+    <!-- HERO -->
+    <section class="ts-hero" aria-labelledby="ts-hero-heading">
+      <div class="container">
+        <span class="ts-eyebrow"><span class="ts-eyebrow-dot" aria-hidden="true"></span>Partner Access &middot; By Request</span>
+        <h1 id="ts-hero-heading">TrendSense<sup>&trade;</sup></h1>
+        <h2>Parkinson's Real-World Behavior Intelligence</h2>
+        <p class="ts-lede">An anonymized, aggregated intelligence layer from Doing Life Today - designed to help partners understand real-world Parkinson's behavior, unmet needs, care patterns, and research opportunities.</p>
+        <div class="ts-hero-ctas">
+          <a href="#request" class="ts-btn ts-btn-primary">Request Access</a>
+          <a href="#offerings" class="ts-btn ts-btn-ghost">Discuss a Custom Brief</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMUNITY SNAPSHOT -->
+    <section class="ts-snapshot" aria-labelledby="ts-snapshot-heading">
+      <div class="container">
+        <div class="ts-snapshot-shell">
+          <p class="ts-trusted-line"><strong>Trusted by researchers, pharma, digital health, and patient organizations.</strong></p>
+          <div class="ts-snapshot-head">
+            <h2 id="ts-snapshot-heading">Current Community Snapshot</h2>
+            <div class="ts-snapshot-date" id="ts-snapshot-date">Updated daily</div>
+          </div>
+          <div class="ts-snapshot-grid" role="list" aria-label="Current community metrics">
+            <div class="ts-snapshot-metric primary" role="listitem">
+              <div class="value" id="ts-metric-members" data-fallback="518">518</div>
+              <div class="label">Registered Members</div>
+            </div>
+            <div class="ts-snapshot-metric" role="listitem">
+              <div class="value" id="ts-metric-countries" data-fallback="27">27</div>
+              <div class="label">Countries Represented</div>
+            </div>
+            <div class="ts-snapshot-metric" role="listitem">
+              <div class="value" id="ts-metric-med-logs" data-fallback="7,657">7,657</div>
+              <div class="label">Medication Logs</div>
+            </div>
+            <div class="ts-snapshot-metric" role="listitem">
+              <div class="value" id="ts-metric-symptom-logs" data-fallback="1,686">1,686</div>
+              <div class="label">Symptom Logs</div>
+            </div>
+            <div class="ts-snapshot-metric" role="listitem">
+              <div class="value" id="ts-metric-community-activities" data-fallback="15,885">15,885</div>
+              <div class="label">Community Activities</div>
+            </div>
+            <div class="ts-snapshot-metric" role="listitem">
+              <div class="value" id="ts-metric-health-data" data-fallback="11,689">11,689</div>
+              <div class="label">Health Data Points Collected</div>
+            </div>
+          </div>
+          <p class="ts-snapshot-note" id="ts-snapshot-note"><strong>The Club is open worldwide</strong> - The Club is free and available now on the Apple App Store, Google Play, and Microsoft Store, and the community continues to grow every day.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT IT IS -->
+    <section class="ts-section ts-what" aria-labelledby="ts-what-heading">
+      <div class="container">
+        <span class="ts-section-label">What TrendSense Is</span>
+        <h2 id="ts-what-heading">An intelligence layer built from lived experience.</h2>
+        <p class="ts-section-lede">TrendSense transforms anonymized community behavior, self-tracking data, and AI coach intent signals from the Doing Life Today platform into actionable insights for research, care innovation, clinical trial planning, patient support, and product partnership.</p>
+        <div class="ts-what-grid">
+          <div class="ts-what-item">
+            <h3>Behavior</h3>
+            <p>Daily check-ins, engagement patterns, and community signals from people living with Parkinson's worldwide.</p>
+          </div>
+          <div class="ts-what-item">
+            <h3>Medication</h3>
+            <p>Real-world medication logging, adherence patterns, and on-time signals across good days and rough days.</p>
+          </div>
+          <div class="ts-what-item">
+            <h3>Symptoms</h3>
+            <p>Symptom burden, off-state patterns, sleep, mood, freezing, falls, and care partner observations.</p>
+          </div>
+          <div class="ts-what-item">
+            <h3>AI Intent</h3>
+            <p>What members ask their AI coach - topics, concerns, and emerging conversation themes that surface unmet needs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AVAILABLE EVERYWHERE -->
+    <section class="ts-section ts-availability" aria-labelledby="ts-availability-heading">
+      <div class="container">
+        <span class="ts-section-label">Platform Credibility</span>
+        <h2 id="ts-availability-heading">Available Everywhere</h2>
+        <p class="ts-section-lede">The Club is available on Apple App Store, Google Play Store, and Microsoft Store. This allows members across devices and operating systems to contribute real-world Parkinson's data through a consistent experience.</p>
+        <div class="ts-store-grid" role="list" aria-label="App store availability">
+          <div class="ts-store-card" role="listitem">
+            <span class="ts-store-icon" aria-hidden="true">AP</span>
+            <h3>Apple App Store</h3>
+          </div>
+          <div class="ts-store-card" role="listitem">
+            <span class="ts-store-icon" aria-hidden="true">GP</span>
+            <h3>Google Play Store</h3>
+          </div>
+          <div class="ts-store-card" role="listitem">
+            <span class="ts-store-icon" aria-hidden="true">MS</span>
+            <h3>Microsoft Store</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OFFERINGS -->
+    <section class="ts-section" id="offerings" aria-labelledby="ts-off-heading">
+      <div class="container">
+        <span class="ts-section-label">What Partners Can Request</span>
+        <h2 id="ts-off-heading">Three ways to engage with TrendSense.</h2>
+        <p class="ts-section-lede">The public Snapshot provides a preview. The full Monthly TrendSense Report and Custom Intelligence Briefs are shared selectively under NDA.</p>
+        <div class="ts-offerings-grid">
+          <article class="ts-offering">
+            <span class="ts-offering-tag">Recurring</span>
+            <h3>Monthly TrendSense Report</h3>
+            <p>A recurring intelligence brief covering platform activity, retention, cohort comparisons, medication and symptom signals, AI coach intent, care partner patterns, clinical conversation signals, methodology, and research opportunities.</p>
+          </article>
+          <article class="ts-offering">
+            <span class="ts-offering-tag">Topic-Specific</span>
+            <h3>Custom Intelligence Brief</h3>
+            <p>A topic-specific brief built around a partner question - medication timing, off-state patterns, freezing, falls, sleep, mood, care partner burden, geographic gaps, or trial feasibility.</p>
+          </article>
+          <article class="ts-offering">
+            <span class="ts-offering-tag">Strategic</span>
+            <h3>Research &amp; Partnership Conversation</h3>
+            <p>A focused conversation to explore how TrendSense may support patient support programs, care-pathway design, trial recruitment, research planning, or real-world evidence strategy.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SIGNALS PREVIEW -->
+    <section class="ts-section ts-signals" aria-labelledby="ts-signals-heading">
+      <div class="container">
+        <span class="ts-section-label">Signal Preview</span>
+        <h2 id="ts-signals-heading">A glimpse of what the data reveals.</h2>
+        <p class="ts-section-lede">The full report goes deeper. These are illustrative signals from the current Snapshot.</p>
+        <div class="ts-signal-row">
+          <div class="ts-signal">
+            <div class="ts-signal-label">Med Adherence</div>
+            <div class="ts-signal-value">84% good days<br>78% rough days</div>
+          </div>
+          <div class="ts-signal">
+            <div class="ts-signal-label">Exercise Participation</div>
+            <div class="ts-signal-value">16% good days<br>5% rough days</div>
+          </div>
+          <div class="ts-signal">
+            <div class="ts-signal-label">Symptom Intensity</div>
+            <div class="ts-signal-value">4.6 good days<br>5.5 rough days</div>
+          </div>
+          <div class="ts-signal">
+            <div class="ts-signal-label">Global Reach</div>
+            <div class="ts-signal-value"><span id="ts-signal-countries" data-fallback="27">27</span> countries</div>
+          </div>
+          <div class="ts-signal">
+            <div class="ts-signal-label">Medication Logs</div>
+            <div class="ts-signal-value"><span id="ts-signal-med-logs" data-fallback="7,657">7,657</span>+</div>
+          </div>
+          <div class="ts-signal">
+            <div class="ts-signal-label">Symptom Logs</div>
+            <div class="ts-signal-value"><span id="ts-signal-symptom-logs" data-fallback="1,686">1,686</span>+</div>
+          </div>
+          <div class="ts-signal">
+            <div class="ts-signal-label">Community Activities</div>
+            <div class="ts-signal-value"><span id="ts-signal-community-activities" data-fallback="15,885">15,885</span>+</div>
+          </div>
+          <div class="ts-signal">
+            <div class="ts-signal-label">Health Data Points</div>
+            <div class="ts-signal-value"><span id="ts-signal-health-data" data-fallback="11,689">11,689</span>+</div>
+          </div>
+        </div>
+        <p class="ts-signals-note">Numbers reflect the current monthly Snapshot and grow daily. Full report includes cohort comparisons, AI intent themes, care partner signals, and methodology.</p>
+      </div>
+    </section>
+
+    <!-- WHY PARTNER NOW -->
+    <section class="ts-section ts-partner-now" aria-labelledby="ts-partner-now-heading">
+      <div class="container">
+        <span class="ts-section-label">Partnership Timing</span>
+        <h2 id="ts-partner-now-heading">Why Partner Now?</h2>
+        <p class="ts-section-lede">TrendSense&trade; is now publicly available across the Apple App Store, Google Play, and Microsoft Store, and community enrollment continues to grow every day. Current pricing reflects founding-partner access and may increase as the community expands and additional reporting capabilities are released. Organizations that engage now have the opportunity to establish partnerships during this founding phase.</p>
+      </div>
+    </section>
+
+    <!-- PURCHASE / CONTACT CTA -->
+    <section class="ts-section" aria-labelledby="ts-cta-heading">
+      <div class="container">
+        <span class="ts-section-label">Next Step</span>
+        <h2 id="ts-cta-heading">Choose your path</h2>
+        <div class="ts-cta-options">
+          <article class="ts-cta-card">
+            <h3>Purchase a Community Spotlight Report</h3>
+            <p>Ready to purchase? Email trensdsense@dolifetoday.com.</p>
+            <a href="mailto:trensdsense@dolifetoday.com" class="ts-btn ts-btn-primary ts-cta-btn">Email trensdsense@dolifetoday.com</a>
+          </article>
+          <article class="ts-cta-card">
+            <h3>Discuss TrendSense Intelligence Services</h3>
+            <p>Questions or custom requirements? Email office@dolifetoday.com.</p>
+            <a href="mailto:office@dolifetoday.com" class="ts-btn ts-btn-ghost ts-cta-btn">Email office@dolifetoday.com</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- REQUEST FORM -->
+    <section class="ts-section ts-form-section" id="request" aria-labelledby="ts-form-heading">
+      <div class="container">
+        <div class="ts-form-shell">
+          <h2 id="ts-form-heading">Request TrendSense Access</h2>
+          <p class="ts-form-sub">Available under NDA for qualified research, pharma, clinical, digital health, and strategic partners.</p>
+
+          <form id="trendsense-form" novalidate>
+
+            <div class="ts-grid-2">
+              <div class="ts-field">
+                <label for="ts-name">Full Name *</label>
+                <input id="ts-name" name="name" type="text" placeholder="Jane Smith" autocomplete="name" required>
+              </div>
+              <div class="ts-field">
+                <label for="ts-email">Email *</label>
+                <input id="ts-email" name="email" type="email" placeholder="jane@company.com" autocomplete="email" required>
+              </div>
+            </div>
+
+            <div class="ts-grid-2">
+              <div class="ts-field">
+                <label for="ts-org">Organization *</label>
+                <input id="ts-org" name="organization" type="text" placeholder="Company or institution" autocomplete="organization" required>
+              </div>
+              <div class="ts-field">
+                <label for="ts-role">Role / Title *</label>
+                <input id="ts-role" name="role" type="text" placeholder="Director, Real-World Evidence" required>
+              </div>
+            </div>
+
+            <div class="ts-field">
+              <label for="ts-interest">Area of Interest *</label>
+              <select id="ts-interest" name="interest" required>
+                <option value="" disabled selected>Select what you're interested in</option>
+                <option value="Full Monthly TrendSense Report">Full Monthly TrendSense Report</option>
+                <option value="Custom Intelligence Brief">Custom Intelligence Brief</option>
+                <option value="Research collaboration">Research collaboration</option>
+                <option value="Trial feasibility / recruitment">Trial feasibility / recruitment</option>
+                <option value="Patient support program design">Patient support program design</option>
+                <option value="Care partner insights">Care partner insights</option>
+                <option value="Strategic partnership">Strategic partnership</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="ts-field">
+              <label for="ts-message">Message <span class="ts-opt">(optional - what would you like to explore?)</span></label>
+              <textarea id="ts-message" name="message" placeholder="Share a specific question, topic, or partnership idea you'd like to explore."></textarea>
+            </div>
+
+            <label class="ts-check">
+              <input id="ts-nda" type="checkbox" required>
+              <span>I understand that full TrendSense materials may require NDA review before access is granted.</span>
+            </label>
+
+            <button type="submit" class="ts-submit" id="ts-submit">Request TrendSense Access</button>
+          </form>
+
+          <div id="ts-form-msg" class="ts-msg" hidden></div>
+
+          <div id="ts-success" class="ts-success" hidden>
+            <div class="ts-success-icon" aria-hidden="true">&#10003;</div>
+            <h3>Request received.</h3>
+            <p>Thank you for your interest in TrendSense. A member of the Doing Life Today partnerships team will follow up within 1-2 business days to confirm next steps, including NDA review where appropriate.</p>
+          </div>
+
+          <div class="ts-privacy-note">
+            <strong>Privacy &amp; NDA.</strong> TrendSense reports contain only anonymized, aggregated behavioral intelligence. No patient-identifying information is included. Full reports are shared selectively with approved recipients under NDA.
+          </div>
+
+          <div class="ts-data-use">
+            <strong>Responsible Data Use.</strong> TrendSense&trade; reports are generated from de-identified, aggregated community data. Individual member information is never shared. Additional data access, custom analysis, and strategic reporting are available under NDA for qualified partners.
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ts-footer" role="contentinfo">
+    <div class="container">
+      <p><strong style="color: var(--ts-ink);">TrendSense&trade;</strong> is powered by Doing Life Today LLC.</p>
+      <p>Partnership inquiries: <a href="mailto:trendsense@dolifetoday.com">trendsense@dolifetoday.com</a></p>
+      <p style="margin-top: 1rem; font-size: 0.8rem;">&copy; 2026 Doing Life Today LLC. &middot; <a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a></p>
+    </div>
+  </footer>
+
+  <!-- Load main.js for spam protection (recaptcha + honeypot) -->
+  <script src="/js/main.js" defer></script>
+
+  <script>
+    (function () {
+      'use strict';
+
+      var form = document.getElementById('trendsense-form');
+      var successEl = document.getElementById('ts-success');
+      var msgEl = document.getElementById('ts-form-msg');
+      var submitBtn = document.getElementById('ts-submit');
+      if (!form) return;
+
+      function showMsg(type, text) {
+        if (!msgEl) return;
+        msgEl.className = 'ts-msg ' + (type === 'ok' ? 'ts-msg-ok' : 'ts-msg-err');
+        msgEl.textContent = text;
+        msgEl.hidden = false;
+      }
+      function hideMsg() { if (msgEl) { msgEl.hidden = true; msgEl.textContent = ''; } }
+
+      // Wait for window.dltSpamProtection to be ready
+      function whenReady(cb, attempts) {
+        attempts = attempts || 0;
+        if (window.dltSpamProtection) { cb(window.dltSpamProtection); return; }
+        if (attempts > 50) { cb(null); return; }
+        setTimeout(function () { whenReady(cb, attempts + 1); }, 100);
+      }
+
+      whenReady(function (spam) {
+        if (spam && spam.prepareForm) {
+          spam.prepareForm(form).catch(function () { /* recaptcha optional */ });
+        }
+      });
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        hideMsg();
+
+        // Basic client validation
+        var name = (form.querySelector('[name="name"]').value || '').trim();
+        var email = (form.querySelector('[name="email"]').value || '').trim();
+        var org = (form.querySelector('[name="organization"]').value || '').trim();
+        var role = (form.querySelector('[name="role"]').value || '').trim();
+        var interest = (form.querySelector('[name="interest"]').value || '').trim();
+        var msg = (form.querySelector('[name="message"]').value || '').trim();
+        var nda = document.getElementById('ts-nda').checked;
+
+        if (name.length < 2) return showMsg('err', 'Please enter your full name.');
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return showMsg('err', 'Please enter a valid email address.');
+        if (org.length < 2) return showMsg('err', 'Please enter your organization.');
+        if (role.length < 2) return showMsg('err', 'Please enter your role or title.');
+        if (!interest) return showMsg('err', 'Please select an area of interest.');
+        if (!nda) return showMsg('err', 'Please acknowledge the NDA notice.');
+
+        submitBtn.disabled = true;
+        var originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending\u2026';
+
+        function send(protection) {
+          // Build a structured message for the /api/contact backend
+          var combinedMessage =
+            'TRENDSENSE ACCESS REQUEST\n' +
+            '------------------------\n' +
+            'Role / Title: ' + role + '\n' +
+            'Area of Interest: ' + interest + '\n' +
+            'NDA acknowledged: ' + (nda ? 'Yes' : 'No') + '\n' +
+            'Source: /trendsense (WPC 2026 QR funnel)\n' +
+            '\n' +
+            (msg ? 'Message:\n' + msg : '(No additional message provided.)');
+
+          var websiteUrlInput = form.querySelector('[name="website_url"]');
+          var pageHoneypotInput = form.querySelector('[name="company_name_hidden"]');
+
+          var payload = {
+            name: name,
+            email: email,
+            organization: org,
+            inquiry_type: 'partnership',
+            message: combinedMessage,
+            recaptchaToken: (protection && protection.recaptchaToken) || '',
+            company_name_hidden: (protection && protection.honeypotValue) || (pageHoneypotInput && pageHoneypotInput.value) || '',
+            website_url: (websiteUrlInput && websiteUrlInput.value) || ''
+          };
+
+          fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          }).then(function (res) {
+            return res.json().then(function (data) { return { ok: res.ok, data: data }; });
+          }).then(function (r) {
+            if (r.ok) {
+              form.hidden = true;
+              if (msgEl) msgEl.hidden = true;
+              if (successEl) successEl.hidden = false;
+              try {
+                if (window.gtag) {
+                  window.gtag('event', 'trendsense_request', {
+                    event_category: 'partnership',
+                    event_label: interest
+                  });
+                }
+              } catch (e) { /* noop */ }
+            } else {
+              showMsg('err', (r.data && r.data.error) || 'Something went wrong. Please email trendsense@dolifetoday.com.');
+              if (window.dltSpamProtection && window.dltSpamProtection.resetForm) {
+                window.dltSpamProtection.resetForm(form);
+              }
+              submitBtn.disabled = false;
+              submitBtn.textContent = originalText;
+            }
+          }).catch(function () {
+            showMsg('err', 'Network error. Please try again or email trendsense@dolifetoday.com.');
+            if (window.dltSpamProtection && window.dltSpamProtection.resetForm) {
+              window.dltSpamProtection.resetForm(form);
+            }
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+          });
+        }
+
+        if (window.dltSpamProtection && window.dltSpamProtection.collectSubmissionData) {
+          window.dltSpamProtection.collectSubmissionData(form).then(function (protection) {
+            if (protection && protection.errorMessage) {
+              showMsg('err', protection.errorMessage);
+              submitBtn.disabled = false;
+              submitBtn.textContent = originalText;
+              return;
+            }
+            send(protection);
+          }).catch(function () {
+            send(null);
+          });
+        } else {
+          send(null);
+        }
+      });
+    })();
+  </script>
+
+  <!-- Live Community Snapshot loader - replaces hard-coded numbers with the
+       newest platform-reports doc from the pcn---new backend. Falls back to
+       the hard-coded numbers baked into the DOM if the fetch fails. -->
+  <script>
+    (function () {
+      var ENDPOINT = 'https://us-central1-pcn---new.cloudfunctions.net/getTrendSensePublicSnapshot';
+      function fmt(n) {
+        if (typeof n !== 'number' || !isFinite(n)) return null;
+        return n.toLocaleString('en-US');
+      }
+      function setText(id, value) {
+        var el = document.getElementById(id);
+        if (!el || value === null) return;
+        el.textContent = value;
+      }
+      function fmtDate(iso) {
+        if (!iso) return null;
+        var d = new Date(iso);
+        if (isNaN(d.getTime())) return null;
+        return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+      }
+      fetch(ENDPOINT, { credentials: 'omit', mode: 'cors' })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (data) {
+          if (!data || !data.ok) return;
+          setText('ts-metric-members', fmt(data.registeredMembers));
+          setText('ts-metric-countries', fmt(data.countriesRepresented));
+          setText('ts-metric-med-logs', fmt(data.medicationLogs));
+          setText('ts-metric-symptom-logs', fmt(data.symptomLogs));
+          setText('ts-metric-community-activities', fmt(data.communityActivities));
+          setText('ts-metric-health-data', fmt(data.healthDataPoints));
+          setText('ts-signal-countries', fmt(data.countriesRepresented));
+          setText('ts-signal-med-logs', fmt(data.medicationLogs));
+          setText('ts-signal-symptom-logs', fmt(data.symptomLogs));
+          setText('ts-signal-community-activities', fmt(data.communityActivities));
+          setText('ts-signal-health-data', fmt(data.healthDataPoints));
+          var pretty = fmtDate(data.dateKey);
+          if (pretty) setText('ts-snapshot-date', 'Current as of ' + pretty);
+        })
+        .catch(function () { /* keep DOM fallbacks */ });
+    })();
+  </script>
+</body>
+</html>
