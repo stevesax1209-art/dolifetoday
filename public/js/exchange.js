@@ -3,7 +3,12 @@
 
   const API_ENDPOINT = 'https://club.dolifetoday.com/api/exchange/providers?limit=25000&v=20260406';
   const GEOCODE_ENDPOINT = 'https://nominatim.openstreetmap.org/search?format=jsonv2&addressdetails=1&limit=1&q=';
-  const GEOCODE_CACHE_KEY = 'exchange-geocode-cache-v1';
+  const GEOCODE_CACHE_KEY = 'exchange-geocode-cache-v2';
+  const POSTAL_ENDPOINT = 'https://api.zippopotam.us/';
+  const POSTAL_COUNTRY_CODES = {
+    'United States': 'us', 'Canada': 'ca', 'United Kingdom': 'gb', 'Australia': 'au', 'New Zealand': 'nz',
+    'Germany': 'de', 'France': 'fr', 'Spain': 'es', 'Italy': 'it', 'Netherlands': 'nl', 'Mexico': 'mx'
+  };
   const MAX_DISTANCE_LOCATION_LOOKUPS = 120;
 
   const searchInput = document.getElementById('exchange-search');
@@ -514,11 +519,96 @@
     return [postalCode, country !== 'all' ? country : ''].filter(Boolean).join(', ');
   }
 
+  // The free OSM geocoder cannot place most Canadian postal codes (it even
+  // matched "T3M 2V5, Canada" to a town called Canada in Kentucky), so postal
+  // codes are resolved with Zippopotam first, which returns coordinates for the
+  // postal area (Canadian FSA, UK outward code, US ZIP).
+  function guessPostalCountryCode(compact) {
+    if (/^[A-Z]\d[A-Z]\d[A-Z]\d$/.test(compact)) {
+      return 'ca';
+    }
+    if (/^\d{5}(\d{4})?$/.test(compact)) {
+      return 'us';
+    }
+    return '';
+  }
+
+  function buildPostalLookupKey(code, compact) {
+    if (code === 'ca') {
+      return compact.slice(0, 3);
+    }
+    if (code === 'us') {
+      return compact.slice(0, 5);
+    }
+    if (code === 'gb' && compact.length > 3) {
+      return compact.slice(0, compact.length - 3);
+    }
+    return compact;
+  }
+
+  function resolvePostalOrigin(postalCode, country) {
+    const compact = String(postalCode || '').replace(/[\s-]+/g, '').toUpperCase();
+    const code = POSTAL_COUNTRY_CODES[country] || guessPostalCountryCode(compact);
+    if (!compact || !code) {
+      return Promise.resolve(null);
+    }
+
+    const lookupKey = buildPostalLookupKey(code, compact);
+    const cacheKey = 'postal:' + code + ':' + lookupKey;
+    if (Object.prototype.hasOwnProperty.call(geocodeCache, cacheKey) && geocodeCache[cacheKey]) {
+      return Promise.resolve(geocodeCache[cacheKey]);
+    }
+
+    return fetch(POSTAL_ENDPOINT + code + '/' + encodeURIComponent(lookupKey), { headers: { Accept: 'application/json' } })
+      .then(function (response) {
+        return response.ok ? response.json() : null;
+      })
+      .then(function (payload) {
+        const place = payload && Array.isArray(payload.places) ? payload.places[0] : null;
+        const latitude = place ? Number(place.latitude) : NaN;
+        const longitude = place ? Number(place.longitude) : NaN;
+        if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) {
+          return null;
+        }
+
+        const countryName = Object.keys(POSTAL_COUNTRY_CODES).filter(function (name) {
+          return POSTAL_COUNTRY_CODES[name] === code;
+        })[0] || '';
+        const result = {
+          latitude: latitude,
+          longitude: longitude,
+          label: [place['place name'], place['state abbreviation']].filter(Boolean).join(', '),
+          address: { country: countryName, stateProvince: place.state || '' }
+        };
+        geocodeCache[cacheKey] = result;
+        persistGeocodeCache();
+        return result;
+      })
+      .catch(function () {
+        return null;
+      });
+  }
+
+  function resolveOrigin(postalCode, explicitCountry) {
+    return resolvePostalOrigin(postalCode, explicitCountry).then(function (origin) {
+      if (origin) {
+        return origin;
+      }
+
+      return geocodeQuery(buildOriginQuery(postalCode, explicitCountry)).then(function (fallback) {
+        // Never search from a match in a different country than the one chosen.
+        if (fallback && explicitCountry !== 'all' && fallback.address.country !== explicitCountry) {
+          return null;
+        }
+        return fallback;
+      });
+    });
+  }
+
   function buildDistanceSortedProviders(baseProviders, postalCode, renderToken) {
     const explicitCountry = countrySelect.value;
-    const originQuery = buildOriginQuery(postalCode, explicitCountry);
 
-    return geocodeQuery(originQuery).then(function (origin) {
+    return resolveOrigin(postalCode, explicitCountry).then(function (origin) {
       if (renderToken !== activeRenderToken) {
         return null;
       }

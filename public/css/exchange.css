@@ -875,6 +875,22 @@
   line-height: 1.7;
 }
 
+/* A long unbroken string in a listing (e.g. "heyheyhey..." or a bare URL) used to
+   stretch the grid column wider than the phone screen, so wrap it and let grid
+   items shrink below their content width. */
+.exchange-results-grid > .exchange-card,
+.exchange-results-grid > .exchange-empty-state {
+  min-width: 0;
+}
+
+.exchange-card h3,
+.exchange-card-meta,
+.exchange-card-submeta,
+.exchange-card-copy,
+.exchange-provider-description {
+  overflow-wrap: anywhere;
+}
+
 .exchange-card-shipping {
   font-size: 0.82rem;
   color: rgba(255, 255, 255, 0.55);
