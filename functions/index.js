@@ -6,18 +6,19 @@
  * Endpoints (rewritten via Firebase Hosting in firebase.json):
  *   GET  /api/public-config  →  publicConfig() — public client config such as reCAPTCHA site key
  *   POST /api/subscribe  →  subscribe()  — newsletter sign-up via MailerLite API v3
- *   POST /api/contact    →  contact()    — contact form via MailerLite API v3
+ *   POST /api/contact    →  contact()    — contact form: emails via MailerSend + Firestore log
  *   POST /api/mailerlite-webhook → mailerLiteWebhook() — waitlist confirmation sync from MailerLite
  *
  * Environment variables (set in Firebase Console → Functions → Configuration,
  * or via CLI: firebase functions:config:set mailerlite.token="..." etc.):
  *   MAILERLITE_API_TOKEN          — required
  *   MAILERLITE_GROUP_ID                 — optional; newsletter group ID
- *   MAILERLITE_CONTACT_GROUP_ID         — optional; contact inquiries group ID
  *   MAILERLITE_THECLUB_WAITLIST_GROUP_ID — optional; The Club waitlist group ID
  *   RECAPTCHA_SITE_KEY                  — required for frontend rendering
  *   RECAPTCHA_SECRET_KEY                — required for server-side verification
  *   MAILERLITE_WEBHOOK_SECRET           — required to validate MailerLite webhook signatures
+ *   MAILERSEND_API_KEY                  — required for /api/contact email delivery
+ *   CONTACT_NOTIFY_EMAIL                — optional; override recipient inbox for all contact submissions
  */
 
 const functions = require('firebase-functions');
@@ -1941,7 +1942,124 @@ exports.shareStats = onRequest(async (req, res) => {
 
 /* ── contact ─────────────────────────────────────────────────── */
 
+// Inquiry types the form offers; label used in email subject + body.
+const CONTACT_INQUIRY_LABELS = {
+  general: 'General Inquiry',
+  club: 'The Club',
+  podcast: 'Podcast / Guest Submission',
+  media: 'Media / Press',
+  speaking: 'Speaking Inquiry',
+  partnership: 'Partnership',
+  technical: 'Technical Support',
+  advocacy: 'Advocacy / Community',
+  other: 'Other',
+};
+
+// All contact form submissions land in help@dolifetoday.com regardless of inquiry
+// type. Override with CONTACT_NOTIFY_EMAIL env if a different inbox is needed.
+const DEFAULT_CONTACT_INBOX = 'help@dolifetoday.com';
+
+function resolveContactRecipients(_inquiryType) {
+  const override = getEnvValue('CONTACT_NOTIFY_EMAIL');
+  return { primary: (override || DEFAULT_CONTACT_INBOX), cc: [] };
+}
+
+function escapeHtml(value) {
+  return String(value || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+async function sendContactEmail({ recipients, name, email, organization, inquiryType, message, submissionId, clientIp }) {
+  const apiKey = getEnvValue('MAILERSEND_API_KEY');
+  if (!apiKey) {
+    functions.logger.error('MAILERSEND_API_KEY is not set — cannot deliver contact form email.');
+    return { ok: false, reason: 'missing_api_key' };
+  }
+
+  const inquiryLabel = CONTACT_INQUIRY_LABELS[inquiryType] || inquiryType || 'General Inquiry';
+  const receivedIso = new Date().toISOString();
+  const subject = `Contact form: ${inquiryLabel} — ${name}`;
+
+  const textBody = [
+    `New message from the Doing Life Today contact form.`,
+    ``,
+    `Name:         ${name}`,
+    `Email:        ${email}`,
+    `Organization: ${organization || '(none)'}`,
+    `Inquiry:      ${inquiryLabel}`,
+    ``,
+    `Message`,
+    `-------`,
+    message,
+    ``,
+    `---`,
+    `Submission ID: ${submissionId}`,
+    `Received:      ${receivedIso}`,
+    `Client IP:     ${clientIp || 'unknown'}`,
+    `Reply directly to this email — it will go to ${email}.`,
+  ].join('\n');
+
+  const htmlBody = [
+    '<div style="font-family:Arial,sans-serif;line-height:1.55;color:#1f2937;max-width:640px;margin:0 auto;padding:24px;">',
+    '<h1 style="font-size:20px;margin:0 0 16px;color:#1f2937;">New message from the DLT contact form</h1>',
+    '<table style="border-collapse:collapse;font-size:15px;margin:0 0 20px;"><tbody>',
+    `<tr><td style="padding:4px 12px 4px 0;color:#6b7280;">Name</td><td style="padding:4px 0;"><strong>${escapeHtml(name)}</strong></td></tr>`,
+    `<tr><td style="padding:4px 12px 4px 0;color:#6b7280;">Email</td><td style="padding:4px 0;"><a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></td></tr>`,
+    `<tr><td style="padding:4px 12px 4px 0;color:#6b7280;">Organization</td><td style="padding:4px 0;">${organization ? escapeHtml(organization) : '<em style="color:#9ca3af;">(none)</em>'}</td></tr>`,
+    `<tr><td style="padding:4px 12px 4px 0;color:#6b7280;">Inquiry</td><td style="padding:4px 0;">${escapeHtml(inquiryLabel)}</td></tr>`,
+    '</tbody></table>',
+    `<div style="background:#f3f4f6;border-left:4px solid #1f7a8c;padding:14px 18px;border-radius:4px;white-space:pre-wrap;font-size:15px;">${escapeHtml(message)}</div>`,
+    `<p style="margin:24px 0 6px;color:#6b7280;font-size:13px;">Submission ID: ${escapeHtml(submissionId)}<br>Received: ${escapeHtml(receivedIso)}<br>Client IP: ${escapeHtml(clientIp || 'unknown')}</p>`,
+    `<p style="margin:0;color:#6b7280;font-size:13px;">Just hit <strong>Reply</strong> — your reply goes straight to <strong>${escapeHtml(email)}</strong>.</p>`,
+    '</div>',
+  ].join('');
+
+  const payload = {
+    from: { email: 'contact@dolifetoday.com', name: 'Doing Life Today Contact Form' },
+    to: [{ email: recipients.primary }],
+    reply_to: { email, name },
+    subject,
+    text: textBody,
+    html: htmlBody,
+  };
+  if (recipients.cc && recipients.cc.length) {
+    payload.cc = recipients.cc.map((addr) => ({ email: addr }));
+  }
+
+  try {
+    const res = await fetch('https://api.mailersend.com/v1/email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify(payload),
+    });
+    const responseText = await res.text().catch(() => '');
+    const messageIdHeader = res.headers.get('x-message-id') || '';
+    functions.logger.info('MailerSend contact email response', {
+      status: res.status,
+      messageId: messageIdHeader,
+      to: recipients.primary,
+      cc: recipients.cc,
+      body: responseText.slice(0, 500),
+    });
+    if (!res.ok) {
+      functions.logger.error(`MailerSend contact email failed (${res.status}):`, responseText);
+      return { ok: false, reason: 'mailersend_error', status: res.status };
+    }
+    return { ok: true };
+  } catch (err) {
+    functions.logger.error('Contact email send failed:', err && err.message ? err.message : err);
+    return { ok: false, reason: 'network_error' };
+  }
+}
+
 exports.contact = onRequest(
+  { secrets: ['MAILERSEND_API_KEY', 'RECAPTCHA_SECRET_KEY'] },
   async (req, res) => {
     setCorsHeaders(res);
     if (req.method === 'OPTIONS') { res.status(204).send(''); return; }
@@ -1986,6 +2104,20 @@ exports.contact = onRequest(
       return;
     }
 
+    // Verify reCAPTCHA before touching the rate limiter so a transient
+    // spam-filter failure doesn't burn a rate-limit slot on legit users.
+    const captchaVerification = await verifyRecaptchaToken(recaptchaToken, clientIp);
+    if (!captchaVerification.ok) {
+      await rejectSubmission(res, {
+        status: 400,
+        endpoint: 'contact',
+        ip: clientIp,
+        reason: 'recaptcha_failed',
+        message: captchaVerification.reason,
+      });
+      return;
+    }
+
     const rateLimit = await enforceSubmissionRateLimit('contact', clientIp);
     if (!rateLimit.allowed) {
       await rejectSubmission(res, {
@@ -1997,18 +2129,6 @@ exports.contact = onRequest(
           ? 'Too many attempts. Please try again later.'
           : 'Please wait at least 60 seconds before submitting again.',
         retryAfterMs: rateLimit.retryAfterMs,
-      });
-      return;
-    }
-
-    const captchaVerification = await verifyRecaptchaToken(recaptchaToken, clientIp);
-    if (!captchaVerification.ok) {
-      await rejectSubmission(res, {
-        status: 400,
-        endpoint: 'contact',
-        ip: clientIp,
-        reason: 'recaptcha_failed',
-        message: captchaVerification.reason,
       });
       return;
     }
@@ -2046,117 +2166,65 @@ exports.contact = onRequest(
       return;
     }
 
-    const apiToken = getEnvValue('MAILERLITE_API_TOKEN');
-    const groupId = getEnvValue('MAILERLITE_CONTACT_GROUP_ID');
+    const normalizedName = name.trim();
+    const normalizedEmail = email.trim();
+    const normalizedOrg = (organization || '').trim();
+    const normalizedInquiry = String(inquiry_type || '').trim().toLowerCase();
+    const fullMessage = message.trim();
+    const recipients = resolveContactRecipients(normalizedInquiry);
 
-    if (!apiToken) {
-      functions.logger.error('MAILERLITE_API_TOKEN is not set.');
-      res.status(500).json({ error: 'Server configuration error. Please try again later.' });
+    // Durable log first — email delivery may fail but we still have the message.
+    let submissionId = 'unknown';
+    try {
+      const submissionRef = await db.collection('contact_submissions').add({
+        name: normalizedName,
+        email: normalizedEmail,
+        organization: normalizedOrg,
+        inquiryType: normalizedInquiry,
+        inquiryLabel: CONTACT_INQUIRY_LABELS[normalizedInquiry] || normalizedInquiry,
+        message: fullMessage,
+        recipient: recipients.primary,
+        cc: recipients.cc,
+        clientIp,
+        userAgent: String(req.headers['user-agent'] || '').slice(0, 500),
+        status: 'received',
+        createdAt: admin.firestore.FieldValue.serverTimestamp(),
+      });
+      submissionId = submissionRef.id;
+    } catch (err) {
+      functions.logger.error('Failed to persist contact submission to Firestore:', err && err.message ? err.message : err);
+    }
+
+    const emailResult = await sendContactEmail({
+      recipients,
+      name: normalizedName,
+      email: normalizedEmail,
+      organization: normalizedOrg,
+      inquiryType: normalizedInquiry,
+      message: fullMessage,
+      submissionId,
+      clientIp,
+    });
+
+    if (submissionId !== 'unknown') {
+      try {
+        await db.collection('contact_submissions').doc(submissionId).update({
+          emailStatus: emailResult.ok ? 'sent' : 'failed',
+          emailError: emailResult.ok ? admin.firestore.FieldValue.delete() : (emailResult.reason || 'unknown'),
+          updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+        });
+      } catch (err) {
+        functions.logger.warn('Failed to update contact submission email status:', err && err.message ? err.message : err);
+      }
+    }
+
+    if (!emailResult.ok && submissionId === 'unknown') {
+      // Both persistence and email failed — surface a soft error so the user retries or falls back to mailto.
+      res.status(502).json({ error: 'Message could not be delivered right now. Please email help@dolifetoday.com directly.' });
       return;
     }
 
-    // MailerLite text custom fields accept up to 500 characters.
-    const MAX_FIELD_LENGTH = 500;
-    const truncatedMessage = message.trim().substring(0, MAX_FIELD_LENGTH);
-
-    const payload = {
-      email: email.trim(),
-      status: 'active',
-      fields: {
-        name: name.trim(),
-        company: (organization || '').trim(),
-        inquiry_type,
-        last_message: truncatedMessage,
-      },
-    };
-    if (groupId) payload.groups = [groupId];
-
-    try {
-      const mlRes = await fetch(MAILERLITE_API_URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${apiToken}`,
-        },
-        body: JSON.stringify(payload),
-      });
-
-      if (mlRes.status === 200 || mlRes.status === 201) {
-        res.status(200).json({ message: "Message received! We'll be in touch within 24-48 hours." });
-        return;
-      }
-
-      const errText = await mlRes.text();
-      functions.logger.error(`MailerLite error ${mlRes.status}:`, errText);
-
-      // MailerLite may reject an invalid group with a generic 500; retry without groups.
-      if (groupId) {
-        const noGroupPayload = {
-          email: email.trim(),
-          status: 'active',
-          fields: {
-            name: name.trim(),
-            company: (organization || '').trim(),
-            inquiry_type,
-            last_message: truncatedMessage,
-          },
-        };
-
-        try {
-          const noGroupRes = await fetch(MAILERLITE_API_URL, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              Authorization: `Bearer ${apiToken}`,
-            },
-            body: JSON.stringify(noGroupPayload),
-          });
-
-          if (noGroupRes.status === 200 || noGroupRes.status === 201) {
-            res.status(200).json({ message: "Message received! We'll be in touch within 24-48 hours." });
-            return;
-          }
-        } catch (noGroupErr) {
-          functions.logger.error('MailerLite retry without group failed:', noGroupErr);
-        }
-      }
-
-      // 422 may indicate custom fields are missing; retry with basic fields only.
-      if (mlRes.status === 422) {
-        const fallbackPayload = {
-          email: email.trim(),
-          status: 'active',
-          fields: {
-            name: name.trim(),
-            company: (organization || '').trim(),
-          },
-        };
-        if (groupId) fallbackPayload.groups = [groupId];
-
-        try {
-          const fbRes = await fetch(MAILERLITE_API_URL, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              Authorization: `Bearer ${apiToken}`,
-            },
-            body: JSON.stringify(fallbackPayload),
-          });
-
-          if (fbRes.status === 200 || fbRes.status === 201) {
-            res.status(200).json({ message: "Message received! We'll be in touch within 24-48 hours." });
-            return;
-          }
-        } catch (fbErr) {
-          functions.logger.error('Fallback MailerLite error:', fbErr);
-        }
-      }
-
-      res.status(500).json({ error: 'Message could not be delivered. Please try again later.' });
-    } catch (err) {
-      functions.logger.error('Network error calling MailerLite:', err);
-      res.status(502).json({ error: 'Unable to reach contact service. Please try again later.' });
-    }
+    res.status(200).json({ message: "Message received! We'll be in touch within 24-48 hours." });
   }
 );
 

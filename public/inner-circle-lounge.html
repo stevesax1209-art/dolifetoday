@@ -830,7 +830,7 @@
     <div class="meetings">
 
       <!-- ── Morning Call ────────────────────────────── -->
-      <article class="meeting" data-meeting-id="83895680988" data-hour="10" data-minute="30" data-duration="90">
+      <article class="meeting" data-meeting-id="82516320883" data-hour="10" data-minute="30" data-duration="90">
         <div class="meeting-badge">Morning · Monthly</div>
         <h3>Inner Circle Monthly Live Call with Bryce</h3>
         <div class="meeting-when">
@@ -839,19 +839,19 @@
           <span class="countdown" data-countdown></span>
         </div>
         <dl class="meeting-detail">
-          <dt>Meeting ID</dt><dd>838 9568 0988</dd>
+          <dt>Meeting ID</dt><dd>825 1632 0883</dd>
           <dt>Passcode</dt><dd>Open (no passcode)</dd>
         </dl>
         <div class="meeting-actions">
           <a class="btn btn-primary"
-             href="https://us06web.zoom.us/j/83895680988"
+             href="https://us06web.zoom.us/j/82516320883"
              target="_blank" rel="noopener">
             <span class="btn-icon">▶</span> Join Zoom Now
           </a>
           <button class="btn btn-secondary" type="button" data-ics
             data-title="Inner Circle Monthly Live Call with Bryce"
-            data-description="Monthly Live Call with Bryce. Join Zoom: https://us06web.zoom.us/j/83895680988"
-            data-url="https://us06web.zoom.us/j/83895680988">
+            data-description="Monthly Live Call with Bryce. Join Zoom: https://us06web.zoom.us/j/82516320883"
+            data-url="https://us06web.zoom.us/j/82516320883">
             <span class="btn-icon">📅</span> Add to Calendar
           </button>
         </div>
@@ -1193,19 +1193,19 @@
         });
       }
 
-      // ── Compute next monthly occurrence (13th of the month) in CT ──
-      // Both meetings recur monthly on the 13th at their respective local
+      // ── Compute next monthly occurrence (14th of the month) in CT ──
+      // Both meetings recur monthly on the 14th at their respective local
       // times in America/Chicago. We render the next date + a friendly
       // countdown per card.
       function nextOccurrenceCT(hour, minute) {
-        // Build "13th of this month at HH:MM CT" and if that's already past,
-        // roll forward to the 13th of the next month.
+        // Build "14th of this month at HH:MM CT" and if that's already past,
+        // roll forward to the 14th of the next month.
         const now = new Date();
         for (let addMonths = 0; addMonths < 3; addMonths++) {
           const y = now.getUTCFullYear();
           // Work in UTC using a synthesized "wall clock time in Chicago",
           // resolving DST via Intl.
-          const probe = new Date(Date.UTC(y, now.getUTCMonth() + addMonths, 13, hour, minute, 0));
+          const probe = new Date(Date.UTC(y, now.getUTCMonth() + addMonths, 14, hour, minute, 0));
           // Compute the offset of America/Chicago at `probe` and shift accordingly.
           const partsInCT = new Intl.DateTimeFormat('en-US', {
             timeZone: 'America/Chicago', hour12: false,
@@ -1215,7 +1215,7 @@
           const asIfLocal = Date.UTC(+partsInCT.year, +partsInCT.month - 1, +partsInCT.day,
                                      +partsInCT.hour, +partsInCT.minute, +partsInCT.second);
           const offsetMs = asIfLocal - probe.getTime();
-          const targetUtcMs = Date.UTC(y, now.getUTCMonth() + addMonths, 13, hour, minute, 0) - offsetMs;
+          const targetUtcMs = Date.UTC(y, now.getUTCMonth() + addMonths, 14, hour, minute, 0) - offsetMs;
           if (targetUtcMs > now.getTime()) return new Date(targetUtcMs);
         }
         return null;
@@ -1273,7 +1273,7 @@
           'DTSTAMP:' + toIcsUtc(new Date()),
           'DTSTART:' + toIcsUtc(start),
           'DTEND:' + toIcsUtc(end),
-          'RRULE:FREQ=MONTHLY;BYMONTHDAY=13;COUNT=12',
+          'RRULE:FREQ=MONTHLY;BYMONTHDAY=14;COUNT=12',
           'SUMMARY:' + escape(title),
           'DESCRIPTION:' + escape(description),
           'URL:' + escape(url),

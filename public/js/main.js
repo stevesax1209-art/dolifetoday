@@ -402,13 +402,16 @@
       wrapper.setAttribute('aria-hidden', 'true');
 
       const label = document.createElement('label');
-      label.setAttribute('for', 'company-name-hidden-' + Math.random().toString(36).slice(2, 10));
+      label.setAttribute('for', 'dlt-hp-' + Math.random().toString(36).slice(2, 10));
       label.textContent = 'Leave this field empty';
 
       honeypotInput = document.createElement('input');
       honeypotInput.type = 'text';
-      honeypotInput.name = 'company_name_hidden';
+      // Opaque name so browser autofill can't classify this as a company/name/email field.
+      honeypotInput.name = 'dlt_hp_ignore';
       honeypotInput.autocomplete = 'off';
+      honeypotInput.setAttribute('autocomplete', 'off');
+      honeypotInput.readOnly = true;
       honeypotInput.tabIndex = -1;
       honeypotInput.setAttribute('data-spam-honeypot-input', 'true');
       honeypotInput.id = label.getAttribute('for');
@@ -768,7 +771,7 @@
           contactForm.style.display = 'none';
           spamProtection.resetForm(contactForm);
         } else {
-          msgEl.innerHTML = '<p style="color:#FF6B35;font-weight:600;">\u26a0\ufe0f ' + (data.error || 'Something went wrong. Please try again or email office@dolifetoday.com.') + '</p>';
+          msgEl.innerHTML = '<p style="color:#FF6B35;font-weight:600;">\u26a0\ufe0f ' + (data.error || 'Something went wrong. Please try again or email help@dolifetoday.com.') + '</p>';
           msgEl.style.cssText = 'background:rgba(255,107,53,0.1);border:1px solid rgba(255,107,53,0.3);border-radius:12px;padding:1.5rem;text-align:center;margin-top:1.5rem;';
           contactForm.after(msgEl);
           spamProtection.resetForm(contactForm);
@@ -777,7 +780,7 @@
         }
       } catch {
         const msgEl = document.createElement('div');
-        msgEl.innerHTML = '<p style="color:#FF6B35;font-weight:600;">\u26a0\ufe0f Network error. Please try again or email <a href="mailto:office@dolifetoday.com">office@dolifetoday.com</a>.</p>';
+        msgEl.innerHTML = '<p style="color:#FF6B35;font-weight:600;">\u26a0\ufe0f Network error. Please try again or email <a href="mailto:help@dolifetoday.com">help@dolifetoday.com</a>.</p>';
         msgEl.style.cssText = 'background:rgba(255,107,53,0.1);border:1px solid rgba(255,107,53,0.3);border-radius:12px;padding:1.5rem;text-align:center;margin-top:1.5rem;';
         contactForm.after(msgEl);
         spamProtection.resetForm(contactForm);
