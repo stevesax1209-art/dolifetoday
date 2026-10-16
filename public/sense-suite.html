@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sense Suite: four short phone check-ins for voice, movement, fine motor and thinking that build your personal Parkinson's baseline. Free for every member of The Club. Sense Suite+ $4.99/month.">
+  <title>Sense Suite | Know Your Personal Parkinson's Baseline | Doing Life Today</title>
+
+  <meta property="og:title" content="Sense Suite | Know Your Personal Parkinson's Baseline">
+  <meta property="og:description" content="Four short phone check-ins for voice, movement, fine motor and thinking. Track your own baseline over time and bring it to your doctor. Free in The Club.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dolifetoday.com/sense-suite">
+  <meta property="og:site_name" content="Doing Life Today">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is Sense Suite free?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every member of The Club can build a free baseline in all four Sense Suite tools and do one retest every 30 days. Sense Suite+ ($4.99/month) adds unlimited check-ins, guided practice and your results in your Doctor Visit Report." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Sense Suite diagnose Parkinson's?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Sense Suite is for personal tracking. It compares you with your own baseline, not with other people, and it is not a medical test." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need special equipment?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Sense Suite runs on the phone or tablet you already have. Voice recordings are processed on your device and never uploaded; only your measurements are saved to your Club account." }
+      },
+      {
+        "@type": "Question",
+        "name": "I'm in the Inner Circle. Is there a discount?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Inner Circle members get TrendSense (which includes Sense Suite+) at half price, applied automatically at checkout." }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="canonical" href="https://dolifetoday.com/sense-suite">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3LZZWBTWT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K3LZZWBTWT');
+  </script>
+
+  <style>
+    :root { --ss-teal: #20B2AA; --ss-gold: #E8B84B; --ss-gold-bright: #F3CC66; }
+    .ss-hero { position: relative; overflow: hidden; background: var(--gradient-hero); padding-block: 4rem 3.5rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .ss-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 55% at 20% 40%, rgba(32,178,170,0.2) 0%, transparent 65%); pointer-events: none; }
+    .ss-hero .container { position: relative; max-width: 860px; }
+    .ss-pill { display: inline-flex; gap: .5rem; padding: .5rem .9rem; border: 1px solid rgba(232,184,75,.4); background: rgba(232,184,75,.12); color: var(--ss-gold-bright); font-size: .9rem; font-weight: 800; border-radius: 999px; margin-bottom: 1.25rem; }
+    .ss-hero h1 { font-size: clamp(1.6rem, 9vw, 3.6rem); font-weight: 900; line-height: 1.05; letter-spacing: -.02em; color: var(--color-white); margin: 0; overflow-wrap: anywhere; }
+    .ss-lead { max-width: 640px; margin: 1.25rem 0 0; font-size: clamp(1.1rem, 1.5vw, 1.25rem); line-height: 1.65; color: var(--color-text-muted); }
+    .ss-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.75rem; }
+    .ss-actions .btn { min-height: 48px; }
+    .ss-section { padding-block: 3.5rem; }
+    .ss-section h2 { font-size: clamp(1.6rem, 3.5vw, 2.3rem); font-weight: 900; letter-spacing: -.01em; margin: 0 0 .75rem; }
+    .ss-section .ss-sub { color: var(--color-text-muted); font-size: 1.1rem; line-height: 1.6; max-width: 680px; margin: 0 0 2rem; }
+    .ss-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+    .ss-card { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: 16px; padding: 1.4rem; }
+    .ss-card h3 { margin: 0 0 .4rem; font-size: 1.2rem; font-weight: 800; }
+    .ss-card p { margin: 0; color: var(--color-text-muted); line-height: 1.55; font-size: 1.02rem; }
+    .ss-card .ss-tag { display: inline-block; font-size: .8rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--ss-teal); margin-bottom: .5rem; }
+    .ss-plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; align-items: stretch; }
+    .ss-plan { display: flex; flex-direction: column; gap: .9rem; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.12); border-radius: 18px; padding: 1.6rem; }
+    .ss-plan.ss-featured { border-color: var(--ss-gold); box-shadow: 0 0 0 1px var(--ss-gold) inset; }
+    .ss-plan h3 { margin: 0; font-size: 1.3rem; font-weight: 900; }
+    .ss-price { font-size: 2.2rem; font-weight: 900; line-height: 1; }
+    .ss-price small { font-size: 1rem; font-weight: 600; color: var(--color-text-muted); }
+    .ss-alt { color: var(--color-text-muted); font-size: .95rem; margin-top: .35rem; }
+    .ss-plan ul { list-style: none; padding: 0; margin: 0; display: grid; gap: .5rem; flex: 1; }
+    .ss-plan li { position: relative; padding-left: 1.6rem; line-height: 1.5; font-size: 1.02rem; }
+    .ss-plan li::before { content: '\2713'; position: absolute; left: 0; color: var(--ss-teal); font-weight: 900; }
+    .ss-plan .btn { width: 100%; justify-content: center; min-height: 48px; }
+    .ss-note { margin-top: 1.25rem; padding: 1rem 1.2rem; border-radius: 14px; background: rgba(232,184,75,.1); border: 1px solid rgba(232,184,75,.35); line-height: 1.55; }
+    .ss-faq details { border-bottom: 1px solid rgba(255,255,255,.1); padding: 1rem 0; }
+    .ss-faq summary { cursor: pointer; font-weight: 800; font-size: 1.1rem; }
+    .ss-faq p { color: var(--color-text-muted); line-height: 1.6; margin: .6rem 0 0; }
+    .ss-disclaimer { font-size: .95rem; color: var(--color-text-muted); line-height: 1.55; max-width: 760px; }
+  </style>
+  <script src="/js/meta-pixel.js"></script>
+</head>
+<body>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=771485525759396&ev=PageView&noscript=1"
+  /></noscript>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner" data-canonical-nav="v5">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a href="/" class="nav-logo" aria-label="Doing Life Today - Home">
+        <div class="nav-logo-mark" aria-hidden="true">DL</div>
+        <div class="nav-logo-text">Doing Life Today<span>Parkinson's Community</span></div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li class="nav-dropdown">
+          <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">About</button>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li role="none"><a href="/about" role="menuitem">About Doing Life Today<small>Our story &amp; mission</small></a></li>
+            <li role="none"><a href="/about#awards" role="menuitem">Awards &amp; Recognition<small>Communicator Awards &amp; Parkinson's advocacy</small></a></li>
+            <li role="none"><a href="https://bryceperry.org" target="_blank" rel="noopener noreferrer" role="menuitem">Bryce Perry &middot; Speaking &amp; Media<small>Book Bryce &middot; press</small></a></li>
+            <li role="none"><a href="/contact" role="menuitem">Contact<small>Get in touch</small></a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown nav-dropdown--highlight">
+          <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">The Club</button>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li role="none"><a href="/theclub" role="menuitem">The Club<small>Learn about the community</small></a></li>
+            <li role="none"><a href="/theclub#download" role="menuitem">Join The Club<small>Download &amp; sign up free</small></a></li>
+            <li role="none"><a href="/parkinsons-daily-check-in" role="menuitem">Daily Check-In<small>Track how you're doing</small></a></li>
+            <li role="none"><a href="/parkinsons-symptom-tracker" role="menuitem">Symptom Tracker<small>Log symptoms over time</small></a></li>
+            <li role="none"><a href="/clinical-trial-match" role="menuitem">Clinical Trial Match<small>Find trials near you</small></a></li>
+            <li role="none"><a href="/inner-circle" role="menuitem">Inner Circle<small>Deeper community experiences</small></a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Watch &amp; Listen</button>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li role="none"><a href="/podcasts" role="menuitem">Podcasts Hub<small>All DLT podcasts</small></a></li>
+            <li role="none"><a href="/living-with-parkinsons-podcast" role="menuitem">Living With Parkinson's Podcast<small>Weekly episodes</small></a></li>
+            <li role="none"><a href="/life-in-motion" role="menuitem">Life in Motion<small>Movement &amp; Parkinson's</small></a></li>
+            <li role="none"><a href="/youtube" role="menuitem">YouTube<small>Videos &amp; interviews</small></a></li>
+            <li role="none"><a href="/music" role="menuitem">Music<small>Music &amp; therapy</small></a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Care Partners</button>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li role="none"><a href="/carmens-care-partner-corner" role="menuitem">Carmen's Care Partner Corner<small>Dashboard, Circle, daily check-ins</small></a></li>
+            <li role="none"><a href="/care-partners" role="menuitem">Care Partners Guide<small>Supporting someone with Parkinson's</small></a></li>
+            <li role="none"><a href="/caregiver-burnout" role="menuitem">Caregiver Burnout<small>Spot it and recover</small></a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Living With Parkinson's</button>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li role="none"><a href="/living-with-parkinsons-guide" role="menuitem">Living With Parkinson's Guide<small>The full guide</small></a></li>
+            <li role="none"><a href="/newly-diagnosed" role="menuitem">Newly Diagnosed<small>Start here</small></a></li>
+            <li role="none"><a href="/first-90-days-parkinsons" role="menuitem">First 90 Days<small>What to do first</small></a></li>
+            <li role="none"><a href="/early-signs-of-parkinsons" role="menuitem">Early Signs<small>Recognize the signs</small></a></li>
+            <li role="none"><a href="/symptoms" role="menuitem">Symptoms Directory<small>Tremor, sleep, DBS &amp; more</small></a></li>
+            <li role="none"><a href="/parkinsons-medication-timing" role="menuitem">Medication Timing<small>Get the most from your meds</small></a></li>
+            <li role="none"><a href="/dbs-surgery" role="menuitem">DBS Surgery<small>Deep brain stimulation</small></a></li>
+            <li role="none"><a href="/best-exercises-for-parkinsons" role="menuitem">Best Exercises<small>Move your best</small></a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">The Exchange</button>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li role="none"><a href="/exchange" role="menuitem">Search The Exchange<small>12,000+ Parkinson's programs, services &amp; products near you</small></a></li>
+            <li role="none"><a href="/for-providers" role="menuitem">For Providers &middot; Get Listed<small>Grow your Parkinson's program, service, or product</small></a></li>
+            <li role="none"><a href="/claim-listing" role="menuitem">Claim Your Listing<small>Take ownership of an existing entry</small></a></li>
+            <li role="none"><a href="/create-listing" role="menuitem">Add Your Business<small>List a new provider or product</small></a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community</button>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li role="none"><a href="/events" role="menuitem">Events<small>Live meetups &amp; groups</small></a></li>
+            <li role="none"><a href="/share" role="menuitem">Spread the Word<small>Share DLT with your community</small></a></li>
+            <li role="none"><a href="https://connectors.dolifetoday.com" target="_blank" rel="noopener noreferrer" role="menuitem">Community Connectors<small>Turn lived experience into impact</small></a></li>
+            <li role="none"><a href="/free-parkinsons-community" role="menuitem">Support Groups &amp; Free Community<small>Free ways to connect</small></a></li>
+            <li role="none"><a href="/parkinsons-community" role="menuitem">Parkinson's Community<small>What community looks like</small></a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Resources</button>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li role="none"><a href="/resources" role="menuitem">All Resources<small>Every resource, one page</small></a></li>
+            <li role="none"><a href="/parkinsons-clinician-handouts" role="menuitem">Clinician Handouts<small>Print-friendly one-pagers</small></a></li>
+            <li role="none"><a href="/store" role="menuitem">Store<small>DLT merch</small></a></li>
+          </ul>
+        </li>
+      </ul>
+      <a href="/theclub" class="btn btn-primary btn-sm nav-cta">Join The Club</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" data-canonical-nav="v4">
+    <details class="mobile-nav-group">
+      <summary>About</summary>
+      <a href="/about">About Doing Life Today</a>
+      <a href="/about#awards">Awards &amp; Recognition</a>
+      <a href="https://bryceperry.org" target="_blank" rel="noopener noreferrer">Bryce Perry &middot; Speaking &amp; Media</a>
+      <a href="/contact">Contact</a>
+    </details>
+    <details class="mobile-nav-group mobile-nav-group--highlight">
+      <summary>The Club</summary>
+      <a href="/theclub">The Club</a>
+      <a href="/theclub#download">Join The Club</a>
+      <a href="/parkinsons-daily-check-in">Daily Check-In</a>
+      <a href="/parkinsons-symptom-tracker">Symptom Tracker</a>
+      <a href="/clinical-trial-match">Clinical Trial Match</a>
+      <a href="/inner-circle">Inner Circle</a>
+    </details>
+    <details class="mobile-nav-group">
+      <summary>Watch &amp; Listen</summary>
+      <a href="/podcasts">Podcasts Hub</a>
+      <a href="/living-with-parkinsons-podcast">Living With Parkinson's Podcast</a>
+      <a href="/life-in-motion">Life in Motion</a>
+      <a href="/youtube">YouTube</a>
+      <a href="/music">Music</a>
+    </details>
+    <details class="mobile-nav-group">
+      <summary>Care Partners</summary>
+      <a href="/carmens-care-partner-corner">Carmen's Care Partner Corner</a>
+      <a href="/care-partners">Care Partners Guide</a>
+      <a href="/caregiver-burnout">Caregiver Burnout</a>
+    </details>
+    <details class="mobile-nav-group">
+      <summary>Living With Parkinson's</summary>
+      <a href="/living-with-parkinsons-guide">Living With Parkinson's Guide</a>
+      <a href="/newly-diagnosed">Newly Diagnosed</a>
+      <a href="/first-90-days-parkinsons">First 90 Days</a>
+      <a href="/early-signs-of-parkinsons">Early Signs</a>
+      <a href="/symptoms">Symptoms Directory</a>
+      <a href="/parkinsons-medication-timing">Medication Timing</a>
+      <a href="/dbs-surgery">DBS Surgery</a>
+      <a href="/best-exercises-for-parkinsons">Best Exercises</a>
+    </details>
+    <details class="mobile-nav-group">
+      <summary>The Exchange</summary>
+      <a href="/exchange">Search The Exchange</a>
+      <a href="/for-providers">For Providers &middot; Get Listed</a>
+      <a href="/claim-listing">Claim Your Listing</a>
+      <a href="/create-listing">Add Your Business</a>
+    </details>
+    <details class="mobile-nav-group">
+      <summary>Community</summary>
+      <a href="/events">Events</a>
+      <a href="/share">Spread the Word</a>
+      <a href="https://connectors.dolifetoday.com" target="_blank" rel="noopener noreferrer">Community Connectors</a>
+      <a href="/free-parkinsons-community">Support Groups &amp; Free Community</a>
+      <a href="/parkinsons-community">Parkinson's Community</a>
+    </details>
+    <details class="mobile-nav-group">
+      <summary>Resources</summary>
+      <a href="/resources">All Resources</a>
+      <a href="/parkinsons-clinician-handouts">Clinician Handouts</a>
+      <a href="/store">Store</a>
+    </details>
+    <div class="mobile-cta"><a href="/theclub" class="btn btn-primary">Join The Club</a></div>
+  </nav>
+
+  <main id="main-content">
+
+    <section class="ss-hero">
+      <div class="container">
+        <div class="ss-pill">New in The Club &middot; Sense Suite</div>
+        <h1>Know your personal Parkinson's baseline.</h1>
+        <p class="ss-lead">Four short check-ins on your phone &mdash; voice, movement, fine motor and thinking. Sense Suite builds <strong>your</strong> baseline, then shows how each measure changes over time. No population averages. Just you, compared with you.</p>
+        <div class="ss-actions">
+          <a href="https://club.dolifetoday.com/" class="btn btn-primary" data-ss-cta="start-free">Start free in The Club</a>
+          <a href="#plans" class="btn btn-outline-primary">See plans</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="ss-section">
+      <div class="container">
+        <h2>Four ways to measure yourself</h2>
+        <p class="ss-sub">Each check-in takes a few minutes on the phone or tablet you already have. Do three to build your baseline, then come back to see what's changing.</p>
+        <div class="ss-grid">
+          <div class="ss-card"><span class="ss-tag">VoiceSense</span><h3>Voice</h3><p>Voice strength, sustained voice, pitch and pace. Recordings are processed on your device and never uploaded.</p></div>
+          <div class="ss-card"><span class="ss-tag">MoveSense</span><h3>Movement</h3><p>Chair stands, walking pace, step consistency and turning, using your phone's motion sensor.</p></div>
+          <div class="ss-card"><span class="ss-tag">MotorSense</span><h3>Fine motor</h3><p>Tapping speed and rhythm, alternating taps, target accuracy and tracing steadiness.</p></div>
+          <div class="ss-card"><span class="ss-tag">MindSense</span><h3>Thinking</h3><p>Attention, response speed, working memory, mental flexibility and sequence recall.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ss-section">
+      <div class="container">
+        <h2>Bring it to your doctor. Talk it through with Lil Bryce.</h2>
+        <div class="ss-grid">
+          <div class="ss-card"><h3>Doctor Visit Report</h3><p>With Sense Suite+, your results are added to your Doctor Visit Report &mdash; baseline, latest reading and what changed, ready to print or send to your care team.</p></div>
+          <div class="ss-card"><h3>Lil Bryce</h3><p>Lil Bryce can see your results and talk them through with you &mdash; calmly, without alarm, and always pointing back to your care team for medical questions.</p></div>
+          <div class="ss-card"><h3>Saved to your account</h3><p>Your measurements are saved privately to your Club account, so they follow you to a new phone.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ss-section" id="plans">
+      <div class="container">
+        <h2>Plans</h2>
+        <p class="ss-sub">Your Sense Suite baseline is free for every member of The Club. Upgrade when you want to keep going.</p>
+        <div class="ss-plans">
+          <div class="ss-plan">
+            <h3>Free</h3>
+            <div class="ss-price">$0</div>
+            <ul>
+              <li>All four Sense Suite tools</li>
+              <li>3-session personal baseline</li>
+              <li>One retest every 30 days</li>
+              <li>Results saved to your account</li>
+            </ul>
+            <a href="https://club.dolifetoday.com/" class="btn btn-outline-primary" data-ss-cta="plan-free">Start free</a>
+          </div>
+          <div class="ss-plan ss-featured">
+            <h3>Sense Suite+</h3>
+            <div><div class="ss-price">$4.99<small>/month</small></div><div class="ss-alt">or $49.99/year &middot; 2 months free</div></div>
+            <ul>
+              <li>Unlimited check-ins (no 30-day wait)</li>
+              <li>Guided practice for voice, movement, dexterity and thinking</li>
+              <li>Your results in your Doctor Visit Report</li>
+              <li>Full history and trend charts</li>
+            </ul>
+            <a href="https://club.dolifetoday.com/app?upgrade=plus" class="btn btn-primary" data-ss-cta="plan-plus">Get Sense Suite+</a>
+          </div>
+          <div class="ss-plan">
+            <h3>TrendSense</h3>
+            <div><div class="ss-price">$9.99<small>/month</small></div><div class="ss-alt">or $99.99/year &middot; 2 months free</div></div>
+            <ul>
+              <li>Everything in Sense Suite+</li>
+              <li>Patterns across your meds, sleep, symptoms and Sense Suite results</li>
+              <li>Medication ON/OFF impact analysis</li>
+              <li>Deeper Lil Bryce weekly insights</li>
+            </ul>
+            <a href="https://club.dolifetoday.com/app?upgrade=trendsense" class="btn btn-outline-primary" data-ss-cta="plan-trendsense">Get TrendSense</a>
+          </div>
+        </div>
+        <div class="ss-note"><strong>Inner Circle members:</strong> get TrendSense (which includes Sense Suite+) at <strong>half price</strong>. The discount is applied automatically at checkout &mdash; just sign in with your Club account.</div>
+      </div>
+    </section>
+
+    <section class="ss-section ss-faq">
+      <div class="container" style="max-width: 860px;">
+        <h2>Questions</h2>
+        <details><summary>Is Sense Suite free?</summary><p>Yes. Every member of The Club can build a free baseline in all four tools and do one retest every 30 days. Sense Suite+ adds unlimited check-ins, guided practice and your results in your Doctor Visit Report.</p></details>
+        <details><summary>Does Sense Suite diagnose Parkinson's?</summary><p>No. Sense Suite is for personal tracking. It compares you with your own baseline, not with other people, and it is not a medical test. Talk with your care team about any change that worries you.</p></details>
+        <details><summary>What do I need?</summary><p>A phone or tablet. The movement and tapping checks need a touchscreen and a phone you can hold or keep at your waist. Sign in to The Club so your results are saved to your account.</p></details>
+        <details><summary>Can I cancel?</summary><p>Yes. Plans are billed through Stripe and you can cancel anytime from Billing in The Club. You keep access until the end of the period you've paid for.</p></details>
+        <details><summary>I'm in the Inner Circle. What do I pay?</summary><p>TrendSense at half price &mdash; monthly if your Inner Circle is monthly, yearly if your Inner Circle is yearly. It's applied automatically when you check out signed in to The Club.</p></details>
+      </div>
+    </section>
+
+    <section class="ss-section">
+      <div class="container">
+        <p class="ss-disclaimer">Sense Suite measurements are patient-generated and for personal tracking only. Sense Suite is not a medical device and does not diagnose, treat or monitor any condition. Results can be affected by phone placement, time since medication, sleep and other factors.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo" aria-label="Doing Life Today - Home">
+            <div class="nav-logo-mark" aria-hidden="true">DL</div>
+            <div class="nav-logo-text">Doing Life Today<span>Parkinson's Community</span></div>
+          </a>
+          <p>Connecting people living with Parkinson's through podcasts, community, and real conversations - since 2018.</p>
+          <a href="https://bryceperry.org" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">Book Bryce for Speaking &#8599;</a>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/podcasts">Podcasts</a></li>
+            <li><a href="/youtube">YouTube</a></li>
+            <li><a href="/resources">Resources</a></li>
+            <li><a href="/events">Events</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>The DLT Platform</h4>
+          <ul class="footer-links">
+            <li><a href="https://dolifetoday.com">Doing Life Today</a></li>
+            <li><a href="/theclub">The Club</a></li>
+            <li><a href="https://podcast.dolifetoday.com" target="_blank" rel="noopener noreferrer">Podcast Network &#8599;</a></li>
+            <li><a href="https://bryceperry.org" target="_blank" rel="noopener noreferrer">Speaking &amp; Media &#8599;</a></li>
+            <li><a href="https://shop.dolifetoday.com" target="_blank" rel="noopener noreferrer">Merch Store &#8599;</a></li>
+            <li><a href="/exchange">The Exchange</a></li>
+            <li><a href="/speaking-the-invisible">Speaking The Invisible</a></li>
+            <li><a href="https://connectors.dolifetoday.com" target="_blank" rel="noopener noreferrer">Community Connectors &#8599;</a></li>
+            <li><a href="/inner-circle">Inner Circle</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Parkinson's Resources</h4>
+          <ul class="footer-links">
+            <li><a href="/parkinsons-medication-timing">Medication Timing</a></li>
+            <li><a href="/parkinsons-sleep">Sleep</a></li>
+            <li><a href="/first-90-days-parkinsons">First 90 Days</a></li>
+            <li><a href="/best-exercises-for-parkinsons">Best Exercises</a></li>
+            <li><a href="/parkinsons-diet-nutrition">Diet &amp; Nutrition</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Doing Life Today. All rights reserved. &middot; <a href="/privacy">Privacy Policy</a> &middot; <a href="/terms">Terms of Use</a></p>
+        <p class="footer-disclaimer">&#9888;&#65039; This site provides peer support, not medical advice. Always consult your healthcare provider.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">&#8593;</button>
+  <script src="js/main.js"></script>
+  <script>
+    document.querySelectorAll('[data-ss-cta]').forEach(function (a) {
+      a.addEventListener('click', function () {
+        if (typeof gtag === 'function') gtag('event', 'sense_suite_landing_cta', { cta: a.getAttribute('data-ss-cta') });
+      });
+    });
+  </script>
+</body>
+</html>
