@@ -805,8 +805,8 @@
       <input id="yt-email" name="email" type="email" autocomplete="email" required maxlength="200" placeholder="you@example.com">
 
       <label for="yt-channel">Your YouTube channel URL</label>
-      <input id="yt-channel" name="youtubeChannelUrl" type="url" required maxlength="300" placeholder="https://www.youtube.com/channel/UC...">
-      <div class="yt-hint">Open YouTube, tap your profile picture → <em>Your channel</em> → <em>Share channel</em> → <em>Copy link</em>. It should look like <code style="color:#ccc">youtube.com/channel/UC...</code></div>
+      <input id="yt-channel" name="youtubeChannelUrl" type="text" inputmode="url" autocapitalize="off" spellcheck="false" required maxlength="300" placeholder="https://www.youtube.com/@yourname">
+      <div class="yt-hint">Open YouTube, tap your profile picture → <em>View your channel</em> → <em>Share channel</em> → <em>Copy link</em>. It looks like <code style="color:#ccc">youtube.com/@yourname</code> (or <code style="color:#ccc">youtube.com/channel/UC...</code>).</div>
 
       <button type="submit" class="yt-submit" id="yt-submit-btn">Send my Club invite</button>
       <div class="yt-feedback hidden" id="yt-feedback" role="status" aria-live="polite"></div>
@@ -1085,6 +1085,7 @@
         ytFeedback.classList.remove('hidden', 'ok', 'err');
         ytFeedback.classList.add(kind === 'ok' ? 'ok' : 'err');
         ytFeedback.textContent = message;
+        ytFeedback.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
 
       ytRevealBtn && ytRevealBtn.addEventListener('click', function () {
@@ -1105,8 +1106,8 @@
         // Client-side sanity checks (server re-validates).
         if (!name || name.length < 2) { showYtFeedback('err', 'Please tell us your name.'); return; }
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showYtFeedback('err', 'That email doesn\'t look right. Please double-check.'); return; }
-        if (!/UC[0-9A-Za-z_-]{22}/.test(youtubeChannelUrl)) {
-          showYtFeedback('err', 'Please paste the URL that looks like youtube.com/channel/UC... (see the tip above).');
+        if (!/UC[0-9A-Za-z_-]{22}/.test(youtubeChannelUrl) && !/@[^\s\/?#@]{3,30}/.test(youtubeChannelUrl)) {
+          showYtFeedback('err', 'Please paste your YouTube channel link. It looks like youtube.com/@yourname (see the tip above).');
           return;
         }
 
