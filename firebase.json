@@ -35,6 +35,8 @@
         { "source": "/check-wave.html", "destination": "/theclub", "type": 301 },
         { "source": "/podcast", "destination": "/living-with-parkinsons-podcast", "type": 301 },
         { "source": "/podcast/**", "destination": "/living-with-parkinsons-podcast", "type": 301 },
+      { "source": "/lifeinmotion", "destination": "/life-in-motion", "type": 301 },
+      { "source": "/lifeinmotion/**", "destination": "/life-in-motion", "type": 301 },
         { "source": "/community", "destination": "/living-with-parkinsons-guide", "type": 301 },
         { "source": "/club", "destination": "/theclub", "type": 301 },
         { "source": "/meet-bryce", "destination": "/about", "type": 301 },
