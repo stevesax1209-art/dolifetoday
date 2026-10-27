@@ -175,6 +175,32 @@
   font-size: 0.8rem;
 }
 
+/* Award-season reach panel on /living-with-parkinsons-podcast: six stats in
+   the narrow hero aside, so two columns reads better than three. */
+.podcast-stat-grid.podcast-stat-grid--reach {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 360px) {
+  .podcast-stat-grid.podcast-stat-grid--reach {
+    grid-template-columns: 1fr;
+  }
+}
+
+.podcast-stat-grid--reach .podcast-stat span {
+  display: block;
+  margin-top: 0.35rem;
+  line-height: 1.35;
+}
+
+.page-hero .podcast-stat-source,
+.podcast-stat-source {
+  margin-top: 0.6rem;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  opacity: 0.8;
+}
+
 .feed-status {
   margin-top: 1rem;
   padding: 0.85rem 1rem;

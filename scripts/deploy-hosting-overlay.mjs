@@ -99,13 +99,19 @@ async function readHostingConfig() {
   const firebaseJsonPath = path.join(repoRoot, 'firebase.json')
   const raw = await readFile(firebaseJsonPath, 'utf8')
   const config = JSON.parse(raw)
-  const hosting = config.hosting || {}
+  // firebase.json may hold one hosting object or an array of targets
+  // (main site + community-redirect); overlays always go to the main site.
+  const entries = Array.isArray(config.hosting) ? config.hosting : [config.hosting || {}]
+  const hosting = entries.find((h) => h && h.target === 'main') || entries.find((h) => h && h.public) || {}
 
   if (!hosting.public) {
     throw new Error('firebase.json hosting.public is not configured')
   }
 
   return {
+    config,
+    entry: hosting,
+    target: hosting.target || null,
     publicDir: hosting.public,
     cleanUrls: Boolean(hosting.cleanUrls),
   }
@@ -258,7 +264,12 @@ async function main() {
     await copyFile(sourcePath, destinationPath)
   }
 
-  await copyFile(path.join(repoRoot, 'firebase.json'), path.join(tempDir, 'firebase.json'))
+  // The temp dir only holds the live baseline + overlay files, so drop the
+  // predeploy build steps (their scripts aren't here, and the live files are
+  // already built) and keep only the hosting target being overlaid.
+  const { predeploy: _predeploy, ...overlayEntry } = hosting.entry
+  const tempConfig = { ...hosting.config, hosting: Array.isArray(hosting.config.hosting) ? [overlayEntry] : overlayEntry }
+  await writeFile(path.join(tempDir, 'firebase.json'), JSON.stringify(tempConfig, null, 2))
   const firebasercPath = path.join(repoRoot, '.firebaserc')
   try {
     await copyFile(firebasercPath, path.join(tempDir, '.firebaserc'))
@@ -269,7 +280,8 @@ async function main() {
   console.log('Prepared temp deploy directory successfully.')
 
   if (options.deploy) {
-    await runCommand('firebase', ['deploy', '--only', 'hosting'], tempDir)
+    const only = hosting.target ? `hosting:${hosting.target}` : 'hosting'
+    await runCommand('firebase', ['deploy', '--only', only], tempDir)
   } else {
     console.log('Dry run only. Add --deploy to publish this prepared directory.')
   }
