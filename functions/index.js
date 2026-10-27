@@ -1226,6 +1226,9 @@ function parsePodcastRss(xml, podcastConfig) {
         id: extractFirstTagValue(itemXml, ['guid']) || link || audioUrl || extractFirstTagValue(itemXml, ['title']),
         title: extractFirstTagValue(itemXml, ['title']),
         summary: truncate(summary, 320),
+        // Full show notes (plain text). Only returned by the single-episode
+        // request (?episode=<id>) so the archive payload stays small.
+        notes: truncate(summary, 8000),
         publishedAt,
         publishedAtIso: toIsoDate(publishedAt),
         duration: extractFirstTagValue(itemXml, ['itunes:duration', 'duration']),
@@ -1301,6 +1304,22 @@ exports.podcastFeed = onRequest(async (req, res) => {
     const xml = await feedResponse.text();
     const payload = parsePodcastRss(xml, podcastConfig);
 
+    // ?episode=<id> → one episode with its full show notes, for the
+    // "Show notes" panel on the podcast landing pages.
+    const requestedEpisode = typeof req.query.episode === 'string' ? req.query.episode.trim() : '';
+    if (requestedEpisode) {
+      const episode = payload.episodes.find((item) => item.id === requestedEpisode);
+      if (!episode) {
+        res.set('Cache-Control', 'public, max-age=300, s-maxage=300');
+        res.status(404).json({ error: 'Episode not found.' });
+        return;
+      }
+      res.set('Cache-Control', 'public, max-age=3600, s-maxage=3600');
+      res.status(200).json({ episode });
+      return;
+    }
+
+    payload.episodes = payload.episodes.map(({ notes: _notes, ...episode }) => episode);
     res.set('Cache-Control', 'public, max-age=900, s-maxage=900');
     res.status(200).json(payload);
   } catch (error) {

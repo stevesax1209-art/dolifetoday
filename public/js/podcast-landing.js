@@ -20,6 +20,12 @@
   const PAGE_SIZE = 8;
   let currentPage = 1;
   let activeFeed = readSeedData();
+  const notesCache = new Map();
+  let latestEpisodeRef = null;
+  let latestNotesPanel = null;
+  const miniPlayer = createMiniPlayer();
+
+  wireLatestEpisodeControls();
 
   renderFeed(activeFeed, {
     status: activeFeed.episodes?.length
@@ -129,6 +135,12 @@
 
   function renderLatestEpisode(episodes) {
     const latestEpisode = episodes[0];
+    if (latestEpisodeRef && (!latestEpisode || latestEpisode.id !== latestEpisodeRef.id) && latestNotesPanel) {
+      latestNotesPanel.hidden = true;
+      latestNotesPanel.innerHTML = '';
+      delete latestNotesPanel.dataset.loadedFor;
+    }
+    latestEpisodeRef = latestEpisode || null;
     if (!latestEpisode) {
       if (latestTitle) latestTitle.textContent = 'Episode details are loading';
       if (latestSummary) latestSummary.textContent = 'We are connecting to the RSS feed so you can play the latest episode right from this page.';
@@ -172,11 +184,15 @@
     }
 
     if (latestShowNotes) {
-      if (latestEpisode.link && latestEpisode.audioUrl && latestEpisode.link !== latestEpisode.audioUrl) {
+      if (latestEpisode.link || latestEpisode.summary) {
         latestShowNotes.hidden = false;
         latestShowNotes.style.display = '';
         latestShowNotes.setAttribute('aria-hidden', 'false');
-        latestShowNotes.href = latestEpisode.link;
+        latestShowNotes.href = latestEpisode.link || '#';
+        if (!latestNotesPanel || latestNotesPanel.hidden) {
+          latestShowNotes.textContent = 'Show notes';
+          latestShowNotes.setAttribute('aria-expanded', 'false');
+        }
       } else {
         latestShowNotes.hidden = true;
         latestShowNotes.style.display = 'none';
@@ -272,19 +288,36 @@
         primaryAction.target = '_blank';
         primaryAction.rel = 'noopener noreferrer';
       }
+      if (episode.audioUrl) {
+        // Play here in the sticky player; the href stays as a fallback for
+        // new-tab / no-JS clicks.
+        primaryAction.addEventListener('click', function (event) {
+          if (!isPlainClick(event)) return;
+          event.preventDefault();
+          miniPlayer.play(episode, article, primaryAction);
+        });
+        if (miniPlayer.isCurrent(episode)) miniPlayer.attach(article, primaryAction);
+      }
       actions.appendChild(primaryAction);
 
-      if (episode.link && episode.audioUrl && episode.link !== episode.audioUrl) {
-        var secondaryAction = document.createElement('a');
-        secondaryAction.className = 'btn btn-secondary btn-sm';
-        secondaryAction.href = episode.link;
-        secondaryAction.target = '_blank';
-        secondaryAction.rel = 'noopener noreferrer';
-        secondaryAction.textContent = 'Show notes';
-        actions.appendChild(secondaryAction);
+      var notesPanel = null;
+      if (episode.link || episode.summary) {
+        var notesToggle = document.createElement('button');
+        notesToggle.type = 'button';
+        notesToggle.className = 'btn btn-secondary btn-sm';
+        notesToggle.textContent = 'Show notes';
+        notesToggle.setAttribute('aria-expanded', 'false');
+        notesPanel = document.createElement('div');
+        notesPanel.className = 'episode-notes';
+        notesPanel.hidden = true;
+        notesToggle.addEventListener('click', function () {
+          toggleNotes(episode, notesPanel, notesToggle);
+        });
+        actions.appendChild(notesToggle);
       }
 
       article.append(top, title, summary, actions);
+      if (notesPanel) article.appendChild(notesPanel);
       episodeList.appendChild(article);
     });
 
@@ -330,6 +363,258 @@
   function scrollToEpisodes() {
     var target = document.getElementById('episodes');
     if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function isPlainClick(event) {
+    return event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey;
+  }
+
+  // ── On-page playback ────────────────────────────────────────────────
+  // "Listen now" plays in a sticky bar at the bottom of the page (same bar
+  // as /podcasts) instead of opening the raw MP3 in a new tab.
+  function createMiniPlayer() {
+    var bar = document.getElementById('audio-player');
+    if (!bar) {
+      bar = document.createElement('div');
+      bar.className = 'audio-player-bar';
+      bar.id = 'audio-player';
+      bar.innerHTML =
+        '<div class="audio-player-inner">' +
+        '<button class="ap-btn" id="ap-play-pause" type="button" aria-label="Play or pause">&#9654;</button>' +
+        '<div class="ap-track-info"><div class="ap-title" id="ap-title"></div><div class="ap-show" id="ap-show"></div></div>' +
+        '<div class="ap-progress-wrap"><span class="ap-time" id="ap-current">0:00</span>' +
+        '<div class="ap-progress" id="ap-progress"><div class="ap-progress-fill" id="ap-fill"></div></div>' +
+        '<span class="ap-time" id="ap-duration">0:00</span></div>' +
+        '<button class="ap-close" id="ap-close" type="button" aria-label="Close player">&times;</button>' +
+        '</div><audio id="ap-audio" preload="none"></audio>';
+      document.body.appendChild(bar);
+    }
+
+    var audio = bar.querySelector('#ap-audio');
+    var toggleBtn = bar.querySelector('#ap-play-pause');
+    var titleEl = bar.querySelector('#ap-title');
+    var showEl = bar.querySelector('#ap-show');
+    var curEl = bar.querySelector('#ap-current');
+    var durEl = bar.querySelector('#ap-duration');
+    var progress = bar.querySelector('#ap-progress');
+    var fill = bar.querySelector('#ap-fill');
+    var closeBtn = bar.querySelector('#ap-close');
+    var currentId = null;
+    var cardEl = null;
+    var buttonEl = null;
+
+    function fmtTime(seconds) {
+      if (!seconds || isNaN(seconds)) return '0:00';
+      var m = Math.floor(seconds / 60);
+      var s = Math.floor(seconds % 60);
+      return m + ':' + (s < 10 ? '0' : '') + s;
+    }
+
+    function reflectState() {
+      var playing = !audio.paused && !audio.ended;
+      toggleBtn.innerHTML = playing ? '&#9646;&#9646;' : '&#9654;';
+      if (cardEl) cardEl.classList.toggle('now-playing', !!currentId);
+      if (buttonEl) {
+        buttonEl.classList.toggle('is-playing', playing);
+        buttonEl.textContent = playing ? 'Pause' : 'Listen now';
+      }
+    }
+
+    function detach() {
+      if (cardEl) cardEl.classList.remove('now-playing');
+      if (buttonEl) {
+        buttonEl.classList.remove('is-playing');
+        buttonEl.textContent = 'Listen now';
+      }
+      cardEl = null;
+      buttonEl = null;
+    }
+
+    audio.addEventListener('play', reflectState);
+    audio.addEventListener('pause', reflectState);
+    audio.addEventListener('ended', reflectState);
+    audio.addEventListener('timeupdate', function () {
+      curEl.textContent = fmtTime(audio.currentTime);
+      if (audio.duration) fill.style.width = (audio.currentTime / audio.duration * 100) + '%';
+    });
+    audio.addEventListener('loadedmetadata', function () {
+      durEl.textContent = fmtTime(audio.duration);
+    });
+    toggleBtn.addEventListener('click', function () {
+      if (!audio.src) return;
+      if (audio.paused) audio.play().catch(function () {});
+      else audio.pause();
+    });
+    progress.addEventListener('click', function (event) {
+      if (!audio.duration) return;
+      var rect = progress.getBoundingClientRect();
+      audio.currentTime = ((event.clientX - rect.left) / rect.width) * audio.duration;
+    });
+    closeBtn.addEventListener('click', function () {
+      audio.pause();
+      audio.removeAttribute('src');
+      audio.load();
+      currentId = null;
+      detach();
+      bar.classList.remove('is-visible');
+      document.body.classList.remove('has-audio-player');
+    });
+
+    return {
+      play: function (episode, card, button) {
+        if (currentId === episode.id) {
+          if (cardEl !== card || buttonEl !== button) {
+            detach();
+            cardEl = card;
+            buttonEl = button;
+          }
+          if (audio.paused) audio.play().catch(function () {});
+          else audio.pause();
+          return;
+        }
+        detach();
+        currentId = episode.id;
+        cardEl = card;
+        buttonEl = button;
+        titleEl.textContent = episode.title || 'Episode';
+        showEl.textContent = (activeFeed.podcast && activeFeed.podcast.title) || '';
+        curEl.textContent = '0:00';
+        durEl.textContent = '0:00';
+        fill.style.width = '0';
+        bar.classList.add('is-visible');
+        document.body.classList.add('has-audio-player');
+        if (latestAudio && !latestAudio.paused) latestAudio.pause();
+        audio.src = episode.audioUrl;
+        audio.play().catch(function () {});
+        reflectState();
+      },
+      // Re-link the playing episode to its card after the list re-renders
+      // (search, paging, live feed replacing the seed).
+      isCurrent: function (episode) {
+        return !!currentId && episode.id === currentId;
+      },
+      attach: function (card, button) {
+        cardEl = card;
+        buttonEl = button;
+        reflectState();
+      },
+      pause: function () {
+        if (!audio.paused) audio.pause();
+      },
+    };
+  }
+
+  function wireLatestEpisodeControls() {
+    if (latestListen) {
+      latestListen.addEventListener('click', function (event) {
+        if (!isPlainClick(event) || !latestAudio || !latestEpisodeRef || !latestEpisodeRef.audioUrl) return;
+        event.preventDefault();
+        miniPlayer.pause();
+        latestAudio.hidden = false;
+        latestAudio.play().catch(function () {});
+      });
+    }
+    if (latestAudio) {
+      latestAudio.addEventListener('play', function () { miniPlayer.pause(); });
+    }
+    if (latestShowNotes) {
+      latestNotesPanel = document.createElement('div');
+      latestNotesPanel.className = 'episode-notes';
+      latestNotesPanel.hidden = true;
+      var group = latestShowNotes.parentElement;
+      if (group && group.parentElement) group.parentElement.insertBefore(latestNotesPanel, group.nextSibling);
+      latestShowNotes.setAttribute('role', 'button');
+      latestShowNotes.setAttribute('aria-expanded', 'false');
+      latestShowNotes.addEventListener('click', function (event) {
+        if (!isPlainClick(event) || !latestEpisodeRef) return;
+        event.preventDefault();
+        toggleNotes(latestEpisodeRef, latestNotesPanel, latestShowNotes);
+      });
+    }
+  }
+
+  // ── Inline show notes ───────────────────────────────────────────────
+  function toggleNotes(episode, panel, toggle) {
+    if (!panel) return;
+    if (!panel.hidden) {
+      panel.hidden = true;
+      toggle.textContent = 'Show notes';
+      toggle.setAttribute('aria-expanded', 'false');
+      return;
+    }
+    panel.hidden = false;
+    toggle.textContent = 'Hide notes';
+    toggle.setAttribute('aria-expanded', 'true');
+    if (panel.dataset.loadedFor === episode.id) return;
+    panel.dataset.loadedFor = episode.id;
+    renderNotes(panel, episode, null, true);
+    loadNotes(episode)
+      .then(function (notes) {
+        if (panel.dataset.loadedFor === episode.id) renderNotes(panel, episode, notes, false);
+      })
+      .catch(function () {
+        if (panel.dataset.loadedFor === episode.id) renderNotes(panel, episode, episode.summary, false);
+      });
+  }
+
+  function loadNotes(episode) {
+    if (notesCache.has(episode.id)) return Promise.resolve(notesCache.get(episode.id));
+    var urls = getFeedUrls().map(function (url) {
+      return url + '&episode=' + encodeURIComponent(episode.id);
+    });
+    function attempt(index) {
+      if (index >= urls.length) return Promise.reject(new Error('Show notes unavailable'));
+      return fetch(urls[index], { headers: { Accept: 'application/json' } })
+        .then(function (response) { return response.ok ? response.json() : null; })
+        .then(function (data) {
+          var notes = data && data.episode && data.episode.notes;
+          if (!notes) return attempt(index + 1);
+          notesCache.set(episode.id, notes);
+          return notes;
+        }, function () { return attempt(index + 1); });
+    }
+    return attempt(0);
+  }
+
+  function renderNotes(panel, episode, text, loading) {
+    panel.innerHTML = '';
+    var body = document.createElement('div');
+    body.className = 'episode-notes-body';
+    if (loading) {
+      body.textContent = 'Loading show notes\u2026';
+    } else {
+      appendLinkified(body, text || episode.summary || 'No show notes for this episode yet.');
+    }
+    panel.appendChild(body);
+    if (!loading && episode.link) {
+      var more = document.createElement('a');
+      more.className = 'episode-notes-link';
+      more.href = episode.link;
+      more.target = '_blank';
+      more.rel = 'noopener noreferrer';
+      more.textContent = 'Open this episode on Spotify \u2197';
+      panel.appendChild(more);
+    }
+  }
+
+  // Plain text with http(s) URLs turned into links — built with DOM nodes,
+  // never innerHTML, since notes come from the RSS feed.
+  function appendLinkified(container, text) {
+    var parts = String(text).split(/(https?:\/\/[^\s<>"']+)/g);
+    parts.forEach(function (part) {
+      if (/^https?:\/\//.test(part)) {
+        var trimmed = part.replace(/[.,;:!?)\]]+$/, '');
+        var a = document.createElement('a');
+        a.href = trimmed;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.textContent = trimmed;
+        container.appendChild(a);
+        if (trimmed.length < part.length) container.appendChild(document.createTextNode(part.slice(trimmed.length)));
+      } else if (part) {
+        container.appendChild(document.createTextNode(part));
+      }
+    });
   }
 
   function formatDate(value) {
