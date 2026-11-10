@@ -711,6 +711,25 @@
       color: var(--text-dim);
     }
     .receipt-fine a { color: var(--ic-teal); text-decoration: none; border-bottom: 1px dashed rgba(32,178,170,0.4); }
+    .portal-card {
+      background: linear-gradient(180deg, #14202B 0%, #101A22 100%);
+      border: 1px solid rgba(32,178,170,0.45);
+      border-radius: 16px;
+      padding: 1.4rem 1.4rem 1.2rem;
+      margin: 0.75rem 0 0;
+    }
+    .portal-btn {
+      display: inline-block;
+      padding: 0.85rem 1.4rem;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--ic-teal) 0%, var(--ic-teal-deep) 100%);
+      color: #0B1218;
+      font-weight: 700;
+      font-size: 1.05rem;
+      text-decoration: none;
+      transition: filter 0.15s;
+    }
+    .portal-btn:hover { filter: brightness(1.06); }
 
     /* ── Care-partner corner ─────────────────────────────── */
     .cp-corner {
@@ -909,10 +928,23 @@
     <!-- ── Billing & Receipts ──────────────────────────── -->
     <div class="ornament"><span class="ornament-dot"></span></div>
     <h2 class="section-title">Billing & Receipts</h2>
-    <p class="section-sub">Need a receipt for your accountant, or want to swap cards, switch to yearly, or cancel? Enter your email and we'll send you a secure link to the Stripe billing portal.</p>
+    <p class="section-sub">Need a receipt for your accountant, or want to swap cards, switch to yearly, or cancel? Open the secure Stripe billing portal and sign in with the email on your Inner Circle account.</p>
+
+    <div class="portal-card">
+      <a
+        class="portal-btn"
+        id="portal-link"
+        href="https://billing.stripe.com/p/login/6oUeV7ghm9pKffW1JR6Na00"
+        target="_blank"
+        rel="noopener"
+      >Manage my subscription →</a>
+      <p class="receipt-fine">
+        Stripe will email you a one-time sign-in code. From there you can update your card, download receipts, switch plans, or cancel.
+      </p>
+    </div>
 
     <form id="receipt-form" class="receipt-form" novalidate>
-      <label class="receipt-label" for="receipt-email">Email on your Inner Circle account</label>
+      <label class="receipt-label" for="receipt-email">Prefer we email you a link instead? Enter the email on your Inner Circle account</label>
       <div class="receipt-row">
         <input
           id="receipt-email"
